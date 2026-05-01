@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Morocco Real Estate Advisory &amp; Consulting | Kénitra &amp; Rabat-Salé Region</title>
-<meta name="description" content="Rahim International combines real estate advisory, market research, project strategy, marketing, and brokerage to help buyers and developers make better.">
+<meta name="description" content="Rahim International is a real estate advisory and consulting firm helping international buyers, Moroccan diaspora, investors, and developers navigate the Rabat–Salé–Kénitra market with clarity, structure, and verified information.">
 <link rel="canonical" href="https://rahiminternational.com/">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/index.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/index.html">
@@ -12,11 +12,11 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/index.html">
 <link rel="icon" type="image/png" href="logo.png">
 <meta property="og:title" content="Rahim International | Morocco Real Estate Advisory &amp; Consulting">
-<meta property="og:description" content="We bridge the distance. Real estate advisory for buyers and developers in the Rabat-Salé-Kénitra market.">
+<meta property="og:description" content="Rahim International helps international buyers, MREs, investors, and developers navigate the Rabat–Salé–Kénitra market with clarity, structure, and verified information.">
 <meta property="og:image" content="https://rahiminternational.com/elaf.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Real estate advisory, consulting, marketing, and brokerage for buyers and developers in the Rabat-Salé-Kénitra region of Morocco.","geo":{"@type":"GeoCoordinates","latitude":34.261,"longitude":-6.5802},"areaServed":[{"@type":"AdministrativeArea","name":"Rabat-Salé-Kénitra"},{"@type":"City","name":"Kénitra"},{"@type":"City","name":"Rabat"},{"@type":"City","name":"Salé"}],"openingHours":"Mo-Sa 09:00-19:00","priceRange":"$"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Real estate advisory and consulting for international buyers, Moroccan diaspora, investors, and developers in the Rabat-Salé-Kénitra region of Morocco.","geo":{"@type":"GeoCoordinates","latitude":34.261,"longitude":-6.5802},"areaServed":[{"@type":"AdministrativeArea","name":"Rabat-Salé-Kénitra"},{"@type":"City","name":"Kénitra"},{"@type":"City","name":"Rabat"},{"@type":"City","name":"Salé"}],"openingHours":"Mo-Sa 09:00-19:00","priceRange":"$"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -70,7 +70,7 @@
   .hero-content {
     position: relative;
     z-index: 4;
-    max-width: 860px;
+    max-width: 920px;
   }
   .hero-eyebrow {
     font-size: 0.68rem;
@@ -99,11 +99,11 @@
   }
   .hero-title em { font-style: italic; color: var(--gold); }
   .hero-sub {
-    font-size: 0.96rem;
+    font-size: 1rem;
     font-weight: 300;
-    line-height: 1.9;
-    color: rgba(255,255,255,0.68);
-    max-width: 620px;
+    line-height: 1.95;
+    color: rgba(255,255,255,0.78);
+    max-width: 700px;
     margin-bottom: 2.5rem;
   }
   .hero-actions {
@@ -195,18 +195,24 @@
   .paths-section { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); }
   .paths-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: rgba(210,180,134,0.14);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    background: transparent;
     margin-top: 3.5rem;
   }
   .path-card {
-    background: rgba(255,255,255,0.05);
-    padding: 2.5rem 2rem;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(210,180,134,0.18);
+    min-height: 220px;
+    padding: 2.3rem 2.1rem;
     text-decoration: none;
-    display: block;
-    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background 0.3s, transform 0.3s, border-color 0.3s;
     position: relative;
+    overflow: hidden;
   }
   .path-card::before {
     content: '';
@@ -218,7 +224,11 @@
     transform-origin: left;
     transition: transform 0.35s ease;
   }
-  .path-card:hover { background: rgba(255,255,255,0.09); }
+  .path-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(210,180,134,0.38);
+    transform: translateY(-4px);
+  }
   .path-card:hover::before { transform: scaleX(1); }
   .path-num {
     font-family: 'Cormorant Garamond', serif;
@@ -230,11 +240,11 @@
   }
   .path-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
+    font-size: 1.55rem;
     font-weight: 400;
     color: var(--gold);
     margin-bottom: 0.9rem;
-    line-height: 1.3;
+    line-height: 1.2;
   }
   .path-desc {
     font-size: 0.84rem;
@@ -261,6 +271,186 @@
     gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: 3rem;
+  }
+  .timeline,
+  .steps-grid,
+  .audience-grid {
+    display: grid;
+    gap: 1.25rem;
+    background: transparent;
+    margin-top: 3rem;
+  }
+  .timeline {
+    position: relative;
+    gap: 0;
+    max-width: 900px;
+    padding-left: 2rem;
+  }
+  #services {
+    background:
+      radial-gradient(circle at top left, rgba(210,180,134,0.18), transparent 32%),
+      linear-gradient(180deg, #0c1f37 0%, #102949 100%) !important;
+  }
+  #services .section-eyebrow {
+    color: rgba(210,180,134,0.88);
+  }
+  #services .section-title {
+    color: var(--white) !important;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 1rem;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(210,180,134,0.08), rgba(210,180,134,0.95), rgba(210,180,134,0.08));
+  }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 1.35rem 2.4rem;
+  }
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -0.1rem;
+    top: 1.4rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: linear-gradient(135deg, #f2d8aa, #c27c47);
+    box-shadow: 0 0 0 7px rgba(242,216,170,0.08);
+  }
+  .step-card,
+  .audience-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 34px rgba(7,17,31,0.05);
+    padding: 2rem 1.8rem;
+    position: relative;
+  }
+  .step-card::before,
+  .audience-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--copper), var(--gold));
+    opacity: 0.8;
+  }
+  .step-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .timeline .step-card {
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 1.3rem;
+    align-items: start;
+    padding: 1.6rem 1.6rem 1.6rem 1.35rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 18px 40px rgba(2,8,18,0.26);
+    backdrop-filter: blur(4px);
+  }
+  .timeline .step-card::before {
+    height: 2px;
+    background: linear-gradient(90deg, rgba(242,216,170,0.2), rgba(242,216,170,0.95), rgba(194,124,71,0.55));
+    opacity: 1;
+  }
+  .timeline-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f4deba 0%, #d3a26f 100%);
+    color: #102949;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255,255,255,0.32);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 10px 24px rgba(0,0,0,0.18);
+  }
+  .timeline-copy {
+    padding-top: 0.15rem;
+  }
+  .step-name,
+  .audience-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 0.7rem;
+  }
+  #services .step-name {
+    color: var(--white);
+  }
+  .step-text,
+  .audience-text {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  #services .step-text {
+    color: rgba(255,255,255,0.74);
+  }
+  .trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .trust-list li {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--copper-dark);
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 1.15rem 1.2rem;
+  }
+  .section-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .section-intro {
+    font-size: 0.92rem;
+    font-weight: 300;
+    line-height: 1.9;
+    max-width: 760px;
+    margin-top: 0.8rem;
+  }
+  .cta-shell {
+    max-width: 760px;
+  }
+  .lead-card {
+    max-width: 760px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-warm);
+    padding: 2.6rem 2.4rem;
+  }
+  .final-cta-panel {
+    max-width: 760px;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
   }
 
   /* Gallery */
@@ -432,6 +622,8 @@
   @media (max-width: 1180px) {
     .paths-grid { grid-template-columns: 1fr 1fr; }
     .elaf-stats { grid-template-columns: 1fr 1fr; }
+    .steps-grid,
+    .audience-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 900px) {
     .problem-split,
@@ -444,13 +636,37 @@
     .hero-title { font-size: clamp(2.8rem, 14vw, 4rem); }
     .paths-grid { grid-template-columns: 1fr; }
     .pillars-grid { grid-template-columns: 1fr; }
+    .steps-grid,
+    .audience-grid { grid-template-columns: 1fr; }
+    .timeline {
+      padding-left: 1.5rem;
+    }
+    .timeline::before {
+      left: 0.72rem;
+    }
+    .timeline-item {
+      padding-left: 1.8rem;
+    }
+    .timeline-dot {
+      left: -0.22rem;
+    }
+    .timeline .step-card {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1.35rem 1.2rem 1.35rem 1.1rem;
+    }
+    .timeline-step-num {
+      width: 52px;
+      height: 52px;
+      font-size: 1.2rem;
+    }
     .elaf-stats { grid-template-columns: 1fr 1fr; }
     .gallery-wrap { height: 300px; }
   }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rahim International | Morocco Real Estate Advisory &amp; Consulting">
-<meta name="twitter:description" content="We bridge the distance. Real estate advisory for buyers and developers in the Rabat-Salé-Kénitra market.">
+<meta name="twitter:description" content="Rahim International helps international buyers, MREs, investors, and developers navigate the Rabat–Salé–Kénitra market with clarity, structure, and verified information.">
 <meta name="twitter:image" content="https://rahiminternational.com/elaf.jpg">
 <meta property="og:image:alt" content="Elaf Sky View — residential development in central Kénitra, Morocco">
 <meta name="twitter:image:alt" content="Elaf Sky View — residential development in central Kénitra, Morocco">
@@ -582,87 +798,178 @@
     <div class="hero-pattern" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Real Estate Advisory &amp; Consulting</p>
-      <h1 class="hero-title">We Bridge The Distance.<br><em>And Get You To The Other Side.</em></h1>
-      <p class="hero-sub">We combine real estate advisory, market research, project strategy, marketing, and brokerage to help buyers and real estate developers make better decisions in the Rabat-Salé-Kénitra market.</p>
+      <h1 class="hero-title">We Bridge the Distance.<br><em>And Get You to the Other Side.</em></h1>
+      <p class="hero-sub">Rahim International is a real estate advisory and consulting firm helping international buyers, Moroccan diaspora (MRE), investors, and developers navigate the Rabat–Salé–Kénitra market with clarity, structure, and verified information.</p>
       <div class="hero-actions">
-        <a href="#services" class="btn-primary">Choose Your Path</a>
-        <a href="#contact" class="btn-outline">Begin a Conversation</a>
+        <a href="#start-here" class="btn-primary">Start Your Property Search</a>
+        <a href="#contact" class="btn-outline">Request a Consultation</a>
       </div>
     </div>
     <span class="hero-scroll" aria-hidden="true">Scroll</span>
   </section>
 
+  <!-- START HERE -->
+  <section class="paths-section" style="padding:var(--section-pad);" id="start-here">
+    <p class="section-eyebrow" style="color:var(--copper);">Orientation</p>
+    <h2 class="section-title" style="color:var(--white);">Start Here</h2>
+    <p class="section-intro" style="color:rgba(255,255,255,.65);">Not sure where to begin? Choose your path.</p>
+    <div class="paths-grid">
+      <a href="investors-mre.html" class="path-card">
+        <div class="path-num">01</div>
+        <h3 class="path-title">I’m an MRE buyer</h3>
+        <span class="path-link">Open path</span>
+      </a>
+      <a href="investors-international.html" class="path-card">
+        <div class="path-num">02</div>
+        <h3 class="path-title">I’m an international investor</h3>
+        <span class="path-link">Open path</span>
+      </a>
+      <a href="guides/index.html" class="path-card">
+        <div class="path-num">03</div>
+        <h3 class="path-title">I’m exploring opportunities</h3>
+        <span class="path-link">Open path</span>
+      </a>
+      <a href="services-developers.html" class="path-card">
+        <div class="path-num">04</div>
+        <h3 class="path-title">I represent a real estate project</h3>
+        <span class="path-link">Open path</span>
+      </a>
+    </div>
+  </section>
+
   <!-- WHAT WE SOLVE -->
   <section class="problem-section" style="padding:var(--section-pad);" id="about">
-    <div class="problem-split">
-      <div>
-        <p class="section-eyebrow">What We Do</p>
-        <h2 class="section-title" style="color:var(--navy);">The Missing Bridge.</h2>
-        <p class="body-text">In Morocco's most established markets — Marrakech, Casablanca, Agadir — the path from buyer to property is organised. Agencies are visible. Listings are presented properly. Information is accessible.</p>
-        <p class="body-text">In the cities around Rabat — Kénitra, Salé, Témara — the opportunity is equally real. The infrastructure around it is not. Good projects move through personal networks. Buyers spend weeks searching for information that should take days to find. Developers reach a fraction of the audience their projects deserve.</p>
-        <p class="body-text">That gap is what we exist to close. Between buyers who need verified information before they commit, and developers whose projects deserve to reach the right audience.</p>
-        <p class="body-text" style="font-style:italic;color:var(--copper-dark);border-left:2px solid var(--copper);padding-left:1.2rem;margin-top:1.8rem;">We are the bridge that is missing from this market.</p>
-                <div class="service-tags" aria-label="What we do">
-          <span>Advisory</span>
-          <span class="service-tag-sep">·</span>
-          <span>Consulting</span>
-          <span class="service-tag-sep">·</span>
-          <span>Marketing</span>
-          <span class="service-tag-sep">·</span>
-          <span>Brokerage</span>
+    <div class="cta-shell">
+      <p class="section-eyebrow">Market Reality</p>
+      <h2 class="section-title" style="color:var(--navy);">What We Solve</h2>
+      <p class="body-text">Morocco’s real estate market has a persistent information gap.</p>
+      <p class="body-text">Premium developments are often marketed professionally, but much of the mid-market remains under-described, inconsistently positioned, and difficult for buyers to evaluate, especially for those navigating the process from abroad.</p>
+      <p class="body-text">We close that gap by bringing structure, verification, and clear presentation to opportunities that are often overlooked or misunderstood, allowing both international and local buyers to make informed decisions.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section style="padding:var(--section-pad);background:var(--white);" id="services">
+    <p class="section-eyebrow">The Process</p>
+    <h2 class="section-title" style="color:var(--navy);">How We Work</h2>
+    <div class="timeline reveal">
+      <article class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="step-card">
+          <div class="timeline-step-num">01</div>
+          <div class="timeline-copy">
+            <h3 class="step-name">Initial Discussion</h3>
+            <p class="step-text">Understanding goals, budget, timeline.</p>
+          </div>
         </div>
+      </article>
+      <article class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="step-card">
+          <div class="timeline-step-num">02</div>
+          <div class="timeline-copy">
+            <h3 class="step-name">Define Your Criteria</h3>
+            <p class="step-text">Refining needs.</p>
+          </div>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="step-card">
+          <div class="timeline-step-num">03</div>
+          <div class="timeline-copy">
+            <h3 class="step-name">Market Orientation</h3>
+            <p class="step-text">Pricing and areas.</p>
+          </div>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="step-card">
+          <div class="timeline-step-num">04</div>
+          <div class="timeline-copy">
+            <h3 class="step-name">Property Shortlist</h3>
+            <p class="step-text">Relevant options.</p>
+          </div>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="step-card">
+          <div class="timeline-step-num">05</div>
+          <div class="timeline-copy">
+            <h3 class="step-name">Remote Validation</h3>
+            <p class="step-text">Evaluation and feedback.</p>
+          </div>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="step-card">
+          <div class="timeline-step-num">06</div>
+          <div class="timeline-copy">
+            <h3 class="step-name">On-Ground Coordination</h3>
+            <p class="step-text">Visits and follow-up.</p>
+          </div>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="step-card">
+          <div class="timeline-step-num">07</div>
+          <div class="timeline-copy">
+            <h3 class="step-name">Purchase Guidance</h3>
+            <p class="step-text">Support through transaction.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section class="problem-section" style="padding:var(--section-pad);" id="who-we-help">
+    <p class="section-eyebrow">Profiles</p>
+    <h2 class="section-title" style="color:var(--navy);">Who We Help</h2>
+    <p class="section-intro" style="color:var(--text-muted);">We work with buyers and developers who need more than access to listings—they need clarity, structure, and the ability to make the right decision in a market that is not always transparent.</p>
+    <div class="audience-grid reveal">
+      <article class="audience-card">
+        <h3 class="audience-title">Moroccan Diaspora (MRE)</h3>
+        <p class="audience-text">You are working within a limited timeframe when you come to Morocco. You may rely on family to visit properties and provide feedback—but they are not evaluating the market professionally.</p>
+        <p class="audience-text" style="margin-top:0.9rem;">We help you replace uncertainty with structure so you can identify the right opportunities and move forward with confidence.</p>
+      </article>
+      <article class="audience-card">
+        <h3 class="audience-title">International Buyers</h3>
+        <p class="audience-text">You are exploring Morocco as an investment or lifestyle market, but the process is unfamiliar. Information is scattered, and it is difficult to evaluate opportunities from a distance.</p>
+        <p class="audience-text" style="margin-top:0.9rem;">We provide the context, verification, and guidance needed to make a well-informed decision.</p>
+      </article>
+      <article class="audience-card">
+        <h3 class="audience-title">Local Investors</h3>
+        <p class="audience-text">You already know the market, but access to the right opportunities and clear positioning remains limited.</p>
+        <p class="audience-text" style="margin-top:0.9rem;">We help you identify better-positioned projects and evaluate value more precisely.</p>
+      </article>
+      <article class="audience-card">
+        <h3 class="audience-title">Real Estate Developers</h3>
+        <p class="audience-text">You have a strong project, but reaching the right audience—especially international buyers—requires more than standard marketing.</p>
+        <p class="audience-text" style="margin-top:0.9rem;">We help position your project clearly and connect it with the right buyers.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHY TRUST US -->
+  <section style="padding:var(--section-pad);background:var(--white);" id="why-trust-us">
+    <div class="problem-split">
+      <div class="cta-shell">
+        <p class="section-eyebrow">Positioning</p>
+        <h2 class="section-title" style="color:var(--navy);">A Foot in Both Markets</h2>
+        <p class="body-text">Based between Montreal and Morocco, Rahim International operates on both sides of the transaction.</p>
+        <p class="body-text">We understand how international buyers think, and how the Moroccan market actually functions. Our role is to bridge that gap and provide clarity where information is often fragmented.</p>
       </div>
       <div class="reveal">
-        <div class="pillars-grid">
-          <div class="pillar-item"><div class="pillar-num">01</div><div class="pillar-text">Market research before recommendations</div></div>
-          <div class="pillar-item"><div class="pillar-num">02</div><div class="pillar-text">Project positioning for serious buyers</div></div>
-          <div class="pillar-item"><div class="pillar-num">03</div><div class="pillar-text">Local follow-through during the process</div></div>
-          <div class="pillar-item"><div class="pillar-num">04</div><div class="pillar-text">Support across Morocco, North America, and Europe</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BUYER PROFILES -->
-  <section class="paths-section" style="padding:var(--section-pad);" id="services">
-    <p class="section-eyebrow" style="color:var(--copper);">Who Are You</p>
-    <h2 class="section-title" style="color:var(--white);">Find the Path<br>That Fits Your Situation.</h2>
-    <p style="font-size:.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.65);max-width:640px;margin-top:.8rem;">Different buyers face different challenges in this market. Read the profile that describes you — then follow the path that leads to the right information and the right questions.</p>
-
-    <!-- 3 buyer profile cards — clickable, go directly to buyer pages -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(210,180,134,.14);margin:3rem 0 0;">
-      <a href="investors-international.html" style="background:rgba(255,255,255,.05);padding:2.8rem 2.2rem;text-decoration:none;display:block;border-top:3px solid rgba(110,143,171,.6);transition:background .3s;" onmouseover="this.style.background='rgba(255,255,255,.09)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
-        <p style="font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(130,190,220,.85);margin-bottom:1rem;">International Buyer</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:var(--white);margin-bottom:.9rem;line-height:1.4;">You live outside Morocco and are considering buying for relocation, a second home, or rental income.</h3>
-        <p style="font-size:.84rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,.52);margin-bottom:1.6rem;">Your main challenge: navigating an unfamiliar legal system and market from abroad, with limited time on the ground.</p>
-        <span style="font-size:.65rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(130,190,220,.85);border-bottom:1px solid rgba(130,190,220,.3);padding-bottom:.2rem;">This is me →</span>
-      </a>
-      <a href="investors-mre.html" style="background:rgba(255,255,255,.05);padding:2.8rem 2.2rem;text-decoration:none;display:block;border-top:3px solid rgba(183,106,63,.8);transition:background .3s;" onmouseover="this.style.background='rgba(255,255,255,.09)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
-        <p style="font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Moroccan Diaspora / MRE</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:var(--white);margin-bottom:.9rem;line-height:1.4;">You are Moroccan, living abroad, and want to buy back home — a second home, investment, or future base.</h3>
-        <p style="font-size:.84rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,.52);margin-bottom:1.6rem;">Your main challenge: making a serious decision with limited visits and limited visibility from a distance.</p>
-        <span style="font-size:.65rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(210,180,134,.35);padding-bottom:.2rem;">This is me →</span>
-      </a>
-      <a href="investors-local.html" style="background:rgba(255,255,255,.05);padding:2.8rem 2.2rem;text-decoration:none;display:block;border-top:3px solid rgba(90,150,90,.6);transition:background .3s;" onmouseover="this.style.background='rgba(255,255,255,.09)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
-        <p style="font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(140,200,140,.85);margin-bottom:1rem;">Local Investor</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:var(--white);margin-bottom:.9rem;line-height:1.4;">You live in Morocco and are comparing options — a first home, rental investment, or a second city opportunity.</h3>
-        <p style="font-size:.84rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,.52);margin-bottom:1.6rem;">Your main challenge: scattered information and an under-structured middle market where good projects are hard to find.</p>
-        <span style="font-size:.65rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(140,200,140,.85);border-bottom:1px solid rgba(140,200,140,.3);padding-bottom:.2rem;">This is me →</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- REAL ESTATE DEVELOPERS — separate section -->
-  <section class="developers-section" id="for-developers">
-    <div class="developers-card">
-      <div class="developers-copy">
-        <p class="developers-eyebrow">Real Estate Developers</p>
-        <h2 class="developers-title">Strategy, Marketing<br>and Sales Execution.</h2>
-        <p class="developers-body">For real estate developers who need commercial strategy, professional marketing materials, and access to qualified buyers beyond local networks. Not a broker — a commercial partner.</p>
-      </div>
-      <div class="developers-actions">
-        <a href="services-developers.html" class="btn-gold">View Developer Services</a>
-        <a href="index.html#contact" class="btn-outline-dark">Request a Partnership Proposal</a>
+        <ul class="trust-list">
+          <li>International buyer perspective</li>
+          <li>Local market access</li>
+          <li>Structured advisory approach</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -679,6 +986,10 @@
           <img src="elaf-2.jpg" alt="Elaf Sky View apartment interior" class="gallery-slide" loading="lazy" decoding="async">
           <img src="elaf-3.jpg" alt="Elaf Sky View building detail" class="gallery-slide" loading="lazy" decoding="async">
           <img src="elaf-4.jpg" alt="Elaf Sky View neighbourhood and city context" class="gallery-slide" loading="lazy" decoding="async">
+          <img src="elaf-5.jpg" alt="Elaf Sky View gallery image 5" class="gallery-slide" loading="lazy" decoding="async">
+          <img src="elaf-6.jpg" alt="Elaf Sky View gallery image 6" class="gallery-slide" loading="lazy" decoding="async">
+          <img src="elaf-7.jpg" alt="Elaf Sky View gallery image 7" class="gallery-slide" loading="lazy" decoding="async">
+          <img src="elaf-8.jpg" alt="Elaf Sky View gallery image 8" class="gallery-slide" loading="lazy" decoding="async">
           <div class="gallery-overlay" aria-hidden="true"></div>
           <button class="gallery-btn gallery-prev" type="button" aria-label="Previous photo">‹</button>
           <button class="gallery-btn gallery-next" type="button" aria-label="Next photo">›</button>
@@ -687,6 +998,10 @@
             <button class="gallery-dot" type="button" aria-label="Photo 2"></button>
             <button class="gallery-dot" type="button" aria-label="Photo 3"></button>
             <button class="gallery-dot" type="button" aria-label="Photo 4"></button>
+            <button class="gallery-dot" type="button" aria-label="Photo 5"></button>
+            <button class="gallery-dot" type="button" aria-label="Photo 6"></button>
+            <button class="gallery-dot" type="button" aria-label="Photo 7"></button>
+            <button class="gallery-dot" type="button" aria-label="Photo 8"></button>
           </div>
           <div class="gallery-label">
             <div class="gallery-location">Kénitra · City Centre</div>
@@ -713,103 +1028,41 @@
           <div class="elaf-stat"><div class="elaf-stat-num">6</div><div class="elaf-stat-label">Floors</div></div>
         </div>
         <div class="elaf-actions">
-          <a href="elaf-sky-view.html" class="btn-primary">View Full Project Page</a>
-          <a href="elaf-sky-view-brochure.pdf" class="btn-outline" style="color:var(--navy);border-color:var(--border);" target="_blank" rel="noopener">View Brochure</a>
+          <a href="elaf-sky-view.html" class="btn-primary">View Full Project</a>
+          <a href="#contact" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Request Availability</a>
+          <a href="#investment-brief" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Get Investment Brief</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section style="padding:var(--section-pad);background:var(--white);" id="faq">
-    <div class="reveal" style="max-width:880px;margin:0 auto;">
-      <p class="section-eyebrow">Frequently Asked</p>
-      <h2 class="section-title" style="color:var(--navy);margin-bottom:2.5rem;">Quick answers before you reach out.</h2>
-      <ul class="faq-list" style="list-style:none;padding:0;margin:0;">
-        <li class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Can foreigners buy property in Morocco?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-text">Yes. Moroccan law allows foreign nationals to own built property and apartments with virtually no restrictions, except for agricultural land. Residency is not required to complete a purchase, and the property is registered in the buyer's name with the Land Registry (Conservation Foncière).</p>
-          </div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>What are the total costs of buying property in Morocco?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-text">On top of the property price, expect roughly 4% registration tax, 1.5% land registry fees, 0.5%–1% notary fees, plus modest filing costs. Altogether, budget around 6%–7% above the purchase price to cover all transfer costs.</p>
-          </div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>What is the Daam Sakani program and who qualifies?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-text">Daam Sakani is a direct government subsidy of up to 100,000 MAD for first-time buyers acquiring their primary residence. It is also open to Moroccans residing abroad under specific conditions. We provide a full guide explaining the amounts, eligibility, and required documents.</p>
-          </div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Can MREs (Moroccans living abroad) get a mortgage in Morocco?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-text">Yes. Major Moroccan banks offer dedicated MRE financing of up to 70% loan-to-value, in dirham or in foreign currency. We help you assemble the file, compare offers, negotiate terms, and oversee the entire transaction remotely if you are not in Morocco.</p>
-          </div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Why focus on the Rabat–Salé–Kénitra region?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-text">The region combines the administrative capital with Kénitra's rising industrial economy (the Stellantis plant, the Atlantic port, the TGV high-speed line), at prices still well below Casablanca or Tangier. That price gap, paired with strong demand, creates clear opportunities for both end-users and investors.</p>
-          </div>
-        </li>
-        <li class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>How do you work with buyers based outside Morocco?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-text">We work fully remotely when needed: scheduled video calls in your time zone, video tours of properties, detailed reports in English, French, or Arabic, and a notarized power of attorney to represent you with the notary and bank. No travel required unless you want to.</p>
-          </div>
-        </li>
-      </ul>
+  <!-- LEAD CAPTURE -->
+  <section class="contact-section connect-section" style="padding:var(--section-pad);" id="investment-brief">
+    <p class="section-eyebrow">For Serious Buyers</p>
+    <h2 class="section-title" style="color:var(--white);">Get the Full Investment Brief</h2>
+    <div class="connect-grid">
+      <article class="connect-card lead-card">
+        <p class="connect-text">Receive a detailed breakdown of current opportunities, including project insights, unit availability, pricing context, and advisory analysis.</p>
+        <a href="#contact" class="btn-primary connect-btn">Request the Investment Brief</a>
+      </article>
     </div>
   </section>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"Can foreigners buy property in Morocco?","acceptedAnswer":{"@type":"Answer","text":"Yes. Moroccan law allows foreign nationals to own built property and apartments with virtually no restrictions, except for agricultural land. Residency is not required to complete a purchase, and the property is registered in the buyer's name with the Land Registry."}},{"@type":"Question","name":"What are the total costs of buying property in Morocco?","acceptedAnswer":{"@type":"Answer","text":"On top of the property price, expect roughly 4% registration tax, 1.5% land registry fees, 0.5%–1% notary fees, plus modest filing costs. Altogether, budget around 6%–7% above the purchase price to cover all transfer costs."}},{"@type":"Question","name":"What is the Daam Sakani program and who qualifies?","acceptedAnswer":{"@type":"Answer","text":"Daam Sakani is a direct government subsidy of up to 100,000 MAD for first-time buyers acquiring their primary residence. It is also open to Moroccans residing abroad under specific conditions."}},{"@type":"Question","name":"Can MREs get a mortgage in Morocco?","acceptedAnswer":{"@type":"Answer","text":"Yes. Major Moroccan banks offer dedicated MRE financing of up to 70% loan-to-value, in dirham or in foreign currency, with the entire transaction manageable remotely."}},{"@type":"Question","name":"Why focus on the Rabat–Salé–Kénitra region?","acceptedAnswer":{"@type":"Answer","text":"The region combines the administrative capital with Kénitra's rising industrial economy (Stellantis plant, Atlantic port, TGV line) at prices still well below Casablanca or Tangier, creating clear opportunities for end-users and investors."}},{"@type":"Question","name":"How do you work with buyers based outside Morocco?","acceptedAnswer":{"@type":"Answer","text":"We work fully remotely: scheduled video calls, video tours, detailed reports, and a notarized power of attorney to represent the buyer with the notary and bank — no travel required."}}]}</script>
-
-    <!-- STAY CONNECTED — Google Business Profile + Newsletter -->
-    <section class="contact-section connect-section" style="padding:var(--section-pad);">
-      <p class="section-eyebrow">Stay Connected</p>
-      <h2 class="section-title" style="color:var(--white);">Stay Close to the<br>Rabat-Salé-Kénitra Market.</h2>
-      <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3rem;">One short email per month — new guides, current opportunities, and market signals across Rabat-Salé-Kénitra. Unsubscribe anytime.</p>
-      <div class="connect-grid">
-        <article class="connect-card">
-          <p class="connect-kicker">Newsletter</p>
-          <h3 class="connect-title">The Monthly Market Briefing</h3>
-          <p class="connect-text">One short email per month. New guides, current opportunities, and market signals across Rabat-Salé-Kénitra. Unsubscribe anytime.</p>
-          <form action="https://formspree.io/f/xojypvlq" method="POST" class="news-form">
-            <input type="hidden" name="_subject" value="Newsletter signup from RahimInternational.com">
-            <input type="hidden" name="form_type" value="newsletter">
-            <label class="form-label" for="news-email-en">Email</label>
-            <div class="news-row">
-              <input id="news-email-en" name="email" type="email" class="form-input news-input" placeholder="your@email.com" required>
-              <button type="submit" class="form-submit news-submit">Subscribe</button>
-            </div>
-            <p class="news-privacy">We respect your privacy. No spam, ever.</p>
-          </form>
-        </article>
+  <!-- FINAL CTA -->
+  <section style="padding:var(--section-pad);background:var(--white);" id="final-cta">
+    <div class="cta-shell">
+      <div class="final-cta-panel">
+        <p class="section-eyebrow">Next Step</p>
+        <h2 class="section-title" style="color:var(--navy);">Start With Clarity</h2>
+        <p class="body-text">The difference between a confident purchase and a costly mistake is not luck—it is clarity.</p>
+        <div class="section-actions">
+          <a href="#contact" class="btn-primary">Start a Conversation</a>
+          <a href="#contact" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Request a Consultation</a>
+        </div>
       </div>
-    </section>
-  
+    </div>
+  </section>
+
 
 
   <!-- CONTACT -->
