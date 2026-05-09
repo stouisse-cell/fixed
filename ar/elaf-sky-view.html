@@ -261,12 +261,35 @@
     padding: 2.2rem 2rem;
   }
   .spec-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     font-weight: 400;
     color: var(--gold);
     margin-bottom: 0.8rem;
     line-height: 1.3;
+  }
+  .spec-title-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(210,180,134,0.3);
+    background: rgba(255,255,255,0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .spec-title-badge svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--copper);
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   .spec-text {
     font-size: 0.84rem;
@@ -276,31 +299,136 @@
   }
 
   /* Location section */
+  .location-intro {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 2rem;
+  }
+  .location-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 1.2rem;
+  }
+  .location-highlight {
+    background: rgba(255,255,255,0.04);
+    padding: 1.35rem 1.25rem;
+  }
+  .location-highlight-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 0.55rem;
+  }
+  .location-highlight-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(210,180,134,0.3);
+    background: rgba(255,255,255,0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .location-highlight-badge svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--copper);
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .location-highlight-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .location-highlight-text {
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.64);
+  }
   .location-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.8rem;
   }
   .location-item {
-    border-right: 2px solid var(--copper);
-    padding-right: 1.2rem;
-    border-left: none;
-    padding-left: 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(210,180,134,0.14);
+    padding: 1.45rem 1.3rem;
   }
   .location-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     font-weight: 400;
     color: var(--gold);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.85rem;
     line-height: 1.3;
   }
-  .location-text {
+  .location-title-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(210,180,134,0.3);
+    background: rgba(255,255,255,0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .location-title-badge svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--copper);
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .location-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .location-list li {
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .location-list li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .location-line {
+    display: block;
     font-size: 0.84rem;
     font-weight: 300;
     line-height: 1.7;
-    color: rgba(255,255,255,0.64);
+    color: rgba(255,255,255,0.72);
+  }
+  .location-line strong {
+    font-weight: 400;
+    color: var(--white);
   }
 
   /* Unit types */
@@ -457,6 +585,7 @@
     .facts-grid { grid-template-columns: repeat(2, 1fr); }
     .spec-grid { grid-template-columns: 1fr 1fr; }
     .unit-grid { grid-template-columns: 1fr 1fr; }
+    .location-highlights { grid-template-columns: 1fr; }
     .location-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 680px) {
@@ -524,7 +653,7 @@
       <a href="elaf-sky-view.html" class="active">AR</a>
     </li>
   </ul>
-  <a href="#contact" class="nav-cta">طلب التفاصيل</a>
+  <a href="#contact" class="nav-cta">اطلب الأسعار والتفاصيل</a>
 </nav>
 
 <nav class="breadcrumb" aria-label="مسار التنقل">
@@ -545,10 +674,10 @@
     <div class="elaf-hero-pattern" aria-hidden="true"></div>
     <div class="elaf-hero-content">
       <p class="page-hero-eyebrow">فرصة حالية · وسط مدينة القنيطرة</p>
-      <h1 class="elaf-hero-title">Elaf Sky View<br><em>بُنيت بمعايير أعلى. سُعّرت للسوق الحقيقي.</em></h1>
-      <p class="elaf-hero-sub">مشروع سكني يضم 35 وحدة في وسط القنيطرة يجمع بين التشطيبات عالية المواصفات، والبنية التحتية الجاهزة للطاقة، ومواقف السيارات المحفظة، وأهلية مختارة لبرنامج Daam Sakani، وموقع مصمم للحياة اليومية.</p>
+      <h1 class="elaf-hero-title">Elaf Sky View<br><em>تجربة سكن راقية في قلب القنيطرة.</em></h1>
+      <p class="elaf-hero-sub">عنوان سكني يضم 35 وحدة في أحد أعرق أحياء القنيطرة، ويجمع بين تشطيبات أرقى، ومواقف سيارات محفظة، وبنية تحتية جاهزة للطاقة، وأهلية مختارة لبرنامج Daam Sakani، وموقع حضري يتميز بسهولة الوصول والاتصال.</p>
       <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
-        <a href="#contact" class="btn-primary">طلب التفاصيل الكاملة</a>
+        <a href="#contact" class="btn-primary">اطلب الأسعار والتفاصيل</a>
         <a href="../elaf-sky-view-brochure.pdf" class="btn-outline" target="_blank" rel="noopener">تحميل الكتيب</a>
         <a href="#gallery" class="btn-outline">عرض المعرض</a>
       </div>
@@ -561,19 +690,19 @@
       <div class="fact-item"><div class="fact-value">35</div><div class="fact-label">شقق سكنية</div></div>
       <div class="fact-item"><div class="fact-value">61–108 م²</div><div class="fact-label">نطاق مساحة الوحدات</div></div>
       <div class="fact-item"><div class="fact-value">11,500</div><div class="fact-label">MAD للمتر المربع</div></div>
-      <div class="fact-item"><div class="fact-value">6</div><div class="fact-label">طوابق في وسط القنيطرة</div></div>
-      <div class="fact-item"><div class="fact-value">10 دقائق</div><div class="fact-label">مشياً إلى محطة TGV القنيطرة</div></div>
+      <div class="fact-item"><div class="fact-value">6</div><div class="fact-label">طوابق في حي عريق</div></div>
+      <div class="fact-item"><div class="fact-value">10 دقائق</div><div class="fact-label">سيرًا إلى محطة TGV القنيطرة</div></div>
       <div class="fact-item"><div class="fact-value">5 دقائق</div><div class="fact-label">بالسيارة إلى الطريق السيار</div></div>
       <div class="fact-item"><div class="fact-value">1</div><div class="fact-label">موقف سيارات محفظ لكل وحدة</div></div>
-      <div class="fact-item"><div class="fact-value">Daam</div><div class="fact-label">وحدات مختارة قد تكون مؤهلة</div></div>
+      <div class="fact-item"><div class="fact-value">700م</div><div class="fact-label">من محطة TGV القنيطرة</div></div>
     </div>
   </div>
 
   <!-- GALLERY & PROJECT OVERVIEW -->
   <section class="bg-cream" style="padding:var(--section-pad);">
     <p class="section-eyebrow">نظرة عامة على المشروع</p>
-    <h2 class="section-title" style="color:var(--navy);">شقق عالية المواصفات<br>في وسط مدينة القنيطرة.</h2>
-    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:660px;margin-bottom:3rem;">يقدم Elaf Sky View شققًا مصممة بعناية في واحدة من أسرع مدن المغرب نموًا، مع توازن نادر بين الفخامة الميسورة والبنية التحتية العملية والراحة اليومية.</p>
+    <h2 class="section-title" style="color:var(--navy);">مستوى أكثر رقيًا من السكن<br>في وسط القنيطرة.</h2>
+    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:660px;margin-bottom:3rem;">في المركز التاريخي للقنيطرة، حيث لا تزال ملامح إرث بورت ليوطي واضحة في الشوارع المشجرة والمباني المدنية والعمارة المتأثرة بعصر «لا بيل إيبوك»، يقدم Elaf Sky View عنوانًا نادرًا في أحد أعرق أحياء المدينة.</p>
     <div class="elaf-gallery-grid">
       <div>
         <div id="gallery" class="gallery-wrap" data-gallery style="border:1px solid var(--border);">
@@ -606,16 +735,17 @@
         <div class="project-tags" style="margin-top:1.2rem;">
           <span class="tag">شقق</span>
           <span class="tag">وسط المدينة</span>
-          <span class="tag">جاهز للطاقة</span>
+          <span class="tag">جاهز للطاقة الشمسية</span>
           <span class="tag">تشطيبات عالية المواصفات</span>
+          <span class="tag">لقد استثمرنا في هذا المبنى</span>
           <span class="tag">مؤهل لـ Daam Sakani</span>
-          <span class="tag">تفويض نشط</span>
+          <span class="tag">متاح الآن</span>
         </div>
       </div>
       <div>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">يقع Elaf Sky View في وسط المدينة، في حي أخضر عريق بجوار حديقة عامة، ويضع السكان على بعد حوالي 10 دقائق سيرًا على الأقدام من محطة TGV و5 دقائق بالسيارة من الطريق السيار.</p>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">صممت كل وحدة لغرض دخل الإيجار والسكن طويل الأمد، وتشمل الوحدات تركيبات مسبقة للتكييف، ونوافذ وأبواب زجاجية مزدوجة العزل، وأبواب مستوردة من تركيا بأنظمة قفل ثلاثية، ومطابخ مجهزة بالكامل، ومقاعد استحمام مدمجة.</p>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);">تستفيد كل شقة أيضًا من مساحة خاصة على السطح لتثبيت ألواح شمسية مستقبلية، متصلة مباشرة بالوحدة. تم تخصيص موقف سيارات تحت الأرض لكل شقة ومشمول في السجل العقاري.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">يقع Elaf Sky View على شارع يوسف بن تاشفين بالقرب من تقاطعه مع شارع محمد الخامس، ويشغل موقعًا مركزيًا فريدًا بين وسط المدينة والمدينة القديمة، حيث يلتقي الطابع التاريخي بالاتصال العملي وسهولة الحياة اليومية.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">وعلى خلاف كثير من المشاريع الأحدث المتمركزة في أطراف المدينة، يستفيد Elaf من نسيج حضري ناضج حيث البنية التحتية مكتملة بالفعل، والحياة اليومية قابلة للمشي بدرجة عالية، وأهم وجهات المدينة تبقى على مسافة سهلة.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);">داخل المبنى، صُممت الوحدات السكنية لراحة طويلة الأمد، مع تشطيبات أرقى، وتخطيطات عملية، ومواصفات مختارة لدعم الحياة اليومية والقيمة على المدى الطويل.</p>
         <div class="project-kpis">
           <div><div class="project-kpi-label">إجمالي الوحدات</div><div class="project-kpi-value">35</div></div>
           <div><div class="project-kpi-label">نطاق المساحة</div><div class="project-kpi-value">61–108 م²</div></div>
@@ -629,104 +759,101 @@
   <!-- BUILD QUALITY -->
   <section class="bg-navy-grad" style="padding:var(--section-pad);">
     <p class="section-eyebrow">جودة البناء</p>
-    <h2 class="section-title" style="color:var(--white);">الفرق يكمن<br>في المواصفات.</h2>
-    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.65);max-width:660px;margin-bottom:0.5rem;">عند هذا المستوى من السعر، تهم التفاصيل. تم تصميم Elaf Sky View ليشعر الساكن بتشطيبات أكثر دقة وكفاءة وأمانًا من الشقق المتوسطة المعتادة في السوق.</p>
+    <h2 class="section-title" style="color:var(--white);">التميّز يكمن<br>في التفاصيل.</h2>
+    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.65);max-width:660px;margin-bottom:0.5rem;">يتميّز Elaf Sky View من خلال تفاصيل الحياة اليومية التي غالبًا ما يتم تجاهلها، من مواصفات مدروسة وتشطيبات أقوى وتحسينات عملية تصنع تجربة ملكية أكثر اكتمالًا.</p>
     <div class="spec-grid stagger">
-      <article class="spec-card reveal"><h3 class="spec-title">جاهز للطاقة الشمسية</h3><p class="spec-text">تتمتع كل وحدة بتخصيص خاص على السطح لألواح الطاقة الشمسية المستقبلية، وهي مركبة مسبقًا ومتصلة مباشرة بمدخل الكهرباء للشقة وموقف السيارات الخاص بها.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">بنية تحتية للراحة</h3><p class="spec-text">التركيب المسبق للتكييف والنوافذ والأبواب الزجاجية مزدوجة العزل تعمل على تحسين الراحة والتحكم في الضوضاء وكفاءة الطاقة بشكل كبير.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">الأمن والأبواب</h3><p class="spec-text">الأبواب الأمامية والداخلية مستوردة من تركيا، مع أنظمة قفل ثلاثية على الأبواب الرئيسية لمزيد من الثقة والأمان اليومي.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">مطابخ مجهزة</h3><p class="spec-text">تشمل الشقق مطابخ مجهزة بالكامل، مما يقلل من أعمال التجهيز للملاك الذين يشترون للاستخدام الشخصي أو للاستعداد للإيجار من اليوم الأول.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">تفاصيل الاستحمام</h3><p class="spec-text">تشمل الحمامات مقاعد استحمام مدمجة وتجهيزات مدروسة، مما يعكس مستوى من الاهتمام بالتفاصيل يتجاوز معايير البناء المعتادة.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">مواقف محفظة</h3><p class="spec-text">مواقف السيارات تحت الأرض محفظة لكل شقة، مما يضمن ملكية واضحة وراحة دائمة في منطقة وسط المدينة المزدحمة.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v6"/><path d="M8.5 7.5 12 4l3.5 3.5"/><path d="M6 14h12"/><path d="M7 14v5h10v-5"/></svg></span>بنية جاهزة للطاقة الشمسية</h3><p class="spec-text">تشمل كل وحدة مساحة خاصة على السطح مخصصة للتركيب المستقبلي للألواح الشمسية، ومتصلة مسبقًا بالنظام الكهربائي للشقة ومرتبطة بموقفها المحفظ تحت الأرض.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h4"/><path d="M16 12h4"/><path d="M12 4v4"/><path d="M12 16v4"/><circle cx="12" cy="12" r="3.5"/><path d="M6 6l2 2"/><path d="m16 16 2 2"/><path d="m18 6-2 2"/><path d="m8 16-2 2"/></svg></span>الراحة المناخية والعزل الصوتي</h3><p class="spec-text">يساعد التركيب المسبق للتكييف، إلى جانب النوافذ والأبواب الزجاجية مزدوجة العزل، على تحسين الراحة وتقليل الضوضاء الخارجية ودعم كفاءة أفضل في استهلاك الطاقة.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 6 6v5c0 4.2 2.4 7.3 6 10 3.6-2.7 6-5.8 6-10V6l-6-3Z"/><path d="m9.5 12 1.7 1.7 3.3-3.4"/></svg></span>عناصر الأمان</h3><p class="spec-text">الأبواب الرئيسية والداخلية مستوردة من تركيا، مع أنظمة قفل ثلاثية في أبواب الدخول الرئيسية لمزيد من الأمان وراحة البال في الحياة اليومية.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7h14"/><path d="M6 7v10h12V7"/><path d="M9 10h6"/><path d="M9 13h6"/><path d="M8 4h8"/></svg></span>مطابخ مجهزة بالكامل</h3><p class="spec-text">تشمل كل شقة مطبخًا مجهزًا بالكامل، ما يوفّر تجربة سكن أكثر اكتمالًا منذ اليوم الأول.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 20v-8a5 5 0 0 1 10 0v8"/><path d="M7 14h10"/><path d="M5 20h14"/></svg></span>راحة الحمّامات</h3><p class="spec-text">تضيف مقاعد الاستحمام المدمجة مستوى إضافيًا من العملية والراحة، خصوصًا للعائلات والأقارب الأكبر سنًا وفترات الإقامة الأطول.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 6h14"/><path d="M5 12h14"/><path d="M5 18h10"/><path d="M17 17h2v2h-2z"/></svg></span>التشطيبات الداخلية</h3><p class="spec-text">تسهم الأرضيات واختيارات الطلاء وتفاصيل الجدران ومواد التشطيب في خلق بيئة داخلية أكثر رقيًا وتماسكًا.</p></article>
     </div>
   </section>
 
   <!-- LOCATION -->
-  <section class="bg-navy" style="padding:var(--section-pad);">
-    <div class="split">
+  <section class="bg-navy-grad" style="padding:var(--section-pad);">
+    <div class="split split-center">
+      <div style="min-height:420px;background:var(--navy-mid);border:1px solid var(--border-warm);overflow:hidden;position:relative;" class="reveal">
+        <img loading="lazy" decoding="async" src="../elaf-map.png" alt="خريطة موقع Elaf Sky View في القنيطرة" style="width:100%;height:100%;object-fit:cover;min-height:420px;">
+      </div>
       <div>
         <p class="section-eyebrow">الموقع</p>
-        <h2 class="section-title" style="color:var(--white);">بنيت للحياة اليومية.</h2>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);max-width:540px;">يقع المشروع في Centre Ville، المنطقة الأكثر طلبًا في القنيطرة، حيث يجمع بين الهدوء والوصول السريع إلى البنية التحتية الرئيسية للمدينة.</p>
+        <h2 class="section-title" style="color:var(--white);">موقع استراتيجي.<br>وحياة يومية أكثر سهولة.</h2>
+        <p class="location-intro">يضع Elaf Sky View السكان في واحد من أكثر المواقع الحضرية اتصالًا وعمليّة في القنيطرة، حيث تبقى وسائل النقل والتعليم والرعاية الصحية والمساحات الخضراء والخدمات اليومية على مسافة قريبة.</p>
+        <p class="location-intro" style="margin-top:-0.8rem;">سواء تعلق الأمر بالتنقل بين المدن، أو تدبير متطلبات اليومي، أو ببساطة الاستمتاع بأسلوب حياة أكثر قابلية للمشي، فإن المشروع يوفر مستوى من العملية بات نادرًا في المشاريع الأحدث الواقعة بعيدًا عن قلب المدينة.</p>
+        <div class="location-highlights stagger">
+          <article class="location-highlight reveal">
+            <div class="location-highlight-label"><span class="location-highlight-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/><path d="m10 22 1-6-2-3"/><path d="m14 22-1-5 3-4"/><path d="m9 10 2-2 2 2 2 1"/><path d="m7 14 3-2"/></svg></span>سيرًا على الأقدام</div>
+            <div class="location-highlight-value">حوالي 9 دقائق</div>
+            <p class="location-highlight-text">تقع محطة TGV القنيطرة على بعد حوالي 700 متر من المبنى، ما يجعل التنقل بين المدن سهلًا ومتاحًا سيرًا على الأقدام.</p>
+          </article>
+          <article class="location-highlight reveal">
+            <div class="location-highlight-label"><span class="location-highlight-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="12" rx="2"/><path d="M9 8h.01"/><path d="M15 8h.01"/><path d="M8 16l-2 4"/><path d="M16 16l2 4"/><path d="M8 12h8"/></svg></span>بالقطار</div>
+            <div class="location-highlight-value">حوالي 25 دقيقة</div>
+            <p class="location-highlight-text">يمكن الوصول إلى الرباط في حوالي 25 دقيقة، والدار البيضاء في حوالي ساعة و10 دقائق، وطنجة في حوالي 45 دقيقة.</p>
+          </article>
+          <article class="location-highlight reveal">
+            <div class="location-highlight-label"><span class="location-highlight-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16V11l2-4h10l2 4v5"/><path d="M7 16h10"/><path d="M7 19h.01"/><path d="M17 19h.01"/><path d="M6 12h12"/></svg></span>بالسيارة</div>
+            <div class="location-highlight-value">حوالي 7 دقائق</div>
+            <p class="location-highlight-text">يقع الوصول إلى الطريق السيار على بعد حوالي 7 دقائق، ما يوفر اتصالًا إقليميًا مريحًا للسكان والمهنيين والمشترين الذين يتنقلون بين المدن.</p>
+          </article>
+        </div>
         <div class="location-grid">
-          <div class="location-item"><h3 class="location-title">محطة TGV</h3><p class="location-text">على بعد 10 دقائق سيرًا على الأقدام، مما يربط القنيطرة بالرباط في 15 دقيقة والدار البيضاء في 50 دقيقة.</p></div>
-          <div class="location-item"><h3 class="location-title">الطريق السيار</h3><p class="location-text">على بعد 5 دقائق بالسيارة، مما يوفر اتصالاً سريعًا بالرباط وطنجة والدار البيضاء.</p></div>
-          <div class="location-item"><h3 class="location-title">المحيط المباشر</h3><p class="location-text">بجوار حديقة عامة، وبالقرب من المدارس والمتاجر والخدمات الأساسية في وسط المدينة.</p></div>
-          <div class="location-item"><h3 class="location-title">المنطقة الصناعية</h3><p class="location-text">قريبة بما يكفي لخدمة الموظفين والمديرين الباحثين عن سكن عالي الجودة في وسط المدينة.</p></div>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4-9-4Z"/><path d="M7 10.5V15c0 1 2.2 3 5 3s5-2 5-3v-4.5"/><path d="M21 9v5"/></svg></span>التعليم</h3>
+            <ul class="location-list">
+              <li><span class="location-line">تقع عدة مؤسسات تعليمية راسخة على بعد دقائق من المبنى، منها <strong>Groupe Honoré de Balzac</strong> و<strong>Don Bosco</strong> و<strong>Lycée Abdelmalek Assaadi</strong>، وكلها على بعد حوالي 3 إلى 5 دقائق سيرًا على الأقدام.</span></li>
+              <li><span class="location-line"><strong>جامعة ابن طفيل:</strong> حوالي 7 دقائق بالسيارة أو 15 دقيقة سيرًا على الأقدام</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"/></svg></span>الرعاية الصحية</h3>
+            <ul class="location-list">
+              <li><span class="location-line">تقع المنطقة الاستشفائية الأوسع في القنيطرة، بما في ذلك <strong>Centre Hospitalier Provincial El Azemmouri</strong> و<strong>Hôpital International Akdital</strong> و<strong>Clinique Polyvalente de Kénitra</strong>، على بعد حوالي 5 دقائق بالسيارة من المبنى.</span></li>
+              <li><span class="location-line">وللاحتياجات الطبية اليومية، يبقى السكان على مسافة قريبة سيرًا على الأقدام من مقدمي الرعاية الصحية الخاصة على طول <strong>شارع محمد الديوري</strong> و<strong>شارع محمد الخامس</strong> و<strong>شارع يوسف بن تاشفين</strong>، بما في ذلك <strong>Clinique de Chirurgie Orthopédique et Traumatologique du Kénitra (CCOTK)</strong> الواقعة مباشرة بجوار المبنى و<strong>Polyclinique du Gharb</strong> على بعد حوالي 5 دقائق سيرًا.</span></li>
+              <li><span class="location-line">كما تنتشر عيادات خاصة وصيدليات وخدمات تخصصية إضافية في مختلف أنحاء الحي المحيط.</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21v-7"/><path d="M12 14c0-4 2.5-7 7-8 0 5-2 8-7 8Z"/><path d="M12 16c0-3-2-5.5-6-6 0 4 1.7 6 6 6Z"/></svg></span>المساحات الخضراء</h3>
+            <ul class="location-list">
+              <li><span class="location-line"><strong>الحديقة العمومية لإقليم القنيطرة:</strong> حوالي 5 دقائق سيرًا على الأقدام. مساحة خضراء محببة لدى سكان الحي، مثالية للمشي، والنزهات العائلية، ولحظات الاسترخاء في الحياة اليومية.</span></li>
+              <li><span class="location-line"><strong>غابة المعمورة الحضرية:</strong> حوالي 4 دقائق بالسيارة أو 20 دقيقة سيرًا على الأقدام. فضاء واسع مخصص للترفيه والأنشطة في الهواء الطلق، يضم مسارات للجري، ومسالك للدراجات، وملاعب لكرة القدم، ومناطق للتنزه، وهو مثالي للرياضة كما للاسترخاء.</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.4 7H8L6 3H3"/><path d="M9 18h.01"/><path d="M18 18h.01"/></svg></span>خدمات الحياة اليومية</h3>
+            <ul class="location-list">
+              <li><span class="location-line">يشكل حي التسوق في <strong>شارع محمد الخامس</strong> والمقاهي والمطاعم والمساجد والحمامات الرياضية وصالونات التجميل والمكاتب والخدمات الإدارية ومساحات العمل المشتركة جزءًا من روتين الحياة اليومية المحيط بالمشروع.</span></li>
+              <li><span class="location-line">ويستفيد السكان أيضًا من وجود <strong>متجر Marjane City</strong> مباشرة في الطابق الأرضي من المبنى.</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 16c3-4 5.5-6 9-6s6 2 9 6"/><path d="M4 18h16"/><path d="M8 10 7 7"/><path d="M16 10l1-3"/></svg></span>وجهات عطلة نهاية الأسبوع</h3>
+            <ul class="location-list">
+              <li><span class="location-line">يقع كل من <strong>شاطئ المهدية</strong> و<strong>المنتزه الوطني سيدي بوغابة</strong> على بعد حوالي 20 دقيقة بالسيارة، ما يوفّر وصولًا سريعًا إلى الساحل والطبيعة والأنشطة الخارجية خارج المدينة مباشرة.</span></li>
+            </ul>
+          </article>
         </div>
       </div>
-      <div class="reveal">
-        <img loading="lazy" decoding="async" src="../elaf-location.png" alt="خريطة موقع Elaf Sky View في القنيطرة" style="width:100%;border:1px solid rgba(210,180,134,0.2);">
-      </div>
     </div>
   </section>
 
-  <!-- UNIT TYPES -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">مخططات الطوابق</p>
-    <h2 class="section-title" style="color:var(--navy);">مساحات متنوعة<br>لكل حاجة.</h2>
-    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:660px;">من الشقق العملية المكونة من غرفتين إلى الشقق العائلية الواسعة، تم تصميم كل وحدة لتحقيق أقصى استفادة من المساحة والضوء الطبيعي.</p>
-    <div class="unit-grid stagger">
-      <article class="unit-card reveal">
-        <div class="unit-tag">غرفتان وصالة</div>
-        <h3 class="unit-title">61–75 م²</h3>
-        <p class="unit-text">مثالية للمهنيين الشباب، أو الأزواج، أو المستثمرين في الإيجار الباحثين عن عوائد قوية في وسط المدينة. وحدات مختارة ضمن هذا النطاق مؤهلة لبرنامج Daam Sakani.</p>
-      </article>
-      <article class="unit-card reveal">
-        <div class="unit-tag">3 غرف وصالة</div>
-        <h3 class="unit-title">85–96 م²</h3>
-        <p class="unit-text">شقق متوازنة توفر مساحة إضافية للعائلات الصغيرة أو أولئك الذين يحتاجون إلى مكتب منزلي مع الاحتفاظ بموقع مركزي.</p>
-      </article>
-      <article class="unit-card reveal">
-        <div class="unit-tag">شقق عائلية</div>
-        <h3 class="unit-title">103–108 م²</h3>
-        <p class="unit-text">أكبر وحداتنا، مصممة للسكن العائلي طويل الأمد مع مساحات معيشة واسعة، وتشطيبات ممتازة، وإطلالات على وسط المدينة.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- BUYER FIT -->
   <section class="bg-navy-grad" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">القرار</p>
-    <h2 class="section-title" style="color:var(--white);">لمن هذا المشروع؟</h2>
-    <div class="buyer-fit-grid stagger">
-      <article class="buyer-card reveal">
-        <div class="buyer-card-num">01</div>
-        <h3 class="buyer-card-title">المستثمرون المحليون</h3>
-        <p class="buyer-card-text">شقة في وسط المدينة ذات طلب مستمر من المستأجرين وبنية تحتية جاهزة للطاقة، مما يقلل من تكاليف التشغيل طويلة الأمد.</p>
-        <a href="investors-local.html" class="buyer-card-link">عرض تفاصيل المستثمرين</a>
-      </article>
-      <article class="buyer-card reveal">
-        <div class="buyer-card-num">02</div>
-        <h3 class="buyer-card-title">مغاربة العالم (MRE)</h3>
-        <p class="buyer-card-text">قاعدة عودة مستقبلية أو سكن ثانٍ في مدينة متصلة جيدًا، مع تشطيبات عالية الجودة وأمان معزز عبر الأبواب المستوردة.</p>
-        <a href="investors-mre.html" class="buyer-card-link">عرض تفاصيل MRE</a>
-      </article>
-      <article class="buyer-card reveal">
-        <div class="buyer-card-num">03</div>
-        <h3 class="buyer-card-title">المشترون الدوليون</h3>
-        <p class="buyer-card-text">نقطة دخول عملية إلى السوق المغربي في مدينة ذات نمو حقيقي وتدفق يومي، بعيدًا عن الأسواق السياحية المتقلبة.</p>
-        <a href="investors-international.html" class="buyer-card-link">عرض تفاصيل الدوليين</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- INVESTMENT INSIGHT -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <div class="split">
+    <div class="split split-center">
       <div>
-        <p class="section-eyebrow">رؤية استثمارية</p>
-        <h2 class="section-title" style="color:var(--navy);">لماذا القنيطرة؟<br>لماذا الآن؟</h2>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:540px;margin-bottom:2rem;">القنيطرة ليست مجرد مدينة مجاورة للرباط؛ إنها مركز صناعي واقتصادي في حد ذاته، مع طلب حقيقي على السكن عالي الجودة في وسط المدينة.</p>
-        <div class="invest-panel"><div class="invest-kicker">فجوة القيمة</div><h3 class="invest-title">الرباط بـ 14,500 MAD/م² مقابل القنيطرة بـ 11,500 MAD/م² لشقق ذات جودة مماثلة أو أعلى.</h3></div>
-        <div class="invest-panel"><div class="invest-kicker">الربط السريع</div><h3 class="invest-title">15 دقيقة بـ TGV تجعل القنيطرة خياراً عملياً للسكن لمن يعمل في الرباط.</h3></div>
-      </div>
-      <div class="reveal">
-        <div class="highlight-panel">
-          <div class="highlight-kicker">دليل المقارنة</div>
-          <div class="highlight-title">افهم فجوة القيمة بين القنيطرة والرباط قبل اتخاذ قرارك.</div>
-          <p style="font-size:0.84rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;margin-top:1.2rem;">نوصي بقراءة دليلنا المفصل حول سبب تحول القنيطرة إلى الوجهة المفضلة للمشترين الأذكياء.</p>
-          <a href="guides/kenitra-vs-rabat.html" class="btn-gold" style="margin-top:1.5rem;">اقرأ القنيطرة مقابل الرباط</a>
+        <p class="section-eyebrow">لماذا القنيطرة</p>
+        <h2 class="section-title" style="color:var(--white);">مدينة متصلة.<br>وفرصة أكثر استراتيجية.</h2>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">بالنسبة إلى كثير من المشترين، تقدم القنيطرة ما أصبح من الصعب العثور عليه في المدن المغربية الأكبر: مستوى أسعار أكثر قابلية للوصول، واتصالًا فعّالًا، وإطارًا معيشيًا يجمع بين العملية والراحة.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">اليوم، يستفيد السكان بالفعل من الربط بالقطار فائق السرعة نحو الرباط (حوالي 25 دقيقة)، والدار البيضاء (حوالي ساعة و10 دقائق)، وطنجة (حوالي 45 دقيقة)، مع الاستفادة في الوقت نفسه من مستويات سعرية أكثر سهولة مقارنة بالعقارات المماثلة في العاصمة.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">وعلى المدى الأبعد، قد يعزز التوسع المخطط لخط LGV من مكانة القنيطرة بشكل أكبر. فبعد اكتماله، قد تصل الرحلات المتوقعة إلى مراكش إلى حوالي ساعة و30 دقيقة، وإلى مطار محمد الخامس الدولي إلى حوالي 45 دقيقة بالقطار، ما يعمّق اندماج القنيطرة ضمن الممرات الاقتصادية والسياحية واللوجستية الرئيسية في المغرب.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">ورغم أن الارتفاع في القيمة لا يمكن ضمانه أبدًا، فإن الترقيات الكبرى في البنية التحتية من هذا النوع كان لها تاريخيًا أثر ملموس على الأسواق العقارية المحيطة. ومع ازدياد اتصال القنيطرة بالمحاور الاقتصادية الكبرى مع بقائها أكثر سهولة من الرباط والدار البيضاء، يرى كثير من المشترين إمكانات صعود طويلة الأمد في دخول السوق مبكرًا.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:2rem;">وبعيدًا عن مسألة الاتصال، تواصل المدينة جذب العائلات والمهنيين ومغاربة العالم العائدين والمستثمرين على المدى الطويل، بفضل قربها من الساحل الأطلسي، وتحسن بنيتها التحتية، وسوق أكثر قابلية للوصول مقارنة بالمدن الأكبر. ويضع Elaf Sky View المشترين في أحد أعرق أحياء المدينة، مع تركيبة من جودة الموقع والاتصال ومستوى التشطيب يصعب العثور عليها بالسعر نفسه داخل منطقة الرباط-سلا.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.9rem;">
+          <a href="guides/kenitra-vs-rabat.html" style="font-size:0.66rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--gold);border:1px solid rgba(210,180,134,0.3);padding:0.7rem 1rem;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='var(--copper)';this.style.color='#fff';" onmouseout="this.style.background='';this.style.color='var(--gold)';">القنيطرة مقابل الرباط</a>
+          <a href="guides/buying-property-morocco.html" style="font-size:0.66rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--gold);border:1px solid rgba(210,180,134,0.3);padding:0.7rem 1rem;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='var(--copper)';this.style.color='#fff';" onmouseout="this.style.background='';this.style.color='var(--gold)';">الشراء في المغرب</a>
+          <a href="guides/preconstruction-guide.html" style="font-size:0.66rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--gold);border:1px solid rgba(210,180,134,0.3);padding:0.7rem 1rem;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='var(--copper)';this.style.color='#fff';" onmouseout="this.style.background='';this.style.color='var(--gold)';">دليل ما قبل البناء</a>
         </div>
       </div>
     </div>
@@ -802,44 +929,77 @@
       </div>
     </div>
 
-    <p class="calc-disclaimer">أرقام إرشادية فقط. تتراوح أسعار القروض السكنية في المغرب حالياً بين 4.5٪ و 5.5٪ سنوياً. تعتمد الشروط النهائية على البنك وملفك وموافقة دعم سكني — ننسق العملية بالكامل للمشترين الجادين. <a href="#contact">تواصل معنا.</a></p>
+    <p class="calc-disclaimer">أرقام إرشادية فقط. تتراوح أسعار القروض السكنية في المغرب حالياً بين 4.5٪ و5.5٪ سنويًا. تعتمد الشروط النهائية على البنك وملفك وموافقة دعم سكني. ويمكننا مساعدتك على المضي في العملية بوضوح أكبر. <a href="#contact">تواصل معنا.</a></p>
   </section>
 
-  <!-- CONTACT / CTA -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">اتصل بنا</p>
-    <h2 class="section-title" style="color:var(--white);">اطلب التفاصيل الكاملة<br>لمشروع Elaf Sky View.</h2>
-    <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.62);max-width:640px;margin-top:0.8rem;margin-bottom:3.5rem;">تتوفر لدينا قوائم الأسعار الحالية، ومخططات الطوابق التفصيلية، ومعلومات الأهلية لبرنامج Daam. أخبرنا باهتماماتك وسنرسل لك المواد ذات الصلة.</p>
-    <div class="contact-grid">
+  <section class="bg-cream" style="padding:var(--section-pad);">
+    <div class="split split-center">
       <div>
+        <p class="section-eyebrow">Rahim International</p>
+        <h2 class="section-title" style="color:var(--navy);">اشترِ بإرشاد واعٍ<br>قائم على معرفة حقيقية بالميدان.</h2>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">ينبع فهمنا لـ Elaf Sky View من تجربة مباشرة مع المشروع، تغذيها متابعة مستمرة على أرض الواقع.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">لقد درسنا المشروع ميدانيًا، وتحققنا من المطور، وتابعنا تقدم الأشغال عن قرب، واخترنا أن نستثمر فيه بأنفسنا.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">وتمنحنا هذه الزاوية قدرة أكبر على مرافقة المشترين بوضوح أدق: فهم الوحدات التي تتوافق فعلًا مع أهدافهم، وتحديد الأسئلة الصحيحة قبل الحجز، والمضي في العملية بثقة أكبر.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);">وبالنسبة للمشترين المقيمين في الخارج، كما للمشترين الموجودين بالفعل في المغرب لكن بوقت محدود، فإن هذا المستوى من المعرفة المحلية يجعل عملية الشراء أكثر سلاسة وتنظيمًا وطمأنينة.</p>
+      </div>
+      <div>
+        <div class="project-tags" style="margin-bottom:1rem;">
+          <span class="tag">استثمرنا في هذا المبنى</span>
+          <span class="tag">ونتابع المشروع منذ مرحلة ما قبل البناء.</span>
+        </div>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.5rem;">نساعد المشترين على تقييم اختيار الوحدة، والسعر، والأهلية، والوثائق، والخطوات التالية بوضوح أكبر.</p>
+        <a href="#contact" class="btn-primary">اطلب الأسعار والتفاصيل</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy" style="padding:var(--section-pad);">
+    <p class="section-eyebrow">مصمم لخطط شراء مختلفة</p>
+    <h2 class="section-title" style="color:var(--white);">العقار نفسه.<br>وإمكانات متعددة لنمط الحياة.</h2>
+    <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.63);max-width:640px;margin-bottom:0.5rem;">سواء كنت تشتري للسكن، أو لفائدة الأسرة، أو لتوليد دخل إيجاري، أو في إطار دعم سكني، فإن Elaf يمكن أن يواكب مشاريع مختلفة بحسب الطريقة التي ترغب في استخدام العقار بها.</p>
+    <div class="buyer-fit-grid stagger">
+      <article class="buyer-card reveal"><div class="buyer-card-num">01</div><h3 class="buyer-card-title">للمشترين الدوليين</h3><p class="buyer-card-text">سكن جيد الاتصال من أجل الانتقال، أو الإقامة الكاملة، أو الدخل الإيجاري، أو ترسيخ حضور طويل الأمد في المغرب.</p><a href="investors-international.html" class="buyer-card-link">دليل المشتري الدولي</a></article>
+      <article class="buyer-card reveal"><div class="buyer-card-num">02</div><h3 class="buyer-card-title">لعائلات مغاربة العالم</h3><p class="buyer-card-text">سكن ثانٍ، أو قاعدة عائلية، أو عقار للإيجار، أو مسكن عودة مستقبلي، ضمن بيئة عملية عند التواجد في المغرب وسهلة التدبير عند الإقامة في الخارج.</p><a href="investors-mre.html" class="buyer-card-link">دليل MRE</a></article>
+      <article class="buyer-card reveal"><div class="buyer-card-num">03</div><h3 class="buyer-card-title">للمشترين المحليين</h3><p class="buyer-card-text">سكن حسن الموقع يوفر سهولة حقيقية في الحياة اليومية، ومواصفات مدروسة، وجاذبية مستدامة للمشترين الذين يقارنون الخيارات على مستوى منطقة الرباط-سلا-القنيطرة.</p><a href="investors-local.html" class="buyer-card-link">دليل المشتري المحلي</a></article>
+      <article class="buyer-card reveal"><div class="buyer-card-num">04</div><h3 class="buyer-card-title">للمشترين المؤهلين لدعم سكني</h3><p class="buyer-card-text">قد تكون بعض الوحدات مؤهلة لبرنامج دعم سكني، ما يخلق فرصة نادرة للمشترين لأول مرة لامتلاك شقة في مشروع أكثر جودة بسعر أكثر ملاءمة.</p><a href="guides/daam-sakani-guide.html" class="buyer-card-link">اقرأ دليل دعم سكني</a></article>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--navy);padding:var(--section-pad);">
+    <div class="split split-center">
+      <div>
+        <p class="section-eyebrow">اطلب الأسعار والتفاصيل</p>
+        <h2 class="section-title" style="color:var(--white);">اطلب الأسعار،<br>والتوفر، والتوجيه.</h2>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:2.5rem;">أخبرنا بما تبحث عنه وسنرسل لك المعلومات الأكثر صلة، بما في ذلك توجيه سعري، وملاءمة الوحدات، وفهم واضح للخطوات التالية.</p>
         <div class="contact-info">
-          <div class="contact-item"><div class="contact-icon">✉</div><div><div class="contact-item-label">البريد الإلكتروني</div><div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div></div></div>
+          <div class="contact-item"><div class="contact-icon">✉</div><div><div class="contact-item-label">البريد الإلكتروني</div><div class="contact-item-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div>
           <div class="contact-item"><div class="contact-icon">☎</div><div><div class="contact-item-label">الهاتف وواتساب</div><div class="contact-item-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div></div></div>
-          <div class="contact-item"><div class="contact-icon">◎</div><div><div class="contact-item-label">المقر الرئيسي</div><div class="contact-item-value">70 شارع يوسف بن تاشفين،<br>القنيطرة 14000، المغرب<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(المكتب المستقبلي)</em></div></div></div>
+          <div class="contact-item"><div class="contact-icon">◎</div><div><div class="contact-item-label">العنوان</div><div class="contact-item-value">70 Av. Youssef Ben Tachfine، القنيطرة 14000، المغرب</div></div></div>
         </div>
       </div>
       <div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST" data-sending="جارٍ الإرسال…" data-success="تم إرسال رسالتك. سنتواصل معك قريبًا." data-error="حدث خطأ. يرجى مراسلتنا مباشرة على contact@RahimInternational.com.">
-          <input type="hidden" name="subject" value="استفسار من RahimInternational.com/ar">
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST" data-sending="جارٍ الإرسال…" data-success="تم إرسال رسالتك. سنتواصل معك قريبًا." data-error="حدث خطأ. يرجى مراسلتنا مباشرة على contact@rahiminternational.com.">
+          <input type="hidden" name="subject" value="استفسار Elaf Sky View">
           <div class="form-grid">
             <div class="form-group"><label class="form-label" for="first-name">الاسم الشخصي</label><input id="first-name" name="first_name" type="text" class="form-input" placeholder="اسمك الشخصي" required></div>
             <div class="form-group"><label class="form-label" for="last-name">الاسم العائلي</label><input id="last-name" name="last_name" type="text" class="form-input" placeholder="اسمك العائلي" required></div>
           </div>
           <div class="form-group"><label class="form-label" for="email">البريد الإلكتروني</label><input id="email" name="email" type="email" class="form-input" placeholder="بريدك الإلكتروني" required></div>
+          <div class="form-group"><label class="form-label" for="phone">الهاتف / واتساب</label><input id="phone" name="phone" type="tel" class="form-input" placeholder="+1 أو +33 أو +212…"></div>
           <div class="form-group">
             <label class="form-label" for="profile">أنا</label>
             <select id="profile" name="profile" class="form-select" required>
               <option value="">اختر ملفك الشخصي</option>
-              <option>مستثمر محلي</option>
-              <option>مغاربة العالم / مشتري MRE</option>
-              <option>مستثمر دولي</option>
-              <option>مطور عقاري</option>
+              <option>مشتري دولي</option>
+              <option>مشتري MRE</option>
+              <option>مشتري / مستثمر محلي</option>
+              <option>مشتري دعم سكني</option>
               <option>آخر</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label" for="message">الرسالة</label><textarea id="message" name="message" class="form-textarea" placeholder="أخبرنا بما تبحث عنه في Elaf Sky View…"></textarea></div>
+          <div class="form-group"><label class="form-label" for="message">الرسالة</label><textarea id="message" name="message" class="form-textarea" placeholder="أخبرنا بما تريد معرفته عن Elaf Sky View…"></textarea></div>
           <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">إرسال الطلب</button>
+          <button type="submit" class="form-submit">اطلب الأسعار والتفاصيل</button>
         </form>
       </div>
     </div>
@@ -852,7 +1012,7 @@
     <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:0.5rem;">Rahim <span>International</span></span><p class="footer-tagline">استشارات عقارية للمشترين والمطورين في سوق الرباط-سلا-القنيطرة.</p></div>
     <div><div class="footer-col-label">التنقل</div><div class="footer-links"><a href="index.html">الرئيسية</a><a href="about.html">من نحن</a><a href="why-morocco.html">لماذا القنيطرة</a><a href="elaf-sky-view.html">Elaf Sky View</a><a href="index.html#contact">اتصل بنا</a></div></div>
     <div><div class="footer-col-label">المشترون والأدلة</div><div class="footer-links"><a href="investors-international.html">المشترون الدوليون</a><a href="investors-mre.html">مغاربة العالم (MRE)</a><a href="investors-local.html">المشترون المحليون</a><a href="services-developers.html">خدمات المطورين</a><a href="guides/index.html">أدلة الشراء</a></div></div>
-    <div><div class="footer-col-label">اتصل بنا</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">البريد الإلكتروني</div><div class="footer-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">الهاتف وواتساب</div><div class="footer-contact-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div></div></div></div>
+    <div><div class="footer-col-label">اتصل بنا</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">البريد الإلكتروني</div><div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">الهاتف وواتساب</div><div class="footer-contact-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div></div></div></div>
   </div>
   <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. جميع الحقوق محفوظة.</div><div class="footer-langs"><a href="../elaf-sky-view.html">EN</a><a href="../fr/elaf-sky-view.html">FR</a><a href="elaf-sky-view.html" class="active">AR</a></div></div>
 </footer>

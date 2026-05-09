@@ -261,12 +261,35 @@
     padding: 2.2rem 2rem;
   }
   .spec-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     font-weight: 400;
     color: var(--gold);
     margin-bottom: 0.8rem;
     line-height: 1.3;
+  }
+  .spec-title-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(210,180,134,0.3);
+    background: rgba(255,255,255,0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .spec-title-badge svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--copper);
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   .spec-text {
     font-size: 0.84rem;
@@ -276,29 +299,144 @@
   }
 
   /* Location section */
+  .location-intro {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 2rem;
+  }
+  .location-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 1.2rem;
+  }
+  .location-highlight {
+    background: rgba(255,255,255,0.04);
+    padding: 1.35rem 1.25rem;
+  }
+  .location-highlight-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 0.55rem;
+  }
+  .location-highlight-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(210,180,134,0.3);
+    background: rgba(255,255,255,0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .location-highlight-badge svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--copper);
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .location-highlight-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .location-highlight-text {
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.64);
+  }
   .location-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.8rem;
   }
   .location-item {
-    border-left: 2px solid var(--copper);
-    padding-left: 1.2rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(210,180,134,0.14);
+    padding: 1.45rem 1.3rem;
   }
   .location-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     font-weight: 400;
     color: var(--gold);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.85rem;
     line-height: 1.3;
   }
-  .location-text {
+  .location-title-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(210,180,134,0.3);
+    background: rgba(255,255,255,0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .location-title-badge svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--copper);
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .location-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .location-list li {
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .location-list li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .location-line {
+    display: block;
     font-size: 0.84rem;
     font-weight: 300;
     line-height: 1.7;
-    color: rgba(255,255,255,0.64);
+    color: rgba(255,255,255,0.72);
+  }
+  .location-line strong {
+    font-weight: 400;
+    color: var(--white);
+  }
+  .location-closing {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    margin-top: 1.8rem;
+    max-width: 840px;
   }
 
   /* Unit types */
@@ -455,6 +593,7 @@
     .facts-grid { grid-template-columns: repeat(2, 1fr); }
     .spec-grid { grid-template-columns: 1fr 1fr; }
     .unit-grid { grid-template-columns: 1fr 1fr; }
+    .location-highlights { grid-template-columns: 1fr; }
     .location-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 680px) {
@@ -518,7 +657,7 @@
     <li><a href="../index.html#contact">Nous contacter</a></li>
     <li class="language-switcher"><a href="../elaf-sky-view.html">EN</a><a href="elaf-sky-view.html" class="active">FR</a><a href="../ar/elaf-sky-view.html">AR</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Demander les détails</a>
+  <a href="#contact" class="nav-cta">Demander prix &amp; détails</a>
 </nav>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -538,11 +677,11 @@
     <div class="elaf-hero-overlay" aria-hidden="true"></div>
     <div class="elaf-hero-pattern" aria-hidden="true"></div>
     <div class="elaf-hero-content">
-      <p class="page-hero-eyebrow">Mandat actuel · Centre Ville Kénitra</p>
-      <h1 class="elaf-hero-title">Elaf Sky View<br><em>Construit à un niveau supérieur. Tarifé pour le vrai marché.</em></h1>
-      <p class="elaf-hero-sub">Une résidence de 35 unités au centre de Kénitra combinant des finitions haut de gamme, une infrastructure prête pour l'énergie, un parking titré, une éligibilité Daam Sakani sélective et un emplacement pensé pour la vie quotidienne.</p>
+      <p class="page-hero-eyebrow">Opportunité actuelle · Centre Ville Kénitra</p>
+      <h1 class="elaf-hero-title">Elaf Sky View<br><em>Un cadre de vie raffiné au cœur de Kénitra.</em></h1>
+      <p class="elaf-hero-sub">Une adresse résidentielle de 35 unités située dans l’un des quartiers les plus établis de Kénitra, offrant des finitions plus soignées, un parking titré, une infrastructure prête pour l’énergie, une éligibilité Daam Sakani sur certaines unités, et la facilité d’un emplacement bien connecté en centre-ville.</p>
       <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
-        <a href="#contact" class="btn-primary">Demander le dossier complet</a>
+        <a href="#contact" class="btn-primary">Demander prix &amp; détails</a>
         <a href="../elaf-sky-view-brochure.pdf" class="btn-outline" target="_blank" rel="noopener">Télécharger la brochure</a>
         <a href="#gallery" class="btn-outline">Voir la galerie</a>
       </div>
@@ -555,19 +694,19 @@
       <div class="fact-item"><div class="fact-value">35</div><div class="fact-label">Appartements résidentiels</div></div>
       <div class="fact-item"><div class="fact-value">61–108 m²</div><div class="fact-label">Superficie</div></div>
       <div class="fact-item"><div class="fact-value">11,500</div><div class="fact-label">MAD par m²</div></div>
-      <div class="fact-item"><div class="fact-value">6</div><div class="fact-label">Étages in central Kénitra</div></div>
+      <div class="fact-item"><div class="fact-value">6</div><div class="fact-label">Étages dans un quartier établi</div></div>
       <div class="fact-item"><div class="fact-value">10 min</div><div class="fact-label">À pied de la gare TGV de Kénitra</div></div>
       <div class="fact-item"><div class="fact-value">5 min</div><div class="fact-label">En voiture de l'autoroute</div></div>
       <div class="fact-item"><div class="fact-value">1</div><div class="fact-label">Place de parking titrée par unité</div></div>
-      <div class="fact-item"><div class="fact-value">Daam</div><div class="fact-label">Certaines unités peuvent être éligibles</div></div>
+      <div class="fact-item"><div class="fact-value">700m</div><div class="fact-label">De la gare TGV de Kénitra</div></div>
     </div>
   </div>
 
   <!-- GALLERY & PROJECT OVERVIEW -->
   <section class="bg-cream" style="padding:var(--section-pad);">
     <p class="section-eyebrow">Aperçu du projet</p>
-    <h2 class="section-title" style="color:var(--navy);">Appartements haut de gamme<br>au Centre Ville de Kénitra.</h2>
-    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:660px;margin-bottom:3rem;">Elaf Sky View propose des appartements soigneusement conçus dans l'une des villes à la croissance la plus rapide du Maroc, avec un équilibre rare entre luxe accessible, infrastructure pratique et commodité quotidienne.</p>
+    <h2 class="section-title" style="color:var(--navy);">Un cadre de vie plus raffiné<br>au Centre Ville de Kénitra.</h2>
+    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:660px;margin-bottom:3rem;">Dans le centre historique de Kénitra, où l’héritage de Port Lyautey reste visible à travers ses avenues arborées, ses bâtiments civiques et une architecture marquée par la Belle Époque, Elaf Sky View offre une adresse rare dans l’un des quartiers les plus établis de la ville.</p>
     <div class="elaf-gallery-grid">
       <div>
         <div id="gallery" class="gallery-wrap" data-gallery style="border:1px solid var(--border);">
@@ -593,7 +732,7 @@
             <button class="gallery-dot" type="button" aria-label="Photo 8"></button>
           </div>
           <div class="gallery-label">
-            <div class="gallery-location">Kénitra · City Centre</div>
+            <div class="gallery-location">Kénitra · Centre Ville</div>
             <div class="gallery-name">Elaf Sky View</div>
           </div>
         </div>
@@ -602,18 +741,19 @@
           <span class="tag">Centre Ville</span>
           <span class="tag">Prêt énergie</span>
           <span class="tag">Finitions haut de gamme</span>
+          <span class="tag">Nous avons investi dans cet immeuble</span>
           <span class="tag">Éligible Daam Sakani</span>
-          <span class="tag">Mandat actif</span>
+          <span class="tag">Disponible maintenant</span>
         </div>
       </div>
       <div>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Situé en Centre Ville, dans un quartier verdoyant établi à côté d'un jardin public, Elaf Sky View place les résidents à environ 10 minutes à pied de la gare TGV et à 5 minutes en voiture de l'autoroute.</p>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Conçu pour les revenus locatifs comme pour la résidence à long terme, chaque unité comprend une pré-installation de climatisation, des fenêtres et baies vitrées à double isolation, des portes importées de Turquie avec serrures triple point, des cuisines entièrement équipées et des bancs de douche intégrés.</p>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);">Chaque appartement bénéficie également d'un espace privé en toiture pour de futurs panneaux solaires, directement connecté à l'unité. Le parking souterrain est attribué à chaque appartement et inclus dans le titre de propriété.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Situé sur l’Avenue Youssef Ben Tachfine, près de son intersection avec la Rue Mohammed V, Elaf Sky View occupe une position singulièrement centrale entre le Centre Ville et l’ancienne médina, là où patrimoine, connectivité et praticité au quotidien se rejoignent.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Contrairement à de nombreux programmes plus récents concentrés en périphérie, Elaf bénéficie d’un tissu urbain déjà mature, où l’infrastructure est en place, la vie quotidienne reste très accessible à pied, et les destinations clés de la ville demeurent à portée immédiate.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);">À l’intérieur de l’immeuble, les résidences sont conçues pour un confort durable, avec des finitions plus soignées, des plans pratiques et des spécifications pensées pour soutenir à la fois la vie quotidienne et la valeur à long terme.</p>
         <div class="project-kpis">
           <div><div class="project-kpi-label">Unités totales</div><div class="project-kpi-value">35</div></div>
           <div><div class="project-kpi-label">Superficie</div><div class="project-kpi-value">61–108 m²</div></div>
-          <div><div class="project-kpi-label">Price</div><div class="project-kpi-value">11,500 MAD/m²</div></div>
+          <div><div class="project-kpi-label">Prix</div><div class="project-kpi-value">11,500 MAD/m²</div></div>
           <div><div class="project-kpi-label">Étages</div><div class="project-kpi-value">6</div></div>
         </div>
       </div>
@@ -623,15 +763,15 @@
   <!-- BUILD QUALITY -->
   <section class="bg-navy-grad" style="padding:var(--section-pad);">
     <p class="section-eyebrow">Qualité de construction</p>
-    <h2 class="section-title" style="color:var(--white);">Des caractéristiques<br>qui surpassent le prix.</h2>
-    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.65);max-width:660px;margin-bottom:0.5rem;">À ce niveau de prix, les détails comptent. Elaf Sky View est conçu pour paraître plus fini, plus efficace et plus sécurisé que l'appartement standard du marché intermédiaire.</p>
+    <h2 class="section-title" style="color:var(--white);">La distinction se joue<br>dans les détails.</h2>
+    <p style="font-size:0.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.65);max-width:660px;margin-bottom:0.5rem;">Elaf Sky View se distingue par ces détails du quotidien souvent négligés : des spécifications réfléchies, des finitions plus solides et des améliorations pratiques qui créent une expérience de propriété plus complète.</p>
     <div class="spec-grid stagger">
-      <article class="spec-card reveal"><h3 class="spec-title">Prêt pour le solaire</h3><p class="spec-text">Chaque unité dispose d'une allocation privée en toiture pour de futurs panneaux solaires, pré-installés et directement connectés à l'entrée électrique de l'appartement et à sa place de parking souterrain.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">Infrastructure de confort</h3><p class="spec-text">La pré-installation de climatisation et les fenêtres et baies vitrées à double isolation améliorent significativement le confort, le contrôle du bruit et l'efficacité énergétique.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">Sécurité &amp; portes</h3><p class="spec-text">Les portes d'entrée et intérieures sont importées de Turquie, avec des systèmes de serrure triple point sur les portes principales pour plus de confiance et de sécurité au quotidien.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">Cuisines équipées</h3><p class="spec-text">Les appartements comprennent des cuisines entièrement équipées, réduisant les travaux d'aménagement pour les propriétaires achetant pour usage personnel ou pour une mise en location immédiate.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">Salles de bain finies</h3><p class="spec-text">Les bancs de douche intégrés ajoutent confort et praticité — surtout pour l'usage familial, les proches âgés et les résidents long séjour.</p></article>
-      <article class="spec-card reveal"><h3 class="spec-title">Finition intérieure</h3><p class="spec-text">Le sol, la peinture, les revêtements muraux et les choix de finitions apportent un sentiment plus raffiné sans entrer dans la catégorie des prix de luxe.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v6"/><path d="M8.5 7.5 12 4l3.5 3.5"/><path d="M6 14h12"/><path d="M7 14v5h10v-5"/></svg></span>Infrastructure prête pour le solaire</h3><p class="spec-text">Chaque résidence comprend un espace privé en toiture réservé à une future installation solaire, préconnecté au système électrique de l’appartement et relié à sa place de parking titrée en sous-sol.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h4"/><path d="M16 12h4"/><path d="M12 4v4"/><path d="M12 16v4"/><circle cx="12" cy="12" r="3.5"/><path d="M6 6l2 2"/><path d="m16 16 2 2"/><path d="m18 6-2 2"/><path d="m8 16-2 2"/></svg></span>Confort climatique &amp; acoustique</h3><p class="spec-text">La pré-installation de climatisation, associée à des fenêtres et baies vitrées à double isolation, contribue à améliorer le confort, à réduire les nuisances sonores extérieures et à soutenir une meilleure efficacité énergétique.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 6 6v5c0 4.2 2.4 7.3 6 10 3.6-2.7 6-5.8 6-10V6l-6-3Z"/><path d="m9.5 12 1.7 1.7 3.3-3.4"/></svg></span>Éléments de sécurité</h3><p class="spec-text">Les portes d’entrée et les portes intérieures sont importées de Turquie, avec des systèmes de verrouillage triple point sur les portes principales pour une sécurité renforcée et une tranquillité d’esprit au quotidien.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7h14"/><path d="M6 7v10h12V7"/><path d="M9 10h6"/><path d="M9 13h6"/><path d="M8 4h8"/></svg></span>Cuisines entièrement équipées</h3><p class="spec-text">Chaque appartement comprend une cuisine entièrement équipée, permettant une installation plus complète dès le premier jour.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 20v-8a5 5 0 0 1 10 0v8"/><path d="M7 14h10"/><path d="M5 20h14"/></svg></span>Confort des salles de bain</h3><p class="spec-text">Les bancs de douche intégrés apportent un niveau supplémentaire de praticité et de confort, en particulier pour les familles, les proches âgés et les séjours prolongés.</p></article>
+      <article class="spec-card reveal"><h3 class="spec-title"><span class="spec-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 6h14"/><path d="M5 12h14"/><path d="M5 18h10"/><path d="M17 17h2v2h-2z"/></svg></span>Finitions intérieures</h3><p class="spec-text">Les sols, les choix de peinture, les détails muraux et les matériaux de finition contribuent à un environnement intérieur plus raffiné et plus cohérent.</p></article>
     </div>
   </section>
 
@@ -639,44 +779,68 @@
   <section class="bg-navy-grad" style="padding:var(--section-pad);">
     <div class="split split-center">
       <div style="min-height:420px;background:var(--navy-mid);border:1px solid var(--border-warm);overflow:hidden;position:relative;" class="reveal">
-        <img loading="lazy" decoding="async" src="elaf-map.png" alt="Map showing Elaf Sky View location in Centre Ville Kénitra" style="width:100%;height:100%;object-fit:cover;min-height:420px;">
+        <img loading="lazy" decoding="async" src="../elaf-map.png" alt="Carte montrant l’emplacement d’Elaf Sky View à Kénitra" style="width:100%;height:100%;object-fit:cover;min-height:420px;">
       </div>
       <div>
         <p class="section-eyebrow">Emplacement</p>
-        <h2 class="section-title" style="color:var(--white);">Commodité Centre Ville.<br>Connecté à la région.</h2>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.65);margin-bottom:2rem;">Le projet est situé dans une partie mature et verdoyante du centre de Kénitra, à côté d'un jardin public et à distance à pied des commodités quotidiennes. Cela compte pour les résidents, les locataires et les familles qui veulent un bien qui fonctionne au-delà de la première conversation d'achat.</p>
+        <h2 class="section-title" style="color:var(--white);">Un emplacement stratégique.<br>Une vie quotidienne simplifiée.</h2>
+        <p class="location-intro">Elaf Sky View place les résidents dans l’un des emplacements urbains les plus connectés et les plus pratiques de Kénitra, où transport, éducation, santé, espaces verts et services du quotidien restent à portée immédiate.</p>
+        <p class="location-intro" style="margin-top:-0.8rem;">Qu’il s’agisse de se déplacer entre plusieurs villes, de gérer les obligations du quotidien, ou simplement de profiter d’un mode de vie plus accessible à pied, le projet offre un niveau de praticité devenu plus rare dans les programmes récents situés à l’écart du cœur urbain.</p>
+        <div class="location-highlights stagger">
+          <article class="location-highlight reveal">
+            <div class="location-highlight-label"><span class="location-highlight-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/><path d="m10 22 1-6-2-3"/><path d="m14 22-1-5 3-4"/><path d="m9 10 2-2 2 2 2 1"/><path d="m7 14 3-2"/></svg></span>À pied</div>
+            <div class="location-highlight-value">Environ 9 min</div>
+            <p class="location-highlight-text">La gare TGV de Kénitra est située à environ 700 mètres de l’immeuble, ce qui rend les déplacements interurbains facilement accessibles à pied.</p>
+          </article>
+          <article class="location-highlight reveal">
+            <div class="location-highlight-label"><span class="location-highlight-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="12" rx="2"/><path d="M9 8h.01"/><path d="M15 8h.01"/><path d="M8 16l-2 4"/><path d="M16 16l2 4"/><path d="M8 12h8"/></svg></span>En train</div>
+            <div class="location-highlight-value">Environ 25 min</div>
+            <p class="location-highlight-text">Rejoignez Rabat en environ 25 minutes, Casablanca en environ 1 heure 10 minutes, et Tanger en environ 45 minutes.</p>
+          </article>
+          <article class="location-highlight reveal">
+            <div class="location-highlight-label"><span class="location-highlight-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16V11l2-4h10l2 4v5"/><path d="M7 16h10"/><path d="M7 19h.01"/><path d="M17 19h.01"/><path d="M6 12h12"/></svg></span>En voiture</div>
+            <div class="location-highlight-value">Environ 7 min</div>
+            <p class="location-highlight-text">L’accès à l’autoroute se situe à environ 7 minutes, offrant une connectivité régionale fluide pour les résidents, les actifs et les acheteurs qui circulent entre plusieurs villes.</p>
+          </article>
+        </div>
         <div class="location-grid">
-          <div class="location-item reveal"><h3 class="location-title">Accès TGV</h3><p class="location-text">Environ 10 minutes à pied de la gare TGV de Kénitra.</p></div>
-          <div class="location-item reveal"><h3 class="location-title">Accès autoroute</h3><p class="location-text">Environ 5 minutes en voiture pour les routes de Rabat, Salé, Casablanca et Tanger.</p></div>
-          <div class="location-item reveal"><h3 class="location-title">Commodités quotidiennes</h3><p class="location-text">Commerces, services, cafés, écoles et besoins quotidiens à proximité dans un cadre central.</p></div>
-          <div class="location-item reveal"><h3 class="location-title">Cadre verdoyant</h3><p class="location-text">Tissu urbain établi avec de la verdure à proximité — pas un projet isolé en périphérie.</p></div>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4-9-4Z"/><path d="M7 10.5V15c0 1 2.2 3 5 3s5-2 5-3v-4.5"/><path d="M21 9v5"/></svg></span>Éducation</h3>
+            <ul class="location-list">
+              <li><span class="location-line">Plusieurs établissements bien implantés se trouvent à quelques minutes de l’immeuble, dont <strong>Groupe Honoré de Balzac</strong>, <strong>Don Bosco</strong> et <strong>Lycée Abdelmalek Assaadi</strong>, tous à environ 3 à 5 minutes à pied.</span></li>
+              <li><span class="location-line"><strong>Université Ibn Tofail :</strong> environ 7 minutes en voiture ou 15 minutes à pied</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"/></svg></span>Santé</h3>
+            <ul class="location-list">
+              <li><span class="location-line">Le pôle hospitalier plus large de Kénitra, incluant le <strong>Centre Hospitalier Provincial El Azemmouri</strong>, l’<strong>Hôpital International Akdital</strong> et la <strong>Clinique Polyvalente de Kénitra</strong>, se situe à environ 5 minutes en voiture de l’immeuble.</span></li>
+              <li><span class="location-line">Pour les besoins médicaux du quotidien, les résidents restent également à distance de marche de plusieurs prestataires privés le long de l’<strong>Avenue Mohamed Diouri</strong>, de la <strong>Rue Mohammed V</strong> et de l’<strong>Avenue Youssef Ben Tachfine</strong>, dont la <strong>Clinique de Chirurgie Orthopédique et Traumatologique du Kénitra (CCOTK)</strong> située juste à côté et la <strong>Polyclinique du Gharb</strong> à environ 5 minutes à pied.</span></li>
+              <li><span class="location-line">D’autres cabinets privés, pharmacies et services spécialisés se trouvent également dans l’ensemble du quartier environnant.</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21v-7"/><path d="M12 14c0-4 2.5-7 7-8 0 5-2 8-7 8Z"/><path d="M12 16c0-3-2-5.5-6-6 0 4 1.7 6 6 6Z"/></svg></span>Espace vert</h3>
+            <ul class="location-list">
+              <li><span class="location-line"><strong>Jardin Public de la Province de Kénitra :</strong> environ 5 minutes à pied. Un espace vert apprécié des résidents du quartier, idéal pour les promenades, les sorties en famille et les moments de détente au quotidien.</span></li>
+              <li><span class="location-line"><strong>Forêt urbaine de la Maâmora :</strong> environ 4 minutes en voiture ou 20 minutes à pied. Un vaste espace dédié aux loisirs et aux activités de plein air, avec pistes de course, pistes cyclables, terrains de football et espaces de promenade, idéal pour le sport comme pour la détente.</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.4 7H8L6 3H3"/><path d="M9 18h.01"/><path d="M18 18h.01"/></svg></span>Services du quotidien</h3>
+            <ul class="location-list">
+              <li><span class="location-line">Le quartier commerçant de la <strong>Rue Mohammed V</strong>, ses cafés, restaurants, mosquées, hammams, salles de sport, salons de beauté, bureaux, services administratifs et espaces de coworking font partie du quotidien immédiat.</span></li>
+              <li><span class="location-line">Les résidents bénéficient également d’un <strong>supermarché Marjane City</strong> directement au rez-de-chaussée de l’immeuble.</span></li>
+            </ul>
+          </article>
+          <article class="location-item reveal">
+            <h3 class="location-title"><span class="location-title-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 16c3-4 5.5-6 9-6s6 2 9 6"/><path d="M4 18h16"/><path d="M8 10 7 7"/><path d="M16 10l1-3"/></svg></span>Évasions du week-end</h3>
+            <ul class="location-list">
+              <li><span class="location-line"><strong>Mehdia Beach</strong> et le <strong>Parc National de Sidi Boughaba</strong> se trouvent tous deux à environ 20 minutes en voiture, offrant un accès rapide au littoral, à la nature et aux activités de plein air aux portes de la ville.</span></li>
+            </ul>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- BUYER FIT -->
-  <section class="bg-navy" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Profil acheteur</p>
-    <h2 class="section-title" style="color:var(--white);">Différents acheteurs.<br>Différentes raisons de s'intéresser.</h2>
-    <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.63);max-width:640px;margin-bottom:0.5rem;">Elaf Sky View n'est pas un argumentaire générique. Différents types d'unités peuvent servir différents profils d'acheteurs — des primo-accédants et familles MRE aux investisseurs locaux et ressortissants étrangers qui se relocalisent au Maroc.</p>
-    <div class="buyer-fit-grid stagger">
-      <article class="buyer-card reveal"><div class="buyer-card-num">01</div><h3 class="buyer-card-title">Investisseurs internationaux</h3><p class="buyer-card-text">Une base centrale à Kénitra pour la planification d'une relocalisation, la vie à long terme, les revenus locatifs ou une exposition immobilière marocaine gérée.</p><a href="investors-international.html" class="buyer-card-link">Parcours acheteur international</a></article>
-      <article class="buyer-card reveal"><div class="buyer-card-num">02</div><h3 class="buyer-card-title">Diaspora marocaine / MRE</h3><p class="buyer-card-text">Une résidence secondaire, une base familiale, un investissement locatif ou un bien de retour futur — avec un accompagnement pendant votre absence.</p><a href="investors-mre.html" class="buyer-card-link">Parcours acheteur MRE</a></article>
-      <article class="buyer-card reveal"><div class="buyer-card-num">03</div><h3 class="buyer-card-title">Investisseurs locaux</h3><p class="buyer-card-text">Une opportunité de ville secondaire connectée comparant l'accessibilité de la région de Rabat, l'usage locatif et la valeur à long terme.</p><a href="investors-local.html" class="buyer-card-link">Parcours acheteur local</a></article>
-      <article class="buyer-card reveal"><div class="buyer-card-num">04</div><h3 class="buyer-card-title">Acheteurs Daam</h3><p class="buyer-card-text">Certaines unités peuvent être éligibles au Daam Sakani — donnant aux acheteurs éligibles accès à un bâtiment premium à un point d'entrée plus accessible.</p><a href="guides/daam-sakani-guide.html" class="buyer-card-link">Lire le guide Daam</a></article>
-    </div>
-  </section>
-
-  <!-- UNIT STRATEGY -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Stratégie d'unité</p>
-    <h2 class="section-title" style="color:var(--navy);">Choisir l'unité<br>selon l'usage prévu.</h2>
-    <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:640px;margin-bottom:0.5rem;">La bonne unité dépend de la façon dont vous envisagez de l'utiliser : habiter, louer, rentrer, bénéficier d'une aide au logement ou conserver pour une valeur à long terme.</p>
-    <div class="unit-grid stagger">
-      <article class="unit-card reveal"><span class="unit-tag">Stratégie d'entrée</span><h3 class="unit-title">Unités éligibles Daam</h3><p class="unit-text">Pour les acheteurs éligibles, certaines unités créent un point d'entrée plus accessible dans un bâtiment de meilleure qualité. L'éligibilité et les obligations doivent être confirmées avant de réserver.</p></article>
-      <article class="unit-card reveal"><span class="unit-tag">Usage familial</span><h3 class="unit-title">Résidences plus grandes</h3><p class="unit-text">Les plans plus grands conviennent aux résidences secondaires, aux séjours familiaux, à la vie à long terme ou aux acheteurs préparant un futur retour au Maroc.</p></article>
-      <article class="unit-card reveal"><span class="unit-tag">Logique locative</span><h3 class="unit-title">Unités adaptées aux investisseurs</h3><p class="unit-text">Pour les acheteurs axés sur la location : taille de l'unité, coût d'ameublement, profil du locataire, structure de gestion et si l'emplacement soutient une demande régulière.</p></article>
     </div>
   </section>
 
@@ -684,20 +848,18 @@
   <section class="bg-navy-grad" style="padding:var(--section-pad);">
     <div class="split split-center">
       <div>
-        <p class="section-eyebrow">Argument d'investissement</p>
-        <h2 class="section-title" style="color:var(--white);">Pourquoi Kénitra,<br>pourquoi maintenant.</h2>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">Kénitra n'est pas Rabat — et c'est en partie le propos. Les acheteurs exclus de la capitale par les prix, les familles cherchant plus d'espace et les investisseurs cherchant des prix d'entrée plus forts peuvent tous trouver une conversation plus pratique dans les villes secondaires connectées.</p>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:2rem;">Elaf Sky View s'inscrit dans cette opportunité : emplacement central, bon accès aux transports, tailles d'unités pratiques et niveau de spécifications qui aide le projet à se distinguer.</p>
+        <p class="section-eyebrow">Pourquoi Kénitra</p>
+        <h2 class="section-title" style="color:var(--white);">Une ville connectée.<br>Une opportunité plus stratégique.</h2>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">Pour de nombreux acheteurs, Kénitra offre quelque chose de plus en plus difficile à trouver dans les grandes villes marocaines : un niveau de prix plus accessible, une connectivité efficace, et un cadre de vie à la fois pratique et agréable.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">Aujourd’hui, les résidents bénéficient déjà d’un accès ferroviaire à grande vitesse vers Rabat (environ 25 minutes), Casablanca (environ 1 heure 10 minutes) et Tanger (environ 45 minutes), tout en profitant de prix nettement plus accessibles que pour des biens comparables dans la capitale.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">À plus long terme, l’extension planifiée de la LGV pourrait encore renforcer le positionnement de Kénitra. Une fois achevée, les projections évoquent Marrakech à environ 1 heure 30 minutes et l’aéroport Mohammed V à environ 45 minutes en train, renforçant l’intégration de Kénitra dans les grands corridors économiques, touristiques et de transport du Maroc.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:1.2rem;">Même si l’appréciation ne peut jamais être garantie, les infrastructures de cette ampleur ont historiquement exercé une influence réelle sur les marchés immobiliers environnants. À mesure que Kénitra se connecte davantage aux grands pôles économiques tout en restant plus accessible que Rabat et Casablanca, de nombreux acheteurs y voient un potentiel de valorisation significatif à long terme.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:2rem;">Au-delà de la connectivité, la ville continue d’attirer familles, actifs, MRE de retour au pays et investisseurs de long terme, séduits par sa proximité avec la côte Atlantique, ses infrastructures en amélioration et un marché plus accessible que dans les plus grandes villes. Elaf Sky View place les acheteurs dans l’un des quartiers les plus établis de la ville, avec une combinaison d’emplacement, de connectivité et de niveau de finition qu’il devient difficile de retrouver au même prix dans l’ensemble de la région Rabat-Salé.</p>
         <div style="display:flex;flex-wrap:wrap;gap:0.9rem;">
           <a href="guides/kenitra-vs-rabat.html" style="font-size:0.66rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--gold);border:1px solid rgba(210,180,134,0.3);padding:0.7rem 1rem;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='var(--copper)';this.style.color='#fff';" onmouseout="this.style.background='';this.style.color='var(--gold)';">Kénitra vs Rabat</a>
           <a href="guides/buying-property-morocco.html" style="font-size:0.66rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--gold);border:1px solid rgba(210,180,134,0.3);padding:0.7rem 1rem;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='var(--copper)';this.style.color='#fff';" onmouseout="this.style.background='';this.style.color='var(--gold)';">Acheter au Maroc</a>
           <a href="guides/preconstruction-guide.html" style="font-size:0.66rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--gold);border:1px solid rgba(210,180,134,0.3);padding:0.7rem 1rem;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='var(--copper)';this.style.color='#fff';" onmouseout="this.style.background='';this.style.color='var(--gold)';">Guide préconstruction</a>
         </div>
-      </div>
-      <div>
-        <div class="invest-panel reveal"><p class="invest-kicker">Pour les acheteurs région Rabat</p><h3 class="invest-title">Être propriétaire dans une ville connectée tout en restant à portée de la capitale.</h3></div>
-        <div class="invest-panel reveal"><p class="invest-kicker">Pour les acheteurs MRE</p><h3 class="invest-title">Une base au pays qui peut servir l'usage familial, la stratégie locative ou la planification d'un retour à long terme.</h3></div>
-        <div class="invest-panel reveal"><p class="invest-kicker">Pour les acheteurs internationaux</p><h3 class="invest-title">Une entrée pratique au Maroc en dehors des marchés touristiques entièrement valorisés.</h3></div>
       </div>
     </div>
   </section>
@@ -772,7 +934,7 @@
       </div>
     </div>
 
-    <p class="calc-disclaimer">Chiffres indicatifs uniquement. Les taux des prêts immobiliers marocains se situent actuellement entre 4,5 % et 5,5 % par an. Les conditions finales dépendent de votre banque, de votre dossier et de l'approbation Daam Sakani — nous coordonnons l'ensemble du processus pour les acheteurs sérieux. <a href="#contact">Contactez-nous.</a></p>
+    <p class="calc-disclaimer">Chiffres indicatifs uniquement. Les taux des prêts immobiliers marocains se situent actuellement entre 4,5 % et 5,5 % par an. Les conditions finales dépendent de votre banque, de votre dossier et de l’approbation Daam Sakani. Nous pouvons vous aider à avancer plus clairement dans le processus. <a href="#contact">Contactez-nous.</a></p>
   </section>
 
   <!-- OUR ROLE -->
@@ -780,18 +942,33 @@
     <div class="split split-center">
       <div>
         <p class="section-eyebrow">Rahim International</p>
-        <h2 class="section-title" style="color:var(--navy);">Nous vous aidons à lire<br>le projet correctement.</h2>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Nous avons trouvé Elaf Sky View de la même façon que vous pourriez — en tant qu'acheteurs, coordonnant depuis le Canada, passant cinq mois à faire des allers-retours entre le Canada et le Maroc, visitant des projets et comparant tout ce que nous pouvions accéder. Nous avons choisi ce promoteur parce qu'il était le seul dont nous pouvions réellement vérifier le projet. Nous avons engagé notre propre argent avant de proposer un mandat. Nous sommes propriétaires dans ce bâtiment.</p>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Cela signifie que lorsque nous vous aidons à évaluer Elaf Sky View, nous ne lisons pas une fiche technique. Nous avons suivi la construction des briques apparentes jusqu'à l'achèvement. Nous connaissons le promoteur directement. Nous connaissons la qualité de construction, l'emplacement à différents moments de la journée et à quoi ressemble le projet comparé à tout ce qui est disponible sur le marché.</p>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);">Notre rôle est de faciliter la décision — en comparant les types d'unités, en expliquant le rapport qualité-prix, en coordonnant avec le promoteur et en maintenant le processus organisé pour les acheteurs qui ne peuvent pas être sur place à chaque étape.</p>
+        <h2 class="section-title" style="color:var(--navy);">Achetez avec un accompagnement<br>éclairé, fondé sur une connaissance réelle du terrain.</h2>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Notre compréhension d’Elaf Sky View repose sur une expérience directe du projet, nourrie par une présence continue sur le terrain.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Nous avons analysé le projet sur place, vérifié le promoteur, suivi l’avancement des travaux de près et choisi d’y investir nous-mêmes.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;">Cette perspective nous permet d’accompagner les acheteurs avec davantage de clarté : comprendre quelles unités correspondent réellement à leurs objectifs, identifier les bonnes questions avant de réserver et avancer dans le processus avec plus de confiance.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);">Pour les acheteurs basés à l’étranger — comme pour ceux déjà au Maroc mais disposant de peu de temps — ce niveau de connaissance locale permet de rendre l’achat plus fluide, plus structuré et plus serein.</p>
       </div>
       <div>
-        <div class="unit-grid" style="grid-template-columns:1fr;">
-          <article class="unit-card reveal"><span class="unit-tag">01</span><h3 class="unit-title">Sélection de l'unité</h3><p class="unit-text">Nous aidons à faire correspondre le budget, la taille de l'unité, l'usage et le profil de l'acheteur à la bonne option.</p></article>
-          <article class="unit-card reveal"><span class="unit-tag">02</span><h3 class="unit-title">Examen du projet</h3><p class="unit-text">Nous clarifions les finitions, le prix, la livraison, l'éligibilité et les questions qui comptent avant la réservation.</p></article>
-          <article class="unit-card reveal"><span class="unit-tag">03</span><h3 class="unit-title">Suivi</h3><p class="unit-text">Nous maintenons le processus organisé de la première demande jusqu'à la prochaine étape sérieuse.</p></article>
+        <div class="project-tags" style="margin-bottom:1rem;">
+          <span class="tag">Propriétaires dans l’immeuble</span>
+          <span class="tag">Nous suivons le projet depuis sa phase de préconstruction.</span>
         </div>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.5rem;">Nous aidons les acheteurs à évaluer le choix des unités, le prix, l’éligibilité, la documentation et les prochaines étapes avec davantage de clarté.</p>
+        <a href="#contact" class="btn-primary">Demander prix &amp; détails</a>
       </div>
+    </div>
+  </section>
+
+  <!-- BUYER FIT -->
+  <section class="bg-navy" style="padding:var(--section-pad);">
+    <p class="section-eyebrow">Conçu pour différents projets d’achat</p>
+    <h2 class="section-title" style="color:var(--white);">Un même bien.<br>Plusieurs projets de vie possibles.</h2>
+    <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.63);max-width:640px;margin-bottom:0.5rem;">Que vous achetiez pour y vivre, pour votre famille, pour générer un revenu locatif ou dans le cadre du Daam Sakani, Elaf peut répondre à différents projets selon l’usage que vous souhaitez en faire.</p>
+    <div class="buyer-fit-grid stagger">
+      <article class="buyer-card reveal"><div class="buyer-card-num">01</div><h3 class="buyer-card-title">Pour les acheteurs internationaux</h3><p class="buyer-card-text">Une résidence bien connectée pour une relocalisation, une vie à temps plein, un revenu locatif ou l’établissement d’un ancrage durable au Maroc.</p><a href="investors-international.html" class="buyer-card-link">Guide acheteur international</a></article>
+      <article class="buyer-card reveal"><div class="buyer-card-num">02</div><h3 class="buyer-card-title">Pour les familles MRE</h3><p class="buyer-card-text">Une résidence secondaire, un pied-à-terre familial, un bien locatif ou une future résidence de retour, dans un environnement pratique lorsque vous êtes au Maroc et simple à gérer lorsque vous êtes à l’étranger.</p><a href="investors-mre.html" class="buyer-card-link">Guide MRE</a></article>
+      <article class="buyer-card reveal"><div class="buyer-card-num">03</div><h3 class="buyer-card-title">Pour les acheteurs locaux</h3><p class="buyer-card-text">Une résidence bien située, offrant une vraie praticité au quotidien, des spécifications réfléchies et une attractivité durable pour les acheteurs qui comparent les options à l’échelle de la région Rabat-Salé-Kénitra.</p><a href="investors-local.html" class="buyer-card-link">Guide acheteur local</a></article>
+      <article class="buyer-card reveal"><div class="buyer-card-num">04</div><h3 class="buyer-card-title">Pour les acheteurs éligibles au Daam</h3><p class="buyer-card-text">Certaines unités peuvent être éligibles au Daam Sakani, créant une opportunité rare pour les primo-accédants éligibles d’accéder à un immeuble plus raffiné à un niveau de prix plus accessible.</p><a href="guides/daam-sakani-guide.html" class="buyer-card-link">Lire le guide Daam</a></article>
     </div>
   </section>
 
@@ -799,13 +976,13 @@
   <section id="contact" style="background:var(--navy);padding:var(--section-pad);">
     <div class="split split-center">
       <div>
-        <p class="section-eyebrow">Demander les détails</p>
-        <h2 class="section-title" style="color:var(--white);">Vous voulez le dossier<br>Elaf Sky View complet ?</h2>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:2.5rem;">Dites-nous si vous achetez pour la résidence, les revenus locatifs, l'éligibilité Daam, la relocalisation ou l'investissement à long terme. Nous vous enverrons les informations adaptées et expliquerons quel type d'unité correspond à votre objectif.</p>
+        <p class="section-eyebrow">Demander prix &amp; détails</p>
+        <h2 class="section-title" style="color:var(--white);">Demander prix,<br>disponibilités et accompagnement.</h2>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.64);margin-bottom:2.5rem;">Dites-nous ce que vous recherchez et nous vous enverrons les informations les plus pertinentes, y compris des repères de prix, l’adéquation des unités et un aperçu clair des prochaines étapes.</p>
         <div class="contact-info">
           <div class="contact-item">
             <div class="contact-icon">✉</div>
-            <div><div class="contact-item-label">E-mail</div><div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div></div>
+            <div><div class="contact-item-label">E-mail</div><div class="contact-item-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">☎</div>
@@ -839,7 +1016,7 @@
           </div>
           <div class="form-group"><label class="form-label" for="message">Message</label><textarea id="message" name="message" class="form-textarea" placeholder="Dites-nous ce que vous souhaitez savoir sur Elaf Sky View…"></textarea></div>
           <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">Demander le dossier complet</button>
+          <button type="submit" class="form-submit">Demander prix &amp; détails</button>
         </form>
       </div>
     </div>
@@ -856,7 +1033,7 @@
     </div>
     <div><div class="footer-col-label">Navigation</div><div class="footer-links"><a href="index.html">Accueil</a><a href="about.html">À propos</a><a href="why-morocco.html">Pourquoi Kénitra</a><a href="elaf-sky-view.html">Elaf Sky View</a><a href="../index.html#contact">Nous contacter</a></div></div>
     <div><div class="footer-col-label">Acheteurs &amp; guides</div><div class="footer-links"><a href="investors-international.html">Investisseurs internationaux</a><a href="investors-mre.html">Diaspora marocaine / MRE</a><a href="investors-local.html">Investisseurs locaux</a><a href="services-developers.html">Services aux promoteurs</a><a href="guides/index.html">Guides d'achat</a></div></div>
-    <div><div class="footer-col-label">Nous contacter</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">E-mail</div><div class="footer-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">Téléphone &amp; WhatsApp</div><div class="footer-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div></div></div></div>
+    <div><div class="footer-col-label">Nous contacter</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">E-mail</div><div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">Téléphone &amp; WhatsApp</div><div class="footer-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div></div></div></div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 Rahim International. Tous droits réservés.</div>
