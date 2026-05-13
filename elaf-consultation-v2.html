@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elaf Sky View — Investment Consultation · Rahim International</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;600;700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0e1726;--navy2:#122033;--navy3:#1a2b41;--navy4:#25374f;
+  --ww:#f5f7fb;--ow:#ecf1f8;--white:#ffffff;
+  --ink:#162033;--slate:#5c6f8d;--mist:#8da0bc;
+  --gold:#d2a43b;--gold2:#e1b95b;--gp:rgba(210,164,59,.14);--gb:rgba(210,164,59,.28);
+  --sage:#18905f;--sp:rgba(24,144,95,.14);
+  --rust:#d24b49;--rp:rgba(210,75,73,.14);
+  --sky:#3b82f6;--sky-soft:rgba(59,130,246,.14);
+  --violet:#7c5cff;--violet-soft:rgba(124,92,255,.14);
+  --dt:#edf4ff;--dt2:#b4c3d7;
+  --db:rgba(255,255,255,.10);--db2:rgba(255,255,255,.06);
+  --lb:rgba(90,113,148,.18);--lb2:rgba(90,113,148,.10);
+  --shadow-lg:0 24px 80px rgba(17,30,54,.14);
+  --shadow-md:0 14px 40px rgba(17,30,54,.10);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--navy);color:var(--dt);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.28;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='.04'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:900;width:0;transition:width .15s ease}
+
+/* ── GATE ── */
+#gate{position:fixed;inset:0;z-index:800;background:
+  radial-gradient(circle at top right,rgba(59,130,246,.18),transparent 28%),
+  radial-gradient(circle at top left,rgba(124,92,255,.2),transparent 24%),
+  linear-gradient(180deg,#0c1421 0%,#101c2d 100%);
+  display:flex;align-items:center;justify-content:center;padding:2rem;overflow-y:auto}
+#gate.off{display:none}
+.g-inner{width:100%;max-width:460px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px);border-radius:24px;padding:2.4rem 2.4rem 2.6rem;box-shadow:var(--shadow-lg);text-align:center}
+.g-firm{font-family:'Anybody',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--dt2);margin-bottom:2rem;display:block}
+.g-h{font-family:'Anybody',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:.8rem}
+.g-p{font-size:.86rem;font-weight:300;color:var(--dt2);line-height:1.85;margin-bottom:1.5rem}
+.g-form{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.3rem}
+.g-input{width:100%;padding:.72rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Cairo',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;border-radius:12px}
+.g-input:focus{border-color:var(--gold)}
+.g-input::placeholder{color:rgba(255,255,255,.3)}
+.g-check{display:flex;align-items:center;gap:.7rem;text-align:left;padding:.65rem .9rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);border-radius:12px;cursor:pointer;transition:border-color .2s}
+.g-check:hover{border-color:rgba(210,164,59,.35)}
+.g-check input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0}
+.g-check-label{font-size:.8rem;font-weight:300;color:var(--dt2);line-height:1.4}
+.g-check-label strong{color:var(--gold2);font-weight:600}
+.g-err{font-size:.76rem;color:var(--rust);display:none;margin-bottom:.5rem}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-family:'Anybody',sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.88rem 2rem;border:none;cursor:pointer;width:100%;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 12px 28px rgba(210,164,59,.28);transition:.2s}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(210,164,59,.32)}
+.g-trust{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.4rem}
+.g-trust-item{font-size:.68rem;font-weight:300;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:.35rem}
+.g-trust-item::before{content:'✓';color:var(--gold)}
+.g-skip{font-size:.72rem;font-weight:300;color:rgba(255,255,255,.2);cursor:pointer;background:none;border:none;margin-top:1rem;transition:color .15s;display:block;width:100%;text-align:center}
+.g-skip:hover{color:var(--dt2)}
+
+/* ── ONBOARDING ── */
+#ob{position:fixed;inset:0;z-index:700;display:none;flex-direction:column;background:
+  radial-gradient(circle at top right,rgba(59,130,246,.12),transparent 28%),
+  radial-gradient(circle at top left,rgba(124,92,255,.14),transparent 24%),
+  linear-gradient(180deg,#0d1726 0%,#132238 100%)}
+#ob.active{display:flex}
+.ob-top{padding:1.1rem 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--db);flex-shrink:0}
+.ob-brand{font-family:'Anybody',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dt2)}
+.ob-progress{display:flex;align-items:center;gap:.9rem}
+.ob-dots{display:flex;gap:.35rem}
+.ob-dot{width:24px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;transition:background .3s}
+.ob-dot.done{background:var(--gold)}
+.ob-dot.active{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.ob-step-txt{font-size:.68rem;font-weight:300;color:rgba(255,255,255,.3)}
+.ob-body{flex:1;overflow-y:auto;padding:2.5rem 5%;display:flex;flex-direction:column;justify-content:center;max-width:760px;margin:0 auto;width:100%}
+.ob-screen{display:none}
+.ob-screen.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.ob-step-label{font-family:'Anybody',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.9rem}
+.ob-q{font-family:'Anybody',sans-serif;font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:.5rem}
+.ob-hint{font-size:.85rem;font-weight:300;color:var(--dt2);line-height:1.7;margin-bottom:1.8rem}
+.ob-cards{display:grid;gap:.55rem}
+.ob-cards.two{grid-template-columns:1fr 1fr}
+.ob-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);padding:1.1rem 1.3rem;cursor:pointer;transition:border-color .18s,background .18s,transform .18s;text-align:left;border-radius:18px;backdrop-filter:blur(12px)}
+.ob-card:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+.ob-card.selected{background:linear-gradient(180deg,rgba(210,164,59,.14),rgba(59,130,246,.08));border-color:rgba(210,164,59,.55)}
+.ob-card.selected .ob-card-title{color:var(--gold2)}
+.ob-card-price{font-family:'Anybody',sans-serif;font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:.25rem;line-height:1}
+.ob-card.selected .ob-card-price{color:var(--gold2)}
+.ob-card-title{font-size:.92rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.2rem}
+.ob-card-desc{font-size:.78rem;font-weight:300;color:var(--dt2);line-height:1.55}
+/* Unit path cards with images */
+.ob-cards.paths{grid-template-columns:1fr 1fr}
+.ob-path-card{padding:0;overflow:hidden;border-radius:18px}
+.ob-path-img{position:relative;height:160px;overflow:hidden;background:var(--navy3)}
+.ob-path-img img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .3s}
+.ob-path-card:hover .ob-path-img img{opacity:.9}
+.ob-path-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,30,.95) 0%,rgba(10,18,30,.1) 60%)}
+.ob-path-badge{position:absolute;top:.6rem;right:.7rem;font-size:.54rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(10,18,30,.8);border:1px solid rgba(210,164,59,.4);color:var(--gold2);padding:.2rem .55rem;border-radius:999px}
+.ob-path-badge.daam{background:rgba(24,144,95,.15);border-color:rgba(24,144,95,.4);color:#5de8a8}
+.ob-path-body{padding:1rem 1.1rem 1.1rem}
+.ob-path-price{font-family:'Anybody',sans-serif;font-size:1.25rem;font-weight:800;color:#fff;line-height:1;margin-bottom:.22rem}
+.ob-path-card.selected .ob-path-price{color:var(--gold2)}
+.ob-path-name{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.25rem;line-height:1.25}
+.ob-path-spec{font-size:.74rem;font-weight:300;color:var(--dt2);line-height:1.5}
+.ob-bot{padding:1rem 5%;border-top:1px solid var(--db);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.ob-back{font-family:'Anybody',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--dt2);cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:.4rem;transition:color .15s;visibility:hidden}
+.ob-back:hover{color:#fff}
+.ob-note{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.22)}
+
+/* ── TRANSITION ── */
+#transition{position:fixed;inset:0;z-index:600;background:var(--navy);display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.3rem}
+#transition.active{display:flex}
+.tr-spin{width:34px;height:34px;border:2px solid rgba(210,164,59,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tr-txt{font-size:.85rem;font-weight:300;color:var(--dt2);letter-spacing:.06em}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,18,30,.8);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08);display:none}
+nav.visible{display:flex}
+.nav-brand{font-family:'Anybody',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dt2)}
+.nav-actions{display:flex;gap:.5rem}
+.btn-sm{font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:.5rem 1rem;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:.18s;border-radius:999px;border:none}
+.btn-outline-sm{background:rgba(255,255,255,.04);color:var(--dt2);border:1px solid rgba(255,255,255,.12)}
+.btn-outline-sm:hover{border-color:rgba(255,255,255,.24);color:#fff}
+.btn-gold-sm{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-weight:800}
+.btn-gold-sm:hover{opacity:.9}
+
+/* ── RESULTS ── */
+#results{display:none;padding-top:62px}
+#results.active{display:block}
+
+/* ID BAR */
+.id-bar{background:rgba(10,18,30,.9);border-bottom:1px solid var(--db);padding:.85rem 5%;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(18px);position:sticky;top:62px;z-index:400}
+.id-txt{font-family:'Anybody',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.id-sub{font-size:.7rem;font-weight:300;color:var(--dt2)}
+
+/* SECTIONS */
+.r-section{padding:clamp(2.5rem,5vw,4.5rem) 5%}
+.r-section-inner{max-width:1100px;margin:0 auto}
+.s-dark{background:var(--navy2)}
+.s-navy{background:var(--navy)}
+.s-mid{background:
+  radial-gradient(circle at top left,rgba(124,92,255,.10),transparent 28%),
+  linear-gradient(180deg,#0e1d30 0%,#132238 100%)}
+
+/* EYEBROW */
+.eye{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem}
+.eye::before{content:'';width:14px;height:2px;background:linear-gradient(90deg,var(--sky),var(--violet));flex-shrink:0}
+.eye.gold{color:var(--gold)}
+.eye.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+
+/* HEADINGS */
+.h2{font-family:'Anybody',sans-serif;font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:.8rem}
+.body{font-size:.9rem;font-weight:300;color:var(--dt2);line-height:1.85;margin-bottom:.9rem}
+.body strong{color:#fff;font-weight:600}
+
+/* UNIT CARDS */
+.unit-grid{display:grid;gap:1.2rem}
+.unit-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s}
+.unit-card:hover{border-color:rgba(210,164,59,.3);transform:translateY(-2px);box-shadow:0 18px 48px rgba(0,0,0,.25)}
+.unit-card.recommended{border-color:rgba(210,164,59,.5);border-width:1.5px}
+.unit-badge{font-size:.56rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);padding:.22rem .7rem;display:inline-block;margin:0}
+.unit-img{position:relative;height:220px;overflow:hidden;background:var(--navy3)}
+.unit-img img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .5s,opacity .3s}
+.unit-card:hover .unit-img img{transform:scale(1.03);opacity:.85}
+.unit-img-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,30,.95) 0%,transparent 55%)}
+.unit-img-tags{position:absolute;bottom:.8rem;left:.9rem;display:flex;gap:.4rem;flex-wrap:wrap}
+.unit-img-tag{font-size:.54rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(10,18,30,.82);border:1px solid rgba(255,255,255,.14);color:var(--dt2);padding:.18rem .5rem;border-radius:999px}
+.unit-img-tag.daam{border-color:rgba(24,144,95,.5);color:#5de8a8;background:rgba(24,144,95,.12)}
+.unit-img-tag.delivery{border-color:rgba(210,164,59,.4);color:var(--gold2)}
+.unit-body{padding:1.4rem 1.5rem 1.5rem}
+.unit-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.unit-name{font-family:'Anybody',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;line-height:1.2}
+.unit-price{font-family:'Anybody',sans-serif;font-size:1.35rem;font-weight:800;color:var(--gold2);text-align:right;line-height:1}
+.unit-price-range{font-size:.68rem;font-weight:300;color:var(--dt2);text-align:right;margin-top:.2rem}
+.unit-specs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.spec{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--dt2);padding:.2rem .55rem;border-radius:999px}
+.unit-avail{font-size:.72rem;font-weight:300;color:var(--dt2);display:flex;align-items:center;gap:.4rem}
+.unit-avail::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0}
+
+/* FLOOR SELECTOR */
+.floor-wrap{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--db)}
+.floor-label{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dt2);margin-bottom:.8rem}
+.floor-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.45rem}
+.floor-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:.6rem .3rem;text-align:center;cursor:pointer;transition:.18s}
+.floor-btn:hover{border-color:rgba(210,164,59,.4);background:rgba(255,255,255,.08)}
+.floor-btn.active{background:rgba(210,164,59,.12);border-color:rgba(210,164,59,.55)}
+.floor-btn-num{font-family:'Anybody',sans-serif;font-size:.72rem;font-weight:700;color:#fff;display:block;margin-bottom:.15rem}
+.floor-btn.active .floor-btn-num{color:var(--gold2)}
+.floor-btn-price{font-size:.6rem;font-weight:300;color:var(--dt2);display:block;line-height:1.2}
+.floor-btn.active .floor-btn-price{color:var(--gold)}
+.floor-note{font-size:.74rem;font-weight:300;color:var(--dt2);margin-top:.7rem;line-height:1.65;padding:.7rem .9rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+.floor-note.warn{border-color:rgba(210,164,59,.25);background:rgba(210,164,59,.06);color:var(--gold)}
+
+/* DAAM BOX */
+.daam-box{background:rgba(24,144,95,.08);border:1px solid rgba(24,144,95,.3);border-radius:18px;padding:1.4rem 1.5rem;margin-top:1.5rem}
+.daam-box-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.daam-dot{width:20px;height:20px;background:#18905f;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#fff;flex-shrink:0}
+.daam-box-title{font-family:'Anybody',sans-serif;font-size:.85rem;font-weight:700;color:#5de8a8}
+.daam-rows{display:grid;gap:.5rem}
+.daam-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.84rem}
+.daam-row-k{font-weight:300;color:var(--dt2)}
+.daam-row-v{font-weight:600;color:var(--dt)}
+.daam-row-v.green{color:#5de8a8}
+.daam-row-v.strong{font-family:'Anybody',sans-serif;font-size:1.1rem;color:#5de8a8}
+.daam-note{font-size:.74rem;font-weight:300;color:rgba(93,232,168,.65);margin-top:.9rem;line-height:1.65;border-top:1px solid rgba(24,144,95,.2);padding-top:.8rem}
+.daam-box.warn{background:rgba(210,164,59,.08);border-color:rgba(210,164,59,.3)}
+.daam-box.warn .daam-box-title{color:var(--gold2)}
+.daam-box.warn .daam-dot{background:var(--gold)}
+.daam-box.warn .daam-note{color:rgba(210,164,59,.65);border-color:rgba(210,164,59,.2)}
+.daam-switch{color:var(--gold2);text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-size:.76rem}
+
+/* LOCATION NOTE */
+.loc-note{background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;padding:1rem 1.3rem;margin-top:1.5rem}
+.loc-note-text{font-size:.84rem;font-weight:300;color:var(--dt2);line-height:1.75}
+.loc-note-text strong{color:#fff;font-weight:600}
+
+/* CALCULATOR */
+.calc-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden}
+.calc-head{background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(124,92,255,.12));border-bottom:1px solid var(--db);padding:1.3rem 1.6rem;display:flex;align-items:center;justify-content:space-between}
+.calc-head-title{font-family:'Anybody',sans-serif;font-size:.9rem;font-weight:800;color:#fff}
+.calc-head-sub{font-size:.72rem;font-weight:300;color:var(--dt2)}
+.calc-body{padding:1.5rem 1.6rem}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1.4rem}
+.calc-field{display:flex;flex-direction:column;gap:.38rem}
+.calc-label{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dt2)}
+.calc-input-row{display:flex;align-items:center;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.calc-input-row:focus-within{border-color:var(--gold)}
+.calc-input{flex:1;background:transparent;border:none;outline:none;font-family:'Cairo',sans-serif;font-size:.9rem;color:#fff;padding:.55rem .8rem}
+.calc-suf{font-size:.68rem;font-weight:600;color:var(--dt2);padding-right:.8rem;flex-shrink:0;border-left:1px solid rgba(255,255,255,.08);padding-left:.8rem}
+.calc-results{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08)}
+.calc-result{background:var(--navy2);padding:1.2rem 1rem;text-align:center}
+.calc-result.hero{background:linear-gradient(180deg,rgba(59,130,246,.14),rgba(124,92,255,.1))}
+.calc-result-num{font-family:'Anybody',sans-serif;font-size:1.5rem;font-weight:800;color:var(--gold2);line-height:1}
+.calc-result.hero .calc-result-num{color:#fff;font-size:1.7rem}
+.calc-result-label{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dt2);margin-top:.35rem;line-height:1.4}
+.calc-disclaimer{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.3);padding:1rem 1.6rem;line-height:1.65;border-top:1px solid var(--db)}
+.calc-profile{padding:1.3rem 1.6rem;border-bottom:1px solid var(--db);background:rgba(255,255,255,.03)}
+.calc-profile-title{font-family:'Anybody',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dt2);margin-bottom:1rem;display:block}
+.calc-profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
+.calc-profile-full{margin-bottom:.9rem}
+.calc-select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Cairo',sans-serif;font-size:.88rem;padding:.55rem .8rem;border-radius:12px;outline:none;transition:border-color .2s;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b4c3d7' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center;padding-right:2rem}
+.calc-select:focus{border-color:var(--gold)}
+.calc-select option{background:#1a2b41;color:#fff}
+.fonc-box{background:rgba(210,164,59,.08);border:1px solid rgba(210,164,59,.25);border-radius:14px;padding:1rem 1.1rem}
+.fonc-box-top{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.5rem}
+.fonc-checkbox{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;margin-top:2px}
+.fonc-box-label{font-size:.82rem;font-weight:600;color:var(--gold2);line-height:1.3;cursor:pointer}
+.fonc-box-desc{font-size:.74rem;font-weight:300;color:rgba(210,164,59,.7);line-height:1.65}
+.fonc-reset{font-size:.7rem;font-weight:600;color:var(--dt2);text-decoration:underline;text-underline-offset:2px;cursor:pointer;background:none;border:none;padding:0;margin-top:.5rem;display:inline-block;transition:color .15s}
+.fonc-reset:hover{color:#fff}
+.affordability-bar{padding:1rem 1.6rem;border-top:1px solid var(--db)}
+.afford-ok{background:rgba(24,144,95,.08);border:1px solid rgba(24,144,95,.25);border-radius:14px;padding:.9rem 1.1rem;display:flex;align-items:center;gap:.7rem}
+.afford-warn{background:rgba(210,164,59,.08);border:1px solid rgba(210,164,59,.25);border-radius:14px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.7rem}
+.afford-icon{font-size:1rem;flex-shrink:0;margin-top:.1rem}
+.afford-text{font-size:.78rem;font-weight:300;line-height:1.65}
+.afford-ok .afford-text{color:rgba(93,232,168,.8)}
+.afford-warn .afford-text{color:rgba(210,164,59,.8)}
+.afford-text strong{font-weight:600}
+.afford-ok .afford-text strong{color:#5de8a8}
+.afford-warn .afford-text strong{color:var(--gold2)}
+
+/* CONFIRMATION */
+.confirm-wrap{background:
+  radial-gradient(circle at top right,rgba(59,130,246,.16),transparent 28%),
+  radial-gradient(circle at top left,rgba(124,92,255,.14),transparent 24%),
+  linear-gradient(180deg,#0c1421,#14233a);
+  padding:clamp(3rem,6vw,6rem) 5%;text-align:center}
+.confirm-inner{max-width:540px;margin:0 auto}
+.confirm-icon{width:54px;height:54px;background:rgba(210,164,59,.12);border:1px solid rgba(210,164,59,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.3rem}
+.confirm-h{font-family:'Anybody',sans-serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:.8rem}
+.confirm-p{font-size:.88rem;font-weight:300;color:var(--dt2);line-height:1.85;margin-bottom:2rem}
+.confirm-email{color:var(--gold2);font-weight:600}
+.confirm-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.btn-whatsapp{background:#25d366;color:#fff;font-family:'Anybody',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.78rem 1.8rem;border:none;cursor:pointer;border-radius:999px;display:inline-flex;align-items:center;gap:.5rem;transition:.2s;box-shadow:0 10px 24px rgba(37,211,102,.25)}
+.btn-whatsapp:hover{background:#1fb855;transform:translateY(-1px)}
+.btn-call-outline{background:transparent;color:var(--dt2);font-family:'Anybody',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.78rem 1.8rem;border:1px solid rgba(255,255,255,.16);cursor:pointer;border-radius:999px;transition:.2s}
+.btn-call-outline:hover{border-color:rgba(255,255,255,.35);color:#fff}
+
+/* CONDITIONS */
+.cond-wrap{background:var(--navy2);border-top:1px solid var(--db)}
+.cond-toggle{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5%;cursor:pointer;font-family:'Anybody',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dt2);transition:color .2s;background:none;border:none;width:100%;text-align:left;max-width:1100px;margin:0 auto}
+.cond-toggle:hover{color:#fff}
+.cond-icon{font-size:1rem;transition:transform .25s}
+.cond-icon.open{transform:rotate(45deg)}
+.cond-body{display:none;padding:0 5% 2rem;max-width:1100px;margin:0 auto}
+.cond-body.open{display:block}
+.cond-item{padding:1rem 0;border-bottom:1px solid var(--db);font-size:.82rem;font-weight:300;color:var(--dt2);line-height:1.8}
+.cond-item:last-child{border-bottom:none;padding-bottom:0}
+.cond-item strong{color:#fff;font-weight:600;display:block;margin-bottom:.25rem}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:1.8rem;right:1.8rem;width:48px;height:48px;background:#25d366;border-radius:50%;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.28);z-index:400;transition:transform .2s}
+.wa-float.visible{display:flex}
+.wa-float:hover{transform:scale(1.08)}
+
+/* RESPONSIVE */
+@media(max-width:760px){
+  .ob-cards.two,.ob-cards.paths{grid-template-columns:1fr}
+  .unit-top{flex-direction:column}
+  .unit-price{text-align:left}
+  .calc-grid{grid-template-columns:1fr}
+  .calc-results{grid-template-columns:1fr 1fr}
+  .floor-grid{grid-template-columns:repeat(3,1fr)}
+  .confirm-actions{flex-direction:column;align-items:stretch}
+}
+@media(max-width:460px){
+  .g-inner{padding:1.8rem 1.5rem 2rem}
+  .ob-body{padding:2rem 5%}
+  .r-section{padding:2rem 5%}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<!-- ── GATE ── -->
+<div id="gate">
+  <div class="g-inner">
+    <span class="g-firm">Rahim International · Elaf Sky View</span>
+    <h1 class="g-h">Find out which apartment fits your situation.</h1>
+    <p class="g-p">Answer 5 short questions to access unit pricing, mortgage breakdown, and your tailored <strong style="color:#fff">Investment Package</strong>.</p>
+    <div class="g-form">
+      <input id="g-name" class="g-input" type="text" placeholder="Your full name" autocomplete="name">
+      <input id="g-email" class="g-input" type="email" placeholder="Your email address" autocomplete="email">
+      <label class="g-check">
+        <input type="checkbox" id="g-fonc">
+        <span class="g-check-label">I am a <strong>civil servant / fonctionnaire</strong></span>
+      </label>
+    </div>
+    <p id="g-err" class="g-err">Please enter your name and a valid email address.</p>
+    <button class="btn-gold" onclick="gateSubmit()">Start my consultation →</button>
+    <div class="g-trust">
+      <span class="g-trust-item">No buyer commission</span>
+      <span class="g-trust-item">Delivery June 2026</span>
+      <span class="g-trust-item">We own a unit here</span>
+    </div>
+    <button class="g-skip" onclick="gateSkip()">Skip to all units →</button>
+    <p style="font-size:.64rem;font-weight:300;color:rgba(255,255,255,.22);line-height:1.7;margin-top:1.2rem;text-align:center">Rahim International uses the information you provide to better understand your goals and help you make the right decision. We do not sell, share, or misappropriate your personal data. By clicking "Start my consultation" you agree to being contacted by Rahim International regarding this property and confirm you have read our <a href="privacy-policy.html" style="color:rgba(255,255,255,.38);text-decoration:underline;text-underline-offset:2px">privacy policy</a>.</p>
+  </div>
+</div>
+
+<!-- ── ONBOARDING ── -->
+<div id="ob">
+  <div class="ob-top">
+    <span class="ob-brand">Rahim International · Elaf Sky View</span>
+    <div class="ob-progress">
+      <div class="ob-dots" id="ob-dots"></div>
+      <span class="ob-step-txt" id="ob-step-txt">1 of 5</span>
+    </div>
+  </div>
+
+  <div class="ob-body">
+
+    <!-- Q1 BUDGET -->
+    <div class="ob-screen active" id="s1">
+      <span class="ob-step-label">Question 1 of 5</span>
+      <h2 class="ob-q">What price range are you looking at?</h2>
+      <p class="ob-hint">We'll match you to the right unit and show you the purchase numbers.</p>
+      <div class="ob-cards paths">
+        <div class="ob-card ob-path-card" data-v="entry" onclick="pick(this,'budget')">
+          <div class="ob-path-img">
+            <img src="elaf.jpg" alt="Entry unit — Elaf Sky View">
+            <div class="ob-path-veil"></div>
+            <span class="ob-path-badge daam">Daam Eligible</span>
+          </div>
+          <div class="ob-path-body">
+            <div class="ob-path-price">620K – 720K MAD</div>
+            <div class="ob-path-name">Entry · 63m² · 2 bed · 1 bath</div>
+            <div class="ob-path-spec">6 units available · one per floor · no terrace · parking included</div>
+          </div>
+        </div>
+        <div class="ob-card ob-path-card" data-v="mid-a" onclick="pick(this,'budget')">
+          <div class="ob-path-img">
+            <img src="elaf-2.jpg" alt="Mid A unit — Elaf Sky View">
+            <div class="ob-path-veil"></div>
+            <span class="ob-path-badge">2 available</span>
+          </div>
+          <div class="ob-path-body">
+            <div class="ob-path-price">955,500 MAD</div>
+            <div class="ob-path-name">Mid A · 80m² + 18m² terrace · 2 bed · 2 bath</div>
+            <div class="ob-path-spec">Private terrace · parking included</div>
+          </div>
+        </div>
+        <div class="ob-card ob-path-card" data-v="mid-b" onclick="pick(this,'budget')">
+          <div class="ob-path-img">
+            <img src="elaf-3.jpg" alt="Mid B unit — Elaf Sky View">
+            <div class="ob-path-veil"></div>
+            <span class="ob-path-badge">2 available</span>
+          </div>
+          <div class="ob-path-body">
+            <div class="ob-path-price">993,000 MAD</div>
+            <div class="ob-path-name">Mid B · 97m² + 9m² terrace · 3 bed · 2 bath</div>
+            <div class="ob-path-spec">Larger family layout · parking included</div>
+          </div>
+        </div>
+        <div class="ob-card ob-path-card" data-v="premium" onclick="pick(this,'budget')">
+          <div class="ob-path-img">
+            <img src="elaf-4.jpg" alt="Premium unit — Elaf Sky View">
+            <div class="ob-path-veil"></div>
+            <span class="ob-path-badge">4 available</span>
+          </div>
+          <div class="ob-path-body">
+            <div class="ob-path-price">1,400,000 MAD</div>
+            <div class="ob-path-name">Premium · 106 or 108m² · 3 bed · 2 bath</div>
+            <div class="ob-path-spec">Covered balcony included in surface · best in building</div>
+          </div>
+        </div>
+        <div class="ob-card" data-v="all" onclick="pick(this,'budget')" style="grid-column:1/-1">
+          <div class="ob-card-title">Not sure yet — show me everything</div>
+          <div class="ob-card-desc">Compare all 5 unit types side by side before deciding.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 FIRST PURCHASE -->
+    <div class="ob-screen" id="s2">
+      <span class="ob-step-label">Question 2 of 5</span>
+      <h2 class="ob-q">Is this your first property in Morocco?</h2>
+      <p class="ob-hint">A government programme — Daam Sakani — gives qualifying first-time buyers 70,000 MAD toward their purchase. Never repaid.</p>
+      <div class="ob-cards two">
+        <div class="ob-card" data-v="yes" onclick="pick(this,'firstpurchase')">
+          <div class="ob-card-title">Yes — first property in Morocco</div>
+          <div class="ob-card-desc">The 70,000 MAD Daam Sakani grant may apply. We'll factor it into your results.</div>
+        </div>
+        <div class="ob-card" data-v="no" onclick="pick(this,'firstpurchase')">
+          <div class="ob-card-title">No — I've owned property before</div>
+          <div class="ob-card-desc">The grant doesn't apply but the numbers still make a strong case.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 LOCATION -->
+    <div class="ob-screen" id="s3">
+      <span class="ob-step-label">Question 3 of 5</span>
+      <h2 class="ob-q">Where are you currently based?</h2>
+      <p class="ob-hint">This helps us show you the most relevant context and prepare your Investment Package.</p>
+      <div class="ob-cards">
+        <div class="ob-card" data-v="kenitra" onclick="pick(this,'location')">
+          <div class="ob-card-title">I live in Kénitra</div>
+          <div class="ob-card-desc">Already based in the city or nearby.</div>
+        </div>
+        <div class="ob-card" data-v="rabat" onclick="pick(this,'location')">
+          <div class="ob-card-title">I rent or work in Rabat / Salé</div>
+          <div class="ob-card-desc">I want to see how owning here compares to my current rent.</div>
+        </div>
+        <div class="ob-card" data-v="morocco" onclick="pick(this,'location')">
+          <div class="ob-card-title">I live elsewhere in Morocco</div>
+          <div class="ob-card-desc">Purchasing in Kénitra but not currently based there.</div>
+        </div>
+        <div class="ob-card" data-v="mre" onclick="pick(this,'location')">
+          <div class="ob-card-title">I'm based abroad — MRE</div>
+          <div class="ob-card-desc">Moroccan diaspora buying from outside Morocco.</div>
+        </div>
+        <div class="ob-card" data-v="international" onclick="pick(this,'location')">
+          <div class="ob-card-title">I'm an international buyer</div>
+          <div class="ob-card-desc">Non-Moroccan national investing in Morocco.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 MOTIVATION -->
+    <div class="ob-screen" id="s4">
+      <span class="ob-step-label">Question 4 of 5</span>
+      <h2 class="ob-q">What is your primary reason for buying?</h2>
+      <p class="ob-hint">This shapes the Investment Package we send you.</p>
+      <div class="ob-cards two">
+        <div class="ob-card" data-v="home" onclick="pick(this,'motivation')">
+          <div class="ob-card-title">A home to live in</div>
+          <div class="ob-card-desc">Primary or secondary residence.</div>
+        </div>
+        <div class="ob-card" data-v="rental" onclick="pick(this,'motivation')">
+          <div class="ob-card-title">Rental investment</div>
+          <div class="ob-card-desc">Generate monthly rental income.</div>
+        </div>
+        <div class="ob-card" data-v="vacation" onclick="pick(this,'motivation')">
+          <div class="ob-card-title">Vacation or MRE base</div>
+          <div class="ob-card-desc">A place to stay during visits to Morocco.</div>
+        </div>
+        <div class="ob-card" data-v="wealth" onclick="pick(this,'motivation')">
+          <div class="ob-card-title">Long-term wealth</div>
+          <div class="ob-card-desc">Capital appreciation over 5–10 years.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 TIMELINE -->
+    <div class="ob-screen" id="s5">
+      <span class="ob-step-label">Question 5 of 5</span>
+      <h2 class="ob-q">What is your buying timeline?</h2>
+      <p class="ob-hint">Delivery is June 2026 — keys in approximately 30 days.</p>
+      <div class="ob-cards">
+        <div class="ob-card" data-v="soon" onclick="pick(this,'timeline')">
+          <div class="ob-card-title">Within 3 months</div>
+          <div class="ob-card-desc">Ready to move forward quickly.</div>
+        </div>
+        <div class="ob-card" data-v="mid" onclick="pick(this,'timeline')">
+          <div class="ob-card-title">3 to 12 months</div>
+          <div class="ob-card-desc">Actively researching options.</div>
+        </div>
+        <div class="ob-card" data-v="exploring" onclick="pick(this,'timeline')">
+          <div class="ob-card-title">Exploring for now</div>
+          <div class="ob-card-desc">No fixed timeline — understanding the market first.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ob-bot">
+    <button class="ob-back" id="ob-back" onclick="goBack()">← Back</button>
+    <span class="ob-note">5 questions · under 2 minutes</span>
+  </div>
+</div>
+
+<!-- ── TRANSITION ── -->
+<div id="transition">
+  <div class="tr-spin"></div>
+  <span class="tr-txt">Preparing your results…</span>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <span class="nav-brand">Rahim International · Elaf Sky View</span>
+  <div class="nav-actions">
+    <a href="#confirm-section" class="btn-sm btn-outline-sm">Request a Call</a>
+    <a href="https://wa.me/212642773249" target="_blank" rel="noopener" class="btn-sm btn-gold-sm">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:10px;height:10px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- ── RESULTS ── -->
+<div id="results">
+
+  <!-- ID BAR -->
+  <div class="id-bar">
+    <div>
+      <div class="id-txt" id="id-name"></div>
+      <div class="id-sub" id="id-sub"></div>
+    </div>
+  </div>
+
+  <!-- UNIT MATCH -->
+  <div class="r-section s-dark">
+    <div class="r-section-inner">
+      <div class="eye gold">Your unit match</div>
+      <h2 class="h2" id="r-h">Here are your options.</h2>
+      <div class="unit-grid" id="unit-grid"></div>
+    </div>
+  </div>
+
+  <!-- DAAM + LOCATION -->
+  <div class="r-section s-navy" id="daam-loc-section">
+    <div class="r-section-inner">
+      <div id="daam-wrap"></div>
+      <div id="loc-wrap"></div>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="r-section s-mid">
+    <div class="r-section-inner">
+      <div class="eye">Your purchase numbers</div>
+      <h2 class="h2">Mortgage calculator</h2>
+      <p class="body" style="margin-bottom:1.5rem">Pre-filled for your selected unit. Adjust any field to explore scenarios.</p>
+      <div class="calc-wrap">
+        <div class="calc-head">
+          <span class="calc-head-title">Purchase breakdown</span>
+          <span class="calc-head-sub">All figures in MAD</span>
+        </div>
+
+        <!-- PROFILE SECTION -->
+        <div class="calc-profile">
+          <span class="calc-profile-title">Your profile</span>
+          <div class="calc-profile-full">
+            <div class="calc-field">
+              <label class="calc-label">Buyer profile <span style="font-size:.6rem;color:rgba(255,255,255,.3);text-transform:none;letter-spacing:0">— sets default down payment</span></label>
+              <select class="calc-select" id="c-profile" onchange="profileChange()">
+                <option value="salaried">Salaried — private sector (20% down)</option>
+                <option value="selfemployed">Self-employed / freelance (25% down)</option>
+                <option value="mre">MRE buyer (20% down)</option>
+                <option value="international">International buyer (25% down)</option>
+                <option value="retired">Retired (20% down)</option>
+                <option value="fonctionnaire">Civil servant / fonctionnaire (0% down)</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-profile-grid">
+            <div class="calc-field">
+              <label class="calc-label">Your monthly net salary</label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-salary" min="0" step="500" value="0" oninput="calcUpdate()">
+                <span class="calc-suf">MAD</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label class="calc-label">Partner monthly salary <span style="font-size:.6rem;color:rgba(255,255,255,.3);text-transform:none;letter-spacing:0">(optional)</span></label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-salary2" min="0" step="500" value="0" oninput="calcUpdate()">
+                <span class="calc-suf">MAD</span>
+              </div>
+            </div>
+          </div>
+          <!-- FONCTIONNAIRE BOX -->
+          <div class="fonc-box" id="fonc-box">
+            <div class="fonc-box-top">
+              <input type="checkbox" class="fonc-checkbox" id="c-fonc" onchange="foncToggle()">
+              <label for="c-fonc" class="fonc-box-label">Civil servant / Fonctionnaire</label>
+            </div>
+            <p class="fonc-box-desc" id="fonc-desc" style="display:none">As a civil servant you may qualify for a <strong style="color:var(--gold2)">0% down payment</strong> through CIH Bank or Attijariwafa, and preferential interest rates starting from 4.25%. This reduces your upfront cash to fees only. Full details will be included in your Investment Package.</p>
+            <button class="fonc-reset" id="fonc-reset" style="display:none" onclick="foncReset()">Model standard 10% down instead →</button>
+          </div>
+        </div>
+
+        <!-- MORTGAGE INPUTS -->
+        <div class="calc-body">
+          <div class="calc-grid">
+            <div class="calc-field">
+              <label class="calc-label">Property price</label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-price" min="0" step="10000" oninput="calcUpdate()">
+                <span class="calc-suf">MAD</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label class="calc-label">Daam Sakani grant</label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-grant" min="0" step="1000" oninput="calcUpdate()">
+                <span class="calc-suf">MAD</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label class="calc-label">Down payment</label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-down" min="0" max="100" step="1" oninput="calcUpdate()">
+                <span class="calc-suf">%</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label class="calc-label">Loan term</label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-term" min="1" max="25" step="1" oninput="calcUpdate()">
+                <span class="calc-suf">years</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label class="calc-label">Interest rate</label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-rate" min="4.25" max="5.75" step="0.25" oninput="calcUpdate()">
+                <span class="calc-suf">% / year</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label class="calc-label">Est. monthly rent</label>
+              <div class="calc-input-row">
+                <input class="calc-input" type="number" id="c-rent" min="0" step="100" oninput="calcUpdate()">
+                <span class="calc-suf">MAD / mo</span>
+              </div>
+            </div>
+          </div>
+          <div class="calc-results" style="grid-template-columns:repeat(4,1fr)">
+            <div class="calc-result hero">
+              <div class="calc-result-num" id="c-monthly">—</div>
+              <div class="calc-result-label">Monthly mortgage</div>
+            </div>
+            <div class="calc-result">
+              <div class="calc-result-num" id="c-upfront">—</div>
+              <div class="calc-result-label">Cash needed on signing</div>
+            </div>
+            <div class="calc-result">
+              <div class="calc-result-num" id="c-loan">—</div>
+              <div class="calc-result-label">Loan amount</div>
+            </div>
+            <div class="calc-result">
+              <div class="calc-result-num" id="c-surplus">—</div>
+              <div class="calc-result-label">Rent surplus / mo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AFFORDABILITY BAR -->
+        <div class="affordability-bar" id="afford-bar" style="display:none"></div>
+
+        <p class="calc-disclaimer">Figures are indicative. Actual rate and approval depend on your bank and income documentation. Moroccan rates range from ~4.25% to 5.75% per year. Transaction fees of ~5.5% are included in the upfront cash figure. Affordability estimate based on 40% debt-to-income ratio — the standard Moroccan bank threshold.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION -->
+  <div class="confirm-wrap" id="confirm-section">
+    <div class="confirm-inner">
+      <div class="confirm-icon">✉</div>
+      <h3 class="confirm-h">Your Investment Package<br>is being prepared.</h3>
+      <p class="confirm-p">A tailored Investment Package for your profile will be sent to <span class="confirm-email" id="confirm-email">your inbox</span> within 24 hours. It will include detailed analysis relevant to your specific situation.</p>
+      <div class="confirm-actions">
+        <a href="https://wa.me/212642773249?text=Hello%2C%20I%20just%20completed%20the%20Elaf%20Sky%20View%20consultation%20and%20would%20like%20to%20discuss%20further." target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <button class="btn-call-outline" onclick="window.location.href='tel:+212642773249'">Request a Call</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONDITIONS -->
+  <div class="cond-wrap">
+    <button class="cond-toggle" onclick="toggleCond()">
+      <span>Important information before deciding</span>
+      <span class="cond-icon" id="cond-icon">＋</span>
+    </button>
+    <div class="cond-body" id="cond-body">
+      <div class="cond-item"><strong>Daam Sakani residency requirement</strong>The grant requires you to live in the apartment for a minimum of 5 years before renting it out. After 5 years you can rent, sell, or continue living there freely. Failure to comply may require repayment.</div>
+      <div class="cond-item"><strong>About the 63m² entry units</strong>These units face the inner courtyard and do not have a terrace. They offer adequate ventilation and sunlight for rental use, short stays, MRE use, or a practical first foothold in a central address. The price point is unusually low for a new-build centre ville apartment.</div>
+      <div class="cond-item"><strong>Mortgage figures are indicative</strong>Your actual rate, monthly payment, and loan approval depend on your bank, income documentation, and current lending conditions. Moroccan rates range from approximately 4.25% to 5.75% per year.</div>
+      <div class="cond-item"><strong>Transaction fees</strong>Approximately 5.5% payable on signing day — covers state registration, notaire fee, and conservation foncière. No commission charged by Rahim International on this purchase.</div>
+      <div class="cond-item"><strong>Rental income estimates</strong>Based on current market listings. Not guaranteed. Future income depends on market conditions.</div>
+      <div class="cond-item"><strong>Property values</strong>Can go down as well as up. Nothing in this consultation is a guarantee of future performance.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/212642773249" target="_blank" rel="noopener" class="wa-float" id="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff" style="width:22px;height:22px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ── DATA ──
+var A={name:'',email:'',fonc:false,budget:'',firstpurchase:'',location:'',motivation:'',timeline:''};
+var step=1,STEPS=5,selFloor=1;
+
+var UNITS={
+  entry:{name:'Entry · 63m²',img:'elaf.jpg',size:'63m²',terrace:'No terrace',bed:'2 bed',bath:'1 bath',layout:'Living room · Kitchen',
+    priceByFloor:[620000,640000,660000,680000,700000,720000],
+    daamFloors:[1,2,3,4,5],available:6,rent:3800,parking:true,delivery:'June 2026'},
+  'mid-a':{name:'Mid A · 80m² + 18m² terrace',img:'elaf-2.jpg',size:'80m²',terrace:'18m² terrace',bed:'2 bed',bath:'2 bath',
+    layout:'Living room · Kitchen',price:955500,available:2,rent:5500,parking:true,delivery:'June 2026'},
+  'mid-b':{name:'Mid B · 97m² + 9m² terrace',img:'elaf-3.jpg',size:'97m²',terrace:'9m² terrace',bed:'3 bed',bath:'2 bath',
+    layout:'Living room · Kitchen',price:993000,available:2,rent:6200,parking:true,delivery:'June 2026'},
+  premium:{name:'Premium · 106 or 108m²',img:'elaf-4.jpg',size:'106–108m²',terrace:'Covered balcony',bed:'3 bed',bath:'2 bath',
+    layout:'Living room · Kitchen',price:1400000,available:4,rent:8000,parking:true,delivery:'June 2026'}
+};
+
+var LOC_NOTES={
+  kenitra:'You already know the city. This is centre ville — the strongest address in the Kénitra market.',
+  rabat:'<strong>The TGV station is 700m from this building.</strong> Rabat is approximately 25 minutes by train. Your mortgage here may be lower than your current rent in Rabat or Salé.',
+  morocco:'Central Kénitra, walkable infrastructure, easy to use, manage remotely, or rent out.',
+  mre:'<strong>Easy to manage from abroad.</strong> Established neighbourhood, walkable, straightforward to use during visits or rent out between them.',
+  international:'<strong>Foreign nationals can purchase property in Morocco with full title rights.</strong> Your Investment Package will include the complete foreign buyer process and currency transfer guidance.'
+};
+
+// ── GATE ──
+function gateSubmit(){
+  var n=document.getElementById('g-name').value.trim();
+  var e=document.getElementById('g-email').value.trim();
+  var err=document.getElementById('g-err');
+  if(!n||!e||!e.includes('@')){err.style.display='block';return;}
+  err.style.display='none';
+  A.name=n;A.email=e;A.fonc=document.getElementById('g-fonc').checked;
+  document.getElementById('gate').classList.add('off');
+  startOB();
+}
+function gateSkip(){
+  A.name='Guest';A.email='';A.fonc=false;
+  A.budget='all';A.firstpurchase='no';A.location='';A.motivation='home';A.timeline='exploring';
+  document.getElementById('gate').classList.add('off');
+  showResults();
+}
+
+// ── ONBOARDING ──
+function startOB(){
+  var ob=document.getElementById('ob');
+  ob.classList.add('active');
+  buildDots();
+  goToStep(1);
+}
+function buildDots(){
+  var w=document.getElementById('ob-dots');w.innerHTML='';
+  for(var i=1;i<=STEPS;i++){
+    var d=document.createElement('div');
+    d.className='ob-dot'+(i===1?' active':'');
+    d.id='dot-'+i;w.appendChild(d);
+  }
+}
+function goToStep(s){
+  step=s;
+  for(var i=1;i<=STEPS;i++){
+    var sc=document.getElementById('s'+i);
+    if(sc)sc.className='ob-screen'+(i===s?' active':'');
+    var d=document.getElementById('dot-'+i);
+    if(d)d.className='ob-dot'+(i<s?' done':i===s?' active':'');
+  }
+  document.getElementById('ob-step-txt').textContent=s+' of '+STEPS;
+  document.getElementById('ob-back').style.visibility=s>1?'visible':'hidden';
+  prog((s-1)/STEPS*55);
+}
+function pick(el,key){
+  el.closest('.ob-cards').querySelectorAll('.ob-card').forEach(function(c){c.classList.remove('selected');});
+  el.classList.add('selected');
+  A[key]=el.dataset.v;
+  setTimeout(function(){step<STEPS?goToStep(step+1):finish();},300);
+}
+function goBack(){if(step>1)goToStep(step-1);}
+function finish(){
+  document.getElementById('ob').classList.remove('active');
+  var tr=document.getElementById('transition');tr.classList.add('active');
+  setTimeout(function(){tr.classList.remove('active');showResults();},1200);
+}
+
+// ── RESULTS ──
+function showResults(){
+  document.getElementById('results').classList.add('active');
+  document.getElementById('main-nav').classList.add('visible');
+  document.getElementById('wa-float').classList.add('visible');
+  buildAll();
+  prog(100);
+  window.scrollTo(0,0);
+}
+function buildAll(){
+  var fn=A.name.split(' ')[0]||'';
+  document.getElementById('id-name').textContent=fn?'Hello, '+fn+' — your results are ready.':'Your results are ready.';
+  document.getElementById('id-sub').textContent='Elaf Sky View · Avenue Youssef Ben Tachfine · Kénitra Centre Ville · Delivery June 2026';
+  if(A.email)document.getElementById('confirm-email').textContent=A.email;
+  var keys=(!A.budget||A.budget==='all')?['entry','mid-a','mid-b','premium']:[A.budget];
+  document.getElementById('r-h').textContent=keys.length>1?'All available units at Elaf Sky View.':'Your matched unit.';
+  buildUnits(keys);
+  buildDaam();
+  buildLoc();
+  initCalc();
+}
+
+function buildUnits(keys){
+  var wrap=document.getElementById('unit-grid');wrap.innerHTML='';
+  keys.forEach(function(k){
+    var u=UNITS[k];if(!u)return;
+    var price=k==='entry'?u.priceByFloor[selFloor-1]:u.price;
+    var isRec=A.budget===k&&A.budget!=='all';
+    var div=document.createElement('div');
+    div.className='unit-card'+(isRec?' recommended':'');
+    var badgeHtml=isRec?'<div class="unit-badge">Your match</div>':'';
+    var daamTag=k==='entry'&&selFloor<=5?'<span class="unit-img-tag daam">Daam Eligible</span>':'';
+    var negTag=k==='entry'&&selFloor===6?'<span class="unit-img-tag daam" style="border-color:rgba(210,164,59,.5);color:var(--gold2)">Daam Negotiable</span>':'';
+    var floorHtml='';
+    if(k==='entry'){
+      floorHtml='<div class="floor-wrap"><div class="floor-label">Select floor — price varies by level</div><div class="floor-grid">';
+      u.priceByFloor.forEach(function(p,i){
+        var fl=i+1,act=fl===selFloor;
+        floorHtml+='<button class="floor-btn'+(act?' active':'')+'" onclick="pickFloor('+fl+')" type="button"><span class="floor-btn-num">Floor '+fl+'</span><span class="floor-btn-price">'+fmt(p)+'</span></button>';
+      });
+      floorHtml+='</div>';
+      floorHtml+=selFloor===6
+        ?'<div class="floor-note warn">Floor 6 at 720,000 MAD is above the 700,000 MAD Daam ceiling. Eligibility is <strong>negotiable with the developer</strong>. <span style="text-decoration:underline;cursor:pointer;color:var(--gold2)" onclick="pickFloor(5)">Switch to floor 5 to confirm full eligibility.</span></div>'
+        :'<div class="floor-note">Floors 1–5 are fully Daam Sakani eligible (under 700,000 MAD ceiling).</div>';
+      floorHtml+='</div>';
+    }
+    div.innerHTML=badgeHtml+
+      '<div class="unit-img"><img src="'+u.img+'" alt="'+u.name+' — Elaf Sky View"><div class="unit-img-veil"></div>'+
+      '<div class="unit-img-tags">'+daamTag+negTag+
+      '<span class="unit-img-tag delivery">'+u.delivery+'</span>'+
+      '<span class="unit-img-tag">'+u.available+' available</span>'+
+      '</div></div>'+
+      '<div class="unit-body">'+
+      '<div class="unit-top">'+
+        '<div><div class="unit-name">'+u.name+'</div>'+
+        '<div class="unit-specs">'+
+          '<span class="spec">'+u.size+'</span>'+
+          '<span class="spec">'+u.terrace+'</span>'+
+          '<span class="spec">'+u.bed+'</span>'+
+          '<span class="spec">'+u.bath+'</span>'+
+          '<span class="spec">Parking incl.</span>'+
+        '</div></div>'+
+        '<div><div class="unit-price" id="uprice-'+k+'">'+fmt(price)+' MAD</div>'+
+        (k==='entry'?'<div class="unit-price-range">620K – 720K by floor</div>':'')+
+        '</div>'+
+      '</div>'+
+      '<div class="unit-avail">'+u.available+' unit'+(u.available>1?'s':'')+' available · Delivery '+u.delivery+'</div>'+
+      floorHtml+
+      '</div>';
+    wrap.appendChild(div);
+  });
+}
+
+function pickFloor(fl){
+  selFloor=fl;
+  var keys=(!A.budget||A.budget==='all')?['entry','mid-a','mid-b','premium']:[A.budget];
+  buildUnits(keys);
+  buildDaam();
+  initCalc();
+}
+
+function buildDaam(){
+  var wrap=document.getElementById('daam-wrap');wrap.innerHTML='';
+  if(A.firstpurchase!=='yes'){return;}
+  if(!A.budget||A.budget==='all'){return;}
+  var u=UNITS[A.budget];if(!u)return;
+  if(A.budget==='entry'){
+    var price=u.priceByFloor[selFloor-1];
+    if(selFloor<=5){
+      var grant=70000,eff=price-grant,down=Math.round(eff*.10),fees=Math.round(price*.055),upf=down+fees;
+      wrap.innerHTML='<div class="daam-box">'+
+        '<div class="daam-box-head"><div class="daam-dot">✓</div><div class="daam-box-title">You qualify for the Daam Sakani grant on this unit</div></div>'+
+        '<div class="daam-rows">'+
+          '<div class="daam-row"><span class="daam-row-k">Purchase price — Floor '+selFloor+'</span><span class="daam-row-v">'+fmt(price)+' MAD</span></div>'+
+          '<div class="daam-row"><span class="daam-row-k">Daam Sakani grant</span><span class="daam-row-v green">− '+fmt(grant)+' MAD</span></div>'+
+          '<div class="daam-row"><span class="daam-row-k">Effective purchase price</span><span class="daam-row-v strong">'+fmt(eff)+' MAD</span></div>'+
+          '<div class="daam-row"><span class="daam-row-k">Approx. upfront cash needed</span><span class="daam-row-v">~'+fmt(upf)+' MAD</span></div>'+
+        '</div>'+
+        '<p class="daam-note">The grant is applied to your purchase price and counts toward your down payment. You never repay it. The 5-year residency condition applies before renting out.</p>'+
+      '</div>';
+    } else {
+      wrap.innerHTML='<div class="daam-box warn">'+
+        '<div class="daam-box-head"><div class="daam-dot">!</div><div class="daam-box-title">Floor 6 is above the Daam ceiling — but negotiable</div></div>'+
+        '<p style="font-size:.82rem;font-weight:300;color:var(--dt2);line-height:1.75">Floor 6 is priced at 720,000 MAD — 20,000 MAD above the 700,000 MAD Daam ceiling. Eligibility on this floor is negotiable directly with the developer. <span class="daam-switch" onclick="pickFloor(5)">Switch to Floor 5 to confirm full eligibility.</span></p>'+
+      '</div>';
+    }
+  } else {
+    wrap.innerHTML='<div class="daam-box warn">'+
+      '<div class="daam-box-head"><div class="daam-dot">!</div><div class="daam-box-title">The Daam grant doesn\'t apply to this unit</div></div>'+
+      '<p style="font-size:.82rem;font-weight:300;color:var(--dt2);line-height:1.75">The 70,000 MAD grant applies only to purchases under 700,000 MAD. This unit is above that ceiling. The 63m² entry units on floors 1–5 are the only Daam-eligible apartments in this building. <span class="daam-switch" onclick="switchEntry()">See entry unit numbers →</span></p>'+
+    '</div>';
+  }
+}
+
+function switchEntry(){A.budget='entry';var keys=['entry'];buildUnits(keys);buildDaam();initCalc();window.scrollTo({top:0,behavior:'smooth'});}
+
+function buildLoc(){
+  var wrap=document.getElementById('loc-wrap');wrap.innerHTML='';
+  var txt=LOC_NOTES[A.location]||'';
+  if(!txt)return;
+  wrap.innerHTML='<div class="loc-note" style="margin-top:'+(document.getElementById('daam-wrap').innerHTML?'1.5rem':'0')+'"><p class="loc-note-text">'+txt+'</p></div>';
+}
+
+function initCalc(){
+  var u=UNITS[A.budget]||UNITS.entry;
+  var price=A.budget==='entry'?u.priceByFloor[selFloor-1]:(u.price||620000);
+  var grant=(A.firstpurchase==='yes'&&A.budget==='entry'&&selFloor<=5)?70000:0;
+  document.getElementById('c-price').value=price;
+  document.getElementById('c-grant').value=grant;
+  document.getElementById('c-rent').value=u.rent||4000;
+
+  // Pre-fill profile dropdown from Q3 + fonctionnaire gate checkbox
+  var profileMap={kenitra:'salaried',rabat:'salaried',morocco:'salaried',mre:'mre',international:'international'};
+  var prof=A.fonc?'fonctionnaire':(profileMap[A.location]||'salaried');
+  var sel=document.getElementById('c-profile');
+  if(sel)sel.value=prof;
+
+  // Set defaults based on profile
+  var downs={salaried:20,selfemployed:25,mre:20,international:25,retired:20,fonctionnaire:0};
+  document.getElementById('c-down').value=downs[prof]||20;
+  var isFonc=prof==='fonctionnaire'||A.fonc;
+  document.getElementById('c-term').value=isFonc?25:20;
+  document.getElementById('c-rate').value=isFonc?4.25:5;
+
+  // Sync fonctionnaire checkbox
+  var foncEl=document.getElementById('c-fonc');
+  if(foncEl)foncEl.checked=isFonc;
+  if(isFonc)showFoncDesc(true);
+
+  calcUpdate();
+}
+
+function profileChange(){
+  var prof=document.getElementById('c-profile').value;
+  var downs={salaried:20,selfemployed:25,mre:20,international:25,retired:20,fonctionnaire:0};
+  document.getElementById('c-down').value=downs[prof]||20;
+  var isFonc=prof==='fonctionnaire';
+  document.getElementById('c-term').value=isFonc?25:20;
+  document.getElementById('c-rate').value=isFonc?4.25:5;
+  var foncEl=document.getElementById('c-fonc');
+  if(foncEl)foncEl.checked=isFonc;
+  showFoncDesc(isFonc);
+  calcUpdate();
+}
+
+function foncToggle(){
+  var checked=document.getElementById('c-fonc').checked;
+  showFoncDesc(checked);
+  var sel=document.getElementById('c-profile');
+  if(checked){
+    if(sel)sel.value='fonctionnaire';
+    document.getElementById('c-down').value=0;
+    document.getElementById('c-rate').value=4.25;
+    document.getElementById('c-term').value=25;
+  } else {
+    var prev=document.getElementById('c-profile').value;
+    if(prev==='fonctionnaire'&&sel)sel.value='salaried';
+    document.getElementById('c-down').value=20;
+    document.getElementById('c-rate').value=5;
+    document.getElementById('c-term').value=20;
+  }
+  calcUpdate();
+}
+
+function showFoncDesc(show){
+  var desc=document.getElementById('fonc-desc');
+  var reset=document.getElementById('fonc-reset');
+  if(desc)desc.style.display=show?'block':'none';
+  if(reset)reset.style.display=show?'inline-block':'none';
+}
+
+function foncReset(){
+  document.getElementById('c-fonc').checked=false;
+  var sel=document.getElementById('c-profile');
+  if(sel&&sel.value==='fonctionnaire')sel.value='salaried';
+  showFoncDesc(false);
+  document.getElementById('c-down').value=20;
+  document.getElementById('c-rate').value=5;
+  document.getElementById('c-term').value=20;
+  calcUpdate();
+}
+
+function calcUpdate(){
+  var price=parseFloat(document.getElementById('c-price').value)||0;
+  var grant=parseFloat(document.getElementById('c-grant').value)||0;
+  var dpct=(parseFloat(document.getElementById('c-down').value)||0)/100;
+  var term=parseFloat(document.getElementById('c-term').value)||20;
+  var rate=(parseFloat(document.getElementById('c-rate').value)||5)/100;
+  var rent=parseFloat(document.getElementById('c-rent').value)||0;
+  var salary=parseFloat(document.getElementById('c-salary').value)||0;
+  var salary2=parseFloat(document.getElementById('c-salary2').value)||0;
+  var combined=salary+salary2;
+
+  var eff=Math.max(0,price-grant);
+  var down=Math.round(eff*dpct);
+  var fees=Math.round(price*.055);
+  var loan=eff-down;
+  var months=term*12,mr=rate/12;
+  var mo=loan>0&&months>0?(mr===0?loan/months:(loan*mr)/(1-Math.pow(1+mr,-months))):0;
+  var surplus=rent-mo;
+
+  document.getElementById('c-monthly').textContent=fmt(mo)+' MAD';
+  document.getElementById('c-upfront').textContent=fmt(down+fees)+' MAD';
+  document.getElementById('c-loan').textContent=fmt(loan)+' MAD';
+  var sel=document.getElementById('c-surplus');
+  sel.textContent=(surplus>=0?'+':'')+fmt(surplus)+' MAD';
+  sel.style.color=surplus>=0?'#5de8a8':'var(--rust)';
+
+  // Affordability
+  var bar=document.getElementById('afford-bar');
+  if(combined>0&&mo>0){
+    bar.style.display='block';
+    var maxMo=combined*.4;
+    var maxLoan=mr===0?maxMo*months:(maxMo*(1-Math.pow(1+mr,-months))/mr);
+    if(mo<=maxMo){
+      bar.innerHTML='<div class="afford-ok"><span class="afford-icon">✓</span><p class="afford-text"><strong>Your income supports this mortgage.</strong> At a combined income of '+fmt(combined)+' MAD/month, your maximum monthly payment is '+fmt(maxMo)+' MAD (40% threshold). Your mortgage of '+fmt(mo)+' MAD is within that limit.</p></div>';
+    } else {
+      var shortfall=mo-maxMo;
+      bar.innerHTML='<div class="afford-warn"><span class="afford-icon">⚠</span><p class="afford-text"><strong>Your mortgage exceeds the 40% threshold.</strong> At '+fmt(combined)+' MAD combined income, Moroccan banks typically approve up to '+fmt(maxMo)+' MAD/month. Your mortgage of '+fmt(mo)+' MAD is '+fmt(shortfall)+' MAD above that. Consider increasing your down payment, extending the term to 25 years, or adding a partner\'s income above.</p></div>';
+    }
+  } else {
+    bar.style.display='none';
+  }
+}
+
+function toggleCond(){
+  var b=document.getElementById('cond-body'),ic=document.getElementById('cond-icon');
+  var o=b.classList.toggle('open');
+  ic.textContent=o?'－':'＋';
+  ic.classList.toggle('open',o);
+}
+
+function prog(pct){document.getElementById('prog').style.width=pct+'%';}
+function fmt(n){return new Intl.NumberFormat('fr-MA',{maximumFractionDigits:0}).format(Math.round(n));}
+</script>
+</body>
+</html>

@@ -113,6 +113,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/elaf-sky-view.html"/>
     </url>
   <url>
+      <loc>https://rahiminternational.com/property-listings.html</loc>
+      <lastmod>2026-05-12</lastmod>
+      <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/property-listings.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/property-listings.html"/>
+    </url>
+  <url>
+      <loc>https://rahiminternational.com/why-kenitra.html</loc>
+      <lastmod>2026-05-12</lastmod>
+      <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/why-kenitra.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/why-kenitra.html"/>
+    </url>
+  <url>
       <loc>https://rahiminternational.com/fr/about.html</loc>
       <lastmod>2026-04-27</lastmod>
       <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/about.html"/>
@@ -287,5 +299,11 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/why-morocco.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/why-morocco.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/why-morocco.html"/>
+    </url>
+  <url>
+      <loc>https://rahiminternational.com/privacy-policy.html</loc>
+      <lastmod>2026-05-12</lastmod>
+      <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/privacy-policy.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/privacy-policy.html"/>
     </url>
 </urlset>

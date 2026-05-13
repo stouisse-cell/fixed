@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4ET5NZQ4S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-G4ET5NZQ4S");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Listings | Rahim International</title>
+<meta name="description" content="Browse property listings and current opportunities with Rahim International. Elaf Sky View is the current featured opportunity, with future Kénitra and Rabat-Salé-Kénitra listings to follow.">
+<link rel="canonical" href="https://rahiminternational.com/property-listings.html">
+<link rel="icon" type="image/png" href="logo.png">
+<meta property="og:title" content="Property Listings | Rahim International">
+<meta property="og:description" content="Current opportunities, featured listings, and advisory-led property selection in Kénitra and the Rabat-Salé-Kénitra region.">
+<meta property="og:image" content="https://rahiminternational.com/elaf.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rahiminternational.com/property-listings.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="shared.css">
+<style>
+  body { background: #eef2f6; }
+  .app-shell { max-width: 1480px; margin: 0 auto; padding: 0 18px 32px; }
+  .listings-hero { min-height: 58vh; position: relative; display: flex; align-items: flex-end; padding: 7.5rem 3.2% 3.4rem; background: var(--ink); overflow: hidden; border-radius: 28px; margin-top: 16px; }
+  .listings-hero-bg, .listings-hero-overlay, .listings-hero-pattern { position: absolute; inset: 0; }
+  .listings-hero-bg { background: url('elaf.jpg') center/cover; opacity: 0.42; }
+  .listings-hero-overlay { background: radial-gradient(circle at 76% 24%, rgba(183,106,63,0.18), transparent 28%), linear-gradient(to right, rgba(7,17,31,0.96) 0%, rgba(8,26,51,0.74) 54%, rgba(8,26,51,0.24) 100%), linear-gradient(to top, rgba(7,17,31,0.72) 0%, transparent 60%); }
+  .listings-hero-pattern { background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(210,180,134,0.03) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(210,180,134,0.03) 80px); }
+  .listings-hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .listings-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 5.8rem); font-weight: 300; line-height: 1.04; color: var(--white); margin-bottom: 1.4rem; }
+  .listings-hero-title em { color: var(--gold); font-style: italic; }
+  .listings-hero-sub { max-width: 700px; color: rgba(255,255,255,0.74); font-size: 0.96rem; font-weight: 300; line-height: 1.92; margin-bottom: 2.4rem; }
+  .listings-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-search-shell { position: relative; z-index: 3; margin: -2rem 2.2% 0; }
+  .hero-search-panel { background: rgba(248,250,252,0.96); border: 1px solid rgba(210,180,134,0.16); box-shadow: 0 24px 70px rgba(7,17,31,0.12); display: grid; grid-template-columns: 1.3fr repeat(3, 1fr) auto; gap: 10px; padding: 12px; overflow: hidden; border-radius: 22px; }
+  .hero-search-cell { background: var(--white); padding: 1rem 1.2rem; min-height: 82px; display:flex; flex-direction:column; justify-content:center; border-radius: 16px; border: 1px solid rgba(7,17,31,0.05); }
+  .hero-search-label { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper-dark); margin-bottom: 0.45rem; }
+  .hero-search-value { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--navy); line-height: 1.1; }
+  .hero-search-button { background: linear-gradient(135deg, var(--copper), var(--gold)); color: var(--navy); border: 0; min-width: 180px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 16px; }
+  .app-grid { display:grid; grid-template-columns: minmax(0,1fr) 340px; gap: 18px; margin-top: 18px; align-items: start; }
+  .main-stack { display:flex; flex-direction:column; gap:18px; }
+  .side-stack { display:flex; flex-direction:column; gap:18px; position: sticky; top: 18px; }
+  .surface-card { background: #f8fafc; border: 1px solid rgba(7,17,31,0.08); box-shadow: 0 14px 40px rgba(15,23,42,0.07); border-radius: 24px; overflow: hidden; }
+  .surface-inner { padding: 22px; }
+  .hero-rail { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; }
+  .hero-rail-card { background: #ffffff; border: 1px solid rgba(7,17,31,0.06); padding: 1rem 1.1rem; border-radius: 18px; }
+  .hero-rail-label { font-size:0.58rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--copper-dark); margin-bottom:0.45rem; }
+  .hero-rail-value { font-family:'Cormorant Garamond', serif; font-size:1.6rem; font-weight:300; color:var(--navy); line-height:1; margin-bottom:0.35rem; }
+  .hero-rail-text { font-size:0.76rem; font-weight:300; line-height:1.65; color:var(--text-muted); }
+  .listings-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,0.82fr); gap: 4rem; align-items: start; }
+  .body-text { font-size: 0.92rem; font-weight: 300; line-height: 1.92; color: var(--text-muted); margin-bottom: 1.2rem; }
+  .dark-text { color: rgba(255,255,255,0.66); }
+  .listing-toolbar { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 1.2rem; border:1px solid rgba(7,17,31,0.06); background:var(--white); margin-top:2rem; flex-wrap:wrap; border-radius:18px; }
+  .toolbar-count { font-size:0.72rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--copper-dark); }
+  .toolbar-tags { display:flex; gap:0.6rem; flex-wrap:wrap; }
+  .toolbar-tag { padding:0.6rem 0.85rem; border:1px solid rgba(7,17,31,0.06); background:#f5f7fa; font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); border-radius:999px; }
+  .listing-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .listing-fact { background: var(--white); padding: 1.2rem; min-height: 120px; }
+  .listing-fact-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; line-height: 1; color: var(--navy); margin-bottom: 0.55rem; }
+  .listing-fact-label { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper-dark); line-height: 1.5; }
+  .featured-listing { display: grid; grid-template-columns: minmax(320px,0.95fr) minmax(0,1fr); background: var(--white); border: 1px solid rgba(7,17,31,0.06); overflow: hidden; border-radius: 24px; }
+  .featured-media { min-height: 430px; background: url('elaf.jpg') center/cover; position: relative; }
+  .featured-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,26,51,0.46), rgba(8,26,51,0.08)); }
+  .featured-copy { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; }
+  .listing-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.64rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper-dark); }
+  .listing-pill::before { content: ''; width: 28px; height: 1px; background: currentColor; }
+  .featured-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.1rem,4vw,3.4rem); font-weight: 300; line-height: 1.08; color: var(--navy); margin-bottom: 1rem; }
+  .featured-title em { color: var(--gold-deep); font-style: italic; }
+  .featured-summary { font-size: 0.9rem; font-weight: 300; line-height: 1.9; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .featured-metrics { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--border); }
+  .featured-metric { background: var(--cream); padding: 1.15rem 1.2rem; }
+  .featured-metric-value { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 0.35rem; }
+  .featured-metric-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+  .featured-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .featured-overview-bar { display:grid; grid-template-columns: repeat(4,1fr); gap:10px; margin-bottom: 1.1rem; }
+  .overview-pill { background:#f5f7fa; border:1px solid rgba(7,17,31,0.06); border-radius:16px; padding:0.8rem 0.9rem; }
+  .overview-pill strong { display:block; font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); margin-bottom:0.35rem; }
+  .overview-pill span { font-family:'Cormorant Garamond', serif; font-size:1.1rem; color:var(--navy); line-height:1.1; }
+  .status-chip { display:inline-flex; align-items:center; gap:0.45rem; padding:0.45rem 0.7rem; border:1px solid rgba(210,180,134,0.3); background:rgba(255,255,255,0.08); color:var(--gold); font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; }
+  .status-chip::before { content:''; width:7px; height:7px; border-radius:50%; background:currentColor; }
+  .inventory-section { background:transparent; }
+  .inventory-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.25rem; }
+  .inventory-card { border:1px solid rgba(7,17,31,0.06); background:var(--white); overflow:hidden; display:flex; flex-direction:column; border-radius:22px; }
+  .inventory-card.media-elaf .inventory-thumb { background:url('elaf-2.jpg') center/cover; }
+  .inventory-card.media-sammy .inventory-thumb { background:linear-gradient(135deg, rgba(11,28,54,0.94), rgba(183,106,63,0.62)); }
+  .inventory-card.media-rania .inventory-thumb { background:linear-gradient(135deg, rgba(234,216,200,1), rgba(11,28,54,0.78)); }
+  .inventory-thumb { min-height:210px; position:relative; }
+  .inventory-badge { position:absolute; top:1rem; left:1rem; padding:0.48rem 0.68rem; background:rgba(7,17,31,0.76); color:var(--white); font-size:0.6rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; border-radius:999px; }
+  .inventory-price { position:absolute; right:1rem; bottom:1rem; padding:0.6rem 0.8rem; background:rgba(255,255,255,0.94); color:var(--navy); font-family:'Cormorant Garamond', serif; font-size:1.05rem; border-radius:14px; }
+  .inventory-copy { padding:1.3rem; display:flex; flex-direction:column; gap:0.8rem; flex:1; }
+  .inventory-title { font-family:'Cormorant Garamond', serif; font-size:1.55rem; font-weight:400; color:var(--navy); line-height:1.08; }
+  .inventory-sub { font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); }
+  .inventory-text { font-size:0.81rem; font-weight:300; line-height:1.72; color:var(--text-muted); }
+  .inventory-topline { display:flex; justify-content:space-between; gap:0.8rem; align-items:flex-start; }
+  .inventory-status { font-size:0.62rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#3d6f52; background:#edf8f0; border:1px solid #d3ecd8; padding:0.42rem 0.58rem; border-radius:999px; white-space:nowrap; }
+  .inventory-specs { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); }
+  .inventory-spec { background:var(--cream); padding:0.9rem 1rem; }
+  .inventory-spec strong { display:block; font-family:'Cormorant Garamond', serif; font-size:1.2rem; font-weight:300; color:var(--navy); line-height:1; margin-bottom:0.25rem; }
+  .inventory-spec span { font-size:0.6rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
+  .inventory-actions { display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:auto; }
+  .availability-wrap { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,0.85fr); gap:1rem; margin-top:1rem; }
+  .availability-card { background:var(--white); border:1px solid rgba(7,17,31,0.06); padding:1.5rem; border-radius:22px; }
+  .availability-title { font-family:'Cormorant Garamond', serif; font-size:1.9rem; font-weight:400; color:var(--navy); margin-bottom:1rem; }
+  .availability-note { font-size:0.84rem; font-weight:300; line-height:1.82; color:var(--text-muted); margin-bottom:1.4rem; }
+  .mini-table { width:100%; border-collapse:collapse; }
+  .mini-table th { text-align:left; font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); padding:0 0 0.8rem; border-bottom:1px solid var(--border); }
+  .mini-table td { padding:0.95rem 0; border-bottom:1px solid var(--border); font-size:0.84rem; font-weight:300; color:var(--text-muted); vertical-align:top; }
+  .mini-table td strong { font-weight:500; color:var(--navy); }
+  .summary-panel { background:linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border:1px solid rgba(210,180,134,0.14); padding:1.6rem; color:var(--white); border-radius:22px; }
+  .summary-panel h3 { font-family:'Cormorant Garamond', serif; font-size:2rem; font-weight:300; margin-bottom:1rem; color:var(--white); }
+  .summary-panel p { font-size:0.84rem; font-weight:300; line-height:1.82; color:rgba(255,255,255,0.68); margin-bottom:1rem; }
+  .demand-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .demand-card { background:var(--white); border:1px solid rgba(7,17,31,0.06); padding:1.5rem; position:relative; overflow:hidden; border-radius:20px; }
+  .demand-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:linear-gradient(90deg, var(--copper), var(--gold)); }
+  .demand-title { font-family:'Cormorant Garamond', serif; font-size:1.55rem; font-weight:400; color:var(--navy); margin-bottom:0.75rem; }
+  .demand-text { font-size:0.86rem; font-weight:300; line-height:1.82; color:var(--text-muted); margin-bottom:1rem; }
+  .demand-meta { font-size:0.66rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); }
+  .section-panel-title { display:flex; justify-content:space-between; gap:1rem; align-items:end; margin-bottom:1.1rem; }
+  .section-panel-kicker { font-size:0.64rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--copper-dark); }
+  .app-statbar { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .app-stat { background:#fff; border:1px solid rgba(7,17,31,0.06); border-radius:18px; padding:1rem 1.1rem; }
+  .app-stat strong { display:block; font-family:'Cormorant Garamond', serif; font-size:1.5rem; font-weight:300; color:var(--navy); margin-bottom:0.2rem; }
+  .app-stat span { font-size:0.64rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted); }
+  @media (max-width: 1180px) { .app-grid { grid-template-columns: 1fr; } .side-stack { position: static; } .hero-search-panel { grid-template-columns: 1fr 1fr; } .featured-overview-bar, .app-statbar { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 980px) { .listings-intro, .featured-listing, .availability-wrap, .hero-search-panel { grid-template-columns: 1fr; } .inventory-grid, .demand-grid, .hero-rail, .app-statbar { grid-template-columns: 1fr; } .featured-media { min-height: 320px; } .hero-search-shell { margin-top: -1.5rem; } .hero-search-button { min-height:72px; width:100%; } .featured-overview-bar { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) { .listing-facts, .featured-metrics, .inventory-specs, .featured-overview-bar { grid-template-columns: 1fr; } .listing-toolbar { align-items:flex-start; } .listings-hero { border-radius: 22px; padding-left: 5%; padding-right: 5%; } .app-shell { padding: 0 12px 24px; } }
+</style>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Property Listings | Rahim International">
+<meta name="twitter:description" content="Current opportunities, featured listings, and advisory-led property selection in Kénitra and the Rabat-Salé-Kénitra region.">
+<meta name="twitter:image" content="https://rahiminternational.com/elaf.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Property Listings","url":"https://rahiminternational.com/property-listings.html","description":"Property listings and current opportunities represented by Rahim International.","inLanguage":"en","hasPart":[{"@type":"Residence","name":"Elaf Sky View","url":"https://rahiminternational.com/elaf-sky-view.html"}],"publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://rahiminternational.com/"},{"@type":"ListItem","position":2,"name":"Property Listings","item":"https://rahiminternational.com/property-listings.html"}]}</script>
+</head>
+<body>
+<div id="progress-bar" aria-hidden="true"></div>
+<nav class="site-nav" aria-label="Primary navigation">
+  <a href="index.html" class="brand" aria-label="Rahim International home">
+    <img src="logo.png" alt="" class="brand-logo" aria-hidden="true">
+    <span class="brand-text"><span class="brand-name">Rahim <span>International</span></span><span class="brand-subtitle">Real Estate Advisory &amp; Consulting</span></span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false"><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Who We Are</a></li>
+    <li class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Buyers</button><div class="nav-dropdown-menu"><a href="investors-international.html">International Buyers</a><a href="investors-mre.html">MRE Buyers</a><a href="investors-local.html">Local Buyers</a></div></li>
+    <li><a href="services-developers.html">Developer Services</a></li>
+    <li class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; Resources</button><div class="nav-dropdown-menu"><a href="guides/index.html">Guides &amp; Resources Overview</a><a href="guides/buying-property-morocco.html">Buying Property in Morocco</a><a href="guides/daam-sakani-guide.html">Daam Sakani Guide</a><a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a></div></li>
+    <li><a href="why-morocco.html">Market Insights</a></li>
+    <li><a href="property-listings.html" class="active" aria-current="page">Property Listings</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li class="language-switcher"><a href="property-listings.html" class="active">EN</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Enquire</a>
+</nav>
+<nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Property Listings</span></nav>
+<main class="app-shell">
+  <section class="listings-hero">
+    <div class="listings-hero-bg" aria-hidden="true"></div>
+    <div class="listings-hero-overlay" aria-hidden="true"></div>
+    <div class="listings-hero-pattern" aria-hidden="true"></div>
+    <div class="listings-hero-content">
+      <p class="section-eyebrow" style="color:var(--gold);">Current Opportunities</p>
+      <h1 class="listings-hero-title">Property Listings<br><em>Led by Advisory, Not Noise.</em></h1>
+      <p class="listings-hero-sub">This is where current opportunities live. Instead of pushing one project across the whole website, we organize listings here, provide context around each one, and connect serious buyers to the right next step. Elaf Sky View is the current featured opportunity.</p>
+      <div class="listings-actions">
+        <a href="#current-opportunity" class="btn-primary">View Current Opportunity</a>
+        <a href="why-morocco.html" class="btn-outline">Read Market Insights</a>
+      </div>
+    </div>
+  </section>
+  <div class="hero-search-shell">
+    <div class="hero-search-panel">
+      <div class="hero-search-cell">
+        <div class="hero-search-label">Browse Listings</div>
+        <div class="hero-search-value">Current opportunities across residential and office assets</div>
+      </div>
+      <div class="hero-search-cell">
+        <div class="hero-search-label">Asset Type</div>
+        <div class="hero-search-value">Apartments + Offices</div>
+      </div>
+      <div class="hero-search-cell">
+        <div class="hero-search-label">Area</div>
+        <div class="hero-search-value">Kénitra Centre Ville</div>
+      </div>
+      <div class="hero-search-cell">
+        <div class="hero-search-label">Status</div>
+        <div class="hero-search-value">1 Featured + 2 Available</div>
+      </div>
+      <button class="hero-search-button">Current Inventory</button>
+    </div>
+    <div class="hero-rail">
+      <div class="hero-rail-card">
+        <div class="hero-rail-label">Featured Now</div>
+        <div class="hero-rail-value">Elaf</div>
+        <div class="hero-rail-text">Contemporary apartments and offices near the city entrance, autoroute access, and the TGV corridor.</div>
+      </div>
+      <div class="hero-rail-card">
+        <div class="hero-rail-label">Near TGV</div>
+        <div class="hero-rail-value">Sammy Suites</div>
+        <div class="hero-rail-text">Luxury high-rise apartments and offices around one minute from the TGV, with residential units starting from 1,040,000 dhs.</div>
+      </div>
+      <div class="hero-rail-card">
+        <div class="hero-rail-label">Commercial</div>
+        <div class="hero-rail-value">Rania Offices</div>
+        <div class="hero-rail-text">A Centre Ville office hub on Mohamed V Avenue designed for visibility, professional synergy, and business growth.</div>
+      </div>
+    </div>
+  </div>
+  <div class="app-grid">
+    <div class="main-stack">
+      <section class="surface-card">
+        <div class="surface-inner">
+          <div class="section-panel-title">
+            <div>
+              <div class="section-panel-kicker">Collection</div>
+              <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">Live Listings</h2>
+            </div>
+            <div class="toolbar-count">3 listings · updated collection</div>
+          </div>
+          <div class="app-statbar">
+            <div class="app-stat"><strong>1</strong><span>Featured now</span></div>
+            <div class="app-stat"><strong>2</strong><span>Available by enquiry</span></div>
+            <div class="app-stat"><strong>TGV + Centre Ville</strong><span>Prime location signals</span></div>
+          </div>
+          <div class="listing-toolbar">
+            <div class="toolbar-count">Filter view</div>
+            <div class="toolbar-tags">
+              <div class="toolbar-tag">Central Kénitra</div>
+              <div class="toolbar-tag">Current Opportunity</div>
+              <div class="toolbar-tag">Residential + Office</div>
+              <div class="toolbar-tag">By Enquiry</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="surface-card" id="current-opportunity">
+        <div class="surface-inner">
+          <div class="section-panel-title">
+            <div>
+              <div class="section-panel-kicker">Featured Listing</div>
+              <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">Current Opportunity</h2>
+            </div>
+            <div class="inventory-status">Live</div>
+          </div>
+          <div class="featured-listing">
+      <div class="featured-media" aria-hidden="true"></div>
+      <div class="featured-copy">
+        <div>
+          <div class="listing-pill">Current Opportunity</div>
+          <h3 class="featured-title">Elaf Sky View<br><em>Mixed-use living and working in a strategic Kénitra location.</em></h3>
+          <p class="featured-summary">Elaf Sky View is a contemporary mixed-use building with apartments and offices for sale, positioned near the entrance of Kénitra with fast autoroute access, strong sun exposure, and practical links to the TGV corridor, schools, healthcare, and green space.</p>
+          <div class="featured-overview-bar">
+            <div class="overview-pill"><strong>Asset</strong><span>Apartments + Offices</span></div>
+            <div class="overview-pill"><strong>Position</strong><span>Centre Ville</span></div>
+            <div class="overview-pill"><strong>Transit</strong><span>TGV-linked</span></div>
+            <div class="overview-pill"><strong>Status</strong><span>Current Opportunity</span></div>
+          </div>
+          <div class="featured-metrics">
+            <div class="featured-metric"><div class="featured-metric-value">35</div><div class="featured-metric-label">Residential apartments</div></div>
+            <div class="featured-metric"><div class="featured-metric-value">6 floors</div><div class="featured-metric-label">Building height</div></div>
+            <div class="featured-metric"><div class="featured-metric-value">11,500 MAD/m2</div><div class="featured-metric-label">Reference pricing</div></div>
+            <div class="featured-metric"><div class="featured-metric-value">Under Construction</div><div class="featured-metric-label">Current status</div></div>
+          </div>
+          <p class="inventory-text" style="margin-top:1rem;">The project includes both apartments and offices for sale. Owners benefit from double underground parking, solar water heating, a ventilated Kone elevator from Finland, double-paned windows, AC installation, imported finishes, and strong natural light across the residential inventory.</p>
+        </div>
+        <div class="featured-actions">
+          <a href="elaf-sky-view.html" class="btn-primary">View Elaf Sky View</a>
+          <a href="guides/daam-sakani-guide.html" class="btn-outline-dark">Read Daam Sakani Guide</a>
+        </div>
+      </div>
+          </div>
+        </div>
+      </section>
+      <section class="surface-card inventory-section">
+        <div class="surface-inner">
+          <div class="section-panel-title">
+            <div>
+              <div class="section-panel-kicker">Inventory Board</div>
+              <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">Listing Collection</h2>
+            </div>
+            <div class="toolbar-count">Tap a card or enquire for details</div>
+          </div>
+    <div class="inventory-grid">
+      <article class="inventory-card media-elaf reveal">
+        <div class="inventory-thumb">
+          <div class="inventory-badge">Active</div>
+          <div class="inventory-price">11,500 MAD/m2</div>
+        </div>
+        <div class="inventory-copy">
+          <div class="inventory-topline">
+            <div class="inventory-sub">Centre Ville · Kénitra · Mixed Use</div>
+            <div class="inventory-status">Featured</div>
+          </div>
+          <h3 class="inventory-title">Elaf Sky View</h3>
+          <p class="inventory-text">A contemporary mixed-use building near the entrance of Kénitra with apartments and offices for sale, autoroute access, sunny dual-facade residential layouts, strong privacy, and a practical location near the TGV, schools, healthcare, and park access.</p>
+          <div class="inventory-specs">
+            <div class="inventory-spec"><strong>Mixed Use</strong><span>Apartments + offices</span></div>
+            <div class="inventory-spec"><strong>3 min drive</strong><span>To TGV station</span></div>
+            <div class="inventory-spec"><strong>2 facades</strong><span>Per apartment</span></div>
+            <div class="inventory-spec"><strong>Under Construction</strong><span>Status</span></div>
+          </div>
+          <div class="inventory-actions">
+            <a href="elaf-sky-view.html" class="btn-primary">View Listing</a>
+            <a href="guides/kenitra-vs-rabat.html" class="btn-outline-dark">Read Related Guide</a>
+          </div>
+        </div>
+      </article>
+      <article class="inventory-card media-sammy reveal">
+        <div class="inventory-thumb">
+          <div class="inventory-badge">Available</div>
+          <div class="inventory-price">From 1,040,000 dhs</div>
+        </div>
+        <div class="inventory-copy">
+          <div class="inventory-topline">
+            <div class="inventory-sub">1 minute from TGV · Luxury High-Rise Mixed Use</div>
+            <div class="inventory-status">Available</div>
+          </div>
+          <h3 class="inventory-title">Sammy Suites</h3>
+          <p class="inventory-text">A high-standing mixed-use tower in Kenitra Centre Ville introducing an American modern style to the city, with apartments and offices for sale. Designed for refined living, long-term resilience, and a more premium ownership experience.</p>
+          <div class="inventory-specs">
+            <div class="inventory-spec"><strong>59-111 m2</strong><span>Residential sizes</span></div>
+            <div class="inventory-spec"><strong>1 min</strong><span>From TGV</span></div>
+            <div class="inventory-spec"><strong>1,040,000 dhs</strong><span>Starting from</span></div>
+            <div class="inventory-spec"><strong>Mixed Use</strong><span>Apartments + offices</span></div>
+          </div>
+          <p class="inventory-text">Highlights include smart lock door handles, smart toilets, centralized air conditioning, premium thermal and acoustic insulation, imported kitchens with Trio Teka appliances, Turkish armored entrance doors, laser-cut Compacto tiles, gold-finished elevators, pre-installed solar water heating, EV charger points, interiors designed by Hopkins &amp; Co, and limited apartments and offices available for reservation on plans.</p>
+          <div class="inventory-actions">
+            <a href="index.html#contact" class="btn-primary">Request Details</a>
+            <a href="why-morocco.html" class="btn-outline-dark">Read Market Insights</a>
+          </div>
+        </div>
+      </article>
+      <article class="inventory-card media-rania reveal">
+        <div class="inventory-thumb">
+          <div class="inventory-badge">Available</div>
+          <div class="inventory-price">Commercial</div>
+        </div>
+        <div class="inventory-copy">
+          <div class="inventory-topline">
+            <div class="inventory-sub">Centre Ville · Offices</div>
+            <div class="inventory-status">Available</div>
+          </div>
+          <h3 class="inventory-title">Rania Offices</h3>
+          <p class="inventory-text">A business-focused office building in the center of Kenitra on Mohamed V Avenue, created for professionals who want visibility, centrality, and a stronger commercial address.</p>
+          <div class="inventory-specs">
+            <div class="inventory-spec"><strong>Office</strong><span>Asset type</span></div>
+            <div class="inventory-spec"><strong>Mohamed V Ave</strong><span>Prime location</span></div>
+            <div class="inventory-spec"><strong>Centre Ville</strong><span>Kenitra core</span></div>
+            <div class="inventory-spec"><strong>By Enquiry</strong><span>Availability details</span></div>
+          </div>
+          <p class="inventory-text">Rania Offices is more than a standalone building. It functions as a business ecosystem hosting doctors, language schools, beauty centers, lawyers, agencies, and other professional users, creating an environment where visibility and cross-business synergy matter.</p>
+          <div class="inventory-actions">
+            <a href="index.html#contact" class="btn-primary">Request Details</a>
+            <a href="services-developers.html" class="btn-outline-dark">Commercial Advisory</a>
+          </div>
+        </div>
+      </article>
+    </div>
+        </div>
+      </section>
+    </div>
+    <aside class="side-stack">
+      <div class="availability-card">
+        <div class="status-chip">Current Opportunity</div>
+        <h3 class="availability-title">Quick Listing Summary</h3>
+        <p class="availability-note">This section gives the page a more practical listing feel: location, format, price positioning, and buyer relevance in one quick scan before a visitor opens the full page.</p>
+        <table class="mini-table">
+          <thead>
+            <tr><th>Listing</th><th>Snapshot</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Elaf Sky View</strong></td><td>Contemporary mixed-use building with apartments and offices for sale near the entrance of Kénitra, with autoroute access, around 3 minutes by car to the TGV, dual-facade residential layouts, underground parking, and an under-construction delivery profile.</td></tr>
+            <tr><td><strong>Sammy Suites</strong></td><td>Luxury high-rise mixed-use project with apartments and offices for sale in Centre Ville, around 1 minute from the TGV, with residential units from 59 m2 to 111 m2 and limited reservations starting at 1,040,000 dhs.</td></tr>
+            <tr><td><strong>Rania Offices</strong></td><td>Office building on Mohamed V Avenue in central Kenitra, positioned as a professional hub for doctors, schools, agencies, lawyers, beauty centers, and other business users.</td></tr>
+            <tr><td><strong>Next Step</strong></td><td>Open the Elaf project page or request tailored details for Sammy Suites and Rania Offices.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="summary-panel">
+        <h3>Request the Full Shortlist</h3>
+        <p>Some opportunities can stay lightweight on the public site while detailed pricing, unit mixes, and commercial specifics are shared directly with qualified buyers.</p>
+        <p>Use the enquiry flow to ask for residential options, office inventory, mixed-use opportunities, or upcoming stock not yet published with full detail.</p>
+        <a href="index.html#contact" class="btn-primary">Request the Shortlist</a>
+      </aside>
+    </aside>
+  </div>
+  <section class="surface-card" style="margin-top:18px;">
+    <div class="surface-inner">
+      <div class="section-panel-title">
+        <div>
+          <div class="section-panel-kicker">Browse By Need</div>
+          <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">Find the Right Fit</h2>
+        </div>
+      </div>
+      <div class="demand-grid">
+      <article class="demand-card">
+        <h3 class="demand-title">Residential Buyers</h3>
+        <p class="demand-text">For buyers looking at apartments, central location, transport access, and practical long-term ownership logic.</p>
+        <div class="demand-meta">Elaf Sky View · Sammy Suites</div>
+      </article>
+      <article class="demand-card">
+        <h3 class="demand-title">Commercial Buyers</h3>
+        <p class="demand-text">For business users and investors seeking offices in Centre Ville or within mixed-use developments with stronger everyday urban positioning.</p>
+        <div class="demand-meta">Elaf Sky View · Sammy Suites · Rania Offices</div>
+      </article>
+      <article class="demand-card">
+        <h3 class="demand-title">Off-Market Requests</h3>
+        <p class="demand-text">If you want something specific that is not yet publicly shown, request a tailored shortlist and we can respond directly.</p>
+        <div class="demand-meta">Private Enquiry Route</div>
+      </article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><img loading="lazy" decoding="async" src="logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:0.5rem;">Rahim <span>International</span></span><p class="footer-tagline">Real estate advisory and consulting for buyers and developers in the Rabat-Salé-Kénitra market.</p></div>
+    <div><div class="footer-col-label">Navigate</div><div class="footer-links"><a href="index.html">Home</a><a href="about.html">Who We Are</a><a href="why-morocco.html">Market Insights</a><a href="property-listings.html">Property Listings</a><a href="index.html#contact">Contact</a></div></div>
+    <div><div class="footer-col-label">Current Opportunity</div><div class="footer-links"><a href="elaf-sky-view.html">Elaf Sky View</a><a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a><a href="guides/daam-sakani-guide.html">Daam Sakani Guide</a><a href="guides/index.html">Guides &amp; Resources</a></div></div>
+    <div><div class="footer-col-label">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">Email</div><div class="footer-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">Phone &amp; WhatsApp</div><div class="footer-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div></div></div></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. All rights reserved.</div><div class="footer-langs"><a href="property-listings.html" class="active">EN</a></div></div>
+</footer>
+<div class="float-buttons"><a href="https://wa.me/212642773249?text=Hello%2C%20I'd%20like%20to%20inquire%20about%20your%20current%20property%20listings." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><button class="btn-back-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button></div>
+<script src="shared.js"></script>
+</body>
+</html>
