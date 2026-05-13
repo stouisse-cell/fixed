@@ -293,6 +293,13 @@ img { display: block; max-width: 100%; }
 .feature-title { font-size: .78rem; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--white); margin-bottom: .5rem; }
 .feature-desc { font-size: .8rem; font-weight: 300; color: var(--text); line-height: 1.75; }
 .feature.wide { grid-column: span 2; }
+.feature-photo { margin-top: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,.07); }
+.feature-photo img { width: 100%; display: block; object-fit: cover; transition: transform .4s; }
+.feature:hover .feature-photo img { transform: scale(1.02); }
+.feature-photo-pair { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.feature-photo-pair .feature-photo { margin-top: 0; }
+.feature-photo-trio { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem; }
+.feature-photo-trio .feature-photo { margin-top: 0; }
 
 /* ── VIEW HIGHLIGHT ── */
 .view-section {
@@ -708,6 +715,11 @@ img { display: block; max-width: 100%; }
         <div class="feature-icon">🍳</div>
         <div class="feature-title">Evogloss Fitted Kitchen</div>
         <div class="feature-desc">U-shaped layout with 4-burner black glass gas hob, integrated oven, angled extractor hood, quartz-effect stone countertop, full-height splashback, undermount black stainless steel sink with pull-down spray faucet and dedicated drinking water tap. Washing machine and dishwasher hookups pre-installed.</div>
+        <div class="feature-photo-trio">
+          <div class="feature-photo"><img src="elafktch.png" alt="Elaf Sky View Evogloss fitted kitchen" loading="lazy"></div>
+          <div class="feature-photo"><img src="elafsink.png" alt="Elaf Sky View — undermount black stainless steel sink" loading="lazy"></div>
+          <div class="feature-photo"><img src="elaftrio.png" alt="Elaf Sky View — Trio Teka kitchen appliances" loading="lazy"></div>
+        </div>
       </div>
       <div class="feature">
         <div class="feature-icon">🚿</div>
@@ -718,11 +730,16 @@ img { display: block; max-width: 100%; }
         <div class="feature-icon">🔒</div>
         <div class="feature-title">Armoured Entry Doors</div>
         <div class="feature-desc">Imported Turkish armoured steel doors with three-point deadbolt locking system and two-tone architectural finish. The kind of door that communicates the standard of the building before you have seen a single room.</div>
+        <div class="feature-photo-pair">
+          <div class="feature-photo"><img src="elafdoorfront.png" alt="Elaf Sky View armoured entry door — exterior" loading="lazy"></div>
+          <div class="feature-photo"><img src="elafdoorback.png" alt="Elaf Sky View armoured entry door — interior" loading="lazy"></div>
+        </div>
       </div>
       <div class="feature">
         <div class="feature-icon">✦</div>
         <div class="feature-title">Interior Finishes</div>
         <div class="feature-desc">Hand-applied khayali decorative plaster in living rooms — pearlescent, textured, refined. LED cove ceiling lighting throughout. Sculptural floating ceiling panels in bedrooms. Large format polished floor tiles. Full height built-in wardrobes in all bedrooms.</div>
+        <div class="feature-photo"><img src="elaffinishes.png" alt="Elaf Sky View interior finishes — high-gloss tiles, LED cove ceiling, recessed lighting, khayali plaster" loading="lazy"></div>
       </div>
     </div>
   </div>
