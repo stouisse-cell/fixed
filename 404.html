@@ -49,6 +49,13 @@
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="og:locale:alternate" content="ar_MA">
 <meta name="theme-color" content="#07111f">
+<style id="auto-lang-switcher-style">
+.auto-lang-switcher{position:fixed;top:14px;right:14px;z-index:9999;display:flex;gap:6px;align-items:center;padding:6px;border:1px solid rgba(210,180,134,.24);background:rgba(7,17,31,.88);backdrop-filter:blur(14px);border-radius:999px;box-shadow:0 12px 28px rgba(7,17,31,.24)}
+html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
+.auto-lang-switcher a{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:32px;padding:0 10px;border-radius:999px;border:1px solid rgba(210,180,134,.24);font:600 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);background:transparent;transition:background .2s,color .2s,border-color .2s}
+.auto-lang-switcher a:hover{border-color:rgba(210,180,134,.42);color:#fff}
+.auto-lang-switcher a.active{background:#b76a3f;border-color:#b76a3f;color:#fff}
+</style>
 </head>
 <body>
 <div class="error-page">
@@ -67,5 +74,36 @@
   </div>
 </div>
 <script src="shared.js"></script>
+<script id="auto-lang-switcher-script">
+(function(){
+  if (document.querySelector('.language-switcher,[data-auto-lang-switcher],.footer-langs')) return;
+  var links = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+  var labels = {en:'EN', fr:'FR', ar:'AR'};
+  var seen = new Set();
+  var current = (document.documentElement.lang || 'en').slice(0,2).toLowerCase();
+  var items = links.filter(function(link){
+    var code = (link.getAttribute('hreflang') || '').slice(0,2).toLowerCase();
+    if (!labels[code] || seen.has(code)) return false;
+    seen.add(code);
+    return true;
+  }).map(function(link){
+    var code = link.getAttribute('hreflang').slice(0,2).toLowerCase();
+    return {code: code, href: link.getAttribute('href')};
+  });
+  if (items.length < 2) return;
+  var wrap = document.createElement('div');
+  wrap.className = 'auto-lang-switcher';
+  wrap.setAttribute('data-auto-lang-switcher','');
+  wrap.setAttribute('aria-label','Language switcher');
+  items.forEach(function(item){
+    var a = document.createElement('a');
+    a.href = item.href;
+    a.textContent = labels[item.code];
+    if (item.code === current) a.classList.add('active');
+    wrap.appendChild(a);
+  });
+  document.body.appendChild(wrap);
+})();
+</script>
 </body>
 </html>
