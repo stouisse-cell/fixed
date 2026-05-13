@@ -167,13 +167,19 @@ nav.visible{display:flex}
 .unit-card.recommended{border-color:rgba(210,164,59,.5);border-width:1.5px}
 .unit-badge{font-size:.56rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);padding:.22rem .7rem;display:inline-block;margin:0}
 .unit-img{position:relative;height:220px;overflow:hidden;background:var(--navy3)}
-.unit-img img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .5s,opacity .3s}
-.unit-card:hover .unit-img img{transform:scale(1.03);opacity:.85}
-.unit-img-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,30,.95) 0%,transparent 55%)}
-.unit-img-tags{position:absolute;bottom:.8rem;left:.9rem;display:flex;gap:.4rem;flex-wrap:wrap}
+.unit-img img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s;position:absolute;inset:0;}
+.unit-img img.active{opacity:.85}
+.unit-img-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,30,.95) 0%,transparent 55%);z-index:1}
+.unit-img-tags{position:absolute;bottom:.8rem;left:.9rem;display:flex;gap:.4rem;flex-wrap:wrap;z-index:2}
 .unit-img-tag{font-size:.54rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(10,18,30,.82);border:1px solid rgba(255,255,255,.14);color:var(--dt2);padding:.18rem .5rem;border-radius:999px}
 .unit-img-tag.daam{border-color:rgba(24,144,95,.5);color:#5de8a8;background:rgba(24,144,95,.12)}
 .unit-img-tag.delivery{border-color:rgba(210,164,59,.4);color:var(--gold2)}
+.unit-img-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(10,18,30,.55);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s}
+.unit-img-nav:hover{background:rgba(10,18,30,.82)}
+.unit-img-prev{left:.5rem}.unit-img-next{right:.5rem}
+.unit-img-dots{position:absolute;bottom:.45rem;right:.7rem;display:flex;gap:3px;z-index:3}
+.unit-img-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s}
+.unit-img-dot.active{background:rgba(255,255,255,.9)}
 .unit-body{padding:1.4rem 1.5rem 1.5rem}
 .unit-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
 .unit-name{font-family:'Anybody',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;line-height:1.2}
@@ -367,7 +373,7 @@ nav.visible{display:flex}
       <div class="ob-cards paths">
         <div class="ob-card ob-path-card" data-v="entry" onclick="pick(this,'budget')">
           <div class="ob-path-img">
-            <img src="elaf.jpg" alt="Entry unit — Elaf Sky View">
+            <img src="63a.png" alt="Entry unit — Elaf Sky View">
             <div class="ob-path-veil"></div>
             <span class="ob-path-badge daam">Daam Eligible</span>
           </div>
@@ -379,7 +385,7 @@ nav.visible{display:flex}
         </div>
         <div class="ob-card ob-path-card" data-v="mid-a" onclick="pick(this,'budget')">
           <div class="ob-path-img">
-            <img src="elaf-2.jpg" alt="Mid A unit — Elaf Sky View">
+            <img src="80a.png" alt="Mid A unit — Elaf Sky View">
             <div class="ob-path-veil"></div>
             <span class="ob-path-badge">2 available</span>
           </div>
@@ -391,7 +397,7 @@ nav.visible{display:flex}
         </div>
         <div class="ob-card ob-path-card" data-v="mid-b" onclick="pick(this,'budget')">
           <div class="ob-path-img">
-            <img src="elaf-3.jpg" alt="Mid B unit — Elaf Sky View">
+            <img src="97a.png" alt="Mid B unit — Elaf Sky View">
             <div class="ob-path-veil"></div>
             <span class="ob-path-badge">2 available</span>
           </div>
@@ -403,7 +409,7 @@ nav.visible{display:flex}
         </div>
         <div class="ob-card ob-path-card" data-v="premium" onclick="pick(this,'budget')">
           <div class="ob-path-img">
-            <img src="elaf-4.jpg" alt="Premium unit — Elaf Sky View">
+            <img src="108a.png" alt="Premium unit — Elaf Sky View">
             <div class="ob-path-veil"></div>
             <span class="ob-path-badge">4 available</span>
           </div>
@@ -740,14 +746,14 @@ var A={name:'',email:'',fonc:false,budget:'',firstpurchase:'',location:'',motiva
 var step=1,STEPS=5,selFloor=1;
 
 var UNITS={
-  entry:{name:'Entry · 63m²',img:'elaf.jpg',size:'63m²',terrace:'No terrace',bed:'2 bed',bath:'1 bath',layout:'Living room · Kitchen',
+  entry:{name:'Entry · 63m²',imgs:['63a.png','63b.png','63c.png','63d.png','63e.png','63f.png','63g.png','63h.png'],size:'63m²',terrace:'No terrace',bed:'2 bed',bath:'1 bath',layout:'Living room · Kitchen',
     priceByFloor:[620000,640000,660000,680000,700000,720000],
     daamFloors:[1,2,3,4,5],available:6,rent:3800,parking:true,delivery:'June 2026'},
-  'mid-a':{name:'Mid A · 80m² + 18m² terrace',img:'elaf-2.jpg',size:'80m²',terrace:'18m² terrace',bed:'2 bed',bath:'2 bath',
+  'mid-a':{name:'Mid A · 80m² + 18m² terrace',imgs:['80a.png','80b.png','80c.png','80d.png','80e.png','80f.png','80g.png','80h.png','80i.png','80j.png','80k.png','80l.png','80m.png'],size:'80m²',terrace:'18m² terrace',bed:'2 bed',bath:'2 bath',
     layout:'Living room · Kitchen',price:955500,available:2,rent:5500,parking:true,delivery:'June 2026'},
-  'mid-b':{name:'Mid B · 97m² + 9m² terrace',img:'elaf-3.jpg',size:'97m²',terrace:'9m² terrace',bed:'3 bed',bath:'2 bath',
+  'mid-b':{name:'Mid B · 97m² + 9m² terrace',imgs:['97a.png','97b.png','97c.png','97d.png','97e.png','97f.png','97g.png','97h.png','97i.png','97j.png'],size:'97m²',terrace:'9m² terrace',bed:'3 bed',bath:'2 bath',
     layout:'Living room · Kitchen',price:993000,available:2,rent:6200,parking:true,delivery:'June 2026'},
-  premium:{name:'Premium · 106 or 108m²',img:'elaf-4.jpg',size:'106–108m²',terrace:'Covered balcony',bed:'3 bed',bath:'2 bath',
+  premium:{name:'Premium · 106 or 108m²',imgs:['108a.png','108b.png','108c.png','108d.png','108e.png','108f.png','108g.png','108h.png','108i.png','108j.png','108k.png','108l.png','108m.png','108n.png','108o.png','108p.png','108q.png','108r.png','108s.png','108t.png'],size:'106–108m²',terrace:'Covered balcony',bed:'3 bed',bath:'2 bath',
     layout:'Living room · Kitchen',price:1400000,available:4,rent:8000,parking:true,delivery:'June 2026'}
 };
 
@@ -863,8 +869,14 @@ function buildUnits(keys){
         :'<div class="floor-note">Floors 1–5 are fully Daam Sakani eligible (under 700,000 MAD ceiling).</div>';
       floorHtml+='</div>';
     }
+    var imgs=u.imgs||[u.img||'elaf.jpg'];
+    var galleryImgs=imgs.map(function(src,i){
+      return '<img src="'+src+'" alt="'+u.name+' — photo '+(i+1)+'" class="'+(i===0?'active':'')+'" loading="'+(i===0?'eager':'lazy')+'">';
+    }).join('');
+    var dotsHtml=imgs.length>1?'<div class="unit-img-dots">'+imgs.map(function(_,i){return '<span class="unit-img-dot'+(i===0?' active':'')+'" data-i="'+i+'"></span>';}).join('')+'</div>':'';
+    var navHtml=imgs.length>1?'<button class="unit-img-nav unit-img-prev" aria-label="Previous photo">&#8249;</button><button class="unit-img-nav unit-img-next" aria-label="Next photo">&#8250;</button>':'';
     div.innerHTML=badgeHtml+
-      '<div class="unit-img"><img src="'+u.img+'" alt="'+u.name+' — Elaf Sky View"><div class="unit-img-veil"></div>'+
+      '<div class="unit-img" data-gallery="'+k+'">'+galleryImgs+'<div class="unit-img-veil"></div>'+navHtml+dotsHtml+
       '<div class="unit-img-tags">'+daamTag+negTag+
       '<span class="unit-img-tag delivery">'+u.delivery+'</span>'+
       '<span class="unit-img-tag">'+u.available+' available</span>'+
@@ -887,6 +899,31 @@ function buildUnits(keys){
       floorHtml+
       '</div>';
     wrap.appendChild(div);
+  });
+  initUnitGalleries();
+}
+
+function initUnitGalleries(){
+  document.querySelectorAll('.unit-img[data-gallery]').forEach(function(gallery){
+    var imgs=Array.from(gallery.querySelectorAll('img'));
+    var dots=Array.from(gallery.querySelectorAll('.unit-img-dot'));
+    if(imgs.length<=1)return;
+    var cur=0;
+    function show(n){
+      cur=(n+imgs.length)%imgs.length;
+      imgs.forEach(function(img,i){img.classList.toggle('active',i===cur);});
+      dots.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+    }
+    gallery.querySelector('.unit-img-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+    gallery.querySelector('.unit-img-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+    dots.forEach(function(d){d.addEventListener('click',function(e){e.stopPropagation();show(parseInt(d.dataset.i));});});
+    // Touch swipe
+    var tx=0;
+    gallery.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+    gallery.addEventListener('touchend',function(e){
+      var dx=e.changedTouches[0].clientX-tx;
+      if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));
+    },{passive:true});
   });
 }
 
