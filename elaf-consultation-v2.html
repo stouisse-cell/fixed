@@ -831,6 +831,36 @@ function showResults(){
   buildAll();
   prog(100);
   window.scrollTo(0,0);
+
+  // Submit consultation data to Formspree
+  if(A.email){
+    var unitLabel = {
+      'entry': 'Entry · 63m²',
+      'mid-a': 'Mid A · 80m² + terrace',
+      'mid-b': 'Mid B · 97m² + terrace',
+      'premium': 'Premium · 106–108m²',
+      'all': 'No preference — show all'
+    }[A.budget] || A.budget;
+
+    var payload = {
+      _subject: 'New Consultation — Elaf Sky View — ' + (A.name || 'Anonymous'),
+      source: 'Elaf Sky View Investment Consultation',
+      name: A.name || 'Not provided',
+      email: A.email || 'Not provided',
+      fonc_buyer: A.fonc ? 'Yes — FONC / MRE account' : 'No',
+      unit_preference: unitLabel,
+      first_purchase: A.firstpurchase || 'Not answered',
+      location: A.location || 'Not answered',
+      motivation: A.motivation || 'Not answered',
+      timeline: A.timeline || 'Not answered'
+    };
+
+    fetch('https://formspree.io/f/xlgzvpdq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(){});
+  }
 }
 function buildAll(){
   var fn=A.name.split(' ')[0]||'';
