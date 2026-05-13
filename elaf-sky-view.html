@@ -352,6 +352,9 @@ img { display: block; max-width: 100%; }
   padding: clamp(4rem, 7vw, 7rem) 5%;
 }
 .rahim-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.rahim-photo-wrap { margin-bottom: 2rem; position: relative; display: inline-block; }
+.rahim-photo { width: 100%; max-width: 320px; display: block; border: 1px solid var(--border-warm); }
+.rahim-photo-caption { font-size: .65rem; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-top: .7rem; }
 .rahim-quote {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 300; font-style: italic;
@@ -363,6 +366,13 @@ img { display: block; max-width: 100%; }
   font-size: .65rem; font-weight: 400; letter-spacing: .16em; text-transform: uppercase;
   color: var(--gold); border: 1px solid var(--gold-border); padding: .3rem .8rem;
 }
+/* ── LOCATION MAP ── */
+.map-section { background: var(--navy); padding: clamp(3rem, 6vw, 6rem) 5%; }
+.map-inner { max-width: 1200px; margin: 0 auto; }
+.map-inner .eyebrow { margin-bottom: .5rem; }
+.map-inner .h2 { margin-bottom: 2rem; }
+.map-embed { width: 100%; height: 460px; border: 1px solid var(--border-warm); filter: grayscale(20%); }
+.map-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 /* ── OPPORTUNITY ── */
 .opp-section { padding: clamp(4rem, 7vw, 7rem) 5%; background: var(--navy); }
@@ -578,9 +588,11 @@ img { display: block; max-width: 100%; }
       <div>
         <p class="eyebrow">The Address</p>
         <h2 class="h2">The heart of <em>Kénitra.</em></h2>
-        <p class="body-text">Elaf Sky View sits on Avenue Youssef Ben Tachfine, approximately 300 metres from its intersection with Rue Mohammed V — the main artery that runs through Kénitra and every major city in Morocco. It is one of those addresses that needs no explanation to anyone who knows the country.</p>
-        <p class="body-text">Step outside and within the same few streets you have everything you need for daily life — fresh produce, a pharmacy, a clinic, your bank, a gym, cafés, restaurants, schools, and taxis running constantly. The Corniche Sebou boardwalk, the Jardin de la Province, and the city's main commercial avenues are minutes away on foot.</p>
-        <p class="body-text">This kind of central address is increasingly rare in Kénitra. The city is growing — but it is growing outward. What is already here stays here.</p>
+        <p class="body-text">In the historic heart of Kénitra, where traces of the city's rich past remain visible through tree-lined avenues, civic landmarks, and architecture shaped during its time as Port Lyautey, Elaf Sky View offers a rare address in one of the city's most established neighbourhoods.</p>
+        <p class="body-text">Located in Centre Ville on Avenue Youssef Ben Tachfine, approximately 300 metres from its intersection with Rue Mohammed V — the main artery that runs through Kénitra and every major city in Morocco — the development enjoys an exceptionally central position, placing it within immediate reach of the city's key destinations, from the historic medina to major commercial and civic areas.</p>
+        <p class="body-text">Unlike many newer developments on the city's outskirts, Elaf benefits from a mature urban environment where infrastructure is fully established, daily life is highly walkable, and everything the city offers is close at hand.</p>
+        <p class="body-text">Inside, residences are thoughtfully designed for long-term comfort, featuring refined finishes, efficient layouts, and carefully selected specifications that support both everyday living and lasting value. Elaf Sky View places residents in one of Kénitra's most connected and practical locations, with transportation, education, healthcare, green spaces, and daily essentials all nearby.</p>
+        <p class="body-text">Whether commuting between cities, investing, buying a vacation home, or settling in long-term, the project offers a level of convenience and long-term value that is becoming increasingly rare in newer, more peripheral developments.</p>
         <div class="address-pills">
           <span class="pill">Centre Ville</span>
           <span class="pill">Rue Mohammed V</span>
@@ -679,7 +691,20 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- LOCATION MAP -->
+<section class="map-section">
+  <div class="map-inner">
+    <p class="eyebrow">Location</p>
+    <h2 class="h2">Avenue Youssef Ben Tachfine,<br><em>Kénitra Centre Ville.</em></h2>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.8!2d-6.5828!3d34.2610!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9a80f4b6b4b4b5%3A0x0!2sAv.+Youssef+Ben+Tachfine%2C+K%C3%A9nitra!5e0!3m2!1sen!2sma!4v1715000000000!5m2!1sen!2sma"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Elaf Sky View location — Avenue Youssef Ben Tachfine, Kénitra Centre Ville">
+      </iframe>
+    </div>
+  </div>
+</section>
 <section class="section section-dark" id="features">
   <div class="section-inner">
     <div class="features-intro">
@@ -689,6 +714,16 @@ img { display: block; max-width: 100%; }
     <div class="features-grid">
 
       <!-- WITH PHOTOS — TOP -->
+
+      <div class="feature wide">
+        <div class="feature-title">Unobstructed Street-Facing View</div>
+        <div class="feature-desc">Street-facing units look out over tree-lined avenues toward the Quartier Génie — a gated military facility with mature greenery that will never be developed. No vis-à-vis. No future building appearing across the street. A permanently open outlook in the middle of a city centre that cannot be manufactured or replicated in a new development.</div>
+        <div class="feature-photo-trio">
+          <div class="feature-photo"><img src="108t.png" alt="Unobstructed street view from Elaf Sky View — Kénitra Centre Ville" loading="lazy"></div>
+          <div class="feature-photo"><img src="108b.png" alt="Terrace with open sky and street view — Elaf Sky View" loading="lazy"></div>
+          <div class="feature-photo"><img src="108f.png" alt="Bedroom window — open outlook toward Quartier Génie" loading="lazy"></div>
+        </div>
+      </div>
 
       <div class="feature">
         <div class="feature-icon">✦</div>
@@ -739,11 +774,6 @@ img { display: block; max-width: 100%; }
       </div>
 
       <!-- TEXT ONLY — BOTTOM -->
-
-      <div class="feature wide">
-        <div class="feature-title">Unobstructed Street-Facing View</div>
-        <div class="feature-desc">Street-facing units look out over tree-lined avenues toward the Quartier Génie — a gated military facility with mature greenery that will never be developed. No vis-à-vis. No future building appearing across the street. A permanently open outlook in the middle of a city centre that cannot be manufactured or replicated in a new development.</div>
-      </div>
 
       <div class="feature">
         <div class="feature-icon">🛒</div>
@@ -813,7 +843,10 @@ img { display: block; max-width: 100%; }
 <div class="rahim-section">
   <div class="rahim-inner">
     <div>
-      <p class="eyebrow">Rahim International</p>
+      <div class="rahim-photo-wrap">
+        <img src="alirahim.png" alt="Ali Rahim — Rahim International, owner at Elaf Sky View" class="rahim-photo" loading="lazy">
+        <p class="rahim-photo-caption">Ali Rahim · Your future neighbour</p>
+      </div>
       <div class="rahim-quote">"We did not just evaluate this building. We bought in it."</div>
       <div class="rahim-tag">✓ Owner-Invested</div>
     </div>
