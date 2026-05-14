@@ -5,6 +5,41 @@
 (function() {
   'use strict';
 
+  const LANG_STORAGE_KEY = 'ri_locale';
+
+  function normalizeLocale(value) {
+    const locale = String(value || '').trim().toLowerCase();
+    if (locale === 'fr' || locale === 'ar' || locale === 'en') return locale;
+    return '';
+  }
+
+  function persistLocale(locale) {
+    const normalized = normalizeLocale(locale);
+    if (!normalized) return;
+    try {
+      window.localStorage.setItem(LANG_STORAGE_KEY, normalized);
+    } catch (_) {}
+  }
+
+  function detectLocaleFromLink(link) {
+    if (!link) return '';
+    const explicit = normalizeLocale(link.getAttribute('data-lang-choice'));
+    if (explicit) return explicit;
+    const textLocale = normalizeLocale(link.textContent);
+    if (textLocale) return textLocale;
+    const href = link.getAttribute('href') || '';
+    if (/\/ar\/|(^|\/)ar\.html$/i.test(href) || /\/ar\/index\.html$/i.test(href)) return 'ar';
+    if (/\/fr\/|(^|\/)fr\.html$/i.test(href) || /\/fr\/index\.html$/i.test(href)) return 'fr';
+    if (/index\.html$/i.test(href) || href === '/' || href === '../index.html') return 'en';
+    return '';
+  }
+
+  document.querySelectorAll('.language-switcher a, .footer-langs a, [data-lang-choice]').forEach((link) => {
+    link.addEventListener('click', () => {
+      persistLocale(detectLocaleFromLink(link));
+    });
+  });
+
   // ---- Progress Bar ----
   const progressBar = document.getElementById('progress-bar');
   function updateProgress() {
