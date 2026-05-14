@@ -143,14 +143,7 @@
     background: linear-gradient(to bottom, rgba(210,180,134,0.6), transparent);
   }
 
-  /* Problem section */
-  .problem-section { background: var(--cream); }
-  .problem-split {
-    display: grid;
-    grid-template-columns: minmax(0,1fr) minmax(280px,0.75fr);
-    gap: 5rem;
-    align-items: start;
-  }
+  /* Body text */
   .body-text {
     font-size: 0.92rem;
     font-weight: 300;
@@ -158,329 +151,65 @@
     color: var(--text-muted);
     margin-bottom: 1.2rem;
   }
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 2rem 0;
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--copper-dark);
-  }
-  .service-tag-sep { color: var(--border); }
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    margin-top: 2rem;
-  }
-  .pillar-item {
-    background: var(--white);
-    padding: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .pillar-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: rgba(183,106,63,0.3);
-    line-height: 1;
-    flex: 0 0 auto;
-  }
-  .pillar-text {
-    font-size: 0.82rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--text-muted);
-    padding-top: 0.25rem;
-  }
 
-  /* Services / paths section */
-  .paths-section { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); }
-  .paths-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-    background: transparent;
-    margin-top: 3.5rem;
+  /* Dashboard */
+  .dashboard-section {
+    background: #f5f2ed;
+    padding: var(--section-pad);
   }
-  .path-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-    border: 1px solid rgba(210,180,134,0.18);
-    min-height: 220px;
-    padding: 2.3rem 2.1rem;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: background 0.3s, transform 0.3s, border-color 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .path-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--copper), var(--gold));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-  }
-  .path-card:hover {
-    background: rgba(255,255,255,0.09);
-    border-color: rgba(210,180,134,0.38);
-    transform: translateY(-4px);
-  }
-  .path-card:hover::before { transform: scaleX(1); }
-  .path-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    color: rgba(210,180,134,0.2);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-  .path-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.55rem;
-    font-weight: 400;
-    color: var(--gold);
-    margin-bottom: 0.9rem;
-    line-height: 1.2;
-  }
-  .path-desc {
-    font-size: 0.84rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.58);
-    margin-bottom: 1.5rem;
-  }
-  .path-link {
-    font-size: 0.65rem;
+  .dash-row-header {
+    font-size: 0.62rem;
     font-weight: 500;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--copper);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.2s;
-  }
-  .path-link::after { content: '→'; }
-  .path-card:hover .path-link { color: var(--gold); }
-  .paths-footer {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    margin-bottom: 1rem;
     margin-top: 3rem;
   }
-  .timeline,
-  .steps-grid,
-  .audience-grid {
+  .dash-row-header:first-child { margin-top: 0; }
+  .dash-row {
     display: grid;
-    gap: 1.25rem;
-    background: transparent;
-    margin-top: 3rem;
-  }
-  .timeline {
-    position: relative;
-    gap: 0;
-    max-width: 900px;
-    padding-left: 2rem;
-  }
-  #services {
-    background:
-      radial-gradient(circle at top left, rgba(210,180,134,0.18), transparent 32%),
-      linear-gradient(180deg, #0c1f37 0%, #102949 100%) !important;
-  }
-  #services .section-eyebrow {
-    color: rgba(210,180,134,0.88);
-  }
-  #services .section-title {
-    color: var(--white) !important;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0.5rem;
-    bottom: 0.5rem;
-    left: 1rem;
-    width: 1px;
-    background: linear-gradient(to bottom, rgba(210,180,134,0.08), rgba(210,180,134,0.95), rgba(210,180,134,0.08));
-  }
-  .steps-grid { grid-template-columns: repeat(2, 1fr); }
-  .audience-grid { grid-template-columns: repeat(2, 1fr); }
-  .timeline-item {
-    position: relative;
-    padding: 0 0 1.35rem 2.4rem;
-  }
-  .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-dot {
-    position: absolute;
-    left: -0.1rem;
-    top: 1.4rem;
-    width: 1.2rem;
-    height: 1.2rem;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: linear-gradient(135deg, #f2d8aa, #c27c47);
-    box-shadow: 0 0 0 7px rgba(242,216,170,0.08);
-  }
-  .step-card,
-  .audience-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    box-shadow: 0 16px 34px rgba(7,17,31,0.05);
-    padding: 2rem 1.8rem;
-    position: relative;
-  }
-  .step-card::before,
-  .audience-card::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--copper), var(--gold));
-    opacity: 0.8;
-  }
-  .step-card {
-    display: flex;
     gap: 1rem;
-    align-items: flex-start;
   }
-  .timeline .step-card {
-    display: grid;
-    grid-template-columns: 84px minmax(0, 1fr);
-    gap: 1.3rem;
-    align-items: start;
-    padding: 1.6rem 1.6rem 1.6rem 1.35rem;
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 18px 40px rgba(2,8,18,0.26);
-    backdrop-filter: blur(4px);
+  .dash-row-4 { grid-template-columns: repeat(4, 1fr); }
+  .dash-row-3 { grid-template-columns: repeat(3, 1fr); }
+  .dash-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 2px 14px rgba(7,17,31,0.07);
+    padding: 1.8rem 1.6rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .timeline .step-card::before {
-    height: 2px;
-    background: linear-gradient(90deg, rgba(242,216,170,0.2), rgba(242,216,170,0.95), rgba(194,124,71,0.55));
-    opacity: 1;
+  .dash-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(7,17,31,0.13);
   }
-  .timeline-step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #f4deba 0%, #d3a26f 100%);
-    color: #102949;
+  .dash-card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    border: 1px solid rgba(255,255,255,0.32);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 10px 24px rgba(0,0,0,0.18);
-  }
-  .timeline-copy { padding-top: 0.15rem; }
-  .step-name,
-  .audience-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
     font-weight: 400;
     color: var(--navy);
     line-height: 1.2;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.55rem;
   }
-  #services .step-name {
-    color: var(--white);
-  }
-  .step-text,
-  .audience-text {
-    font-size: 0.88rem;
+  .dash-row-4 .dash-card-title { font-size: 1.45rem; }
+  .dash-row-3 .dash-card-title { font-size: 1.25rem; }
+  .dash-card-desc {
+    font-size: 0.8rem;
     font-weight: 300;
-    line-height: 1.8;
+    line-height: 1.65;
     color: var(--text-muted);
-    margin: 0;
+    flex: 1;
+    margin-bottom: 1.2rem;
   }
-  #services .step-text {
-    color: rgba(255,255,255,0.74);
-  }
-  .trust-list {
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0 0;
-    display: grid;
-    gap: 1rem;
-  }
-  .trust-list li {
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--copper-dark);
-    border: 1px solid var(--border);
-    background: var(--white);
-    padding: 1.15rem 1.2rem;
-  }
-  #why-trust-us {
-    background:
-      radial-gradient(circle at top right, rgba(210,180,134,0.12), transparent 28%),
-      linear-gradient(180deg, #0b1b31 0%, #102949 100%) !important;
-    border-top: 1px solid rgba(242,216,170,0.08);
-    border-bottom: 1px solid rgba(242,216,170,0.12);
-  }
-  #why-trust-us .section-eyebrow {
-    color: rgba(242,216,170,0.82);
-  }
-  #why-trust-us .problem-split {
-    align-items: center;
-  }
-  #why-trust-us .cta-shell {
-    max-width: 720px;
-  }
-  #why-trust-us .section-title {
-    color: var(--white) !important;
-  }
-  #why-trust-us .body-text {
-    color: rgba(255,255,255,0.72);
-  }
-  #why-trust-us .trust-list li {
-    background: linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
-    color: #f2d8aa;
-    border: 1px solid rgba(242,216,170,0.18);
-    box-shadow: 0 14px 30px rgba(7,17,31,0.18);
-  }
-  .section-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-  .section-intro {
-    font-size: 0.92rem;
-    font-weight: 300;
-    line-height: 1.9;
-    max-width: 760px;
-    margin-top: 0.8rem;
-  }
-  .cta-shell { max-width: 760px; }
-  .lead-card {
-    max-width: 760px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--border-warm);
-    padding: 2.6rem 2.4rem;
-  }
-  .final-cta-panel {
-    max-width: 760px;
-    border-top: 1px solid var(--border);
-    padding-top: 2rem;
+  .dash-card-arrow {
+    font-size: 1.1rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
   }
 
   /* Gallery */
@@ -649,14 +378,11 @@
     text-decoration: none;
   }
 
-  @media (max-width: 1180px) {
-    .paths-grid { grid-template-columns: 1fr 1fr; }
-    .steps-grid,
-    .audience-grid { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 1100px) {
+    .dash-row-4 { grid-template-columns: repeat(2, 1fr); }
     .elaf-stats { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 900px) {
-    .problem-split,
     .elaf-grid,
     .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .gallery-wrap { height: 380px; }
@@ -664,26 +390,13 @@
   @media (max-width: 680px) {
     .hero { padding-bottom: 5rem; }
     .hero-title { font-size: clamp(2.8rem, 14vw, 4rem); }
-    .paths-grid { grid-template-columns: 1fr; }
-    .steps-grid,
-    .audience-grid { grid-template-columns: 1fr; }
-    .timeline { padding-left: 1.5rem; }
-    .timeline::before { left: 0.72rem; }
-    .timeline-item { padding-left: 1.8rem; }
-    .timeline-dot { left: -0.22rem; }
-    .timeline .step-card {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      padding: 1.35rem 1.2rem 1.35rem 1.1rem;
-    }
-    .timeline-step-num {
-      width: 52px;
-      height: 52px;
-      font-size: 1.2rem;
-    }
-    .pillars-grid { grid-template-columns: 1fr; }
+    .dash-row-3 { grid-template-columns: repeat(2, 1fr); }
     .elaf-stats { grid-template-columns: 1fr 1fr; }
     .gallery-wrap { height: 300px; }
+  }
+  @media (max-width: 480px) {
+    .dash-row-4,
+    .dash-row-3 { grid-template-columns: 1fr 1fr; }
   }
 </style>
 <meta name="twitter:card" content="summary_large_image">
@@ -699,66 +412,6 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/fr/","name":"Rahim International","inLanguage":"fr","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"Fondateur","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/fr/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
-<style>
-    .connect-section .connect-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: 640px;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .connect-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border-warm);
-      padding: 2.4rem 2.4rem 2.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-    .connect-kicker {
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--copper);
-      margin: 0;
-    }
-    .connect-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.3;
-      margin: 0 0 0.2rem;
-    }
-    .connect-text {
-      font-size: 0.88rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.7);
-      margin: 0;
-    }
-    .connect-btn {
-      align-self: flex-start;
-      margin-top: 0.8rem;
-    }
-    .news-form { margin-top: 0.6rem; }
-    .news-form .form-label { color: rgba(255,255,255,0.7); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
-    .news-row { display: flex; gap: 0.6rem; }
-    .news-input { flex: 1 1 auto; min-width: 0; }
-    .news-submit { white-space: nowrap; }
-    .news-privacy {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.45);
-      margin: 0.7rem 0 0;
-      line-height: 1.5;
-    }
-    @media (max-width: 860px) {
-      .connect-section .connect-grid { grid-template-columns: 1fr; }
-      .news-row { flex-direction: column; }
-      .news-submit { width: 100%; }
-    }
-  </style>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -832,68 +485,71 @@
     <span class="hero-scroll" aria-hidden="true">DÉFILER</span>
   </section>
 
-  <!-- START HERE -->
-  <section class="paths-section" style="padding:var(--section-pad);" id="start-here">
-    <p class="section-eyebrow" style="color:var(--copper);">Orientation</p>
-    <h2 class="section-title" style="color:var(--white);">Commencez ici</h2>
-    <p class="section-intro" style="color:rgba(255,255,255,.65);">Vous ne savez pas par où commencer ? Choisissez votre parcours.</p>
-    <div class="paths-grid">
-      <a href="investors-mre.html" class="path-card"><div class="path-num">01</div><h3 class="path-title">Je suis un acheteur MRE</h3><span class="path-link">Ouvrir le parcours</span></a>
-      <a href="investors-international.html" class="path-card"><div class="path-num">02</div><h3 class="path-title">Je suis un investisseur international</h3><span class="path-link">Ouvrir le parcours</span></a>
-      <a href="property-listings.html" class="path-card"><div class="path-num">03</div><h3 class="path-title">J’explore les opportunités</h3><span class="path-link">Ouvrir le parcours</span></a>
-      <a href="services-developers.html" class="path-card"><div class="path-num">04</div><h3 class="path-title">Je représente un projet immobilier</h3><span class="path-link">Ouvrir le parcours</span></a>
+  <!-- DASHBOARD -->
+  <section class="dashboard-section" id="start-here">
+    <p class="dash-row-header">Qui êtes-vous ?</p>
+    <div class="dash-row dash-row-4">
+      <a href="investors-mre.html" class="dash-card">
+        <h2 class="dash-card-title">Diaspora marocaine / MRE</h2>
+        <p class="dash-card-desc">Accompagnement pour acheter à distance, étape par étape.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="investors-international.html" class="dash-card">
+        <h2 class="dash-card-title">Investisseur international</h2>
+        <p class="dash-card-desc">Conseil et accès aux biens pour investisseurs non-marocains.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="investors-local.html" class="dash-card">
+        <h2 class="dash-card-title">Investisseur local</h2>
+        <p class="dash-card-desc">Meilleures opportunités et évaluation précise pour acheteurs locaux.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="services-developers.html" class="dash-card">
+        <h2 class="dash-card-title">Promoteur</h2>
+        <p class="dash-card-desc">Atteignez les acheteurs internationaux et positionnez votre projet.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
     </div>
-  </section>
-
-  <!-- WHAT WE SOLVE -->
-  <section class="problem-section" style="padding:var(--section-pad);" id="about">
-    <div class="cta-shell">
-      <p class="section-eyebrow">Réalité du marché</p>
-      <h2 class="section-title" style="color:var(--navy);">Ce que nous résolvons</h2>
-      <p class="body-text">Le marché immobilier marocain présente encore un manque structurel d’information.</p>
-      <p class="body-text">Les programmes haut de gamme sont généralement bien présentés. Mais une grande partie du milieu de marché reste peu documentée, mal positionnée et difficile à évaluer — surtout lorsqu’on pilote sa recherche depuis l’étranger.</p>
-      <p class="body-text">Nous comblons cet écart en apportant structure, vérification et présentation claire à des opportunités souvent sous-estimées ou mal comprises, afin de permettre aux acheteurs internationaux comme locaux de prendre des décisions éclairées.</p>
+    <p class="dash-row-header">Explorer</p>
+    <div class="dash-row dash-row-4">
+      <a href="elaf-sky-view.html" class="dash-card">
+        <h2 class="dash-card-title">Elaf Sky View</h2>
+        <p class="dash-card-desc">35 appartements haut de gamme en centre-ville de Kénitra. Mandat actif.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="property-listings.html" class="dash-card">
+        <h2 class="dash-card-title">Biens disponibles</h2>
+        <p class="dash-card-desc">Les opportunités actuelles vérifiées par Rahim International.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="why-morocco.html" class="dash-card">
+        <h2 class="dash-card-title">Analyses de marché</h2>
+        <p class="dash-card-desc">Pourquoi le Maroc, pourquoi maintenant — le contexte macroéconomique.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="about.html" class="dash-card">
+        <h2 class="dash-card-title">À propos</h2>
+        <p class="dash-card-desc">Le cabinet, le fondateur et l’approche conseil.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
     </div>
-  </section>
-
-  <!-- HOW WE WORK -->
-  <section style="padding:var(--section-pad);background:var(--white);" id="services">
-    <p class="section-eyebrow">Le processus</p>
-    <h2 class="section-title" style="color:var(--navy);">Comment nous travaillons</h2>
-    <div class="timeline reveal">
-      <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div class="step-card"><div class="timeline-step-num">01</div><div class="timeline-copy"><h3 class="step-name">Premier échange</h3><p class="step-text">Comprendre vos objectifs, votre budget et votre calendrier.</p></div></div></article>
-      <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div class="step-card"><div class="timeline-step-num">02</div><div class="timeline-copy"><h3 class="step-name">Définition des critères</h3><p class="step-text">Affiner vos besoins.</p></div></div></article>
-      <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div class="step-card"><div class="timeline-step-num">03</div><div class="timeline-copy"><h3 class="step-name">Analyse du marché</h3><p class="step-text">Comprendre les prix, les secteurs et les opportunités disponibles.</p></div></div></article>
-      <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div class="step-card"><div class="timeline-step-num">04</div><div class="timeline-copy"><h3 class="step-name">Sélection ciblée</h3><p class="step-text">Options pertinentes.</p></div></div></article>
-      <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div class="step-card"><div class="timeline-step-num">05</div><div class="timeline-copy"><h3 class="step-name">Validation à distance</h3><p class="step-text">Évaluation et retours.</p></div></div></article>
-      <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div class="step-card"><div class="timeline-step-num">06</div><div class="timeline-copy"><h3 class="step-name">Coordination sur place</h3><p class="step-text">Visites et suivi.</p></div></div></article>
-      <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div class="step-card"><div class="timeline-step-num">07</div><div class="timeline-copy"><h3 class="step-name">Accompagnement à l’achat</h3><p class="step-text">Soutien jusqu’à la transaction.</p></div></div></article>
-    </div>
-  </section>
-
-  <!-- WHO WE HELP -->
-  <section class="problem-section" style="padding:var(--section-pad);" id="who-we-help">
-    <p class="section-eyebrow">Profils</p>
-    <h2 class="section-title" style="color:var(--navy);">Qui nous aidons</h2>
-    <p class="section-intro" style="color:var(--text-muted);">Nous accompagnons des acheteurs et des promoteurs qui ont besoin de plus qu’un simple accès aux annonces : ils ont besoin de clarté, de structure et de la capacité à prendre la bonne décision dans un marché où l’information n’est pas toujours transparente.</p>
-    <div class="audience-grid reveal">
-      <a href="investors-mre.html" class="audience-card" style="display:block;text-decoration:none;"><h3 class="audience-title">Diaspora marocaine (MRE)</h3><p class="audience-text">Vous disposez souvent d’un temps limité lorsque vous venez au Maroc. Vous pouvez vous appuyer sur votre famille pour visiter des biens et vous donner un avis, mais elle ne peut pas toujours évaluer le marché de manière professionnelle.</p><p class="audience-text" style="margin-top:0.9rem;">Nous remplaçons l’incertitude par une méthode claire, afin de vous aider à identifier les bonnes opportunités et à avancer avec confiance.</p></a>
-      <a href="investors-international.html" class="audience-card" style="display:block;text-decoration:none;"><h3 class="audience-title">Acheteurs internationaux</h3><p class="audience-text">Vous explorez le Maroc comme marché d’investissement ou de cadre de vie, mais le processus vous est peu familier. L’information est dispersée et il est difficile d’évaluer les opportunités à distance.</p><p class="audience-text" style="margin-top:0.9rem;">Nous apportons le contexte, la vérification et l’accompagnement nécessaires pour prendre une décision solide.</p></a>
-      <a href="investors-local.html" class="audience-card" style="display:block;text-decoration:none;"><h3 class="audience-title">Investisseurs locaux</h3><p class="audience-text">Vous connaissez déjà le marché, mais l’accès aux bonnes opportunités et un positionnement clair restent limités.</p><p class="audience-text" style="margin-top:0.9rem;">Nous vous aidons à repérer des projets mieux positionnés et à évaluer la valeur avec plus de précision.</p></a>
-      <a href="services-developers.html" class="audience-card" style="display:block;text-decoration:none;"><h3 class="audience-title">Promoteurs immobiliers</h3><p class="audience-text">Vous avez un bon projet, mais atteindre la bonne audience, surtout internationale, demande plus qu’un marketing standard.</p><p class="audience-text" style="margin-top:0.9rem;">Nous aidons à positionner votre projet avec clarté et à le relier aux bons acheteurs.</p></a>
-    </div>
-  </section>
-
-  <!-- WHY TRUST US -->
-  <section style="padding:var(--section-pad);" id="why-trust-us">
-    <div class="problem-split">
-      <div class="cta-shell">
-        <p class="section-eyebrow">Positionnement</p>
-        <h2 class="section-title" style="color:var(--navy);">Un pied dans les deux marchés</h2>
-        <p class="body-text">Basée entre Montréal et le Maroc, Rahim International intervient des deux côtés de la transaction.</p>
-        <p class="body-text">Nous comprenons la logique des acheteurs internationaux et la réalité concrète du marché marocain. Notre rôle est de faire le lien et d’apporter de la clarté là où l’information reste fragmentée.</p>
-      </div>
-      <div class="reveal"><ul class="trust-list"><li>Perspective d’acheteur international</li><li>Accès au marché local</li><li>Approche structurée du conseil</li></ul></div>
+    <p class="dash-row-header">En savoir plus</p>
+    <div class="dash-row dash-row-3">
+      <a href="guides/buying-property-morocco.html" class="dash-card">
+        <h2 class="dash-card-title">Acheter au Maroc</h2>
+        <p class="dash-card-desc">Étapes juridiques, notaire et ce qu’il faut vérifier avant de s’engager.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="guides/daam-sakani-guide.html" class="dash-card">
+        <h2 class="dash-card-title">Guide Daam Sakani</h2>
+        <p class="dash-card-desc">Le programme de logement social marocain — éligibilité et subventions.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
+      <a href="guides/kenitra-vs-rabat.html" class="dash-card">
+        <h2 class="dash-card-title">Kénitra vs Rabat</h2>
+        <p class="dash-card-desc">Comparaison directe : valeur, accès et potentiel à long terme.</p>
+        <span class="dash-card-arrow">→</span>
+      </a>
     </div>
   </section>
 
@@ -953,33 +609,7 @@
         <div class="elaf-actions">
           <a href="elaf-sky-view.html" class="btn-primary">Voir le projet complet</a>
           <a href="#contact" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Demander les disponibilités</a>
-          <a href="#investment-brief" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Recevoir la note d’investissement</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- LEAD CAPTURE -->
-  <section class="contact-section connect-section" style="padding:var(--section-pad);" id="investment-brief">
-    <p class="section-eyebrow">Pour les acheteurs sérieux</p>
-    <h2 class="section-title" style="color:var(--white);">Recevez la note d’investissement complète</h2>
-    <div class="connect-grid">
-      <article class="connect-card lead-card">
-        <p class="connect-text">Recevez une analyse détaillée des opportunités du moment, avec les informations de projet, les disponibilités, le contexte de prix et notre lecture de la valeur.</p>
-        <a href="#contact" class="btn-primary connect-btn">Demander la note d’investissement</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section style="padding:var(--section-pad);background:var(--white);" id="final-cta">
-    <div class="cta-shell">
-      <div class="final-cta-panel">
-        <p class="section-eyebrow">Étape suivante</p>
-        <h2 class="section-title" style="color:var(--navy);">Commencez avec de la clarté</h2>
-        <p class="body-text">La différence entre un achat maîtrisé et une erreur coûteuse ne relève pas de la chance, mais de la clarté.</p>
-        <div class="section-actions">
-          <a href="#contact" class="btn-primary">Commencer la conversation</a>
-          <a href="#contact" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Demander une consultation</a>
+          <a href="#contact" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Nous contacter</a>
         </div>
       </div>
     </div>
