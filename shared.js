@@ -74,7 +74,7 @@
     // Reset state when crossing back to desktop layout
     const resetOnResize = () => {
       if (
-        window.innerWidth > 1024 &&
+        window.innerWidth > 1450 &&
         navLinks.classList.contains('is-open')
       ) {
         setNavOpen(false);
@@ -173,6 +173,267 @@
   // ---- Contact Form ----
   const form = document.querySelector('#contact-form');
   if (form) {
+    const locale = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+    const contactCopy = {
+      en: {
+        primaryGoal: 'Primary Goal',
+        primaryGoalPlaceholder: 'Select your objective',
+        timeline: 'Timeline',
+        timelinePlaceholder: 'Select your timeline',
+        preferredContact: 'Preferred Contact',
+        preferredContactPlaceholder: 'Select contact preference',
+        prefillLabel: 'Start With a Prefilled Message',
+        prefillNote: 'Choose a starting point, then edit the message so it matches your exact situation.',
+        goalOptions: [
+          'Buy a property',
+          'Compare an opportunity or area',
+          'Understand pricing, financing, or process',
+          'Discuss developer services or partnership',
+          'Request a consultation call',
+          'Other'
+        ],
+        timelineOptions: [
+          'As soon as possible',
+          'Within 1-3 months',
+          'Within 3-6 months',
+          '6+ months',
+          'Just researching'
+        ],
+        contactOptions: ['Email', 'Phone', 'WhatsApp', 'Video call'],
+        templates: [
+          {
+            label: 'Buying in Morocco',
+            body: 'Hello, I am exploring buying property in Morocco and would like guidance on the best areas, budget range, and next steps for my situation.'
+          },
+          {
+            label: 'Compare an opportunity',
+            body: 'Hello, I am comparing a specific property, project, or area and would like help evaluating price, location, and fit for my goals.'
+          },
+          {
+            label: 'Daam Sakani / financing',
+            body: 'Hello, I would like to understand whether I may qualify for Daam Sakani or what financing route makes the most sense for my purchase.'
+          },
+          {
+            label: 'Developer partnership',
+            body: 'Hello, I represent a real estate development or project and would like to discuss positioning, marketing, and sales support.'
+          },
+          {
+            label: 'Book a consultation',
+            body: 'Hello, I would like to schedule a consultation to discuss my situation and the most relevant next steps.'
+          }
+        ]
+      },
+      fr: {
+        primaryGoal: 'Objectif principal',
+        primaryGoalPlaceholder: 'Sélectionnez votre objectif',
+        timeline: 'Calendrier',
+        timelinePlaceholder: 'Sélectionnez votre délai',
+        preferredContact: 'Contact préféré',
+        preferredContactPlaceholder: 'Sélectionnez votre préférence',
+        prefillLabel: 'Commencer avec un message prérempli',
+        prefillNote: 'Choisissez un point de départ, puis adaptez le message à votre situation exacte.',
+        goalOptions: [
+          'Acheter un bien',
+          'Comparer une opportunité ou une zone',
+          'Comprendre les prix, le financement ou le processus',
+          'Discuter des services aux promoteurs',
+          'Demander un appel de consultation',
+          'Autre'
+        ],
+        timelineOptions: [
+          'Le plus vite possible',
+          'Sous 1 à 3 mois',
+          'Sous 3 à 6 mois',
+          'Dans plus de 6 mois',
+          'Je fais mes recherches'
+        ],
+        contactOptions: ['E-mail', 'Téléphone', 'WhatsApp', 'Appel vidéo'],
+        templates: [
+          {
+            label: 'Acheter au Maroc',
+            body: 'Bonjour, j\'étudie un achat immobilier au Maroc et je souhaite être orienté sur les meilleures zones, le budget à prévoir et les prochaines étapes adaptées à ma situation.'
+          },
+          {
+            label: 'Comparer une opportunité',
+            body: 'Bonjour, je compare un bien, un projet ou une zone et je souhaite une aide pour évaluer le prix, l\'emplacement et l\'adéquation avec mes objectifs.'
+          },
+          {
+            label: 'Daam Sakani / financement',
+            body: 'Bonjour, je souhaite comprendre si je peux être éligible à Daam Sakani ou quel mode de financement serait le plus adapté à mon achat.'
+          },
+          {
+            label: 'Partenariat promoteur',
+            body: 'Bonjour, je représente un projet immobilier et je souhaite discuter du positionnement, du marketing et de l\'accompagnement commercial.'
+          },
+          {
+            label: 'Planifier une consultation',
+            body: 'Bonjour, je souhaite planifier une consultation afin d\'échanger sur ma situation et sur les prochaines étapes les plus pertinentes.'
+          }
+        ]
+      },
+      ar: {
+        primaryGoal: 'الهدف الرئيسي',
+        primaryGoalPlaceholder: 'اختر هدفك',
+        timeline: 'الإطار الزمني',
+        timelinePlaceholder: 'اختر توقيتك',
+        preferredContact: 'طريقة التواصل المفضلة',
+        preferredContactPlaceholder: 'اختر طريقة التواصل',
+        prefillLabel: 'ابدأ برسالة جاهزة',
+        prefillNote: 'اختر نقطة بداية، ثم عدّل الرسالة لتناسب وضعك بشكل دقيق.',
+        goalOptions: [
+          'شراء عقار',
+          'مقارنة فرصة أو منطقة',
+          'فهم الأسعار أو التمويل أو الإجراءات',
+          'مناقشة خدمات المطورين أو الشراكة',
+          'طلب مكالمة استشارية',
+          'أمر آخر'
+        ],
+        timelineOptions: [
+          'في أقرب وقت ممكن',
+          'خلال 1 إلى 3 أشهر',
+          'خلال 3 إلى 6 أشهر',
+          'بعد أكثر من 6 أشهر',
+          'ما زلت في مرحلة البحث'
+        ],
+        contactOptions: ['البريد الإلكتروني', 'الهاتف', 'واتساب', 'مكالمة فيديو'],
+        templates: [
+          {
+            label: 'شراء عقار في المغرب',
+            body: 'مرحبًا، أنا أدرس شراء عقار في المغرب وأرغب في الحصول على توجيه بخصوص أفضل المناطق، والميزانية المناسبة، والخطوات التالية لحالتي.'
+          },
+          {
+            label: 'مقارنة فرصة',
+            body: 'مرحبًا، أنا أقارن بين عقار أو مشروع أو منطقة، وأرغب في المساعدة لتقييم السعر، والموقع، ومدى ملاءمته لأهدافي.'
+          },
+          {
+            label: 'دعم السكني / التمويل',
+            body: 'مرحبًا، أود أن أفهم ما إذا كنت قد أكون مؤهلًا لبرنامج دعم السكني أو ما هو خيار التمويل الأنسب لعملية الشراء.'
+          },
+          {
+            label: 'شراكة مع مطور',
+            body: 'مرحبًا، أنا أمثل مشروعًا عقاريًا وأرغب في مناقشة التموضع، والتسويق، ودعم المبيعات.'
+          },
+          {
+            label: 'حجز استشارة',
+            body: 'مرحبًا، أود حجز استشارة لمناقشة وضعي والخطوات التالية الأكثر ملاءمة.'
+          }
+        ]
+      }
+    };
+    const copy = contactCopy[locale] || contactCopy.en;
+    const profileField = form.querySelector('[name="profile"]');
+    const messageField = form.querySelector('[name="message"]');
+
+    const createSelectField = (id, name, label, placeholder, options) => {
+      const group = document.createElement('div');
+      group.className = 'form-group';
+      const labelEl = document.createElement('label');
+      labelEl.className = 'form-label';
+      labelEl.setAttribute('for', id);
+      labelEl.textContent = label;
+      const select = document.createElement('select');
+      select.id = id;
+      select.name = name;
+      select.className = 'form-select';
+      select.required = true;
+      const placeholderOption = document.createElement('option');
+      placeholderOption.value = '';
+      placeholderOption.textContent = placeholder;
+      select.appendChild(placeholderOption);
+      options.forEach((optionText) => {
+        const option = document.createElement('option');
+        option.value = optionText;
+        option.textContent = optionText;
+        select.appendChild(option);
+      });
+      group.append(labelEl, select);
+      return group;
+    };
+
+    const setPersistentHidden = (name, value) => {
+      let input = form.querySelector(`input[name="${name}"]`);
+      if (!input) {
+        input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        form.appendChild(input);
+      }
+      input.value = value;
+      input.defaultValue = value;
+      return input;
+    };
+
+    if (profileField && messageField && !form.querySelector('[data-lead-capture="true"]')) {
+      const leadWrap = document.createElement('div');
+      leadWrap.className = 'form-grid form-grid-3';
+      leadWrap.setAttribute('data-lead-capture', 'true');
+      leadWrap.append(
+        createSelectField('primary-goal', 'primary_goal', copy.primaryGoal, copy.primaryGoalPlaceholder, copy.goalOptions),
+        createSelectField('timeline', 'timeline', copy.timeline, copy.timelinePlaceholder, copy.timelineOptions),
+        createSelectField('preferred-contact', 'preferred_contact', copy.preferredContact, copy.preferredContactPlaceholder, copy.contactOptions)
+      );
+      profileField.closest('.form-group').insertAdjacentElement('afterend', leadWrap);
+
+      const messageGroup = messageField.closest('.form-group');
+      if (messageGroup) {
+        const prefillWrap = document.createElement('div');
+        prefillWrap.className = 'prefill-wrap';
+
+        const prefillLabel = document.createElement('label');
+        prefillLabel.className = 'form-label';
+        prefillLabel.textContent = copy.prefillLabel;
+
+        const prefillTemplates = document.createElement('div');
+        prefillTemplates.className = 'prefill-templates';
+        prefillTemplates.setAttribute('role', 'list');
+
+        const prefillNote = document.createElement('p');
+        prefillNote.className = 'form-section-note';
+        prefillNote.textContent = copy.prefillNote;
+
+        const templateInput = document.createElement('input');
+        templateInput.type = 'hidden';
+        templateInput.name = 'message_template';
+        templateInput.defaultValue = '';
+        form.appendChild(templateInput);
+
+        copy.templates.forEach((template, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'prefill-template';
+          button.textContent = template.label;
+          button.dataset.templateBody = template.body;
+          button.dataset.templateLabel = template.label;
+          button.setAttribute('role', 'listitem');
+          button.addEventListener('click', () => {
+            prefillTemplates.querySelectorAll('.prefill-template').forEach((el) => el.classList.remove('is-active'));
+            button.classList.add('is-active');
+            templateInput.value = template.label;
+            messageField.value = template.body;
+            messageField.focus();
+            if (typeof messageField.setSelectionRange === 'function') {
+              const end = messageField.value.length;
+              messageField.setSelectionRange(end, end);
+            }
+          });
+          if (index === 0) {
+            button.classList.add('is-active');
+            templateInput.value = template.label;
+            if (!messageField.value.trim()) messageField.value = template.body;
+          }
+          prefillTemplates.appendChild(button);
+        });
+
+        prefillWrap.append(prefillLabel, prefillTemplates, prefillNote);
+        messageGroup.insertAdjacentElement('beforebegin', prefillWrap);
+      }
+
+      setPersistentHidden('page_url', window.location.href);
+      setPersistentHidden('page_title', document.title);
+      setPersistentHidden('lead_locale', locale);
+      setPersistentHidden('lead_source', 'website_contact_form');
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('.form-submit');
