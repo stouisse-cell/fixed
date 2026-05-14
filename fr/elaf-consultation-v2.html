@@ -121,8 +121,8 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 .tr-txt{font-size:.85rem;font-weight:300;color:var(--dt2);letter-spacing:.06em}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,18,30,.8);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08);display:none}
-nav.visible{display:flex}
+#main-nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,18,30,.8);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08);display:none}
+#main-nav.visible{display:flex}
 .nav-brand{font-family:'Anybody',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dt2)}
 .nav-actions{display:flex;gap:.5rem}
 .btn-sm{font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:.5rem 1rem;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:.18s;border-radius:999px;border:none}
@@ -336,6 +336,51 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/elaf-consultation-v2.html">
 </head>
 <body>
+
+<nav class="site-nav" aria-label="Navigation principale">
+  <a href="index.html" class="brand" aria-label="Rahim International accueil">
+    <img src="../logo.png" alt="" class="brand-logo" aria-hidden="true">
+    <span class="brand-text"><span class="brand-name">Rahim <span>International</span></span><span class="brand-subtitle">Conseil immobilier et stratégie</span></span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false"><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Acheteurs</button>
+      <div class="nav-dropdown-menu">
+        <a href="investors-international.html">Investisseurs internationaux</a>
+        <a href="investors-mre.html">Diaspora marocaine / MRE</a>
+        <a href="investors-local.html">Investisseurs locaux</a>
+      </div>
+    </li>
+    <li><a href="services-developers.html">Services aux promoteurs</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; ressources</button>
+      <div class="nav-dropdown-menu">
+        <a href="guides/index.html">Aperçu des guides et ressources</a>
+        <a href="guides/buying-property-morocco.html">Acheter au Maroc</a>
+        <a href="guides/daam-sakani-guide.html">Guide Daam Sakani</a>
+        <a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a>
+      </div>
+    </li>
+    <li><a href="why-morocco.html">Analyses de marché</a></li>
+    <li><a href="property-listings.html">Biens disponibles</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Opportunité actuelle</button>
+      <div class="nav-dropdown-menu">
+        <a href="elaf-sky-view.html">Elaf Sky View</a>
+      </div>
+    </li>
+    <li><a href="index.html#contact">Nous contacter</a></li>
+    <li class="language-switcher">
+      <a href="../elaf-consultation-v2.html">EN</a>
+      <a href="elaf-consultation-v2.html" class="active">FR</a>
+      <a href="../ar/elaf-consultation-v2.html">AR</a>
+    </li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Nous contacter</a>
+</nav>
 
 <div id="prog"></div>
 
@@ -1182,5 +1227,6 @@ function fmt(n){return new Intl.NumberFormat('fr-MA',{maximumFractionDigits:0}).
   document.body.appendChild(wrap);
 })();
 </script>
+<script src="../shared.js"></script>
 </body>
 </html>

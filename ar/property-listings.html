@@ -34,7 +34,7 @@
   body, .hero-search-value, .hero-rail-value, .featured-title, .inventory-title, .summary-panel h3, .side-note h3 { direction: rtl; }
   .hero-search-label, .section-panel-kicker, .toolbar-count, .inventory-sub, .inventory-status, .listing-pill, .inventory-badge, .footer-col-label, .footer-contact-label { letter-spacing: 0; }
   .hero-search-panel, .hero-rail, .app-grid, .app-statbar, .featured-listing, .featured-overview-bar, .featured-metrics, .inventory-grid, .inventory-specs, .inventory-actions, .featured-actions, .footer-grid, .footer-bottom { direction: rtl; }
-  .mini-table th, .mini-table td, .inventory-copy, .featured-copy, .summary-panel, .side-note, .surface-inner, .listings-hero-content { text-align: right; }
+  .mini-table th, .mini-table td, .inventory-copy, .featured-copy, .summary-panel, .surface-inner, .listings-hero-content { text-align: right; }
   .inventory-price, .inventory-badge { left: 1rem; right: auto; }
   .listing-pill::before { display:none; }
   .featured-media { order: 2; }
@@ -117,12 +117,19 @@
   .summary-panel h3 { font-family:'Cormorant Garamond', serif; font-size:2rem; font-weight:300; margin-bottom:1rem; color:var(--white); }
   .summary-panel p { font-size:0.84rem; font-weight:300; line-height:1.82; color:rgba(255,255,255,0.68); margin-bottom:1rem; }
   .mini-table { width:100%; border-collapse:collapse; }
-  .mini-table th { text-align:left; font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.62); padding:0 0 0.8rem; border-bottom:1px solid rgba(255,255,255,0.14); }
-  .mini-table td { padding:0.95rem 0; border-bottom:1px solid rgba(255,255,255,0.12); font-size:0.84rem; font-weight:300; color:rgba(255,255,255,0.84); vertical-align:top; }
-  .mini-table td strong { font-weight:500; color:var(--white); }
-  .side-note { background:#fff; border:1px solid rgba(7,17,31,0.06); border-radius:22px; padding:1.5rem; }
-  .side-note h3 { font-family:'Cormorant Garamond', serif; font-size:1.85rem; font-weight:400; color:var(--navy); margin-bottom:0.8rem; }
-  .side-note p { font-size:0.84rem; font-weight:300; line-height:1.8; color:var(--text-muted); margin-bottom:1rem; }
+  .mini-table th { text-align:right; font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); padding:0 0 0.8rem; border-bottom:1px solid var(--border); }
+  .mini-table td { padding:0.95rem 0; border-bottom:1px solid var(--border); font-size:0.84rem; font-weight:300; color:var(--text-muted); vertical-align:top; }
+  .mini-table td strong { font-weight:500; color:var(--navy); }
+  .availability-card { background:var(--white); border:1px solid rgba(7,17,31,0.06); padding:1.5rem; border-radius:22px; }
+  .availability-title { font-family:'Cormorant Garamond', serif; font-size:1.9rem; font-weight:400; color:var(--navy); margin-bottom:1rem; }
+  .status-chip { display:inline-flex; align-items:center; gap:0.45rem; padding:0.45rem 0.7rem; border:1px solid rgba(210,180,134,0.3); background:rgba(255,255,255,0.08); color:var(--gold); font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; }
+  .status-chip::before { content:''; width:7px; height:7px; border-radius:50%; background:currentColor; }
+  .demand-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .demand-card { background:var(--white); border:1px solid rgba(7,17,31,0.06); padding:1.5rem; position:relative; overflow:hidden; border-radius:20px; }
+  .demand-card::before { content:''; position:absolute; top:0; right:0; width:100%; height:3px; background:linear-gradient(270deg, var(--copper), var(--gold)); }
+  .demand-title { font-family:'Cormorant Garamond', serif; font-size:1.55rem; font-weight:400; color:var(--navy); margin-bottom:0.75rem; }
+  .demand-text { font-size:0.86rem; font-weight:300; line-height:1.82; color:var(--text-muted); margin-bottom:1rem; }
+  .demand-meta { font-size:0.66rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); }
   @media (max-width: 1180px) { .app-grid { grid-template-columns: 1fr; } .side-stack { position: static; } .hero-search-panel { grid-template-columns: 1fr 1fr; } .featured-overview-bar, .app-statbar { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 980px) { .featured-listing, .hero-search-panel, .inventory-grid, .hero-rail, .app-statbar { grid-template-columns: 1fr; } .featured-media { min-height: 320px; } .hero-search-shell { margin-top: -1.5rem; } .hero-search-button { min-height:72px; width:100%; } .featured-overview-bar { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 680px) { .featured-metrics, .inventory-specs, .featured-overview-bar { grid-template-columns: 1fr; } .listing-toolbar { align-items:flex-start; } .listings-hero { border-radius: 22px; padding-left: 5%; padding-right: 5%; } .app-shell { padding: 0 12px 24px; } }
@@ -150,6 +157,12 @@
     <li class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-haspopup="true">الأدلة والموارد</button><div class="nav-dropdown-menu"><a href="guides/index.html">نظرة عامة على الأدلة والموارد</a><a href="guides/buying-property-morocco.html">شراء عقار في المغرب</a><a href="guides/daam-sakani-guide.html">دليل Daam Sakani</a><a href="guides/kenitra-vs-rabat.html">القنيطرة مقابل الرباط</a></div></li>
     <li><a href="why-morocco.html">تحليلات السوق</a></li>
     <li><a href="property-listings.html" class="active" aria-current="page">العقارات المتاحة</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">الفرصة الحالية</button>
+      <div class="nav-dropdown-menu">
+        <a href="elaf-sky-view.html">Elaf Sky View</a>
+      </div>
+    </li>
     <li><a href="index.html#contact">اتصل بنا</a></li>
     <li class="language-switcher"><a href="../property-listings.html">EN</a><a href="../fr/property-listings.html">FR</a><a href="property-listings.html" class="active">AR</a></li>
   </ul>
@@ -367,25 +380,54 @@
     </div>
 
     <aside class="side-stack">
-      <div class="summary-panel">
-        <h3>قراءة سريعة للمخزون</h3>
-        <p>يركز المعروض الحالي على وسط القنيطرة مع مزيج من الشقق والمكاتب والمشاريع المختلطة. Elaf Sky View هو العقار المميز حالياً. Sammy Suites يستهدف شريحة أكثر فخامة، بينما Rania Offices يخدم منطقاً تجارياً واضحاً.</p>
+      <div class="availability-card">
+        <div class="status-chip">الفرصة الحالية</div>
+        <h3 class="availability-title">نظرة سريعة</h3>
         <table class="mini-table">
-          <thead><tr><th>العقار</th><th>الزاوية</th></tr></thead>
+          <thead>
+            <tr><th>العقار</th><th>ملخص</th></tr>
+          </thead>
           <tbody>
-            <tr><td><strong>Elaf Sky View</strong></td><td>مشروع مختلط ضمن محور القطار السريع، مناسب للسكن والمكاتب</td></tr>
-            <tr><td><strong>Sammy Suites</strong></td><td>فاخر، قريب من القطار السريع، شقق ومكاتب</td></tr>
-            <tr><td><strong>Rania Offices</strong></td><td>مبنى مكاتب في وسط المدينة، وظهور تجاري واضح</td></tr>
+            <tr><td><strong>Elaf Sky View</strong></td><td>مبنى معاصر متعدد الاستخدامات يضم شققاً ومكاتب للبيع قرب مدخل القنيطرة، مع وصول سريع للطريق السيار، ونحو 3 دقائق بالسيارة من القطار السريع، ووحدات بواجهتين، وموقف سيارات سفلي، وتسليم قيد الإنشاء.</td></tr>
+            <tr><td><strong>Sammy Suites</strong></td><td>برج فاخر متعدد الاستخدامات يضم شققاً ومكاتب للبيع في وسط المدينة، على بعد نحو دقيقة من القطار السريع، بوحدات سكنية من 59 م² إلى 111 م² وحجوزات تبدأ من 1,040,000 درهم.</td></tr>
+            <tr><td><strong>Rania Offices</strong></td><td>مبنى مكاتب على شارع محمد الخامس في وسط القنيطرة، يعمل كمنظومة مهنية للأطباء والمدارس والوكالات والمحامين ومراكز التجميل وسائر الأنشطة المهنية.</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="side-note">
-        <h3>الخطوة التالية</h3>
-        <p>ابدأ بفهم منطق السوق، ثم عد إلى العقارات برؤية أوضح للقيمة والموقع ونوع الاستخدام المناسب لميزانيتك.</p>
-        <a href="why-morocco.html" class="btn-outline-dark">قراءة تحليلات السوق</a>
-      </div>
+      <aside class="summary-panel">
+        <h3>طلب القائمة الكاملة</h3>
+        <p>تفاصيل الأسعار وتوفر الوحدات والمعلومات التجارية تُشارك مباشرة مع المشترين الجادين. تواصل معنا وسنرسل لك ما يناسب وضعك.</p>
+        <a href="index.html#contact" class="btn-primary">طلب القائمة</a>
+      </aside>
     </aside>
   </div>
+  <section class="surface-card" style="margin-top:18px;">
+    <div class="surface-inner">
+      <div class="section-panel-title">
+        <div>
+          <div class="section-panel-kicker">تصفح حسب الحاجة</div>
+          <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">ابحث عن العقار المناسب</h2>
+        </div>
+      </div>
+      <div class="demand-grid">
+        <article class="demand-card">
+          <h3 class="demand-title">المشترون السكنيون</h3>
+          <p class="demand-text">للمشترين الباحثين عن شقق بموقع مركزي ووصول للمواصلات ومنطق ملكية عملي على المدى البعيد.</p>
+          <div class="demand-meta">Elaf Sky View · Sammy Suites</div>
+        </article>
+        <article class="demand-card">
+          <h3 class="demand-title">المشترون التجاريون</h3>
+          <p class="demand-text">للمهنيين والمستثمرين الباحثين عن مكاتب في وسط المدينة أو ضمن مشاريع مختلطة ذات حضور حضري قوي.</p>
+          <div class="demand-meta">Elaf Sky View · Sammy Suites · Rania Offices</div>
+        </article>
+        <article class="demand-card">
+          <h3 class="demand-title">الطلبات خارج السوق</h3>
+          <p class="demand-text">إذا كنت تبحث عن شيء محدد لم يُعرض بعد للعموم، اطلب قائمة مخصصة وسنرد عليك مباشرة.</p>
+          <div class="demand-meta">طريق الاستفسار الخاص</div>
+        </article>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>

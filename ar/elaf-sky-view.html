@@ -18,7 +18,8 @@
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/elaf-sky-view.html">
 <link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/elaf-sky-view.html">
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/elaf-sky-view.html">
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/png" href="../logo.png">
+<link rel="stylesheet" href="../shared.css">
 <meta property="og:title" content="Elaf Sky View — شقق للبيع في القنيطرة | Rahim International">
 <meta property="og:description" content="11 وحدة متبقية. جاهزة للسكن الفوري. على بعد 700 متر من محطة القطار فائق السرعة. ابتداءً من 620,000 درهم. تشطيبات عالية المواصفات وأهلية مختارة لبرنامج دعم السكن.">
 <meta property="og:image" content="https://rahiminternational.com/elaf.jpg">
@@ -119,7 +120,7 @@ img { display: block; max-width: 100%; }
   position: absolute; inset: 0;
   background:
     linear-gradient(to bottom, rgba(7,17,31,.3) 0%, rgba(7,17,31,.1) 30%, rgba(7,17,31,.75) 70%, rgba(7,17,31,.97) 100%),
-    url('elaf.jpg') center/cover no-repeat;
+    url('../elaf.jpg') center/cover no-repeat;
 }
 .hero-bg::after {
   content: '';
@@ -308,7 +309,7 @@ img { display: block; max-width: 100%; }
 }
 .view-bg {
   position: absolute; inset: 0;
-  background: url('108t.png') center/cover no-repeat;
+  background: url('../108t.png') center/cover no-repeat;
 }
 .view-overlay {
   position: absolute; inset: 0;
@@ -575,12 +576,13 @@ img { display: block; max-width: 100%; }
   .gallery-item.large { grid-column: span 1; }
   .hero-ctas { flex-direction: column; }
   .nav-actions .btn-ghost { display: none; }
+  .sticky-cta { top: 74px; }
 }
 
 /* ── STICKY CTA BAR ── */
 .sticky-cta {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 84px; left: 0; right: 0;
   z-index: 490;
   background: rgba(7,17,31,.97);
   border-bottom: 1px solid var(--gold-border);
@@ -658,14 +660,49 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
 </div>
 
 <!-- NAV -->
-<nav class="nav">
-  <div class="nav-brand">
-    <span class="nav-brand-text">Rahim International</span>
-  </div>
-  <div class="nav-actions">
-    <a href="index.html" class="btn-nav btn-ghost">العودة إلى الموقع</a>
-    <a href="elaf-consultation-v2.html" class="btn-nav btn-gold-nav">ابدأ الاستشارة</a>
-  </div>
+<nav class="site-nav" aria-label="التنقل الرئيسي">
+  <a href="index.html" class="brand" aria-label="الصفحة الرئيسية لـ Rahim International">
+    <img src="../logo.png" alt="" class="brand-logo" aria-hidden="true">
+    <span class="brand-text"><span class="brand-name">Rahim <span>International</span></span><span class="brand-subtitle">الاستشارات العقارية والاستراتيجية</span></span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-controls="nav-links" aria-expanded="false"><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="about.html">من نحن</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">المشترون</button>
+      <div class="nav-dropdown-menu">
+        <a href="investors-international.html">المشترون الدوليون</a>
+        <a href="investors-mre.html">مغاربة العالم (MRE)</a>
+        <a href="investors-local.html">المشترون المحليون</a>
+      </div>
+    </li>
+    <li><a href="services-developers.html">خدمات المطورين</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">الأدلة والموارد</button>
+      <div class="nav-dropdown-menu">
+        <a href="guides/index.html">نظرة عامة على الأدلة والموارد</a>
+        <a href="guides/buying-property-morocco.html">شراء عقار في المغرب</a>
+        <a href="guides/daam-sakani-guide.html">دليل Daam Sakani</a>
+        <a href="guides/kenitra-vs-rabat.html">القنيطرة مقابل الرباط</a>
+      </div>
+    </li>
+    <li><a href="why-morocco.html">تحليلات السوق</a></li>
+    <li><a href="property-listings.html">العقارات المتاحة</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">الفرصة الحالية</button>
+      <div class="nav-dropdown-menu">
+        <a href="elaf-sky-view.html">Elaf Sky View</a>
+      </div>
+    </li>
+    <li><a href="index.html#contact">اتصل بنا</a></li>
+    <li class="language-switcher">
+      <a href="../elaf-sky-view.html">EN</a>
+      <a href="../fr/elaf-sky-view.html">FR</a>
+      <a href="elaf-sky-view.html" class="active">AR</a>
+    </li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">استفسر الآن</a>
 </nav>
 
 <!-- HERO -->
@@ -735,7 +772,7 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
         </div>
       </div>
       <div class="address-image">
-        <img src="elaf-2.jpg" alt="Elaf Sky View — Avenue Youssef Ben Tachfine, وسط المدينة Kénitra">
+        <img src="../elaf-2.jpg" alt="Elaf Sky View — Avenue Youssef Ben Tachfine, وسط المدينة Kénitra">
         <div class="address-image-caption">Avenue Youssef Ben Tachfine · وسط المدينة Kénitra</div>
       </div>
     </div>
@@ -796,27 +833,27 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
     <h2 class="h2" style="margin-bottom: 2.5rem;">مبنى آمنّا به<br>بما يكفي لكي <em>نشتري فيه.</em></h2>
     <div class="gallery-grid">
       <div class="gallery-item large" style="height: 360px;">
-        <img src="elaf-4.jpg" alt="Elaf Sky View living room — khayali finish and LED cove lighting">
+        <img src="../elaf-4.jpg" alt="Elaf Sky View living room — khayali finish and LED cove lighting">
         <div class="gallery-label">غرفة معيشة · تشطيب خيالي · إضاءة LED مخفية</div>
       </div>
       <div class="gallery-item" style="height: 360px;">
-        <img src="elaf-5.jpg" alt="Elaf Sky View kitchen — Evogloss fitted kitchen">
+        <img src="../elaf-5.jpg" alt="Elaf Sky View kitchen — Evogloss fitted kitchen">
         <div class="gallery-label">مطبخ Evogloss مجهز</div>
       </div>
       <div class="gallery-item" style="height: 240px;">
-        <img src="elaf-6.jpg" alt="Elaf Sky View bathroom — marble-effect tiles, floating vanity">
+        <img src="../elaf-6.jpg" alt="Elaf Sky View bathroom — marble-effect tiles, floating vanity">
         <div class="gallery-label">حمام · كسوة رخامية كاملة</div>
       </div>
       <div class="gallery-item" style="height: 240px;">
-        <img src="elaf-7.jpg" alt="Elaf Sky View bedroom — built-in wardrobe">
+        <img src="../elaf-7.jpg" alt="Elaf Sky View bedroom — built-in wardrobe">
         <div class="gallery-label">غرفة نوم · خزانة مدمجة</div>
       </div>
       <div class="gallery-item" style="height: 240px;">
-        <img src="elaf-8.jpg" alt="Elaf Sky View entry door — imported Turkish armoured door">
+        <img src="../elaf-8.jpg" alt="Elaf Sky View entry door — imported Turkish armoured door">
         <div class="gallery-label">باب دخول مصفح</div>
       </div>
       <div class="gallery-item large" style="height: 280px;">
-        <img src="elaf-3.jpg" alt="Elaf Sky View — open outlook from street-facing unit">
+        <img src="../elaf-3.jpg" alt="Elaf Sky View — open outlook from street-facing unit">
         <div class="gallery-label">إطلالة شارع مفتوحة · بدون حجب</div>
       </div>
     </div>
@@ -913,9 +950,9 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
         <div class="feature-title">إطلالة شارع مفتوحة بالكامل</div>
         <div class="feature-desc">تطل الوحدات المواجهة للشارع على شوارع مشجرة باتجاه Quartier Génie، وهو مرفق عسكري مغلق تحيط به مساحات خضراء ناضجة لن يتم تطويرها عمرانيًا. لا مواجهة مباشرة. لا مبنى مستقبلي أمامك. إطلالة مفتوحة بشكل دائم في قلب المدينة لا يمكن صناعتها أو تكرارها في مشروع جديد.</div>
         <div class="feature-photo-trio">
-          <div class="feature-photo"><img src="108t.png" alt="Unobstructed street view from Elaf Sky View — وسط مدينة القنيطرة" loading="lazy"></div>
-          <div class="feature-photo"><img src="108b.png" alt="Terrace with open sky and street view — Elaf Sky View" loading="lazy"></div>
-          <div class="feature-photo"><img src="108f.png" alt="Bedroom window — open outlook toward Quartier Génie" loading="lazy"></div>
+          <div class="feature-photo"><img src="../108t.png" alt="Unobstructed street view from Elaf Sky View — وسط مدينة القنيطرة" loading="lazy"></div>
+          <div class="feature-photo"><img src="../108b.png" alt="Terrace with open sky and street view — Elaf Sky View" loading="lazy"></div>
+          <div class="feature-photo"><img src="../108f.png" alt="Bedroom window — open outlook toward Quartier Génie" loading="lazy"></div>
         </div>
       </div>
 
@@ -923,7 +960,7 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
         <div class="feature-icon">✦</div>
         <div class="feature-title">التشطيبات الداخلية</div>
         <div class="feature-desc">تشطيبات خيالي يدوية التطبيق في غرف المعيشة بملمس لامع وراقي. إضاءة سقفية مخفية LED في مختلف المساحات. ألواح سقف عائمة بتكوين نحتي في غرف النوم. وبلاط أرضيات كبير المقاس بلمسة مصقولة.</div>
-        <div class="feature-photo"><img src="elaffinishes.png" alt="Elaf Sky View interior finishes — high-gloss tiles, LED cove ceiling, recessed lighting, khayali plaster" loading="lazy"></div>
+        <div class="feature-photo"><img src="../elaffinishes.png" alt="Elaf Sky View interior finishes — high-gloss tiles, LED cove ceiling, recessed lighting, khayali plaster" loading="lazy"></div>
       </div>
 
       <div class="feature">
@@ -931,9 +968,9 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
         <div class="feature-title">مطبخ Evogloss مجهز</div>
         <div class="feature-desc">U-shaped layout with 4-burner black glass gas hob, integrated oven, angled extractor hood, quartz-effect stone countertop, full-height splashback, undermount black stainless steel sink with pull-down spray faucet and dedicated drinking water tap. Washing machine and dishwasher hookups pre-installed.</div>
         <div class="feature-photo-trio">
-          <div class="feature-photo"><img src="elafktch.png" alt="Elaf Sky View Evogloss fitted kitchen" loading="lazy"></div>
-          <div class="feature-photo"><img src="elafsink.png" alt="Elaf Sky View — undermount black stainless steel sink" loading="lazy"></div>
-          <div class="feature-photo"><img src="elaftrio.png" alt="Elaf Sky View — Trio Teka kitchen appliances" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elafktch.png" alt="Elaf Sky View Evogloss fitted kitchen" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elafsink.png" alt="Elaf Sky View — undermount black stainless steel sink" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elaftrio.png" alt="Elaf Sky View — Trio Teka kitchen appliances" loading="lazy"></div>
         </div>
       </div>
 
@@ -942,8 +979,8 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
         <div class="feature-title">حمامات بتشطيب رخامي</div>
         <div class="feature-desc">كسوة كاملة من الأرض إلى السقف ببلاط رخامي المظهر، ودش مفتوح بنمط wet-room مع رأس مطري، وخزانة عائمة بلمسة خشبية، ومرآة دائرية بإضاءة خلفية LED، ومقعد مدمج داخل الدش، وأحواض عائمة تسهّل التنظيف.</div>
         <div class="feature-photo-pair">
-          <div class="feature-photo"><img src="elaf-6.jpg" alt="Elaf Sky View bathroom — marble-effect tiles, floating vanity" loading="lazy"></div>
-          <div class="feature-photo"><img src="elaf-5.jpg" alt="Elaf Sky View bathroom — walk-in shower with rainfall head" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elaf-6.jpg" alt="Elaf Sky View bathroom — marble-effect tiles, floating vanity" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elaf-5.jpg" alt="Elaf Sky View bathroom — walk-in shower with rainfall head" loading="lazy"></div>
         </div>
       </div>
 
@@ -952,8 +989,8 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
         <div class="feature-title">غرف ملابس وخزائن مدمجة</div>
         <div class="feature-desc">تضم كل غرفة نوم إما غرفة ملابس أو خزانة مدمجة بارتفاع كامل. تجهيزات ممتدة من الأرض إلى السقف مع علاقات ورفوف ومساحات تخزين مخصصة، وبنفس مستوى التشطيب المعتمد في باقي الشقة.</div>
         <div class="feature-photo-pair">
-          <div class="feature-photo"><img src="elaf-8.jpg" alt="Elaf Sky View walk-in closet" loading="lazy"></div>
-          <div class="feature-photo"><img src="elafcloset.png" alt="Elaf Sky View built-in wardrobe" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elaf-8.jpg" alt="Elaf Sky View walk-in closet" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elafcloset.png" alt="Elaf Sky View built-in wardrobe" loading="lazy"></div>
         </div>
       </div>
 
@@ -962,8 +999,8 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
         <div class="feature-title">باب دخول مصفحs</div>
         <div class="feature-desc">أبواب فولاذية مصفحة مستوردة من تركيا، مزودة بنظام إغلاق ثلاثي النقاط وتشطيب معماري بلونين. هذا النوع من الأبواب يعلن عن مستوى المبنى قبل أن تدخل أول غرفة.</div>
         <div class="feature-photo-pair">
-          <div class="feature-photo"><img src="elafdoorfront.png" alt="Elaf Sky View armoured entry door — exterior" loading="lazy"></div>
-          <div class="feature-photo"><img src="elafdoorback.png" alt="Elaf Sky View armoured entry door — interior" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elafdoorfront.png" alt="Elaf Sky View armoured entry door — exterior" loading="lazy"></div>
+          <div class="feature-photo"><img src="../elafdoorback.png" alt="Elaf Sky View armoured entry door — interior" loading="lazy"></div>
         </div>
       </div>
 
@@ -1009,11 +1046,11 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
     <p class="body-text">تطل الوحدات المواجهة للشارع مباشرة نحو منشأة عسكرية مغلقة تحيط بها أشجار ناضجة، بلا أشغال بناء، مع ضمان بقاء المشهد كما هو. هذه الإطلالة المفتوحة من وسط المدينة نادرة للغاية ولا تتوفر في معظم المشاريع الجديدة في المغرب.</p>
   </div>
   <div class="view-strip">
-    <div class="view-strip-item"><img src="108t.png" alt="Unobstructed street view from Elaf Sky View — وسط مدينة القنيطرة" loading="lazy"></div>
-    <div class="view-strip-item"><img src="108e.png" alt="Living room with floor-to-ceiling windows — Elaf Sky View" loading="lazy"></div>
-    <div class="view-strip-item"><img src="108f.png" alt="Bedroom window view — open outlook toward Quartier Génie" loading="lazy"></div>
-    <div class="view-strip-item"><img src="108j.png" alt="Interior room with black-frame windows — Elaf Sky View" loading="lazy"></div>
-    <div class="view-strip-item"><img src="108b.png" alt="Terrace with open sky and street view — Elaf Sky View" loading="lazy"></div>
+    <div class="view-strip-item"><img src="../108t.png" alt="Unobstructed street view from Elaf Sky View — وسط مدينة القنيطرة" loading="lazy"></div>
+    <div class="view-strip-item"><img src="../108e.png" alt="Living room with floor-to-ceiling windows — Elaf Sky View" loading="lazy"></div>
+    <div class="view-strip-item"><img src="../108f.png" alt="Bedroom window view — open outlook toward Quartier Génie" loading="lazy"></div>
+    <div class="view-strip-item"><img src="../108j.png" alt="Interior room with black-frame windows — Elaf Sky View" loading="lazy"></div>
+    <div class="view-strip-item"><img src="../108b.png" alt="Terrace with open sky and street view — Elaf Sky View" loading="lazy"></div>
   </div>
   <p class="view-strip-caption">صور حقيقية مع تعديلات خفيفة فقط، من دون أي تجهيز دعائي.</p>
 </div>
@@ -1038,7 +1075,7 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
   <div class="rahim-inner">
     <div>
       <div class="rahim-photo-wrap">
-        <img src="alirahim.png" alt="Ali Rahim — Rahim International, owner at Elaf Sky View" class="rahim-photo" loading="lazy">
+        <img src="../alirahim.png" alt="Ali Rahim — Rahim International, owner at Elaf Sky View" class="rahim-photo" loading="lazy">
         <p class="rahim-photo-caption">Ali Rahim · جاركم المستقبلي</p>
       </div>
       <div class="rahim-quote">"نحن لم نكتفِ بتقييم هذا المبنى. لقد اشترينا فيه."</div>
@@ -1207,5 +1244,6 @@ window.addEventListener('scroll', () => {
   document.body.appendChild(wrap);
 })();
 </script>
+<script src="../shared.js"></script>
 </body>
 </html>

@@ -109,12 +109,19 @@
   .summary-panel h3 { font-family:'Cormorant Garamond', serif; font-size:2rem; font-weight:300; margin-bottom:1rem; color:var(--white); }
   .summary-panel p { font-size:0.84rem; font-weight:300; line-height:1.82; color:rgba(255,255,255,0.68); margin-bottom:1rem; }
   .mini-table { width:100%; border-collapse:collapse; }
-  .mini-table th { text-align:left; font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.62); padding:0 0 0.8rem; border-bottom:1px solid rgba(255,255,255,0.14); }
-  .mini-table td { padding:0.95rem 0; border-bottom:1px solid rgba(255,255,255,0.12); font-size:0.84rem; font-weight:300; color:rgba(255,255,255,0.84); vertical-align:top; }
-  .mini-table td strong { font-weight:500; color:var(--white); }
-  .side-note { background:#fff; border:1px solid rgba(7,17,31,0.06); border-radius:22px; padding:1.5rem; }
-  .side-note h3 { font-family:'Cormorant Garamond', serif; font-size:1.85rem; font-weight:400; color:var(--navy); margin-bottom:0.8rem; }
-  .side-note p { font-size:0.84rem; font-weight:300; line-height:1.8; color:var(--text-muted); margin-bottom:1rem; }
+  .mini-table th { text-align:left; font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); padding:0 0 0.8rem; border-bottom:1px solid var(--border); }
+  .mini-table td { padding:0.95rem 0; border-bottom:1px solid var(--border); font-size:0.84rem; font-weight:300; color:var(--text-muted); vertical-align:top; }
+  .mini-table td strong { font-weight:500; color:var(--navy); }
+  .availability-card { background:var(--white); border:1px solid rgba(7,17,31,0.06); padding:1.5rem; border-radius:22px; }
+  .availability-title { font-family:'Cormorant Garamond', serif; font-size:1.9rem; font-weight:400; color:var(--navy); margin-bottom:1rem; }
+  .status-chip { display:inline-flex; align-items:center; gap:0.45rem; padding:0.45rem 0.7rem; border:1px solid rgba(210,180,134,0.3); background:rgba(255,255,255,0.08); color:var(--gold); font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; }
+  .status-chip::before { content:''; width:7px; height:7px; border-radius:50%; background:currentColor; }
+  .demand-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .demand-card { background:var(--white); border:1px solid rgba(7,17,31,0.06); padding:1.5rem; position:relative; overflow:hidden; border-radius:20px; }
+  .demand-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:linear-gradient(90deg, var(--copper), var(--gold)); }
+  .demand-title { font-family:'Cormorant Garamond', serif; font-size:1.55rem; font-weight:400; color:var(--navy); margin-bottom:0.75rem; }
+  .demand-text { font-size:0.86rem; font-weight:300; line-height:1.82; color:var(--text-muted); margin-bottom:1rem; }
+  .demand-meta { font-size:0.66rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper-dark); }
   @media (max-width: 1180px) { .app-grid { grid-template-columns: 1fr; } .side-stack { position: static; } .hero-search-panel { grid-template-columns: 1fr 1fr; } .featured-overview-bar, .app-statbar { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 980px) { .featured-listing, .hero-search-panel, .inventory-grid, .hero-rail, .app-statbar { grid-template-columns: 1fr; } .featured-media { min-height: 320px; } .hero-search-shell { margin-top: -1.5rem; } .hero-search-button { min-height:72px; width:100%; } .featured-overview-bar { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 680px) { .featured-metrics, .inventory-specs, .featured-overview-bar { grid-template-columns: 1fr; } .listing-toolbar { align-items:flex-start; } .listings-hero { border-radius: 22px; padding-left: 5%; padding-right: 5%; } .app-shell { padding: 0 12px 24px; } }
@@ -142,6 +149,12 @@
     <li class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; ressources</button><div class="nav-dropdown-menu"><a href="guides/index.html">Aperçu des guides et ressources</a><a href="guides/buying-property-morocco.html">Acheter au Maroc</a><a href="guides/daam-sakani-guide.html">Guide Daam Sakani</a><a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a></div></li>
     <li><a href="why-morocco.html">Analyses de marché</a></li>
     <li><a href="property-listings.html" class="active" aria-current="page">Biens disponibles</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Opportunité actuelle</button>
+      <div class="nav-dropdown-menu">
+        <a href="elaf-sky-view.html">Elaf Sky View</a>
+      </div>
+    </li>
     <li><a href="index.html#contact">Nous contacter</a></li>
     <li class="language-switcher"><a href="../property-listings.html">EN</a><a href="property-listings.html" class="active">FR</a><a href="../ar/property-listings.html">AR</a></li>
   </ul>
@@ -359,25 +372,54 @@
     </div>
 
     <aside class="side-stack">
-      <div class="summary-panel">
-        <h3>Lecture rapide du stock</h3>
-        <p>Le stock actuel se concentre sur Kénitra Centre Ville avec un mélange d'appartements, de bureaux et de produits mixtes. Elaf est l'opportunité mise en avant. Sammy Suites cible un positionnement plus premium. Rania Offices répond à une logique purement commerciale.</p>
+      <div class="availability-card">
+        <div class="status-chip">Opportunité actuelle</div>
+        <h3 class="availability-title">En un coup d'œil</h3>
         <table class="mini-table">
-          <thead><tr><th>Bien</th><th>Angle</th></tr></thead>
+          <thead>
+            <tr><th>Bien</th><th>Aperçu</th></tr>
+          </thead>
           <tbody>
-            <tr><td><strong>Elaf Sky View</strong></td><td>Mixte, corridor TGV, usage résidentiel et bureaux</td></tr>
-            <tr><td><strong>Sammy Suites</strong></td><td>Haut standing, près du TGV, appartements et bureaux</td></tr>
-            <tr><td><strong>Rania Offices</strong></td><td>Immeuble de bureaux au centre-ville, visibilité commerciale</td></tr>
+            <tr><td><strong>Elaf Sky View</strong></td><td>Immeuble mixte contemporain avec appartements et bureaux à vendre près de l'entrée de Kénitra, avec accès autoroute, environ 3 minutes en voiture du TGV, logements à double façade, parking souterrain et livraison en cours de construction.</td></tr>
+            <tr><td><strong>Sammy Suites</strong></td><td>Tour mixte haut standing avec appartements et bureaux à vendre au Centre Ville, à environ 1 minute du TGV, avec des unités résidentielles de 59 m2 à 111 m2 et des réservations à partir de 1 040 000 dhs.</td></tr>
+            <tr><td><strong>Rania Offices</strong></td><td>Immeuble de bureaux sur l'avenue Mohamed V au centre de Kénitra, positionné comme un hub professionnel pour médecins, écoles, agences, avocats, centres de beauté et autres professionnels.</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="side-note">
-        <h3>Étape suivante</h3>
-        <p>Commencez par comprendre la logique du marché, puis revenez sur les biens avec une idée plus claire de la valeur, de la localisation et du bon usage pour votre budget.</p>
-        <a href="why-morocco.html" class="btn-outline-dark">Lire les analyses de marché</a>
-      </div>
+      <aside class="summary-panel">
+        <h3>Demandez la liste complète</h3>
+        <p>Les détails de prix, la disponibilité des unités et les informations commerciales sont communiqués directement aux acheteurs sérieux. Contactez-nous et nous vous enverrons ce qui correspond à votre situation.</p>
+        <a href="index.html#contact" class="btn-primary">Demander la liste</a>
+      </aside>
     </aside>
   </div>
+  <section class="surface-card" style="margin-top:18px;">
+    <div class="surface-inner">
+      <div class="section-panel-title">
+        <div>
+          <div class="section-panel-kicker">Parcourir par besoin</div>
+          <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">Trouver le bon match</h2>
+        </div>
+      </div>
+      <div class="demand-grid">
+        <article class="demand-card">
+          <h3 class="demand-title">Acheteurs résidentiels</h3>
+          <p class="demand-text">Pour les acheteurs qui recherchent des appartements, une localisation centrale, un accès aux transports et une logique d'acquisition durable.</p>
+          <div class="demand-meta">Elaf Sky View · Sammy Suites</div>
+        </article>
+        <article class="demand-card">
+          <h3 class="demand-title">Acheteurs commerciaux</h3>
+          <p class="demand-text">Pour les professionnels et investisseurs qui cherchent des bureaux au Centre Ville ou au sein de projets mixtes avec un fort ancrage urbain.</p>
+          <div class="demand-meta">Elaf Sky View · Sammy Suites · Rania Offices</div>
+        </article>
+        <article class="demand-card">
+          <h3 class="demand-title">Demandes hors marché</h3>
+          <p class="demand-text">Si vous cherchez quelque chose de précis qui n'est pas encore affiché publiquement, demandez une liste personnalisée et nous vous répondrons directement.</p>
+          <div class="demand-meta">Demande privée</div>
+        </article>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>

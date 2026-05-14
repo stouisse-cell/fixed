@@ -19,6 +19,7 @@
 <link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/elaf-sky-view.html">
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/elaf-sky-view.html">
 <link rel="icon" type="image/png" href="../logo.png">
+<link rel="stylesheet" href="../shared.css">
 <meta property="og:title" content="Elaf Sky View — Appartements à vendre à Kénitra | Rahim International">
 <meta property="og:description" content="11 unités restantes. Prêt à habiter. À 700 m du TGV. À partir de 620 000 MAD. Finitions haut de gamme et éligibilité Daam Sakani sur certaines unités.">
 <meta property="og:image" content="https://rahiminternational.com/elaf.jpg">
@@ -575,12 +576,13 @@ img { display: block; max-width: 100%; }
   .gallery-item.large { grid-column: span 1; }
   .hero-ctas { flex-direction: column; }
   .nav-actions .btn-ghost { display: none; }
+  .sticky-cta { top: 74px; }
 }
 
 /* ── STICKY CTA BAR ── */
 .sticky-cta {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 84px; left: 0; right: 0;
   z-index: 490;
   background: rgba(7,17,31,.97);
   border-bottom: 1px solid var(--gold-border);
@@ -650,14 +652,49 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
 </div>
 
 <!-- NAV -->
-<nav class="nav">
-  <div class="nav-brand">
-    <span class="nav-brand-text">Rahim International</span>
-  </div>
-  <div class="nav-actions">
-    <a href="index.html" class="btn-nav btn-ghost">← Retour au site</a>
-    <a href="elaf-consultation-v2.html" class="btn-nav btn-gold-nav">Commencer la consultation →</a>
-  </div>
+<nav class="site-nav" aria-label="Navigation principale">
+  <a href="index.html" class="brand" aria-label="Rahim International accueil">
+    <img src="../logo.png" alt="" class="brand-logo" aria-hidden="true">
+    <span class="brand-text"><span class="brand-name">Rahim <span>International</span></span><span class="brand-subtitle">Conseil immobilier et stratégie</span></span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false"><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Acheteurs</button>
+      <div class="nav-dropdown-menu">
+        <a href="investors-international.html">Investisseurs internationaux</a>
+        <a href="investors-mre.html">Diaspora marocaine / MRE</a>
+        <a href="investors-local.html">Investisseurs locaux</a>
+      </div>
+    </li>
+    <li><a href="services-developers.html">Services aux promoteurs</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; ressources</button>
+      <div class="nav-dropdown-menu">
+        <a href="guides/index.html">Aperçu des guides et ressources</a>
+        <a href="guides/buying-property-morocco.html">Acheter au Maroc</a>
+        <a href="guides/daam-sakani-guide.html">Guide Daam Sakani</a>
+        <a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a>
+      </div>
+    </li>
+    <li><a href="why-morocco.html">Analyses de marché</a></li>
+    <li><a href="property-listings.html">Biens disponibles</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Opportunité actuelle</button>
+      <div class="nav-dropdown-menu">
+        <a href="elaf-sky-view.html">Elaf Sky View</a>
+      </div>
+    </li>
+    <li><a href="index.html#contact">Nous contacter</a></li>
+    <li class="language-switcher">
+      <a href="../elaf-sky-view.html">EN</a>
+      <a href="elaf-sky-view.html" class="active">FR</a>
+      <a href="../ar/elaf-sky-view.html">AR</a>
+    </li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Nous contacter</a>
 </nav>
 
 <!-- HERO -->
@@ -1199,5 +1236,6 @@ window.addEventListener('scroll', () => {
   document.body.appendChild(wrap);
 })();
 </script>
+<script src="../shared.js"></script>
 </body>
 </html>
