@@ -32,6 +32,14 @@
 <style>
   .intro-text{font-size:.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:720px;margin-bottom:1.5rem;}
   .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem;}
+  .help-strip{background:#07111f;border-bottom:1px solid rgba(210,180,134,0.1);}
+  .help-strip-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+  .help-strip-card{padding:2rem 2.4rem;border-right:1px solid rgba(210,180,134,0.08);}
+  .help-strip-card:last-child{border-right:none;}
+  .help-strip-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--gold);opacity:.35;line-height:1;margin-bottom:.75rem;}
+  .help-strip-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--white);line-height:1.25;margin-bottom:.55rem;}
+  .help-strip-text{font-size:.8rem;font-weight:300;line-height:1.78;color:rgba(255,255,255,.52);}
+  @media(max-width:680px){.help-strip-grid{grid-template-columns:1fr;}.help-strip-card{border-right:none;border-bottom:1px solid rgba(210,180,134,0.08);}.help-strip-card:last-child{border-bottom:none;}}
   .guide-link-desc{font-size:.78rem;font-weight:300;line-height:1.65;color:var(--text-muted);margin-top:.4rem;}
   .steps-timeline{position:relative;display:grid;gap:1.6rem;max-width:1120px;margin:3rem auto 0;padding:1rem 0;}
   .steps-timeline::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;transform:translateX(-50%);background:linear-gradient(to bottom,rgba(210,180,134,.1),rgba(183,106,63,.7),rgba(210,180,134,.1));}
@@ -114,6 +122,27 @@
       <p class="page-hero-eyebrow">International Buyers</p>
       <h1 class="page-hero-title">The Market Has Answers.<br><em>You Just Need the Right Questions.</em></h1>
       <p class="page-hero-sub">Morocco's real estate market is not short of opportunity. What it is short of is organised information. We help international buyers get the clarity they need before they commit.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP STRIP -->
+  <section class="help-strip">
+    <div class="help-strip-grid">
+      <div class="help-strip-card">
+        <div class="help-strip-num">01</div>
+        <h3 class="help-strip-title">Market Access</h3>
+        <p class="help-strip-text">We surface opportunities that are not listed online and require local network access to find — verified projects at the right price point with context you can actually evaluate.</p>
+      </div>
+      <div class="help-strip-card">
+        <div class="help-strip-num">02</div>
+        <h3 class="help-strip-title">Due Diligence</h3>
+        <p class="help-strip-text">We verify developer credibility, legal structure, permit status, and exact project specifications before you commit capital to a decision made from abroad.</p>
+      </div>
+      <div class="help-strip-card">
+        <div class="help-strip-num">03</div>
+        <h3 class="help-strip-title">End-to-End Guidance</h3>
+        <p class="help-strip-text">From the first consultation through notarial completion — structured advisory at every step, so you are never navigating an unfamiliar market alone.</p>
+      </div>
     </div>
   </section>
 

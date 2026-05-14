@@ -81,6 +81,24 @@
   .article-cta h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--white);margin:0 0 0.8rem;}
   .article-cta p{color:rgba(255,255,255,0.7);margin:0 0 1.4rem;}
   .article-cta-actions{display:flex;flex-wrap:wrap;gap:0.9rem;}
+  /* Comparison table */
+  .compare-wrap{margin:3rem 0;}
+  .compare-label{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper-dark);margin-bottom:1rem;}
+  .compare-table{width:100%;border-collapse:collapse;background:rgba(255,255,255,0.84);border:1px solid rgba(7,17,31,0.08);border-radius:18px;overflow:hidden;box-shadow:0 14px 34px rgba(7,17,31,0.07);}
+  .compare-table thead tr{background:linear-gradient(135deg,#08121f,#12253b);}
+  .compare-table thead th{padding:1.1rem 1.4rem;font-size:0.66rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-align:left;color:rgba(255,255,255,0.55);}
+  .compare-table thead th:first-child{color:rgba(255,255,255,0.35);width:30%;}
+  .compare-table thead th.col-kenitra{color:var(--gold);letter-spacing:0.22em;}
+  .compare-table tbody tr{border-bottom:1px solid rgba(7,17,31,0.07);}
+  .compare-table tbody tr:last-child{border-bottom:none;}
+  .compare-table tbody tr:nth-child(even){background:rgba(7,17,31,0.02);}
+  .compare-table td{padding:1.05rem 1.4rem;font-size:0.88rem;font-weight:300;color:var(--navy);vertical-align:top;line-height:1.55;}
+  .compare-table td:first-child{font-size:0.66rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--copper-dark);vertical-align:middle;}
+  .compare-table td.advantage{font-weight:400;color:#1a5c35;}
+  .compare-table td.advantage::after{content:' ✓';font-size:0.7rem;color:#3d8c5e;margin-left:0.3rem;}
+  .compare-table td.neutral{color:var(--text-muted);}
+  @media(max-width:680px){.compare-table td,.compare-table thead th{padding:0.8rem 0.9rem;}.compare-table{font-size:0.82rem;}}
+
   @media(max-width:980px){
     .continue-grid{grid-template-columns:1fr;}
   }
@@ -195,6 +213,41 @@
             <h3>Additional place value</h3>
             <p>Mehdiya and the Atlantic edge improve the city's lifestyle proposition without changing its fundamentally practical character.</p>
           </div>
+        </div>
+
+        <div class="compare-wrap">
+          <div class="compare-label">Kénitra vs Rabat — Key Metrics</div>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th class="col-kenitra">Kénitra</th>
+                <th>Rabat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Price per m²</td>
+                <td class="advantage">8,000 – 11,500 MAD/m²</td>
+                <td class="neutral">15,000 – 28,000+ MAD/m²</td>
+              </tr>
+              <tr>
+                <td>TGV Access</td>
+                <td class="advantage">Dedicated TGV station · 5 min from centre ville</td>
+                <td class="neutral">Multiple stations · more congested access</td>
+              </tr>
+              <tr>
+                <td>Beach Proximity</td>
+                <td class="advantage">Mehdiya Atlantic beach · 10–15 min</td>
+                <td class="neutral">Nearest Atlantic coast · 30–40 min</td>
+              </tr>
+              <tr>
+                <td>Industrial Demand</td>
+                <td class="advantage">Atlantic Free Zone · OCP · major anchors nearby</td>
+                <td class="neutral">Administrative capital · limited industrial base</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <h2>Who the Market Makes Sense For</h2>

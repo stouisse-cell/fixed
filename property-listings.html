@@ -69,6 +69,15 @@
   .listing-fact { background: var(--white); padding: 1.2rem; min-height: 120px; }
   .listing-fact-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; line-height: 1; color: var(--navy); margin-bottom: 0.55rem; }
   .listing-fact-label { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper-dark); line-height: 1.5; }
+  /* Featured hero listing — full-width block above the grid */
+  .featured-hero-wrap { padding: 0 var(--app-pad, 2.4%); margin-bottom: 1.4rem; }
+  .featured-hero-kicker { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.9rem; padding: 0 0.2rem; }
+  .featured-hero-listing { display: grid; grid-template-columns: minmax(300px, 1.1fr) minmax(0, 1fr); background: var(--white); border: 1px solid rgba(7,17,31,0.06); overflow: hidden; border-radius: 26px; box-shadow: 0 20px 60px rgba(8,26,51,0.1); }
+  .featured-hero-media { min-height: 540px; background: url('elaf.jpg') center/cover; position: relative; }
+  .featured-hero-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,26,51,0.48), rgba(8,26,51,0.06)); }
+  .featured-hero-copy { padding: 2.8rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; }
+  @media (max-width: 980px) { .featured-hero-listing { grid-template-columns: 1fr; } .featured-hero-media { min-height: 320px; } }
+
   .featured-listing { display: grid; grid-template-columns: minmax(320px,0.95fr) minmax(0,1fr); background: var(--white); border: 1px solid rgba(7,17,31,0.06); overflow: hidden; border-radius: 24px; }
   .featured-media { min-height: 430px; background: url('elaf.jpg') center/cover; position: relative; }
   .featured-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,26,51,0.46), rgba(8,26,51,0.08)); }
@@ -224,50 +233,19 @@
       </div>
     </div>
   </div>
-  <div class="app-grid">
-    <div class="main-stack">
-      <section class="surface-card">
-        <div class="surface-inner">
-          <div class="section-panel-title">
-            <div>
-              <div class="section-panel-kicker">Collection</div>
-              <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">Live Listings</h2>
-            </div>
-            <div class="toolbar-count">3 listings · updated collection</div>
-          </div>
-          <div class="app-statbar">
-            <div class="app-stat"><strong>1</strong><span>Featured now</span></div>
-            <div class="app-stat"><strong>2</strong><span>Available by enquiry</span></div>
-            <div class="app-stat"><strong>TGV + Centre Ville</strong><span>Prime location signals</span></div>
-          </div>
-          <div class="listing-toolbar">
-            <div class="toolbar-count">Filter view</div>
-            <div class="toolbar-tags">
-              <div class="toolbar-tag">Central Kénitra</div>
-              <div class="toolbar-tag">Current Opportunity</div>
-              <div class="toolbar-tag">Residential + Office</div>
-              <div class="toolbar-tag">By Enquiry</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="surface-card" id="current-opportunity">
-        <div class="surface-inner">
-          <div class="section-panel-title">
-            <div>
-              <div class="section-panel-kicker">Featured Listing</div>
-              <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">Current Opportunity</h2>
-            </div>
-            <div class="inventory-status">Live</div>
-          </div>
-          <div class="featured-listing">
-      <div class="featured-media" aria-hidden="true"></div>
-      <div class="featured-copy">
+  <!-- FEATURED HERO LISTING — full width -->
+  <section class="featured-hero-wrap" id="current-opportunity">
+    <div class="featured-hero-kicker">
+      <div class="listing-pill" style="color:var(--gold);">Current Opportunity · Featured</div>
+      <div class="inventory-status">Live</div>
+    </div>
+    <div class="featured-hero-listing">
+      <div class="featured-hero-media" aria-hidden="true"></div>
+      <div class="featured-copy featured-hero-copy">
         <div>
-          <div class="listing-pill">Current Opportunity</div>
-          <h3 class="featured-title">Elaf Sky View<br><em>Mixed-use living and working in a strategic Kénitra location.</em></h3>
-          <p class="featured-summary">Elaf Sky View is a contemporary mixed-use building with apartments and offices for sale, positioned near the entrance of Kénitra with fast autoroute access, strong sun exposure, and practical links to the TGV corridor, schools, healthcare, and green space.</p>
-          <div class="featured-overview-bar">
+          <h2 class="featured-title" style="font-size:clamp(2.2rem,4.5vw,4rem);">Elaf Sky View<br><em>Mixed-use living and working<br>in central Kénitra.</em></h2>
+          <p class="featured-summary">A contemporary mixed-use building with apartments and offices for sale, positioned near the entrance of Kénitra with fast autoroute access, strong sun exposure, and practical links to the TGV corridor, schools, healthcare, and green space.</p>
+          <div class="featured-overview-bar" style="grid-template-columns:repeat(4,1fr);">
             <div class="overview-pill"><strong>Asset</strong><span>Apartments + Offices</span></div>
             <div class="overview-pill"><strong>Position</strong><span>Centre Ville</span></div>
             <div class="overview-pill"><strong>Transit</strong><span>TGV-linked</span></div>
@@ -286,6 +264,32 @@
           <a href="guides/daam-sakani-guide.html" class="btn-outline-dark">Read Daam Sakani Guide</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <div class="app-grid">
+    <div class="main-stack">
+      <section class="surface-card">
+        <div class="surface-inner">
+          <div class="section-panel-title">
+            <div>
+              <div class="section-panel-kicker">Collection</div>
+              <h2 class="section-title" style="color:var(--navy); margin-bottom:0;">More Listings</h2>
+            </div>
+            <div class="toolbar-count">2 available by enquiry</div>
+          </div>
+          <div class="app-statbar">
+            <div class="app-stat"><strong>2</strong><span>Available by enquiry</span></div>
+            <div class="app-stat"><strong>TGV + Centre Ville</strong><span>Prime location signals</span></div>
+            <div class="app-stat"><strong>Residential + Office</strong><span>Asset types</span></div>
+          </div>
+          <div class="listing-toolbar">
+            <div class="toolbar-count">Filter view</div>
+            <div class="toolbar-tags">
+              <div class="toolbar-tag">Central Kénitra</div>
+              <div class="toolbar-tag">Residential + Office</div>
+              <div class="toolbar-tag">By Enquiry</div>
+            </div>
           </div>
         </div>
       </section>
@@ -298,32 +302,7 @@
             </div>
             <div class="toolbar-count">Tap a card or enquire for details</div>
           </div>
-    <div class="inventory-grid">
-      <article class="inventory-card media-elaf reveal">
-        <div class="inventory-thumb">
-          <div class="inventory-badge">Active</div>
-          <div class="inventory-price">11,500 MAD/m2</div>
-        </div>
-        <div class="inventory-copy">
-          <div class="inventory-topline">
-            <div class="inventory-sub">Centre Ville · Kénitra · Mixed Use</div>
-            <div class="inventory-status">Featured</div>
-          </div>
-          <h3 class="inventory-title">Elaf Sky View</h3>
-          <p class="inventory-text">A contemporary mixed-use building in Kénitra Centre Ville with apartments and offices for sale, dual-facade residential layouts, strong natural light, and a permanently open street-facing outlook toward a gated military zone that will never be built on.</p>
-          <p class="inventory-text">The building includes double underground parking, solar water heating, a Finnish Kone elevator, double-paned windows, AC pre-installation, imported finishes, and a Marjane City grocery store on the ground floor. Selected units are Daam Sakani eligible.</p>
-          <div class="inventory-specs">
-            <div class="inventory-spec"><strong>Mixed Use</strong><span>Apartments + offices</span></div>
-            <div class="inventory-spec"><strong>700 m</strong><span>Walk to TGV station</span></div>
-            <div class="inventory-spec"><strong>2 facades</strong><span>Per apartment</span></div>
-            <div class="inventory-spec"><strong>Under Construction</strong><span>Status</span></div>
-          </div>
-          <div class="inventory-actions">
-            <a href="elaf-sky-view.html" class="btn-primary">View Listing</a>
-            <a href="guides/kenitra-vs-rabat.html" class="btn-outline-dark">Read Related Guide</a>
-          </div>
-        </div>
-      </article>
+    <div class="inventory-grid" style="grid-template-columns:repeat(2,1fr);">
       <article class="inventory-card media-sammy reveal">
         <div class="inventory-thumb">
           <div class="inventory-badge">Available</div>

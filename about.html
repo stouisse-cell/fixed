@@ -285,6 +285,43 @@
     line-height: 1.4;
   }
 
+  /* Pull quote */
+  .pull-quote {
+    background: var(--ink);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 14px 14px 0;
+    padding: 2rem 2.2rem;
+    margin-top: 2.5rem;
+  }
+  .pull-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.58;
+    margin: 0 0 1rem;
+  }
+  .pull-quote cite {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .pull-quote cite::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
   /* CTA */
   .about-cta { background: var(--navy); text-align: center; }
   .about-cta .section-title { color: var(--white); }
@@ -441,10 +478,10 @@
           <p class="body-text" style="margin-bottom:0;">That gap — between what a development deserves and what the market actually sees — is what Rahim International was built to close. We know what it looks like from both sides.</p>
         </div>
 
-        <div class="pull-quote" style="margin-top: 2.5rem;">
+        <blockquote class="pull-quote">
           <p>"Our role is to make the important parts visible before someone commits serious capital."</p>
           <cite>Ali Rahim · Founder</cite>
-        </div>
+        </blockquote>
       </div>
       <div class="reveal">
         <div style="background: var(--navy); padding: 0; border: 1px solid var(--border-warm); overflow: hidden;">
