@@ -120,6 +120,41 @@
     gap: 1.2rem;
     flex-wrap: wrap;
   }
+  .dashboard-quicknav {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 0 0 2rem;
+  }
+  .dashboard-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.72rem 1rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(7,17,31,0.08);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .dashboard-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(7,17,31,0.08);
+    border-color: rgba(210,180,134,0.4);
+  }
+  .dashboard-chip::after {
+    content: '→';
+    color: var(--gold);
+    font-size: 0.9rem;
+    line-height: 1;
+  }
   .hero-scroll {
     position: absolute;
     bottom: 2rem;
@@ -154,62 +189,210 @@
 
   /* Dashboard */
   .dashboard-section {
-    background: #f5f2ed;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top left, rgba(210,180,134,0.18), transparent 26%),
+      radial-gradient(circle at 88% 22%, rgba(183,106,63,0.1), transparent 18%),
+      linear-gradient(180deg, #f6f0e8 0%, #f4efe8 100%);
     padding: var(--section-pad);
   }
+  .dashboard-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px);
+    background-size: 120px 120px;
+    opacity: 0.18;
+  }
   .dash-row-header {
+    position: relative;
+    z-index: 1;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 0.45rem;
+    margin-top: 3rem;
+  }
+  .dash-row-header:first-child { margin-top: 0; }
+  .dash-row {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1.35rem;
+  }
+  .dash-row-4 { grid-template-columns: repeat(4, 1fr); }
+  .dash-row-3 { grid-template-columns: repeat(3, 1fr); }
+  .dash-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow:
+      0 18px 40px rgba(7,17,31,0.08),
+      0 2px 10px rgba(7,17,31,0.04);
+    padding: 1.95rem 1.7rem 1.6rem;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+    border: 1px solid rgba(7,17,31,0.05);
+    isolation: isolate;
+  }
+  .dash-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top right, rgba(210,180,134,0.16), transparent 28%);
+    opacity: 0.85;
+    z-index: -1;
+  }
+  .dash-card::after {
+    content: '';
+    position: absolute;
+    left: 1.35rem;
+    right: 1.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(210,180,134,0.75), transparent);
+    opacity: 0.72;
+  }
+  .dash-card:hover {
+    transform: translateY(-7px);
+    box-shadow:
+      0 28px 48px rgba(7,17,31,0.13),
+      0 6px 16px rgba(7,17,31,0.06);
+    border-color: rgba(210,180,134,0.36);
+  }
+  .dash-card-featured {
+    background:
+      linear-gradient(180deg, rgba(210,180,134,0.22) 0%, rgba(255,255,255,0.98) 44%),
+      var(--white);
+    border-color: rgba(210,180,134,0.36);
+    box-shadow:
+      0 22px 42px rgba(7,17,31,0.1),
+      0 3px 12px rgba(210,180,134,0.12);
+  }
+  .dash-card-kicker {
     font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--copper);
     margin-bottom: 1rem;
-    margin-top: 3rem;
-  }
-  .dash-row-header:first-child { margin-top: 0; }
-  .dash-row {
-    display: grid;
-    gap: 1rem;
-  }
-  .dash-row-4 { grid-template-columns: repeat(4, 1fr); }
-  .dash-row-3 { grid-template-columns: repeat(3, 1fr); }
-  .dash-card {
-    background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 2px 14px rgba(7,17,31,0.07);
-    padding: 1.8rem 1.6rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .dash-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(7,17,31,0.13);
   }
   .dash-card-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 0.55rem;
+    line-height: 1.08;
+    margin-bottom: 0.7rem;
+    max-width: 12ch;
   }
-  .dash-row-4 .dash-card-title { font-size: 1.45rem; }
-  .dash-row-3 .dash-card-title { font-size: 1.25rem; }
+  .dash-row-4 .dash-card-title { font-size: 1.62rem; }
+  .dash-row-3 .dash-card-title { font-size: 1.38rem; }
   .dash-card-desc {
-    font-size: 0.8rem;
+    font-size: 0.83rem;
     font-weight: 300;
-    line-height: 1.65;
+    line-height: 1.72;
     color: var(--text-muted);
     flex: 1;
     margin-bottom: 1.2rem;
+    max-width: 34ch;
   }
-  .dash-card-arrow {
-    font-size: 1.1rem;
+  .dash-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .dash-card-tag {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(7,17,31,0.08);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    border-radius: 999px;
+    padding: 0.38rem 0.62rem;
+  }
+  .dash-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--gold);
-    display: block;
     line-height: 1;
+    margin-top: auto;
+  }
+  .dash-card-cta::after {
+    content: '→';
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.22s ease;
+  }
+  .dash-card:hover .dash-card-cta::after { transform: translateX(4px); }
+  .dash-card-profile {
+    background:
+      linear-gradient(180deg, rgba(8,26,51,0.06) 0%, rgba(255,255,255,0.98) 42%),
+      var(--white);
+    border-color: rgba(8,26,51,0.12);
+  }
+  .dash-card-profile::before {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top right, rgba(8,26,51,0.12), transparent 30%);
+  }
+  .dash-card-profile .dash-card-kicker { color: var(--navy); }
+  .dash-card-profile .dash-card-tag {
+    background: rgba(8,26,51,0.06);
+    border-color: rgba(8,26,51,0.1);
+  }
+  .dash-card-opportunity {
+    background:
+      linear-gradient(180deg, rgba(183,106,63,0.12) 0%, rgba(255,255,255,0.98) 42%),
+      var(--white);
+    border-color: rgba(183,106,63,0.16);
+  }
+  .dash-card-opportunity::before {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top right, rgba(183,106,63,0.14), transparent 30%);
+  }
+  .dash-card-opportunity .dash-card-kicker { color: #9b5938; }
+  .dash-card-opportunity .dash-card-tag {
+    background: rgba(183,106,63,0.08);
+    border-color: rgba(183,106,63,0.12);
+  }
+  .dash-card-learn {
+    background:
+      linear-gradient(180deg, rgba(124,146,120,0.12) 0%, rgba(255,255,255,0.98) 42%),
+      var(--white);
+    border-color: rgba(124,146,120,0.16);
+  }
+  .dash-card-learn::before {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top right, rgba(124,146,120,0.14), transparent 30%);
+  }
+  .dash-card-learn .dash-card-kicker { color: #61755d; }
+  .dash-card-learn .dash-card-tag {
+    background: rgba(124,146,120,0.08);
+    border-color: rgba(124,146,120,0.12);
   }
 
   /* Gallery */
@@ -390,13 +573,17 @@
   @media (max-width: 680px) {
     .hero { padding-bottom: 5rem; }
     .hero-title { font-size: clamp(2.8rem, 14vw, 4rem); }
-    .dash-row-3 { grid-template-columns: repeat(2, 1fr); }
+    .dash-row-4,
+    .dash-row-3 { grid-template-columns: 1fr; }
+    .dash-card { min-height: 0; }
+    .dash-row-4 .dash-card-title,
+    .dash-row-3 .dash-card-title { max-width: none; }
     .elaf-stats { grid-template-columns: 1fr 1fr; }
     .gallery-wrap { height: 300px; }
   }
   @media (max-width: 480px) {
-    .dash-row-4,
-    .dash-row-3 { grid-template-columns: 1fr 1fr; }
+    .dash-card { padding-left: 1.15rem; padding-right: 1.15rem; }
+    .elaf-stats { grid-template-columns: 1fr; }
   }
 </style>
 <meta name="twitter:card" content="summary_large_image">
@@ -487,68 +674,131 @@
 
   <!-- DASHBOARD -->
   <section class="dashboard-section" id="start-here">
+    <div class="dashboard-quicknav" aria-label="Accès rapides">
+      <a href="investors-mre.html" class="dashboard-chip">MRE</a>
+      <a href="investors-international.html" class="dashboard-chip">International</a>
+      <a href="property-listings.html" class="dashboard-chip">Biens</a>
+      <a href="elaf-sky-view.html" class="dashboard-chip">Elaf Sky View</a>
+      <a href="guides/index.html" class="dashboard-chip">Guides</a>
+      <a href="#contact" class="dashboard-chip">Consultation</a>
+    </div>
     <p class="dash-row-header">Qui êtes-vous ?</p>
     <div class="dash-row dash-row-4">
-      <a href="investors-mre.html" class="dash-card">
+      <a href="investors-mre.html" class="dash-card dash-card-featured dash-card-profile">
+        <span class="dash-card-kicker">Parcours principal</span>
         <h2 class="dash-card-title">Diaspora marocaine / MRE</h2>
         <p class="dash-card-desc">Accompagnement pour acheter à distance, étape par étape.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Achat à distance</span>
+          <span class="dash-card-tag">Étape par étape</span>
+        </div>
+        <span class="dash-card-cta">Commencer ici</span>
       </a>
-      <a href="investors-international.html" class="dash-card">
+      <a href="investors-international.html" class="dash-card dash-card-profile">
+        <span class="dash-card-kicker">Parcours investisseur</span>
         <h2 class="dash-card-title">Investisseur international</h2>
         <p class="dash-card-desc">Conseil et accès aux biens pour investisseurs non-marocains.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Entrée marché</span>
+          <span class="dash-card-tag">International</span>
+        </div>
+        <span class="dash-card-cta">Voir les options</span>
       </a>
-      <a href="investors-local.html" class="dash-card">
+      <a href="investors-local.html" class="dash-card dash-card-profile">
+        <span class="dash-card-kicker">Marché local</span>
         <h2 class="dash-card-title">Investisseur local</h2>
         <p class="dash-card-desc">Meilleures opportunités et évaluation précise pour acheteurs locaux.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Positionnement</span>
+          <span class="dash-card-tag">Opportunités</span>
+        </div>
+        <span class="dash-card-cta">Voir le parcours</span>
       </a>
-      <a href="services-developers.html" class="dash-card">
+      <a href="services-developers.html" class="dash-card dash-card-profile">
+        <span class="dash-card-kicker">Services B2B</span>
         <h2 class="dash-card-title">Promoteur</h2>
         <p class="dash-card-desc">Atteignez les acheteurs internationaux et positionnez votre projet.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Positionnement</span>
+          <span class="dash-card-tag">Leads qualifiés</span>
+        </div>
+        <span class="dash-card-cta">Voir les services</span>
       </a>
     </div>
     <p class="dash-row-header">Explorer</p>
     <div class="dash-row dash-row-4">
-      <a href="elaf-sky-view.html" class="dash-card">
+      <a href="elaf-sky-view.html" class="dash-card dash-card-featured dash-card-opportunity">
+        <span class="dash-card-kicker">Projet mis en avant</span>
         <h2 class="dash-card-title">Elaf Sky View</h2>
         <p class="dash-card-desc">35 appartements haut de gamme en centre-ville de Kénitra. Mandat actif.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">35 appartements</span>
+          <span class="dash-card-tag">Centre Kénitra</span>
+        </div>
+        <span class="dash-card-cta">Explorer le projet</span>
       </a>
-      <a href="property-listings.html" class="dash-card">
+      <a href="property-listings.html" class="dash-card dash-card-opportunity">
+        <span class="dash-card-kicker">Inventaire actuel</span>
         <h2 class="dash-card-title">Biens disponibles</h2>
         <p class="dash-card-desc">Les opportunités actuelles vérifiées par Rahim International.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Vérifiés</span>
+          <span class="dash-card-tag">Opportunités</span>
+        </div>
+        <span class="dash-card-cta">Voir les biens</span>
       </a>
-      <a href="why-morocco.html" class="dash-card">
+      <a href="why-morocco.html" class="dash-card dash-card-opportunity">
+        <span class="dash-card-kicker">Contexte marché</span>
         <h2 class="dash-card-title">Analyses de marché</h2>
         <p class="dash-card-desc">Pourquoi le Maroc, pourquoi maintenant — le contexte macroéconomique.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Macro</span>
+          <span class="dash-card-tag">Timing</span>
+        </div>
+        <span class="dash-card-cta">Lire l'analyse</span>
       </a>
-      <a href="about.html" class="dash-card">
+      <a href="about.html" class="dash-card dash-card-opportunity">
+        <span class="dash-card-kicker">Le cabinet</span>
         <h2 class="dash-card-title">À propos</h2>
         <p class="dash-card-desc">Le cabinet, le fondateur et l’approche conseil.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Fondateur</span>
+          <span class="dash-card-tag">Approche</span>
+        </div>
+        <span class="dash-card-cta">Découvrir le cabinet</span>
       </a>
     </div>
     <p class="dash-row-header">En savoir plus</p>
     <div class="dash-row dash-row-3">
-      <a href="guides/buying-property-morocco.html" class="dash-card">
+      <a href="guides/buying-property-morocco.html" class="dash-card dash-card-learn">
+        <span class="dash-card-kicker">Guide essentiel</span>
         <h2 class="dash-card-title">Acheter au Maroc</h2>
         <p class="dash-card-desc">Étapes juridiques, notaire et ce qu’il faut vérifier avant de s’engager.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Juridique</span>
+          <span class="dash-card-tag">Vérifications</span>
+        </div>
+        <span class="dash-card-cta">Lire le guide</span>
       </a>
-      <a href="guides/daam-sakani-guide.html" class="dash-card">
+      <a href="guides/daam-sakani-guide.html" class="dash-card dash-card-learn">
+        <span class="dash-card-kicker">Guide programme</span>
         <h2 class="dash-card-title">Guide Daam Sakani</h2>
         <p class="dash-card-desc">Le programme de logement social marocain — éligibilité et subventions.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Éligibilité</span>
+          <span class="dash-card-tag">Subventions</span>
+        </div>
+        <span class="dash-card-cta">Voir le programme</span>
       </a>
-      <a href="guides/kenitra-vs-rabat.html" class="dash-card">
+      <a href="guides/kenitra-vs-rabat.html" class="dash-card dash-card-learn">
+        <span class="dash-card-kicker">Comparatif villes</span>
         <h2 class="dash-card-title">Kénitra vs Rabat</h2>
         <p class="dash-card-desc">Comparaison directe : valeur, accès et potentiel à long terme.</p>
-        <span class="dash-card-arrow">→</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">Valeur</span>
+          <span class="dash-card-tag">Choix de ville</span>
+        </div>
+        <span class="dash-card-cta">Comparer les villes</span>
       </a>
     </div>
   </section>

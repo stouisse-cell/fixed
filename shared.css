@@ -120,8 +120,10 @@ img, video, svg { display: block; max-width: 100%; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.8rem, 1.8vw, 1.8rem);
+  gap: clamp(0.55rem, 1.2vw, 1.5rem);
   list-style: none;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .nav-links a,
 .nav-dropdown-toggle,
@@ -1281,9 +1283,32 @@ footer {
   .page-hero { min-height: 60vh; }
 }
 
-/* Mobile nav: trigger hamburger on tablets too — 8 links + dropdowns + lang
-   switcher cannot fit horizontally on screens this size */
-@media (max-width: 1024px) {
+/* Tighten the desktop nav on medium-large screens before switching fully to
+   the hamburger layout. */
+@media (max-width: 1500px) {
+  .site-nav { gap: 1rem; }
+  .brand-logo { width: 58px; height: 50px; }
+  .brand-name { font-size: 1.24rem; letter-spacing: 0.06em; }
+  .brand-subtitle { font-size: 0.5rem; letter-spacing: 0.13em; }
+  .nav-links a,
+  .nav-dropdown-toggle,
+  .nav-cta { font-size: 0.64rem; letter-spacing: 0.1em; }
+  .nav-cta { padding: 0.46rem 0.95rem; }
+  .language-switcher { gap: 0.22rem; }
+  .language-switcher a {
+    padding: 0.26rem 0.32rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 1600px) {
+  .site-nav > .nav-cta { display: none; }
+}
+
+/* Collapse the desktop nav earlier — this menu is too wide to remain on a
+   single row once the viewport gets near laptop/tablet widths. */
+@media (max-width: 1450px) {
   .site-nav {
     height: 72px;
     min-height: 72px;

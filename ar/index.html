@@ -120,6 +120,40 @@
     gap: 1.2rem;
     flex-wrap: wrap;
   }
+  .dashboard-quicknav {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 0 0 2rem;
+  }
+  .dashboard-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.72rem 1rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(7,17,31,0.08);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .dashboard-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(7,17,31,0.08);
+    border-color: rgba(210,180,134,0.4);
+  }
+  .dashboard-chip::after {
+    content: '←';
+    color: var(--gold);
+    font-size: 0.9rem;
+    line-height: 1;
+  }
   .hero-scroll {
     position: absolute;
     bottom: 2rem;
@@ -154,59 +188,204 @@
 
   /* Dashboard */
   .dashboard-section {
-    background: #f5f2ed;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top left, rgba(210,180,134,0.18), transparent 26%),
+      radial-gradient(circle at 88% 22%, rgba(183,106,63,0.1), transparent 18%),
+      linear-gradient(180deg, #f6f0e8 0%, #f4efe8 100%);
     padding: var(--section-pad);
   }
+  .dashboard-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px);
+    background-size: 120px 120px;
+    opacity: 0.18;
+  }
   .dash-row-header {
+    position: relative;
+    z-index: 1;
     font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--copper);
-    margin-bottom: 1rem;
+    margin-bottom: 0.45rem;
     margin-top: 3rem;
   }
   .dash-row-header:first-child { margin-top: 0; }
-  .dash-row { display: grid; gap: 1rem; }
+  .dash-row {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1.35rem;
+  }
   .dash-row-4 { grid-template-columns: repeat(4, 1fr); }
   .dash-row-3 { grid-template-columns: repeat(3, 1fr); }
   .dash-card {
+    position: relative;
+    overflow: hidden;
     background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 2px 14px rgba(7,17,31,0.07);
-    padding: 1.8rem 1.6rem 1.5rem;
+    border-radius: 24px;
+    box-shadow:
+      0 18px 40px rgba(7,17,31,0.08),
+      0 2px 10px rgba(7,17,31,0.04);
+    padding: 1.95rem 1.7rem 1.6rem;
+    min-height: 260px;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+    border: 1px solid rgba(7,17,31,0.05);
+    isolation: isolate;
+  }
+  .dash-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top left, rgba(210,180,134,0.16), transparent 28%);
+    opacity: 0.85;
+    z-index: -1;
+  }
+  .dash-card::after {
+    content: '';
+    position: absolute;
+    left: 1.35rem;
+    right: 1.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(210,180,134,0.75), transparent);
+    opacity: 0.72;
   }
   .dash-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(7,17,31,0.13);
+    transform: translateY(-7px);
+    box-shadow:
+      0 28px 48px rgba(7,17,31,0.13),
+      0 6px 16px rgba(7,17,31,0.06);
+    border-color: rgba(210,180,134,0.36);
+  }
+  .dash-card-featured {
+    background:
+      linear-gradient(180deg, rgba(210,180,134,0.22) 0%, rgba(255,255,255,0.98) 44%),
+      var(--white);
+    border-color: rgba(210,180,134,0.36);
+    box-shadow:
+      0 22px 42px rgba(7,17,31,0.1),
+      0 3px 12px rgba(210,180,134,0.12);
+  }
+  .dash-card-kicker {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--copper);
+    margin-bottom: 1rem;
   }
   .dash-card-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 0.55rem;
+    line-height: 1.08;
+    margin-bottom: 0.7rem;
   }
-  .dash-row-4 .dash-card-title { font-size: 1.45rem; }
-  .dash-row-3 .dash-card-title { font-size: 1.25rem; }
+  .dash-row-4 .dash-card-title { font-size: 1.62rem; }
+  .dash-row-3 .dash-card-title { font-size: 1.38rem; }
   .dash-card-desc {
-    font-size: 0.8rem;
+    font-size: 0.83rem;
     font-weight: 300;
-    line-height: 1.65;
+    line-height: 1.72;
     color: var(--text-muted);
     flex: 1;
     margin-bottom: 1.2rem;
   }
-  .dash-card-arrow {
-    font-size: 1.1rem;
+  .dash-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .dash-card-tag {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(7,17,31,0.08);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    border-radius: 999px;
+    padding: 0.38rem 0.62rem;
+  }
+  .dash-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.76rem;
+    font-weight: 500;
     color: var(--gold);
-    display: block;
     line-height: 1;
+    margin-top: auto;
+  }
+  .dash-card-cta::after {
+    content: '←';
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.22s ease;
+  }
+  .dash-card:hover .dash-card-cta::after { transform: translateX(-4px); }
+  .dash-card-profile {
+    background:
+      linear-gradient(180deg, rgba(8,26,51,0.06) 0%, rgba(255,255,255,0.98) 42%),
+      var(--white);
+    border-color: rgba(8,26,51,0.12);
+  }
+  .dash-card-profile::before {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top left, rgba(8,26,51,0.12), transparent 30%);
+  }
+  .dash-card-profile .dash-card-kicker { color: var(--navy); }
+  .dash-card-profile .dash-card-tag {
+    background: rgba(8,26,51,0.06);
+    border-color: rgba(8,26,51,0.1);
+  }
+  .dash-card-opportunity {
+    background:
+      linear-gradient(180deg, rgba(183,106,63,0.12) 0%, rgba(255,255,255,0.98) 42%),
+      var(--white);
+    border-color: rgba(183,106,63,0.16);
+  }
+  .dash-card-opportunity::before {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top left, rgba(183,106,63,0.14), transparent 30%);
+  }
+  .dash-card-opportunity .dash-card-kicker { color: #9b5938; }
+  .dash-card-opportunity .dash-card-tag {
+    background: rgba(183,106,63,0.08);
+    border-color: rgba(183,106,63,0.12);
+  }
+  .dash-card-learn {
+    background:
+      linear-gradient(180deg, rgba(124,146,120,0.12) 0%, rgba(255,255,255,0.98) 42%),
+      var(--white);
+    border-color: rgba(124,146,120,0.16);
+  }
+  .dash-card-learn::before {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0) 38%),
+      radial-gradient(circle at top left, rgba(124,146,120,0.14), transparent 30%);
+  }
+  .dash-card-learn .dash-card-kicker { color: #61755d; }
+  .dash-card-learn .dash-card-tag {
+    background: rgba(124,146,120,0.08);
+    border-color: rgba(124,146,120,0.12);
   }
 
   /* Gallery */
@@ -387,13 +566,15 @@
   @media (max-width: 680px) {
     .hero { padding-bottom: 5rem; }
     .hero-title { font-size: clamp(2.8rem, 14vw, 4rem); }
-    .dash-row-3 { grid-template-columns: repeat(2, 1fr); }
+    .dash-row-4,
+    .dash-row-3 { grid-template-columns: 1fr; }
+    .dash-card { min-height: 0; }
     .elaf-stats { grid-template-columns: 1fr 1fr; }
     .gallery-wrap { height: 300px; }
   }
   @media (max-width: 480px) {
-    .dash-row-4,
-    .dash-row-3 { grid-template-columns: 1fr 1fr; }
+    .dash-card { padding-left: 1.15rem; padding-right: 1.15rem; }
+    .elaf-stats { grid-template-columns: 1fr; }
   }
 </style>
 <meta name="twitter:card" content="summary_large_image">
@@ -488,68 +669,131 @@
 
   <!-- DASHBOARD -->
   <section class="dashboard-section" dir="rtl" id="start-here">
+    <div class="dashboard-quicknav" aria-label="روابط سريعة">
+      <a href="investors-mre.html" class="dashboard-chip">مغاربة العالم</a>
+      <a href="investors-international.html" class="dashboard-chip">مستثمر دولي</a>
+      <a href="property-listings.html" class="dashboard-chip">العقارات</a>
+      <a href="elaf-sky-view.html" class="dashboard-chip">Elaf Sky View</a>
+      <a href="guides/index.html" class="dashboard-chip">الأدلة</a>
+      <a href="#contact" class="dashboard-chip">استشارة</a>
+    </div>
     <p class="dash-row-header">من أنت؟</p>
     <div class="dash-row dash-row-4">
-      <a href="investors-mre.html" class="dash-card">
+      <a href="investors-mre.html" class="dash-card dash-card-featured dash-card-profile">
+        <span class="dash-card-kicker">المسار الأكثر طلباً</span>
         <h2 class="dash-card-title">مشتري MRE</h2>
         <p class="dash-card-desc">مرافقة المغاربة المقيمين بالخارج في الشراء عن بُعد، خطوة بخطوة.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">شراء عن بُعد</span>
+          <span class="dash-card-tag">خطوة بخطوة</span>
+        </div>
+        <span class="dash-card-cta">ابدأ من هنا</span>
       </a>
-      <a href="investors-international.html" class="dash-card">
+      <a href="investors-international.html" class="dash-card dash-card-profile">
+        <span class="dash-card-kicker">مسار المستثمر</span>
         <h2 class="dash-card-title">مشتري دولي</h2>
         <p class="dash-card-desc">استشارات وفرص عقارية للمستثمرين غير المغاربة.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">دخول السوق</span>
+          <span class="dash-card-tag">عبر الحدود</span>
+        </div>
+        <span class="dash-card-cta">استكشف الخيارات</span>
       </a>
-      <a href="investors-local.html" class="dash-card">
+      <a href="investors-local.html" class="dash-card dash-card-profile">
+        <span class="dash-card-kicker">تركيز محلي</span>
         <h2 class="dash-card-title">مستثمر محلي</h2>
         <p class="dash-card-desc">فرص أفضل تموضعاً وتقييم دقيق للمستثمرين المحليين.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">تموضع</span>
+          <span class="dash-card-tag">فرص موثقة</span>
+        </div>
+        <span class="dash-card-cta">اعرض المسار</span>
       </a>
-      <a href="services-developers.html" class="dash-card">
+      <a href="services-developers.html" class="dash-card dash-card-profile">
+        <span class="dash-card-kicker">خدمات الأعمال</span>
         <h2 class="dash-card-title">مطور عقاري</h2>
         <p class="dash-card-desc">وصِل مشروعك بالمشترين الدوليين وقدِّمه بوضوح.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">تموضع المشروع</span>
+          <span class="dash-card-tag">عملاء مؤهلون</span>
+        </div>
+        <span class="dash-card-cta">عرض الخدمات</span>
       </a>
     </div>
     <p class="dash-row-header">استكشف</p>
     <div class="dash-row dash-row-4">
-      <a href="elaf-sky-view.html" class="dash-card">
+      <a href="elaf-sky-view.html" class="dash-card dash-card-featured dash-card-opportunity">
+        <span class="dash-card-kicker">المشروع المميز</span>
         <h2 class="dash-card-title">Elaf Sky View</h2>
         <p class="dash-card-desc">35 شقة عالية المواصفات في وسط القنيطرة. تكليف نشط.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">35 شقة</span>
+          <span class="dash-card-tag">وسط القنيطرة</span>
+        </div>
+        <span class="dash-card-cta">استكشف المشروع</span>
       </a>
-      <a href="property-listings.html" class="dash-card">
+      <a href="property-listings.html" class="dash-card dash-card-opportunity">
+        <span class="dash-card-kicker">المعروض الحالي</span>
         <h2 class="dash-card-title">العقارات المتاحة</h2>
         <p class="dash-card-desc">الفرص الحالية التي وثقتها Rahim International.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">موثقة</span>
+          <span class="dash-card-tag">فرص حالية</span>
+        </div>
+        <span class="dash-card-cta">تصفح العقارات</span>
       </a>
-      <a href="why-morocco.html" class="dash-card">
+      <a href="why-morocco.html" class="dash-card dash-card-opportunity">
+        <span class="dash-card-kicker">سياق السوق</span>
         <h2 class="dash-card-title">تحليلات السوق</h2>
         <p class="dash-card-desc">لماذا المغرب، لماذا الآن — السياق الاقتصادي الكلي.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">نظرة كلية</span>
+          <span class="dash-card-tag">توقيت</span>
+        </div>
+        <span class="dash-card-cta">اقرأ التحليل</span>
       </a>
-      <a href="about.html" class="dash-card">
+      <a href="about.html" class="dash-card dash-card-opportunity">
+        <span class="dash-card-kicker">عن الشركة</span>
         <h2 class="dash-card-title">من نحن</h2>
         <p class="dash-card-desc">الشركة، المؤسس، والمنهج الاستشاري.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">المؤسس</span>
+          <span class="dash-card-tag">المنهج</span>
+        </div>
+        <span class="dash-card-cta">تعرّف علينا</span>
       </a>
     </div>
     <p class="dash-row-header">تعلّم</p>
     <div class="dash-row dash-row-3">
-      <a href="guides/buying-property-morocco.html" class="dash-card">
+      <a href="guides/buying-property-morocco.html" class="dash-card dash-card-learn">
+        <span class="dash-card-kicker">الدليل الأساسي</span>
         <h2 class="dash-card-title">شراء عقار في المغرب</h2>
         <p class="dash-card-desc">الخطوات القانونية، العدل، وما يجب التحقق منه قبل الالتزام.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">خطوات قانونية</span>
+          <span class="dash-card-tag">تحقق مسبق</span>
+        </div>
+        <span class="dash-card-cta">اقرأ الدليل</span>
       </a>
-      <a href="guides/daam-sakani-guide.html" class="dash-card">
+      <a href="guides/daam-sakani-guide.html" class="dash-card dash-card-learn">
+        <span class="dash-card-kicker">دليل البرنامج</span>
         <h2 class="dash-card-title">دليل Daam Sakani</h2>
         <p class="dash-card-desc">برنامج الدعم السكاني المغربي — الأهلية والدعم المالي.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">الأهلية</span>
+          <span class="dash-card-tag">الدعم</span>
+        </div>
+        <span class="dash-card-cta">عرض البرنامج</span>
       </a>
-      <a href="guides/kenitra-vs-rabat.html" class="dash-card">
+      <a href="guides/kenitra-vs-rabat.html" class="dash-card dash-card-learn">
+        <span class="dash-card-kicker">مقارنة المدن</span>
         <h2 class="dash-card-title">القنيطرة مقابل الرباط</h2>
         <p class="dash-card-desc">مقارنة مباشرة: القيمة، الوصول، والمستقبل.</p>
-        <span class="dash-card-arrow">←</span>
+        <div class="dash-card-meta">
+          <span class="dash-card-tag">القيمة</span>
+          <span class="dash-card-tag">اختيار المدينة</span>
+        </div>
+        <span class="dash-card-cta">قارن بين المدينتين</span>
       </a>
     </div>
   </section>
