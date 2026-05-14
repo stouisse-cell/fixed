@@ -119,14 +119,20 @@ img { display: block; max-width: 100%; }
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(7,17,31,.3) 0%, rgba(7,17,31,.1) 30%, rgba(7,17,31,.75) 70%, rgba(7,17,31,.97) 100%),
-    url('elaf.jpg') center/cover no-repeat;
+  background: #07111f;
+}
+.hero-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .hero-bg::after {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 60% 40%, rgba(201,169,110,.08), transparent 60%);
+  background:
+    linear-gradient(to bottom, rgba(7,17,31,.3) 0%, rgba(7,17,31,.1) 30%, rgba(7,17,31,.75) 70%, rgba(7,17,31,.97) 100%),
+    radial-gradient(ellipse at 60% 40%, rgba(201,169,110,.08), transparent 60%);
 }
 .hero-content { position: relative; z-index: 1; max-width: 900px; }
 .hero-eyebrow {
@@ -690,7 +696,11 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="elaf.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-content">
     <p class="hero-eyebrow">Current Opportunity · Centre Ville Kénitra · Ready to Move In</p>
     <h1 class="hero-h">The Best Address<br>in <em>Kénitra.</em></h1>
