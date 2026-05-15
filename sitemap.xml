@@ -86,20 +86,30 @@
   </url>
 
   <!-- ============================================================
-       WHY KENITRA (EN + FR only — no AR version)
+       WHY KENITRA (EN + FR + AR)
        ============================================================ -->
   <url>
     <loc>https://rahiminternational.com/why-kenitra.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/why-kenitra.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/why-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/why-kenitra.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/why-kenitra.html"/>
   </url>
   <url>
     <loc>https://rahiminternational.com/fr/why-kenitra.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/why-kenitra.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/why-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/why-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/why-kenitra.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/why-kenitra.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/why-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/why-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/why-kenitra.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/why-kenitra.html"/>
   </url>
 
