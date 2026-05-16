@@ -562,6 +562,90 @@
   </url>
 
   <!-- ============================================================
+       MARKET INSIGHTS — INDEX (NEW LANDING PAGES)
+       ============================================================ -->
+  <url>
+    <loc>https://rahiminternational.com/market-insights/index.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/index.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/analyses-marche/index.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/index.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/tahlilet-souq/index.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/index.html"/>
+  </url>
+
+  <!-- ============================================================
+       MARKET INSIGHTS — KÉNITRA NEIGHBOURHOOD ANALYSIS
+       ============================================================ -->
+  <url>
+    <loc>https://rahiminternational.com/market-insights/kenitra-neighborhoods.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+  </url>
+
+  <!-- ============================================================
+       GUIDES — KÉNITRA NEIGHBOURHOOD GUIDE
+       ============================================================ -->
+  <url>
+    <loc>https://rahiminternational.com/guides/kenitra-neighborhood-guide.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/kenitra-guide-quartiers.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/guides/kenitra-guide-quartiers.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/kenitra-guide-quartiers.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/kenitra-guide-quartiers.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"/>
+  </url>
+
+  <!-- ============================================================
        PRIVACY POLICY (EN only)
        ============================================================ -->
   <url>
