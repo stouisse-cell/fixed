@@ -55,6 +55,7 @@
   .price-figure{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--copper-dark);}
   .daam-t1{display:inline-flex;font-size:.66rem;font-weight:500;padding:.25rem .65rem;background:rgba(74,124,89,.12);color:#3a6147;border:1px solid rgba(74,124,89,.3);white-space:nowrap;}
   .daam-t2{display:inline-flex;font-size:.66rem;font-weight:500;padding:.25rem .65rem;background:rgba(183,106,63,.1);color:var(--copper-dark);border:1px solid rgba(183,106,63,.28);white-space:nowrap;}
+  .daam-no{display:inline-flex;font-size:.66rem;font-weight:500;padding:.25rem .65rem;background:rgba(7,17,31,.05);color:var(--text-muted);border:1px solid rgba(7,17,31,.14);white-space:nowrap;}
   .lgv-pill{display:inline-flex;align-items:center;gap:.35rem;font-size:.66rem;font-weight:500;padding:.25rem .65rem;background:rgba(8,26,51,.07);color:var(--navy);border:1px solid rgba(8,26,51,.18);white-space:nowrap;}
   .zone-block{padding:var(--section-pad);border-top:1px solid var(--border);}
   .zone-block:first-of-type{border-top:none;}
@@ -81,6 +82,7 @@
   .faq-section .faq-answer-text{color:var(--text-muted);}
   .faq-section .faq-list{border-top-color:var(--border);}
   .faq-section .faq-item{border-bottom-color:var(--border);}
+  .sub-zone-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--navy);margin:2.5rem 0 .6rem;clear:both;}
   .opp-section{background:radial-gradient(circle at 16% 22%,rgba(183,106,63,.26),transparent 30%),linear-gradient(315deg,rgba(7,17,31,.98),rgba(8,26,51,.92));padding:var(--section-pad);}
   .opp-box{border:1px solid rgba(210,180,134,.3);padding:2.5rem;background:linear-gradient(315deg,rgba(255,255,255,.05),rgba(183,106,63,.07));box-shadow:inset 0 6px 0 rgba(183,106,63,.48);}
   @media(max-width:980px){.guide-hero{grid-template-columns:1fr;gap:2rem;}.zone-grid{grid-template-columns:1fr;}.zone-num{font-size:2.8rem;margin-right:.6rem;}}
@@ -140,8 +142,8 @@
     </div>
     <aside class="guide-hero-panel">
       <p class="panel-label">نظرة سريعة</p>
-      <h2 class="panel-title">8 مناطق سكنية، أكثر من 30 حياً فرعياً، خريطة شاملة واحدة.</h2>
-      <p class="panel-text">تتراوح أسعار الشراء بين 3,500 و14,000 درهم/م² حسب المنطقة. يسجّل وسط المدينة أعلى علاوة سعرية. ينطبق دعم سكني على معظم المناطق. تقع محطة القطار السريع داخل وسط المدينة — جميع المسافات محسوبة منها.</p>
+      <h2 class="panel-title">8 مناطق سكنية، 26 حياً فرعياً، خريطة شاملة واحدة.</h2>
+      <p class="panel-text">تتراوح أسعار الشراء بين <span dir="ltr">5,500</span> و<span dir="ltr">15,000</span> درهم/م² حسب المنطقة — من المخزون القديم في الأحياء الطرفية إلى مشاريع الراقية الجديدة في وسط المدينة. ينطبق دعم سكني على معظم المناطق. تقع محطة القطار السريع داخل وسط المدينة — جميع المسافات محسوبة منها.</p>
     </aside>
   </header>
 
@@ -162,32 +164,91 @@
   <section id="overview" style="background:linear-gradient(135deg,var(--steel),#f7f1ea);padding:var(--section-pad);">
     <p class="eyebrow">نظرة عامة على المدينة</p>
     <h2 class="section-title" style="color:var(--navy);">لماذا الجغرافيا أهم<br>من سعر المتر المربع.</h2>
-    <p class="body-text" style="max-width:700px;">تقع القنيطرة على بُعد 40 كم شمال الرباط على الساحل الأطلسي. يربطها القطار السريع (LGV) بالرباط في 14 دقيقة وبالدار البيضاء في 55 دقيقة، مما يجعلها من أكثر المدن الثانوية في المغرب سهولةً للوصول بالنسبة للمهنيين والمستثمرين. غير أن الجغرافيا الداخلية للمدينة متباينة بوضوح: تتميّز منطقة وسط المدينة التاريخية بعلاوة ملحوظة على المناطق الطرفية الحديثة، في حين تخضع المهدية لمنطقها الموسمي الخاص.</p>
-    <p class="body-text" style="max-width:700px;">يقارن الجدول أدناه المناطق الثماني من حيث فئة سعر الشراء، والإيجار الشهري الاعتيادي لشقة غرفتين، وأهلية دعم سكني، والوقت التقريبي للوصول إلى محطة القطار السريع.</p>
-    <div style="overflow-x:auto;margin-top:2rem;">
+    <p class="body-text" style="max-width:700px;">تقع القنيطرة على بُعد 40 كم شمال الرباط على الساحل الأطلسي. يربطها القطار السريع (LGV) بالرباط في 14 دقيقة وبالدار البيضاء في 55 دقيقة، مما يجعلها من أكثر المدن الثانوية في المغرب سهولةً للوصول بالنسبة للمهنيين والمستثمرين. غير أن الجغرافيا الداخلية للمدينة متباينة بوضوح: تتميّز منطقة وسط المدينة التاريخية بعلاوة ملحوظة على المناطق الطرفية الحديثة، في حين تخضع المهدية لمنطقها الموسمي الخاص. ولكل حي فرعي داخل كل منطقة منطقه السعري الخاص.</p>
+    <p class="body-text" style="max-width:700px;">تتراوح أسعار الشراء بين <span dir="ltr">5,500</span> درهم/م² للمخزون القديم في الأحياء الطرفية و<span dir="ltr">15,000</span> درهم/م² لمشاريع الراقية الجديدة في وسط المدينة. يلخّص الجدولان أدناه جميع الـ26 حياً فرعياً — أسعار الشراء أولاً، ثم مرجعيات الإيجار الشهري. استخدم روابط التنقل أعلاه للانتقال إلى التحليل الكامل لأي منطقة.</p>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin:2.5rem 0 .5rem;text-align:right;">ملخص أسعار الشراء — جميع الأحياء</h3>
+    <div style="overflow-x:auto;">
       <table class="price-table">
         <thead>
           <tr>
-            <th>المنطقة</th>
-            <th>الشراء (درهم/م²)</th>
-            <th>إيجار 2 غرف / شهر</th>
-            <th>دعم سكني</th>
-            <th>وصول LGV</th>
+            <th>الحي</th>
+            <th>جديد (درهم/م²)</th>
+            <th>إعادة بيع (درهم/م²)</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><a class="zone-link" href="#centre-ville">وسط المدينة</a></td><td><span class="price-figure" dir="ltr">9,000–14,000</span></td><td dir="ltr">5,000–9,000 MAD</td><td><span class="daam-t2">الشريحة 2 (وحدات مختارة)</span></td><td><span class="lgv-pill" dir="ltr">5–12 min</span></td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">منطقة قصبة المهدية</a></td><td><span class="price-figure" dir="ltr">5,500–8,500</span></td><td dir="ltr">2,500–5,500 MAD</td><td><span class="daam-t1">الشريحة 1 والشريحة 2</span></td><td><span class="lgv-pill" dir="ltr">18–25 min</span></td></tr>
-          <tr><td><a class="zone-link" href="#mehdia-beach">شاطئ المهدية</a></td><td><span class="price-figure" dir="ltr">7,000–12,000</span></td><td dir="ltr">3,000–7,000 MAD</td><td><span class="daam-t2">الشريحة 2 (وحدات مختارة)</span></td><td><span class="lgv-pill" dir="ltr">25–35 min</span></td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">جنوب القنيطرة</a></td><td><span class="price-figure" dir="ltr">6,500–10,000</span></td><td dir="ltr">3,000–6,500 MAD</td><td><span class="daam-t2">الشريحة 2</span></td><td><span class="lgv-pill" dir="ltr">15–22 min</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">غرب القنيطرة</a></td><td><span class="price-figure" dir="ltr">4,000–6,500</span></td><td dir="ltr">1,800–4,000 MAD</td><td><span class="daam-t1">الشريحة 1 والشريحة 2</span></td><td><span class="lgv-pill" dir="ltr">20–35 min</span></td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">شرق القنيطرة</a></td><td><span class="price-figure" dir="ltr">4,500–7,500</span></td><td dir="ltr">2,200–5,000 MAD</td><td><span class="daam-t1">الشريحة 1 والشريحة 2</span></td><td><span class="lgv-pill" dir="ltr">20–30 min</span></td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">جنوب شرق القنيطرة</a></td><td><span class="price-figure" dir="ltr">3,500–6,000</span></td><td dir="ltr">1,600–3,500 MAD</td><td><span class="daam-t1">الشريحة 1 متاحة على نطاق واسع</span></td><td><span class="lgv-pill" dir="ltr">25–35 min</span></td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">شمال القنيطرة</a></td><td><span class="price-figure" dir="ltr">3,500–5,500</span></td><td dir="ltr">1,600–3,200 MAD</td><td><span class="daam-t1">الشريحة 1 متاحة على نطاق واسع</span></td><td><span class="lgv-pill" dir="ltr">20–30 min</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">المعمورة</a></td><td><span class="price-figure" dir="ltr">10,000–12,500 avg; up to 15,000 premium</span></td><td><span class="price-figure" dir="ltr">8,000–10,500</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">ميموزا</a></td><td><span class="price-figure" dir="ltr">10,000–12,500 avg; up to 15,000</span></td><td><span class="price-figure" dir="ltr">8,000–10,500</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">La Ville Haute</a></td><td><span class="price-figure" dir="ltr">10,000–12,500 avg; up to 15,000</span></td><td><span class="price-figure" dir="ltr">7,000–9,200</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Val Fleuri</a></td><td>محدود — سوق فيلات أساساً</td><td>فيلات قديمة 1970/80 — حالة بحالة</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">الملاح</a></td><td>إعادة تطوير انتقائية</td><td>مخزون قديم — يتفاوت</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">الحرم الجامعي</a></td><td>مخزون جديد محدود</td><td>سوق إيجاري — يتفاوت</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">أضواء (Addoha)</a></td><td>لا يوجد مخزون جديد نشط</td><td>إعادة بيع: <span dir="ltr">200,000–250,000</span> درهم (سعر إجمالي)</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Alliance</a></td><td><span class="price-figure" dir="ltr">7,400–9,000</span></td><td>أقل من الجديد — يتفاوت حسب المرحلة والتشطيب</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">قصبة المهدية</a></td><td>مشاريع R+2/R+3 الأحدث — يتفاوت</td><td>مخزون قديم — يتفاوت كثيراً</td></tr>
+          <tr><td><a class="zone-link" href="#mehdia-beach">شاطئ المهدية</a></td><td><span class="price-figure" dir="ltr">من 12,000 MAD/m²؛ الأفضل موقعاً أعلى</span></td><td>إعادة بيع ساحلية — تتفاوت</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">بئر الرامي الغربي</a></td><td>عرض جديد محدود</td><td>فيلات راسخة — حالة بحالة</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">بئر الرامي الشرقي</a></td><td><span class="price-figure" dir="ltr">6,500–8,500</span></td><td>يتفاوت حسب الموقع والحالة</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">الجنان</a></td><td><span class="price-figure" dir="ltr">7,400–9,000</span></td><td>يتفاوت</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">أولاد أوجيه</a></td><td><span class="price-figure" dir="ltr">~7,000–8,500</span></td><td><span class="price-figure" dir="ltr">6,500–8,000</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الحوزية (الحدادة)</a></td><td><span class="price-figure" dir="ltr">6,500–9,000</span></td><td><span class="price-figure" dir="ltr">5,500–7,500</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الطيبية</a></td><td>مخزون جديد محدود</td><td><span class="price-figure" dir="ltr">6,000–7,500</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الإسماعيلية</a></td><td><span class="price-figure" dir="ltr">6,500–8,000 أحدث</span></td><td><span class="price-figure" dir="ltr">5,500–7,500</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الحي</a></td><td>مخزون جديد محدود</td><td><span class="price-figure" dir="ltr">6,000–7,500</span></td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">المنتزه</a></td><td><span class="price-figure" dir="ltr">8,000–9,000</span></td><td>بيانات إعادة بيع محدودة</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">المدينة القديمة / الخبازات</a></td><td>مخزون جديد شبه منعدم</td><td>يتفاوت — حالة بحالة</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">حي السلام / الربيع / النهضة / الأمل</a></td><td>الأحدث يتفاوت حسب الموقع الدقيق</td><td>المستعمَل يتفاوت حسب الشارع والبناء</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">السكنية</a></td><td><span class="price-figure" dir="ltr">7,500–9,000</span></td><td><span class="price-figure" dir="ltr">7,000–8,500</span></td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">حي الوفاء</a></td><td>ناشئ — يتفاوت</td><td>إعادة بيع محدودة</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">عين سباع</a></td><td>ناشئ — يتفاوت</td><td>إعادة بيع محدودة</td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">العصام</a></td><td>رؤية سوقية محدودة</td><td>إعادة بيع محلية — حالة بحالة</td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">القرطون</a></td><td>رؤية سوقية محدودة</td><td>إعادة بيع محلية — حالة بحالة</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:1rem;font-style:italic;">تعكس النطاقات السعرية الشقق الجديدة وإعادة البيع الحديثة مطلع 2026. أوقات LGV تقديرية بالسيارة إلى محطة القنيطرة المدينة. تعتمد أهلية دعم سكني على سعر الوحدة وتاريخ الرخصة — يُستحسن التأكد مع الموثق قبل الحجز.</p>
+    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">المصدر: Agenz.ma، Avito، قوائم المطورين المباشرة، رصد السوق، مايو 2026. الأسعار المُعلَنة تعكس الوحدات الأقل طلباً؛ يزيد المتوسط الواقعي عادةً بنسبة 10–15%.</p>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin:3rem 0 .5rem;text-align:right;">ملخص الإيجارات الشهرية — جميع الأحياء</h3>
+    <div style="overflow-x:auto;">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>الحي</th>
+            <th>نطاق الإيجار الشهري (إيجار طويل الأمد)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><a class="zone-link" href="#centre-ville">المعمورة</a></td><td><span class="price-figure" dir="ltr">3,700–8,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">ميموزا</a></td><td><span class="price-figure" dir="ltr">3,500–6,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">La Ville Haute</a></td><td><span class="price-figure" dir="ltr">2,150–7,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Val Fleuri</a></td><td><span dir="ltr">4,000–5,500 MAD</span> للشقق؛ الفيلات حالة بحالة</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">الملاح</a></td><td><span class="price-figure" dir="ltr">2,500–4,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">الحرم الجامعي</a></td><td><span class="price-figure" dir="ltr">2,500–4,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">أضواء (Addoha)</a></td><td><span class="price-figure" dir="ltr">2,000–2,800 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Alliance</a></td><td><span class="price-figure" dir="ltr">2,500–4,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">قصبة المهدية</a></td><td><span class="price-figure" dir="ltr">2,500–5,000 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#mehdia-beach">شاطئ المهدية</a></td><td><span class="price-figure" dir="ltr">3,650–5,000+ MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">بئر الرامي الغربي</a></td><td>إيجارات الفيلات تتفاوت بحسب المساحة والقطعة والتشطيب</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">بئر الرامي الشرقي</a></td><td><span class="price-figure" dir="ltr">2,800–4,800 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">الجنان</a></td><td><span class="price-figure" dir="ltr">2,800–4,800 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">أولاد أوجيه</a></td><td><span class="price-figure" dir="ltr">2,500–3,200 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الحوزية (الحدادة)</a></td><td><span class="price-figure" dir="ltr">3,500–5,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الطيبية</a></td><td><span class="price-figure" dir="ltr">2,500–4,000 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الإسماعيلية</a></td><td><span class="price-figure" dir="ltr">2,500–4,000 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">الحي</a></td><td><span class="price-figure" dir="ltr">2,500–4,000 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">المنتزه</a></td><td><span class="price-figure" dir="ltr">3,000–3,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">المدينة القديمة / الخبازات</a></td><td><span class="price-figure" dir="ltr">1,800–2,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">حي السلام / الربيع / النهضة / الأمل</a></td><td><span class="price-figure" dir="ltr">1,800–2,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">السكنية</a></td><td><span class="price-figure" dir="ltr">1,500–2,300 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">حي الوفاء</a></td><td><span class="price-figure" dir="ltr">1,500–2,300 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">عين سباع</a></td><td><span class="price-figure" dir="ltr">1,500–2,000 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">العصام</a></td><td><span class="price-figure" dir="ltr">1,800–2,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">القرطون</a></td><td><span class="price-figure" dir="ltr">1,800–2,500 MAD</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">نطاقات الإيجار الطويل الأمد الاعتيادية؛ تتفاوت بحسب المساحة والتأثيث والتشطيب وجودة البناء والموقع الدقيق.</p>
   </section>
 
   <!-- المنطقة 1: وسط المدينة -->
@@ -199,26 +260,129 @@
       <div class="sub-hoods">
         <span class="sub-hood-chip">المعمورة</span><span class="sub-hood-chip">ميموزا</span><span class="sub-hood-chip">La Ville Haute</span><span class="sub-hood-chip">Val Fleuri</span><span class="sub-hood-chip">الملاح</span><span class="sub-hood-chip">الحرم الجامعي</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; محطة LGV — 5–12 دقيقة مشياً</span>
+      </div>
+      <p class="body-text">وسط المدينة هو القلب التاريخي والمدني والتجاري للقنيطرة — ومرساة أسعار السوق بأكمله. تقع محطة القطار السريع هنا، يمكن الوصول إليها مشياً من كل حي فرعي. الخدمات اليومية والإدارة والبنوك والتجزئة كلها على مسافة المشي. هنا يفوق الطلب باستمرار العرض من الوحدات عالية الجودة، وهنا تبلغ سيولة إعادة البيع أعلى مستوياتها في المدينة.</p>
+
+      <h3 class="sub-zone-title">المعمورة</h3>
       <div class="zone-grid">
         <div>
-          <p class="body-text">وسط المدينة هو المرساة السعرية للقنيطرة. هنا تقع محطة القطار السريع، وهنا يمتد العمود التجاري الرئيسي للمدينة، وهنا يفوق الطلب باستمرار العرض من الوحدات عالية الجودة. المعمورة وميموزا هما الشارعان السكنيان الأكثر سيولة عند إعادة البيع؛ La Ville Haute تمنح إطلالات ومكانة رفيعة؛ Val Fleuri والملاح يضمان مخزوناً وسطياً بخصم طفيف عن النواة؛ والحرم الجامعي يولّد طلباً إيجارياً قوياً من طلاب جامعة محمد الخامس.</p>
-          <p class="body-text">تتراوح أسعار المشاريع الجديدة في هذه المنطقة — بما فيها إلاف سكاي فيو على شارع يوسف بن تاشفين — بين 9,000 و14,000 درهم/م² للوحدات المكتملة. أفرز موقع المنطقة بالقرب من محطة LGV والإدارات والبنوك والتجارة التجزئة تاريخياً أعلى أداء لتقدير رأس المال في المدينة. سيولة إعادة البيع هنا أعلى من أي منطقة طرفية.</p>
-          <p class="body-text">لا ينطبق دعم سكني إلا على الوحدات المسعّرة بما لا يتجاوز 700,000 درهم شامل الضرائب. بالأسعار الحالية في وسط المدينة، قد تقع الاستوديوهات والشقق ذات الغرفة الواحدة الصغيرة (55–70 م²) ضمن نطاق الشريحة 2 (300,001–700,000 درهم) وتستحق دعماً مباشراً بقيمة 70,000 درهم. الوحدات الكبيرة ومعظم قطع البناء تتجاوز السقف.</p>
+          <p class="body-text">أقوى منطقة سكنية داخل وسط المدينة. تقع المعمورة بالقرب من محطة القطار السريع والشوارع التجارية الرئيسية للمدينة وجميع الخدمات المركزية، وتحتل الطرف الأعلى من سوق السكن في القنيطرة. جاذبية إيجارية قوية بفعل المركزية — المستأجرون الراغبون في كل شيء على مسافة المشي يتركزون هنا، مما يبقي نسب الشغور منخفضة والإيجارات مدعومة.</p>
         </div>
         <div class="zone-panel">
-          <p class="zone-panel-label">الأسعار — وسط المدينة</p>
+          <p class="zone-panel-label">المعمورة — الأسعار</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">9,000–14,000 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">7,000–11,000 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار)</td><td class="pf">3,000–5,000 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (إيجار)</td><td class="pf">5,000–9,000 MAD/شهر</td></tr>
-              <tr><td>شقة 3 غرف (إيجار)</td><td class="pf">7,000–12,000 MAD/شهر</td></tr>
+              <tr><td>شقة جديدة</td><td class="pf">10,000–12,500 avg; up to 15,000 premium</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">8,000–10,500 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">3,700–8,500 MAD</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات مختارة</span><span class="lgv-pill" dir="ltr">⬡ LGV 5–12 min</span></div>
-          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">الحفاظ على رأس المال، أعلى سيولة عند إعادة البيع، المستثمرين في الدخل الإيجاري، الملاك الساكنين الراغبين في الوصول المشي لوسط المدينة، والمتنقلين بالقطار السريع نحو الرباط أو الدار البيضاء.</div></div>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات صغيرة مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن قابلية المشي وعوائد إيجارية قوية.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">ميموزا</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">نفس المنطق المركزي للمعمورة. راسخ، قابل للمشي، وجيد الخدمات. المخزون مزيج من المباني القديمة والإضافات الأحدث — المشترون الراغبون في عنوان مركزي راسخ دون العلاوة الدقيقة الأعلى يجدون في ميموزا قيمة مميزة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">ميموزا — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">10,000–12,500 avg; up to 15,000</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">8,000–10,500 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">3,500–6,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات صغيرة مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن عناوين مركزية راسخة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">La Ville Haute</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">وسط المدينة الأعلى، يمتد نحو كورنيش سبو. مزيج أوسع من المشترين وأنواع المباني مقارنة بالمعمورة أو ميموزا — فيلات وعمارات متوسطة الارتفاع وبعض المباني المؤسسية القديمة. مكانة العنوان لا تزال عالية، لكن النطاق السعري واسع بما يكفي لاستيعاب مشترين بمستويات ميزانية مختلفة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">La Ville Haute — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">10,000–12,500 avg; up to 15,000</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">7,000–9,200 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,150–7,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات صغيرة مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو المركز بميزانيات متنوعة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">Val Fleuri</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">على أطراف La Ville Haute. فيلات ضمن أراضٍ بين 500 و2,000 م²، يعود معظمها إلى السبعينيات والثمانينيات. هذا سوق فيلات بامتياز — منازل منفردة بحدائق وشوارع ناضجة وطابع سكني هادئ. المخزون الجديد شبه معدوم؛ المشترون يقتنون الفيلات القائمة ليجددوها أو يحتفظوا بها.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">Val Fleuri — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">محدود — سوق فيلات أساساً</td></tr>
+              <tr><td>مخزون فيلات قديم</td><td class="pf">1970/80 — حالة بحالة</td></tr>
+              <tr><td>إيجار شقة</td><td class="pf">4,000–5,500 MAD/شهر</td></tr>
+              <tr><td>إيجار فيلا</td><td class="pf">يتفاوت حسب المساحة والحالة</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-no">دعم سكني — لا ينطبق عموماً</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو الفيلات الباحثون عن مساحة في بيئة مركزية راسخة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">الملاح</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">شرق مركز المدينة، خلف شارع المولى يوسف، قرب محطة المدينة. معروف بحي الصاغة وقربه من المحطة الطرقية. نسيج عمراني قديم مختلط مع بعض إعادة التطوير الانتقائية. يستفيد من القرب المركزي — الخدمات والمواصلات والنشاط التجاري كلها بالقرب — لكن جودة البناء وحالة الشوارع أكثر تفاوتاً من المعمورة أو ميموزا.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">الملاح — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">إعادة تطوير انتقائية</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">مخزون قديم — يتفاوت</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–4,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن القيمة المقبولون بشوارع مركزية ذات نسيج مختلط وأقدم.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">الحرم الجامعي</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">المنطقة الجامعية المجاورة لجامعة محمد الخامس. طابع متأثر بحضور الطلاب مع طلب إيجاري هيكلي قوي. المخزون الجديد محدود — هذا أساساً سوق إعادة بيع وإيجار. المشترون هنا عادةً ما يشترون للدخل الإيجاري لا للسكن الشخصي، مستفيدين من طلب مستأجري الطلاب الموثوق الذي يبقي نسب الإشغال مرتفعة حتى خارج أوقات الذروة. أسعار وسط المدينة تحصر أهلية دعم سكني في وحدات صغيرة مختارة فحسب.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">الحرم الجامعي — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">مخزون جديد محدود</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">سوق إيجاري — يتفاوت</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–4,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات صغيرة مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مستثمرو الإيجار الباحثون عن طلب مستأجري الطلاب والموظفين المستدام.</div></div>
         </div>
       </div>
     </div>
@@ -233,26 +397,68 @@
       <div class="sub-hoods">
         <span class="sub-hood-chip">أضواء (Addoha)</span><span class="sub-hood-chip">Alliance</span><span class="sub-hood-chip">قصبة المهدية</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; LGV 18–25 دقيقة بالسيارة</span>
+      </div>
+      <p class="body-text">تمتد هذه المنطقة شمال غرب وسط المدينة نحو الساحل الأطلسي. شهدت تحولاً جذرياً على مدى عقدين: طرق جديدة تربطها بالطريق الوطنية، وتلتها المدارس والتجارة، وما كان ممراً طرفياً نائياً بات اليوم حياً سكنياً راسخاً. توفر المنطقة أوسع اختيار من وحدات دعم سكني الشريحة 1 (≤300,000 درهم) في القنيطرة.</p>
+
+      <h3 class="sub-zone-title">أضواء (Addoha)</h3>
       <div class="zone-grid">
         <div>
-          <p class="body-text">تمتد هذه المنطقة شمال غرب وسط المدينة نحو الساحل الأطلسي، وتضم مشاريع الإسكان الاجتماعي والشريحة المتوسطة واسعة النطاق التي تهيمن على سوق الإسكان الكثيف في القنيطرة. أضواء وAlliance هما العلامتان الرئيسيتان للمطورين هنا — وكلتاهما تقدمان عمارات سكنية في فئات الإسكان الاجتماعي والشريحة المتوسطة، يستحق معظمها التمويل عبر دعم سكني كونها بُنيت أو رُخّصت بعد عام 2020.</p>
-          <p class="body-text">أما قصبة المهدية ذاتها فهي تجمع سكني أقدم بنسيج عمراني أكثر عضوية وقرباً من الغابة الساحلية وكثافة أقل من المجمعات السكنية الحديثة. طابعها المميز يتباين مع التوحيد البنائي في أبراج أضواء، لكنها تُتداول بأسعار مماثلة أو أقل بسبب قِدَم البناء.</p>
-          <p class="body-text">لأصحاب الشراء الأول المؤهلين لدعم سكني، توفر هذه المنطقة أوسع اختيار من الوحدات المؤهلة في نطاق 150,000–450,000 درهم، مع شقق أضواء في الشريحة الأدنى تبدأ من دون 300,000 درهم وتستوجب دعم الشريحة الأولى الكاملة بقيمة 100,000 درهم.</p>
+          <p class="body-text">مجمعات إسكان اجتماعي واسعة النطاق تهيمن على الجانب الشمالي من منطقة قصبة المهدية. لا يوجد سوق بناء جديد نشط في الوقت الحالي — المشترون يتعاملون مع شقق إعادة البيع من المالكين الأوائل. أسعار الإعادة تقع في نطاق 200,000–250,000 درهم كسعر إجمالي للشقق الصغيرة، مما يضعها بثبات ضمن دعم سكني الشريحة 1 (≤300,000 درهم) إذا توافرت الأهلية الأخرى. تولّد الكثافة السكانية العالية طلباً إيجارياً مستمراً في الشريحة الاقتصادية.</p>
         </div>
         <div class="zone-panel">
-          <p class="zone-panel-label">الأسعار — منطقة قصبة المهدية</p>
+          <p class="zone-panel-label">أضواء — الأسعار</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">5,500–8,500 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">4,500–7,000 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار)</td><td class="pf">1,500–2,800 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (إيجار)</td><td class="pf">2,500–5,500 MAD/شهر</td></tr>
-              <tr><td>شقة 3 غرف (إيجار)</td><td class="pf">3,500–6,500 MAD/شهر</td></tr>
+              <tr><td>شقة جديدة</td><td class="pf">لا يوجد سوق جديد نشط</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">200,000–250,000 درهم (سعر إجمالي)</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,000–2,800 MAD</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2</span><span class="lgv-pill" dir="ltr">⬡ LGV 18–25 min</span></div>
-          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">أصحاب الشراء الأول من MRE الراغبين في دعم سكني، المشترين المحليين بميزانية 200,000–450,000 درهم، والمستثمرين في الاحتفاظ على المدى الطويل بعوائد إيجارية معقولة.</div></div>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 — 100,000 درهم</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الأوائل بميزانية محدودة وأصحاب دعم سكني الشريحة 1.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">Alliance</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">مشاريع Alliance في منطقة قصبة المهدية تمثّل أحدث وأجود مخزون في المنطقة. وحدات الشريحة المتوسطة في عمارات R+4 وR+5 مع تشطيبات معاصرة. سعر الشراء أعلى من أضواء لكن بمستوى بناء أحدث وخيارات أوسع. معظم الوحدات في نطاق 300,001–700,000 درهم، مما يجعلها مؤهلة لدعم سكني الشريحة 2 (70,000 درهم) — وهو ما يجعلها خياراً جذاباً للمشترين الأوائل الراغبين في مخزون حديث.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">Alliance — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">7,400–9,000 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">أقل من الجديد — يتفاوت حسب المرحلة</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–4,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — 70,000 درهم</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">أصحاب الشراء الأول ومشترو MRE الراغبون في مخزون حديث مؤهل لدعم سكني الشريحة 2.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">قصبة المهدية</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">تل القصبة العتيقة ذاته وما يحيط به من مباني سكنية بطابع عمراني أكثر عضوية وتاريخية من المجمعات الحديثة. قرب من الغابة الساحلية وكثافة أقل. يستهوي بعض المشترين الباحثين عن طابع سكني مختلف بعيداً عن توحيد أبراج أضواء، وإن كان التسعير مشابهاً أو أقل قليلاً بفعل قِدَم البعض من المخزون.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">قصبة المهدية — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>مشاريع R+2/R+3 أحدث</td><td class="pf">تتفاوت حسب المشروع</td></tr>
+              <tr><td>مخزون قديم</td><td class="pf">يتفاوت كثيراً</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–5,000 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن طابع سكني مميز بعيداً عن نمط المجمعات، مع قرب من الغابة الساحلية.</div></div>
         </div>
       </div>
     </div>
@@ -267,25 +473,26 @@
       <div class="sub-hoods">
         <span class="sub-hood-chip">الواجهة البحرية</span><span class="sub-hood-chip">الإقامات البحرية</span><span class="sub-hood-chip">شاطئ المهدية</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; LGV 25–35 دقيقة بالسيارة</span>
+      </div>
       <div class="zone-grid">
         <div>
-          <p class="body-text">يقع شاطئ المهدية على بُعد 8 كم غرب وسط مدينة القنيطرة على الساحل الأطلسي عند مصبّ نهر سبو. وهو المنتجع الساحلي الرئيسي للمدينة، ويعمل سوقه العقاري وفق منطق مختلف عن المناطق الحضرية: يقوده الإشغال الموسمي والمشترون الثانويون والمستثمرون في الإيجار قصير الأمد بدلاً من الإقامة الرئيسية أو المتنقلين بالقطار السريع.</p>
-          <p class="body-text">تتراوح أسعار الشراء للشقق المطلة مباشرة على البحر وقريبة منه بين 7,000 و12,000 درهم/م²، ما يضعها في مستوى متوسط إلى أعلى سعر في وسط المدينة. تبرر هذه العلاوة المحيطَ الساحلي والطلب الإيجاري الصيفي — إذ يمكن لشقة غرفتين جيدة الموقع أن تحقق 15,000–25,000 درهم شهرياً في يوليو وأغسطس مقارنة بـ3,000–5,000 درهم خارج الموسم.</p>
-          <p class="body-text">بالنسبة لمشتري الإقامة الرئيسية الراغبين في دعم سكني، قد تقع بعض وحدات المشاريع الحديثة ضمن نطاق الشريحة 2 (300,001–700,000 درهم)، وإن كانت وحدات الصف الأول بحرياً تتجاوز في الغالب هذا السقف. يجعل شرط الإقامة الرئيسية لمدة 5 سنوات من الصعب هيكلياً الجمع بين دعم سكني واستراتيجية إيجار قصير الأمد.</p>
+          <p class="body-text">يقع شاطئ المهدية على بُعد 8 كم غرب وسط مدينة القنيطرة على الساحل الأطلسي عند مصبّ نهر سبو. وهو المنتجع الساحلي الرئيسي للمدينة، ويعمل سوقه العقاري وفق منطق مختلف تماماً عن المناطق الحضرية: يقوده الإشغال الموسمي والمشترون الثانويون والمستثمرون في الإيجار قصير الأمد بدلاً من الإقامة الرئيسية أو المتنقلين بالقطار السريع.</p>
+          <p class="body-text">تبدأ أسعار الشراء للمشاريع الجديدة على الساحل من 12,000 درهم/م² — رقم يضعها فوق كثير من السوق الحضري رغم بُعدها 25–35 دقيقة عن محطة القطار السريع. المحرّك موسمي: يمكن لشقة غرفتين جيدة الموقع أن تحقق 15,000–25,000 درهم شهرياً في ذروة الصيف مقارنة بـ3,650–5,000 درهم في الإيجار السنوي. يجعل شرط الإقامة الرئيسية لمدة خمس سنوات من الصعب هيكلياً الجمع بين دعم سكني واستراتيجية إيجار قصير الأمد.</p>
         </div>
         <div class="zone-panel">
           <p class="zone-panel-label">الأسعار — شاطئ المهدية</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">7,000–12,000 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">6,000–10,000 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار سنوي)</td><td class="pf">2,000–3,500 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (سنوي)</td><td class="pf">3,000–7,000 MAD/شهر</td></tr>
-              <tr><td>ذروة صيفية (غرفتان)</td><td class="pf">15,000–25,000 MAD/شهر</td></tr>
+              <tr><td>مشاريع جديدة ساحلية</td><td class="pf">من 12,000 MAD/m²؛ الأفضل موقعاً أعلى</td></tr>
+              <tr><td>إعادة بيع ساحلية</td><td class="pf">تتفاوت</td></tr>
+              <tr><td>إيجار سنوي (2 غرف)</td><td class="pf">3,650–5,000+ MAD/شهر</td></tr>
+              <tr><td>ذروة صيفية (2 غرف)</td><td class="pf">15,000–25,000 MAD/شهر</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات مختارة</span><span class="lgv-pill" dir="ltr">⬡ LGV 25–35 min</span></div>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات مختارة</span></div>
           <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو المساكن الثانوية، المستثمرون في العوائد الموسمية، ومشترو MRE الراغبون في ملاذ ساحلي للزيارات الصيفية.</div></div>
         </div>
       </div>
@@ -301,26 +508,68 @@
       <div class="sub-hoods">
         <span class="sub-hood-chip">بئر الرامي الغربي</span><span class="sub-hood-chip">بئر الرامي الشرقي</span><span class="sub-hood-chip">الجنان</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; LGV 15–22 دقيقة بالسيارة</span>
+      </div>
+      <p class="body-text">جنوب القنيطرة هو ممر النمو الرئيسي للشريحة المتوسطة في المدينة. توسّعت المنطقة توسعاً ملحوظاً منذ 2015 مدفوعةً بمشاريع سكنية متوسطة الكثافة تستهدف المهنيين والعائلات الشابة. تدعم روابط الطرق نحو الطريق الوطنية 1 باتجاه الرباط والقرب من المناطق الصناعية جنوباً طلباً متواصلاً. ظلت عوائد الإيجار الإجمالية مستقرة بين 5% و7%.</p>
+
+      <h3 class="sub-zone-title">بئر الرامي الغربي</h3>
       <div class="zone-grid">
         <div>
-          <p class="body-text">جنوب القنيطرة — المرتكز على بئر الرامي وامتداده الشرقي — هو ممر النمو الرئيسي للشريحة المتوسطة في المدينة. توسّعت المنطقة توسعاً ملحوظاً منذ 2015، مدفوعةً بمشاريع سكنية متوسطة الكثافة تستهدف المهنيين والعائلات الشابة التي تعجز عن تحمّل أسعار وسط المدينة. تدعم روابط الطرق نحو الطريق الوطنية 1 باتجاه الرباط والقرب من المناطق الصناعية جنوباً طلباً متواصلاً على الإشغال.</p>
-          <p class="body-text">بئر الرامي الغربي هو الأكثر رسوخاً وأعلى قليلاً في السعر بين المنطقتين، مع بنية تجارية أفضل وعرض سكني أكثر تنوعاً. بئر الرامي الشرقي والجنان أحدث مع خصم بسيط، وبناء أجدد ونمط عمراني أكثر توحيداً. تحتضن كلتا المنطقتين حصصاً كبيرة من الوحدات المؤهلة لدعم سكني في نطاق 400,000–650,000 درهم.</p>
-          <p class="body-text">يضع الوصول بالقطار السريع في 15–22 دقيقة جنوبَ القنيطرة ضمن نطاق التنقل اليومي المعقول للعاملين في الرباط الباحثين عن أسعار شراء أقل. ظلت عوائد الإيجار الإجمالية في هذه المنطقة مستقرة بين 5% و7%.</p>
+          <p class="body-text">الأكثر رسوخاً وأعلى قليلاً في السعر بين أحياء المنطقة، مع بنية تجارية أفضل وعرض سكني أكثر تنوعاً. مزيج من الفيلات القديمة والعمارات الحديثة. المخزون الجديد النشط محدود مقارنة بجانب الشرق، لكن الطلب على إعادة البيع أكثر عمقاً. الأنسب للمشترين الذين يُقدّرون المجتمع الراسخ على المخزون الجديد.</p>
         </div>
         <div class="zone-panel">
-          <p class="zone-panel-label">الأسعار — جنوب القنيطرة</p>
+          <p class="zone-panel-label">بئر الرامي الغربي — الأسعار</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">6,500–10,000 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">5,500–8,000 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار)</td><td class="pf">2,000–3,500 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (إيجار)</td><td class="pf">3,000–6,500 MAD/شهر</td></tr>
-              <tr><td>شقة 3 غرف (إيجار)</td><td class="pf">4,500–8,000 MAD/شهر</td></tr>
+              <tr><td>شقة جديدة</td><td class="pf">عرض جديد محدود</td></tr>
+              <tr><td>فيلات راسخة</td><td class="pf">حالة بحالة</td></tr>
+              <tr><td>إيجار فيلا</td><td class="pf">يتفاوت بحسب المساحة والقطعة</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2</span><span class="lgv-pill" dir="ltr">⬡ LGV 15–22 min</span></div>
-          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">العائلات المتنامية الباحثة عن بناء حديث بأسعار دون وسط المدينة، المستثمرون في الشريحة المتوسطة بعائد 5–7%، والمتنقلون من الرباط بالقطار السريع.</div></div>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن بيئة راسخة بأسعار أقل من وسط المدينة مع إمكانية التنقل بالقطار السريع.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">بئر الرامي الشرقي</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">أحدث من الجانب الغربي، مع عمارات متوسطة الارتفاع أكثر توحيداً وأسعار أدنى. يضم أكبر تركّز لوحدات دعم سكني الشريحة 2 المرخّصة حديثاً في المنطقة، في نطاق 400,000–650,000 درهم. لمشتري دعم سكني، يوفر بئر الرامي الشرقي مزيداً من الوحدات المؤهلة بأسعار أفضل مقارنة بالجانب الغربي.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">بئر الرامي الشرقي — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">6,500–8,500 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">يتفاوت حسب الموقع والحالة</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,800–4,800 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو دعم سكني الشريحة 2، العائلات الشابة باحثة عن بناء حديث بأسعار دون وسط المدينة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">الجنان</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">امتداد جنوبي شرقي لبئر الرامي، أحدث وأكثر توحيداً. يشهد نشاطاً إنشائياً مستمراً مع ارتفاع نسبة الوحدات المرخّصة بعد 2022 المؤهلة لدعم سكني. يقع على بُعد 18–22 دقيقة من محطة القطار السريع — قابل للتنقل للعاملين في الرباط الذين يُقدّمون السعر على القرب من المحطة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">الجنان — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">7,400–9,000 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">يتفاوت</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,800–4,800 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الأوائل بميزانية 400,000–650,000 درهم الراغبون في مخزون جديد وبدل سافر معقول إلى الرباط.</div></div>
         </div>
       </div>
     </div>
@@ -333,28 +582,110 @@
       <p class="zone-eyebrow">المنطقة 05 — الشريحة الاقتصادية والصناعية</p>
       <h2 class="zone-title">غرب القنيطرة</h2>
       <div class="sub-hoods">
-        <span class="sub-hood-chip">أولاد أوجيه</span><span class="sub-hood-chip">الحوزية</span><span class="sub-hood-chip">الحدادة</span><span class="sub-hood-chip">الطيبية</span><span class="sub-hood-chip">الإسماعيلية</span><span class="sub-hood-chip">الحي</span>
+        <span class="sub-hood-chip">أولاد أوجيه</span><span class="sub-hood-chip">الحوزية (الحدادة)</span><span class="sub-hood-chip">الطيبية</span><span class="sub-hood-chip">الإسماعيلية</span><span class="sub-hood-chip">الحي</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; LGV 20–35 دقيقة بالسيارة</span>
+      </div>
+      <p class="body-text">غرب القنيطرة هو أوسع منطقة سكنية ميسورة في المدينة. تتباين أحياؤها الفرعية تبايناً كبيراً — من تجمعات العمال الصناعيين إلى مشاريع الإسكان الاجتماعي الأحدث وبعض الأحياء الأفضل خدمةً كالحوزية. وحدات دعم سكني الشريحة 1 (≤300,000 درهم) متاحة على نطاق واسع عبر هذه المنطقة.</p>
+
+      <h3 class="sub-zone-title">أولاد أوجيه</h3>
       <div class="zone-grid">
         <div>
-          <p class="body-text">غرب القنيطرة هو أوسع منطقة سكنية ميسورة في المدينة، تمتد من حي الميناء عبر الأحياء المجاورة للمناطق الصناعية إلى التجمعات الحضرية الضاحوية القديمة. تتباين الأحياء الفرعية تبايناً كبيراً في طابعها: أولاد أوجيه والطيبية سكنيتان شعبيتان بالدرجة الأولى؛ الحوزية والحدادة تجمعان بين شقق قديمة وعمارات حديثة؛ الإسماعيلية والحي أكثف كثافة وأقرب إلى الحدود الغربية للمدينة مع سهل الفيضان لنهر سبو حداً طبيعياً.</p>
-          <p class="body-text">تعكس الأسعار في هذه المنطقة الشريحة الاقتصادية لسوق القنيطرة. تتراوح الشقق الجديدة في أفضل الأحياء الفرعية (الطيبية، الحي) بين 5,500 و6,500 درهم/م²؛ أولاد أوجيه والحدادة في الطرف الأدنى. وحدات دعم سكني شريحة 1 (≤300,000 درهم) متاحة على نطاق واسع في مباني الإسكان الاجتماعي عبر هذه المنطقة.</p>
-          <p class="body-text">يُحرّك الطلبَ أساساً العمالُ في القطاع الصناعي والموظفون الحكوميون والمشترون الأوائل ذوو الميزانيات المحدودة. يمكن تحقيق عوائد إيجارية إجمالية من 6 إلى 8% على الرصيد الاقتصادي، لكن السيولة عند إعادة البيع أضعف.</p>
+          <p class="body-text">حي سكني شعبي في الطرف الغربي للمدينة، ذو طابع عضوي بمزيج من البناء الذاتي والعمارات الاقتصادية. يحتضن وحدات دعم سكني الشريحة 1 ومشاريع الإسكان الاجتماعي. الطلب مدفوع بعمال القطاع الصناعي والموظفين الحكوميين.</p>
         </div>
         <div class="zone-panel">
-          <p class="zone-panel-label">الأسعار — غرب القنيطرة</p>
+          <p class="zone-panel-label">أولاد أوجيه — الأسعار</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">4,000–6,500 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">3,200–5,500 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار)</td><td class="pf">1,200–2,200 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (إيجار)</td><td class="pf">1,800–4,000 MAD/شهر</td></tr>
-              <tr><td>شقة 3 غرف (إيجار)</td><td class="pf">2,500–5,000 MAD/شهر</td></tr>
+              <tr><td>شقة جديدة</td><td class="pf">~7,000–8,500 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">6,500–8,000 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–3,200 MAD</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2</span><span class="lgv-pill" dir="ltr">⬡ LGV 20–35 min</span></div>
-          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">أصحاب الشراء الأول، طالبو دعم سكني شريحة 1 (100,000 درهم)، عمال المنطقة الصناعية، والمستثمرون الموجّهون نحو العائد مع قبول سيولة منخفضة.</div></div>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الأوائل بأدنى الميزانيات، عمال المنطقة الصناعية الراغبون في أقرب أسعار الدخول.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">الحوزية (الحدادة)</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">أحد الأحياء الفرعية الطرفية الأفضل خدمةً في القنيطرة. شهدت الحوزية تطوراً ملحوظاً في السنوات الأخيرة بافتتاح مدارس خاصة ومقاهٍ ووحدات تجارية. هذا التطور دفع الأسعار فوق المتوسط الإجمالي لغرب القنيطرة — وهو ما يعكسه سعر الشراء بين 6,500 و9,000 درهم/م². الإيجار أعلى أيضاً من الأحياء المحيطة، مما يجعل الحوزية من أفضل فرص العائد في هذه المنطقة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">الحوزية — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">6,500–9,000 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">5,500–7,500 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">3,500–5,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المستثمرون في العائد بالمنطقة الغربية، والملاك الساكنون الباحثون عن خدمات جيدة بأسعار أقل من المركز.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">الطيبية</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">حي سكني ذو طابع شعبي متوسط، بين الحوزية وأولاد أوجيه من حيث الخدمات والسعر. المخزون الجديد محدود؛ السوق أساساً للإعادة والإيجار. يصلح كخيار للملاك الساكنين على المدى الطويل أو المستثمرين في عائد الإيجار بعوائد إجمالية في نطاق 6–8%.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">الطيبية — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">مخزون جديد محدود</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">6,000–7,500 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–4,000 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">الملاك الساكنون على المدى الطويل، والمستثمرون في عائد الإيجار بميزانيات منخفضة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">الإسماعيلية</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">يتميز بعمارات أحدث نسبياً مقارنة بأجزاء كثيرة من غرب القنيطرة. بعض المشاريع المرخّصة بعد 2021 مؤهلة لدعم سكني الشريحة 2. يخدم المنطقة طلب مستمر من العائلات الساعية لملكية الشقق بأسعار في متناول اليد.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">الإسماعيلية — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة أحدث</td><td class="pf">6,500–8,000 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">5,500–7,500 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–4,000 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">العائلات الساعية للتملّك بأسعار في المتناول مع مخزون أحدث نسبياً.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">الحي</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">في الطرف الجنوبي الغربي من المنطقة، يحدّه سهل الفيضان لنهر سبو من الغرب. كثافة سكانية عالية مع مخزون من الطراز الاقتصادي في معظمه. المخزون الجديد محدود والسوق في معظمه للإعادة. الأنسب لمشتري دعم سكني الشريحة 1 بأدنى الميزانيات في المنطقة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">الحي — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">مخزون جديد محدود</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">6,000–7,500 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">2,500–4,000 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 متاح</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">أصحاب الشراء الأول بميزانيات شديدة المحدودية ومشترو دعم سكني الشريحة 1.</div></div>
         </div>
       </div>
     </div>
@@ -369,26 +700,68 @@
       <div class="sub-hoods">
         <span class="sub-hood-chip">المنتزه</span><span class="sub-hood-chip">المدينة القديمة</span><span class="sub-hood-chip">الخبازات</span><span class="sub-hood-chip">حي السلام</span><span class="sub-hood-chip">حي الربيع</span><span class="sub-hood-chip">حي النهضة</span><span class="sub-hood-chip">حي الأمل</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; LGV 20–30 دقيقة بالسيارة</span>
+      </div>
+      <p class="body-text">يضم شرق القنيطرة أكثر نسيج سكني تبايناً في المدينة — من المنتزه الراسخ للطبقة الوسطى إلى الحي الشعبي القديم في السلام والأمل. وحدات دعم سكني الشريحة 1 والشريحة 2 متاحة على نطاق واسع عبر المنطقة.</p>
+
+      <h3 class="sub-zone-title">المنتزه</h3>
       <div class="zone-grid">
         <div>
-          <p class="body-text">يضم شرق القنيطرة أكثر نسيج سكني تبايناً في المدينة. المنتزه أحد أرقى الأحياء الطبقة الوسطى الراسخة بمزيج من الفيلات والعمارات السكنية وبنية مجتمعية متطورة. تحتضن المدينة القديمة والخبازات رصيداً عقارياً أقدم مع بعض العقارات المتميزة التي يتطلع إليها مشترون يبحثون عن مساحات في الطابق الأرضي أو معمار قريب من الرياض بأسعار أقل من السوق.</p>
-          <p class="body-text">الأحياء الأربعة (السلام، الربيع، النهضة، الأمل) عبارة عن مجمعات سكنية طُوّرت عبر عقود متعاقبة بجودة بناء متفاوتة. العمارات الأحدث في حي النهضة والربيع تمثل درجة أعلى من المخزون الأقدم في حي السلام والأمل. يُحرّك الطلبَ في هذه المنطقة المشترون المحليون والعائلات الباحثة عن مدارس ومساجد وخدمات تجارية راسخة دون سعر وسط المدينة.</p>
-          <p class="body-text">وحدات دعم سكني شريحة 1 والشريحة 2 متاحة على نطاق واسع في هذه المنطقة، وتستوفي المشاريع الحديثة بعد 2023 في المنتزه وحي النهضة معيارَي تاريخ الرخصة وفئة السعر.</p>
+          <p class="body-text">أحد أرقى أحياء الطبقة الوسطى في المدينة، بمزيج من الفيلات والعمارات السكنية وبنية مجتمعية متطورة من مدارس ومرافق. يُتداول المخزون الجديد هنا في الطرف الأعلى من المنطقة. تستوفي المشاريع الحديثة بعد 2023 شروط دعم سكني الشريحة 2 في حدود معقولة، مما يجعل المنتزه من أفضل نقاط دخول الشريحة المتوسطة شرق القنيطرة.</p>
         </div>
         <div class="zone-panel">
-          <p class="zone-panel-label">الأسعار — شرق القنيطرة</p>
+          <p class="zone-panel-label">المنتزه — الأسعار</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">4,500–7,500 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">3,800–6,500 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار)</td><td class="pf">1,500–2,500 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (إيجار)</td><td class="pf">2,200–5,000 MAD/شهر</td></tr>
-              <tr><td>شقة 3 غرف (إيجار)</td><td class="pf">3,200–6,500 MAD/شهر</td></tr>
+              <tr><td>شقة جديدة</td><td class="pf">8,000–9,000 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">بيانات محدودة — يتفاوت</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">3,000–3,500 MAD</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2</span><span class="lgv-pill" dir="ltr">⬡ LGV 20–30 min</span></div>
-          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون المحليون الراغبون في مجتمع راسخ، مشترو المنتزه لنمط قريب من الفيلات، مشترو المدينة القديمة لعقارات متميزة بسعر مخفّض، والمشترون الأوائل المؤهلون لدعم سكني بميزانية 300,000–600,000 درهم.</div></div>
+          <div class="zone-badges"><span class="daam-t2">دعم سكني شريحة 2 — وحدات مختارة</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو الشريحة المتوسطة الباحثون عن مجتمع راسخ بمرافق جيدة شرق القنيطرة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">المدينة القديمة والخبازات</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">رصيد عقاري أقدم في بعض الحارات قرب المركز التاريخي. تحتضن هذه المنطقة عقارات متميزة يتطلع إليها مشترون باحثون عن مساحات في الطابق الأرضي أو معمار ذي طراز قديم بأسعار أقل من السوق. المخزون الجديد شبه معدوم؛ معظم الصفقات في مخزون الإعادة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">المدينة القديمة / الخبازات — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">مخزون جديد شبه معدوم</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">يتفاوت — حالة بحالة</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">1,800–2,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 — إن توافرت الأهلية</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن عقارات متميزة بأسعار مخفّضة أو طراز معماري تاريخي.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">حي السلام / حي الربيع / حي النهضة / حي الأمل</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">أربعة أحياء شعبية طُوّرت عبر عقود متعاقبة بجودة بناء متفاوتة. العمارات الأحدث في النهضة والربيع تمثل مستوى أعلى من المخزون الأقدم في السلام والأمل. يُحرّك الطلبَ المشترون المحليون والعائلات الباحثة عن مدارس ومساجد وخدمات راسخة دون سعر وسط المدينة. تُمثّل الإيجارات هنا قاع السوق للإيجار الطويل في المدينة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">أحياء الشعبية الشرقية — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">يتفاوت حسب الموقع الدقيق</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">يتفاوت حسب الشارع والبناء</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">1,800–2,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 والشريحة 2 متاحان</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون المحليون بميزانيات محدودة، المستثمرون في عائد الإيجار الاقتصادي، والملاك الساكنون على المدى الطويل.</div></div>
         </div>
       </div>
     </div>
@@ -403,26 +776,68 @@
       <div class="sub-hoods">
         <span class="sub-hood-chip">السكنية</span><span class="sub-hood-chip">حي الوفاء</span><span class="sub-hood-chip">عين سباع</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; LGV 25–35 دقيقة بالسيارة</span>
+      </div>
+      <p class="body-text">يقع جنوب شرق القنيطرة في الطرف الأدنى من سلّم أسعار المدينة. وحدات دعم سكني الشريحة 1 (≤300,000 درهم) متاحة على نطاق واسع. سيولة إعادة البيع محدودة — هذه المنطقة تناسب الملاك الساكنين على المدى الطويل أكثر من المستثمرين.</p>
+
+      <h3 class="sub-zone-title">السكنية</h3>
       <div class="zone-grid">
         <div>
-          <p class="body-text">يقع جنوب شرق القنيطرة في الطرف الأدنى من سلّم أسعار المدينة. السكنية وحي الوفاء وعين سباع مناطق سكنية منخفضة الكثافة تجمع بين بيوت فردية وعمارات متواضعة. البنية التحتية وظيفية لكنها أقل تطوراً من المناطق المركزية.</p>
-          <p class="body-text">الجاذبية الرئيسية هي السعر: يمكن الحصول على شقق اقتصادية في هذه المنطقة بأقل من 180,000–280,000 درهم، ما يضعها بثبات ضمن شريحة دعم سكني الأولى ويمنح المشتري الدعم الكامل البالغ 100,000 درهم. لمشترٍ أول يستخدم دعم سكني، ينخفض الكلفة الصافية الفعلية لوحدة بـ250,000 درهم إلى 150,000 درهم — رقم يتوافق مع استراتيجيات الشراء من المدخرات دون الحاجة لتمويل بنكي.</p>
-          <p class="body-text">سيولة إعادة البيع محدودة؛ تناسب هذه المنطقة الملاكَ الساكنين على المدى الطويل أكثر من المستثمرين.</p>
+          <p class="body-text">حي ناضج تماماً كان حافة المدينة قبل ثلاثين عاماً. شهدت السكنية توسعاً سكنياً كبيراً وباتت اليوم حياً حضرياً راسخاً بخدمات تجارية ومدارس. يتراوح المخزون الحديث بين 7,500 و9,000 درهم/م² — أعلى من بقية المنطقة، مما يعكس مستوى النضج الحضري. سيولة إعادة البيع أفضل من الأحياء الأحدث في المنطقة.</p>
         </div>
         <div class="zone-panel">
-          <p class="zone-panel-label">الأسعار — جنوب شرق القنيطرة</p>
+          <p class="zone-panel-label">السكنية — الأسعار</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">3,500–6,000 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">2,800–5,000 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار)</td><td class="pf">1,000–1,800 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (إيجار)</td><td class="pf">1,600–3,500 MAD/شهر</td></tr>
-              <tr><td>شقة 3 غرف (إيجار)</td><td class="pf">2,200–4,500 MAD/شهر</td></tr>
+              <tr><td>شقة جديدة</td><td class="pf">7,500–9,000 MAD/m²</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">7,000–8,500 MAD/m²</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">1,500–2,300 MAD</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 على نطاق واسع</span><span class="lgv-pill" dir="ltr">⬡ LGV 25–35 min</span></div>
-          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">أصحاب الشراء الأول الراغبون في تعظيم دعم سكني شريحة 1 بميزانية محدودة، الملاك الساكنون على المدى الطويل، ومن يُقدّم انخفاض تكلفة الدخول على السيولة.</div></div>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 على نطاق واسع</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن حي ناضج بأسعار معقولة خارج نطاق وسط المدينة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">حي الوفاء</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">حي ناشئ بكثافة أقل من السكنية. المخزون يتراوح بين الإسكان الاجتماعي والمشاريع المتوسطة المرخّصة حديثاً. رؤية السوق محدودة لإعادة البيع — الأغلبية حالياً ملاك من المشتري الأول. مناسب لمشتري دعم سكني الشريحة 1 الراغبين في شقة جديدة بأدنى الأسعار الممكنة.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">حي الوفاء — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">ناشئ — يتفاوت</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">بيانات محدودة</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">1,500–2,300 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 على نطاق واسع</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">أصحاب الشراء الأول بميزانيات شديدة المحدودية، والملاك الساكنون على المدى الطويل.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">عين سباع</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">في أقصى الجنوب الشرقي، عين سباع حي ناشئ بكثافة منخفضة. يمكن الحصول على شقق اقتصادية هنا بأقل من 180,000–280,000 درهم، ما يضعها بثبات ضمن دعم سكني الشريحة 1 ويمنح المشتري الدعم الكامل بـ100,000 درهم. السيولة محدودة جداً — تناسب فقط من يُقدّم انخفاض تكلفة الدخول على كل اعتبار آخر.</p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">عين سباع — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">ناشئ — يتفاوت</td></tr>
+              <tr><td>إعادة بيع</td><td class="pf">بيانات محدودة</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">1,500–2,000 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 — 100,000 درهم</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">أصحاب دعم سكني الشريحة 1 بأدنى الميزانيات، والملاك الساكنون على المدى البعيد جداً.</div></div>
         </div>
       </div>
     </div>
@@ -437,26 +852,48 @@
       <div class="sub-hoods">
         <span class="sub-hood-chip">العصام</span><span class="sub-hood-chip">القرطون</span>
       </div>
+      <div class="zone-badges" style="margin-bottom:1.6rem;">
+        <span class="lgv-pill">&#x2B21; LGV 20–30 دقيقة بالسيارة</span>
+      </div>
+      <p class="body-text">شمال القنيطرة هو الهامش السكني الشمالي للمدينة، يحدّه غابة المعمورة من الشمال. أقل تطوراً من الضواحي الجنوبية والشرقية. تناسب هذه المنطقة من يُقدّم انخفاض تكلفة الاقتناء والتملك طويل الأمد على سرعة تقدّر رأس المال. تُشكّل هنا الأسعار أدنى نقاط الدخول في القنيطرة.</p>
+
+      <h3 class="sub-zone-title">العصام</h3>
       <div class="zone-grid">
         <div>
-          <p class="body-text">يشكّل شمال القنيطرة — المتمحور حول العصام والقرطون — الهامش السكني الشمالي للمدينة، يحدّه غابة المعمورة من الشمال والمحور التجاري الرئيسي من الجنوب. المنطقة أقل تطوراً من الضواحي الجنوبية والشرقية، إذ تحتضن العصام إسكاناً أقدم ومنخفض الكثافة، والقرطون مجمعات إسكان اجتماعي أحدث.</p>
-          <p class="body-text">يحتفظ العصام بطابع هادئ شبه ضاحوي يستهوي المشترين الراغبين في كثافة منخفضة والقرب من غابة المعمورة ومستوى ضجيج مدروس. القرطون أكثر حضرية لكنه يقدم بناءً أحدث في الطرف الأدنى من سعر القنيطرة. شهدت كلتا المنطقتين نشاطاً إنشائياً جديداً محدوداً منذ 2020، مما يقصر رصيد دعم سكني المؤهل على عدد أقل من المباني المرخّصة حديثاً.</p>
-          <p class="body-text">هذه المنطقة تلائم نوعاً محدداً من المشترين: من يُقدّم انخفاض تكلفة الاقتناء والتملك طويل الأمد على سرعة تقدّر رأس المال أو الدخل الإيجاري القصير الأمد.</p>
+          <p class="body-text">يحتفظ العصام بطابع هادئ شبه ضاحوي يستهوي المشترين الراغبين في كثافة منخفضة والقرب من غابة المعمورة ومستوى ضجيج مدروس. الإسكان أقدم ومنخفض الكثافة في معظمه. نشاط إنشائي جديد محدود منذ 2020، مما يقصر رصيد دعم سكني المؤهل على المباني المرخّصة حديثاً فقط. إعادة البيع تتم أساساً في السوق المحلية المحدودة.</p>
         </div>
         <div class="zone-panel">
-          <p class="zone-panel-label">الأسعار — شمال القنيطرة</p>
+          <p class="zone-panel-label">العصام — الأسعار</p>
           <table class="price-mini-table">
             <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
             <tbody>
-              <tr><td>شقة جديدة</td><td class="pf">3,500–5,500 MAD/m²</td></tr>
-              <tr><td>شقة إعادة بيع</td><td class="pf">2,800–4,800 MAD/m²</td></tr>
-              <tr><td>استوديو (إيجار)</td><td class="pf">1,000–1,800 MAD/شهر</td></tr>
-              <tr><td>شقة غرفتان (إيجار)</td><td class="pf">1,600–3,200 MAD/شهر</td></tr>
-              <tr><td>شقة 3 غرف (إيجار)</td><td class="pf">2,200–4,000 MAD/شهر</td></tr>
+              <tr><td>شقة جديدة</td><td class="pf">رؤية سوقية محدودة</td></tr>
+              <tr><td>إعادة بيع محلية</td><td class="pf">حالة بحالة</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">1,800–2,500 MAD</td></tr>
             </tbody>
           </table>
-          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 متاح</span><span class="lgv-pill" dir="ltr">⬡ LGV 20–30 min</span></div>
-          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو الإقامة الرئيسية طويلة الأمد بأدنى أسعار المدينة، من يُقدّر القرب من غابة المعمورة، ومشترو دعم سكني شريحة 1 بميزانية 200,000–300,000 درهم.</div></div>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 — إن توافرت الأهلية</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الراغبون في طابع شبه ضاحوي هادئ مع قرب من غابة المعمورة وأدنى أسعار المدينة.</div></div>
+        </div>
+      </div>
+
+      <h3 class="sub-zone-title">القرطون</h3>
+      <div class="zone-grid">
+        <div>
+          <p class="body-text">أكثر حضرية من العصام، يتضمن مجمعات إسكان اجتماعي أحدث مع بناء أجدد في الطرف الأدنى من سعر القنيطرة. يوفر بعض المشاريع المرخّصة حديثاً المؤهلة لدعم سكني الشريحة 1 (≤300,000 درهم). الطلب من الملاك الساكنين على المدى الطويل ومشتري دعم سكني بميزانية 200,000–300,000 درهم. <em>هل تنظر في حي أو عقار بعينه في القنيطرة؟ يسعدنا تقديم تحليل مستقل.</em></p>
+        </div>
+        <div class="zone-panel">
+          <p class="zone-panel-label">القرطون — الأسعار</p>
+          <table class="price-mini-table">
+            <thead><tr><th>النوع</th><th>النطاق</th></tr></thead>
+            <tbody>
+              <tr><td>شقة جديدة</td><td class="pf">رؤية سوقية محدودة</td></tr>
+              <tr><td>إعادة بيع محلية</td><td class="pf">حالة بحالة</td></tr>
+              <tr><td>إيجار شهري</td><td class="pf">1,800–2,500 MAD</td></tr>
+            </tbody>
+          </table>
+          <div class="zone-badges"><span class="daam-t1">دعم سكني شريحة 1 متاح</span></div>
+          <div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو الإقامة الرئيسية طويلة الأمد بأدنى أسعار المدينة، ومشترو دعم سكني الشريحة 1 بميزانية 200,000–300,000 درهم.</div></div>
         </div>
       </div>
     </div>
