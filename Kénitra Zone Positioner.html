@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///Users/alirahim/Downloads/kenitra-zone-positioner-embedded_1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kénitra Zone Positioner</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1f35; color: #fff; padding: 20px; min-height: 100vh; }
+  h1 { font-size: 18px; font-weight: 400; color: #C9A96E; margin-bottom: 6px; letter-spacing: 0.05em; }
+  .instructions { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.6; }
+  .instructions strong { color: #C9A96E; }
+  .map-container { position: relative; width: 100%; max-width: 1100px; border: 1px solid rgba(201,169,110,0.3); border-radius: 4px; overflow: hidden; background: #1a2a3a; }
+  .map-container img { display: block; width: 100%; height: auto; pointer-events: none; }
+  .zone-label {
+    position: absolute;
+    background: rgba(7,17,31,0.85);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(201,169,110,0.9);
+    cursor: grab;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    user-select: none;
+  }
+  .zone-label:hover { background: rgba(201,169,110,0.9); color: #07111f; }
+  .zone-label.dragging { cursor: grabbing; background: rgba(201,169,110,0.95); color: #07111f; z-index: 20; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+  .controls { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; max-width: 1100px; }
+  button { padding: 8px 18px; font-size: 13px; border-radius: 4px; border: 1px solid rgba(201,169,110,0.5); background: transparent; color: #C9A96E; cursor: pointer; }
+  button:hover { background: rgba(201,169,110,0.15); }
+  button.primary { background: #C9A96E; color: #07111f; border-color: #C9A96E; font-weight: 600; }
+  button.primary:hover { background: #b8944f; }
+  .output-wrap { margin-top: 16px; max-width: 1100px; display: none; }
+  .output-wrap label { font-size: 12px; color: rgba(255,255,255,0.5); display: block; margin-bottom: 6px; letter-spacing: 0.08em; text-transform: uppercase; }
+  textarea { width: 100%; height: 280px; font-family: 'SF Mono', monospace; font-size: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(201,169,110,0.2); border-radius: 4px; color: #C9A96E; padding: 12px; resize: vertical; line-height: 1.6; }
+  .copy-msg { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 8px; }
+  .note { font-size: 12px; color: rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+<h1>Kénitra — Zone Positioner</h1>
+<p class="instructions"><strong>Drag</strong> each zone label to its correct location on the satellite map. When done, click <strong>Export CSS</strong> and paste the result into Claude Code.</p>
+
+<div class="map-container" id="mapContainer">
+  </div></body></html>

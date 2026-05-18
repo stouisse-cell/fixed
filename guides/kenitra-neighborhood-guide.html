@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kénitra Neighbourhood Guide | Pricing, Zones &amp; Investment Analysis</title>
-<meta name="description" content="A complete breakdown of Kénitra's 8 residential zones — buy and rent prices per m², Daam Sakani eligibility, LGV access, and who each neighbourhood suits.">
+<meta name="description" content="A complete breakdown of Kénitra's 12 residential zones — buy and rent prices, directional logic around Centre Ville, Daam Sakani fit, and a satellite-based interactive zone map.">
 <link rel="canonical" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/kenitra-guide-quartiers.html">
@@ -20,16 +20,24 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="Kénitra Neighbourhood Guide | Rahim International">
-<meta property="og:description" content="Buy and rent prices across 8 zones, Daam Sakani flags, LGV access, and Best for summaries — all in one guide.">
+<meta property="og:description" content="Buy and rent prices across 12 Kénitra zones, Daam Sakani fit, LGV access, and directional neighbourhood logic — all in one guide.">
 <meta property="og:image" content="https://rahiminternational.com/kenitra1.png">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="ar_MA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kénitra Neighbourhood Guide | Rahim International">
+<meta name="twitter:description" content="Buy and rent prices across 12 Kénitra zones, Daam Sakani fit, LGV access, and a satellite-based map.">
+<meta name="twitter:image" content="https://rahiminternational.com/kenitra1.png">
+<meta name="theme-color" content="#07111f">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../shared.css">
 <style>
-  /* Hero */
   .guide-hero{padding:9rem 5% 5rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.7fr);gap:4rem;align-items:end;position:relative;overflow:hidden;background:radial-gradient(circle at 80% 18%,rgba(183,106,63,.28),transparent 32%),linear-gradient(135deg,var(--ink) 0%,var(--navy) 58%,#172b4c 100%);}
   .guide-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(210,180,134,.04) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(210,180,134,.03) 80px);}
   .guide-hero-content,.guide-hero-panel{position:relative;z-index:2;}
@@ -37,20 +45,14 @@
   .guide-hero-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--copper),var(--gold));}
   .guide-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.6rem);font-weight:300;line-height:1.06;color:var(--white);}
   .guide-title em{color:var(--gold);font-style:italic;}
-  .guide-sub{font-size:1rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.66);max-width:640px;margin-top:1.5rem;}
+  .guide-sub{font-size:1rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.66);max-width:680px;margin-top:1.5rem;}
   .panel-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.8rem;}
   .panel-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin-bottom:.8rem;line-height:1.3;}
-  .panel-text{color:var(--text-muted);line-height:1.75;font-size:.88rem;}
-  .body-text{font-size:.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;}
-  .dark-text{color:rgba(255,255,255,.64);}
-
-  /* Anchor nav */
-  .guide-nav{background:var(--ink);border-bottom:1px solid rgba(210,180,134,.12);padding:.8rem 5%;position:sticky;top:70px;z-index:50;display:flex;gap:2rem;overflow-x:auto;scrollbar-width:none;}
+  .panel-text,.body-text{color:var(--text-muted);line-height:1.8;font-size:.9rem;font-weight:300;}
+  .guide-nav{background:var(--ink);border-bottom:1px solid rgba(210,180,134,.12);padding:.8rem 5%;position:sticky;top:70px;z-index:50;display:flex;gap:1.5rem;overflow-x:auto;scrollbar-width:none;}
   .guide-nav::-webkit-scrollbar{display:none;}
   .guide-nav a{font-size:.64rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;white-space:nowrap;padding:.4rem 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
   .guide-nav a:hover,.guide-nav a.active{color:var(--gold);border-color:var(--copper);}
-
-  /* Overview price table */
   .price-table{width:100%;border-collapse:collapse;margin-top:2rem;}
   .price-table th{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);padding:.75rem 1rem;background:var(--steel);text-align:left;border-bottom:2px solid var(--border);}
   .price-table td{padding:.85rem 1rem;font-size:.86rem;font-weight:300;color:var(--text-muted);border-bottom:1px solid var(--border);vertical-align:middle;}
@@ -58,17 +60,8 @@
   .price-table tr:hover td{background:var(--cream);}
   .zone-link{font-weight:400;color:var(--navy);text-decoration:none;}
   .zone-link:hover{color:var(--copper);}
-  .price-figure{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--copper-dark);}
-
-  /* Daam tier badges */
-  .daam-t1{display:inline-flex;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .65rem;background:rgba(74,124,89,.12);color:#3a6147;border:1px solid rgba(74,124,89,.3);white-space:nowrap;}
-  .daam-t2{display:inline-flex;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .65rem;background:rgba(183,106,63,.1);color:var(--copper-dark);border:1px solid rgba(183,106,63,.28);white-space:nowrap;}
-  .daam-no{display:inline-flex;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .65rem;background:rgba(120,120,120,.08);color:#777;border:1px solid rgba(0,0,0,.12);white-space:nowrap;}
-  .lgv-pill{display:inline-flex;align-items:center;gap:.35rem;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .65rem;background:rgba(8,26,51,.07);color:var(--navy);border:1px solid rgba(8,26,51,.18);white-space:nowrap;}
-
-  /* Zone block */
+  .price-figure{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--copper-dark);}
   .zone-block{padding:var(--section-pad);border-top:1px solid var(--border);}
-  .zone-block:first-of-type{border-top:none;}
   .zone-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(183,106,63,.18);line-height:1;float:right;margin-left:1rem;}
   .zone-eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.5rem;}
   .zone-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:.8rem;}
@@ -81,46 +74,73 @@
   .price-mini-table{width:100%;border-collapse:collapse;margin-bottom:1.2rem;}
   .price-mini-table th{font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);padding:.5rem .7rem;background:var(--steel);text-align:left;border-bottom:1px solid var(--border);}
   .price-mini-table td{padding:.6rem .7rem;font-size:.84rem;font-weight:300;color:var(--text-muted);border-bottom:1px solid var(--border);}
-  .price-mini-table tr:last-child td{border-bottom:none;}
-  .price-mini-table .pf{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--copper-dark);}
+  .price-mini-table .pf{font-family:'Cormorant Garamond',serif;font-size:1.02rem;color:var(--copper-dark);}
   .zone-badges{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem;}
+  .daam-t1,.daam-t2,.daam-no,.lgv-pill{display:inline-flex;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .65rem;white-space:nowrap;}
+  .daam-t1{background:rgba(74,124,89,.12);color:#3a6147;border:1px solid rgba(74,124,89,.3);}
+  .daam-t2{background:rgba(183,106,63,.1);color:var(--copper-dark);border:1px solid rgba(183,106,63,.28);}
+  .daam-no{background:rgba(120,120,120,.08);color:#777;border:1px solid rgba(0,0,0,.12);}
+  .lgv-pill{background:rgba(8,26,51,.07);color:var(--navy);border:1px solid rgba(8,26,51,.18);}
   .best-for{background:var(--steel);border-left:3px solid var(--copper);padding:.9rem 1.1rem;margin-top:.4rem;}
   .best-for-label{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.4rem;}
   .best-for-text{font-size:.82rem;font-weight:300;line-height:1.7;color:var(--text-muted);}
-  .sub-zone-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--navy);margin:2.5rem 0 .6rem;clear:both;}
-
-  /* FAQ section */
+  .map-section{background:linear-gradient(180deg,#f8f3ec 0%,#eef3f5 100%);padding:var(--section-pad);border-top:1px solid var(--border);}
+  .map-section-intro{max-width:760px;margin-bottom:2rem;}
+  .map-shell{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:2rem;align-items:stretch;}
+  .map-board{position:relative;min-height:650px;border:1px solid rgba(8,26,51,.1);box-shadow:var(--shadow);overflow:hidden;background:#dfe7ec;}
+  .map-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .map-zone{position:absolute;min-width:100px;min-height:36px;border:1px solid rgba(255,255,255,.7);border-radius:24px;background:rgba(8,26,51,.34);backdrop-filter:blur(4px);color:var(--white);cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;z-index:2;}
+  .map-zone:hover,.map-zone:focus-visible,.map-zone.is-active{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 30px rgba(8,26,51,.22);border-color:rgba(255,255,255,.95);background:rgba(183,106,63,.42);outline:none;}
+  .map-zone-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;padding:0 .35rem;line-height:1.05;text-shadow:0 2px 10px rgba(7,17,31,.75);width:100%;}
+  .map-zone-num{display:block;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.16rem;color:rgba(255,255,255,.82);}
+  .map-zone-name{display:block;font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;color:var(--white);}
+  .map-zone--beach{top:45%;left:6%;}
+  .map-zone--kasbah{top:38%;left:22%;}
+  .map-zone--west{top:48%;left:28%;}
+  .map-zone--west-central{top:32%;left:36%;}
+  .map-zone--centre{top:40%;left:48%;}
+  .map-zone--east-central{top:34%;left:60%;}
+  .map-zone--campus{top:58%;left:52%;}
+  .map-zone--south-central{top:50%;left:40%;}
+  .map-zone--south{top:65%;left:30%;}
+  .map-zone--east{top:52%;left:68%;}
+  .map-zone--southeast{top:68%;left:72%;}
+  .map-zone--north{top:22%;left:74%;}
+  .map-panel{background:rgba(7,17,31,.98);color:var(--white);padding:2rem;border:1px solid rgba(210,180,134,.18);box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:620px;}
+  .map-panel-eyebrow{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-bottom:1rem;}
+  .map-panel-title{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;line-height:1.04;color:var(--white);margin-bottom:.65rem;}
+  .map-panel-sub{font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.68);margin-bottom:1.5rem;}
+  .map-panel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1.4rem;}
+  .map-metric{background:rgba(255,255,255,.04);border:1px solid rgba(210,180,134,.12);padding:.9rem;}
+  .map-metric-label{display:block;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:.3rem;}
+  .map-metric-value{display:block;font-size:.94rem;line-height:1.55;color:var(--white);}
+  .map-panel-list{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.2rem;}
+  .map-panel-list span{display:inline-flex;align-items:center;padding:.35rem .65rem;border:1px solid rgba(210,180,134,.18);background:rgba(255,255,255,.04);font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);}
+  .map-panel-copy{font-size:.88rem;line-height:1.8;color:rgba(255,255,255,.74);margin-bottom:1.6rem;}
+  .map-panel-actions{margin-top:auto;display:flex;flex-wrap:wrap;gap:.8rem;}
+  .map-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.8rem 1.2rem;text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s ease, opacity .2s ease;}
+  .map-cta:hover,.map-cta:focus-visible{transform:translateY(-2px);opacity:.92;}
+  .map-cta--primary{background:var(--gold);color:var(--ink);}
+  .map-cta--secondary{border:1px solid rgba(210,180,134,.28);color:var(--white);background:transparent;}
   .faq-section{background:var(--cream);}
-  .faq-section .faq-question{color:var(--navy);}
-  .faq-section .faq-answer-text{color:var(--text-muted);}
-  .faq-section .faq-list{border-top-color:var(--border);}
-  .faq-section .faq-item{border-bottom-color:var(--border);}
-
-  /* Opp box */
   .opp-section{background:radial-gradient(circle at 84% 22%,rgba(183,106,63,.26),transparent 30%),linear-gradient(135deg,rgba(7,17,31,.98),rgba(8,26,51,.92));padding:var(--section-pad);}
   .opp-box{border:1px solid rgba(210,180,134,.3);padding:2.5rem;background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(183,106,63,.07));box-shadow:inset 0 6px 0 rgba(183,106,63,.48);}
-
   @media(max-width:980px){
     .guide-hero{grid-template-columns:1fr;gap:2rem;}
-    .zone-grid{grid-template-columns:1fr;}
+    .zone-grid,.map-shell{grid-template-columns:1fr;}
     .zone-num{font-size:2.8rem;margin-left:.6rem;}
+    .map-panel{min-height:auto;}
   }
   @media(max-width:680px){
     .price-table th:nth-child(3),.price-table td:nth-child(3){display:none;}
+    .map-board{min-height:520px;}
+    .map-zone-name{font-size:.74rem;}
+    .map-panel-grid{grid-template-columns:1fr;}
   }
 </style>
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kénitra Neighbourhood Guide | Rahim International">
-<meta name="twitter:description" content="Buy and rent prices across 8 zones, Daam Sakani flags, LGV access, and Best for summaries.">
-<meta name="twitter:image" content="https://rahiminternational.com/kenitra1.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Real estate advisory, consulting, marketing, and brokerage for buyers and developers in the Rabat-Salé-Kénitra region of Morocco.","inLanguage":"en"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://rahiminternational.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://rahiminternational.com/guides/index.html"},{"@type":"ListItem","position":3,"name":"Kénitra Neighbourhood Guide","item":"https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kénitra Neighbourhood Guide — Prices, Zones &amp; Investment Logic","description":"A complete breakdown of Kénitra's 8 residential zones with buy and rent price ranges, Daam Sakani eligibility, LGV access times, and Best for summaries.","image":"https://rahiminternational.com/kenitra1.png","datePublished":"2026-05-01","dateModified":"2026-05-16","inLanguage":"en","author":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com","logo":{"@type":"ImageObject","url":"https://rahiminternational.com/alirahim.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"}}</script>
-<meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="fr_FR">
-<meta property="og:locale:alternate" content="ar_MA">
-<meta name="theme-color" content="#07111f">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kénitra Neighbourhood Guide — Prices, Zones & Investment Logic","description":"A complete breakdown of Kénitra's 12 residential zones with buy and rent guidance, Daam Sakani fit, LGV access, and directional zone logic around Centre Ville.","image":"https://rahiminternational.com/kenitra1.png","datePublished":"2026-05-01","dateModified":"2026-05-17","inLanguage":"en","author":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com","logo":{"@type":"ImageObject","url":"https://rahiminternational.com/alirahim.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://rahiminternational.com/guides/kenitra-neighborhood-guide.html"}}</script>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -149,12 +169,7 @@
     </li>
     <li><a href="../market-insights/index.html">Market Insights</a></li>
     <li><a href="../property-listings.html">Property Listings</a></li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Current Opportunity</button>
-      <div class="nav-dropdown-menu">
-        <a href="../elaf-sky-view.html">Elaf Sky View</a>
-      </div>
-    </li>
+    <li class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Current Opportunity</button><div class="nav-dropdown-menu"><a href="../elaf-sky-view.html">Elaf Sky View</a></div></li>
     <li><a href="../index.html#contact">Contact</a></li>
     <li class="language-switcher"><a href="kenitra-neighborhood-guide.html" class="active">EN</a><a href="../fr/guides/kenitra-guide-quartiers.html">FR</a><a href="../ar/guides/kenitra-dalil-ahya.html">AR</a></li>
   </ul>
@@ -162,967 +177,218 @@
 </nav>
 <nav class="breadcrumb"><a href="../index.html">Home</a><span>›</span><a href="index.html">Guides &amp; Resources</a><span>›</span><span class="current">Kénitra Neighbourhood Guide</span></nav>
 <main>
-
   <header class="guide-hero">
     <div class="guide-hero-content">
       <p class="eyebrow">Kénitra — Complete Neighbourhood Guide</p>
-      <h1 class="guide-title">Eight Zones.<br><em>One City to Understand.</em></h1>
-      <p class="guide-sub">Kénitra's real estate market is not uniform. A 40–60% premium separates Centre Ville from the urban periphery — and within each zone, sub-neighbourhoods carry their own pricing logic. This guide maps all eight zones with current prices, rental benchmarks, Daam Sakani eligibility, and LGV access times.</p>
+      <h1 class="guide-title">Twelve Zones.<br><em>One City to Understand.</em></h1>
+      <p class="guide-sub">Twelve zones, 40 sub-neighbourhoods, one satellite-based map. Current buy prices, long-let rents, Daam Sakani fit, and LGV access time for every part of the city.</p>
     </div>
     <aside class="guide-hero-panel">
       <p class="panel-label">At a glance</p>
-      <h2 class="panel-title">8 residential zones, 26 sub-neighbourhoods, one complete map.</h2>
-      <p class="panel-text">Buy prices range from 5,500 MAD/m² for older second-hand stock in peripheral zones to 15,000 MAD/m² for premium haut-standing new builds in Centre Ville. The LGV station sits inside Centre Ville — every distance below is measured from there.</p>
+      <h2 class="panel-title">12 residential zones, 40 sub-neighbourhoods, one complete map.</h2>
+      <p class="panel-text">Centre Ville first, then outward through the directional belts. Landmarks such as Entrée de Kénitra, the Forêt Urbaine, and Sidi Boughaba appear as orientation points — not as residential zones in their own right.</p>
     </aside>
   </header>
 
-  <!-- ANCHOR NAV -->
   <nav class="guide-nav" aria-label="In-page navigation">
     <a href="#overview">Overview</a>
+    <a href="#interactive-map">Map</a>
     <a href="#centre-ville">Centre Ville</a>
-    <a href="#kasbah-mehdia">Kasbah Mehdia</a>
-    <a href="#mehdia-beach">Mehdia Beach</a>
-    <a href="#south-kenitra">South Kénitra</a>
-    <a href="#west-kenitra">West Kénitra</a>
-    <a href="#east-kenitra">East Kénitra</a>
+    <a href="#east-central-kenitra">East-Central</a>
+    <a href="#campus-universitaire">Campus</a>
+    <a href="#kasbah-mehdia">Kasbah</a>
+    <a href="#mehdia-beach">Beach</a>
+    <a href="#south-central-kenitra">South-Central</a>
+    <a href="#south-kenitra">South</a>
+    <a href="#west-central-kenitra">West-Central</a>
+    <a href="#west-kenitra">West</a>
+    <a href="#east-kenitra">East</a>
     <a href="#southeast-kenitra">South-East</a>
-    <a href="#north-kenitra">North Kénitra</a>
+    <a href="#north-kenitra">North</a>
     <a href="#faq">FAQ</a>
   </nav>
 
-  <!-- OVERVIEW -->
   <section id="overview" style="background:linear-gradient(135deg,var(--steel),#f7f1ea);padding:var(--section-pad);">
     <p class="eyebrow">City Overview</p>
-    <h2 class="section-title" style="color:var(--navy);">Why Geography Matters<br>More Than Price Per m².</h2>
-    <p class="body-text" style="max-width:700px;">Kénitra sits 40 km north of Rabat on the Atlantic coast. The LGV high-speed rail connects it to Rabat in 14 minutes and Casablanca in 55 minutes, making it one of the most accessible secondary cities in Morocco for professionals and investors. But the city's internal geography is sharply differentiated: Centre Ville trades at a significant premium to the peripheral zones, the coastal strip runs on seasonal logic, and the outer growth belt offers the lowest entry points in the market. Within each zone, individual sub-neighbourhoods carry their own pricing micro-logic.</p>
-    <p class="body-text" style="max-width:700px;">Buy prices range from 5,500 MAD/m² for older second-hand stock in peripheral zones to 15,000 MAD/m² for premium haut-standing new builds in Centre Ville. The two tables below summarise all 26 sub-neighbourhoods — buy prices first, then monthly rent benchmarks. Use the anchor links above to jump to any zone's full analysis.</p>
+    <h2 class="section-title" style="color:var(--navy);">The Market Reads<br><em>Best from the Centre Out.</em></h2>
+    <p class="body-text" style="max-width:760px;">Kénitra sits 40 km north of Rabat on the Atlantic coast. The LGV connects it to Rabat in roughly 14 minutes and Casablanca in roughly 55 minutes, but the city does not price as one continuous market. Centre Ville behaves as the premium core, the university and east-central fabric trade on convenience and density, Mehdia follows coastal logic, and the western and southern belts each have their own affordability ladder.</p>
+    <p class="body-text" style="max-width:760px;">The city maps best from Centre Ville outward: the premium core, the immediate directional rings, the deeper belts, and the coast as its own market. Landmarks such as the Forêt Urbaine, Entrée de Kénitra, and Sidi Boughaba serve as spatial anchors — not housing sub-markets in their own right.</p>
 
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin:2.5rem 0 .5rem;">Buy Price Summary — All Neighbourhoods</h3>
     <div style="overflow-x:auto;">
       <table class="price-table">
-        <thead>
-          <tr>
-            <th>Neighbourhood</th>
-            <th>New Build (MAD/m²)</th>
-            <th>Second-Hand (MAD/m²)</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Neighbourhood</th><th>Typical Buy Logic</th><th>Zone</th></tr></thead>
         <tbody>
-          <tr><td><a class="zone-link" href="#centre-ville">Maamora</a></td><td><span class="price-figure">10,000–12,500 avg; up to 15,000 premium</span></td><td><span class="price-figure">8,000–10,500</span></td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">Mimosas</a></td><td><span class="price-figure">10,000–12,500 avg; up to 15,000</span></td><td><span class="price-figure">8,000–10,500</span></td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">La Ville Haute</a></td><td><span class="price-figure">10,000–12,500 avg; up to 15,000</span></td><td><span class="price-figure">7,000–9,200</span></td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">Val Fleuri</a></td><td>Limited; mostly villa market</td><td>Older villa 1970s/80s — case by case</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">El Mellah</a></td><td>Selective redevelopment</td><td>Older stock varies</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">Campus Universitaire</a></td><td>Limited new stock</td><td>Rental-driven — varies</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">Addoha</a></td><td>No active new-build market</td><td>Used: 200,000–250,000 MAD (total price)</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">Alliance</a></td><td><span class="price-figure">7,400–9,000</span></td><td>Below new-build; varies by phase &amp; finish</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">Kasbah Mehdia</a></td><td>Newer R+2/R+3 — varies by project</td><td>Older stock varies significantly</td></tr>
-          <tr><td><a class="zone-link" href="#mehdia-beach">Mehdia Beach</a></td><td><span class="price-figure">From 12,000 MAD/m²; prime stock higher</span></td><td>Coastal resales vary widely</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">Bir Rami Ouest</a></td><td>Limited new supply</td><td>Established villa — case by case</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">Bir Rami Est</a></td><td><span class="price-figure">6,500–8,500</span></td><td>Varies by location &amp; condition</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">Jennan</a></td><td><span class="price-figure">7,400–9,000</span></td><td>Varies</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">Oulad Oujih</a></td><td><span class="price-figure">~7,000–8,500</span></td><td><span class="price-figure">6,500–8,000</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">El Haouzia (Haddada)</a></td><td><span class="price-figure">6,500–9,000</span></td><td><span class="price-figure">5,500–7,500</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">Taïbia</a></td><td>Limited new stock</td><td><span class="price-figure">6,000–7,500</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">Ismailia</a></td><td><span class="price-figure">6,500–8,000 newer</span></td><td><span class="price-figure">5,500–7,500</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">La Cité</a></td><td>Limited new stock</td><td><span class="price-figure">6,000–7,500</span></td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">Al Montazah</a></td><td><span class="price-figure">8,000–9,000</span></td><td>Limited resale data</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">Ancienne Medina / Khabazat</a></td><td>Very limited new stock</td><td>Varies — case by case</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">Hay Salam / Hay Errabii / Hay Nahda / Hay Al Amal</a></td><td>Newer varies by micro-location</td><td>Second-hand varies by street/building</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">Saknia</a></td><td><span class="price-figure">7,500–9,000</span></td><td><span class="price-figure">7,000–8,500</span></td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">Hay Al Ouafaa</a></td><td>Emerging; varies</td><td>Limited resale</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">Ain Sebaa</a></td><td>Emerging; varies</td><td>Limited resale</td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">Al Assam</a></td><td>Limited market visibility</td><td>Local resale — case by case</td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">El Kartoune</a></td><td>Limited market visibility</td><td>Local resale — case by case</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Quartier Maamora / Le village</a></td><td><span class="price-figure">10,000–15,000 MAD/m²</span></td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Quartier des Mimosas</a></td><td><span class="price-figure">10,000–14,000 MAD/m²</span></td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">La Ville Haute</a></td><td><span class="price-figure">7,000–12,500 MAD/m²</span></td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Val Fleury</a></td><td>Villa-led; case by case</td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">El Mellah</a></td><td>Older stock; selective redevelopment</td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">Quartier Genie</a></td><td><span class="price-figure">6,500–8,500 MAD/m²</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">La Cigogne</a></td><td><span class="price-figure">6,500–8,500 MAD/m²</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">La Chenille</a></td><td><span class="price-figure">6,500–8,000 MAD/m²</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">Jarda al Qadi</a></td><td><span class="price-figure">6,500–9,000 MAD/m²</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#campus-universitaire">Campus Universitaire Ibn Tofail</a></td><td>Rental-led resale market</td><td>Campus</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Kasbah El Mehdia</a></td><td>Organic hill fabric; varies</td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Alliance Mehdia</a></td><td><span class="price-figure">7,400–9,000 MAD/m²</span></td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Addoha (Residence du Golf)</a></td><td>Used stock often <span class="price-figure">200,000–250,000 MAD</span> total</td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Zone Villa du Golf</a></td><td><span class="price-figure">7,500–9,500 MAD/m²</span></td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#mehdia-beach">Plage Mehdia</a></td><td><span class="price-figure">From 12,000 MAD/m²</span></td><td>Mehdia Beach</td></tr>
+          <tr><td><a class="zone-link" href="#mehdia-beach">Port de Mehdia</a></td><td>Coastal resale; seasonal logic</td><td>Mehdia Beach</td></tr>
+          <tr><td><a class="zone-link" href="#south-central-kenitra">Bir Rami Ouest</a></td><td>Villa and mixed residential; case by case</td><td>South-Central</td></tr>
+          <tr><td><a class="zone-link" href="#south-central-kenitra">Bir Rami Est</a></td><td><span class="price-figure">6,500–8,500 MAD/m²</span></td><td>South-Central</td></tr>
+          <tr><td><a class="zone-link" href="#south-central-kenitra">Maghreb Al Arabi</a></td><td><span class="price-figure">6,500–8,000 MAD/m²</span></td><td>South-Central</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Bir Rami Sud</a></td><td><span class="price-figure">6,200–8,200 MAD/m²</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Al Hadika 1</a></td><td><span class="price-figure">6,500–8,500 MAD/m²</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Al Hadika 2</a></td><td><span class="price-figure">6,200–8,200 MAD/m²</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Jenane</a></td><td><span class="price-figure">7,400–9,000 MAD/m²</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">Taibia</a></td><td><span class="price-figure">6,000–7,800 MAD/m²</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">La Cite</a></td><td><span class="price-figure">6,000–7,800 MAD/m²</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">Le Vallon</a></td><td><span class="price-figure">6,500–8,500 MAD/m²</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">Quartier Sayad</a></td><td><span class="price-figure">6,000–7,800 MAD/m²</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Oulad Oujih</a></td><td><span class="price-figure">6,500–8,500 MAD/m²</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Al Haouzia</a></td><td><span class="price-figure">6,500–9,000 MAD/m²</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Ismailia</a></td><td><span class="price-figure">6,500–8,000 MAD/m²</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Al Haddadda</a></td><td><span class="price-figure">6,500–8,800 MAD/m²</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Ancienne Medina (Khabazzate)</a></td><td>Older stock; case by case</td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Quartiers Populaires de la Medina</a></td><td><span class="price-figure">5,800–7,200 MAD/m²</span></td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Al Montazah</a></td><td><span class="price-figure">8,000–9,000 MAD/m²</span></td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Bab Fes</a></td><td><span class="price-figure">6,000–7,500 MAD/m²</span></td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">Saknia</a></td><td><span class="price-figure">7,500–9,000 MAD/m²</span></td><td>South-East</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">Hay El Oufaa</a></td><td><span class="price-figure">6,200–7,800 MAD/m²</span></td><td>South-East</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">Ain Sebaa</a></td><td><span class="price-figure">6,000–7,500 MAD/m²</span></td><td>South-East</td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">Quartier l'Assam</a></td><td>Local resale; case by case</td><td>North Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">Fouarate</a></td><td>Local resale; case by case</td><td>North Kénitra</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">Source: Agenz.ma, Avito, direct developer listings, market observation, May 2026. Advertised starting prices reflect least desirable units; realistic average is 10–15% above listed floor.</p>
+    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">Source blend: direct market observation, listing platforms, developer pricing, and local comparative logic. Treat the outer belts as indicative bands, not exact block-by-block quotes.</p>
 
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin:3rem 0 .5rem;">Monthly Rent Summary — All Neighbourhoods</h3>
     <div style="overflow-x:auto;">
       <table class="price-table">
-        <thead>
-          <tr>
-            <th>Neighbourhood</th>
-            <th>Monthly Rent Range (long-let)</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Neighbourhood</th><th>Typical Long-Let Rent</th><th>Zone</th></tr></thead>
         <tbody>
-          <tr><td><a class="zone-link" href="#centre-ville">Maamora</a></td><td><span class="price-figure">3,700–8,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">Mimosas</a></td><td><span class="price-figure">3,500–6,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">La Ville Haute</a></td><td><span class="price-figure">2,150–7,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">Val Fleuri</a></td><td>4,000–5,500 MAD for apts; villas case by case</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">El Mellah</a></td><td><span class="price-figure">2,500–4,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">Campus Universitaire</a></td><td><span class="price-figure">2,500–4,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">Addoha</a></td><td><span class="price-figure">2,000–2,800 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">Alliance</a></td><td><span class="price-figure">2,500–4,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">Kasbah Mehdia</a></td><td><span class="price-figure">2,500–5,000 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#mehdia-beach">Mehdia Beach</a></td><td><span class="price-figure">3,650–5,000+ MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">Bir Rami Ouest</a></td><td>Villa rents vary significantly by size, plot &amp; finish</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">Bir Rami Est</a></td><td><span class="price-figure">2,800–4,800 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">Jennan</a></td><td><span class="price-figure">2,800–4,800 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">Oulad Oujih</a></td><td><span class="price-figure">2,500–3,200 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">El Haouzia (Haddada)</a></td><td><span class="price-figure">3,500–5,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">Taïbia</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">Ismailia</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">La Cité</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">Al Montazah</a></td><td><span class="price-figure">3,000–3,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">Ancienne Medina / Khabazat</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">Hay Salam / Hay Errabii / Hay Nahda / Hay Al Amal</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">Saknia</a></td><td><span class="price-figure">1,500–2,300 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">Hay Al Ouafaa</a></td><td><span class="price-figure">1,500–2,300 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">Ain Sebaa</a></td><td><span class="price-figure">1,500–2,000 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">Al Assam</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">El Kartoune</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Quartier Maamora / Le village</a></td><td><span class="price-figure">3,700–8,500 MAD</span></td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Quartier des Mimosas</a></td><td><span class="price-figure">3,500–6,500 MAD</span></td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">La Ville Haute</a></td><td><span class="price-figure">2,150–7,500 MAD</span></td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#centre-ville">Val Fleury</a></td><td>4,000–5,500 MAD for apartments; villas vary</td><td>Centre Ville</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">El Mellah</a></td><td><span class="price-figure">2,500–4,500 MAD</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">Quartier Genie</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">La Cigogne</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">La Chenille</a></td><td><span class="price-figure">2,300–3,800 MAD</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#east-central-kenitra">Jarda al Qadi</a></td><td><span class="price-figure">2,500–4,200 MAD</span></td><td>East-Central</td></tr>
+          <tr><td><a class="zone-link" href="#campus-universitaire">Campus Universitaire Ibn Tofail</a></td><td><span class="price-figure">2,500–4,500 MAD</span></td><td>Campus</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Kasbah El Mehdia</a></td><td><span class="price-figure">2,500–5,000 MAD</span></td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Alliance Mehdia</a></td><td><span class="price-figure">2,500–4,500 MAD</span></td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Addoha (Residence du Golf)</a></td><td><span class="price-figure">2,000–2,800 MAD</span></td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#kasbah-mehdia">Zone Villa du Golf</a></td><td><span class="price-figure">3,000–4,800 MAD</span></td><td>Kasbah Mehdia</td></tr>
+          <tr><td><a class="zone-link" href="#mehdia-beach">Plage Mehdia</a></td><td><span class="price-figure">3,650–5,500+ MAD</span></td><td>Mehdia Beach</td></tr>
+          <tr><td><a class="zone-link" href="#mehdia-beach">Port de Mehdia</a></td><td><span class="price-figure">3,200–5,000 MAD</span></td><td>Mehdia Beach</td></tr>
+          <tr><td><a class="zone-link" href="#south-central-kenitra">Bir Rami Ouest</a></td><td>Villa rents vary significantly by plot and finish</td><td>South-Central</td></tr>
+          <tr><td><a class="zone-link" href="#south-central-kenitra">Bir Rami Est</a></td><td><span class="price-figure">2,800–4,800 MAD</span></td><td>South-Central</td></tr>
+          <tr><td><a class="zone-link" href="#south-central-kenitra">Maghreb Al Arabi</a></td><td><span class="price-figure">2,800–4,200 MAD</span></td><td>South-Central</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Bir Rami Sud</a></td><td><span class="price-figure">2,400–3,800 MAD</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Al Hadika 1</a></td><td><span class="price-figure">2,600–4,000 MAD</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Al Hadika 2</a></td><td><span class="price-figure">2,300–3,700 MAD</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#south-kenitra">Jenane</a></td><td><span class="price-figure">2,800–4,800 MAD</span></td><td>South Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">Taibia</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">La Cite</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">Le Vallon</a></td><td><span class="price-figure">3,000–4,500 MAD</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-central-kenitra">Quartier Sayad</a></td><td><span class="price-figure">2,500–3,800 MAD</span></td><td>West-Central</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Oulad Oujih</a></td><td><span class="price-figure">2,500–3,200 MAD</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Al Haouzia</a></td><td><span class="price-figure">3,000–4,800 MAD</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Ismailia</a></td><td><span class="price-figure">2,500–4,000 MAD</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#west-kenitra">Al Haddadda</a></td><td><span class="price-figure">3,200–5,000 MAD</span></td><td>West Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Ancienne Medina (Khabazzate)</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Quartiers Populaires de la Medina</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Al Montazah</a></td><td><span class="price-figure">3,000–3,500 MAD</span></td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#east-kenitra">Bab Fes</a></td><td><span class="price-figure">2,000–3,000 MAD</span></td><td>East Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">Saknia</a></td><td><span class="price-figure">1,500–2,300 MAD</span></td><td>South-East</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">Hay El Oufaa</a></td><td><span class="price-figure">1,500–2,300 MAD</span></td><td>South-East</td></tr>
+          <tr><td><a class="zone-link" href="#southeast-kenitra">Ain Sebaa</a></td><td><span class="price-figure">1,500–2,000 MAD</span></td><td>South-East</td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">Quartier l'Assam</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td><td>North Kénitra</td></tr>
+          <tr><td><a class="zone-link" href="#north-kenitra">Fouarate</a></td><td><span class="price-figure">1,800–2,500 MAD</span></td><td>North Kénitra</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">Practical long-let ranges; varies by size, furnishing, finish, building quality, and micro-location.</p>
+    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">Long-let guidance only. Short-let and summer pricing in Mehdia Beach behaves very differently from the inland market.</p>
   </section>
 
-  <!-- ZONE 1: CENTRE VILLE -->
-  <section id="centre-ville" style="background:var(--white);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">01</div>
-      <p class="zone-eyebrow">Zone 01 — Premium Core</p>
-      <h2 class="zone-title">Centre Ville Region</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Maamora</span>
-        <span class="sub-hood-chip">Mimosas</span>
-        <span class="sub-hood-chip">La Ville Haute</span>
-        <span class="sub-hood-chip">Val Fleuri</span>
-        <span class="sub-hood-chip">El Mellah</span>
-        <span class="sub-hood-chip">Campus Universitaire</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV station — 5–12 min walk</span>
-      </div>
-      <p class="body-text">Centre Ville is Kénitra's historic, civic, and commercial core — and the price anchor of the entire market. The LGV station sits here, walkable from every sub-neighbourhood. Daily services, administration, banking, and retail are all on foot. This is where demand consistently outpaces supply for quality units and where resale liquidity is highest in the city.</p>
+  <section id="interactive-map" class="map-section">
+    <div class="map-section-intro">
+      <p class="eyebrow">Interactive Zone Map</p>
+      <h2 class="section-title" style="color:var(--navy);">Twelve Zones<br><em>on the Satellite Map.</em></h2>
+      <p class="body-text">Click any zone to see its price range, rental benchmark, LGV access time, and Daam Sakani fit. Use the zone numbers to cross-reference the detailed sections below.</p>
+    </div>
+    <div class="map-shell">
+      <div class="map-board" aria-label="Satellite-based Kénitra zone map">
+        <img class="map-image" src="kenitramap.png" alt="Satellite map of Kénitra with zone overlays">
+        <button class="map-zone map-zone--beach" type="button" data-zone="mehdia-beach" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">05</span><span class="map-zone-name">Mehdia Beach</span></span></button>
+        <button class="map-zone map-zone--kasbah" type="button" data-zone="kasbah-mehdia" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">04</span><span class="map-zone-name">Kasbah Mehdia</span></span></button>
+        <button class="map-zone map-zone--west" type="button" data-zone="west-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">09</span><span class="map-zone-name">West Kénitra</span></span></button>
+        <button class="map-zone map-zone--west-central" type="button" data-zone="west-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">08</span><span class="map-zone-name">West-Central</span></span></button>
+        <button class="map-zone map-zone--centre is-active" type="button" data-zone="centre-ville" aria-controls="map-zone-panel" aria-pressed="true"><span class="map-zone-label"><span class="map-zone-num">01</span><span class="map-zone-name">Centre Ville</span></span></button>
+        <button class="map-zone map-zone--east-central" type="button" data-zone="east-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">02</span><span class="map-zone-name">East-Central</span></span></button>
+        <button class="map-zone map-zone--campus" type="button" data-zone="campus-universitaire" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">03</span><span class="map-zone-name">Campus</span></span></button>
+        <button class="map-zone map-zone--east" type="button" data-zone="east-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">10</span><span class="map-zone-name">East</span></span></button>
+        <button class="map-zone map-zone--south-central" type="button" data-zone="south-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">06</span><span class="map-zone-name">South-Central</span></span></button>
+        <button class="map-zone map-zone--south" type="button" data-zone="south-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">07</span><span class="map-zone-name">South</span></span></button>
+        <button class="map-zone map-zone--southeast" type="button" data-zone="southeast-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">11</span><span class="map-zone-name">South-East</span></span></button>
+        <button class="map-zone map-zone--north" type="button" data-zone="north-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">12</span><span class="map-zone-name">North</span></span></button>
 
-      <h3 class="sub-zone-title">Maamora</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">The strongest residential area within Centre Ville. Maamora is close to the LGV station, the city's main commercial streets, and all central services. It sits at the upper end of Kénitra's residential market. Strong rental appeal due to centrality — tenants who want everything on foot gravitate here, keeping vacancy rates low and rents supported.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Maamora — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">10,000–12,500 MAD/m² avg; up to 15,000 premium</td></tr>
-              <tr><td>Second-hand</td><td class="pf">8,000–10,500 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">3,700–8,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — select small units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Buyers who need walkability and strong rental returns.</div>
-          </div>
-        </div>
       </div>
-
-      <h3 class="sub-zone-title">Mimosas</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Same central logic as Maamora. Established, walkable, and well-served. The stock is a mix of older buildings and newer additions — buyers who want an established central address without the premium micro-location of the very top streets find Mimosas a strong value proposition.</p>
+      <aside class="map-panel" id="map-zone-panel" aria-live="polite">
+        <div class="map-panel-eyebrow">Selected Zone</div>
+        <h3 class="map-panel-title" data-map-field="title">Centre Ville</h3>
+        <p class="map-panel-sub" data-map-field="orientation">The true city centre: premium, walkable, LGV-adjacent, and still the cleanest reference point for pricing the rest of Kénitra.</p>
+        <div class="map-panel-grid">
+          <div class="map-metric"><span class="map-metric-label">Buy Range</span><span class="map-metric-value" data-map-field="buy">7,000–15,000 MAD/m2</span></div>
+          <div class="map-metric"><span class="map-metric-label">Long-Let Rent</span><span class="map-metric-value" data-map-field="rent">2,150–8,500 MAD/month</span></div>
+          <div class="map-metric"><span class="map-metric-label">LGV Relationship</span><span class="map-metric-value" data-map-field="lgv">Inside the zone</span></div>
+          <div class="map-metric"><span class="map-metric-label">Daam Sakani</span><span class="map-metric-value" data-map-field="daam">Limited, mostly smaller qualifying units</span></div>
         </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Mimosas — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">10,000–12,500 MAD/m² avg; up to 15,000</td></tr>
-              <tr><td>Second-hand</td><td class="pf">8,000–10,500 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">3,500–6,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — select small units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Buyers seeking established central addresses.</div>
-          </div>
+        <div class="map-panel-list" data-map-field="chips"></div>
+        <p class="map-panel-copy" data-map-field="copy">Best for buyers who want walkability, resale depth, and the strongest premium logic in Kénitra.</p>
+        <div class="map-panel-actions">
+          <a class="map-cta map-cta--primary" data-map-field="primaryLink" href="#centre-ville">Jump To Centre Ville</a>
+          <a class="map-cta map-cta--secondary" href="../index.html#contact">Discuss This Zone</a>
         </div>
-      </div>
-
-      <h3 class="sub-zone-title">La Ville Haute</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Upper Centre Ville, stretching toward the Corniche Sebou. A broader mix of buyers and building typologies than Maamora or Mimosas — villas, mid-rise apartment blocks, and some older institutional buildings. The prestige of the address remains high, but the pricing band is wide enough to accommodate buyers at different budget levels.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">La Ville Haute — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">10,000–12,500 MAD/m² avg; up to 15,000</td></tr>
-              <tr><td>Second-hand</td><td class="pf">7,000–9,200 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,150–7,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — select small units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Mixed-budget central buyers.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Val Fleuri</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Edge of La Ville Haute. Estate-style villas on plots of 500–2,000 m², predominantly 1970s and 1980s construction. This is a villa market — detached houses with gardens, mature streets, and a quiet residential character. New stock is effectively non-existent; buyers are acquiring the existing villa fabric and either renovating or holding.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Val Fleuri — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Limited — mostly villa market</td></tr>
-              <tr><td>Older villa stock</td><td class="pf">1970s/80s — case by case</td></tr>
-              <tr><td>Apt monthly rent</td><td class="pf">4,000–5,500 MAD</td></tr>
-              <tr><td>Villa rent</td><td class="pf">Varies by size &amp; condition</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-no">Daam Sakani — not generally applicable</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Villa buyers seeking space in a mature, established setting.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">El Mellah</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Just east of the city centre, across Avenue Moulay Youssef, near Gare Medina. Known for its jewellers' district and proximity to the Gare Routière. Mixed older fabric with some selective redevelopment underway. Still benefits from central adjacency — services, transport, and commercial activity are all close — but the building quality and street condition are more mixed than Maamora or Mimosas.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">El Mellah — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Selective redevelopment</td></tr>
-              <tr><td>Second-hand</td><td class="pf">Older stock — varies</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–4,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — select units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Value-oriented buyers comfortable with older, mixed-fabric central streets.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Campus Universitaire</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">The university area adjacent to Mohammed V University. Student-influenced character with strong structural rental demand. New stock is limited — this is primarily a resale and rental market. Buyers here are typically purchasing for rental income rather than personal occupation, attracted by reliable student tenant demand that keeps occupancy rates high even outside peak periods. Centre Ville prices limit Daam Sakani eligibility to select small units only.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Campus Universitaire — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Limited stock</td></tr>
-              <tr><td>Second-hand</td><td class="pf">Rental-driven — varies</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–4,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — select small units only</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Rental investors targeting student demand.</div>
-          </div>
-        </div>
-      </div>
+      </aside>
     </div>
   </section>
 
-  <!-- ZONE 2: KASBAH MEHDIA REGION -->
-  <section id="kasbah-mehdia" style="background:var(--steel);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">02</div>
-      <p class="zone-eyebrow">Zone 02 — Growth Corridor</p>
-      <h2 class="zone-title">Kasbah Mehdia Region</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Addoha</span>
-        <span class="sub-hood-chip">Alliance</span>
-        <span class="sub-hood-chip">Kasbah Mehdia</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV 18–25 min drive</span>
-      </div>
-      <p class="body-text">This zone has changed dramatically over two decades. New roads now connect the Alliance-Addoha axis to the Route Nationale and autoroute, and what was once a remote peripheral area has grown into a largely self-contained residential corridor with schools, shops, businesses, and regular public transport.</p>
+  <section id="centre-ville" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">01</div><p class="zone-eyebrow">Zone 01 — True Centre</p><h2 class="zone-title">Centre Ville</h2><div class="sub-hoods"><span class="sub-hood-chip">Quartier Maamora / Le village</span><span class="sub-hood-chip">Quartier des Mimosas</span><span class="sub-hood-chip">La Ville Haute</span><span class="sub-hood-chip">Val Fleury</span></div><div class="zone-grid"><div><p class="body-text">This is the actual centre of Kénitra, not just a generic label for the urban core. It holds the cleanest walk-to-station logic, the most consistent commercial concentration, and the strongest resale depth in the city. If you are benchmarking pricing or investor confidence, start here first.</p><p class="body-text">Maamora and Mimosas hold the sharpest central premium, La Ville Haute widens the price band with more varied stock, and Val Fleury remains the mature villa edge of the core.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">7,000–15,000 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">2,150–8,500 MAD/month</td></tr><tr><td>LGV</td><td>Inside the zone; often walkable</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">Daam Tier 2 — select smaller units</span><span class="daam-no">Villa stock usually outside subsidy logic</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Premium owner-occupiers, commuters, and buyers who care about liquidity first.</div></div></div></div></div></section>
+  <section id="east-central-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">02</div><p class="zone-eyebrow">Zone 02 — East Of The Core</p><h2 class="zone-title">East-Central Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">El Mellah</span><span class="sub-hood-chip">Quartier Genie</span><span class="sub-hood-chip">La Cigogne</span><span class="sub-hood-chip">La Chenille</span><span class="sub-hood-chip">Jarda al Qadi</span></div><div class="zone-grid"><div><p class="body-text">This is the first ring east of Centre Ville: still central in feel, but not part of the true premium core. The fabric is denser, more mixed, and often more value-driven than Maamora or Mimosas, while still benefiting from central adjacency.</p><p class="body-text">El Mellah and Jarda al Qadi read as the most identifiable central-adjacent names; Quartier Genie, La Cigogne, and La Chenille deepen the everyday east-central fabric.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">6,500–10,000 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">2,300–4,500 MAD/month</td></tr><tr><td>LGV</td><td>5–15 min drive depending on street</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">Daam Tier 2 — selected units</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Buyers who want central convenience without paying full Centre Ville pricing.</div></div></div></div></div></section>
+  <section id="campus-universitaire" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">03</div><p class="zone-eyebrow">Zone 03 — University Belt</p><h2 class="zone-title">Campus Universitaire</h2><div class="sub-hoods"><span class="sub-hood-chip">Campus Universitaire Ibn Tofail</span></div><div class="zone-grid"><div><p class="body-text">Campus Universitaire sits just south of the rail corridor, physically separated from the central fabric and driven by a different set of tenant relationships. Structural student and university-linked rental demand define how this zone prices and turns over.</p><p class="body-text">Rental performance here is usage-led: smaller units, higher occupancy consistency, and tenant profiles anchored to the university calendar rather than the commuter market.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">Limited new stock; resale-driven</td></tr><tr><td>Rent</td><td class="pf">2,500–4,500 MAD/month</td></tr><tr><td>LGV</td><td>Short drive; rail line separates it from centre</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">Daam Tier 2 — small qualifying units only</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Rental investors targeting student demand and compact end-user units.</div></div></div></div></div></section>
+  <section id="kasbah-mehdia" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">04</div><p class="zone-eyebrow">Zone 04 — North-West Growth Corridor</p><h2 class="zone-title">Kasbah Mehdia</h2><div class="sub-hoods"><span class="sub-hood-chip">Kasbah El Mehdia</span><span class="sub-hood-chip">Alliance Mehdia</span><span class="sub-hood-chip">Addoha (Residence du Golf)</span><span class="sub-hood-chip">Zone Villa du Golf</span></div><div class="zone-grid"><div><p class="body-text">This is where Kénitra’s affordability ladder and north-west growth story become most visible. Addoha provides the clearest low-entry social stock, Alliance lifts the zone into a fuller mid-market corridor, and Kasbah El Mehdia plus Villa du Golf add more organic or lower-density character around the same side of the city.</p><p class="body-text">It is not one homogeneous district, but it is one coherent directional story: accessible entry points, expanding services, and more subsidy-compatible stock than the centre.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">200,000 MAD total to 9,500 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">2,000–5,000 MAD/month</td></tr><tr><td>LGV</td><td>18–28 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">Daam Tier 1 — strongest fit in Addoha stock</span><span class="daam-t2">Daam Tier 2 — Alliance and selected newer units</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">First-home buyers, subsidy users, and buyers seeking structured north-west growth.</div></div></div></div></div></section>
+  <section id="mehdia-beach" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">05</div><p class="zone-eyebrow">Zone 05 — Atlantic Strip</p><h2 class="zone-title">Mehdia Beach</h2><div class="sub-hoods"><span class="sub-hood-chip">Plage Mehdia</span><span class="sub-hood-chip">Port de Mehdia</span></div><div class="zone-grid"><div><p class="body-text">Mehdia Beach is a separate market altogether. It follows leisure, summer occupancy, and second-home logic much more than everyday LGV commuting logic. Port de Mehdia sits within the same coastal ecosystem but trades on the same seasonal positioning and waterfront perception.</p><p class="body-text">This is one of the most distinct zones in the city: attractive for lifestyle and short-let strategies, but not the place to benchmark ordinary long-let city housing.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">From 12,000 MAD/m² in prime coastal stock</td></tr><tr><td>Rent</td><td class="pf">3,200–5,500+ MAD/month long-let</td></tr><tr><td>LGV</td><td>25–35 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">Daam Tier 2 — possible but often strategically awkward</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Coastal buyers, MRE second homes, and short-let focused investors.</div></div></div></div></div></section>
+  <section id="south-central-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">06</div><p class="zone-eyebrow">Zone 06 — Immediate Southern Ring</p><h2 class="zone-title">South-Central Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">Bir Rami Ouest</span><span class="sub-hood-chip">Bir Rami Est</span><span class="sub-hood-chip">Maghreb Al Arabi</span></div><div class="zone-grid"><div><p class="body-text">This is the first southern belt directly below the central city. Bir Rami Ouest, Bir Rami Est, and Maghreb Al Arabi do not feel like the outer south; they feel like the immediate southern extension of built-up Kénitra, with stronger everyday ties to the core.</p><p class="body-text">Bir Rami Ouest remains the more established address, while Bir Rami Est and Maghreb Al Arabi widen the zone toward more practical apartment-driven stock.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">6,500–8,800 MAD/m²; villas higher</td></tr><tr><td>Rent</td><td class="pf">2,800–5,500 MAD/month</td></tr><tr><td>LGV</td><td>10–18 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">Daam Tier 2 — strongest in apartment-led stock</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Families who want practical access to the centre without paying Centre Ville prices.</div></div></div></div></div></section>
+  <section id="south-kenitra" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">07</div><p class="zone-eyebrow">Zone 07 — Deeper Southern Belt</p><h2 class="zone-title">South Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">Bir Rami Sud</span><span class="sub-hood-chip">Al Hadika 1</span><span class="sub-hood-chip">Al Hadika 2</span><span class="sub-hood-chip">Jenane</span></div><div class="zone-grid"><div><p class="body-text">This is the fuller southern expansion belt beyond the immediate centre-facing Bir Rami ring. Al Hadika 1 and 2, Bir Rami Sud, and Jenane all read as practical family-residential territory rather than premium city fabric.</p><p class="body-text">Compared with South-Central Kénitra, these areas usually trade on affordability, newer delivery pockets, and a stronger owner-occupier profile.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">6,200–9,000 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">2,300–4,800 MAD/month</td></tr><tr><td>LGV</td><td>15–24 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">Daam Tier 1 — outer affordable stock</span><span class="daam-t2">Daam Tier 2 — newer family units</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Budget-conscious family buyers who still want coherent urban residential fabric.</div></div></div></div></div></section>
+  <section id="west-central-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">08</div><p class="zone-eyebrow">Zone 08 — Central-West Ring</p><h2 class="zone-title">West-Central Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">Taibia</span><span class="sub-hood-chip">La Cite</span><span class="sub-hood-chip">Le Vallon</span><span class="sub-hood-chip">Quartier Sayad</span></div><div class="zone-grid"><div><p class="body-text">These western-central neighbourhoods sit closer to the core than the deeper western belt. They are not Centre Ville, but they are also not the more outward west. In practice they function as a bridge between the premium centre and the broader western residential city.</p><p class="body-text">Le Vallon and Taibia sit noticeably closer to the central fabric than Oulad Oujih or Al Haouzia — a meaningful distinction when estimating commute times and access to central amenities.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">6,000–8,500 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">2,500–4,500 MAD/month</td></tr><tr><td>LGV</td><td>10–20 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">Daam Tier 1 — older stock in pockets</span><span class="daam-t2">Daam Tier 2 — selected newer apartments</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Owner-occupiers who want west-of-centre value without moving too far into the outer belt.</div></div></div></div></div></section>
+  <section id="west-kenitra" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">09</div><p class="zone-eyebrow">Zone 09 — Deeper Western Belt</p><h2 class="zone-title">West Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">Oulad Oujih</span><span class="sub-hood-chip">Al Haouzia</span><span class="sub-hood-chip">Ismailia</span><span class="sub-hood-chip">Al Haddadda</span></div><div class="zone-grid"><div><p class="body-text">This is the broader western housing belt, more outward than the West-Central ring and often more value-driven. It mixes everyday family districts with pockets that have seen stronger recent mid-market product than outsiders expect.</p><p class="body-text">Oulad Oujih carries the classic practical-west logic; Al Haouzia, Ismailia, and Al Haddadda give the zone a wider internal spread in price and product quality.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">6,500–9,000 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">2,500–5,500 MAD/month</td></tr><tr><td>LGV</td><td>18–30 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">Daam Tier 1 — broad fit in lower-cost pockets</span><span class="daam-t2">Daam Tier 2 — newer western apartments</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Value-led buyers and practical long-let investors who do not need central prestige.</div></div></div></div></div></section>
+  <section id="east-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">10</div><p class="zone-eyebrow">Zone 10 — Eastern Residential City</p><h2 class="zone-title">East Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">Ancienne Medina (Khabazzate)</span><span class="sub-hood-chip">Quartiers Populaires de la Medina</span><span class="sub-hood-chip">Al Montazah</span><span class="sub-hood-chip">Bab Fes</span></div><div class="zone-grid"><div><p class="body-text">East Kénitra is the larger eastern housing city beyond the east-central ring. It blends older medina-adjacent fabric, practical lower-rent streets, and selected middle-tier pockets such as Al Montazah.</p><p class="body-text">It is an everyday residential side of Kénitra rather than a prestige axis, with stronger micro-location variation than the centre.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">5,800–9,000 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">1,800–3,500 MAD/month</td></tr><tr><td>LGV</td><td>12–25 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">Daam Tier 1 — common in older stock</span><span class="daam-t2">Daam Tier 2 — strongest around Al Montazah</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Local households and buyers willing to trade prestige for affordability and everyday practicality.</div></div></div></div></div></section>
+  <section id="southeast-kenitra" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">11</div><p class="zone-eyebrow">Zone 11 — South-East Growth Edge</p><h2 class="zone-title">South-East Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">Saknia</span><span class="sub-hood-chip">Hay El Oufaa</span><span class="sub-hood-chip">Ain Sebaa</span></div><div class="zone-grid"><div><p class="body-text">Saknia, Hay El Oufaa, and Ain Sebaa form Kénitra's south-eastern residential edge. The Forêt Urbaine and the city-entry road frame the area geographically but do not contribute housing stock.</p><p class="body-text">Saknia is the established anchor; Hay El Oufaa and Ain Sebaa sit farther out on the affordability and outward-growth spectrum.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">6,000–9,000 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">1,500–2,300 MAD/month</td></tr><tr><td>LGV</td><td>20–30 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">Daam Tier 1 — strong fit</span><span class="daam-t2">Daam Tier 2 — selected newer units</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Lower-entry owner-occupiers and buyers comfortable with a more outward growth-belt address.</div></div></div></div></div></section>
+  <section id="north-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">12</div><p class="zone-eyebrow">Zone 12 — Northern Edge</p><h2 class="zone-title">North Kénitra</h2><div class="sub-hoods"><span class="sub-hood-chip">Quartier l'Assam</span><span class="sub-hood-chip">Fouarate</span></div><div class="zone-grid"><div><p class="body-text">North Kénitra remains the lower-profile northern residential edge. It is more local than investor-led, has thinner pricing visibility on mainstream portals, and should usually be treated as a ground-checked market rather than a purely online market.</p><p class="body-text">Quartier l'Assam and Fouarate share the same northern edge character: local in nature, thinner on formal listings, and better valued through direct ground-level market contact than by online benchmarks alone.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">Low-visibility local resale; case by case</td></tr><tr><td>Rent</td><td class="pf">1,800–2,500 MAD/month</td></tr><tr><td>LGV</td><td>20–30 min drive</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">Daam Tier 1 — where qualifying stock exists</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Highly budget-sensitive local buyers who prioritise entry cost over visibility or liquidity.</div></div></div></div></div></section>
 
-      <h3 class="sub-zone-title">Addoha</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Socio-economic and government-subsidised low-income housing — the original Addoha wave that built out this corridor from the early 2000s. It is now a fully established community with schools, shops, businesses, and public transport. The original social housing stock trades at very low prices in the used market, making it one of the most accessible entry points in Kénitra. Daam Sakani Tier 1 and Tier 2 apply to used apartments within the price range.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Addoha — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">No active new-build market</td></tr>
-              <tr><td>Used apartments</td><td class="pf">200,000–250,000 MAD (total price)</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,000–2,800 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 &amp; Tier 2 — used apts within range</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Entry-level buyers and first-time buyers on tight budgets.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Alliance</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Large socio-economic blocks that have grown dramatically since the early phases. Now includes mid-range new developments, villa zones, and a mall — giving it a more complete urban character than the purely residential Addoha fabric. Alliance has matured into a proper mixed-use district. New-build pricing puts it in a different league from Addoha but still well below Centre Ville. Some smaller units fall within the Daam Sakani Tier 2 range.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Alliance — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">7,400–9,000 MAD/m²</td></tr>
-              <tr><td>Second-hand</td><td class="pf">Below new-build; varies by phase &amp; finish</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–4,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — some smaller units in T2 range</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Mid-market buyers who want growth-corridor upside.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Kasbah Mehdia</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">A hill overlooking the beach, built around the ancient kasbah. Since the 1990s, development via Al Omrane plots has produced a mix of R+2 and R+3 houses, villas, and older fabric. The character is entirely different from the tower-block homogeneity of Addoha and Alliance — more organic, lower density, with the ancient fortification as a backdrop and the Atlantic coast nearby.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Kasbah Mehdia — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>Newer R+2/R+3 houses</td><td class="pf">Varies by project</td></tr>
-              <tr><td>Older stock</td><td class="pf">Varies significantly</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–5,000 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-no">Daam Sakani — limited applicability</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Buyers wanting coastal adjacency at lower price points.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE 3: MEHDIA BEACH -->
-  <section id="mehdia-beach" style="background:var(--white);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">03</div>
-      <p class="zone-eyebrow">Zone 03 — Coastal Lifestyle</p>
-      <h2 class="zone-title">Mehdia Beach</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Atlantic-facing strip</span>
-        <span class="sub-hood-chip">Beachfront residences</span>
-        <span class="sub-hood-chip">Plage Mehdia</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV 25–35 min drive</span>
-      </div>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Mehdia Beach is the Atlantic-facing strip — a seasonal and second-home market driven by short-term rental investors rather than primary residents or LGV commuters. Prime new stock starts from 12,000 MAD/m², with some coastal units going higher. The second-hand market varies widely depending on distance from the waterfront, floor, and building age.</p>
-          <p class="body-text">The seasonal rental logic here is strong: a well-positioned apartment can achieve peak summer returns that are multiples of its annual long-let value. Daam Sakani's five-year primary residence obligation creates a structural tension with short-term rental strategies — eligible units exist, but the subsidy is difficult to use alongside a seasonal rental operation.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Mehdia Beach — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">From 12,000 MAD/m²; prime stock higher</td></tr>
-              <tr><td>Second-hand coastal</td><td class="pf">Varies widely</td></tr>
-              <tr><td>Monthly rent (long-let)</td><td class="pf">3,650–5,000+ MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — select units; primary residence obligation conflicts with short-term rental</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Second-home buyers, short-term rental investors, and MRE buyers wanting a coastal retreat.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE 4: SOUTH KÉNITRA -->
-  <section id="south-kenitra" style="background:var(--steel);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">04</div>
-      <p class="zone-eyebrow">Zone 04 — Southern Belt</p>
-      <h2 class="zone-title">South Kénitra</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Bir Rami Ouest</span>
-        <span class="sub-hood-chip">Bir Rami Est</span>
-        <span class="sub-hood-chip">Jennan</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV 15–22 min drive</span>
-      </div>
-      <p class="body-text">The southern belt combines villa areas, apartment zones, and southbound growth toward Rabat. Three distinct sub-neighbourhoods with different price profiles — from the prestigious villa territory of Bir Rami Ouest to the growth-corridor logic of Jennan.</p>
-
-      <h3 class="sub-zone-title">Bir Rami Ouest</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">The most prestigious and desirable residential address in South Kénitra. Larger plots, mature tree-lined streets, and established villas. This is primarily a villa market — buyers here are acquiring detached or semi-detached properties with gardens, not apartment blocks. New supply is effectively zero; acquisition is of the existing fabric. Daam Sakani does not generally apply to the villa market here.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Bir Rami Ouest — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Limited new supply</td></tr>
-              <tr><td>Villa market</td><td class="pf">Case by case</td></tr>
-              <tr><td>Villa rent</td><td class="pf">Varies significantly by size, plot &amp; finish</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-no">Daam Sakani — not generally applicable (villa market)</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Prestige villa buyers.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Bir Rami Est</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Mixed profile — newer residential apartment blocks, older housing, and proximity to the ZI Bir Rami industrial zone. A more accessible price point than Bir Rami Ouest with newer construction and a practical mid-market character. Daam Sakani Tier 2 units are available for appropriately priced apartments.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Bir Rami Est — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">6,500–8,500 MAD/m²</td></tr>
-              <tr><td>Second-hand</td><td class="pf">Varies by location &amp; condition</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,800–4,800 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — T2 for appropriately priced units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Mid-market southside buyers.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Jennan</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Similar growth trajectory to the other outward-expansion districts. R+3 and R+4 apartment blocks, villas, and newer private developments characterise Jennan's streetscape. It extends southward toward Rabat, positioning it well for buyers who commute down the N1 corridor or want to track the long-term urbanisation push along that axis. Smaller qualifying units are Daam Sakani Tier 2 eligible.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Jennan — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">7,400–9,000 MAD/m²</td></tr>
-              <tr><td>Second-hand</td><td class="pf">Varies</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,800–4,800 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — T2 for smaller qualifying units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Growth-oriented buyers on the Rabat corridor.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE 5: WEST KÉNITRA -->
-  <section id="west-kenitra" style="background:var(--white);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">05</div>
-      <p class="zone-eyebrow">Zone 05 — Established West</p>
-      <h2 class="zone-title">West Kénitra</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Oulad Oujih</span>
-        <span class="sub-hood-chip">El Haouzia (Haddada)</span>
-        <span class="sub-hood-chip">Taïbia</span>
-        <span class="sub-hood-chip">Ismailia</span>
-        <span class="sub-hood-chip">La Cité</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV 20–35 min drive</span>
-      </div>
-      <p class="body-text">Established mixed neighbourhoods with local character — the everyday residential fabric of Kénitra's western side. Five sub-neighbourhoods with distinct identities ranging from the large Oulad Oujih residential zone to the riverfront calm of Taïbia and La Cité.</p>
-
-      <h3 class="sub-zone-title">Oulad Oujih</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">A large established residential zone west of the city centre. Mixed houses, villas, and apartments — some social housing stock, some newer private development. Oulad Oujih has a well-rooted community character and is well-served by local commerce and schools. Daam Sakani Tier 1 and Tier 2 units are available for lower-priced units within the stock.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Oulad Oujih — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>Newer stock</td><td class="pf">~7,000–8,500 MAD/m²</td></tr>
-              <tr><td>Second-hand</td><td class="pf">6,500–8,000 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–3,200 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 &amp; Tier 2 — lower-priced units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Local residential buyers wanting a western address.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">El Haouzia (Haddada)</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Official name El Haouzia, known in everyday use as Haddada. This neighbourhood has seen a strong recent development influx — new apartment blocks, green spaces, private schools, cafés, and the Quartier Golf villa zone. It is well-served and becoming progressively more attractive. Daam Sakani Tier 1 and Tier 2 units are widely available here, making it one of the best-stocked western options for eligible buyers.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">El Haouzia (Haddada) — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">6,500–9,000 MAD/m²</td></tr>
-              <tr><td>Second-hand</td><td class="pf">5,500–7,500 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">3,500–5,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 &amp; Tier 2 — widely available</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Mid-range buyers seeking a well-served western neighbourhood.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Taïbia</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Sebou-side neighbourhood with a quieter riverfront character. Settled and residential in feel, with limited new development. The practical price point and the riverside setting appeal to buyers who want calm over centrality. Daam Sakani Tier 1 applies to eligible units.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Taïbia — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Limited new stock</td></tr>
-              <tr><td>Second-hand</td><td class="pf">6,000–7,500 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–4,000 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 — available</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Buyers wanting riverside quiet at a practical price.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Ismailia</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Middle-belt logic — established and practical, with a mixed building profile typical of Kénitra's mid-tier western districts. Good everyday services and local commerce. Daam Sakani Tier 1 and Tier 2 units available for qualifying units within the price range.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Ismailia — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>Newer stock</td><td class="pf">6,500–8,000 MAD/m²</td></tr>
-              <tr><td>Second-hand</td><td class="pf">5,500–7,500 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–4,000 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 &amp; Tier 2</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Practical mid-market buyers with everyday needs.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">La Cité</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">North of La Ville Haute along the Sebou. Quieter, with a riverfront identity, close enough to the city centre to retain access to central amenities. Limited new construction — second-hand stock is the primary market. The combination of relative calm, water proximity, and central adjacency gives La Cité a distinct character among the western sub-neighbourhoods.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">La Cité — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Limited new stock</td></tr>
-              <tr><td>Second-hand</td><td class="pf">6,000–7,500 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">2,500–4,000 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 — available</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Buyers who want riverfront calm close to the centre.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE 6: EAST KÉNITRA -->
-  <section id="east-kenitra" style="background:var(--steel);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">06</div>
-      <p class="zone-eyebrow">Zone 06 — Most Heterogeneous</p>
-      <h2 class="zone-title">East Kénitra</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Al Montazah</span>
-        <span class="sub-hood-chip">Ancienne Medina</span>
-        <span class="sub-hood-chip">Khabazat</span>
-        <span class="sub-hood-chip">Hay Salam</span>
-        <span class="sub-hood-chip">Hay Errabii</span>
-        <span class="sub-hood-chip">Hay Nahda</span>
-        <span class="sub-hood-chip">Hay Al Amal</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV 10–20 min drive</span>
-      </div>
-      <p class="body-text">East Kénitra is the city's most heterogeneous residential fabric. From the green, modern Al Montazah to the dense traditional life of the Ancienne Medina and Khabazat, to the established hay chaabi neighbourhoods — every buyer profile from value investors to urban-texture seekers finds something here.</p>
-
-      <h3 class="sub-zone-title">Al Montazah</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">A relatively recent neighbourhood positioned between the old medina, the city centre, and the Maamora forest. New apartment blocks, villas, green spaces, a public garden, schools, restaurants, and cafés give Al Montazah a noticeably greener and more open character than most eastern sub-zones. It is one of the more desirable eastern addresses and has attracted both family buyers and rental investors. Daam Sakani Tier 2 applies to qualifying new-build units.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Al Montazah — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">8,000–9,000 MAD/m²</td></tr>
-              <tr><td>Resale</td><td class="pf">Limited resale data</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">3,000–3,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t2">Daam Tier 2 — T2 for qualifying new-build units</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Buyers who want greenery and modern stock in the east.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Ancienne Medina &amp; Khabazat</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">One continuous traditional area of narrow alleys, older buildings, and dense street life. Open-air markets, artisanal shops, and food vendors give it a texture reminiscent of Jemaa el-Fna on a smaller scale — movement, authenticity, and urban density. This is traditional Kénitra as it has always been. Very limited new replacement stock; acquisition is of the existing older fabric, case by case. Daam Sakani eligibility is very limited given the building stock.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Ancienne Medina &amp; Khabazat — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Very limited</td></tr>
-              <tr><td>Old stock</td><td class="pf">Varies — case by case</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">1,800–2,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-no">Daam Sakani — very limited</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Buyers attracted by texture, history, and traditional urban life.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Hay Salam, Hay Errabii, Hay Nahda, Hay Al Amal</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Hay chaabi neighbourhoods deeply rooted in traditional urban life. Dense residential streets, local commerce, and traditional services — the ferran, street vendors, neighbourhood butchers — alongside newer commercial patterns. The conservative, traditionally local side of the city. Newer stock varies by micro-location and individual building; second-hand varies by street and building condition. Strong local rental demand at entry-level price points. Daam Sakani Tier 1 is widely available across these neighbourhoods.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Hay Salam / Errabii / Nahda / Al Amal — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>Newer stock</td><td class="pf">Varies by micro-location</td></tr>
-              <tr><td>Second-hand</td><td class="pf">Varies by street &amp; building</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">1,800–2,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 — widely available</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Value-oriented local buyers; rental investors targeting budget tenants.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE 7: SOUTH-EAST KÉNITRA -->
-  <section id="southeast-kenitra" style="background:var(--white);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">07</div>
-      <p class="zone-eyebrow">Zone 07 — Outward Growth Belt</p>
-      <h2 class="zone-title">South-East Kénitra</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Saknia</span>
-        <span class="sub-hood-chip">Hay Al Ouafaa</span>
-        <span class="sub-hood-chip">Ain Sebaa</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV 20–30 min drive</span>
-      </div>
-      <p class="body-text">The outward growth belt on the Rabat side — where city expansion has pushed over the past three decades. Saknia has fully matured into a proper residential district; Hay Al Ouafaa and Ain Sebaa are earlier in their development arc, with emerging new-build activity and limited resale history.</p>
-
-      <h3 class="sub-zone-title">Saknia</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Thirty years ago, Saknia was where Kénitra ended. Today it is fully integrated into the city fabric — planned streets, commercial activity, banks, restaurants, and public transport. It has matured into a proper district with a real urban character. New-build prices are notably strong for this location, reflecting completed urbanisation. Daam Sakani Tier 1 applies to appropriately priced smaller units; Tier 2 for smaller new-build formats.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Saknia — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>Newer stock</td><td class="pf">7,500–9,000 MAD/m²</td></tr>
-              <tr><td>Second-hand</td><td class="pf">7,000–8,500 MAD/m²</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">1,500–2,300 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 — T1 for smaller units; T2 for smaller new-build</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Growth-oriented buyers; practical family buyers in the south-east.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Hay Al Ouafaa</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Outward growth pattern — newer southern-southeastern expansion. Limited resale data, but emerging new-build activity positions it as an early-entry opportunity for buyers comfortable with a developing neighbourhood. Daam Sakani Tier 1 applies to qualifying units.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Hay Al Ouafaa — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Emerging; varies</td></tr>
-              <tr><td>Resale</td><td class="pf">Limited data</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">1,500–2,300 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Early-entry buyers in emerging zones.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">Ain Sebaa</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Same broad growth belt, residential outward push. Ain Sebaa sits in the broader southeast expansion and shares Hay Al Ouafaa's profile — emerging new-build activity, limited resale history, entry-level pricing, and Daam Sakani Tier 1 eligibility.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Ain Sebaa — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Emerging; varies</td></tr>
-              <tr><td>Resale</td><td class="pf">Limited data</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">1,500–2,000 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Early-entry buyers in emerging zones.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE 8: NORTH KÉNITRA -->
-  <section id="north-kenitra" style="background:var(--steel);padding:var(--section-pad);">
-    <div class="zone-block">
-      <div class="zone-num">08</div>
-      <p class="zone-eyebrow">Zone 08 — Northern Edge</p>
-      <h2 class="zone-title">North Kénitra</h2>
-      <div class="sub-hoods">
-        <span class="sub-hood-chip">Al Assam</span>
-        <span class="sub-hood-chip">El Kartoune</span>
-      </div>
-      <div class="zone-badges" style="margin-bottom:1.6rem;">
-        <span class="lgv-pill">&#x2B21; LGV 20–30 min drive</span>
-      </div>
-      <p class="body-text">The northern edge of the city — less prominent in real estate marketing, more local in character. Al Assam and El Kartoune are part of everyday residential Kénitra rather than the growth or investment narratives that dominate discourse about the city's other zones.</p>
-
-      <h3 class="sub-zone-title">Al Assam</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">A more local northern neighbourhood with less visibility in real estate marketing. Part of the city's everyday residential fabric rather than any investment narrative. Limited transaction data makes price benchmarking difficult — local resale is case by case. Daam Sakani Tier 1 applies where appropriately priced units are available.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">Al Assam — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Limited market visibility</td></tr>
-              <tr><td>Resale</td><td class="pf">Local — case by case</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">1,800–2,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 — where available</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Local buyers seeking the most affordable access point.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-zone-title">El Kartoune</h3>
-      <div class="zone-grid">
-        <div>
-          <p class="body-text">Same broad northern logic as Al Assam, with a more local character. El Kartoune has limited visibility in standard listings platforms — buyers here are typically navigating the local market through direct contacts rather than online aggregators. Price discovery requires on-the-ground knowledge. Daam Sakani Tier 1 applies where available.</p>
-        </div>
-        <div class="zone-panel">
-          <p class="zone-panel-label">El Kartoune — Pricing</p>
-          <table class="price-mini-table">
-            <thead><tr><th>Type</th><th>Range</th></tr></thead>
-            <tbody>
-              <tr><td>New build</td><td class="pf">Limited market visibility</td></tr>
-              <tr><td>Resale</td><td class="pf">Local — case by case</td></tr>
-              <tr><td>Monthly rent</td><td class="pf">1,800–2,500 MAD</td></tr>
-            </tbody>
-          </table>
-          <div class="zone-badges">
-            <span class="daam-t1">Daam Tier 1 — where available</span>
-          </div>
-          <div class="best-for">
-            <div class="best-for-label">Best for</div>
-            <div class="best-for-text">Local buyers seeking the most affordable access point.</div>
-          </div>
-        </div>
-      </div>
-
-      <p class="body-text" style="margin-top:2rem;font-style:italic;">Looking at a specific neighbourhood or listing in Kénitra? We are happy to provide independent analysis.</p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
   <section id="faq" class="faq-section" style="padding:var(--section-pad);">
     <p class="eyebrow">Questions</p>
     <h2 class="section-title" style="color:var(--navy);">Frequently Asked Questions<br>About Kénitra Neighbourhoods.</h2>
     <div class="faq-list" style="margin-top:2.5rem;max-width:820px;">
-      <div class="faq-item">
-        <button class="faq-question" type="button">Which zone offers the best investment return in Kénitra? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p class="faq-answer-text">For capital appreciation and resale liquidity, Centre Ville has historically outperformed all other zones. Its LGV adjacency, commercial concentration, and limited supply of quality new stock sustain premium pricing. For gross rental yield, West and South-East Kénitra can produce 6–8% on entry-level stock — but liquidity at exit is significantly lower. Most investment-grade buyers should prioritise Centre Ville or South Kénitra (Bir Rami) for the balance of yield and liquidity.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">I want to use Daam Sakani — which zones give me the most choice of qualifying units? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p class="faq-answer-text">Kasbah Mehdia Region (Addoha, Alliance), West Kénitra, South-East Kénitra, and North Kénitra have the widest selection of Daam Sakani Tier 1 units (≤300,000 MAD). For Tier 2 (300,001–700,000 MAD), South Kénitra (Bir Rami) and East Kénitra (Al Montazah, Hay Nahda) offer the most recently permitted qualifying inventory. Centre Ville has qualifying units at the smaller-size end but supply is more limited.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">How much does LGV proximity actually affect property value? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p class="faq-answer-text">The LGV station's location in Centre Ville is one of the primary structural reasons for the zone's price premium. Buyers who commute to Rabat (14 min) or Casablanca (55 min) by LGV are concentrated in Centre Ville and immediate surrounds. Zones beyond 20 minutes' drive to the station — West, South-East, North — are less affected by LGV demand and trade at larger discounts to Centre Ville. For investment purposes, LGV-adjacent zones have historically shown stronger price resilience during market softening.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">Can I buy in Mehdia Beach as a non-resident foreign investor? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p class="faq-answer-text">Yes — foreign nationals can purchase property in Mehdia Beach and all other Kénitra zones without restriction. The standard foreign buyer process applies: purchase must be funded through a CIM account (compte en devises ou compte en dirhams convertibles) opened at a Moroccan bank, the transfer must be documented at the notary, and conversion documentation enables full repatriation of sale proceeds under the investment code. Foreign buyers are not eligible for Daam Sakani, which is reserved for Moroccan nationals.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">What is the difference between Bir Rami Ouest and Bir Rami Est in practical terms? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p class="faq-answer-text">Bir Rami Ouest is the older and more established of the two sub-zones, with more retail development, better road infrastructure, and slightly higher resale values. Bir Rami Est is newer, with more uniform mid-rise apartment blocks, lower prices, and fewer immediate amenities — but newer construction quality and a larger proportion of post-2023 permitted stock. For Daam Sakani buyers, Bir Rami Est may offer more qualifying units at better prices; for resale-focused buyers, Bir Rami Ouest has the more established market.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">Which zones are best for an MRE buyer returning to Morocco who wants to place family in the property? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p class="faq-answer-text">For MRE buyers using the Daam Sakani bail gratuit arrangement (placing a parent, child, or spouse in the property free of charge to satisfy the 5-year condition), the most cost-effective zones are Kasbah Mehdia Region and South Kénitra, where Tier 2 units in the 400,000–650,000 MAD range are most abundant. Centre Ville is a strong choice if capital appreciation is the primary objective and the family member will benefit from the LGV connectivity. West and South-East Kénitra suit MRE buyers with tight budgets targeting Tier 1 Daam Sakani.</p></div>
-      </div>
+      <div class="faq-item"><button class="faq-question" type="button">Which zone offers the strongest overall investment profile? <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">For capital appreciation, liquidity, and commuter defensibility, Centre Ville remains the strongest all-round zone. East-Central and Campus can work well for central-adjacent or rental-led strategies, while South-Central Kénitra offers a practical balance between price and usability for family owner-occupiers.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">Where do I get the widest Daam Sakani choice? <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">For Tier 1 logic, Addoha-side Kasbah Mehdia, parts of the western belts, and the lower-cost South-East and North edges remain the clearest starting points. For Tier 2, South-Central Kénitra, selected South Kénitra projects, Alliance-side Kasbah Mehdia, and some East Kénitra pockets usually provide the most usable stock. Centre Ville qualifies only selectively.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">Why split West-Central from West Kénitra? <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">Because Taibia, La Cite, Le Vallon, and Quartier Sayad sit closer to the centre-facing city fabric than Oulad Oujih, Al Haouzia, Ismailia, and Al Haddadda. They do not trade like Centre Ville, but they also do not behave like the deeper western belt.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">Why separate Campus Universitaire from Centre Ville? <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">The campus side is physically separated by the rail corridor and functions more as a rental-driven university belt than as part of the pure premium central core. For mapping and market logic, it reads better as its own zone.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">Are Entrée de Kénitra and the Forêt Urbaine part of South-East Kénitra? <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">No. They are useful orientation landmarks, but not residential sub-neighbourhoods in this guide. South-East Kénitra is limited here to Saknia, Hay El Oufaa, and Ain Sebaa.</p></div></div>
     </div>
   </section>
 
-  <!-- OPP SECTION -->
   <section class="opp-section">
     <div style="max-width:900px;margin:0 auto;">
       <p class="eyebrow">Current Opportunity</p>
       <h2 class="section-title" style="color:var(--white);">Elaf Sky View — Centre Ville Kénitra.</h2>
       <div class="opp-box">
-        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.72);max-width:700px;margin-bottom:2rem;">Elaf Sky View is a new residential development on Avenue Youssef Ben Tachfine in the heart of Centre Ville — within the premium core described in Zone 01 above. Select units are priced within the Daam Sakani Tier 2 band (300,001–700,000 MAD), qualifying eligible first-time buyers for the 70,000 MAD direct subsidy.</p>
+        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.72);max-width:700px;margin-bottom:2rem;">Elaf Sky View sits inside the true Centre Ville logic outlined above. For buyers who want the strongest central resale story, walkable station access, and selective Daam Sakani Tier 2 eligibility, it remains one of the cleanest current fits in the city.</p>
         <div class="cta-actions">
           <a href="../elaf-sky-view.html" class="btn-gold">View Elaf Sky View</a>
           <a href="../index.html#contact" class="btn-outline-dark">Speak to an Advisor</a>
@@ -1130,77 +396,6 @@
       </div>
     </div>
   </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">Contact</p>
-    <h2 class="section-title" style="color:var(--white);">Tell Us What You Are<br>Trying to Buy or Build.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">Whether you are comparing zones, buying from abroad, returning home, or bringing a development to market — tell us your situation and we will point you to the right next step.</p>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div>
-              <div class="contact-item-label">Email</div>
-              <div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">☎</div>
-            <div>
-              <div class="contact-item-label">Phone &amp; WhatsApp</div>
-              <div class="contact-item-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">◎</div>
-            <div>
-              <div class="contact-item-label">Headquarters</div>
-              <div class="contact-item-value">70 Av. Youssef Ben Tachfine,<br>Kénitra 14000, Morocco<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(future office)</em></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST">
-          <input type="hidden" name="subject" value="Enquiry from RahimInternational.com">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">First Name</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="Your first name" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">Last Name</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="Your last name" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">I am a</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">Select your profile</option>
-              <option>Real Estate Developer seeking a sales partner</option>
-              <option>International investor</option>
-              <option>Moroccan diaspora / MRE buyer</option>
-              <option>Local investor</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what you are working on…"></textarea>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">Send Enquiry</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
 </main>
 <footer>
   <div class="footer-grid">
@@ -1212,6 +407,57 @@
   <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. All rights reserved.</div><div class="footer-langs"><a href="kenitra-neighborhood-guide.html" class="active">EN</a><a href="../fr/guides/kenitra-guide-quartiers.html">FR</a><a href="../ar/guides/kenitra-dalil-ahya.html">AR</a></div></div>
 </footer>
 <div class="float-buttons"><a href="https://wa.me/212642773249?text=Hello%2C%20I'd%20like%20to%20inquire%20about%20your%20real%20estate%20advisory%20services." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><button class="btn-back-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button></div>
+<script>
+  (function() {
+    const zoneData = {
+      'centre-ville': { title: 'Centre Ville', orientation: 'The true city centre: premium, walkable, LGV-adjacent, and the clearest pricing anchor in Kénitra.', buy: '7,000–15,000 MAD/m2', rent: '2,150–8,500 MAD/month', lgv: 'Inside the zone', daam: 'Limited, mostly smaller qualifying units', chips: ['Maamora', 'Mimosas', 'La Ville Haute', 'Val Fleury'], copy: 'Best for buyers who want walkability, resale depth, and the strongest premium logic in Kénitra.', target: '#centre-ville' },
+      'east-central-kenitra': { title: 'East-Central Kénitra', orientation: 'Central-adjacent eastern fabric with lower pricing than Centre Ville but better location logic than the outer east.', buy: '6,500–10,000 MAD/m2', rent: '2,300–4,500 MAD/month', lgv: '5–15 min drive', daam: 'Tier 2 in selected units', chips: ['El Mellah', 'Quartier Genie', 'La Cigogne', 'La Chenille', 'Jarda al Qadi'], copy: 'Best for buyers who want central convenience without paying full core pricing.', target: '#east-central-kenitra' },
+      'campus-universitaire': { title: 'Campus Universitaire', orientation: 'A rail-separated university belt driven more by rental demand than by pure premium centrality.', buy: 'Resale-led; limited new stock', rent: '2,500–4,500 MAD/month', lgv: 'Short drive; physically separated by tracks', daam: 'Selected small units only', chips: ['Campus Universitaire Ibn Tofail'], copy: 'Best for rental investors targeting student demand.', target: '#campus-universitaire' },
+      'kasbah-mehdia': { title: 'Kasbah Mehdia', orientation: 'North-west growth corridor blending low-entry social stock, newer Alliance product, and organic kasbah-side housing.', buy: '200,000 MAD total to 9,500 MAD/m2', rent: '2,000–5,000 MAD/month', lgv: '18–28 min drive', daam: 'Strong Tier 1 and Tier 2 availability', chips: ['Kasbah El Mehdia', 'Alliance Mehdia', 'Addoha', 'Zone Villa du Golf'], copy: 'Best for first-home buyers and subsidy-led buyers seeking structured north-west growth.', target: '#kasbah-mehdia' },
+      'mehdia-beach': { title: 'Mehdia Beach', orientation: 'A distinct coastal market driven by summer positioning, leisure demand, and second-home logic.', buy: 'From 12,000 MAD/m2 in prime stock', rent: '3,200–5,500+ MAD/month', lgv: '25–35 min drive', daam: 'Possible but strategically awkward', chips: ['Plage Mehdia', 'Port de Mehdia'], copy: 'Best for lifestyle buyers, MRE second homes, and short-let strategies.', target: '#mehdia-beach' },
+      'south-central-kenitra': { title: 'South-Central Kénitra', orientation: 'The first southern ring below the centre, more connected to core Kénitra than the deeper southern belt.', buy: '6,500–8,800 MAD/m2', rent: '2,800–5,500 MAD/month', lgv: '10–18 min drive', daam: 'Strongest in apartment-led stock', chips: ['Bir Rami Ouest', 'Bir Rami Est', 'Maghreb Al Arabi'], copy: 'Best for families who want practical centre access without Centre Ville pricing.', target: '#south-central-kenitra' },
+      'south-kenitra': { title: 'South Kénitra', orientation: 'The deeper southern family belt, more affordability-led and more outward than South-Central Kénitra.', buy: '6,200–9,000 MAD/m2', rent: '2,300–4,800 MAD/month', lgv: '15–24 min drive', daam: 'Strong Tier 1 and Tier 2 pockets', chips: ['Bir Rami Sud', 'Al Hadika 1', 'Al Hadika 2', 'Jenane'], copy: 'Best for budget-conscious family buyers who still want coherent urban residential fabric.', target: '#south-kenitra' },
+      'west-central-kenitra': { title: 'West-Central Kénitra', orientation: 'A bridge ring between the core and the deeper western belt.', buy: '6,000–8,500 MAD/m2', rent: '2,500–4,500 MAD/month', lgv: '10–20 min drive', daam: 'Tier 1 in pockets; Tier 2 in newer apartments', chips: ['Taibia', 'La Cite', 'Le Vallon', 'Quartier Sayad'], copy: 'Best for owner-occupiers who want west-of-centre value without moving too far outward.', target: '#west-central-kenitra' },
+      'west-kenitra': { title: 'West Kénitra', orientation: 'The broader western housing belt, more outward and generally more value-driven than the West-Central ring.', buy: '6,500–9,000 MAD/m2', rent: '2,500–5,500 MAD/month', lgv: '18–30 min drive', daam: 'Broad fit in lower-cost pockets', chips: ['Oulad Oujih', 'Al Haouzia', 'Ismailia', 'Al Haddadda'], copy: 'Best for value-led buyers and practical long-let investors.', target: '#west-kenitra' },
+      'east-kenitra': { title: 'East Kénitra', orientation: 'The larger eastern residential city beyond the east-central ring, mixing older medina fabric with selected stronger pockets.', buy: '5,800–9,000 MAD/m2', rent: '1,800–3,500 MAD/month', lgv: '12–25 min drive', daam: 'Tier 1 common; Tier 2 strongest around Al Montazah', chips: ['Ancienne Medina', 'Quartiers Populaires', 'Al Montazah', 'Bab Fes'], copy: 'Best for local households trading prestige for affordability and everyday practicality.', target: '#east-kenitra' },
+      'southeast-kenitra': { title: 'South-East Kénitra', orientation: 'The actual residential south-east, limited here to Saknia, Hay El Oufaa, and Ain Sebaa.', buy: '6,000–9,000 MAD/m2', rent: '1,500–2,300 MAD/month', lgv: '20–30 min drive', daam: 'Strong Tier 1 with selected Tier 2 pockets', chips: ['Saknia', 'Hay El Oufaa', 'Ain Sebaa'], copy: 'Best for lower-entry owner-occupiers comfortable with a more outward growth-belt address.', target: '#southeast-kenitra' },
+      'north-kenitra': { title: 'North Kénitra', orientation: 'A lower-profile northern residential edge with thin pricing visibility and a more local market feel.', buy: 'Low-visibility local resale', rent: '1,800–2,500 MAD/month', lgv: '20–30 min drive', daam: 'Tier 1 where qualifying units exist', chips: ["Quartier l'Assam", 'Fouarate'], copy: 'Best for highly budget-sensitive local buyers who prioritise entry cost over liquidity.', target: '#north-kenitra' }
+    };
+    const zones = Array.from(document.querySelectorAll('.map-zone'));
+    const panel = document.getElementById('map-zone-panel');
+    if (!zones.length || !panel) return;
+    const title = panel.querySelector('[data-map-field="title"]');
+    const orientation = panel.querySelector('[data-map-field="orientation"]');
+    const buy = panel.querySelector('[data-map-field="buy"]');
+    const rent = panel.querySelector('[data-map-field="rent"]');
+    const lgv = panel.querySelector('[data-map-field="lgv"]');
+    const daam = panel.querySelector('[data-map-field="daam"]');
+    const chips = panel.querySelector('[data-map-field="chips"]');
+    const copy = panel.querySelector('[data-map-field="copy"]');
+    const primaryLink = panel.querySelector('[data-map-field="primaryLink"]');
+    function renderZone(zoneId) {
+      const zone = zoneData[zoneId];
+      if (!zone) return;
+      zones.forEach((button) => {
+        const active = button.getAttribute('data-zone') === zoneId;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      title.textContent = zone.title;
+      orientation.textContent = zone.orientation;
+      buy.textContent = zone.buy;
+      rent.textContent = zone.rent;
+      lgv.textContent = zone.lgv;
+      daam.textContent = zone.daam;
+      copy.textContent = zone.copy;
+      primaryLink.setAttribute('href', zone.target);
+      primaryLink.textContent = 'Jump To ' + zone.title;
+      chips.innerHTML = zone.chips.map((item) => '<span>' + item + '</span>').join('');
+    }
+    zones.forEach((button) => button.addEventListener('click', () => renderZone(button.getAttribute('data-zone'))));
+    renderZone('centre-ville');
+  })();
+</script>
 <script src="../shared.js"></script>
 </body>
 </html>
