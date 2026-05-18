@@ -25,10 +25,47 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../shared.css">
 <style>
-  .mi-hero{padding:9rem 5% 5rem;background:radial-gradient(circle at 80% 18%,rgba(183,106,63,.26),transparent 32%),linear-gradient(135deg,var(--ink) 0%,var(--navy) 58%,#172b4c 100%);position:relative;overflow:hidden;}
+  .mi-hero{padding:9rem 5% 5rem;background:
+      radial-gradient(circle at 82% 18%,rgba(183,106,63,.24),transparent 28%),
+      linear-gradient(102deg,rgba(8,15,30,.96) 8%,rgba(13,27,45,.9) 38%,rgba(17,43,76,.58) 66%,rgba(15,35,62,.78) 100%),
+      url('../marketinsights.png.jpeg') center/cover no-repeat;
+    position:relative;overflow:hidden;}
   .mi-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(210,180,134,.04) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(210,180,134,.03) 80px);}
-  .mi-hero-inner{position:relative;z-index:2;max-width:760px;}
-  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+  .mi-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,12,23,.18),rgba(6,12,23,.38));pointer-events:none;}
+  .mi-overview{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.9fr);gap:2.5rem;align-items:end;max-width:1280px;margin:0 auto;}
+  .mi-hero-inner{max-width:760px;}
+  .mi-stat-card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(210,180,134,.24);backdrop-filter:blur(12px);padding:2rem 2rem 2.2rem;box-shadow:0 30px 80px rgba(0,0,0,.18);}
+  .mi-stat-label{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-bottom:1rem;}
+  .mi-stat-title{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;line-height:1;color:var(--white);margin:0 0 .9rem;}
+  .mi-stat-text{font-size:.95rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.7);margin:0 0 1.4rem;}
+  .mi-stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(210,180,134,.18);}
+  .mi-stat-cell{background:rgba(10,21,39,.72);padding:1rem .9rem;}
+  .mi-stat-value{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);margin-bottom:.2rem;}
+  .mi-stat-copy{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.54);}
+  .mi-feature-wrap{background:linear-gradient(180deg,#f6f1ea 0%,#ece5dc 100%);padding:var(--section-pad);}
+  .mi-feature-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.85fr);gap:1px;background:var(--border);box-shadow:var(--shadow);}
+  .mi-featured,.mi-side-column{background:var(--white);}
+  .mi-featured{padding:3rem;display:flex;flex-direction:column;justify-content:space-between;min-height:460px;background:
+      linear-gradient(135deg,rgba(200,168,119,.15),transparent 42%),
+      linear-gradient(180deg,#fff,#f8f5f0);}
+  .mi-feature-label,.mi-side-label{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);}
+  .mi-feature-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,4vw,3.6rem);font-weight:300;line-height:1.02;color:var(--navy);margin:.85rem 0 1rem;}
+  .mi-feature-text{max-width:48rem;font-size:.96rem;font-weight:300;line-height:1.95;color:var(--text-muted);margin:0 0 1.6rem;}
+  .mi-feature-meta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);}
+  .mi-feature-arrow{display:inline-flex;align-self:flex-start;margin-top:1.7rem;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);border-bottom:1px solid rgba(183,106,63,.28);padding-bottom:.28rem;}
+  .mi-side-column{display:grid;grid-template-rows:repeat(3,1fr);}
+  .mi-side-card{padding:2rem 2rem 2.2rem;text-decoration:none;color:inherit;display:block;border-top:1px solid var(--border);transition:background .25s ease,transform .25s ease;}
+  .mi-side-column > *:first-child{border-top:none;}
+  .mi-side-card:hover{background:#fbf8f4;transform:translateY(-2px);}
+  .mi-side-card.is-soon{background:linear-gradient(180deg,#fff,#faf7f2);}
+  .mi-side-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;line-height:1.14;color:var(--navy);margin:.7rem 0 .8rem;}
+  .mi-side-text{font-size:.86rem;font-weight:300;line-height:1.8;color:var(--text-muted);margin:0;}
+  .mi-index-wrap{padding:var(--section-pad);background:linear-gradient(180deg,#fbf7f1 0%,#f1e8dd 100%);}
+  .mi-index-head{max-width:1280px;margin:0 auto 2.25rem;display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;}
+  .mi-index-copy{max-width:720px;}
+  .mi-chip-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.25rem;}
+  .mi-chip{display:inline-flex;padding:.55rem .8rem;border:1px solid rgba(15,27,43,.12);font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:rgba(255,255,255,.72);}
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);max-width:1280px;margin:0 auto;box-shadow:var(--shadow);}
   .article-card{background:var(--white);padding:2.5rem;text-decoration:none;display:block;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;}
   .article-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--copper),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
   .article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
@@ -38,7 +75,16 @@
   .article-card-text{font-size:.86rem;font-weight:300;line-height:1.8;color:var(--text-muted);margin-bottom:1.2rem;}
   .article-card-meta{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);}
   .article-card-arrow{display:inline-flex;font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);border-bottom:1px solid rgba(183,106,63,.3);padding-bottom:.2rem;margin-top:1rem;}
-  @media(max-width:900px){.articles-grid{grid-template-columns:1fr;}}
+  .mi-archive-note{font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);}
+  @media(max-width:1100px){
+    .mi-overview,.mi-feature-grid{grid-template-columns:1fr;}
+    .mi-side-column{grid-template-rows:auto;}
+  }
+  @media(max-width:900px){
+    .articles-grid,.mi-stat-strip{grid-template-columns:1fr;}
+    .mi-hero{padding:8rem 5% 4.2rem;}
+    .mi-featured,.mi-side-card{padding:2rem 1.6rem;}
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://rahiminternational.com/"},{"@type":"ListItem","position":2,"name":"Market Insights","item":"https://rahiminternational.com/market-insights/index.html"}]}</script>
 </head>
@@ -66,22 +112,107 @@
 <nav class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span class="current">Market Insights</span></nav>
 
 <div class="mi-hero">
-  <div class="mi-hero-inner">
-    <p class="eyebrow">Rahim International Analysis</p>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.4rem);font-weight:300;line-height:1.06;color:var(--white);">Market Insights<br><em style="color:var(--gold);font-style:italic;">Rabat-Salé-Kénitra.</em></h1>
-    <p style="font-size:1rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.66);max-width:600px;margin-top:1.5rem;">Editorial analysis for buyers, investors, and developers active in the Morocco corridor — pricing, geography, and the logic behind where value sits now.</p>
+  <div class="mi-overview">
+    <div class="mi-hero-inner">
+      <p class="eyebrow">Rahim International Analysis</p>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.4rem);font-weight:300;line-height:1.06;color:var(--white);">Market Insights<br><em style="color:var(--gold);font-style:italic;">Rabat-Salé-Kénitra.</em></h1>
+      <p style="font-size:1rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.66);max-width:600px;margin-top:1.5rem;">Editorial analysis for buyers, investors, and developers active in the Morocco corridor — pricing, geography, and the logic behind where value sits now.</p>
+    </div>
+    <aside class="mi-stat-card reveal" aria-label="Editorial focus">
+      <div class="mi-stat-label">What This Section Covers</div>
+      <h2 class="mi-stat-title">From launch pricing to neighbourhood logic.</h2>
+      <p class="mi-stat-text">We use this section to explain how value behaves on the ground: where premiums concentrate, how assistance programs affect absorption, and why two projects with similar finishes can perform very differently.</p>
+      <div class="mi-stat-strip">
+        <div class="mi-stat-cell">
+          <span class="mi-stat-value">01</span>
+          <span class="mi-stat-copy">Live analysis now</span>
+        </div>
+        <div class="mi-stat-cell">
+          <span class="mi-stat-value">04</span>
+          <span class="mi-stat-copy">Themes in development</span>
+        </div>
+        <div class="mi-stat-cell">
+          <span class="mi-stat-value">RSK</span>
+          <span class="mi-stat-copy">Primary market focus</span>
+        </div>
+      </div>
+    </aside>
   </div>
 </div>
 
-<section style="background:linear-gradient(135deg,var(--steel),#f7f1ea);padding:var(--section-pad);">
+<section class="mi-feature-wrap">
+  <div class="mi-feature-grid">
+    <a class="mi-featured reveal" href="kenitra-neighborhoods.html">
+      <div>
+        <div class="mi-feature-label">Featured Insight</div>
+        <h2 class="mi-feature-title">The updated Kénitra neighbourhood guide breaks the city into twelve zones that behave like twelve different buyer markets.</h2>
+        <p class="mi-feature-text">The new guide no longer treats Kénitra as a simple centre-versus-periphery story. It maps the city from Centre Ville out through East-Central, West-Central, South-Central, campus, coastal, and outer-belt zones, showing how pricing, rental logic, Daam Sakani fit, and day-to-day usability shift from one ring to the next.</p>
+        <div class="mi-feature-meta">
+          <span>Neighbourhood Analysis</span>
+          <span>May 2026</span>
+          <span>7 Min Read</span>
+        </div>
+      </div>
+      <span class="mi-feature-arrow">Read Featured Analysis →</span>
+    </a>
+    <div class="mi-side-column">
+      <a class="mi-side-card reveal" href="../guides/kenitra-vs-rabat.html">
+        <div class="mi-side-label">Related Guide</div>
+        <h3 class="mi-side-title">Kénitra vs Rabat for buyers comparing lifestyle, budget, and appreciation logic.</h3>
+        <p class="mi-side-text">A practical comparison for buyers deciding whether they should pay for centrality in Rabat or capture newer-build value in Kénitra.</p>
+      </a>
+      <article class="mi-side-card is-soon reveal">
+        <div class="mi-side-label">Coming Next</div>
+        <h3 class="mi-side-title">How Daam Sakani changes pricing power across different buyer brackets.</h3>
+        <p class="mi-side-text">We are preparing an editorial note on where subsidy-backed demand compresses stock fastest and which projects benefit most.</p>
+      </article>
+      <article class="mi-side-card is-soon reveal">
+        <div class="mi-side-label">Coming Next</div>
+        <h3 class="mi-side-title">Pre-construction pricing logic for projects that launch below later resale benchmarks.</h3>
+        <p class="mi-side-text">A closer look at launch discounts, phase-by-phase pricing, and how buyers should interpret promised upside.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="mi-index-wrap">
+  <div class="mi-index-head">
+    <div class="mi-index-copy">
+      <p class="section-eyebrow">Editorial Archive</p>
+      <h2 class="section-title">What We’re Tracking Across the Corridor</h2>
+      <p class="section-copy">This section is built to become a living archive of market logic: pricing bands, buyer behavior, support-program impact, and the specific neighbourhood patterns that matter more than generic market headlines.</p>
+      <div class="mi-chip-row" aria-label="Topics">
+        <span class="mi-chip">Kénitra</span>
+        <span class="mi-chip">Neighbourhoods</span>
+        <span class="mi-chip">Buyer Strategy</span>
+        <span class="mi-chip">Pricing Logic</span>
+        <span class="mi-chip">Daam Sakani</span>
+      </div>
+    </div>
+    <div class="mi-archive-note">More analysis is being added on an ongoing basis.</div>
+  </div>
   <div class="articles-grid">
     <a class="article-card reveal" href="kenitra-neighborhoods.html">
       <div class="article-card-label">Neighbourhood Analysis</div>
-      <h2 class="article-card-title">Kénitra's Geography of Value</h2>
-      <p class="article-card-text">Centre Ville commands a 40–60% premium over peripheral zones. Understanding which part of the city you're buying in matters as much as the asking price per square metre.</p>
+      <h2 class="article-card-title">Kénitra's Twelve-Zone Buyer Map</h2>
+      <p class="article-card-text">A full summary of the updated neighbourhood guide: where the true Centre Ville ends, why Campus stands apart, how the western belts split, and which zones are coastal, family-led, rental-driven, or subsidy-sensitive.</p>
       <div class="article-card-meta">May 2026 · 7 min read</div>
       <span class="article-card-arrow">Read Article →</span>
     </a>
+    <article class="article-card reveal">
+      <div class="article-card-label">Pricing Logic · In Development</div>
+      <h2 class="article-card-title">Why some Kénitra launches look cheap at first and still end up overpriced.</h2>
+      <p class="article-card-text">An upcoming analysis on launch-phase optics, specification inflation, and the difference between headline affordability and true long-term value.</p>
+      <div class="article-card-meta">Drafting now</div>
+      <span class="article-card-arrow">Coming Soon</span>
+    </article>
+    <article class="article-card reveal">
+      <div class="article-card-label">Buyer Strategy · In Development</div>
+      <h2 class="article-card-title">What subsidy-supported demand means for absorption, negotiation room, and resale timing.</h2>
+      <p class="article-card-text">We are building a buyer-facing note on where government support accelerates take-up and where it changes the negotiation dynamic for first movers.</p>
+      <div class="article-card-meta">Research in progress</div>
+      <span class="article-card-arrow">Coming Soon</span>
+    </article>
   </div>
 </section>
 

@@ -185,8 +185,8 @@
   </header>
 
   <nav class="guide-nav" aria-label="In-page navigation">
-    <a href="#overview">Overview</a>
     <a href="#interactive-map">Map</a>
+    <a href="#overview">Overview</a>
     <a href="#centre-ville">Centre Ville</a>
     <a href="#east-central-kenitra">East-Central</a>
     <a href="#campus-universitaire">Campus</a>
@@ -201,6 +201,50 @@
     <a href="#north-kenitra">North</a>
     <a href="#faq">FAQ</a>
   </nav>
+
+  <section id="interactive-map" class="map-section">
+    <div class="map-section-intro">
+      <p class="eyebrow">Interactive Zone Map</p>
+      <h2 class="section-title" style="color:var(--navy);">Twelve Zones<br><em>on the Satellite Map.</em></h2>
+      <p class="body-text">Click any zone to see its price range, rental benchmark, LGV access time, and Daam Sakani fit. Use the zone numbers to cross-reference the detailed sections below.</p>
+    </div>
+    <div class="map-shell">
+      <div class="map-board" aria-label="Satellite-based Kénitra zone map">
+        <img class="map-image" src="../kenitramap.png" alt="Satellite map of Kénitra with zone overlays">
+        <button class="map-zone map-zone--beach" type="button" data-zone="mehdia-beach" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">05</span><span class="map-zone-name">Mehdia Beach</span></span></button>
+        <button class="map-zone map-zone--kasbah" type="button" data-zone="kasbah-mehdia" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">04</span><span class="map-zone-name">Kasbah Mehdia</span></span></button>
+        <button class="map-zone map-zone--west" type="button" data-zone="west-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">09</span><span class="map-zone-name">West Kénitra</span></span></button>
+        <button class="map-zone map-zone--west-central" type="button" data-zone="west-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">08</span><span class="map-zone-name">West-Central</span></span></button>
+        <button class="map-zone map-zone--centre is-active" type="button" data-zone="centre-ville" aria-controls="map-zone-panel" aria-pressed="true"><span class="map-zone-label"><span class="map-zone-num">01</span><span class="map-zone-name">Centre Ville</span></span></button>
+        <button class="map-zone map-zone--east-central" type="button" data-zone="east-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">02</span><span class="map-zone-name">East-Central</span></span></button>
+        <button class="map-zone map-zone--campus" type="button" data-zone="campus-universitaire" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">03</span><span class="map-zone-name">Campus</span></span></button>
+        <button class="map-zone map-zone--east" type="button" data-zone="east-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">10</span><span class="map-zone-name">East</span></span></button>
+        <button class="map-zone map-zone--south-central" type="button" data-zone="south-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">06</span><span class="map-zone-name">South-Central</span></span></button>
+        <button class="map-zone map-zone--south" type="button" data-zone="south-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">07</span><span class="map-zone-name">South</span></span></button>
+        <button class="map-zone map-zone--southeast" type="button" data-zone="southeast-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">11</span><span class="map-zone-name">South-East</span></span></button>
+        <button class="map-zone map-zone--north" type="button" data-zone="north-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">12</span><span class="map-zone-name">North</span></span></button>
+
+      </div>
+      <aside class="map-panel" id="map-zone-panel" aria-live="polite">
+        <div class="map-panel-eyebrow">Selected Zone</div>
+        <h3 class="map-panel-title" data-map-field="title">Centre Ville</h3>
+        <p class="map-panel-sub" data-map-field="orientation">The true city centre: premium, walkable, LGV-adjacent, and still the cleanest reference point for pricing the rest of Kénitra.</p>
+        <div class="map-panel-grid">
+          <div class="map-metric"><span class="map-metric-label">Buy Range</span><span class="map-metric-value" data-map-field="buy">7,000–15,000 MAD/m2</span></div>
+          <div class="map-metric"><span class="map-metric-label">Long-Let Rent</span><span class="map-metric-value" data-map-field="rent">2,150–8,500 MAD/month</span></div>
+          <div class="map-metric"><span class="map-metric-label">LGV Relationship</span><span class="map-metric-value" data-map-field="lgv">Inside the zone</span></div>
+          <div class="map-metric"><span class="map-metric-label">Daam Sakani</span><span class="map-metric-value" data-map-field="daam">Limited, mostly smaller qualifying units</span></div>
+        </div>
+        <div class="map-panel-list" data-map-field="chips"></div>
+        <p class="map-panel-copy" data-map-field="copy">Best for buyers who want walkability, resale depth, and the strongest premium logic in Kénitra.</p>
+        <div class="map-panel-actions">
+          <a class="map-cta map-cta--primary" data-map-field="primaryLink" href="#centre-ville">Jump To Centre Ville</a>
+          <a class="map-cta map-cta--secondary" href="../index.html#contact">Discuss This Zone</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
 
   <section id="overview" style="background:linear-gradient(135deg,var(--steel),#f7f1ea);padding:var(--section-pad);">
     <p class="eyebrow">City Overview</p>
@@ -307,49 +351,6 @@
       </table>
     </div>
     <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">Long-let guidance only. Short-let and summer pricing in Mehdia Beach behaves very differently from the inland market.</p>
-  </section>
-
-  <section id="interactive-map" class="map-section">
-    <div class="map-section-intro">
-      <p class="eyebrow">Interactive Zone Map</p>
-      <h2 class="section-title" style="color:var(--navy);">Twelve Zones<br><em>on the Satellite Map.</em></h2>
-      <p class="body-text">Click any zone to see its price range, rental benchmark, LGV access time, and Daam Sakani fit. Use the zone numbers to cross-reference the detailed sections below.</p>
-    </div>
-    <div class="map-shell">
-      <div class="map-board" aria-label="Satellite-based Kénitra zone map">
-        <img class="map-image" src="../kenitramap.png" alt="Satellite map of Kénitra with zone overlays">
-        <button class="map-zone map-zone--beach" type="button" data-zone="mehdia-beach" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">05</span><span class="map-zone-name">Mehdia Beach</span></span></button>
-        <button class="map-zone map-zone--kasbah" type="button" data-zone="kasbah-mehdia" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">04</span><span class="map-zone-name">Kasbah Mehdia</span></span></button>
-        <button class="map-zone map-zone--west" type="button" data-zone="west-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">09</span><span class="map-zone-name">West Kénitra</span></span></button>
-        <button class="map-zone map-zone--west-central" type="button" data-zone="west-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">08</span><span class="map-zone-name">West-Central</span></span></button>
-        <button class="map-zone map-zone--centre is-active" type="button" data-zone="centre-ville" aria-controls="map-zone-panel" aria-pressed="true"><span class="map-zone-label"><span class="map-zone-num">01</span><span class="map-zone-name">Centre Ville</span></span></button>
-        <button class="map-zone map-zone--east-central" type="button" data-zone="east-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">02</span><span class="map-zone-name">East-Central</span></span></button>
-        <button class="map-zone map-zone--campus" type="button" data-zone="campus-universitaire" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">03</span><span class="map-zone-name">Campus</span></span></button>
-        <button class="map-zone map-zone--east" type="button" data-zone="east-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">10</span><span class="map-zone-name">East</span></span></button>
-        <button class="map-zone map-zone--south-central" type="button" data-zone="south-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">06</span><span class="map-zone-name">South-Central</span></span></button>
-        <button class="map-zone map-zone--south" type="button" data-zone="south-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">07</span><span class="map-zone-name">South</span></span></button>
-        <button class="map-zone map-zone--southeast" type="button" data-zone="southeast-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">11</span><span class="map-zone-name">South-East</span></span></button>
-        <button class="map-zone map-zone--north" type="button" data-zone="north-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">12</span><span class="map-zone-name">North</span></span></button>
-
-      </div>
-      <aside class="map-panel" id="map-zone-panel" aria-live="polite">
-        <div class="map-panel-eyebrow">Selected Zone</div>
-        <h3 class="map-panel-title" data-map-field="title">Centre Ville</h3>
-        <p class="map-panel-sub" data-map-field="orientation">The true city centre: premium, walkable, LGV-adjacent, and still the cleanest reference point for pricing the rest of Kénitra.</p>
-        <div class="map-panel-grid">
-          <div class="map-metric"><span class="map-metric-label">Buy Range</span><span class="map-metric-value" data-map-field="buy">7,000–15,000 MAD/m2</span></div>
-          <div class="map-metric"><span class="map-metric-label">Long-Let Rent</span><span class="map-metric-value" data-map-field="rent">2,150–8,500 MAD/month</span></div>
-          <div class="map-metric"><span class="map-metric-label">LGV Relationship</span><span class="map-metric-value" data-map-field="lgv">Inside the zone</span></div>
-          <div class="map-metric"><span class="map-metric-label">Daam Sakani</span><span class="map-metric-value" data-map-field="daam">Limited, mostly smaller qualifying units</span></div>
-        </div>
-        <div class="map-panel-list" data-map-field="chips"></div>
-        <p class="map-panel-copy" data-map-field="copy">Best for buyers who want walkability, resale depth, and the strongest premium logic in Kénitra.</p>
-        <div class="map-panel-actions">
-          <a class="map-cta map-cta--primary" data-map-field="primaryLink" href="#centre-ville">Jump To Centre Ville</a>
-          <a class="map-cta map-cta--secondary" href="../index.html#contact">Discuss This Zone</a>
-        </div>
-      </aside>
-    </div>
   </section>
 
   <section id="centre-ville" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">01</div><p class="zone-eyebrow">Zone 01 — True Centre</p><h2 class="zone-title">Centre Ville</h2><div class="sub-hoods"><span class="sub-hood-chip">Quartier Maamora / Le village</span><span class="sub-hood-chip">Quartier des Mimosas</span><span class="sub-hood-chip">La Ville Haute</span><span class="sub-hood-chip">Val Fleury</span></div><div class="zone-grid"><div><p class="body-text">This is the historic, civic, and commercial core of Kénitra, and for many buyers it remains the most practical part of the city. It offers the strongest walkability, the densest concentration of daily services, and the clearest link to the LGV station and the rest of the Rabat-Casablanca corridor. This is the side of Kénitra where daily life works on foot: shops, cafés, schools, clinics, banks, taxis, and civic spaces all sit within the same urban fabric.</p><p class="body-text">Maamora and Mimosas represent the strongest part of the central premium, combining older stock with newer, more polished residences and some of the city's strongest rental appeal. La Ville Haute stretches toward the Corniche Sebou side, offering a broader mix of apartments and villa pockets at a wider price band. Val Fleury sits at the core's edge — primarily mature villas on established plots from the 1970s and 1980s — and occupies a distinct position as the central zone's villa market.</p></div><div class="zone-panel"><p class="zone-panel-label">Zone Snapshot</p><table class="price-mini-table"><thead><tr><th>Metric</th><th>Guide</th></tr></thead><tbody><tr><td>Buy</td><td class="pf">7,000–15,000 MAD/m²</td></tr><tr><td>Rent</td><td class="pf">2,150–8,500 MAD/month</td></tr><tr><td>LGV</td><td>Inside the zone; often walkable</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">Daam Tier 2 — select smaller units</span><span class="daam-no">Villa stock usually outside subsidy logic</span></div><div class="best-for"><div class="best-for-label">Best for</div><div class="best-for-text">Premium owner-occupiers, commuters, and buyers who care about liquidity first.</div></div></div></div></div></section>
