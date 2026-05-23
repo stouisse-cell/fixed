@@ -58,34 +58,6 @@
   </url>
 
   <!-- ============================================================
-       MARKET INSIGHTS
-       ============================================================ -->
-  <url>
-    <loc>https://rahiminternational.com/market-insights.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights.html"/>
-  </url>
-  <url>
-    <loc>https://rahiminternational.com/fr/market-insights.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights.html"/>
-  </url>
-  <url>
-    <loc>https://rahiminternational.com/ar/market-insights.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/market-insights.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights.html"/>
-  </url>
-
-  <!-- ============================================================
        WHY KENITRA (EN + FR + AR)
        ============================================================ -->
   <url>
@@ -450,34 +422,6 @@
   </url>
 
   <!-- ============================================================
-       GUIDES — COMPLETE BUYER GUIDE
-       ============================================================ -->
-  <url>
-    <loc>https://rahiminternational.com/guides/complete-buyer-guide.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/complete-buyer-guide.html"/>
-  </url>
-  <url>
-    <loc>https://rahiminternational.com/fr/guides/complete-buyer-guide.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/complete-buyer-guide.html"/>
-  </url>
-  <url>
-    <loc>https://rahiminternational.com/ar/guides/complete-buyer-guide.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/complete-buyer-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/complete-buyer-guide.html"/>
-  </url>
-
-  <!-- ============================================================
        GUIDES — FOREIGN INVESTOR GUIDE
        ============================================================ -->
   <url>
@@ -565,28 +509,28 @@
        MARKET INSIGHTS — INDEX (NEW LANDING PAGES)
        ============================================================ -->
   <url>
-    <loc>https://rahiminternational.com/market-insights/index.html</loc>
+    <loc>https://rahiminternational.com/market-insights/</loc>
     <lastmod>2026-05-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/index.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/"/>
   </url>
   <url>
-    <loc>https://rahiminternational.com/fr/analyses-marche/index.html</loc>
+    <loc>https://rahiminternational.com/fr/analyses-marche/</loc>
     <lastmod>2026-05-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/index.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/"/>
   </url>
   <url>
-    <loc>https://rahiminternational.com/ar/tahlilet-souq/index.html</loc>
+    <loc>https://rahiminternational.com/ar/tahlilet-souq/</loc>
     <lastmod>2026-05-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/index.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/"/>
   </url>
   <!-- ============================================================
        MARKET INSIGHTS — BUYER STRATEGY ARTICLE
@@ -642,6 +586,34 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/analyse-marche-kenitra.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-tahlilet-souq-shamil.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-market-analysis.html"/>
+  </url>
+
+  <!-- ============================================================
+       MARKET INSIGHTS — DEMAND DRIVERS ARTICLE
+       ============================================================ -->
+  <url>
+    <loc>https://rahiminternational.com/market-insights/kenitra-demand-drivers.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-demand-drivers.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/tendances-marche-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-itijahat-souq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-demand-drivers.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/analyses-marche/tendances-marche-kenitra.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-demand-drivers.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/tendances-marche-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-itijahat-souq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-demand-drivers.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/tahlilet-souq/kenitra-itijahat-souq.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-demand-drivers.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/tendances-marche-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-itijahat-souq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-demand-drivers.html"/>
   </url>
 
   <!-- ============================================================
