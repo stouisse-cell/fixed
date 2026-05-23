@@ -30,7 +30,7 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../shared.css">
 <style>
-  .gh{padding:9rem 5% 5rem;background:radial-gradient(circle at 80% 18%,rgba(183,106,63,.28),transparent 32%),linear-gradient(135deg,var(--ink) 0%,var(--navy) 58%,#172b4c 100%);position:relative;overflow:hidden;}
+  .gh{padding:9rem 5% 5rem;background:radial-gradient(circle at 80% 18%,rgba(183,106,63,.28),transparent 32%),linear-gradient(135deg,rgba(11,22,41,.92) 0%,rgba(19,41,73,.84) 58%,rgba(23,43,76,.78) 100%),url('../guideindex.png') center/cover;position:relative;overflow:hidden;}
   .gh::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(210,180,134,.04) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(210,180,134,.03) 80px);}
   .gh-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.7fr);gap:4rem;align-items:end;}
   .gh-panel{background:linear-gradient(180deg,rgba(244,247,248,.96),rgba(231,208,189,.9));border:1px solid rgba(183,106,63,.32);box-shadow:var(--shadow);padding:2rem;position:relative;overflow:hidden;}
@@ -56,6 +56,8 @@
   .guide-card.c6 .guide-card-num{color:rgba(74,58,112,.22);}
   .guide-card.c7::before{background:linear-gradient(90deg,#2a5a3a,#4a9a6a);}
   .guide-card.c7 .guide-card-num{color:rgba(42,90,58,.22);}
+  .guide-card.c8::before{background:linear-gradient(90deg,#5a3a2a,#9a6a4a);}
+  .guide-card.c8 .guide-card-num{color:rgba(90,58,42,.22);}
   .guide-card-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.6rem;}
   .guide-card-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:300;color:var(--navy);margin-bottom:1rem;line-height:1.2;}
   .guide-card-text{font-size:.88rem;font-weight:300;line-height:1.8;color:var(--text-muted);margin-bottom:1.5rem;}
@@ -104,7 +106,7 @@
     <li><a href="../services-developers.html">Developer Services</a></li>
     <li class="nav-dropdown active">
       <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; Resources</button>
-      <div class="nav-dropdown-menu"><a href="index.html">Guides &amp; Resources Overview</a><a href="buying-property-morocco.html">Buying Property in Morocco</a><a href="foreign-investor-guide.html">Foreign Investor Guide</a><a href="mre-buying-guide.html">MRE Buying Guide</a><a href="daam-sakani-guide.html">Daam Sakani Guide</a><a href="preconstruction-guide.html">Pre-Construction Guide</a><a href="kenitra-neighborhood-guide.html">Kénitra Neighbourhood Guide</a><a href="kenitra-vs-rabat.html">Kénitra vs Rabat</a></div>
+      <div class="nav-dropdown-menu"><a href="index.html">Guides &amp; Resources Overview</a><a href="buying-property-morocco.html">Buying Property in Morocco</a><a href="foreign-investor-guide.html">Foreign Investor Guide</a><a href="mre-buying-guide.html">MRE Buying Guide</a><a href="daam-sakani-guide.html">Daam Sakani Guide</a><a href="preconstruction-guide.html">Pre-Construction Guide</a><a href="mortgage-financing-guide.html">Mortgage &amp; Financing</a><a href="kenitra-neighborhood-guide.html">Kénitra Neighbourhood Guide</a><a href="kenitra-vs-rabat.html">Kénitra vs Rabat</a></div>
     </li>
     <li><a href="../market-insights/index.html">Market Insights</a></li><li><a href="../property-listings.html">Property Listings</a></li><li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Current Opportunity</button>
@@ -267,6 +269,26 @@
         <span class="guide-card-arrow">Read the Guide →</span>
       </a>
 
+      <a class="guide-card c8 reveal" href="mortgage-financing-guide.html">
+        <div class="guide-card-num">08</div>
+        <div class="guide-card-label">Financing Guide</div>
+        <h2 class="guide-card-title">Mortgage &amp; Financing in Morocco</h2>
+        <p class="guide-card-text">How mortgages work in Morocco — loan terms, LTV ratios by buyer profile, the main lenders, mandatory insurance (Taamine Assakane), required documents, MRE-specific rules on the repatriation guarantee and CPC account, and how to calculate what financing actually costs.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Rates &amp; LTV ratios</span>
+          <span class="guide-card-topic">Bank comparison</span>
+          <span class="guide-card-topic">MRE financing</span>
+          <span class="guide-card-topic">DAAM + mortgage</span>
+          <span class="guide-card-topic">Cost breakdown</span>
+        </div>
+        <div class="guide-card-profiles">
+          <span class="guide-card-profile tag-local">Local buyers</span>
+          <span class="guide-card-profile tag-mre">MRE</span>
+          <span class="guide-card-profile tag-intl">International</span>
+        </div>
+        <span class="guide-card-arrow">Read the Guide →</span>
+      </a>
+
     </div>
   </section>
 
@@ -364,7 +386,7 @@
   <div class="footer-grid">
     <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">Real estate advisory and consulting for buyers and developers in the Rabat-Salé-Kénitra market.</p></div>
     <div><div class="footer-col-label">Navigate</div><div class="footer-links"><a href="../index.html">Home</a><a href="../about.html">Who We Are</a><a href="../market-insights/index.html">Market Insights</a><a href="../property-listings.html">Property Listings</a><a href="../index.html#contact">Contact</a></div></div>
-    <div><div class="footer-col-label">Guides &amp; Resources</div><div class="footer-links"><a href="buying-property-morocco.html">Buying in Morocco</a><a href="foreign-investor-guide.html">Foreign Investor Guide</a><a href="mre-buying-guide.html">MRE Buying Guide</a><a href="daam-sakani-guide.html">Daam Sakani Guide</a><a href="preconstruction-guide.html">Pre-Construction Guide</a><a href="kenitra-vs-rabat.html">Kénitra vs Rabat</a><a href="kenitra-neighborhood-guide.html">Kénitra Neighbourhood Guide</a></div></div>
+    <div><div class="footer-col-label">Guides &amp; Resources</div><div class="footer-links"><a href="buying-property-morocco.html">Buying in Morocco</a><a href="foreign-investor-guide.html">Foreign Investor Guide</a><a href="mre-buying-guide.html">MRE Buying Guide</a><a href="daam-sakani-guide.html">Daam Sakani Guide</a><a href="preconstruction-guide.html">Pre-Construction Guide</a><a href="mortgage-financing-guide.html">Mortgage &amp; Financing</a><a href="kenitra-vs-rabat.html">Kénitra vs Rabat</a><a href="kenitra-neighborhood-guide.html">Kénitra Neighbourhood Guide</a></div></div>
     <div><div class="footer-col-label">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">Email</div><div class="footer-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">Phone &amp; WhatsApp</div><div class="footer-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div></div></div></div>
   </div>
   <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. All rights reserved.</div><div class="footer-langs"><a href="index.html" class="active">EN</a><a href="../fr/guides/index.html">FR</a><a href="../ar/guides/index.html">AR</a></div></div>
