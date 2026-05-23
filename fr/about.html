@@ -313,32 +313,6 @@
     @media (max-width: 1024px) { .page-hero { min-height: 78vh; } }
     @media (max-width: 720px)  { .page-hero { min-height: 70vh; padding: 7rem 5% 4rem; } }
 
-    /* Override shared .page-hero-video — fit fully, sit on the right, clear of the headline */
-    .page-hero .page-hero-video {
-      inset: auto;
-      top: 50%;
-      right: 4%;
-      transform: translateY(-50%);
-      width: 52%;
-      max-width: 720px;
-      height: auto;
-      max-height: 78%;
-      object-fit: contain;
-      object-position: center;
-      opacity: 1;
-      border-radius: 6px;
-    }
-    @media (max-width: 1024px) {
-      .page-hero .page-hero-video {
-        width: 60%; max-height: 56%; top: auto; bottom: 6%; transform: none;
-      }
-    }
-    @media (max-width: 720px) {
-      .page-hero .page-hero-video {
-        position: relative; width: 100%; max-height: 38vh; right: auto; bottom: auto;
-        margin-top: 1.5rem; transform: none;
-      }
-    }
   </style>
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
@@ -374,7 +348,7 @@
     </li>
     <li><a href="services-developers.html">Services aux promoteurs</a></li>
     <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; Ressources</button><div class="nav-dropdown-menu"><a href="guides/index.html">Aperçu des Guides et Ressources</a><a href="guides/buying-property-morocco.html">Acheter au Maroc</a><a href="guides/foreign-investor-guide.html">Guide Investisseur Étranger</a><a href="guides/mre-buying-guide.html">Guide d'Achat MRE</a><a href="guides/daam-sakani-guide.html">Guide Daam Sakani</a><a href="guides/preconstruction-guide.html">Guide Pré-Construction</a><a href="guides/kenitra-guide-quartiers.html">Guide des Quartiers de Kénitra</a><a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a></div>
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; Ressources</button><div class="nav-dropdown-menu"><a href="guides/index.html">Aperçu des Guides et Ressources</a><a href="guides/buying-property-morocco.html">Acheter au Maroc</a><a href="guides/foreign-investor-guide.html">Guide Investisseur Étranger</a><a href="guides/mre-buying-guide.html">Guide d'Achat MRE</a><a href="guides/daam-sakani-guide.html">Guide Daam Sakani</a><a href="guides/preconstruction-guide.html">Guide Pré-Construction</a><a href="guides/guide-financement-immobilier.html">Financement Immobilier</a><a href="guides/kenitra-guide-quartiers.html">Guide des Quartiers de Kénitra</a><a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a></div>
     </li>
     <li><a href="analyses-marche/index.html">Analyses de marché</a></li>
     <li><a href="property-listings.html">Biens disponibles</a></li>
@@ -402,9 +376,6 @@
   <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-bg" style="background: linear-gradient(to right, rgba(7,17,31,0.94) 0%, rgba(8,26,51,0.72) 55%, rgba(8,26,51,0.18) 100%), url('../about.png') center 40% / cover; opacity: 0.65;" aria-hidden="true"></div>
-    <video class="page-hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="../heroabout.mp4" type="video/mp4">
-      </video>
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
@@ -439,7 +410,7 @@
       <div class="reveal">
         <div style="background: var(--navy); padding: 0; border: 1px solid var(--border-warm); overflow: hidden;">
           <div style="background: linear-gradient(135deg, rgba(183,106,63,0.18), rgba(8,26,51,0.1)); min-height: 200px; display: flex; align-items: center; justify-content: center; padding: 2.5rem;">
-            <img src="../logo.png" alt="Rahim International" style="width: 120px; height: auto; opacity: 0.9;">
+            <img src="../scope.png" alt="Périmètre de Rahim International" style="width: 100%; max-width: 360px; height: auto; opacity: 0.96;">
           </div>
           <div style="padding: 2rem; border-top: 1px solid var(--border-warm);">
             <div style="font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); margin-bottom: 1rem;">Notre périmètre</div>
