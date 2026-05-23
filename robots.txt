@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
+Disallow: /site-preview.html
+Disallow: /guides/kenitra-neighborhood-guide-old.html
+Disallow: /why-morocco.html
+Disallow: /fr/why-morocco.html
+Disallow: /ar/why-morocco.html
+Disallow: /services-buyers.html
+Disallow: /fr/services-buyers.html
+Disallow: /ar/services-buyers.html
+
 Sitemap: https://rahiminternational.com/sitemap.xml

@@ -588,33 +588,79 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/index.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/index.html"/>
   </url>
+  <!-- ============================================================
+       MARKET INSIGHTS — BUYER STRATEGY ARTICLE
+       ============================================================ -->
+  <url>
+    <loc>https://rahiminternational.com/market-insights/kenitra-neighborhood-strategy.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhood-strategy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/choisir-le-quartier-avant-lappartement.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-istratijiya-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhood-strategy.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/analyses-marche/choisir-le-quartier-avant-lappartement.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhood-strategy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/choisir-le-quartier-avant-lappartement.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-istratijiya-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhood-strategy.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/tahlilet-souq/kenitra-istratijiya-ahya.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhood-strategy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/choisir-le-quartier-avant-lappartement.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-istratijiya-ahya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhood-strategy.html"/>
+  </url>
+
+  <!-- ============================================================
+       MARKET INSIGHTS — FULL MARKET ANALYSIS ARTICLE
+       ============================================================ -->
+  <url>
+    <loc>https://rahiminternational.com/market-insights/kenitra-market-analysis.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-market-analysis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/analyse-marche-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-tahlilet-souq-shamil.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-market-analysis.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/analyses-marche/analyse-marche-kenitra.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-market-analysis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/analyse-marche-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-tahlilet-souq-shamil.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-market-analysis.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/tahlilet-souq/kenitra-tahlilet-souq-shamil.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-market-analysis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/analyse-marche-kenitra.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-tahlilet-souq-shamil.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-market-analysis.html"/>
+  </url>
 
   <!-- ============================================================
        MARKET INSIGHTS — KÉNITRA NEIGHBOURHOOD ANALYSIS
        ============================================================ -->
-  <url>
-    <loc>https://rahiminternational.com/market-insights/kenitra-neighborhoods.html</loc>
-    <lastmod>2026-05-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
-  </url>
+
   <url>
     <loc>https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html</loc>
     <lastmod>2026-05-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
   </url>
   <url>
     <loc>https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html</loc>
     <lastmod>2026-05-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/kenitra-ahya.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/kenitra-neighborhoods.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/fr/analyses-marche/kenitra-quartiers.html"/>
   </url>
 
   <!-- ============================================================
