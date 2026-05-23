@@ -76,6 +76,13 @@
   .map-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr);gap:2rem;align-items:stretch;}
   .map-board{position:relative;height:560px;border:1px solid rgba(8,26,51,.12);box-shadow:var(--shadow);overflow:hidden;background:#dfe7ec;}
   #kenitra-map{width:100%;height:100%;}
+  .map-watermark{position:absolute;inset:0;pointer-events:none;z-index:450;}
+  .map-watermark-logo{position:absolute;left:50%;top:50%;width:min(68%,430px);transform:translate(-50%,-50%) rotate(-10deg);opacity:.14;filter:drop-shadow(0 12px 28px rgba(7,17,31,.18));}
+  .map-watermark-badge{position:absolute;right:1rem;bottom:1rem;display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem;background:rgba(7,17,31,.72);border:1px solid rgba(210,180,134,.3);backdrop-filter:blur(4px);box-shadow:0 12px 30px rgba(7,17,31,.22);}
+  .map-watermark-badge img{width:38px;height:38px;object-fit:contain;opacity:.95;filter:drop-shadow(0 2px 8px rgba(0,0,0,.22));}
+  .map-watermark-badge-text{display:flex;flex-direction:column;gap:.1rem;}
+  .map-watermark-badge-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.52);}
+  .map-watermark-badge-name{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
 
   /* ---- Side Panel ---- */
   .map-panel{background:rgba(7,17,31,.98);color:var(--white);border:1px solid rgba(210,180,134,.18);box-shadow:var(--shadow);display:flex;flex-direction:column;height:560px;overflow-y:auto;}
@@ -189,6 +196,10 @@
     .map-board{height:420px;}
     .map-panel{display:none;}
     .map-bottom-sheet{display:block;}
+    .map-watermark-logo{width:min(78%,300px);opacity:.12;}
+    .map-watermark-badge{right:.75rem;bottom:.75rem;padding:.55rem .7rem;}
+    .map-watermark-badge img{width:30px;height:30px;}
+    .map-watermark-badge-name{font-size:.68rem;}
     .nav-search-wrap{margin-left:0;}
     .nav-search{width:160px;}
   }
@@ -283,6 +294,16 @@
     <div class="map-shell">
       <div class="map-board">
         <div id="kenitra-map"></div>
+        <div class="map-watermark" aria-hidden="true">
+          <img class="map-watermark-logo" src="../../ri_logo_gold.png" alt="">
+          <div class="map-watermark-badge">
+            <img src="../../ri_logo_gold.png" alt="">
+            <div class="map-watermark-badge-text">
+              <span class="map-watermark-badge-label">Carte par</span>
+              <span class="map-watermark-badge-name">Rahim International</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="map-panel" id="map-panel">
         <div class="map-panel-placeholder" id="panel-placeholder">
@@ -343,7 +364,7 @@
           <button class="filter-pill" data-filter="daam" data-value="High">Élevé</button>
           <button class="filter-pill" data-filter="daam" data-value="Medium">Moyen</button>
           <button class="filter-pill" data-filter="daam" data-value="Low">Faible</button>
-          <button class="filter-pill" data-filter="daam" data-value="na">N/A</button>
+          <button class="filter-pill" data-filter="daam" data-value="na">Non applicable</button>
         </div>
       </div>
       <div class="filter-group">
@@ -1016,6 +1037,53 @@ function statColor(val) {
   return '#A32D2D';
 }
 
+function translateCharLabel(val) {
+  const map = {
+    Central: 'Central',
+    Medina: 'Médina',
+    Residential: 'Résidentiel',
+    Expansion: 'Expansion',
+    Villa: 'Villa',
+    Academic: 'Académique',
+    Coastal: 'Côtier',
+    Industrial: 'Industriel'
+  };
+  return map[val] || val;
+}
+
+function translateDaamLabel(val) {
+  return String(val || '')
+    .replace(/^High\b/, 'Élevé')
+    .replace(/^Medium\b/, 'Moyen')
+    .replace(/^Low\b/, 'Faible')
+    .replace(/^N\/A\b/, 'Non applicable');
+}
+
+function translateQualLabel(val) {
+  const map = {
+    'Very high': 'Très élevé',
+    High: 'Élevé',
+    'Medium-high': 'Moyen-élevé',
+    Medium: 'Moyen',
+    'Low-medium': 'Faible-moyen',
+    Low: 'Faible',
+    'Very low': 'Très faible',
+    Good: 'Bon',
+    Difficult: 'Difficile',
+    'Very difficult': 'Très difficile',
+    Easy: 'Facile',
+    'Very easy': 'Très facile'
+  };
+  return map[val] || val;
+}
+
+function translateInlineText(val) {
+  return String(val || '')
+    .replace(/\bN\/A\b/g, 'Non applicable')
+    .replace(/MAD\/month/g, 'MAD/mois')
+    .replace(/\/month/g, '/mois');
+}
+
 // ============================================================
 // RENDER PANEL HTML
 // ============================================================
@@ -1035,7 +1103,7 @@ function renderPanelHTML(hood, geoName) {
     statsHTML = '<div class="mp-section-label">En bref</div>';
     for (const [k, v] of Object.entries(data.stats)) {
       if (!v) continue;
-      statsHTML += `<div class="mp-stat"><div class="mp-stat-row"><span class="mp-stat-name"><span style="margin-right:.35rem;font-size:.8rem;">${statIcons[k]||''}</span>${statLabels[k]||k}</span><span class="mp-stat-val">${v[1]}</span></div><div class="mp-bar-track"><div class="mp-bar-fill" style="width:${v[0]}%;background:${statColor(v[0])};"></div></div></div>`;
+      statsHTML += `<div class="mp-stat"><div class="mp-stat-row"><span class="mp-stat-name"><span style="margin-right:.35rem;font-size:.8rem;">${statIcons[k]||''}</span>${statLabels[k]||k}</span><span class="mp-stat-val">${translateQualLabel(v[1])}</span></div><div class="mp-bar-track"><div class="mp-bar-fill" style="width:${v[0]}%;background:${statColor(v[0])};"></div></div></div>`;
     }
   }
 
@@ -1064,7 +1132,7 @@ function renderPanelHTML(hood, geoName) {
     const [level, label, note] = data.daam;
     const dotColors = { high:'#0F6E56', medium:'#B8860B', low:'#5F5E5A', 'na-villa':'#888', 'na-pre2023':'#888', 'na-price':'#888', 'na-inst':'#888' };
     const valClass = level === 'high' ? 'daam-high' : level === 'medium' ? 'daam-medium' : level === 'low' ? 'daam-low' : 'daam-na';
-    daamHTML = `<div class="mp-section-label">Stock éligible Daam Sakani</div><div class="mp-daam"><div class="mp-daam-dot" style="background:${dotColors[level]||'#888'};"></div><span class="mp-daam-label">${note}</span><span class="mp-daam-val ${valClass}">${label}</span></div>`;
+    daamHTML = `<div class="mp-section-label">Stock éligible Daam Sakani</div><div class="mp-daam"><div class="mp-daam-dot" style="background:${dotColors[level]||'#888'};"></div><span class="mp-daam-label">${note}</span><span class="mp-daam-val ${valClass}">${translateDaamLabel(label)}</span></div>`;
   }
 
   return `<div class="mp-eyebrow">Quartier de Kénitra</div>
@@ -1339,14 +1407,14 @@ function buildMainTable() {
     const buyCell = document.createElement('td');
     const isPlainBuy = !row.buy.match(/N\/A|varies|case|stock|Villas|villa|Military|Recreational|Industrial|Premium|applicable|Tissu|Revente|Marché|organique/i);
     if (isPlainBuy) {
-      const s = document.createElement('span'); s.className = 'price-figure'; s.textContent = row.buy; buyCell.appendChild(s);
-    } else { buyCell.textContent = row.buy; buyCell.style.fontSize = '.8rem'; }
+    const s = document.createElement('span'); s.className = 'price-figure'; s.textContent = translateInlineText(row.buy); buyCell.appendChild(s);
+    } else { buyCell.textContent = translateInlineText(row.buy); buyCell.style.fontSize = '.8rem'; }
 
     const rentCell = document.createElement('td');
     const isPlainRent = !row.rent.match(/N\/A|varies|Villas|applicable|variables|variable|dév/i);
     if (isPlainRent) {
-      const s = document.createElement('span'); s.className = 'price-figure'; s.textContent = row.rent; rentCell.appendChild(s);
-    } else { rentCell.textContent = row.rent; rentCell.style.fontSize = '.8rem'; }
+    const s = document.createElement('span'); s.className = 'price-figure'; s.textContent = translateInlineText(row.rent); rentCell.appendChild(s);
+    } else { rentCell.textContent = translateInlineText(row.rent); rentCell.style.fontSize = '.8rem'; }
 
     const tierCell = document.createElement('td');
     const dot = document.createElement('span');
@@ -1362,14 +1430,14 @@ function buildMainTable() {
     daamDot.className = 'tier-dot';
     daamDot.style.background = DAAM_COLORS[daamKey] || '#bbb';
     daamCell.appendChild(daamDot);
-    daamCell.appendChild(document.createTextNode(row.daam));
+    daamCell.appendChild(document.createTextNode(translateDaamLabel(row.daam)));
     daamCell.style.fontSize = '.78rem';
     daamCell.style.color = DAAM_COLORS[daamKey] ? 'var(--text-muted)' : 'rgba(0,0,0,.35)';
 
     const charCell = document.createElement('td');
     const badge = document.createElement('span');
     badge.className = 'char-badge char-' + row.char;
-    badge.textContent = row.char;
+    badge.textContent = translateCharLabel(row.char);
     charCell.appendChild(badge);
 
     tr.appendChild(nameCell); tr.appendChild(buyCell); tr.appendChild(rentCell);
