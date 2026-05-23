@@ -11,24 +11,24 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دليل أحياء القنيطرة | الأسعار والمناطق وتحليل الاستثمار</title>
-<meta name="description" content="تحليل شامل لـ 12 منطقة سكنية في القنيطرة — أسعار البيع والإيجار، المنطق الاتجاهي حول وسط المدينة، ملاءمة دعم السكن، وخريطة تفاعلية للمناطق.">
+<title>دليل أحياء القنيطرة | الملامح الكاملة والأسعار والخريطة التفاعلية</title>
+<meta name="description" content="استكشف 46 حياً في القنيطرة — أسعار الشراء ونطاقات الإيجار وقابلية المشي وأنواع السكن وملفات المشترين. خريطة تفاعلية مع ملامح كاملة للأحياء.">
 <link rel="canonical" href="https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html">
+<link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/kenitra-guide-quartiers.html">
-<link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html">
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/kenitra-neighborhood-guide.html">
 <link rel="icon" type="image/png" href="../../logo.png">
 <meta property="og:title" content="دليل أحياء القنيطرة | رحيم انترناشيونال">
-<meta property="og:description" content="أسعار الشراء والإيجار في 12 منطقة بالقنيطرة، ملاءمة دعم السكن، الوصول عبر قطار السرعة العالية، والمنطق الاتجاهي للأحياء — كل ذلك في دليل واحد.">
+<meta property="og:description" content="ملامح كاملة لجميع أحياء القنيطرة الـ 46 — الأسعار والمشاية وأنواع السكن وملفات المشترين على خريطة تفاعلية.">
 <meta property="og:image" content="https://rahiminternational.com/kenitra1.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_MA">
-<meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="دليل أحياء القنيطرة | رحيم انترناشيونال">
-<meta name="twitter:description" content="أسعار الشراء والإيجار في 12 منطقة بالقنيطرة، ملاءمة دعم السكن، الوصول عبر قطار السرعة، وخريطة فضائية تفاعلية.">
+<meta name="twitter:description" content="ملامح كاملة لجميع أحياء القنيطرة الـ 46 على خريطة تفاعلية.">
 <meta name="twitter:image" content="https://rahiminternational.com/kenitra1.png">
 <meta name="theme-color" content="#07111f">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
@@ -37,8 +37,12 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../../shared.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
+  /* ---- Hero ---- */
   .guide-hero{padding:9rem 5% 5rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.7fr);gap:4rem;align-items:end;position:relative;overflow:hidden;background:radial-gradient(circle at 80% 18%,rgba(183,106,63,.28),transparent 32%),linear-gradient(135deg,var(--ink) 0%,var(--navy) 58%,#172b4c 100%);}
+  .guide-hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;z-index:0;}
+  .guide-hero-video-overlay{position:absolute;inset:0;background:radial-gradient(circle at 80% 18%,rgba(183,106,63,.18),transparent 32%),linear-gradient(135deg,rgba(7,17,31,.72) 0%,rgba(8,26,51,.68) 58%,rgba(23,43,76,.72) 100%);z-index:1;}
   .guide-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(210,180,134,.04) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(210,180,134,.03) 80px);}
   .guide-hero-content,.guide-hero-panel{position:relative;z-index:2;}
   .guide-hero-panel{background:linear-gradient(180deg,rgba(244,247,248,.96),rgba(231,208,189,.9));border:1px solid rgba(183,106,63,.32);box-shadow:var(--shadow);padding:2rem;position:relative;overflow:hidden;}
@@ -49,101 +53,165 @@
   .panel-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.8rem;}
   .panel-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin-bottom:.8rem;line-height:1.3;}
   .panel-text,.body-text{color:var(--text-muted);line-height:1.8;font-size:.9rem;font-weight:300;}
-  .guide-nav{background:var(--ink);border-bottom:1px solid rgba(210,180,134,.12);padding:.8rem 5%;position:sticky;top:70px;z-index:50;display:flex;gap:1.5rem;overflow-x:auto;scrollbar-width:none;}
+
+  /* ---- Guide Nav ---- */
+  .guide-nav{background:var(--ink);border-bottom:1px solid rgba(210,180,134,.12);padding:.8rem 5%;position:sticky;top:70px;z-index:50;display:flex;align-items:center;gap:1.5rem;overflow-x:auto;scrollbar-width:none;}
   .guide-nav::-webkit-scrollbar{display:none;}
   .guide-nav a{font-size:.64rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;white-space:nowrap;padding:.4rem 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
   .guide-nav a:hover,.guide-nav a.active{color:var(--gold);border-color:var(--copper);}
-  .price-table{width:100%;border-collapse:collapse;margin-top:2rem;}
-  .price-table th{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);padding:.75rem 1rem;background:var(--steel);text-align:right;border-bottom:2px solid var(--border);}
+  .nav-search-wrap{margin-left:auto;position:relative;flex-shrink:0;}
+  .nav-search{background:rgba(255,255,255,.07);border:1px solid rgba(210,180,134,.2);color:var(--white);font-family:inherit;font-size:.7rem;letter-spacing:.06em;padding:.45rem 2.2rem .45rem .9rem;width:200px;outline:none;transition:background .2s,border-color .2s;}
+  .nav-search::placeholder{color:rgba(255,255,255,.35);}
+  .nav-search:focus{background:rgba(255,255,255,.11);border-color:rgba(210,180,134,.5);}
+  .nav-search-icon{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.4);font-size:.75rem;pointer-events:none;}
+  .search-dropdown{position:absolute;top:calc(100% + 6px);right:0;width:260px;background:rgba(7,17,31,.98);border:1px solid rgba(210,180,134,.2);z-index:200;display:none;max-height:280px;overflow-y:auto;}
+  .search-dropdown.is-open{display:block;}
+  .search-result-item{display:block;padding:.65rem 1rem;font-size:.74rem;color:rgba(255,255,255,.72);cursor:pointer;border-bottom:1px solid rgba(210,180,134,.08);text-decoration:none;transition:background .15s,color .15s;}
+  .search-result-item:hover,.search-result-item:focus{background:rgba(183,106,63,.18);color:var(--gold);outline:none;}
+  .search-result-item:last-child{border-bottom:none;}
+
+  /* ---- Map Section ---- */
+  .map-section{background:linear-gradient(180deg,#f8f3ec 0%,#eef3f5 100%);padding:var(--section-pad);border-top:1px solid var(--border);}
+  .map-section-intro{max-width:760px;margin-bottom:2rem;}
+  .map-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr);gap:2rem;align-items:stretch;}
+  .map-board{position:relative;height:560px;border:1px solid rgba(8,26,51,.12);box-shadow:var(--shadow);overflow:hidden;background:#dfe7ec;}
+  #kenitra-map{width:100%;height:100%;}
+  .map-watermark{position:absolute;inset:0;pointer-events:none;z-index:450;}
+  .map-watermark-logo{position:absolute;left:50%;top:50%;width:min(68%,430px);transform:translate(-50%,-50%) rotate(-10deg);opacity:.14;filter:drop-shadow(0 12px 28px rgba(7,17,31,.18));}
+  .map-watermark-badge{position:absolute;right:1rem;bottom:1rem;display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem;background:rgba(7,17,31,.72);border:1px solid rgba(210,180,134,.3);backdrop-filter:blur(4px);box-shadow:0 12px 30px rgba(7,17,31,.22);}
+  .map-watermark-badge img{width:38px;height:38px;object-fit:contain;opacity:.95;filter:drop-shadow(0 2px 8px rgba(0,0,0,.22));}
+  .map-watermark-badge-text{display:flex;flex-direction:column;gap:.1rem;}
+  .map-watermark-badge-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.52);}
+  .map-watermark-badge-name{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+
+  /* ---- Side Panel ---- */
+  .map-panel{background:rgba(7,17,31,.98);color:var(--white);border:1px solid rgba(210,180,134,.18);box-shadow:var(--shadow);display:flex;flex-direction:column;height:560px;overflow-y:auto;}
+  .map-panel-inner{padding:1.8rem;display:flex;flex-direction:column;flex:1;}
+  .map-panel-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:2rem;gap:1rem;position:relative;overflow:hidden;}
+  .map-panel-placeholder svg{opacity:.18;}
+  .map-panel-placeholder p{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,.4);max-width:220px;}
+  .mp-eyebrow{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.4rem;}
+  .mp-name{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;line-height:1.1;color:var(--white);margin-bottom:.3rem;}
+  .mp-tagline{font-size:.84rem;line-height:1.6;color:rgba(255,255,255,.56);margin-bottom:.9rem;}
+  .mp-tier{display:inline-block;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .8rem;margin-bottom:1.2rem;}
+  .tier-premium{background:rgba(107,47,160,.22);color:#c89ae8;border:1px solid rgba(107,47,160,.4);}
+  .tier-upper{background:rgba(183,106,63,.14);color:#c9a96e;border:1px solid rgba(183,106,63,.28);}
+  .tier-middle{background:rgba(24,95,165,.18);color:#7ab3e8;border:1px solid rgba(24,95,165,.35);}
+  .tier-affordable-mid{background:rgba(59,109,17,.18);color:#8dc44a;border:1px solid rgba(59,109,17,.32);}
+  .tier-affordable{background:rgba(178,34,34,.22);color:#f09595;border:1px solid rgba(178,34,34,.38);}
+  .tier-coastal{background:rgba(15,110,86,.18);color:#5dcaa5;border:1px solid rgba(15,110,86,.32);}
+  .tier-restricted{background:rgba(163,45,45,.18);color:#f09595;border:1px solid rgba(163,45,45,.32);}
+  .mp-divider{height:1px;background:rgba(210,180,134,.12);margin:1rem 0;}
+  .mp-section-label{font-size:.56rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.7rem;}
+  .mp-prices{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem;}
+  .mp-price-card{background:rgba(255,255,255,.04);border:1px solid rgba(210,180,134,.1);padding:.75rem .9rem;}
+  .mp-price-label{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.3rem;}
+  .mp-price-value{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold);line-height:1.25;}
+  .mp-price-sub{font-size:.6rem;color:rgba(255,255,255,.35);margin-top:.15rem;}
+  .mp-stat{margin-bottom:.6rem;}
+  .mp-stat-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.28rem;}
+  .mp-stat-name{font-size:.7rem;color:rgba(255,255,255,.55);}
+  .mp-stat-val{font-size:.7rem;font-weight:500;color:rgba(255,255,255,.78);}
+  .mp-bar-track{height:3px;background:rgba(255,255,255,.08);border-radius:2px;}
+  .mp-bar-fill{height:3px;border-radius:2px;transition:width .4s ease;}
+  .mp-desc{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,.62);margin-bottom:1rem;}
+  .mp-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;}
+  .mp-tag{font-size:.6rem;padding:.25rem .7rem;border:1px solid rgba(210,180,134,.18);color:rgba(255,255,255,.65);background:rgba(255,255,255,.03);}
+  .mp-profiles{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1rem;}
+  .mp-profile-row{font-size:.78rem;color:rgba(255,255,255,.58);display:flex;align-items:center;gap:.5rem;}
+  .mp-profile-row::before{content:'—';color:var(--copper);font-size:.7rem;flex-shrink:0;}
+  .mp-notes{display:flex;flex-direction:column;gap:.5rem;}
+  .mp-note{font-size:.76rem;color:rgba(255,255,255,.52);line-height:1.55;padding-left:.9rem;position:relative;}
+  .mp-note::before{content:'·';position:absolute;left:0;color:var(--copper);}
+  .mp-daam{display:flex;align-items:center;gap:.6rem;padding:.65rem .9rem;border:1px solid rgba(210,180,134,.12);background:rgba(255,255,255,.03);margin-bottom:1rem;}
+  .mp-daam-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .mp-daam-label{font-size:.72rem;color:rgba(255,255,255,.62);}
+  .mp-daam-val{font-size:.72rem;font-weight:500;margin-left:auto;}
+  .daam-high{color:#5dcaa5;}
+  .daam-medium{color:#efA27;}
+  .daam-low{color:rgba(255,255,255,.45);}
+  .daam-na{color:rgba(255,255,255,.3);}
+
+  /* ---- Bottom sheet mobile ---- */
+  .map-bottom-sheet{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(7,17,31,.99);border-top:1px solid rgba(210,180,134,.22);max-height:75vh;overflow-y:auto;transform:translateY(100%);transition:transform .35s ease;}
+  .map-bottom-sheet.is-open{transform:translateY(0);}
+  .sheet-handle{width:36px;height:4px;background:rgba(255,255,255,.2);border-radius:2px;margin:1rem auto .5rem;cursor:pointer;}
+  .sheet-close{position:absolute;top:.8rem;right:1rem;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;line-height:1;}
+  .sheet-content{padding:.5rem 1.4rem 2rem;}
+
+  /* ---- Tables Section ---- */
+  .tables-section{background:var(--white);padding:var(--section-pad);}
+  .tables-intro{max-width:720px;margin-bottom:2.5rem;}
+  .table-filters{background:var(--steel);border:1px solid var(--border);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1rem;}
+  .filter-group{display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap;}
+  .filter-label{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);padding-top:.35rem;white-space:nowrap;min-width:110px;}
+  .filter-pills{display:flex;flex-wrap:wrap;gap:.4rem;}
+  .filter-pill{font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .75rem;border:1px solid var(--border);background:var(--white);color:var(--text-muted);cursor:pointer;transition:background .15s,color .15s,border-color .15s;}
+  .filter-pill:hover{border-color:var(--copper);color:var(--copper);}
+  .filter-pill.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+  .table-count{font-size:.72rem;color:var(--text-muted);font-weight:300;}
+  .filter-reset{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .7rem;border:1px solid var(--border);background:none;color:var(--text-muted);cursor:pointer;transition:color .15s,border-color .15s;}
+  .filter-reset:hover{color:var(--copper);border-color:var(--copper);}
+  .sortable{cursor:pointer;user-select:none;white-space:nowrap;}
+  .sortable:hover{color:var(--copper);}
+  .sort-icon{font-size:.65rem;opacity:.45;margin-left:.3rem;}
+  .sortable.sort-asc .sort-icon::after{content:'↑';}
+  .sortable.sort-desc .sort-icon::after{content:'↓';}
+  .sortable.sort-asc .sort-icon,.sortable.sort-desc .sort-icon{opacity:1;color:var(--copper);}
+  .char-badge{display:inline-block;font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;}
+  .char-Central{background:rgba(8,26,51,.08);color:var(--navy);}
+  .char-Villa{background:rgba(107,47,160,.1);color:#6B2FA0;}
+  .char-Residential{background:rgba(24,95,165,.08);color:#185FA5;}
+  .char-Expansion{background:rgba(59,109,17,.1);color:#3B6D11;}
+  .char-Coastal{background:rgba(15,110,86,.1);color:#0F6E56;}
+  .char-Academic{background:rgba(95,94,90,.1);color:#5F5E5A;}
+  .char-Medina{background:rgba(183,106,63,.1);color:var(--copper-dark);}
+  .char-Industrial{background:rgba(120,120,120,.1);color:#888;}
+  tr.is-hidden{display:none;}
+  .price-table{width:100%;border-collapse:collapse;margin-top:1.5rem;}
+  .price-table th{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);padding:.75rem 1rem;background:var(--steel);text-align:left;border-bottom:2px solid var(--border);}
   .price-table td{padding:.85rem 1rem;font-size:.86rem;font-weight:300;color:var(--text-muted);border-bottom:1px solid var(--border);vertical-align:middle;}
   .price-table tr:last-child td{border-bottom:none;}
   .price-table tr:hover td{background:var(--cream);}
-  .zone-link{font-weight:400;color:var(--navy);text-decoration:none;}
-  .zone-link:hover{color:var(--copper);}
+  .map-link{font-weight:400;color:var(--navy);text-decoration:none;cursor:pointer;}
+  .map-link:hover{color:var(--copper);}
   .price-figure{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--copper-dark);}
-  .zone-block{padding:var(--section-pad);border-top:1px solid var(--border);}
-  .zone-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(183,106,63,.18);line-height:1;float:left;margin-right:1rem;}
-  .zone-eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.5rem;}
-  .zone-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:.8rem;}
-  .sub-hoods{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem;}
-  .sub-hood-chip{font-size:.62rem;font-weight:400;letter-spacing:.08em;padding:.3rem .7rem;background:var(--steel);color:var(--text-muted);border:1px solid var(--border);}
-  .zone-grid{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start;margin-top:1.8rem;}
-  .zone-panel{background:var(--white);border:1px solid var(--border);padding:1.8rem;position:relative;overflow:hidden;}
-  .zone-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--copper),var(--gold));}
-  .zone-panel-label{font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-bottom:1rem;}
-  .price-mini-table{width:100%;border-collapse:collapse;margin-bottom:1.2rem;}
-  .price-mini-table th{font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);padding:.5rem .7rem;background:var(--steel);text-align:right;border-bottom:1px solid var(--border);}
-  .price-mini-table td{padding:.6rem .7rem;font-size:.84rem;font-weight:300;color:var(--text-muted);border-bottom:1px solid var(--border);}
-  .price-mini-table .pf{font-family:'Cormorant Garamond',serif;font-size:1.02rem;color:var(--copper-dark);}
-  .zone-badges{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem;}
-  .daam-t1,.daam-t2,.daam-no,.lgv-pill{display:inline-flex;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .65rem;white-space:nowrap;}
-  .daam-t1{background:rgba(74,124,89,.12);color:#3a6147;border:1px solid rgba(74,124,89,.3);}
-  .daam-t2{background:rgba(183,106,63,.1);color:var(--copper-dark);border:1px solid rgba(183,106,63,.28);}
-  .daam-no{background:rgba(120,120,120,.08);color:#777;border:1px solid rgba(0,0,0,.12);}
-  .lgv-pill{background:rgba(8,26,51,.07);color:var(--navy);border:1px solid rgba(8,26,51,.18);}
-  .best-for{background:var(--steel);border-right:3px solid var(--copper);padding:.9rem 1.1rem;margin-top:.4rem;}
-  .best-for-label{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.4rem;}
-  .best-for-text{font-size:.82rem;font-weight:300;line-height:1.7;color:var(--text-muted);}
-  .map-section{background:linear-gradient(180deg,#f8f3ec 0%,#eef3f5 100%);padding:var(--section-pad);border-top:1px solid var(--border);}
-  .map-section-intro{max-width:760px;margin-bottom:2rem;}
-  .map-shell{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:2rem;align-items:stretch;}
-  .map-board{position:relative;padding-bottom:56%;border:1px solid rgba(8,26,51,.1);box-shadow:var(--shadow);overflow:hidden;background:#dfe7ec;}
-  .map-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .map-zone{position:absolute;min-width:100px;min-height:36px;border:1px solid rgba(255,255,255,.7);border-radius:24px;background:rgba(8,26,51,.34);backdrop-filter:blur(4px);color:var(--white);cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;z-index:2;}
-  .map-zone:hover,.map-zone:focus-visible,.map-zone.is-active{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 30px rgba(8,26,51,.22);border-color:rgba(255,255,255,.95);background:rgba(183,106,63,.42);outline:none;}
-  .map-zone-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;padding:0 .35rem;line-height:1.05;text-shadow:0 2px 10px rgba(7,17,31,.75);width:100%;}
-  .map-zone-num{display:block;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.16rem;color:rgba(255,255,255,.82);}
-  .map-zone-name{display:block;font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;color:var(--white);}
-  .map-zone--beach{top:45%;left:6%;}
-  .map-zone--kasbah{top:38%;left:22%;}
-  .map-zone--west{top:48%;left:28%;}
-  .map-zone--west-central{top:32%;left:36%;}
-  .map-zone--centre{top:40%;left:48%;}
-  .map-zone--east-central{top:38%;left:62%;}
-  .map-zone--campus{top:62%;left:55%;}
-  .map-zone--south-central{top:55%;left:46%;}
-  .map-zone--south{top:65%;left:30%;}
-  .map-zone--east{top:52%;left:72%;}
-  .map-zone--southeast{top:72%;left:68%;}
-  .map-zone--north{top:28%;left:62%;}
-  .map-panel{background:rgba(7,17,31,.98);color:var(--white);padding:2rem;border:1px solid rgba(210,180,134,.18);box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:620px;}
-  .map-panel-eyebrow{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-bottom:1rem;}
-  .map-panel-title{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;line-height:1.04;color:var(--white);margin-bottom:.65rem;}
-  .map-panel-sub{font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.68);margin-bottom:1.5rem;}
-  .map-panel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1.4rem;}
-  .map-metric{background:rgba(255,255,255,.04);border:1px solid rgba(210,180,134,.12);padding:.9rem;}
-  .map-metric-label{display:block;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:.3rem;}
-  .map-metric-value{display:block;font-size:.94rem;line-height:1.55;color:var(--white);}
-  .map-panel-list{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.2rem;}
-  .map-panel-list span{display:inline-flex;align-items:center;padding:.35rem .65rem;border:1px solid rgba(210,180,134,.18);background:rgba(255,255,255,.04);font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);}
-  .map-panel-copy{font-size:.88rem;line-height:1.8;color:rgba(255,255,255,.74);margin-bottom:1.6rem;}
-  .map-panel-actions{margin-top:auto;display:flex;flex-wrap:wrap;gap:.8rem;}
-  .map-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.8rem 1.2rem;text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s ease, opacity .2s ease;}
-  .map-cta:hover,.map-cta:focus-visible{transform:translateY(-2px);opacity:.92;}
-  .map-cta--primary{background:var(--gold);color:var(--ink);}
-  .map-cta--secondary{border:1px solid rgba(210,180,134,.28);color:var(--white);background:transparent;}
+  .tier-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.4rem;vertical-align:middle;}
+
+  /* ---- FAQ ---- */
   .faq-section{background:var(--cream);}
   .opp-section{background:radial-gradient(circle at 84% 22%,rgba(183,106,63,.26),transparent 30%),linear-gradient(135deg,rgba(7,17,31,.98),rgba(8,26,51,.92));padding:var(--section-pad);}
   .opp-box{border:1px solid rgba(210,180,134,.3);padding:2.5rem;background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(183,106,63,.07));box-shadow:inset 0 6px 0 rgba(183,106,63,.48);}
+
+  /* ---- Landmark popup ---- */
+  .landmark-popup .leaflet-popup-content-wrapper{background:rgba(7,17,31,.96);border:1px solid rgba(210,180,134,.3);color:var(--white);border-radius:0;box-shadow:0 8px 32px rgba(0,0,0,.4);}
+  .landmark-popup .leaflet-popup-tip{background:rgba(7,17,31,.96);}
+  .landmark-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--gold);margin-bottom:.2rem;}
+  .landmark-type{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+
+  /* ---- Responsive ---- */
   @media(max-width:980px){
     .guide-hero{grid-template-columns:1fr;gap:2rem;}
-    .zone-grid,.map-shell{grid-template-columns:1fr;}
-    .zone-num{font-size:2.8rem;margin-right:.6rem;}
-    .map-panel{min-height:auto;}
+    .map-shell{grid-template-columns:1fr;}
+    .map-board{height:420px;}
+    .map-panel{display:none;}
+    .map-bottom-sheet{display:block;}
+    .nav-search-wrap{margin-left:0;}
+    .nav-search{width:160px;}
   }
   @media(max-width:680px){
     .price-table th:nth-child(3),.price-table td:nth-child(3){display:none;}
-    .map-zone-name{font-size:.74rem;}
-    .map-panel-grid{grid-template-columns:1fr;}
-  }
-  @media(max-width:600px){
-    .map-zone-name{font-size:10px;}
-    .map-zone-label{padding:3px 6px;}
+    .mp-prices{grid-template-columns:1fr;}
+    .nav-search{width:130px;}
+    .map-watermark-logo{width:min(78%,300px);opacity:.12;}
+    .map-watermark-badge{right:.75rem;bottom:.75rem;padding:.55rem .7rem;}
+    .map-watermark-badge img{width:30px;height:30px;}
+    .map-watermark-badge-name{font-size:.68rem;}
   }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"استشارات عقارية وتسويق وسمسرة للمشترين والمطورين في منطقة الرباط-سلا-القنيطرة بالمغرب.","inLanguage":"ar"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://rahiminternational.com/"},{"@type":"ListItem","position":2,"name":"الأدلة والموارد","item":"https://rahiminternational.com/guides/index.html"},{"@type":"ListItem","position":3,"name":"دليل أحياء القنيطرة","item":"https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"دليل أحياء القنيطرة — الأسعار والمناطق ومنطق الاستثمار","description":"تحليل شامل لـ 12 منطقة سكنية في القنيطرة مع توجيهات الشراء والإيجار، ملاءمة دعم السكن، الوصول عبر قطار السرعة، والمنطق الاتجاهي للمناطق.","image":"https://rahiminternational.com/kenitra1.png","datePublished":"2026-05-01","dateModified":"2026-05-17","inLanguage":"ar","author":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com","logo":{"@type":"ImageObject","url":"https://rahiminternational.com/alirahim.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Real estate advisory, consulting, marketing, and brokerage for buyers and developers in the Rabat-Salé-Kénitra region of Morocco.","inLanguage":"ar"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://rahiminternational.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://rahiminternational.com/guides/index.html"},{"@type":"ListItem","position":3,"name":"دليل أحياء القنيطرة","item":"https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"دليل أحياء القنيطرة — الملامح الكاملة والأسعار والخريطة التفاعلية","description":"ملامح كاملة لجميع أحياء القنيطرة الـ 46 مع أسعار الشراء ونطاقات الإيجار وقابلية المشي وأنواع السكن وملفات المشترين على خريطة تفاعلية.","image":"https://rahiminternational.com/kenitra1.png","datePublished":"2026-05-01","dateModified":"2026-05-22","inLanguage":"ar","author":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com","logo":{"@type":"ImageObject","url":"https://rahiminternational.com/alirahim.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://rahiminternational.com/ar/guides/kenitra-dalil-ahya.html"}}</script>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -171,227 +239,201 @@
 </nav>
 <nav class="breadcrumb"><a href="../index.html">الرئيسية</a><span>›</span><a href="index.html">الأدلة والموارد</a><span>›</span><span class="current">دليل أحياء القنيطرة</span></nav>
 <main>
+  <!-- HERO -->
   <header class="guide-hero">
+    <video class="guide-hero-video" autoplay muted loop playsinline preload="none">
+      <source src="../../kenitratgv.mp4" type="video/mp4">
+    </video>
+    <div class="guide-hero-video-overlay"></div>
     <div class="guide-hero-content">
-      <p class="eyebrow">القنيطرة — دليل الأحياء الكامل</p>
-      <h1 class="guide-title">اثنتا عشرة منطقة.<br><em>مدينة واحدة لفهمها.</em></h1>
-      <p class="guide-sub">يمتد سوق العقارات في القنيطرة على نطاق واسع — من نحو 5,500 درهم/م² للمخزون القديم في الأحزمة المتوسطة، إلى 15,000 درهم/م² للمباني المركزية المتميزة. لا يقول لك متوسط المدينة الإجمالي شيئًا ذا قيمة. يقرأ هذا الدليل المدينة منطقة بمنطقة: أسعار الشراء، وإيجارات الأمد الطويل، وملاءمة دعم السكن، ووقت الوصول إلى قطار السرعة العالية لجميع الأحياء الأربعين.</p>
+      <p class="eyebrow" style="justify-content:flex-start;">القنيطرة — دليل الأحياء الشامل</p>
+      <h1 class="guide-title">القنيطرة —<br>جوهرة المغرب<br><em>المخفية.</em></h1>
+      <p class="guide-sub">شوارع واسعة ومبانٍ تاريخية في قلب وسط المدينة. مدينة عتيقة تنبض بالحياة منذ أكثر من قرن. أزقة بئر رامي المظللة بالنخيل — واحدة من أرقى وأكثر عناوين المغرب تحفظاً. كورنيش يفتح نهر سبو نحو البحر. قصبة من العصور الوسطى تطل على المحيط الأطلسي. منتجع شاطئي على بُعد عشرين دقيقة من المركز. غابة حضرية في متناول نصف الأحياء — نادرة في أي مكان بالعالم، فما بالك بالمغرب.<br><br>عشرون دقيقة من الرباط بالقطار فائق السرعة. ساعة وبضع دقائق من الدار البيضاء. سوق عقاري لم يعكس بعد ما يقدمه.</p>
     </div>
-    <aside class="guide-hero-panel">
-      <p class="panel-label">نظرة سريعة</p>
-      <h2 class="panel-title">12 منطقة سكنية، 40 حيًّا فرعيًّا، خريطة كاملة واحدة.</h2>
-      <p class="panel-text">القنيطرة ليست مدينة كبيرة، غير أن أحياءها ليست متصلة كما توحي الخريطة. نهر سبو والقاعدة الجوية الملكية والمجمع العسكري القريب من النواة الحضرية وغابة المعمورة وشُح الطرق الشريانية — كل ذلك يعني أن منطقتين تبدوان متقاربتين على الشاشة قد تستغرق الرحلة بينهما 30 دقيقة بالسيارة في ساعات الذروة. فهم هذه الفواصل لا يقل أهمية عن فهم السعر بالمتر المربع.</p>
-    </aside>
+    <div class="guide-hero-panel">
+      <p class="panel-label">لمحة سريعة</p>
+      <p class="panel-title">كل حي. كل طبقة.</p>
+      <p class="panel-text">تكافئ القنيطرة من يدقق النظر. مركز تاريخي بطابع معماري أصيل. مدينة عتيقة حية. تجمعات فيلات راقية. كورنيش على ضفاف النهر. قلعة عتيقة تطل على المحيط الأطلسي. أحياء توسعية لا تزال تتشكل. كل حي يحكي قصة مختلفة — هذا الدليل يغطيها جميعاً.</p>
+      <div style="margin-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
+        <div style="background:rgba(8,26,51,.06);padding:.9rem;border-left:3px solid var(--copper);"><div style="font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.3rem;">متوسط البناء الجديد</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:var(--navy);line-height:1.3;">8,000–12,000<br><span style="font-size:.7rem;font-weight:400;">MAD / m²</span></div></div>
+        <div style="background:rgba(8,26,51,.06);padding:.9rem;border-left:3px solid var(--copper);"><div style="font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.3rem;">مقارنةً بأسعار الرباط</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:var(--navy);line-height:1.3;">40–50% below<br><span style="font-size:.7rem;font-weight:400;">مقارنةً بالمشاريع الجديدة المماثلة</span></div></div>
+        <div style="background:rgba(8,26,51,.06);padding:.9rem;border-left:3px solid var(--copper);"><div style="font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.3rem;">الرباط بالقطار السريع</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--navy);">20 <span style="font-size:.7rem;font-weight:400;">min</span></div></div>
+        <div style="background:rgba(8,26,51,.06);padding:.9rem;border-left:3px solid var(--copper);"><div style="font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.3rem;">الدار البيضاء بالقطار السريع</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--navy);">~1 <span style="font-size:.7rem;font-weight:400;">hr</span></div></div>
+        <div style="background:rgba(8,26,51,.06);padding:.9rem;border-left:3px solid var(--copper);"><div style="font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.3rem;">الشاطئ والمحمية الطبيعية</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:var(--navy);line-height:1.3;">15–20 min<br><span style="font-size:.7rem;font-weight:400;">مهدية وسيدي بوغابة</span></div></div>
+        <div style="background:rgba(8,26,51,.06);padding:.9rem;border-left:3px solid var(--copper);"><div style="font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:.3rem;">دعم السكن</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:var(--navy);line-height:1.3;">Available<br><span style="font-size:.7rem;font-weight:400;">قرب القطار السريع والشاطئ والطريق السيار</span></div></div>
+      </div>
+    </div>
   </header>
 
-  <nav class="guide-nav" aria-label="التنقل داخل الصفحة">
-    <a href="#interactive-map">الخريطة</a>
-    <a href="#overview">نظرة عامة</a>
-    <a href="#centre-ville">وسط المدينة</a>
-    <a href="#east-central-kenitra">الوسط الشرقي</a>
-    <a href="#campus-universitaire">الحرم الجامعي</a>
-    <a href="#kasbah-mehdia">قصبة المهدية</a>
-    <a href="#mehdia-beach">الشاطئ</a>
-    <a href="#south-central-kenitra">الجنوب الأوسط</a>
-    <a href="#south-kenitra">الجنوب</a>
-    <a href="#west-central-kenitra">الغرب الأوسط</a>
-    <a href="#west-kenitra">الغرب</a>
-    <a href="#east-kenitra">الشرق</a>
-    <a href="#southeast-kenitra">الجنوب الشرقي</a>
-    <a href="#north-kenitra">الشمال</a>
-    <a href="#faq">الأسئلة الشائعة</a>
+  <!-- GUIDE NAV -->
+  <nav class="guide-nav" aria-label="Guide sections">
+    <a href="#map" id="nav-map">الخريطة</a>
+    <a href="#tables" id="nav-tables">جداول الأسعار</a>
+    <a href="#faq" id="nav-faq">الأسئلة الشائعة</a>
+    <div class="nav-search-wrap">
+      <input type="search" class="nav-search" id="hood-search" placeholder="ابحث عن حي..." autocomplete="off" aria-label="البحث عن الأحياء" aria-controls="search-dropdown" aria-expanded="false">
+      <span class="nav-search-icon">⌕</span>
+      <div class="search-dropdown" id="search-dropdown" role="listbox"></div>
+    </div>
   </nav>
 
-  <section id="interactive-map" class="map-section">
+  <!-- MAP SECTION -->
+  <section id="map" class="map-section">
     <div class="map-section-intro">
-      <p class="eyebrow">خريطة المناطق التفاعلية</p>
-      <h2 class="section-title" style="color:var(--navy);">اثنتا عشرة منطقة<br><em>على الخريطة الفضائية.</em></h2>
-      <p class="body-text">انقر على أي منطقة لعرض نطاق أسعارها، ومعيار الإيجار، ووقت الوصول إلى قطار السرعة، وملاءمة دعم السكن. استخدم أرقام المناطق للرجوع إلى الأقسام التفصيلية أدناه.</p>
+      <p class="eyebrow">خريطة تفاعلية</p>
+      <h2 class="section-title" style="color:var(--navy);">انقر على أي حي<br><em>للاطلاع على ملفه الكامل.</em></h2>
+      <p class="body-text" style="margin-top:1rem;">تقع القنيطرة على الساحل الأطلسي، على بُعد أربعين كيلومتراً شمال الرباط، تربطها بالدار البيضاء شبكة القطار السريع، وتحيط بها الأنهار والغابات والبحر — ومع ذلك لا تزال من أقل أسواق العقارات في المغرب شهرةً. من يعرفها يعرفها جيداً. ومن لا يعرفها يُفاجأ عادةً لدى زيارتها الأولى.</p>
+      <p class="body-text" style="margin-top:.8rem;">يتميز وسط المدينة بشوارع واسعة ومعمار متين وحيوية تجارية تكفي ذاتها بذاتها. وحوله، تمضي المدينة العتيقة في دورتها منذ أكثر من قرن — أسواق الصباح والمخابز الحارة والأزقة الضيقة النابضة بحياة خاصة.</p>
+      <p class="body-text" style="margin-top:.8rem;">غرب المركز، تقع بئر رامي حيث توجد أرقى عناوين السكن في القنيطرة. شوارع مظللة بالنخيل، وقطع أرضية فسيحة، وطرق هادئة واسعة. عنوان كان سيُكلّف ضعفاً في الرباط أو الدار البيضاء.</p>
+      <p class="body-text" style="margin-top:.8rem;">شمالاً، يجري نهر سبو على حافة المركز، واسعاً وهادئاً، مع كورنيش يستقطب السكان كل مساء. قليلة هي المدن المغربية التي تمتلك مياهاً بهذا القرب من قلبها.</p>
+      <p class="body-text" style="margin-top:.8rem;">على بُعد عشرين دقيقة من المركز، تقع مهدية — بلدة شاطئية أطلسية تضم قلعة برتغالية من القرن السابع عشر وسوق سمك نابض بالحياة وساحلاً لا يزال بكراً بشكل لافت. تسير على إيقاعها الموسمي الخاص ولها جمهورها الوفي ممن اكتشفوها.</p>
+      <p class="body-text" style="margin-top:.8rem;">على الحافة الشرقية للقنيطرة، تقع غابة المعمورة ومحمية سيدي بوغابة الطبيعية في متناول نصف الأحياء الواردة في هذه الخريطة. قليلة هي المناطق الحضرية في المغرب التي تمتلك محمية وطنية بهذا القرب من مركزها.</p>
+      <p class="body-text" style="margin-top:.8rem;">عشرون دقيقة من الرباط بالقطار السريع. ساعة وبضع دقائق من الدار البيضاء. سوق عقاري بأسعار أقل بكثير مما يقدمه. تكافئ القنيطرة من يبادر بالنظر قبل الآخرين.</p>
+      <p class="body-text" style="margin-top:.8rem;">انقر على أي حي أدناه لمعرفة أسعاره وطابعه ومن يناسبه.</p>
     </div>
     <div class="map-shell">
-      <div class="map-board" aria-label="خريطة فضائية لمناطق القنيطرة">
-        <img class="map-image" src="../../kenitramap.png" alt="خريطة فضائية للقنيطرة مع طبقات المناطق">
-        <button class="map-zone map-zone--beach" type="button" data-zone="mehdia-beach" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">05</span><span class="map-zone-name">شاطئ المهدية</span></span></button>
-        <button class="map-zone map-zone--kasbah" type="button" data-zone="kasbah-mehdia" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">04</span><span class="map-zone-name">قصبة المهدية</span></span></button>
-        <button class="map-zone map-zone--west" type="button" data-zone="west-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">09</span><span class="map-zone-name">غرب القنيطرة</span></span></button>
-        <button class="map-zone map-zone--west-central" type="button" data-zone="west-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">08</span><span class="map-zone-name">الغرب الأوسط</span></span></button>
-        <button class="map-zone map-zone--centre is-active" type="button" data-zone="centre-ville" aria-controls="map-zone-panel" aria-pressed="true"><span class="map-zone-label"><span class="map-zone-num">01</span><span class="map-zone-name">وسط المدينة</span></span></button>
-        <button class="map-zone map-zone--east-central" type="button" data-zone="east-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">02</span><span class="map-zone-name">الوسط الشرقي</span></span></button>
-        <button class="map-zone map-zone--campus" type="button" data-zone="campus-universitaire" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">03</span><span class="map-zone-name">الحرم الجامعي</span></span></button>
-        <button class="map-zone map-zone--east" type="button" data-zone="east-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">10</span><span class="map-zone-name">الشرق</span></span></button>
-        <button class="map-zone map-zone--south-central" type="button" data-zone="south-central-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">06</span><span class="map-zone-name">الجنوب الأوسط</span></span></button>
-        <button class="map-zone map-zone--south" type="button" data-zone="south-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">07</span><span class="map-zone-name">الجنوب</span></span></button>
-        <button class="map-zone map-zone--southeast" type="button" data-zone="southeast-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">11</span><span class="map-zone-name">الجنوب الشرقي</span></span></button>
-        <button class="map-zone map-zone--north" type="button" data-zone="north-kenitra" aria-controls="map-zone-panel" aria-pressed="false"><span class="map-zone-label"><span class="map-zone-num">12</span><span class="map-zone-name">الشمال</span></span></button>
-
+      <div class="map-board">
+        <div id="kenitra-map"></div>
+        <div class="map-watermark" aria-hidden="true">
+          <img class="map-watermark-logo" src="../../ri_logo_gold.png" alt="">
+          <div class="map-watermark-badge">
+            <img src="../../ri_logo_gold.png" alt="">
+            <div class="map-watermark-badge-text">
+              <span class="map-watermark-badge-label">خريطة بواسطة</span>
+              <span class="map-watermark-badge-name">Rahim International</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <aside class="map-panel" id="map-zone-panel" aria-live="polite">
-        <div class="map-panel-eyebrow">المنطقة المحددة</div>
-        <h3 class="map-panel-title" data-map-field="title">وسط المدينة</h3>
-        <p class="map-panel-sub" data-map-field="orientation">المركز الحقيقي للمدينة: مميز، يمكن التجول فيه سيرًا، قريب من محطة قطار السرعة، وأوضح مرجع لتسعير بقية أحياء القنيطرة.</p>
-        <div class="map-panel-grid">
-          <div class="map-metric"><span class="map-metric-label">نطاق الشراء</span><span class="map-metric-value" data-map-field="buy">7,000–15,000 درهم/م²</span></div>
-          <div class="map-metric"><span class="map-metric-label">الإيجار طويل الأمد</span><span class="map-metric-value" data-map-field="rent">2,150–8,500 درهم/شهر</span></div>
-          <div class="map-metric"><span class="map-metric-label">العلاقة بقطار السرعة</span><span class="map-metric-value" data-map-field="lgv">داخل المنطقة</span></div>
-          <div class="map-metric"><span class="map-metric-label">دعم السكن</span><span class="map-metric-value" data-map-field="daam">محدود، معظمها وحدات أصغر مؤهلة</span></div>
+      <div class="map-panel" id="map-panel">
+        <div class="map-panel-placeholder" id="panel-placeholder">
+          <div style="position:absolute;inset:0;background-image:url('../../sebou.png');background-size:cover;background-position:center;opacity:.18;border-radius:inherit;"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,17,31,.4) 0%,rgba(7,17,31,.75) 100%);"></div>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;"><path d="M24 4C15.163 4 8 11.163 8 20c0 13 16 28 16 28s16-15 16-28c0-8.837-7.163-16-16-16zm0 22a6 6 0 110-12 6 6 0 010 12z" fill="white"/></svg>
+          <p style="position:relative;z-index:1;">انقر على أي حي في الخريطة لعرض ملفه الكامل هنا.</p>
         </div>
-        <div class="map-panel-list" data-map-field="chips"></div>
-        <p class="map-panel-copy" data-map-field="copy">الأنسب للمشترين الذين يريدون إمكانية التجول سيرًا، وعمق إعادة البيع، وأقوى منطق مميز في القنيطرة.</p>
-        <div class="map-panel-actions">
-          <a class="map-cta map-cta--primary" data-map-field="primaryLink" href="#centre-ville">الانتقال إلى وسط المدينة</a>
-          <a class="map-cta map-cta--secondary" href="../../index.html#contact">ناقش هذه المنطقة</a>
-        </div>
-      </aside>
+        <div class="map-panel-inner" id="panel-content" style="display:none;"></div>
+      </div>
+    </div>
+    <!-- Price tier legend -->
+    <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+      <span style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);">الفئات السعرية:</span>
+      <span style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:50%;background:#6B2FA0;display:inline-block;"></span>مميز / فيلا</span>
+      <span style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:50%;background:#B8860B;display:inline-block;"></span>فوق المتوسط</span>
+      <span style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:50%;background:#185FA5;display:inline-block;"></span>متوسط</span>
+      <span style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:50%;background:#3B6D11;display:inline-block;"></span>متوسط ميسور</span>
+      <span style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:50%;background:#B22222;display:inline-block;"></span>ميسور</span>
+      <span style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:50%;background:#0F6E56;display:inline-block;"></span>ساحلي / موسمي</span>
+      <span style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:50%;background:#666;display:inline-block;"></span>مؤسسي</span>
     </div>
   </section>
 
+  <!-- MOBILE BOTTOM SHEET -->
+  <div class="map-bottom-sheet" id="bottom-sheet" aria-hidden="true">
+    <div class="sheet-handle" id="sheet-handle"></div>
+    <button class="sheet-close" id="sheet-close" aria-label="Close panel">×</button>
+    <div class="sheet-content" id="sheet-content"></div>
+  </div>
 
-  <section id="overview" style="background:linear-gradient(135deg,var(--steel),#f7f1ea);padding:var(--section-pad);">
-    <p class="eyebrow">نظرة عامة على المدينة</p>
-    <h2 class="section-title" style="color:var(--navy);">السوق يُقرأ<br><em>من المركز إلى الخارج.</em></h2>
-    <p class="body-text" style="max-width:760px;">تقع القنيطرة على بُعد 40 كم شمال الرباط على الساحل الأطلسي. يربطها قطار السرعة العالية بالرباط في نحو 14 دقيقة وبالدار البيضاء في نحو 55 دقيقة، لكن المدينة لا تسعّر كسوق متواصل واحد. يتصرف وسط المدينة كنواة مميزة، بينما يتداول النسيج الجامعي والوسط الشرقي بمنطق الراحة والكثافة، وتتبع المهدية منطقًا ساحليًّا، فيما تمتلك الأحزمة الغربية والجنوبية سلّمها الخاص من القدرة الشرائية.</p>
-    <p class="body-text" style="max-width:760px;">يحدّ نهر سبو الحافة الشمالية. تشغل القاعدة الجوية الملكية مساحة واسعة في الشمال الغربي. يقع مجمع عسكري قريب من النواة الحضرية. تفصل خطوط السكة الحديدية النسيج التاريخي عن بقية المدينة. وبعدد محدود من الطرق الشريانية التي تربط الجانبين، يمكن أن تعني منطقة تبدو قريبة على الشاشة رحلة بالسيارة مدتها 30 دقيقة في ساعات الذروة. في القنيطرة، الجغرافيا ليست مجرد خلفية — إنها جزء من قرار الشراء.</p>
+  <!-- TABLES SECTION -->
+  <section id="tables" class="tables-section">
+    <div class="tables-intro">
+      <p class="eyebrow">مرجع الأسعار</p>
+      <h2 class="section-title" style="color:var(--navy);">جميع الأحياء<br><em>مقارنةً.</em></h2>
+      <p class="body-text" style="margin-top:1rem;">جميع الأحياء في مكان واحد — الأسعار، مرجعيات الإيجار، المخزون المؤهل لدعم السكن، ونوع الطابع. استخدم الفلاتر للعثور على ما يناسب معاييرك، أو رتّب أي عمود للمقارنة عبر السوق الكاملة.</p>
+    </div>
 
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin:2.5rem 0 .5rem;">ملخص أسعار الشراء — جميع الأحياء</h3>
-    <div style="overflow-x:auto;">
-      <table class="price-table">
-        <thead><tr><th>الحي</th><th>منطق الشراء النموذجي</th><th>المنطقة</th></tr></thead>
-        <tbody>
-          <tr><td><a class="zone-link" href="#centre-ville">حي المعمورة / القرية</a></td><td><span class="price-figure">10,000–15,000 درهم/م²</span></td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">حي الميموزا</a></td><td><span class="price-figure">10,000–14,000 درهم/م²</span></td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">لا فيل أوت</a></td><td><span class="price-figure">7,000–12,500 درهم/م²</span></td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">فال فلوري</a></td><td>عقارات فلل؛ حالة بحالة</td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">الملاح</a></td><td>مخزون قديم؛ تطوير انتقائي</td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">حي الجيني</a></td><td><span class="price-figure">6,500–8,500 درهم/م²</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">لا سيغون</a></td><td><span class="price-figure">6,500–8,500 درهم/م²</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">لا شنيل</a></td><td><span class="price-figure">6,500–8,000 درهم/م²</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">جردة القاضي</a></td><td><span class="price-figure">6,500–9,000 درهم/م²</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#campus-universitaire">الحرم الجامعي ابن طفيل</a></td><td>سوق إعادة بيع مدفوع بالإيجار</td><td>الحرم الجامعي</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">قصبة المهدية</a></td><td>نسيج هضبة عضوي؛ متفاوت</td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">أليانس المهدية</a></td><td><span class="price-figure">7,400–9,000 درهم/م²</span></td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">العدوى (إقامة الغولف)</a></td><td>المخزون المستعمل غالبًا <span class="price-figure">200,000–250,000 درهم</span> إجمالي</td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">منطقة فلل الغولف</a></td><td><span class="price-figure">7,500–9,500 درهم/م²</span></td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#mehdia-beach">شاطئ المهدية</a></td><td><span class="price-figure">من 12,000 درهم/م²</span></td><td>شاطئ المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#mehdia-beach">ميناء المهدية</a></td><td>إعادة بيع ساحلية؛ منطق موسمي</td><td>شاطئ المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#south-central-kenitra">بير الرامي الغربي</a></td><td>فلل وسكن مختلط؛ حالة بحالة</td><td>الجنوب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#south-central-kenitra">بير الرامي الشرقي</a></td><td><span class="price-figure">6,500–8,500 درهم/م²</span></td><td>الجنوب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#south-central-kenitra">المغرب العربي</a></td><td><span class="price-figure">6,500–8,000 درهم/م²</span></td><td>الجنوب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">بير الرامي الجنوبي</a></td><td><span class="price-figure">6,200–8,200 درهم/م²</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">الحديقة 1</a></td><td><span class="price-figure">6,500–8,500 درهم/م²</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">الحديقة 2</a></td><td><span class="price-figure">6,200–8,200 درهم/م²</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">جنان</a></td><td><span class="price-figure">7,400–9,000 درهم/م²</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">الطيبية</a></td><td><span class="price-figure">6,000–7,800 درهم/م²</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">لا سيتي</a></td><td><span class="price-figure">6,000–7,800 درهم/م²</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">لو فالون</a></td><td><span class="price-figure">6,500–8,500 درهم/م²</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">حي الصياد</a></td><td><span class="price-figure">6,000–7,800 درهم/م²</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">أولاد عوجة</a></td><td><span class="price-figure">6,500–8,500 درهم/م²</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">الحوزية</a></td><td><span class="price-figure">6,500–9,000 درهم/م²</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">إسماعيلية</a></td><td><span class="price-figure">6,500–8,000 درهم/م²</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">الحدادة</a></td><td><span class="price-figure">6,500–8,800 درهم/م²</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">المدينة القديمة (الخبازات)</a></td><td>مخزون قديم؛ حالة بحالة</td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">أحياء المدينة الشعبية</a></td><td><span class="price-figure">5,800–7,200 درهم/م²</span></td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">المنتزه</a></td><td><span class="price-figure">8,000–9,000 درهم/م²</span></td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">باب فاس</a></td><td><span class="price-figure">6,000–7,500 درهم/م²</span></td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">السكنية</a></td><td><span class="price-figure">7,500–9,000 درهم/م²</span></td><td>الجنوب الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">حي الوفاء</a></td><td><span class="price-figure">6,200–7,800 درهم/م²</span></td><td>الجنوب الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">عين السبع</a></td><td><span class="price-figure">6,000–7,500 درهم/م²</span></td><td>الجنوب الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">حي العصام</a></td><td>إعادة بيع محلية؛ حالة بحالة</td><td>شمال القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">الفوارة</a></td><td>إعادة بيع محلية؛ حالة بحالة</td><td>شمال القنيطرة</td></tr>
-        </tbody>
+    <!-- Filter bar -->
+    <div class="table-filters" id="table-filters">
+      <div class="filter-group">
+        <label class="filter-label">الفئة السعرية</label>
+        <div class="filter-pills" id="filter-tier">
+          <button class="filter-pill active" data-filter="tier" data-value="all">الكل</button>
+          <button class="filter-pill" data-filter="tier" data-value="premium">مميز</button>
+          <button class="filter-pill" data-filter="tier" data-value="upper">فوق المتوسط</button>
+          <button class="filter-pill" data-filter="tier" data-value="middle">متوسط</button>
+          <button class="filter-pill" data-filter="tier" data-value="affordable-mid">متوسط ميسور</button>
+          <button class="filter-pill" data-filter="tier" data-value="affordable">ميسور</button>
+          <button class="filter-pill" data-filter="tier" data-value="coastal">ساحلي</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">مخزون دعم السكن المؤهل</label>
+        <div class="filter-pills" id="filter-daam">
+          <button class="filter-pill active" data-filter="daam" data-value="all">الكل</button>
+          <button class="filter-pill" data-filter="daam" data-value="High">مرتفع</button>
+          <button class="filter-pill" data-filter="daam" data-value="Medium">متوسط</button>
+          <button class="filter-pill" data-filter="daam" data-value="Low">منخفض</button>
+          <button class="filter-pill" data-filter="daam" data-value="na">غير متاح</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">الطابع</label>
+        <div class="filter-pills" id="filter-char">
+          <button class="filter-pill active" data-filter="char" data-value="all">الكل</button>
+          <button class="filter-pill" data-filter="char" data-value="Central">مركزي</button>
+          <button class="filter-pill" data-filter="char" data-value="Villa">فيلا</button>
+          <button class="filter-pill" data-filter="char" data-value="Residential">سكني</button>
+          <button class="filter-pill" data-filter="char" data-value="Expansion">توسعي</button>
+          <button class="filter-pill" data-filter="char" data-value="Coastal">ساحلي</button>
+          <button class="filter-pill" data-filter="char" data-value="Academic">أكاديمي</button>
+          <button class="filter-pill" data-filter="char" data-value="Medina">مدينة عتيقة</button>
+          <button class="filter-pill" data-filter="char" data-value="Industrial">صناعي</button>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:.8rem;margin-top:.5rem;">
+        <span class="table-count" id="table-count">جميع الأحياء</span>
+        <button class="filter-reset" id="filter-reset">إعادة الضبط</button>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;margin-top:1.5rem;">
+      <table class="price-table" id="main-table">
+        <thead>
+          <tr>
+            <th class="sortable" data-col="name">الحي <span class="sort-icon">↕</span></th>
+            <th class="sortable" data-col="buy">نطاق الشراء <span class="sort-icon">↕</span></th>
+            <th class="sortable" data-col="rent">إيجار طويل الأمد <span class="sort-icon">↕</span></th>
+            <th class="sortable" data-col="tier">الفئة <span class="sort-icon">↕</span></th>
+            <th class="sortable" data-col="daam">مخزون دعم السكن <span class="sort-icon">↕</span></th>
+            <th class="sortable" data-col="char">الطابع <span class="sort-icon">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="main-tbody"></tbody>
       </table>
     </div>
-    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">المصدر: مزيج من الرصد المباشر للسوق، ومنصات الإدراج، وتسعير المطورين، والمنطق المقارن المحلي. اعتبر الأحزمة الخارجية نطاقات استرشادية لا أسعارًا دقيقة لكل مبنى.</p>
-
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin:3rem 0 .5rem;">ملخص الإيجار الشهري — جميع الأحياء</h3>
-    <div style="overflow-x:auto;">
-      <table class="price-table">
-        <thead><tr><th>الحي</th><th>الإيجار طويل الأمد النموذجي</th><th>المنطقة</th></tr></thead>
-        <tbody>
-          <tr><td><a class="zone-link" href="#centre-ville">حي المعمورة / القرية</a></td><td><span class="price-figure">3,700–8,500 درهم</span></td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">حي الميموزا</a></td><td><span class="price-figure">3,500–6,500 درهم</span></td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">لا فيل أوت</a></td><td><span class="price-figure">2,150–7,500 درهم</span></td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#centre-ville">فال فلوري</a></td><td>4,000–5,500 درهم للشقق؛ الفلل تتفاوت</td><td>وسط المدينة</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">الملاح</a></td><td><span class="price-figure">2,500–4,500 درهم</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">حي الجيني</a></td><td><span class="price-figure">2,500–4,000 درهم</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">لا سيغون</a></td><td><span class="price-figure">2,500–4,000 درهم</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">لا شنيل</a></td><td><span class="price-figure">2,300–3,800 درهم</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#east-central-kenitra">جردة القاضي</a></td><td><span class="price-figure">2,500–4,200 درهم</span></td><td>الوسط الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#campus-universitaire">الحرم الجامعي ابن طفيل</a></td><td><span class="price-figure">2,500–4,500 درهم</span></td><td>الحرم الجامعي</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">قصبة المهدية</a></td><td><span class="price-figure">2,500–5,000 درهم</span></td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">أليانس المهدية</a></td><td><span class="price-figure">2,500–4,500 درهم</span></td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">العدوى (إقامة الغولف)</a></td><td><span class="price-figure">2,000–2,800 درهم</span></td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#kasbah-mehdia">منطقة فلل الغولف</a></td><td><span class="price-figure">3,000–4,800 درهم</span></td><td>قصبة المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#mehdia-beach">شاطئ المهدية</a></td><td><span class="price-figure">3,650–5,500+ درهم</span></td><td>شاطئ المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#mehdia-beach">ميناء المهدية</a></td><td><span class="price-figure">3,200–5,000 درهم</span></td><td>شاطئ المهدية</td></tr>
-          <tr><td><a class="zone-link" href="#south-central-kenitra">بير الرامي الغربي</a></td><td>إيجارات الفلل تتفاوت بشكل كبير حسب المساحة والتشطيب</td><td>الجنوب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#south-central-kenitra">بير الرامي الشرقي</a></td><td><span class="price-figure">2,800–4,800 درهم</span></td><td>الجنوب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#south-central-kenitra">المغرب العربي</a></td><td><span class="price-figure">2,800–4,200 درهم</span></td><td>الجنوب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">بير الرامي الجنوبي</a></td><td><span class="price-figure">2,400–3,800 درهم</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">الحديقة 1</a></td><td><span class="price-figure">2,600–4,000 درهم</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">الحديقة 2</a></td><td><span class="price-figure">2,300–3,700 درهم</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#south-kenitra">جنان</a></td><td><span class="price-figure">2,800–4,800 درهم</span></td><td>جنوب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">الطيبية</a></td><td><span class="price-figure">2,500–4,000 درهم</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">لا سيتي</a></td><td><span class="price-figure">2,500–4,000 درهم</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">لو فالون</a></td><td><span class="price-figure">3,000–4,500 درهم</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-central-kenitra">حي الصياد</a></td><td><span class="price-figure">2,500–3,800 درهم</span></td><td>الغرب الأوسط</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">أولاد عوجة</a></td><td><span class="price-figure">2,500–3,200 درهم</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">الحوزية</a></td><td><span class="price-figure">3,000–4,800 درهم</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">إسماعيلية</a></td><td><span class="price-figure">2,500–4,000 درهم</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#west-kenitra">الحدادة</a></td><td><span class="price-figure">3,200–5,000 درهم</span></td><td>غرب القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">المدينة القديمة (الخبازات)</a></td><td><span class="price-figure">1,800–2,500 درهم</span></td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">أحياء المدينة الشعبية</a></td><td><span class="price-figure">1,800–2,500 درهم</span></td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">المنتزه</a></td><td><span class="price-figure">3,000–3,500 درهم</span></td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#east-kenitra">باب فاس</a></td><td><span class="price-figure">2,000–3,000 درهم</span></td><td>شرق القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">السكنية</a></td><td><span class="price-figure">1,500–2,300 درهم</span></td><td>الجنوب الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">حي الوفاء</a></td><td><span class="price-figure">1,500–2,300 درهم</span></td><td>الجنوب الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#southeast-kenitra">عين السبع</a></td><td><span class="price-figure">1,500–2,000 درهم</span></td><td>الجنوب الشرقي</td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">حي العصام</a></td><td><span class="price-figure">1,800–2,500 درهم</span></td><td>شمال القنيطرة</td></tr>
-          <tr><td><a class="zone-link" href="#north-kenitra">الفوارة</a></td><td><span class="price-figure">1,800–2,500 درهم</span></td><td>شمال القنيطرة</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">توجيهات الإيجار طويل الأمد فحسب. يتصرف تسعير الإيجار القصير وأسعار الصيف في شاطئ المهدية بمنطق مختلف جوهريًّا عن السوق الداخلي.</p>
+    <p style="font-size:.78rem;font-weight:300;color:var(--text-muted);margin-top:.8rem;font-style:italic;">المصدر: مزيج من المراقبة المباشرة للسوق، ومنصات الإعلانات العقارية، وأسعار المطورين، والمنطق المقارن المحلي. أرقام الأحزمة الخارجية مؤشرية. تختلف أسعار الإيجار الصيفي القصير في مهدية الشاطئ اختلافاً ملحوظاً عن أرقام الإيجار الطويل الأمد المعروضة.</p>
   </section>
 
-  <section id="centre-ville" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">01</div><p class="zone-eyebrow">المنطقة 01 — الوسط الحقيقي</p><h2 class="zone-title">وسط المدينة</h2><div class="sub-hoods"><span class="sub-hood-chip">حي المعمورة / القرية</span><span class="sub-hood-chip">حي الميموزا</span><span class="sub-hood-chip">لا فيل أوت</span><span class="sub-hood-chip">فال فلوري</span></div><div class="zone-grid"><div><p class="body-text">هذا هو القلب التاريخي والمدني والتجاري للقنيطرة، ولكثير من المشترين يظل الجزء الأكثر عملية في المدينة. يوفر أعلى قدر من إمكانية التجول سيرًا على الأقدام، وأكثف تركيز للخدمات اليومية، وأوضح صلة بمحطة قطار السرعة العالية وبقية محور الرباط-الدار البيضاء. هذا هو الجانب من القنيطرة الذي تعمل فيه الحياة اليومية على الأقدام: المحلات التجارية والمقاهي والمدارس والعيادات والبنوك وسيارات الأجرة والمساحات المدنية — كلها ضمن النسيج العمراني ذاته.</p><p class="body-text">يمثل حيا المعمورة والميموزا أقوى جزء من الميزة المركزية، يجمعان بين المخزون القديم والمساكن الأحدث والأكثر رقيًّا، وبعضًا من أقوى جاذبية الإيجار في المدينة. تمتد لا فيل أوت نحو جانب كورنيش سبو، لتوفر مزيجًا أوسع من الشقق وجيوب الفلل بنطاق سعري أرحب. يقع فال فلوري عند حافة النواة — فلل راسخة بشكل رئيسي على قطع أرضية مستقرة من سبعينيات وثمانينيات القرن الماضي — ويحتل موقعًا متميزًا بوصفه سوق الفلل في المنطقة المركزية.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">7,000–15,000 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">2,150–8,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>داخل المنطقة؛ في متناول المشاة في الغالب</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">دعم السكن الشريحة 2 — وحدات أصغر مختارة</span><span class="daam-no">مخزون الفلل خارج منطق الإعانة عادةً</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">الملاك الساكنون المميزون، والمتنقلون، والمشترون الذين يضعون السيولة في المقام الأول.</div></div></div></div></div></section>
-  <section id="east-central-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">02</div><p class="zone-eyebrow">المنطقة 02 — شرق النواة</p><h2 class="zone-title">وسط-شرق القنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">الملاح</span><span class="sub-hood-chip">حي الجيني</span><span class="sub-hood-chip">لا سيغون</span><span class="sub-hood-chip">لا شنيل</span><span class="sub-hood-chip">جردة القاضي</span></div><div class="zone-grid"><div><p class="body-text">وسط-شرق القنيطرة هو الحلقة السكنية الأولى شرق النواة، يفصلها عنها شارع المولى يوسف والممر القديم للسكة الحديدية. يؤسس الملاح هوية المنطقة بطابع مميز: مبانٍ قديمة، وتجمع من الصاغة، ومحطة حافلات المدينة الرئيسية، ونسيج عمراني تجري إزالته وإعادة بنائه بشكل انتقائي، مما ينتج ملفًا مختلطًا بين المخزون التاريخي وإعادة التطوير التدريجية.</p><p class="body-text">يمتد حي الجيني ولا سيغون ولا شنيل وجردة القاضي شرقًا إلى منطقة سكنية عملية يومية — أكثر كثافة وتنوعًا وبأسعار أكثر انتظامًا من النواة المميزة، مع بقائها قريبة بما يكفي من المركز للاستفادة من خدماته وبنيته التحتية. للمشترين الراغبين في الجوار المركزي دون دفع تكلفة وسط المدينة الكاملة، هذه المنطقة هي أول مقارنة طبيعية.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">6,500–10,000 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">2,300–4,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>5–15 دقيقة بالسيارة حسب الشارع</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">دعم السكن الشريحة 2 — وحدات مختارة</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الراغبون في الراحة المركزية دون دفع سعر وسط المدينة الكامل.</div></div></div></div></div></section>
-  <section id="campus-universitaire" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">03</div><p class="zone-eyebrow">المنطقة 03 — حزام الجامعة</p><h2 class="zone-title">الحرم الجامعي</h2><div class="sub-hoods"><span class="sub-hood-chip">الحرم الجامعي ابن طفيل</span></div><div class="zone-grid"><div><p class="body-text">يقع الحرم الجامعي جنوب ممر السكة الحديدية، يفصله عن النسيج المركزي خطوط القطار — حدٌّ يشكّل طريقة عمل هذه المنطقة كسوق. محركه الأساسي هو الطلب الإيجاري المستمر من جامعة ابن طفيل: يشكّل الطلاب وأعضاء هيئة التدريس والعمال المرتبطون بالخدمات الجامعية نسبة كبيرة من المستأجرين، مما يخلق نمط إشغال ثابتًا مرتبطًا بالتقويم الأكاديمي لا بدورات المتنقلين.</p><p class="body-text">المعروض الجديد هنا محدود ويتكون سوق إعادة البيع بشكل رئيسي من شقق أصغر اشتُريت خصيصًا للتأجير. هذه منطقة تقودها الاستخدام لا المكانة — أقل ارتباطًا بالصورة من وسط المدينة، لكنها تتسم بمنطق دخل يمكن التنبؤ به نسبيًّا للمستثمرين في الإيجار الذين يفهمون المنتج وقاعدة المستأجرين التي يشترون فيها.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">مخزون جديد محدود؛ مدفوع بإعادة البيع</td></tr><tr><td>الإيجار</td><td class="pf">2,500–4,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>قصيرة بالسيارة؛ خط السكة يفصلها عن المركز</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">دعم السكن الشريحة 2 — وحدات صغيرة مؤهلة فحسب</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المستثمرون في الإيجار المستهدفون للطلب الطلابي والوحدات المدمجة للمستخدم النهائي.</div></div></div></div></div></section>
-  <section id="kasbah-mehdia" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">04</div><p class="zone-eyebrow">المنطقة 04 — ممر النمو الشمالي الغربي</p><h2 class="zone-title">قصبة المهدية</h2><div class="sub-hoods"><span class="sub-hood-chip">قصبة المهدية</span><span class="sub-hood-chip">أليانس المهدية</span><span class="sub-hood-chip">العدوى (إقامة الغولف)</span><span class="sub-hood-chip">منطقة فلل الغولف</span></div><div class="zone-grid"><div><p class="body-text">شهد هذا الممر واحدًا من أكثر تحولات الأحياء وضوحًا في القنيطرة خلال العقدين الماضيين. بدأت العدوى كمجمعات سكنية منخفضة التكلفة مدعومة حكوميًّا، ثم نمت لتصبح مجتمعًا حيًّا نابضًا بالحياة تتكامل فيه المدارس والمحلات والخدمات اليومية — مع مرجان الذي يرسّخ النشاط التجاري القريب واستمرار الضغط التصاعدي على الأسعار. انطلقت أليانس من قاعدة مماثلة لكنها تطورت أكثر: مشاريع شقق جديدة متوسطة المستوى ومناطق فلل ومول ومحاور تجارية متنامية تمنحها اليوم طابع واحد من أكثر أحياء النمو النشطة في القنيطرة.</p><p class="body-text">تقع قصبة المهدية على التلة المطلة على الشاطئ، على موقع القصبة القديمة. كانت مرتبطة بالسكن غير الرسمي في السابق، لكنها تحولت تدريجيًّا منذ التسعينيات — ولا سيما بعد أن أطلق العمران قطعًا للبناء — إلى مزيج من المنازل R+2 وR+3 ومناطق الفلل والنسيج العمراني القديم بملف مختلف جدًّا عن الشريط الساحلي المسطح أسفلها. تُكمل منطقة فلل الغولف الصورة بخيار فلل أهدأ وأقل كثافة عند الحافة الشرقية للمنطقة.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">200,000 درهم إجمالي إلى 9,500 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">2,000–5,000 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>18–28 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">دعم السكن الشريحة 1 — أفضل ملاءمة في مخزون العدوى</span><span class="daam-t2">دعم السكن الشريحة 2 — أليانس والوحدات الأحدث المختارة</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">مشترو المنزل الأول، ومستخدمو الدعم، والمشترون الساعون إلى نمو شمالي-غربي منظّم.</div></div></div></div></div></section>
-  <section id="mehdia-beach" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">05</div><p class="zone-eyebrow">المنطقة 05 — الشريط الأطلسي</p><h2 class="zone-title">شاطئ المهدية</h2><div class="sub-hoods"><span class="sub-hood-chip">شاطئ المهدية</span><span class="sub-hood-chip">ميناء المهدية</span></div><div class="zone-grid"><div><p class="body-text">شاطئ المهدية سوق مختلف تمامًا عن المدينة خلفه. هذا هو شريط القنيطرة الأطلسي: شقق على الشاطئ، وفلل بحرية، ومقاهٍ على الواجهة البحرية، ومخزون سكني موجّه للترفيه متمركز على أحد أكثر شواطئ المغرب الأطلسية يسرًا في الوصول. المنطق هنا هو أسلوب الحياة الساحلي — الإشغال الصيفي، وامتلاك المنزل الثاني، والتموضع في الإيجار القصير — لا التنقل اليومي أو الراحة الحضرية.</p><p class="body-text">يضيف ميناء المهدية طابع ميناء صيد عامل إلى جانب الاقتصاد الساحلي الموسمي، مع سكان أكثر على مدار العام من شريط الشاطئ الخالص. تبدأ الأسعار من 12,000 درهم/م² للشقق في المواقع الساحلية المميزة وترتفع للمخزون ذي الإطلالة البحرية الممتازة أو المباني الأحدث. تتجاوز إيجارات الأمد الطويل متوسط المدينة الداخلية بوضوح، فيما تتصرف أسعار الإيجار القصير الصيفي بمنطق مختلف جدًّا — مما يجعل هذه منطقة تستوجب منطق استثمارها الخاص، لا مقارنة مباشرة مع البدائل الداخلية.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">من 12,000 درهم/م² في المخزون الساحلي المميز</td></tr><tr><td>الإيجار</td><td class="pf">3,200–5,500+ درهم/شهر إيجار طويل الأمد</td></tr><tr><td>قطار السرعة</td><td>25–35 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">دعم السكن الشريحة 2 — ممكن لكن محرج استراتيجيًّا في الغالب</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الساحليون، والمنازل الثانية للمغاربة المقيمين بالخارج، والمستثمرون في الإيجار القصير.</div></div></div></div></div></section>
-  <section id="south-central-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">06</div><p class="zone-eyebrow">المنطقة 06 — الحلقة الجنوبية المباشرة</p><h2 class="zone-title">جنوب-وسط القنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">بير الرامي الغربي</span><span class="sub-hood-chip">بير الرامي الشرقي</span><span class="sub-hood-chip">المغرب العربي</span></div><div class="zone-grid"><div><p class="body-text">يفتتح جنوب-وسط القنيطرة ببير الرامي الغربي، المعروف على نطاق واسع بوصفه أحد أرقى العناوين السكنية في المدينة. يتسم بقطع أرضية أكبر وشوارع راسخة وطابع فلل متجذّر، وهو أقرب ما في القنيطرة إلى حي سكني فاخر — سوق فلل أساسًا بطابع استقرار بُني عبر عقود، لا منطقة بناء جديد.</p><p class="body-text">بير الرامي الشرقي أكثر تنوعًا في ملفه: تطوير سكني أحدث إلى جانب مخزون قديم، مع قرب المنطقة الصناعية لبير الرامي الذي يشكّل حدودها الجنوبية. يمدّ المغرب العربي النسيج العملي القائم على الشقق في الحلقة الجنوبية المباشرة. يشكّلون معًا أول حزام سكني متماسك جنوب المركز — ليس الأطراف الخارجية، بل منطقة عائلية سكنية حقيقية بروابط يومية قوية مع النواة.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">6,500–8,800 درهم/م²؛ الفلل أعلى</td></tr><tr><td>الإيجار</td><td class="pf">2,800–5,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>10–18 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t2">دعم السكن الشريحة 2 — الأقوى في المخزون القائم على الشقق</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">العائلات الراغبة في وصول عملي إلى المركز دون دفع أسعار وسط المدينة.</div></div></div></div></div></section>
-  <section id="south-kenitra" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">07</div><p class="zone-eyebrow">المنطقة 07 — الحزام الجنوبي الأعمق</p><h2 class="zone-title">جنوب القنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">بير الرامي الجنوبي</span><span class="sub-hood-chip">الحديقة 1</span><span class="sub-hood-chip">الحديقة 2</span><span class="sub-hood-chip">جنان</span></div><div class="zone-grid"><div><p class="body-text">جنوب القنيطرة هو حزام التوسع الجنوبي الأوسع الذي يمتد بالمنطق السكني للمدينة نحو الرباط. تطور جنان إلى منطقة نشطة من مباني R+3 وR+4 إلى جانب مشاريع خاصة أحدث، وفق مسار النمو الخارجي المطّرد الذي يعيد تشكيل هذا الجانب من المدينة منذ أكثر من عقد. تُكمل الحديقة 1 و2 وبير الرامي الجنوبي المنطقة بنسيج سكني يغلب عليه الملاك الساكنون.</p><p class="body-text">هذه ليست عناوين مرموقة، لكنها أحياء متماسكة مكتملة البناء مع بنية تجارية متنامية وتسعير أكثر وضوحًا باستمرار. للمشترين الذين يحتاجون إلى تعظيم ميزانيتهم دون الانتقال إلى مناطق هامشية حقيقية، يوفر هذا الحزام باستمرار قيمة أكبر مقابل المال مقارنة بالمناطق الداخلية — ويعزز اتجاه النمو الجنوبي المستمر المنطق طويل الأمد للشراء هنا.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">6,200–9,000 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">2,300–4,800 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>15–24 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">دعم السكن الشريحة 1 — مخزون ميسور في الأطراف</span><span class="daam-t2">دعم السكن الشريحة 2 — وحدات عائلية أحدث</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون العائليون المنتبهون للميزانية الذين يريدون نسيجًا سكنيًّا حضريًّا متماسكًا.</div></div></div></div></div></section>
-  <section id="west-central-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">08</div><p class="zone-eyebrow">المنطقة 08 — الحلقة الغربية الوسطى</p><h2 class="zone-title">الغرب الأوسط للقنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">الطيبية</span><span class="sub-hood-chip">لا سيتي</span><span class="sub-hood-chip">لو فالون</span><span class="sub-hood-chip">حي الصياد</span></div><div class="zone-grid"><div><p class="body-text">يمتد الغرب الأوسط للقنيطرة على طول الجانب السبوي للمدينة، يجمع الطابع الهادئ للواجهة النهرية في لا سيتي والطيبية مع الطابع السكني العملي الأوسع للو فالون وحي الصياد. تحتل لا سيتي موقعًا نهريًّا متميزًا شمال لا فيل أوت — أهدأ وأكثر سكانيًّا في شعوره من المركز التجاري، لكنه قريب بما يكفي للاستفادة منه دون صعوبة. تشاطر الطيبية الجودة السبوية ذاتها: أكثر استقرارًا من المضاربة، بملف سكني مترسّخ تراكم عبر الزمن لا بملف ترويجي لبناء جديد.</p><p class="body-text">يملأ لو فالون وحي الصياد المنطقة بمخزون شقق متوسط السوق يقع بوضوح أقرب إلى النسيج المركزي من الحزام الغربي الأعمق — فارق ذو معنى عند تقدير أوقات التنقل والوصول إلى المرافق المركزية. للمشترين الراغبين في قيمة عنوان غرب المركز دون الانتقال بعيدًا كأولاد عوجة أو الحوزية، هذه المنطقة هي الأولى للفحص.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">6,000–8,500 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">2,500–4,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>10–20 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">دعم السكن الشريحة 1 — مخزون قديم في جيوب</span><span class="daam-t2">دعم السكن الشريحة 2 — شقق أحدث مختارة</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">الملاك الساكنون الراغبون في قيمة غرب المركز دون الانتقال بعيدًا إلى الحزام الخارجي.</div></div></div></div></div></section>
-  <section id="west-kenitra" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">09</div><p class="zone-eyebrow">المنطقة 09 — الحزام الغربي الأعمق</p><h2 class="zone-title">غرب القنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">أولاد عوجة</span><span class="sub-hood-chip">الحوزية</span><span class="sub-hood-chip">إسماعيلية</span><span class="sub-hood-chip">الحدادة</span></div><div class="zone-grid"><div><p class="body-text">يمتد غرب القنيطرة على نطاق أوسع مما قد يوحي به توصيفه الجماعي. تطور أولاد عوجة على مدى عقود إلى منطقة مختلطة واسعة من المنازل والفلل والشقق مع نشاطها التجاري وخدماتها اليومية — حي حقيقي في نسيج المدينة لا مجرد منطقة سكن طرفية. شهدت الحوزية (المعروفة أيضًا بالحدادة) ترقية سكنية حقيقية في السنوات الأخيرة: مبانٍ شقق جديدة ومساحات خضراء ومدارس خاصة ومقاهٍ ومطاعم ومحلات غذائية متخصصة حولتها إلى إحدى أكثر المناطق السكنية الطبقة الوسطى الجديدة جاذبية في المدينة، مع منطقة فلل على طريق المهدية تضيف خيارًا أقل كثافة.</p><p class="body-text">تنتمي إسماعيلية والحدادة إلى المنطق العملي ذاته للحزام المتوسط: مخزون راسخ مسكون مع خدمات يومية وملف بناء يتراوح بين المنازل القديمة والشقق الأحدث. للمشترين الذين يحتاجون إلى قيمة دون التضحية بعنوان حضري وظيفي، يوفر الحزام الغربي باستمرار قيمة أكبر بالمتر المربع من المركز — والحوزية تحديدًا تتغير أسرع مما يوحي به عنوانها.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">6,500–9,000 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">2,500–5,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>18–30 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">دعم السكن الشريحة 1 — ملاءمة واسعة في جيوب ذات تكلفة منخفضة</span><span class="daam-t2">دعم السكن الشريحة 2 — شقق غربية أحدث</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون الباحثون عن القيمة والمستثمرون العمليون في الإيجار الطويل الذين لا يحتاجون إلى مكانة مركزية.</div></div></div></div></div></section>
-  <section id="east-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">10</div><p class="zone-eyebrow">المنطقة 10 — المدينة السكنية الشرقية</p><h2 class="zone-title">شرق القنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">المدينة القديمة (الخبازات)</span><span class="sub-hood-chip">أحياء المدينة الشعبية</span><span class="sub-hood-chip">المنتزه</span><span class="sub-hood-chip">باب فاس</span></div><div class="zone-grid"><div><p class="body-text">يروي شرق القنيطرة أوضح قصة لكيفية عيش المدينة فعليًّا، بعيدًا عن الصورة الترويجية المصقولة. يتميز المنتزه عن بقية المنطقة: حي سكني حديث نسبيًّا يمزج مباني الشقق الجديدة والفلل مع المساحات الخضراء وحديقة عامة ومدارس ومطاعم ومقاهٍ — أكثر خضرة وانفتاحًا بوضوح في طابعه من كثير من المخزون الأحدث في المدينة، وهو باستمرار أقوى قطاع سوقي في المنطقة.</p><p class="body-text">تشكّل المدينة القديمة والخبازات منطقة تقليدية متواصلة تتميز بأزقة ضيقة ومبانٍ قديمة وحياة شارع كثيفة وأنواع من النشاط التجاري غير الرسمي وشبه الرسمي التي تمنح مراكز المدن المغربية القديمة طاقتها. تجعل أسواق المكشوف وتجمع الصاغة وباعة الأطعمة والورش الحرفية وإيقاع الحياة العامة — الذي قد يذكّر بشكل مصغّر بجامع الفنا — هذا الحي أكثر أحياء المدينة طابعًا وشخصية. تمتد حي السلام وحي الربيع وحي النهضة وحي الأمل بالنسيج ذاته: أحياء شعبية متجذرة بأفران محلية وباعة الشوارع وتعايش الحياة الشارعية التقليدية مع التحديث التدريجي الذي يميز هذا الجانب من القنيطرة. يجسّر باب فاس بين النسيج الشرقي والمركزي بملف أكثر تنوعًا يتضمن عناصر أحدث إلى جانب الشرق التاريخي.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">5,800–9,000 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">1,800–3,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>12–25 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">دعم السكن الشريحة 1 — شائع في المخزون القديم</span><span class="daam-t2">دعم السكن الشريحة 2 — الأقوى حول المنتزه</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">الأسر المحلية والمشترون المستعدون للتنازل عن المكانة مقابل الميسورية والعملية اليومية.</div></div></div></div></div></section>
-  <section id="southeast-kenitra" style="background:var(--white);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">11</div><p class="zone-eyebrow">المنطقة 11 — حافة النمو الجنوبي الشرقي</p><h2 class="zone-title">جنوب-شرق القنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">السكنية</span><span class="sub-hood-chip">حي الوفاء</span><span class="sub-hood-chip">عين السبع</span></div><div class="zone-grid"><div><p class="body-text">تروي السكنية قصة نضوج حضري تدريجي ثابت. قبل ثلاثين عامًا كانت تمثل الحد الفعلي لنهاية القنيطرة. أما اليوم فهي حي سكني متكامل بالكامل تتشابك فيه الشوارع المخططة والنشاط التجاري والبنوك والمطاعم والخدمات اليومية مع نسيج الحي. كان المسار ثابتًا: البنية التحتية تتبع السكان، والمنطقة تعمل الآن كحي حقيقي لا امتداد خارجي للمدينة.</p><p class="body-text">يقع حي الوفاء وعين السبع أبعد على القوس الجنوبي الشرقي ذاته، عبر الطريق نحو الرباط. هذه أحياء أحدث وأقل اكتمالًا من السكنية، بطابع بناء جديد أقوى وبنية تجارية ناشئة. تُطوّر الغابة الحضرية وطريق مدخل المدينة هذا الجانب من القنيطرة جغرافيًّا وتمنحان المنطقة هوية مقروءة — غير أن الغابة وطريق المدخل معالم مكانية لا أسواق فرعية للإسكان في حد ذاتها.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">6,000–9,000 درهم/م²</td></tr><tr><td>الإيجار</td><td class="pf">1,500–2,300 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>20–30 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">دعم السكن الشريحة 1 — ملاءمة قوية</span><span class="daam-t2">دعم السكن الشريحة 2 — وحدات أحدث مختارة</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">الملاك الساكنون ذوو الميزانية المنخفضة والمشترون المرتاحون لعنوان في حزام نمو أكثر بُعدًا.</div></div></div></div></div></section>
-  <section id="north-kenitra" style="background:var(--steel);padding:var(--section-pad);"><div class="zone-block"><div class="zone-num">12</div><p class="zone-eyebrow">المنطقة 12 — الحافة الشمالية</p><h2 class="zone-title">شمال القنيطرة</h2><div class="sub-hoods"><span class="sub-hood-chip">حي العصام</span><span class="sub-hood-chip">الفوارة</span></div><div class="zone-grid"><div><p class="body-text">نادرًا ما يظهر شمال القنيطرة في التسويق العقاري المصقول، لكن حي العصام والفوارة يظلان جزءًا من النسيج السكني اليومي للمدينة. هذه أحياء محلية بالمعنى الحقيقي: أكثر وضوحًا للناس الذين يسكنونها من المشترين الذين يقتربون من المدينة عبر الإدراجات أو كتيبات المطورين. رؤية التسعير على المنصات الرئيسية شحيحة، مما يعني أن الصورة الميدانية تنحرف هنا عن البيانات الإلكترونية بشكل أكثر أهمية من أي مكان آخر في القنيطرة تقريبًا.</p><p class="body-text">للمشترين الذين يقتربون من هذه المنطقة، يهم التواصل المباشر مع السوق المحلي أكثر من المقارنة بالمعايير المرجعية. الجاذبية، حيث توجد، تتعلق كليًّا بتكلفة الدخول — لا بالصورة أو جودة البنية التحتية أو ملاءمة التنقل. إذا كانت هذه المقايضات تناسب وضعك، ستجد هنا منافسة أقل وهامشًا للتفاوض أوسع من أي جزء آخر من المدينة.</p></div><div class="zone-panel"><p class="zone-panel-label">نظرة سريعة على المنطقة</p><table class="price-mini-table"><thead><tr><th>المؤشر</th><th>التوجيه</th></tr></thead><tbody><tr><td>الشراء</td><td class="pf">إعادة بيع محلية ذات رؤية منخفضة؛ حالة بحالة</td></tr><tr><td>الإيجار</td><td class="pf">1,800–2,500 درهم/شهر</td></tr><tr><td>قطار السرعة</td><td>20–30 دقيقة بالسيارة</td></tr></tbody></table><div class="zone-badges"><span class="daam-t1">دعم السكن الشريحة 1 — حيث يتوفر المخزون المؤهل</span></div><div class="best-for"><div class="best-for-label">الأنسب لـ</div><div class="best-for-text">المشترون المحليون الحساسون جدًّا للميزانية والذين يضعون تكلفة الدخول فوق الرؤية أو السيولة.</div></div></div></div></div></section>
-
+  <!-- FAQ -->
   <section id="faq" class="faq-section" style="padding:var(--section-pad);">
     <p class="eyebrow">أسئلة</p>
-    <h2 class="section-title" style="color:var(--navy);">أسئلة شائعة<br>حول أحياء القنيطرة.</h2>
+    <h2 class="section-title" style="color:var(--navy);">الأسئلة الشائعة<br>حول أحياء القنيطرة.</h2>
     <div class="faq-list" style="margin-top:2.5rem;max-width:820px;">
-      <div class="faq-item"><button class="faq-question" type="button">أي منطقة تقدم أقوى ملف استثماري شامل؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">لتقدير رأس المال والسيولة والدفاعية عند التنقل، يظل وسط المدينة أقوى منطقة شاملة. يمكن أن يعمل الوسط الشرقي والحرم الجامعي بشكل جيد للاستراتيجيات المجاورة للمركز أو المدفوعة بالإيجار، فيما يوفر جنوب-وسط القنيطرة توازنًا عمليًّا بين السعر وقابلية الاستخدام للملاك الساكنين من الأسر.</p></div></div>
-      <div class="faq-item"><button class="faq-question" type="button">أين أجد أوسع اختيار لدعم السكن؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">لمنطق الشريحة 1، تظل قصبة المهدية من جانب العدوى وأجزاء من الأحزمة الغربية وحافتا الجنوب الشرقي والشمال المنخفضة التكلفة أوضح نقاط البداية. للشريحة 2، يوفر جنوب-وسط القنيطرة ومشاريع جنوب القنيطرة المختارة وقصبة المهدية من جانب أليانس وبعض جيوب شرق القنيطرة في الغالب المخزون الأكثر قابلية للاستخدام. وسط المدينة يؤهل بشكل انتقائي فحسب.</p></div></div>
-      <div class="faq-item"><button class="faq-question" type="button">لماذا الفصل بين الغرب الأوسط وغرب القنيطرة؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">لأن الطيبية ولا سيتي ولو فالون وحي الصياد تقع أقرب إلى النسيج الحضري المواجه للمركز من أولاد عوجة والحوزية وإسماعيلية والحدادة. لا تتداول كوسط المدينة، لكنها أيضًا لا تتصرف كالحزام الغربي الأعمق.</p></div></div>
-      <div class="faq-item"><button class="faq-question" type="button">لماذا فصل الحرم الجامعي عن وسط المدينة؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">الجانب الجامعي مفصول ماديًّا بممر السكة الحديدية ويعمل أكثر كحزام جامعي مدفوع بالإيجار من كونه جزءًا من النواة المركزية المميزة الخالصة. من حيث منطق الرسم والسوق، يُقرأ بشكل أفضل كمنطقة مستقلة.</p></div></div>
-      <div class="faq-item"><button class="faq-question" type="button">هل مدخل القنيطرة والغابة الحضرية جزء من جنوب-شرق القنيطرة؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">لا. هما معالم توجيهية مفيدة، لكن ليسا أحياء فرعية سكنية في هذا الدليل. جنوب-شرق القنيطرة محدود هنا بالسكنية وحي الوفاء وعين السبع.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">أي الأحياء يوفر أقوى ملف استثماري شامل؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">من حيث ارتفاع قيمة رأس المال والسيولة ومقاومة تأثيرات التنقل، يبقى حي المعمورة وحي الميموزا الخيارَين الأشمل. أما بئر رامي الغرب فهو المعيار المرجعي للفيلات الراقية. أما الاستراتيجيات القائمة على الإيجار، فالحرم الجامعي يوفر طلباً طلابياً منتظماً. ويعد المنتزه والهواء من أكثر الأحياء إثارة للاهتمام على صعيد النمو في الشريحة المتوسطة.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">لماذا لا تُسعَّر القنيطرة كسوق واحد؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">يُفرز نهر سبو وقاعدة القوات الجوية الملكية وممر السكة الحديدية وغابة المعمورة حواجز جغرافية صارمة تعزل الأحياء التي تبدو متقاربة على الخريطة المسطحة. وقد يمثل عنوانان يبدوان متجاورَين ما يزيد على 25 إلى 30 دقيقة بالسيارة في ساعات الذروة. الجغرافيا جزء من قرار الشراء بطريقة تحجبها تماماً متوسطات الأسعار على مستوى المدينة.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">أين أجد أفضل توافق مع دعم السكن؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">لمنطق الشريحة الأولى، تُعد أضواء وأجزاء من حي أولاد عرفة والأحزمة الشرقية والمحيطية الأقل كلفةً نقاط البداية الأوضح. أما للشريحة الثانية، فيوفر المنتزه وبئر رامي الشرق والهواء والمشاريع السكنية الأحدث في الحزام المتوسط عادةً أكثر المخزون قابليةً للاستخدام. يستوفي وسط المدينة الشروط بصفة انتقائية على الوحدات الأصغر.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">هل شاطئ مهدية استثمار جيد؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">تسير مهدية الشاطئ وفق منطق مختلف تماماً عن باقي المدينة. وهي تناسب مشتري أسلوب الحياة الساحلي، وعمليات شراء المنزل الثاني لمغاربة العالم، والمستثمرين في الإيجار القصير الأمد الذين يفهمون الطلب الموسمي. لا تُقارَن مباشرةً بالبدائل الداخلية ولا ينبغي تقييمها وفق عوائد داخلية أو أرقام إيجار طويل الأمد.</p></div></div>
+      <div class="faq-item"><button class="faq-question" type="button">ما تأثير القطار فائق السرعة على أسعار القنيطرة؟ <span class="faq-icon">+</span></button><div class="faq-answer"><p class="faq-answer-text">يربط القطار فائق السرعة القنيطرةَ بالرباط في نحو 20 دقيقة وبالدار البيضاء في ساعة وبضع دقائق. تستفيد الأحياء الواقعة داخل وسط المدينة أو المتاخمة له بصورة مباشرة. وكلما ابتعد الحي عن المحطة — ولا سيما تلك المفصولة بالخط الحديدي أو النهر — قلّ تأثير العلاوة السعرية المرتبطة بالقطار. وقت القيادة إلى المحطة يهم أكثر من المسافة المستقيمة.</p></div></div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="opp-section">
     <div style="max-width:900px;margin:0 auto;">
       <p class="eyebrow">الفرصة الحالية</p>
       <h2 class="section-title" style="color:var(--white);">إيلاف سكاي فيو — وسط مدينة القنيطرة.</h2>
       <div class="opp-box">
-        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.72);max-width:700px;margin-bottom:2rem;">يقع إيلاف سكاي فيو داخل منطق وسط المدينة الحقيقي الموضح أعلاه. للمشترين الذين يريدون أقوى قصة إعادة بيع مركزية، والوصول سيرًا إلى المحطة، وأهلية انتقائية لدعم السكن الشريحة 2، يظل أحد أنسب الخيارات الحالية في المدينة.</p>
+        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.72);max-width:700px;margin-bottom:2rem;">يقع إيلاف سكاي فيو في صميم وسط المدينة الحقيقي — وصول مشياً إلى القطار السريع، ومنطق إعادة بيع قوي، وأهلية انتقائية لشريحة دعم السكن الثانية. أحد أوضح الخيارات الراهنة في المدينة للمشترين الراغبين في أقوى قصة مركزية.</p>
         <div class="cta-actions">
-          <a href="../../elaf-sky-view.html" class="btn-gold">اطّلع على إيلاف سكاي فيو</a>
-          <a href="../../index.html#contact" class="btn-outline-dark">تحدث مع مستشار</a>
+          <a href="../elaf-sky-view.html" class="btn-gold">اطلع على إيلاف سكاي فيو</a>
+          <a href="../index.html#contact" class="btn-outline-dark">تحدث إلى مستشار</a>
         </div>
       </div>
     </div>
   </section>
 </main>
+
 <footer>
   <div class="footer-grid">
     <div class="footer-brand"><img loading="lazy" decoding="async" src="../../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">استشارات عقارية للمشترين والمطورين في سوق الرباط-سلا-القنيطرة.</p></div>
@@ -401,57 +443,1041 @@
   </div>
   <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. جميع الحقوق محفوظة.</div><div class="footer-langs"><a href="../../guides/kenitra-neighborhood-guide.html">EN</a><a href="../../fr/guides/kenitra-guide-quartiers.html">FR</a><a href="kenitra-dalil-ahya.html" class="active">AR</a></div></div>
 </footer>
-<div class="float-buttons"><a href="https://wa.me/212642773249?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85%20%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="محادثة واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><button class="btn-back-top" aria-label="العودة إلى الأعلى"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button></div>
+
+<div class="float-buttons">
+  <a href="https://wa.me/212642773249?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85%20%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <button class="btn-back-top" aria-label="العودة إلى الأعلى"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  (function() {
-    const zoneData = {
-      'centre-ville': { title: 'وسط المدينة', orientation: 'المركز الحقيقي للمدينة: مميز، يمكن التجول فيه سيرًا، قريب من محطة قطار السرعة، وأوضح مرجع لتسعير بقية أحياء القنيطرة.', buy: '7,000–15,000 درهم/م²', rent: '2,150–8,500 درهم/شهر', lgv: 'داخل المنطقة', daam: 'محدود، معظمها وحدات أصغر مؤهلة', chips: ['مامورة', 'ميموزا', 'لا فيل أوت', 'فال فلوري'], copy: 'الأنسب للمشترين الذين يريدون إمكانية التجول سيرًا، وعمق إعادة البيع، وأقوى منطق مميز في القنيطرة.', target: '#centre-ville' },
-      'east-central-kenitra': { title: 'وسط-شرق القنيطرة', orientation: 'نسيج شرقي مجاور للمركز بأسعار أقل من وسط المدينة لكن بمنطق موقع أفضل من الشرق الخارجي.', buy: '6,500–10,000 درهم/م²', rent: '2,300–4,500 درهم/شهر', lgv: '5–15 دقيقة بالسيارة', daam: 'الشريحة 2 في وحدات مختارة', chips: ['الملاح', 'حي الجيني', 'لا سيغون', 'لا شنيل', 'جردة القاضي'], copy: 'الأنسب للمشترين الذين يريدون الراحة المركزية دون دفع السعر الكامل للنواة.', target: '#east-central-kenitra' },
-      'campus-universitaire': { title: 'الحرم الجامعي', orientation: 'حزام جامعي مفصول بالسكة الحديدية مدفوع أكثر بالطلب الإيجاري من المركزية المميزة الخالصة.', buy: 'مدفوع بإعادة البيع؛ مخزون جديد محدود', rent: '2,500–4,500 درهم/شهر', lgv: 'قصيرة بالسيارة؛ مفصولة بخط السكة', daam: 'وحدات صغيرة مختارة فحسب', chips: ['الحرم الجامعي ابن طفيل'], copy: 'الأنسب للمستثمرين في الإيجار المستهدفين للطلب الطلابي.', target: '#campus-universitaire' },
-      'kasbah-mehdia': { title: 'قصبة المهدية', orientation: 'ممر نمو شمالي-غربي يمزج المخزون الاجتماعي منخفض الدخول ومنتج أليانس الأحدث والإسكان العضوي من جانب القصبة.', buy: '200,000 درهم إجمالي إلى 9,500 درهم/م²', rent: '2,000–5,000 درهم/شهر', lgv: '18–28 دقيقة بالسيارة', daam: 'توفر قوي للشريحة 1 والشريحة 2', chips: ['قصبة المهدية', 'أليانس المهدية', 'العدوى', 'منطقة فلل الغولف'], copy: 'الأنسب لمشتري المنزل الأول والمشترين الموجهين بالدعم الساعين إلى نمو شمالي-غربي منظّم.', target: '#kasbah-mehdia' },
-      'mehdia-beach': { title: 'شاطئ المهدية', orientation: 'سوق ساحلي مستقل مدفوع بالتموضع الصيفي والطلب الترفيهي ومنطق المنزل الثاني.', buy: 'من 12,000 درهم/م² في المخزون المميز', rent: '3,200–5,500+ درهم/شهر', lgv: '25–35 دقيقة بالسيارة', daam: 'ممكن لكن محرج استراتيجيًّا', chips: ['شاطئ المهدية', 'ميناء المهدية'], copy: 'الأنسب للمشترين الساحليين والمنازل الثانية للمغاربة المقيمين بالخارج واستراتيجيات الإيجار القصير.', target: '#mehdia-beach' },
-      'south-central-kenitra': { title: 'جنوب-وسط القنيطرة', orientation: 'الحلقة الجنوبية الأولى تحت المركز، أكثر ارتباطًا بنواة القنيطرة من الحزام الجنوبي الأعمق.', buy: '6,500–8,800 درهم/م²', rent: '2,800–5,500 درهم/شهر', lgv: '10–18 دقيقة بالسيارة', daam: 'الأقوى في المخزون القائم على الشقق', chips: ['بير الرامي الغربي', 'بير الرامي الشرقي', 'المغرب العربي'], copy: 'الأنسب للعائلات التي تريد وصولًا عمليًّا للمركز دون أسعار وسط المدينة.', target: '#south-central-kenitra' },
-      'south-kenitra': { title: 'جنوب القنيطرة', orientation: 'حزام الأسرة الجنوبي الأعمق، أكثر توجهًا بالقدرة الشرائية وأكثر بُعدًا من جنوب-وسط القنيطرة.', buy: '6,200–9,000 درهم/م²', rent: '2,300–4,800 درهم/شهر', lgv: '15–24 دقيقة بالسيارة', daam: 'جيوب قوية للشريحة 1 والشريحة 2', chips: ['بير الرامي الجنوبي', 'الحديقة 1', 'الحديقة 2', 'جنان'], copy: 'الأنسب للمشترين العائليين المنتبهين للميزانية الذين يريدون نسيجًا سكنيًّا حضريًّا متماسكًا.', target: '#south-kenitra' },
-      'west-central-kenitra': { title: 'الغرب الأوسط للقنيطرة', orientation: 'حلقة جسر بين النواة والحزام الغربي الأعمق.', buy: '6,000–8,500 درهم/م²', rent: '2,500–4,500 درهم/شهر', lgv: '10–20 دقيقة بالسيارة', daam: 'الشريحة 1 في جيوب؛ الشريحة 2 في الشقق الأحدث', chips: ['الطيبية', 'لا سيتي', 'لو فالون', 'حي الصياد'], copy: 'الأنسب للملاك الساكنين الراغبين في قيمة غرب المركز دون الانتقال بعيدًا للخارج.', target: '#west-central-kenitra' },
-      'west-kenitra': { title: 'غرب القنيطرة', orientation: 'حزام الإسكان الغربي الأوسع، أكثر بُعدًا وموجهًا بالقيمة عمومًا من حلقة الغرب الأوسط.', buy: '6,500–9,000 درهم/م²', rent: '2,500–5,500 درهم/شهر', lgv: '18–30 دقيقة بالسيارة', daam: 'ملاءمة واسعة في جيوب ذات تكلفة منخفضة', chips: ['أولاد عوجة', 'الحوزية', 'إسماعيلية', 'الحدادة'], copy: 'الأنسب للمشترين الباحثين عن القيمة والمستثمرين العمليين في الإيجار الطويل.', target: '#west-kenitra' },
-      'east-kenitra': { title: 'شرق القنيطرة', orientation: 'المدينة السكنية الشرقية الأوسع بعد حلقة الوسط الشرقي، تمزج النسيج القديم للمدينة مع جيوب أقوى مختارة.', buy: '5,800–9,000 درهم/م²', rent: '1,800–3,500 درهم/شهر', lgv: '12–25 دقيقة بالسيارة', daam: 'الشريحة 1 شائعة؛ الشريحة 2 الأقوى حول المنتزه', chips: ['المدينة القديمة', 'الأحياء الشعبية', 'المنتزه', 'باب فاس'], copy: 'الأنسب للأسر المحلية المتنازلة عن المكانة مقابل الميسورية والعملية اليومية.', target: '#east-kenitra' },
-      'southeast-kenitra': { title: 'جنوب-شرق القنيطرة', orientation: 'الجنوب الشرقي السكني الفعلي، محدود هنا بالسكنية وحي الوفاء وعين السبع.', buy: '6,000–9,000 درهم/م²', rent: '1,500–2,300 درهم/شهر', lgv: '20–30 دقيقة بالسيارة', daam: 'شريحة 1 قوية مع جيوب شريحة 2 مختارة', chips: ['السكنية', 'حي الوفاء', 'عين السبع'], copy: 'الأنسب للملاك الساكنين ذوي الميزانية المنخفضة المرتاحين لعنوان في حزام نمو أكثر بُعدًا.', target: '#southeast-kenitra' },
-      'north-kenitra': { title: 'شمال القنيطرة', orientation: 'حافة شمالية سكنية ذات رؤية تسعير منخفضة وطابع سوق محلي أكثر.', buy: 'إعادة بيع محلية ذات رؤية منخفضة', rent: '1,800–2,500 درهم/شهر', lgv: '20–30 دقيقة بالسيارة', daam: 'الشريحة 1 حيث توجد وحدات مؤهلة', chips: ['حي العصام', 'الفوارة'], copy: 'الأنسب للمشترين المحليين الحساسين جدًّا للميزانية والذين يضعون تكلفة الدخول فوق السيولة.', target: '#north-kenitra' }
-    };
-    const zones = Array.from(document.querySelectorAll('.map-zone'));
-    const panel = document.getElementById('map-zone-panel');
-    if (!zones.length || !panel) return;
-    const title = panel.querySelector('[data-map-field="title"]');
-    const orientation = panel.querySelector('[data-map-field="orientation"]');
-    const buy = panel.querySelector('[data-map-field="buy"]');
-    const rent = panel.querySelector('[data-map-field="rent"]');
-    const lgv = panel.querySelector('[data-map-field="lgv"]');
-    const daam = panel.querySelector('[data-map-field="daam"]');
-    const chips = panel.querySelector('[data-map-field="chips"]');
-    const copy = panel.querySelector('[data-map-field="copy"]');
-    const primaryLink = panel.querySelector('[data-map-field="primaryLink"]');
-    function renderZone(zoneId) {
-      const zone = zoneData[zoneId];
-      if (!zone) return;
-      zones.forEach((button) => {
-        const active = button.getAttribute('data-zone') === zoneId;
-        button.classList.toggle('is-active', active);
-        button.setAttribute('aria-pressed', String(active));
-      });
-      title.textContent = zone.title;
-      orientation.textContent = zone.orientation;
-      buy.textContent = zone.buy;
-      rent.textContent = zone.rent;
-      lgv.textContent = zone.lgv;
-      daam.textContent = zone.daam;
-      copy.textContent = zone.copy;
-      primaryLink.setAttribute('href', zone.target);
-      primaryLink.textContent = 'الانتقال إلى ' + zone.title;
-      chips.innerHTML = zone.chips.map((item) => '<span>' + item + '</span>').join('');
+(function() {
+'use strict';
+
+// ============================================================
+// NEIGHBOURHOOD DATA
+// ============================================================
+const HOODS = {
+  'Maamora': {
+    display: 'حي المعمورة',
+    tier: 'upper', tierLabel: 'فوق المتوسط إلى مميز',
+    buy: '10,000–15,000 درهم/م²', rent: '3,700–8,500 درهم/شهر',
+    stats: { walkability: [95,'مرتفع جداً'], safety: [80,'مرتفع'], greenery: [55,'متوسط'], noise: [50,'متوسط'], parking: [20,'صعب'], family: [80,'مرتفع'] },
+    overview: 'يشكّل حي المعمورة القلب الإداري والمهني للقنيطرة — يضم المباني الحكومية والعيادات والبنوك والمدارس والفنادق. شوارعه الداخلية أهدأ وأكثر خضرةً من الطرق الرئيسية المحيطة به، مما يمنحه طابعاً أكثر انفتاحاً مقارنةً بالقطاعات التجارية المجاورة.',
+    housing: ['شقق متوسطة الارتفاع','فيلات قديمة','مباني متعددة الاستخدام','مجمعات مؤسسية'],
+    buyers: ['موظفون وعاملون حكوميون','عائلات راسخة','مشترو مغاربة العالم','متنقلون من الرباط'],
+    notes: ['صعوبة في ركن السيارات بالقرب من النافورة والطرق الرئيسية','أحد أكثر الأحياء المركزية قابلية للسير في المدينة','طلب قوي على الإيجار طويل الأمد'],
+    daam: ['low', 'منخفض', 'السعر بالمتر المربع يجعل المخزون المؤهل نادراً — فرصة حقيقية إن وُجدت']
+  },
+  'Mimosas': {
+    display: 'حي الميموزا',
+    tier: 'upper', tierLabel: 'فوق المتوسط إلى مميز',
+    buy: '10,000–14,000 درهم/م²', rent: '3,500–6,500 درهم/شهر',
+    stats: { walkability: [85,'مرتفع'], safety: [82,'مرتفع'], greenery: [60,'متوسط'], noise: [45,'منخفض متوسط'], parking: [30,'صعب'], family: [85,'مرتفع'] },
+    overview: 'يُعدّ حي الميموزا من أكثر أحياء القنيطرة المركزية رسوخاً، يجمع بين المساكن الحديثة المتميزة والمخزون القديم، ويتمتع بأقوى جاذبية إيجارية في المدينة. يقع في صميم الثمن المميز لوسط المدينة ويوفر قابلية ممتازة للسير يومياً.',
+    housing: ['شقق متوسطة الارتفاع','بعض الفيلات القديمة','مباني سكنية مختلطة'],
+    buyers: ['مالكو العقارات من الفئة المميزة','مستثمرون طويلو الأمد','مشترو مغاربة العالم','متنقلون من الرباط'],
+    notes: ['عمق قوي في إعادة البيع والسيولة','طلب إيجاري مرتفع على مدار العام','موقع مركزي وقابل للسير'],
+    daam: ['low', 'منخفض', 'السعر بالمتر المربع يجعل المخزون المؤهل نادراً — فرصة حقيقية إن وُجدت']
+  },
+  'La Ville Haute': {
+    display: 'لا فيل أوت',
+    tier: 'upper', tierLabel: 'فوق المتوسط',
+    buy: '7,000–12,500 درهم/م²', rent: '2,150–7,500 درهم/شهر',
+    stats: { walkability: [80,'مرتفع'], safety: [78,'مرتفع'], greenery: [65,'متوسط'], noise: [48,'منخفض متوسط'], parking: [35,'صعب'], family: [80,'مرتفع'] },
+    overview: 'يمتد حي لا فيل أوت نحو الكورنيش على ضفة نهر سبو، ويوفر مزيجاً أوسع من الشقق وجيوب الفيلات بنطاق سعري أكبر. يحتل موقعاً متميزاً بين القلب المميز وحافة المدينة المطلة على النهر، مع وصول جيد إلى الخدمات المركزية.',
+    housing: ['شقق','جيوب فيلات','سكن مختلط'],
+    buyers: ['مالكو العقارات','العائلات','مشترون يبحثون عن قيمة مركزية'],
+    notes: ['نطاق سعري أوسع من المعمورة والميموزا','قرب جيد من النهر في بعض الجيوب','وصول قوي إلى الخدمات المركزية'],
+    daam: ['low', 'منخفض', 'السعر بالمتر المربع يجعل المخزون المؤهل نادراً — فرصة حقيقية إن وُجدت']
+  },
+  'Val Fleury': {
+    display: 'فال فلوري',
+    tier: 'premium', tierLabel: 'مميز / فيلا',
+    buy: 'سوق فيلات؛ حالة بحالة', rent: '4,000–5,500 درهم (شقق)؛ الفيلات تتفاوت',
+    stats: { walkability: [55,'متوسط'], safety: [85,'مرتفع'], greenery: [80,'مرتفع'], noise: [30,'منخفض'], parking: [75,'سهل'], family: [90,'مرتفع جداً'] },
+    overview: 'يقع حي فال فلوري على حافة المركز ويمثل في المقام الأول سوق فيلات ناضجاً مبنياً على قطع أرضية راسخة من السبعينيات والثمانينيات. يحتل مكانةً متميزة بوصفه تجمع الفيلات في المنطقة المركزية — أهدأ وأكثر خضرةً وأوسع مساحةً من النسيج العمراني الكثيف المحيط به.',
+    housing: ['فيلات ناضجة','قطع أرضية كبيرة','بعض الشقق'],
+    buyers: ['مشترو الفيلات','عائلات راسخة','مالكو عقارات من ذوي الثروة العالية'],
+    notes: ['سوق تهيمن عليه الفيلات','شوارع خضراء راسخة','فرص تطوير جديدة محدودة'],
+    daam: ['na-villa', 'غير مؤهل — منطقة فيلات', 'سوق فيلات؛ لا توجد شقق دون حد دعم السكن']
+  },
+  'La Corniche': {
+    display: 'الكورنيش',
+    tier: 'upper', tierLabel: 'فوق المتوسط',
+    buy: '8,000–12,000 درهم/م²', rent: '3,000–6,000 درهم/شهر',
+    stats: { walkability: [75,'مرتفع'], safety: [80,'مرتفع'], greenery: [70,'جيد'], noise: [40,'منخفض متوسط'], parking: [30,'صعب'], family: [75,'مرتفع'] },
+    overview: 'يمتد الكورنيش على ضفة نهر سبو ويوفر أحد أكثر البيئات السكنية تميزاً في القنيطرة. يمنحه الجمع بين إطلالات النهر والقرب من وسط المدينة وأجواء سكنية هادئة طابعاً مختلفاً عن الكتل التجارية الأكثر كثافةً في محيطه.',
+    housing: ['شقق على الواجهة النهرية','مباني سكنية مختلطة'],
+    buyers: ['مشترون يبحثون عن موقع متميز','موظفون','مشترو مغاربة العالم'],
+    notes: ['موقع على النهر مع إطلالات على سبو','طابع سكني هادئ قريب من وسط المدينة','محدودية العرض تخلق علاوة على الوحدات الجيدة'],
+    daam: ['low', 'منخفض', 'السعر بالمتر المربع يجعل المخزون المؤهل نادراً — فرصة حقيقية إن وُجدت']
+  },
+  'El Mellah': {
+    display: 'الملاح',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: 'مخزون قديم؛ إعادة تطوير انتقائية', rent: '2,500–4,500 درهم/شهر',
+    stats: { walkability: [70,'جيد'], safety: [65,'متوسط'], greenery: [30,'منخفض'], noise: [65,'متوسط مرتفع'], parking: [40,'متوسط'], family: [60,'متوسط'] },
+    overview: 'يُرسّخ حي الملاح الجانب الشرقي من المركز بهوية متميزة: مبانٍ قديمة، ومجموعة من صائغي المجوهرات، ومحطة حافلات القضبانة، ونسيج عمراني يجري هدمه وإعادة بنائه بصفة انتقائية. ينتج ذلك ملفاً مزدوجاً بين المخزون التاريخي وإعادة التطوير التدريجية.',
+    housing: ['مباني شقق قديمة','قطع للإعادة التطوير','تجاري في الطوابق السفلية'],
+    buyers: ['مشترون يستهدفون إعادة التطوير الانتقائية','مستخدمون محليون','مستثمرون صبورون'],
+    notes: ['هدم وإعادة بناء انتقائية نشطة','محطة حافلات رئيسية قريبة','سعر دخول أقل من وسط المدينة'],
+    daam: ['low', 'منخفض', 'مخزون قديم؛ مباني جديدة مؤهلة محدودة']
+  },
+  'Quartier Génie': {
+    display: 'حي الجيني',
+    tier: 'restricted', tierLabel: 'مقيد / مؤسسي',
+    buy: 'لا ينطبق', rent: 'لا ينطبق',
+    stats: {},
+    overview: 'حي الجيني مجمع هندسة عسكرية في المقام الأول ولا يعمل بوصفه حياً سكنياً أو تجارياً عاماً. المنطقة إلى حد بعيد غير قابلة للوصول للعموم وينبغي فهمها بوصفها أرضاً مؤسسية عسكرية لا حياً حضرياً تقليدياً.',
+    housing: ['مبانٍ مؤسسية عسكرية'],
+    buyers: [],
+    notes: ['قطاع عسكري مقيد الوصول','ليس حياً سكنياً','لا نشاط سكني أو تجاري عام'],
+    daam: ['na-inst', 'غير مؤهل — مؤسسي', 'منطقة عسكرية؛ دعم السكن لا ينطبق']
+  },
+  'La Cigogne': {
+    display: 'لا سيغون',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: '6,500–8,500 درهم/م²', rent: '2,500–4,000 درهم/شهر',
+    stats: { walkability: [65,'متوسط'], safety: [68,'متوسط مرتفع'], greenery: [35,'منخفض متوسط'], noise: [55,'متوسط'], parking: [50,'متوسط'], family: [65,'متوسط'] },
+    overview: 'يشكّل حي لا سيغون جزءاً من الحلقة السكنية العملية شرق وسط المدينة — أكثر كثافةً ومزيجاً من القلب المميز، لكن مع ارتباط قوي يومي بالخدمات والبنية التحتية المركزية. خيار موثوق في السوق المتوسطة للمشترين الراغبين في القرب من المركز بتكلفة أقل.',
+    housing: ['شقق من ر+3 إلى ر+5','سكن مختلط','تجاري في الطوابق السفلية'],
+    buyers: ['مالكو عقارات في السوق المتوسطة','مستثمرون في الإيجار','مشترون للمرة الأولى'],
+    notes: ['ميزة سعرية قريبة من المركز','وصول جيد لخدمات وسط المدينة','حي يومي نابض بالحياة'],
+    daam: ['low', 'منخفض', 'حي راسخ؛ مخزون جديد مؤهل محدود']
+  },
+  'La Chenille': {
+    display: 'لا شنيل',
+    tier: 'restricted', tierLabel: 'ترفيهي / غير سكني',
+    buy: 'لا ينطبق', rent: 'لا ينطبق',
+    stats: {},
+    overview: 'تُعرف لا شنيل بوصفها موقعاً للتخييم والمناطق الترفيهية الخارجية أكثر من كونها حياً سكنياً تقليدياً. ترتبط المنطقة بالتخييم والترفيه الموسمي والأراضي المفتوحة بالقرب من ممر مهدية الكبير.',
+    housing: ['مرافق للتخييم','أراضٍ ترفيهية مفتوحة'],
+    buyers: [],
+    notes: ['ترفيهية وليست سكنية','منطقة نشاط موسمية','بيئة مفتوحة وخفيفة التحضر'],
+    daam: ['na-inst', 'غير مؤهل — ترفيهي', 'منطقة ترفيهية؛ دعم السكن لا ينطبق']
+  },
+  'Jardat Al Qadi': {
+    display: 'جردة القاضي',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: '6,500–9,000 درهم/م²', rent: '2,500–4,200 درهم/شهر',
+    stats: { walkability: [62,'متوسط'], safety: [68,'متوسط مرتفع'], greenery: [38,'منخفض متوسط'], noise: [52,'متوسط'], parking: [48,'متوسط'], family: [65,'متوسط'] },
+    overview: 'تمتد جردة القاضي لتوسع النسيج السكني الوسط-شرقي أبعد عن المركز، وتوفر مساكن شقق عملية بأسعار ميسورة. موقعها في الحلقة الوسط-شرقية الأشمل يمنحها اتصالية جيدة بالخدمات المركزية مع بقائها بأسعار أقل بشكل ملحوظ من القلب المميز.',
+    housing: ['شقق من ر+3 إلى ر+5','مباني سكنية مختلطة'],
+    buyers: ['مشترون في السوق المتوسطة','مستثمرون في الإيجار','عائلات تبحث عن القيمة'],
+    notes: ['خيار ميسور قريب من المركز','وصول جيد للخدمات اليومية','حي سكني نشط'],
+    daam: ['low', 'منخفض', 'حي قديم؛ مخزون جديد مؤهل محدود']
+  },
+  'Rue Mohamed V Corridor Medina': {
+    display: 'ممر شارع محمد الخامس',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '6,000–8,500 درهم/م²', rent: '2,200–4,000 درهم/شهر',
+    stats: { walkability: [78,'مرتفع'], safety: [65,'متوسط'], greenery: [25,'منخفض'], noise: [70,'مرتفع'], parking: [25,'صعب'], family: [58,'متوسط'] },
+    overview: 'يُعدّ ممر شارع محمد الخامس أحد الشرايين التجارية الرئيسية في القنيطرة، يربط وسط المدينة بأحياء المدينة العتيقة. تهيمن على الطوابق السفلية نشاطات التجزئة والتجارة، بينما تضم الطوابق العلوية مزيجاً من الاستخدامات السكنية. كثافة المرور العالية والضوضاء من أبرز ملامحه.',
+    housing: ['مباني متعددة الاستخدام','طوابق سفلية تجارية','شقق في الطوابق العلوية'],
+    buyers: ['مستثمرون تجاريون','سكان محليون','مشترون مرتاحون للكثافة الحضرية'],
+    notes: ['نشاط تجاري وحركة مشاة مرتفعة','قابلية مرتفعة للسير لكنه صاخب','الشريان الرئيسي الرابط بين وسط المدينة والمدينة العتيقة'],
+    daam: ['low', 'منخفض', 'ممر مختلط الاستخدام قديم؛ مخزون جديد مؤهل محدود']
+  },
+  'Bab Fes': {
+    display: 'باب فاس',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: '6,000–7,500 درهم/م²', rent: '2,000–3,000 درهم/شهر',
+    stats: { walkability: [72,'جيد'], safety: [65,'متوسط'], greenery: [28,'منخفض'], noise: [62,'متوسط مرتفع'], parking: [30,'صعب'], family: [62,'متوسط'] },
+    overview: 'يجسر حي باب فاس النسيج الشرقي والمركزي للقنيطرة بملف أكثر تنوعاً يجمع عناصر أحدث إلى جانب الموروث الشرقي التاريخي. يعمل بوصفه حياً انتقالياً بين القلب التجاري وأحياء المدينة العتيقة الأكثر كثافةً ورائه.',
+    housing: ['مباني شقق قديمة','سكن مختلط','بعض البناء الحديث'],
+    buyers: ['مستخدمون محليون','مشترون مركزيون ذوو ميزانية محدودة','مستثمرون صغار'],
+    notes: ['جسر بين وسط المدينة وأحياء المدينة العتيقة','أقل تكلفةً من وسط المدينة الأساسي','حياة شارع نشطة ومزيج تجاري'],
+    daam: ['low', 'منخفض', 'حي قديم؛ مخزون جديد مؤهل محدود']
+  },
+  'Khabbazate': {
+    display: 'الخبازة / المدينة العتيقة القديمة',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: 'مخزون قديم؛ حالة بحالة', rent: '1,800–2,500 درهم/شهر',
+    stats: { walkability: [75,'مرتفع'], safety: [60,'متوسط'], greenery: [20,'منخفض جداً'], noise: [68,'متوسط مرتفع'], parking: [15,'صعب جداً'], family: [55,'متوسط'] },
+    overview: 'تشكّل الخبازة والمدينة العتيقة القديمة منطقة واحدة متواصلة تتسم بالأزقة الضيقة والمباني القديمة والحياة الشارعية الكثيفة والنشاط التجاري غير الرسمي الذي يمنح المراكز المدينية المغربية القديمة طاقتها. الأسواق المفتوحة والورش الحرفية والإيقاع الحي الصاخب تجعل هذا الحي الأكثر تميزاً بطابعه في المدينة.',
+    housing: ['مبانٍ على طراز المدينة العتيقة','نسيج أزقة ضيقة','بعض مشاريع الترميم'],
+    buyers: ['أسر محلية','مشترون يبحثون عن الطابع المميز','مستثمرون في الترميم'],
+    notes: ['أكثر أحياء القنيطرة التقليدية تميزاً بطابعها','توافر واقف السيارات منخفض جداً','المخزون القديم يستلزم نهجاً انتقائياً'],
+    daam: ['low', 'منخفض', 'نسيج مدينة عتيقة تقليدية؛ مخزون جديد محدود جداً']
+  },
+  'Greater Medina Area': {
+    display: 'منطقة المدينة العتيقة الكبرى',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: '5,800–7,200 درهم/م²', rent: '1,800–2,500 درهم/شهر',
+    stats: { walkability: [70,'جيد'], safety: [60,'متوسط'], greenery: [22,'منخفض'], noise: [65,'متوسط مرتفع'], parking: [20,'صعب'], family: [58,'متوسط'] },
+    overview: 'تضم منطقة المدينة العتيقة الكبرى حي السلام وحي الربيع وحي النهضة وحي الأمل — أحياء شعبية راسخة الجذور بأفرانها المحلية وبائعيها المتجولين وتعايش الحياة الشارعية التقليدية مع التحديث التدريجي. الأكثر ميسوريةً وتجذراً محلياً في المدينة.',
+    housing: ['مباني سكنية قديمة','مخزون مختلط من ر+2 إلى ر+4','نسيج تقليدي'],
+    buyers: ['أسر محلية','مشترون ذوو ميزانية محدودة جداً','سكان محليون طويلو الأمد'],
+    notes: ['أكثر النسيج السكني الراسخ ميسوريةً','طابع مجتمعي محلي قوي','تحديث تدريجي جارٍ في بعض الجيوب'],
+    daam: ['low', 'منخفض', 'نسيج راسخ قديم؛ مخزون جديد مؤهل محدود جداً']
+  },
+  'Al Montazah': {
+    display: 'المنتزه',
+    tier: 'middle', tierLabel: 'متوسط إلى فوق المتوسط',
+    buy: '8,000–9,000 درهم/م²', rent: '3,000–3,500 درهم/شهر',
+    stats: { walkability: [80,'مرتفع'], safety: [85,'مرتفع'], greenery: [88,'مرتفع'], noise: [35,'منخفض متوسط'], parking: [78,'سهل'], family: [95,'مرتفع جداً'] },
+    overview: 'المنتزه أحد التطويرات السكنية الحديثة للطبقة المتوسطة في القنيطرة، ويستفيد من موقع قوي بشكل استثنائي بين وسط المدينة والأحياء الشرقية المتاخمة للممرات الخضراء والحدائق العامة. أخضر بشكل غير عادي لحي حضري، بمخزون سكني حديث وتصميم منظم.',
+    housing: ['مجمعات شقق','فيلات','مساكن عائلية حديثة'],
+    buyers: ['عائلات','موظفون','مشترون يبحثون عن السكن السكني الحديث','سكان طويلو الأمد'],
+    notes: ['أحد الأحياء الحديثة الأكثر خضرةً في المدينة','توازن قوي بين المركزية والهدوء','مواقف سيارات وفيرة في الشوارع','أجواء عائلية'],
+    daam: ['medium', 'متوسط', 'بعض المخزون غير المباع قد لا يزال مؤهلاً؛ تحقق من التوافر الحالي']
+  },
+  'Campus Universitaire': {
+    display: 'الحرم الجامعي',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: 'مدفوع بالإعادة؛ مخزون جديد محدود', rent: '2,500–4,500 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [85,'مرتفع'], greenery: [90,'مرتفع جداً'], noise: [30,'منخفض'], parking: [80,'سهل'], family: [55,'متوسط'] },
+    overview: 'الحرم الجامعي حي أكاديمي متخصص يتمحور حول جامعة ابن طفيل. على خلاف مناطق التوسع السكني الأحدث، يضم مخزوناً سكنياً خاصاً محدوداً نسبياً ويعمل أساساً بوصفه بيئة تتمحور حول الجامعة. يحافظ على أحد أهدأ البيئات الحضرية وأكثرها خضرةً في المدينة.',
+    housing: ['منازل عائلية قديمة من ر+2','مساكن طلابية جامعية','محلات تجارية حي صغيرة'],
+    buyers: ['مستثمرون في الإيجار الطلابي','أعضاء هيئة التدريس','سكان محليون طويلو الأمد','مشترون يبحثون عن محيط أخضر هادئ'],
+    notes: ['مخزون سكني خاص محدود','أراضٍ متاحة للتطوير الجديد شحيحة جداً','أحد أكثر القطاعات خضرةً في القنيطرة','تجارة محلية موجهة للطلاب قوية'],
+    daam: ['low', 'منخفض', 'مخزون خاص محدود؛ قليل من المباني الجديدة']
+  },
+  'Bir Rami Ouest': {
+    display: 'بير رامي الغرب',
+    tier: 'premium', tierLabel: 'مميز / فيلا',
+    buy: 'سوق فيلات؛ حالة بحالة', rent: 'الفيلات تتفاوت تبعاً للقطعة',
+    stats: { walkability: [45,'منخفض متوسط'], safety: [90,'مرتفع جداً'], greenery: [85,'مرتفع'], noise: [20,'منخفض'], parking: [90,'سهل جداً'], family: [95,'مرتفع جداً'] },
+    overview: 'يُعدّ بير رامي الغرب على نطاق واسع أحد أرقى العناوين السكنية في القنيطرة. اشتهر بقطعه الأرضية الكبيرة وشوارعه الناضجة وطابعه الراسخ كحي فيلات، وهو أقرب ما يكون في القنيطرة إلى حي سكني فاخر — سوق يهيمن عليه الفيلات بطابع مستقر تشكّل عبر عقود.',
+    housing: ['فيلات كبيرة','قطع راسخة','بعض مباني الشقق الراقية'],
+    buyers: ['عائلات من ذوي الثروات العالية','مشترو فيلات مميزة','سكان طويلو الأمد'],
+    notes: ['أرقى عنوان فيلات في المدينة','شوارع ناضجة راسخة','كثافة منخفضة جداً وخصوصية عالية'],
+    daam: ['na-villa', 'غير مؤهل — منطقة فيلات', 'سوق فيلات؛ حد دعم السكن لا ينطبق']
+  },
+  'Bir Rami Est': {
+    display: 'بير رامي الشرق',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '6,500–8,500 درهم/م²', rent: '2,800–4,800 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [72,'جيد'], greenery: [50,'متوسط'], noise: [45,'منخفض متوسط'], parking: [65,'سهل'], family: [72,'جيد'] },
+    overview: 'بير رامي الشرق أكثر تنوعاً في ملفه من نظيره الغربي: تطوير سكني أحدث جنباً إلى جنب مع مخزون قديم، مع قرب من المنطقة الصناعية ZI بير رامي التي تشكّل حدوده الجنوبية. يوفر ميزة الحلقة الجنوبية الحقيقية بأسعار أكثر يُسراً.',
+    housing: ['مباني شقق أحدث','مخزون سكني قديم','سكن مختلط'],
+    buyers: ['عائلات في السوق المتوسطة','مشترون للمرة الأولى','مستثمرون يبحثون عن الحلقة الجنوبية'],
+    notes: ['أقل تكلفةً من بير رامي الغرب','قرب من المنطقة الصناعية جنوباً','بنية تجارية في نمو'],
+    daam: ['high', 'مرتفع', 'مبانٍ جديدة نشطة؛ مخزون جيد من الشريحة 2 لدعم السكن متاح']
+  },
+  'Bir Rami Sud': {
+    display: 'بير رامي الجنوب',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '6,200–8,200 درهم/م²', rent: '2,400–3,800 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [80,'مرتفع'], greenery: [55,'متوسط'], noise: [35,'منخفض متوسط'], parking: [78,'سهل'], family: [82,'مرتفع'] },
+    overview: 'بير رامي الجنوب حي سكني للطبقة المتوسطة في نمو، يقع جنوب المنطقة الصناعية لبير رامي. يجمع الحي بين المشاريع السكنية والمساكن الملتصقة والبناء السكني الأحدث في بيئة أشبه بالضواحي مقارنةً بالأحياء المركزية الأكثر كثافةً.',
+    housing: ['مبانٍ من ر+1 إلى ر+4','مباني شقق','منازل عائلية ملتصقة'],
+    buyers: ['عائلات','مشترون للمرة الأولى','مشترون يبحثون عن أحياء سكنية أحدث'],
+    notes: ['توسع سكني مستمر','ركن سيارات أيسر من وسط المدينة','مخزون سكني أحدث','أجواء أكثر شبهاً بالضواحي'],
+    daam: ['high', 'مرتفع', 'توسع سكني أحدث بأهلية جيدة لدعم السكن']
+  },
+  'Maghreb Al Arabi': {
+    display: 'المغرب العربي',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: '6,500–8,000 درهم/م²', rent: '2,800–4,200 درهم/شهر',
+    stats: { walkability: [60,'متوسط'], safety: [70,'جيد'], greenery: [40,'متوسط'], noise: [50,'متوسط'], parking: [55,'متوسط'], family: [68,'جيد'] },
+    overview: 'يمتد حي المغرب العربي ليوفر النسيج العملي المحوري للشقق في الحلقة الجنوبية المباشرة. يشكّل جزءاً من أولى الأحزمة السكنية المتماسكة تحت المركز — إقليم سكني عائلي حقيقي بروابط يومية قوية بالقلب وأسعار ميسورة.',
+    housing: ['مباني شقق','سكن مختلط','تجاري في الطوابق السفلية'],
+    buyers: ['عائلات','مشترون في السوق المتوسطة','مشترون يبحثون عن قيمة الحلقة الجنوبية'],
+    notes: ['جزء من الحلقة السكنية الجنوبية المباشرة','وصول جيد للخدمات المركزية','حي يومي عملي'],
+    daam: ['medium', 'متوسط', 'حي راسخ؛ بعض الشقق المؤهلة متاحة']
+  },
+  'Masjid Badr': {
+    display: 'مسجد بدر',
+    tier: 'premium', tierLabel: 'مميز / فيلا',
+    buy: 'سوق فيلات؛ حالة بحالة', rent: 'الفيلات تتفاوت تبعاً للقطعة والتشطيب',
+    stats: { walkability: [45,'منخفض متوسط'], safety: [88,'مرتفع'], greenery: [82,'مرتفع'], noise: [22,'منخفض'], parking: [88,'سهل جداً'], family: [92,'مرتفع جداً'] },
+    overview: 'مسجد بدر تجمع فيلات قديم صغير لكن مميز يتسم بقطع أرضية كبيرة وأشجار ناضجة وطابع سكني راسخ. أحد العناوين المميزة الأكثر تحفظاً في المدينة، يوفر مساحة فيلا راسخة وخصوصيتها في متناول الخدمات المركزية.',
+    housing: ['فيلات قديمة','قطع أرضية كبيرة','سكن منخفض الكثافة'],
+    buyers: ['مشترو فيلات مميزة','عائلات راسخة','مشترون يبحثون عن قطع كبيرة'],
+    notes: ['تجمع فيلات قديم ومميز','قطع كبيرة ومساحات خضراء ناضجة','عنوان مميز ومتحفظ'],
+    daam: ['na-villa', 'غير مؤهل — منطقة فيلات', 'سوق فيلات؛ حد دعم السكن لا ينطبق']
+  },
+  'Le Vallon': {
+    display: 'لو فالون',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: '6,500–8,500 درهم/م²', rent: '3,000–4,500 درهم/شهر',
+    stats: { walkability: [65,'متوسط'], safety: [72,'جيد'], greenery: [50,'متوسط'], noise: [45,'منخفض متوسط'], parking: [58,'متوسط'], family: [70,'جيد'] },
+    overview: 'يملأ حي لو فالون شريحة الشقق الوسطى في منطقة التحول من المركز إلى الغرب. يقع بشكل ملحوظ أقرب إلى النسيج المركزي مقارنةً بالحزام الغربي الأعمق — فارق حقيقي عند تقدير وقت التنقل والوصول إلى المرافق المركزية.',
+    housing: ['شقق من ر+3 إلى ر+5','مباني سكنية مختلطة'],
+    buyers: ['مالكو عقارات','عائلات السوق المتوسطة','مشترون يبحثون عن القيمة'],
+    notes: ['أقرب من المركز مقارنةً بالحزام الغربي الأعمق','خيار عملي في السوق المتوسطة','وصول جيد للخدمات اليومية'],
+    daam: ['high', 'مرتفع', 'مبانٍ جديدة نشطة؛ مخزون جيد من الشريحة 2 لدعم السكن متاح']
+  },
+  'Sayad': {
+    display: 'حي الصياد',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: '6,000–7,800 درهم/م²', rent: '2,500–3,800 درهم/شهر',
+    stats: { walkability: [60,'متوسط'], safety: [70,'جيد'], greenery: [45,'متوسط'], noise: [42,'منخفض متوسط'], parking: [62,'سهل'], family: [68,'جيد'] },
+    overview: 'يوفر حي الصياد مخزون شقق وسطي في منطقة التحول من المركز إلى الغرب. موقعه يجسر الفجوة بين الشرائح السكنية على ضفة النهر والحزام الغربي الأعمق، ويوفر قيمة أكبر من القلب مع الحفاظ على وصول معقول إلى المركز.',
+    housing: ['شقق من ر+3 إلى ر+4','سكن مختلط'],
+    buyers: ['مالكو عقارات','مشترون يبحثون عن القيمة','مستثمرون في الإيجار'],
+    notes: ['تموضع قيمة في السوق المتوسطة','وصول جيد للنسيج الغربي والمركزي','سكني عملي يومياً'],
+    daam: ['medium', 'متوسط', 'حي راسخ؛ بعض الشقق المؤهلة متاحة']
+  },
+  'La Cité': {
+    display: 'لا سيتي',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: '6,000–7,800 درهم/م²', rent: '2,500–4,000 درهم/شهر',
+    stats: { walkability: [68,'جيد'], safety: [74,'جيد'], greenery: [58,'متوسط'], noise: [38,'منخفض متوسط'], parking: [55,'متوسط'], family: [72,'جيد'] },
+    overview: 'يحتل حي لا سيتي موقعاً متميزاً على ضفة النهر شمال لا فيل أوت — أهدأ وأكثر طابعاً سكنياً من المركز التجاري، لكنه قريب بما يكفي للاستفادة منه بسهولة. حي مستقر ذو طابع مسكون تشكّل عبر الزمن.',
+    housing: ['شقق سكنية','بعض المباني القديمة','مخزون مختلط'],
+    buyers: ['مالكو عقارات يبحثون عن الهدوء','عائلات','مشترون يقدّرون القرب من النهر'],
+    notes: ['طابع هادئ على ضفة النهر','قريب من وسط المدينة لكن أهدأ منه','طابع سكني مستقر ومسكون'],
+    daam: ['medium', 'متوسط', 'حي راسخ؛ بعض الشقق المؤهلة متاحة']
+  },
+  'Taibia': {
+    display: 'الطيبية',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: '6,000–7,800 درهم/م²', rent: '2,500–4,000 درهم/شهر',
+    stats: { walkability: [65,'متوسط'], safety: [72,'جيد'], greenery: [55,'متوسط'], noise: [40,'منخفض متوسط'], parking: [58,'متوسط'], family: [70,'جيد'] },
+    overview: 'تشترك الطيبية مع لا سيتي في الجودة الخاصة بجانب سبو: أكثر استقراراً منها تكهنياً، بملف سكني مسكون تراكم عبر الزمن لا ملف ترويجي للبناء الجديد. خيار موثوق في السوق المتوسطة بتوصيلات جيدة إلى الكورنيش والقلب التجاري معاً.',
+    housing: ['شقق من ر+3 إلى ر+4','مخزون سكني مختلط'],
+    buyers: ['مالكو عقارات','عائلات','مشترون يبحثون عن قيمة جانب سبو'],
+    notes: ['طابع سكني على جانب سبو','شعور بالحي المستقر','توازن جيد بين الوصول والهدوء'],
+    daam: ['medium', 'متوسط', 'حي راسخ؛ بعض الشقق المؤهلة متاحة']
+  },
+  'Al Ismailia': {
+    display: 'الإسماعيلية',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: '6,500–8,000 درهم/م²', rent: '2,500–4,000 درهم/شهر',
+    stats: { walkability: [58,'متوسط'], safety: [70,'جيد'], greenery: [48,'متوسط'], noise: [42,'منخفض متوسط'], parking: [65,'سهل'], family: [70,'جيد'] },
+    overview: 'تنتمي الإسماعيلية إلى المنطق العملي للحزام المتوسط في الممر الغربي — مخزون راسخ ومسكون مع خدمات يومية وملف بناء يتراوح بين المنازل القديمة والشقق الأحدث. عنوان مدني وظيفي بقيمة أعلى للمتر المربع من القلب.',
+    housing: ['منازل قديمة','مباني شقق أحدث','مخزون مختلط'],
+    buyers: ['مشترون يقودهم البحث عن القيمة','عائلات','مستثمرون عمليون في الإيجار طويل الأمد'],
+    notes: ['قيمة أعلى للمتر المربع من وسط المدينة','خدمات يومية راسخة','عنوان مدني غربي وظيفي'],
+    daam: ['medium', 'متوسط', 'حي راسخ؛ بعض الشقق المؤهلة متاحة']
+  },
+  'Haddada': {
+    display: 'الحدادة',
+    tier: 'middle', tierLabel: 'متوسط إلى فوق المتوسط',
+    buy: '6,500–9,000 درهم/م²', rent: '3,200–5,000 درهم/شهر',
+    stats: { walkability: [62,'متوسط'], safety: [74,'جيد'], greenery: [55,'متوسط'], noise: [40,'منخفض متوسط'], parking: [68,'سهل'], family: [74,'جيد'] },
+    overview: 'شهد حي الحدادة ترقية سكنية حقيقية في السنوات الأخيرة: عمارات سكنية جديدة ومساحات خضراء ومدارس خاصة ومقاهٍ ومطاعم ومحلات مواد غذائية فاخرة حوّلته إلى أحد أكثر مناطق السكن الجديدة جاذبيةً للطبقة المتوسطة في المدينة، مع منطقة فيلات على طريق مهدية.',
+    housing: ['مباني شقق جديدة','منطقة فيلات','سكن مختلط'],
+    buyers: ['عائلات الطبقة المتوسطة','موظفون','مشترون يبحثون عن مناطق سكنية أحدث'],
+    notes: ['أحد أسرع الأحياء الغربية تحسناً','مدارس خاصة جديدة وبنية تجارية','منطقة فيلات على طريق مهدية'],
+    daam: ['medium', 'متوسط', 'مزيج من المخزون القديم والجديد؛ تحقق من توافر دعم السكن الحالي']
+  },
+  'Al Haouzia': {
+    display: 'الهواء',
+    tier: 'middle', tierLabel: 'متوسط إلى فوق المتوسط',
+    buy: '6,500–9,000 درهم/م²', rent: '3,000–4,800 درهم/شهر',
+    stats: { walkability: [60,'متوسط'], safety: [74,'جيد'], greenery: [58,'متوسط'], noise: [38,'منخفض متوسط'], parking: [70,'سهل'], family: [76,'جيد'] },
+    overview: 'تغير حي الهواء بوتيرة أسرع مما يوحي به عنوانه — عمارات سكنية جديدة ومساحات خضراء ومدارس خاصة ومقاهٍ ومحلات مواد غذائية فاخرة منحته طابع أحد أكثر مناطق السكن الجديدة جاذبيةً للطبقة المتوسطة في القنيطرة. منطقة فيلات على طريق مهدية تضيف خياراً منخفض الكثافة.',
+    housing: ['عمارات شقق جديدة','قطاع فيلات','سكن مختلط'],
+    buyers: ['عائلات الطبقة المتوسطة','موظفون','مشترون يبحثون عن جودة بميزانية مناسبة'],
+    notes: ['تحسن سريع في جودة السكن','بنية تجارية جديدة جيدة','منطقة فيلات على طريق مهدية'],
+    daam: ['medium', 'متوسط', 'مزيج من المباني الأحدث؛ بعض المخزون المؤهل لدعم السكن متاح']
+  },
+  'Oulad Oujih': {
+    display: 'أولاد عويجة',
+    tier: 'middle', tierLabel: 'متوسط',
+    buy: '6,500–8,500 درهم/م²', rent: '2,500–3,200 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [68,'جيد'], greenery: [45,'متوسط'], noise: [42,'منخفض متوسط'], parking: [70,'سهل'], family: [68,'جيد'] },
+    overview: 'تطور حي أولاد عويجة عبر عقود ليصبح منطقة مختلطة واسعة من المنازل والفيلات والشقق مع نشاطها التجاري الخاص وخدماتها اليومية — حي حقيقي في نسيج المدينة لا مجرد منطقة سكنية طرفية. أكثر اكتمالاً مما تبدو عليه على الخريطة.',
+    housing: ['منازل','فيلات','شقق','مخزون مختلط'],
+    buyers: ['مشترون تقودهم القيمة','مستثمرون عمليون في الإيجار طويل الأمد','عائلات'],
+    notes: ['حي حقيقي بنشاطه التجاري الخاص','قيمة أعلى للمتر المربع من وسط المدينة','راسخ عبر عقود متعددة'],
+    daam: ['medium', 'متوسط', 'حي مختلط راسخ؛ بعض المخزون المؤهل']
+  },
+  'Al Hadiqa': {
+    display: 'الحديقة 1 و2',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '6,500–8,500 درهم/م²', rent: '2,600–4,000 درهم/شهر',
+    stats: { walkability: [48,'منخفض متوسط'], safety: [85,'مرتفع'], greenery: [55,'متوسط'], noise: [30,'منخفض متوسط'], parking: [85,'سهل جداً'], family: [88,'مرتفع'] },
+    overview: 'الحديقة 1 والحديقة 2 قطاعان توسعيان سكنيان أحدث يقعان بالقرب من مدخل الطريق الوطني الجنوبي للقنيطرة وبالقرب من ممر مرجان التجاري الجديد. البناء الأحدث والقطع الأكبر والبنية التحتية الحديثة تميز كلا الحيين، وإن بقيت أجزاء منهما قيد التطوير.',
+    housing: ['تطويرات سكنية من ر+1 إلى ر+4','مباني شقق','فيلات','قطع تقسيم جديدة'],
+    buyers: ['عائلات شابة','مشترون يبحثون عن مساكن أحدث','مستثمرون طويلو الأمد'],
+    notes: ['بيئة حضرية لا تزال في طور التشكل','قابلية محدودة للسير بعد','ركن أيسر وقطع أكبر','إمكانية قوية لارتفاع رأس المال طويل الأمد'],
+    daam: ['high', 'مرتفع', 'منطقة تطوير أحدث بأهلية قوية لدعم السكن']
+  },
+  'Jenane': {
+    display: 'الجنان',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '7,400–9,000 درهم/م²', rent: '2,800–4,800 درهم/شهر',
+    stats: { walkability: [48,'منخفض متوسط'], safety: [82,'مرتفع'], greenery: [52,'متوسط'], noise: [28,'منخفض'], parking: [82,'سهل'], family: [85,'مرتفع'] },
+    overview: 'الجنان منطقة تطوير سكني أحدث تتسم بالتوسع الضاحوي الحديث. تتكون المنطقة أساساً من مشاريع شقق أحدث ومساكن عائلية ملتصقة وفيلات وقطع أرضية غير مبنية لا تزال في انتظار التشييد. البنية التجارية لا تزال محدودة مقارنةً بالأحياء القديمة.',
+    housing: ['مبانٍ سكنية من ر+1 إلى ر+4','فيلات','مشاريع شقق حديثة'],
+    buyers: ['عائلات','مشترون يبحثون عن مساكن أحدث','مستثمرون طويلو الأمد'],
+    notes: ['توسع حضري مستمر','قطع غير مبنية كثيرة لا تزال قائمة','مخزون سكني حديث وطرق أحدث','قابلية محدودة للسير حتى الآن'],
+    daam: ['high', 'مرتفع', 'توسع ضاحوي أحدث بأهلية قوية لدعم السكن']
+  },
+  'Bir Rami Sud_table': null,
+  'Les Jardins de Hellala': {
+    display: 'جنان الحلالة',
+    tier: 'premium', tierLabel: 'مميز / فيلا فاخرة',
+    buy: 'فيلات مميزة؛ مماثلة لبير رامي الغرب', rent: 'الفيلات تتفاوت؛ لا تزال في طور التطوير',
+    stats: { walkability: [30,'منخفض'], safety: [85,'مرتفع'], greenery: [88,'مرتفع'], noise: [15,'منخفض جداً'], parking: [95,'سهل جداً'], family: [88,'مرتفع'] },
+    overview: 'جنان الحلالة مشروع فيلات فاخر جديد لا تزال كثير من قطعه قيد الإنشاء. صُمّم أساساً بوصفه مجتمع فيلات مميزاً، يتميز بقطع أرضية كبيرة وبنية تحتية حديثة وموقع أخضر. لا يزال في مرحلة مبكرة من منحنى تطوره لكنه متموضع في قمة السوق.',
+    housing: ['فيلات فاخرة','قطع أرضية كبيرة','بناء جديد'],
+    buyers: ['مشترون من ذوي الثروات العالية','مستثمرون في الفيلات','مشترون يبحثون عن مجتمع فاخر جديد'],
+    notes: ['لا يزال قيد الإنشاء — قطع شاغرة كثيرة','تسعير مميز في قمة سوق القنيطرة','رهان على ارتفاع رأس المال طويل الأمد','قابلية محدودة للسير حالياً'],
+    daam: ['na-villa', 'غير مؤهل — منطقة فيلات', 'مشروع فيلات فاخر؛ حد دعم السكن لا ينطبق']
+  },
+  'Alliance': {
+    display: 'لوتيسمان أليانس',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '7,400–9,000 درهم/م²', rent: '2,500–4,500 درهم/شهر',
+    stats: { walkability: [60,'متوسط'], safety: [74,'جيد'], greenery: [50,'متوسط'], noise: [42,'منخفض متوسط'], parking: [68,'سهل'], family: [75,'جيد'] },
+    overview: 'انطلق أليانس من قاعدة ميسورة لكنه تطور بشكل ملحوظ: مشاريع شقق متوسطة المستوى ومناطق فيلات ومركز تجاري وأشرطة تجارية متنامية تمنحه اليوم طابع أحد أكثر أحياء النمو نشاطاً في القنيطرة. أحد أقوى قصص التحسن في ممر الشمال الغربي.',
+    housing: ['مشاريع شقق متوسطة المستوى','مناطق فيلات','مشاريع تجارية'],
+    buyers: ['مشترون في السوق المتوسطة','مشترو المنزل الأول','مستثمرون موجهون للنمو'],
+    notes: ['أحد أكثر أحياء النمو نشاطاً في القنيطرة','مركز تجاري وبنية تجارية متنامية','أهلية لدعم السكن الشريحة 2 في وحدات منتقاة'],
+    daam: ['high', 'مرتفع', 'مبانٍ جديدة نشطة؛ مخزون قوي من الشريحة 2 لدعم السكن متاح']
+  },
+  'Addoha': {
+    display: 'أضواء (رزيدانس دو غولف)',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: 'مخزون مستعمل غالباً 200,000–250,000 درهم إجمالي', rent: '2,000–2,800 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [65,'متوسط مرتفع'], greenery: [40,'منخفض متوسط'], noise: [48,'متوسط'], parking: [60,'متوسط'], family: [80,'مرتفع'] },
+    overview: 'رزيدانس دو غولف من أضواء مشروع شقق اجتماعي واسع النطاق بالقرب من ممر أليانس التوسعي. تتكون المنطقة أساساً من مجمعات شقق مخططة مصممة للسكن الميسور للطبقة المتوسطة والعمالية. يرسّخ مرجان القريب النشاط التجاري وترتفع الأسعار بشكل مطرد.',
+    housing: ['عمارات شقق اجتماعية','مجمعات شقق متوسطة الارتفاع','مجمعات سكنية مخططة'],
+    buyers: ['مشترون للمرة الأولى','مشترون ذوو ميزانية محدودة','عائلات شابة','مستفيدو دعم السكن'],
+    notes: ['أحد قطاعات الشقق الأحدث والأكثر ميسوريةً','توافق قوي مع الشريحة 1 لدعم السكن','شعبي لدى المشترين للمرة الأولى'],
+    daam: ['na-pre2023', 'غير مؤهل — ما قبل 2023', 'شُيّد قبل حد الأهلية لعام 2023؛ لا يستوفي الشروط رغم الأسعار الميسورة']
+  },
+  'Kasbah Mehdia': {
+    display: 'قصبة مهدية',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: 'نسيج عضوي؛ يتفاوت', rent: '2,500–5,000 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [68,'جيد'], greenery: [55,'متوسط'], noise: [38,'منخفض متوسط'], parking: [60,'متوسط'], family: [70,'جيد'] },
+    overview: 'تقع قصبة المهدية على التل المطل على الشاطئ، على موقع القصبة القديمة. تحولت تدريجياً منذ التسعينيات إلى مزيج من المنازل ر+2 ور+3 ومناطق فيلات ونسيج عمراني قديم — مختلفة تماماً في طابعها عن الشريط الساحلي المسطح أسفلها.',
+    housing: ['منازل ر+2 ور+3','مناطق فيلات','نسيج عمراني قديم'],
+    buyers: ['مشترون يبحثون عن الوصول لمهدية دون أسعار الشاطئ','عائلات','مشترون يقدّرون الطابع التاريخي'],
+    notes: ['موقع مرتفع يطل على الشاطئ والبحر','منطق سوق مختلف عن مهدية الشاطئ','طابع تاريخي عضوي'],
+    daam: ['low', 'منخفض', 'مبانٍ جديدة محدودة؛ وحدات مؤهلة قليلة']
+  },
+  'Golf': {
+    display: 'غولف / منطقة فيلات الغولف',
+    tier: 'upper', tierLabel: 'فوق المتوسط',
+    buy: '7,500–9,500 درهم/م²', rent: '3,000–4,800 درهم/شهر',
+    stats: { walkability: [38,'منخفض'], safety: [82,'مرتفع'], greenery: [80,'مرتفع'], noise: [20,'منخفض'], parking: [88,'سهل جداً'], family: [88,'مرتفع'] },
+    overview: 'توفر منطقة غولف / فيلات الغولف خياراً أكثر هدوءاً ومنخفض الكثافة للفيلات والسكن على الطرف الشرقي من ممر قصبة مهدية. خضراء وخاصة وفسيحة — تناقض واضح مع النسيج الأكثر كثافةً لبقية المدينة.',
+    housing: ['فيلات','سكن منخفض الكثافة','قطع خضراء'],
+    buyers: ['مشترو فيلات يبحثون عن القرب من مهدية','عائلات','مشترون يريدون المساحة والخضرة'],
+    notes: ['طابع فيلات هادئ ومنخفض الكثافة','خضرة جيدة وقطع بمساحات كبيرة','قريب من شاطئ مهدية دون أسعار الشاطئ'],
+    daam: ['na-villa', 'غير مؤهل — منطقة فيلات', 'منطقة فيلات؛ حد دعم السكن لا ينطبق']
+  },
+  'Mehdia': {
+    display: 'مهدية شاطئ',
+    tier: 'coastal', tierLabel: 'ساحلي / موسمي',
+    buy: 'من 12,000 درهم/م² في المخزون الساحلي الرئيسي', rent: '3,650–5,500+ درهم/شهر إيجار طويل',
+    stats: { walkability: [55,'متوسط'], safety: [70,'جيد'], greenery: [48,'متوسط'], noise: [50,'متوسط'], parking: [55,'متوسط'], family: [68,'جيد'] },
+    overview: 'مهدية شاطئ سوق مختلف تماماً عن المدينة خلفه. هذا هو الشريط الأطلسي للقنيطرة: شقق على واجهة الشاطئ وفيلات بحرية ومقاهٍ على الشاطئ ومخزون سكني موجه للترفيه. المنطق هنا هو أسلوب حياة ساحلي — إشغال صيفي وتملك منزل ثانٍ وتموضع في الإيجار القصير الأمد.',
+    housing: ['شقق على واجهة الشاطئ','فيلات بحرية','سكن موجه للترفيه'],
+    buyers: ['مشترو أسلوب الحياة الساحلي','مشترو منزل ثانٍ من مغاربة العالم','مستثمرو الإيجار القصير'],
+    notes: ['منطق سوق مختلف تماماً عن القنيطرة الداخلية','معدلات الإيجار الصيفي القصير أعلى بكثير من الإيجار الطويل','وصول القطار السريع على بُعد 25–35 دقيقة بالسيارة'],
+    daam: ['na-price', 'غير مؤهل — فوق حد السعر', 'أسعار ساحلية فوق حد دعم السكن؛ غير مؤهل']
+  },
+  'Port de Mehdia': {
+    display: 'ميناء مهدية',
+    tier: 'restricted', tierLabel: 'صناعي / ميناء',
+    buy: 'لا ينطبق', rent: 'لا ينطبق',
+    stats: {},
+    overview: 'يعمل ميناء مهدية أساساً بوصفه ميناءً صناعياً وللصيد في القنيطرة لا حياً سكنياً تقليدياً. تتمحور المنطقة حول البنية التحتية للصيد والنشاط الصناعي وتجارة الأسماك واللوجستيات الميناوية بالقرب من مصب نهر سبو.',
+    housing: ['بنية تحتية للصيد','مرافق ميناء صناعية','لوجستيات بحرية'],
+    buyers: [],
+    notes: ['أجواء صناعية وبحرية','نشاط اقتصادي متعلق بالصيد','أهمية سكنية محدودة','تجارة سمك وميناء نشطة']
+  },
+  'Saknia': {
+    display: 'السكنية',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '7,500–9,000 درهم/م²', rent: '1,500–2,300 درهم/شهر',
+    stats: { walkability: [60,'متوسط'], safety: [72,'جيد'], greenery: [42,'متوسط'], noise: [40,'منخفض متوسط'], parking: [65,'سهل'], family: [72,'جيد'] },
+    overview: 'تحكي السكنية قصة نضوج حضري مطرد. قبل ثلاثين عاماً كانت تمثل الحافة الفعلية للقنيطرة. اليوم هي حي سكني متكامل بشوارع مخططة ونشاط تجاري وبنوك ومطاعم وخدمات يومية منسوجة في نسيج الحي.',
+    housing: ['مبانٍ سكنية مخططة','مخزون شقق مختلط','تجاري في الطوابق السفلية'],
+    buyers: ['مالكو عقارات بدخول أولي أقل','عائلات محلية','مشترون مرتاحون للحزام التوسعي'],
+    notes: ['حي متكامل بعد عقود من النمو','البنية التحتية رافقت السكان','توافق قوي مع الشريحة 1 لدعم السكن'],
+    daam: ['medium', 'متوسط', 'حي راسخ بمخزون مؤهل متوسط لدعم السكن']
+  },
+  'Hay El Wafaa': {
+    display: 'حي الوفاء',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '~6,000 درهم/م²', rent: '1,500–2,300 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [70,'متوسط مرتفع'], greenery: [40,'منخفض متوسط'], noise: [35,'منخفض متوسط'], parking: [80,'سهل'], family: [80,'مرتفع'] },
+    overview: 'حي الوفاء تطوير سكني أحدث يقع بالقرب من مدخل الطريق السيار الجنوبي الشرقي للقنيطرة على حافة المدينة المتنامية. يجمع بين مخزون سكني أحدث وبنية تجارية متواضعة وأسعار ميسورة نسبياً. لا يزال في نمو من خلال التوسع الضاحوي.',
+    housing: ['مشاريع شقق','مساكن من ر+1 إلى ر+4','بناء سكني أحدث'],
+    buyers: ['مشترون ذوو ميزانية محدودة','مشترون للمرة الأولى','عائلات شابة'],
+    notes: ['أكثر ميسوريةً من كثير من المشاريع الأحدث','يقع على الحافة الحضرية','لا يزال في طور التطوير التجاري','جاذبية قوية للمشترين ذوي الميزانية المحدودة'],
+    daam: ['high', 'مرتفع', 'تطوير أحدث على حافة المدينة بأهلية جيدة لدعم السكن']
+  },
+  'Ain Sebaa': {
+    display: 'عين السبع',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: '6,000–7,500 درهم/م²', rent: '1,500–2,000 درهم/شهر',
+    stats: { walkability: [52,'متوسط'], safety: [68,'متوسط'], greenery: [38,'منخفض متوسط'], noise: [38,'منخفض متوسط'], parking: [75,'سهل'], family: [70,'جيد'] },
+    overview: 'تقع عين السبع أبعد على القوس الجنوبي الشرقي باتجاه الرباط. أحدث وأقل اكتمالاً من السكنية، بطابع بناء جديد أقوى وبنية تجارية ناشئة. تُطوّق الغابة الحضرية وطريق مدخل المدينة هذا الجانب من القنيطرة جغرافياً.',
+    housing: ['مباني شقق أحدث','مخزون من ر+1 إلى ر+4','تجاري ناشئ'],
+    buyers: ['مالكو عقارات بدخول أولي أقل','مشترون ذوو ميزانية محدودة','مستثمرون طويلو الأمد'],
+    notes: ['أبعد من السكنية','بنية تجارية ناشئة','توافق جيد مع الشريحة 1 لدعم السكن'],
+    daam: ['high', 'مرتفع', 'تطوير أحدث بأهلية قوية للشريحة 1 لدعم السكن']
+  },
+  'Fouarat': {
+    display: 'فواريت',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: 'إعادة بيع محلية؛ حالة بحالة', rent: '1,800–2,500 درهم/شهر',
+    stats: { walkability: [48,'منخفض متوسط'], safety: [62,'متوسط'], greenery: [40,'منخفض متوسط'], noise: [38,'منخفض متوسط'], parking: [75,'سهل'], family: [65,'متوسط'] },
+    overview: 'فواريت حي محلي نادراً ما يُذكر في التسويق العقاري المصقول. أكثر ظهوراً لمن يسكنه من المشترين القادمين عبر المنصات. بيانات التسعير على المنصات الرئيسية شحيحة، مما يجعل التواصل المحلي المباشر أهم من مقارنة المعايير.',
+    housing: ['مبانٍ سكنية محلية','مخزون قديم مختلط'],
+    buyers: ['مشترون محليون حساسون جداً للسعر','سكان محليون طويلو الأمد'],
+    notes: ['بيانات تسعير شحيحة على المنصات الرئيسية','التواصل المحلي المباشر أهم من المعايير','تكلفة الدخول هي الجاذب الأساسي'],
+    daam: ['high', 'مرتفع', 'بعض المباني الأحدث مؤهلة؛ أسعار دخول ميسورة']
+  },
+  'Assam': {
+    display: 'حي العصام',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: 'إعادة بيع محلية؛ حالة بحالة', rent: '1,800–2,500 درهم/شهر',
+    stats: { walkability: [55,'متوسط'], safety: [60,'متوسط'], greenery: [30,'منخفض'], noise: [50,'متوسط'], parking: [60,'متوسط'], family: [60,'متوسط'] },
+    overview: 'يقع حي العصام بالقرب من مدخل الطريق الوطني الشمالي الشرقي للقنيطرة ويتكون أساساً من مساكن شقق اجتماعية ومجمعات سكنية متوسطة الارتفاع. منعزل نسبياً عن القلب الحضري للمدينة، لكنه قابل للسير داخلياً ويدعم الحياة السكنية اليومية من خلال تجارة محلية.',
+    housing: ['عمارات شقق ر+4','مساكن اجتماعية','مجمعات سكنية متوسطة الارتفاع'],
+    buyers: ['مشترون ذوو ميزانية محدودة','مشترون للمرة الأولى','سكان طويلو الأمد'],
+    notes: ['أكثر عزلةً عن وسط القنيطرة','مساكن شقق ميسورة','قابل للسير داخل الحي ذاته'],
+    daam: ['high', 'مرتفع', 'مبانٍ اجتماعية أحدث بأهلية قوية لدعم السكن']
+  },
+  'Hay Ouled Arfaa': {
+    display: 'حي أولاد عرفة',
+    tier: 'affordable-mid', tierLabel: 'متوسط ميسور',
+    buy: '~6,000 درهم/م²', rent: '1,800–2,800 درهم/شهر',
+    stats: { walkability: [45,'منخفض متوسط'], safety: [65,'متوسط'], greenery: [40,'متوسط'], noise: [40,'متوسط'], parking: [75,'سهل'], family: [68,'جيد'] },
+    overview: 'حي أولاد عرفة تطوير طرفي أحدث بمزيج من الشقق والمنازل من ر+1 إلى ر+4. حي عمالي لا يزال ينمو من خلال التوسع الضاحوي، بمساكن عملية بأسعار ميسورة.',
+    housing: ['شقق من ر+1 إلى ر+4','منازل','بناء سكني أحدث'],
+    buyers: ['عائلات عمالية','مشترون ذوو ميزانية محدودة','مشترون للمرة الأولى'],
+    notes: ['تطوير طرفي أحدث','طابع سكني عمالي','أسعار دخول ميسورة'],
+    daam: ['high', 'مرتفع', 'تطوير طرفي أحدث بأهلية جيدة لدعم السكن']
+  },
+  'Al Mizane': {
+    display: 'الميزان',
+    tier: 'affordable', tierLabel: 'ميسور',
+    buy: '~5,000 درهم/م²', rent: '1,800–2,500 درهم/شهر',
+    stats: { walkability: [65,'متوسط'], safety: [60,'متوسط'], greenery: [25,'منخفض'], noise: [55,'متوسط'], parking: [35,'صعب'], family: [60,'متوسط'] },
+    overview: 'يقع الميزان عند المخرج الشمالي الشرقي للقنيطرة ويتكون من مباني شقق قديمة ر+4 بأجواء تشبه المدينة العتيقة. منطقة سكنية راسخة قديمة لها طابعها المحلي الخاص، أكثر ظهوراً للسكان القدامى من المشترين الخارجيين.',
+    housing: ['مباني شقق قديمة ر+4','نسيج سكني تقليدي'],
+    buyers: ['سكان محليون طويلو الأمد','مشترون ذوو ميزانية محدودة'],
+    notes: ['مخزون شقق قديم عند المخرج الشمالي الشرقي','أجواء تشبه المدينة العتيقة','من أكثر العناوين الراسخة ميسوريةً في المدينة'],
+    daam: ['low', 'منخفض', 'مخزون قديم؛ مبانٍ جديدة مؤهلة محدودة']
+  }
+};
+
+// Name normalisation map
+const NAME_MAP = {
+  'Maamora': 'Maamora',
+  'Mimosas': 'Mimosas',
+  'La Ville Haute': 'La Ville Haute',
+  'Val Fleury': 'Val Fleury',
+  'La Corniche': 'La Corniche',
+  'El Mellah': 'El Mellah',
+  'Quartier Génie': 'Quartier Génie',
+  'La Cigogne': 'La Cigogne',
+  'La Chenille': 'La Chenille',
+  'Jardat Al Qadi': 'Jardat Al Qadi',
+  'Rue Mohamed V Corridor Medina': 'Rue Mohamed V Corridor Medina',
+  'Bab Fes': 'Bab Fes',
+  'Khabbazate': 'Khabbazate',
+  'Greater Medina Area': 'Greater Medina Area',
+  'Al Montazah': 'Al Montazah',
+  'Campus Universitaire': 'Campus Universitaire',
+  'Bir Rami Ouest': 'Bir Rami Ouest',
+  'Bir Rami Est': 'Bir Rami Est',
+  'Bir Rami Sud': 'Bir Rami Sud',
+  'Maghreb Al Arabi': 'Maghreb Al Arabi',
+  'Masjid Badr': 'Masjid Badr',
+  'Le Vallon': 'Le Vallon',
+  'Sayad': 'Sayad',
+  'La Cité': 'La Cité',
+  'Taibia': 'Taibia',
+  'Al Ismailia': 'Al Ismailia',
+  'Haddada': 'Haddada',
+  'Al Haouzia': 'Al Haouzia',
+  'Oulad Oujih': 'Oulad Oujih',
+  'Al Hadiqa': 'Al Hadiqa',
+  'Jenane': 'Jenane',
+  'Les Jardins de Hellala': 'Les Jardins de Hellala',
+  'Alliance': 'Alliance',
+  'Addoha': 'Addoha',
+  'Kasbah Mehdia': 'Kasbah Mehdia',
+  'Golf': 'Golf',
+  'Mehdia': 'Mehdia',
+  'Saknia': 'Saknia',
+  'Hay El Wafaa': 'Hay El Wafaa',
+  'Ain Sebaa': 'Ain Sebaa',
+  'Fouarat': 'Fouarat',
+  'Assam': 'Assam',
+  'Hay Ouled Arfaa': 'Hay Ouled Arfaa',
+  'Al Mizane': 'Al Mizane'
+};
+
+// Port de Mehdia — not in GeoJSON polygons (no polygon drawn)
+// We add it as data only for tables
+
+// Tier colors for polygons
+const TIER_COLORS = {
+  premium: { fill: '#6B2FA0', stroke: '#4E1F7A' },
+  upper: { fill: '#B8860B', stroke: '#8B6508' },
+  middle: { fill: '#185FA5', stroke: '#104780' },
+  'affordable-mid': { fill: '#3B6D11', stroke: '#2A500A' },
+  affordable: { fill: '#B22222', stroke: '#8B1A1A' },
+  coastal: { fill: '#0F6E56', stroke: '#085041' },
+  restricted: { fill: '#888', stroke: '#666' }
+};
+
+function getTierColor(tier) {
+  return TIER_COLORS[tier] || TIER_COLORS.middle;
+}
+
+function getHoodData(geoName) {
+  const key = (geoName || '').trim();
+  return HOODS[NAME_MAP[key]] || HOODS[key] || null;
+}
+
+// ============================================================
+// STAT BAR COLORS
+// ============================================================
+function statColor(val) {
+  if (val >= 75) return '#0F6E56';
+  if (val >= 50) return '#B8860B';
+  return '#A32D2D';
+}
+
+// ============================================================
+// RENDER PANEL HTML
+// ============================================================
+function renderPanelHTML(hood, geoName) {
+  const data = getHoodData(geoName);
+  if (!data) {
+    return '<div class="map-panel-inner"><p style="color:rgba(255,255,255,.5);font-size:.85rem;padding:1rem;">الملف غير متاح بعد لهذا الحي.</p></div>';
+  }
+
+  const tc = getTierColor(data.tier);
+  const tierClass = 'tier-' + data.tier;
+
+  let statsHTML = '';
+  if (data.stats && Object.keys(data.stats).length > 0) {
+    const statLabels = { walkability:'إمكانية السير', safety:'الأمان', greenery:'المساحات الخضراء', noise:'الضوضاء', parking:'مواقف السيارات', family:'ملاءمة للعائلات' };
+    const statIcons = { walkability:'🚶', safety:'🛡️', greenery:'🌿', noise:'🔊', parking:'🅿️', family:'👨‍👩‍👧' };
+    statsHTML = '<div class="mp-section-label">لمحة سريعة</div>';
+    for (const [k, v] of Object.entries(data.stats)) {
+      if (!v) continue;
+      statsHTML += `<div class="mp-stat"><div class="mp-stat-row"><span class="mp-stat-name"><span style="margin-right:.35rem;font-size:.8rem;">${statIcons[k]||''}</span>${statLabels[k]||k}</span><span class="mp-stat-val">${v[1]}</span></div><div class="mp-bar-track"><div class="mp-bar-fill" style="width:${v[0]}%;background:${statColor(v[0])};"></div></div></div>`;
     }
-    zones.forEach((button) => button.addEventListener('click', () => renderZone(button.getAttribute('data-zone'))));
-    renderZone('centre-ville');
-  })();
+  }
+
+  let pricesHTML = '';
+  if (data.buy !== 'Not applicable') {
+    pricesHTML = `<div class="mp-section-label">لمحة عن الأسعار</div><div class="mp-prices"><div class="mp-price-card"><div class="mp-price-label">شراء</div><div class="mp-price-value">${data.buy.replace(' MAD/m²','')}</div><div class="mp-price-sub">درهم / م²</div></div><div class="mp-price-card"><div class="mp-price-label">إيجار طويل الأمد</div><div class="mp-price-value">${data.rent.replace(' MAD/month','').replace('/month','')}</div><div class="mp-price-sub">درهم / شهر</div></div></div>`;
+  }
+
+  let housingHTML = '';
+  if (data.housing && data.housing.length) {
+    housingHTML = '<div class="mp-section-label">أنواع السكن</div><div class="mp-tags">' + data.housing.map(h => `<span class="mp-tag">${h}</span>`).join('') + '</div>';
+  }
+
+  let buyersHTML = '';
+  if (data.buyers && data.buyers.length) {
+    buyersHTML = '<div class="mp-section-label">الأنسب لـ</div><div class="mp-profiles">' + data.buyers.map(b => `<div class="mp-profile-row">${b}</div>`).join('') + '</div>';
+  }
+
+  let notesHTML = '';
+  if (data.notes && data.notes.length) {
+    notesHTML = '<div class="mp-section-label">جدير بالمعرفة</div><div class="mp-notes">' + data.notes.map(n => `<div class="mp-note">${n}</div>`).join('') + '</div>';
+  }
+
+  let daamHTML = '';
+  if (data.daam) {
+    const [level, label, note] = data.daam;
+    const dotColors = { high:'#0F6E56', medium:'#B8860B', low:'#5F5E5A', 'na-villa':'#888', 'na-pre2023':'#888', 'na-price':'#888', 'na-inst':'#888' };
+    const valClass = level === 'high' ? 'daam-high' : level === 'medium' ? 'daam-medium' : level === 'low' ? 'daam-low' : 'daam-na';
+    daamHTML = `<div class="mp-section-label">المخزون المؤهل لدعم السكن</div><div class="mp-daam"><div class="mp-daam-dot" style="background:${dotColors[level]||'#888'};"></div><span class="mp-daam-label">${note}</span><span class="mp-daam-val ${valClass}">${label}</span></div>`;
+  }
+
+  return `<div class="mp-eyebrow">حي القنيطرة</div>
+<div class="mp-name">${data.display}</div>
+<div class="mp-tagline">${data.tierLabel}</div>
+<span class="mp-tier ${tierClass}">${data.tierLabel}</span>
+<div class="mp-divider"></div>
+${pricesHTML}
+<div class="mp-divider"></div>
+${statsHTML}
+${daamHTML}
+<div class="mp-divider"></div>
+<div class="mp-section-label">نظرة عامة</div>
+<div class="mp-desc">${data.overview}</div>
+${housingHTML}
+${buyersHTML}
+${notesHTML}`;
+}
+
+// ============================================================
+// GEOJSON DATA
+// ============================================================
+const GEOJSON = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Maamora"},"geometry":{"coordinates":[[[-6.58667123512862,34.26366594789735],[-6.586406675504833,34.26091112863077],[-6.5888404352665475,34.25955559595671],[-6.584131646957815,34.25194673145427],[-6.574873247255368,34.255707452665476],[-6.578818314312301,34.261866060970895],[-6.576164231705057,34.262970795917454],[-6.577605842070483,34.26570531029944],[-6.58667123512862,34.26366594789735]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Quartier Génie"},"geometry":{"coordinates":[[[-6.57828022763826,34.26184762279017],[-6.57493060674895,34.25596462569838],[-6.571580985859583,34.25778147753299],[-6.570926763030172,34.263253425157785],[-6.573674498915722,34.26316691492147],[-6.575663336318513,34.26638936115336],[-6.577416653502951,34.26574055640299],[-6.575820349798107,34.263080404596195],[-6.576134376756613,34.26275599008328],[-6.57828022763826,34.26184762279017]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"El Mellah"},"geometry":{"coordinates":[[[-6.575645889061434,34.266622469843526],[-6.573603432026971,34.26325921290464],[-6.569411020219178,34.26351304830874],[-6.567460704103411,34.266597087275315],[-6.568597108769609,34.26692706005571],[-6.570931345380302,34.26601328610809],[-6.572574525099611,34.26706666353462],[-6.575645889061434,34.266622469843526]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Rue Mohamed V Corridor Medina"},"geometry":{"coordinates":[[[-6.569193714671286,34.26356930506947],[-6.563056992152326,34.2660486855859],[-6.563307083320211,34.266741635391824],[-6.565660122095849,34.26576509623801],[-6.567078669548131,34.26495234667099],[-6.568196026520468,34.26515304119292],[-6.569193714671286,34.26356930506947]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Bir Rami Ouest"},"geometry":{"coordinates":[[[-6.592859508612889,34.24816296245973],[-6.5971019152563315,34.255845000639994],[-6.601711184952677,34.252880620626954],[-6.605514278320044,34.24967417451728],[-6.608150232605823,34.24949487079395],[-6.607635105654651,34.24423225799359],[-6.609389592351221,34.243567030540135],[-6.609171198016043,34.24145087905238],[-6.601784150440949,34.241087906055654],[-6.597980101577406,34.24266024313897],[-6.59578573771887,34.24526029350885],[-6.592859508612889,34.24816296245973]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Maghreb Al Arabi"},"geometry":{"coordinates":[[[-6.6163237183362185,34.25546450811622],[-6.615769757492245,34.24903902802701],[-6.608436328498527,34.249678969377754],[-6.6087700027945,34.25050595120794],[-6.605437478727481,34.25050655334525],[-6.602548862594119,34.2527107788232],[-6.607102720215579,34.255833735813354],[-6.609103542701263,34.2556498598596],[-6.611771027338165,34.25629207896557],[-6.6163237183362185,34.25546450811622]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Masjid Badr"},"geometry":{"coordinates":[[[-6.605822255825899,34.25657181678895],[-6.60648893955306,34.25605137288929],[-6.602281741599569,34.25294651506478],[-6.597323258297365,34.25605137288929],[-6.599326685894425,34.260439376538955],[-6.605822255825899,34.25657181678895]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Oulad Oujih"},"geometry":{"coordinates":[[[-6.631448237557777,34.25228814201303],[-6.621963765072053,34.247101815333224],[-6.6187049976037144,34.25035838337932],[-6.61627308158117,34.25196651864752],[-6.616808103106308,34.255504308053474],[-6.611263334576421,34.256750539344424],[-6.611944271062612,34.259604741452065],[-6.607518183903352,34.265835409575416],[-6.622936531481656,34.265192265197086],[-6.631448237557777,34.25228814201303]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Haddada"},"geometry":{"coordinates":[[[-6.613878969831887,34.27461429635066],[-6.633469743456118,34.27178982093508],[-6.628301113818736,34.25739041074057],[-6.623299214170515,34.26534828428328],[-6.6170051571120325,34.26593389891366],[-6.61371223984392,34.272788731621816],[-6.613878969831887,34.27461429635066]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Al Haouzia"},"geometry":{"coordinates":[[[-6.613541282485414,34.274917418267094],[-6.613266738251497,34.27310245283341],[-6.616639710261126,34.26590702577104],[-6.613541282485414,34.26577737279007],[-6.604716646413351,34.27213013380572],[-6.6081288390276995,34.27355619786502],[-6.611894017085319,34.27546838216389],[-6.613541282485414,34.274917418267094]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Sayad"},"geometry":{"coordinates":[[[-6.604718108366683,34.271918446430035],[-6.613216050674197,34.265825480849855],[-6.6075906522463015,34.265983745280835],[-6.600289603220517,34.2682983285504],[-6.599810845908365,34.27047437437645],[-6.604718108366683,34.271918446430035]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Al Ismailia"},"geometry":{"coordinates":[[[-6.611366931688707,34.27567063789847],[-6.604558058646404,34.27226658053699],[-6.599757803151505,34.2769365744837],[-6.601868553794276,34.277217891136274],[-6.604898502297857,34.27685217930458],[-6.606532631828657,34.27752733836593],[-6.611366931688707,34.27567063789847]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Taibia"},"geometry":{"coordinates":[[[-6.599619757134462,34.27699256534376],[-6.604429500495314,34.27213288568463],[-6.599535744148966,34.27060549977713],[-6.595020046233202,34.277270252840125],[-6.595965192308483,34.27739174083092],[-6.597540435768536,34.27683636572452],[-6.599619757134462,34.27699256534376]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"La Cité"},"geometry":{"coordinates":[[[-6.594811674182608,34.27729783017725],[-6.599390051005685,34.2705382209689],[-6.5949948092551836,34.26975629080589],[-6.591179495235366,34.26748612978146],[-6.591393152820899,34.274447762709386],[-6.592491963258112,34.27691950819904],[-6.594811674182608,34.27729783017725]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Val Fleury"},"geometry":{"coordinates":[[[-6.595400381539889,34.26966908335959],[-6.599611661323479,34.27037485255657],[-6.600200651503485,34.26825752719445],[-6.599935605922383,34.260347506875746],[-6.5989932216353395,34.26056656360768],[-6.597844690785081,34.26059090320929],[-6.5976385442226615,34.26188089201817],[-6.598080286857254,34.2650692700407],[-6.595400381539889,34.26966908335959]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Le Vallon"},"geometry":{"coordinates":[[[-6.607297954877822,34.26582376621954],[-6.611774280241633,34.25951996627042],[-6.610831895954618,34.256477422750436],[-6.60906492541622,34.25586890084169],[-6.606885661752159,34.25611231013352],[-6.600082825178873,34.26027450003416],[-6.600436219286678,34.26811151498461],[-6.607297954877822,34.26582376621954]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Mimosas"},"geometry":{"coordinates":[[[-6.59722154372983,34.25645048896658],[-6.592642407650288,34.2483880096913],[-6.584393689918016,34.25191381914945],[-6.589286465455331,34.259716739762794],[-6.59722154372983,34.25645048896658]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"La Corniche"},"geometry":{"coordinates":[[[-6.5907967712456355,34.2675398001748],[-6.591505285505008,34.26677860964578],[-6.586793665683587,34.26434860916159],[-6.586297705702464,34.2656660880175],[-6.5907967712456355,34.2675398001748]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"La Ville Haute"},"geometry":{"coordinates":[[[-6.595179859593259,34.26948443118991],[-6.597746165204427,34.264973422216244],[-6.597542490156286,34.26049583822035],[-6.598764540447462,34.260024499723386],[-6.597216610078078,34.256859729990325],[-6.586869917612972,34.26093350731702],[-6.587480942758589,34.26403079276278],[-6.59183958879683,34.26679132061183],[-6.591554443729393,34.267397278012226],[-6.595179859593259,34.26948443118991]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Les Jardins de Hellala"},"geometry":{"coordinates":[[[-6.650601042650436,34.22332525037861],[-6.634364857376454,34.21484171970626],[-6.619343993749254,34.235070271332646],[-6.628219605874392,34.23807770956421],[-6.649113987844345,34.227649137228084],[-6.650601042650436,34.22332525037861]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Bir Rami Sud"},"geometry":{"coordinates":[[[-6.618660807893804,34.234788096751004],[-6.605818893188484,34.22773599924912],[-6.601942247536158,34.23516365169071],[-6.614905381282114,34.233564968254456],[-6.618660807893804,34.234788096751004]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Jenane"},"geometry":{"coordinates":[[[-6.619002140795345,34.234317675521524],[-6.633909208080979,34.213996247918956],[-6.6234445298061075,34.20724394018863],[-6.605820384211199,34.22717233294122],[-6.619002140795345,34.234317675521524]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Bir Rami Est"},"geometry":{"coordinates":[[[-6.608339860562722,34.24896044517462],[-6.616100574581452,34.248373725269886],[-6.627981738092274,34.23840674607507],[-6.619005560346551,34.235485910005366],[-6.61389693439537,34.24204026528702],[-6.60940663190749,34.24167654791077],[-6.610014518139565,34.24801332407115],[-6.608339860562722,34.24896044517462]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Al Hadiqa"},"geometry":{"coordinates":[[[-6.638662825005412,34.24562260750464],[-6.649364159943701,34.23715755758694],[-6.6449194207213225,34.23057387257768],[-6.628534172022341,34.2384749003254],[-6.633998512908818,34.24035445380231],[-6.638662825005412,34.24562260750464]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Alliance"},"geometry":{"coordinates":[[[-6.659736049093823,34.25809108090921],[-6.670979621421225,34.239585777114186],[-6.65870338553006,34.231005976839555],[-6.63903321946637,34.24631523364805],[-6.649221676785487,34.256786032484655],[-6.659736049093823,34.25809108090921]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Kasbah Mehdia"},"geometry":{"coordinates":[[[-6.661348447380362,34.26443681210972],[-6.65945593232513,34.2585770171151],[-6.646993209519536,34.25769887093908],[-6.640354049209208,34.26033812657296],[-6.641854241751076,34.2702208786488],[-6.661348447380362,34.26443681210972]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Golf"},"geometry":{"coordinates":[[[-6.641232495736347,34.27029200052844],[-6.639910152892156,34.25982412243641],[-6.629275574307684,34.25799217437677],[-6.6337906698610425,34.27145943772702],[-6.641232495736347,34.27029200052844]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Mehdia"},"geometry":{"coordinates":[[[-6.687013552898321,34.263643188768754],[-6.687524260486839,34.261955498051435],[-6.679478958880765,34.260373383564854],[-6.681877522662177,34.24825062425188],[-6.677016260773399,34.24730676817133],[-6.672573262378819,34.25499665871892],[-6.661435451997335,34.259954693053785],[-6.6630984259491015,34.26353439863938],[-6.667215263583216,34.26195534018717],[-6.677565197439037,34.26121715911927],[-6.687013552898321,34.263643188768754]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Addoha"},"geometry":{"coordinates":[[[-6.62969927824841,34.25767514422833],[-6.6407721987867205,34.26002945530382],[-6.648473851541382,34.25643688783292],[-6.638461463496242,34.246628702707326],[-6.632706805665549,34.252556370156455],[-6.62969927824841,34.25767514422833]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Jardat Al Qadi"},"geometry":{"coordinates":[[[-6.5679560425529075,34.265345726961996],[-6.567042193549099,34.265049024837026],[-6.563321522605264,34.26697756993788],[-6.565785651169165,34.268730754378694],[-6.5679560425529075,34.265345726961996]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Bab Fes"},"geometry":{"coordinates":[[[-6.565669139104756,34.26888288474723],[-6.561458668635197,34.26613519475238],[-6.560950508406705,34.26907485973162],[-6.559455065446002,34.27097058917299],[-6.5609359895426,34.271858447759],[-6.561937791137211,34.271258544335794],[-6.563302564323692,34.27151050429529],[-6.565669139104756,34.26888288474723]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Al Mizane"},"geometry":{"coordinates":[[[-6.560689168859966,34.271930435882],[-6.557872509304218,34.27035868117606],[-6.55727723589294,34.2710305799129],[-6.55595601929781,34.271222549994775],[-6.556057651343025,34.27177446153729],[-6.555738236341682,34.27214639988185],[-6.5588888297628785,34.27333419196417],[-6.560689168859966,34.271930435882]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"La Cigogne"},"geometry":{"coordinates":[[[-6.569276006766927,34.2633707345431],[-6.570453282170007,34.26072205464584],[-6.571107324060478,34.25800121498561],[-6.568076929966935,34.2571362938788],[-6.565155542856786,34.2590823538641],[-6.567117668528169,34.260199516108486],[-6.56892718442478,34.26225361441702],[-6.56883997883952,34.2633707345431],[-6.569276006766927,34.2633707345431]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Khabbazate"},"geometry":{"coordinates":[[[-6.563071494548524,34.265879342160915],[-6.56876165899655,34.26344695670748],[-6.568630850617495,34.262275783066855],[-6.56706115008086,34.26038385273627],[-6.565120825805167,34.25923065528086],[-6.561959623334985,34.262672182124604],[-6.56167620518238,34.26512260755838],[-6.562373849865452,34.264996484462415],[-6.563071494548524,34.265879342160915]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Assam"},"geometry":{"coordinates":[[[-6.539970545395931,34.28744456421188],[-6.5367284737815226,34.27742504495633],[-6.52750751685133,34.279269004497976],[-6.532391676686558,34.290853711574215],[-6.539970545395931,34.28744456421188]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Al Montazah"},"geometry":{"coordinates":[[[-6.562708881424072,34.25746836767344],[-6.56569347897954,34.25134915312333],[-6.565538434950952,34.24878599908391],[-6.5587164976795975,34.249138437393114],[-6.558483931636772,34.2503239008762],[-6.556933491347763,34.25112488026204],[-6.562708881424072,34.25746836767344]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Greater Medina Area"},"geometry":{"coordinates":[[[-6.559253161620404,34.2708007402302],[-6.560532274858332,34.268910858756115],[-6.561191211980798,34.26589977341153],[-6.5627028912626315,34.26660450517677],[-6.562896696298338,34.26612400688617],[-6.562237759175872,34.2653231703018],[-6.561501300039055,34.2653231703018],[-6.561772627089056,34.26244009545373],[-6.564602180615935,34.25898027518629],[-6.562431564211579,34.25750660482073],[-6.555178502437428,34.24945107333285],[-6.551165162179302,34.25180104067864],[-6.545178608184926,34.257588171782146],[-6.546929997835633,34.25897508499493],[-6.550726261397955,34.26036293738538],[-6.55196727923655,34.266698017924966],[-6.557442228947309,34.26681878197158],[-6.55510662570768,34.2685080651795],[-6.559253161620404,34.2708007402302]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Hay El Wafaa"},"geometry":{"coordinates":[[[-6.555353106927214,34.235248494132904],[-6.551918904524115,34.23396626560668],[-6.55352475029062,34.227234967315894],[-6.546047972236494,34.22421292916172],[-6.5415064723738965,34.22741814311972],[-6.53630028005324,34.22421256366833],[-6.534526941783014,34.22888320585733],[-6.538791816591015,34.230989763443446],[-6.540176844041866,34.22934123693756],[-6.541450621828631,34.230989777089604],[-6.542613680564955,34.232455183570536],[-6.543333791829809,34.23222620614611],[-6.546490950955587,34.23556914076801],[-6.54438609766035,34.23680560381199],[-6.547100240466165,34.23987357162261],[-6.555353106927214,34.235248494132904]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Ain Sebaa"},"geometry":{"coordinates":[[[-6.536419873798792,34.23302307573809],[-6.534739956863973,34.22923003291227],[-6.530610339912187,34.22670119497751],[-6.5255559775468726,34.229292477492706],[-6.520663163001387,34.23403497610475],[-6.521267511217786,34.23757735325664],[-6.530210258857608,34.2380226166439],[-6.536419873798792,34.23302307573809]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Fouarat"},"geometry":{"coordinates":[[[-6.526575770509766,34.256486725219546],[-6.526767246237,34.24912603468246],[-6.519460535155645,34.24920294550347],[-6.517119005990821,34.25679222561203],[-6.526575770509766,34.256486725219546]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Hay Ouled Arfaa"},"geometry":{"coordinates":[[[-6.547983266166625,34.241142052922385],[-6.544032638210268,34.23691303490487],[-6.546210548494258,34.235531230498026],[-6.543171603911475,34.23255818049462],[-6.541905377002564,34.232725679059584],[-6.5402339574819734,34.22958502551748],[-6.53841059073261,34.23151130691261],[-6.535371646150594,34.22966877779854],[-6.536587223983275,34.23318629839645],[-6.535118400768482,34.246166352623916],[-6.536789820288362,34.24838532284167],[-6.547983266166625,34.241142052922385]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Saknia"},"geometry":{"coordinates":[[[-6.558818644449758,34.24859366155961],[-6.556182662682403,34.243640278355244],[-6.55756494023484,34.242334080296644],[-6.556840765869595,34.2368370100813],[-6.554799506682997,34.23580304764164],[-6.547755494886559,34.23993928584777],[-6.5482820983536385,34.24140884170136],[-6.53689061193586,34.248594629579216],[-6.537087999673389,34.249846975239876],[-6.540249299915956,34.254583188894856],[-6.545056983507038,34.25746742315246],[-6.550521771153029,34.25191369268185],[-6.555327387920244,34.24897403202121],[-6.556644385136167,34.250933373127026],[-6.558094085096343,34.25028085192399],[-6.558818644449758,34.24859366155961]]],"type":"Polygon"}},{"type":"Feature","properties":{"name":"Campus Universitaire"},"geometry":{"coordinates":[[[-6.59561751601521,34.24479011802012],[-6.596096132852381,34.24249535000716],[-6.590209145744609,34.24233708783785],[-6.587385306400051,34.24384056643048],[-6.582455552966593,34.242297522249146],[-6.579823160358245,34.246214425318854],[-6.5799667454093935,34.247757397692425],[-6.578195863107879,34.249577277463814],[-6.576377119122611,34.2505663260505],[-6.577812969638131,34.25238614507582],[-6.588294678392003,34.248904717785294],[-6.590974932685441,34.24645180752532],[-6.59561751601521,34.24479011802012]]],"type":"Polygon"}}]};
+
+// LANDMARKS
+const LANDMARKS = [
+  { name: 'محطة قطار السرعة العالية القنيطرة', type: 'محطة القطار السريع', lat: 34.252852047161966, lng: -6.581297576550725, icon: '🚉' },
+  { name: 'مدخل الطريق السيار', type: 'مدخل الطريق السيار', lat: 34.23022631289871, lng: -6.570728877647269, icon: '🛣️' },
+  { name: 'غابة المعمورة الحضرية', type: 'غابة حضرية', lat: 34.246253066534834, lng: -6.568415404458392, icon: '🌲' }
+];
+
+// ============================================================
+// BUILD MAP
+// ============================================================
+const map = L.map('kenitra-map', {
+  center: [34.255, -6.59],
+  zoom: 13,
+  zoomControl: true
+});
+
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics',
+  maxZoom: 19
+}).addTo(map);
+
+let activeLayer = null;
+
+function openProfile(geoName) {
+  const isMobile = window.innerWidth <= 980;
+  const html = renderPanelHTML(geoName, geoName);
+  if (isMobile) {
+    document.getElementById('sheet-content').innerHTML = html;
+    const sheet = document.getElementById('bottom-sheet');
+    sheet.classList.add('is-open');
+    sheet.setAttribute('aria-hidden','false');
+  } else {
+    document.getElementById('panel-placeholder').style.display = 'none';
+    const pc = document.getElementById('panel-content');
+    pc.style.display = 'flex';
+    pc.style.flexDirection = 'column';
+    pc.innerHTML = html;
+    document.getElementById('map-panel').scrollTop = 0;
+  }
+}
+
+L.geoJSON(GEOJSON, {
+  style: function(feature) {
+    const name = (feature.properties.name || '').trim();
+    const data = getHoodData(name);
+    const tier = data ? data.tier : 'middle';
+    const colors = getTierColor(tier);
+    return {
+      fillColor: colors.fill,
+      color: colors.stroke,
+      weight: 1.5,
+      opacity: 1,
+      fillOpacity: 0.45
+    };
+  },
+  onEachFeature: function(feature, layer) {
+    const name = (feature.properties.name || '').trim();
+    const data = getHoodData(name);
+    const displayName = data ? data.display : name;
+
+    layer.bindTooltip(displayName, {
+      permanent: false,
+      direction: 'center',
+      className: 'leaflet-tooltip-hood',
+      sticky: true
+    });
+
+    layer.on('click', function() {
+      if (activeLayer) {
+        activeLayer.setStyle({ weight: 1.5, fillOpacity: 0.35 });
+      }
+      layer.setStyle({ weight: 3, fillOpacity: 0.7 });
+      activeLayer = layer;
+      openProfile(name);
+    });
+
+    layer.on('mouseover', function() {
+      if (layer !== activeLayer) layer.setStyle({ fillOpacity: 0.62, weight: 2 });
+    });
+    layer.on('mouseout', function() {
+      if (layer !== activeLayer) layer.setStyle({ fillOpacity: 0.45, weight: 1.5 });
+    });
+  }
+}).addTo(map);
+
+// Landmark pins
+LANDMARKS.forEach(function(lm) {
+  const icon = L.divIcon({
+    html: `<div style="background:rgba(7,17,31,.82);border:1px solid rgba(210,180,134,.5);border-radius:4px;padding:3px 6px;display:flex;align-items:center;gap:4px;white-space:nowrap;backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.5);"><span style="font-size:13px;line-height:1;">${lm.icon}</span><span style="font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.82);font-family:inherit;">${lm.name}</span></div>`,
+    className: '',
+    iconSize: null,
+    iconAnchor: [0, 12]
+  });
+  L.marker([lm.lat, lm.lng], { icon: icon })
+    .bindPopup(`<div class="landmark-name">${lm.name}</div><div class="landmark-type">${lm.type}</div>`, { className: 'landmark-popup' })
+    .addTo(map);
+});
+
+// ============================================================
+// BOTTOM SHEET
+// ============================================================
+document.getElementById('sheet-close').addEventListener('click', function() {
+  const sheet = document.getElementById('bottom-sheet');
+  sheet.classList.remove('is-open');
+  sheet.setAttribute('aria-hidden','true');
+  if (activeLayer) activeLayer.setStyle({ weight: 1.5, fillOpacity: 0.35 });
+  activeLayer = null;
+});
+document.getElementById('sheet-handle').addEventListener('click', function() {
+  document.getElementById('sheet-close').click();
+});
+
+// ============================================================
+// SEARCH
+// ============================================================
+const allHoods = Object.values(HOODS).filter(Boolean).map(function(h) { return h.display; });
+const hoodToGeoName = {};
+Object.entries(HOODS).forEach(function([geoKey, data]) {
+  if (data) hoodToGeoName[data.display] = geoKey;
+});
+
+const searchInput = document.getElementById('hood-search');
+const searchDropdown = document.getElementById('search-dropdown');
+
+searchInput.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  if (!q) { searchDropdown.classList.remove('is-open'); return; }
+  const matches = allHoods.filter(function(n) { return n.toLowerCase().includes(q); }).slice(0, 8);
+  if (!matches.length) { searchDropdown.classList.remove('is-open'); return; }
+  searchDropdown.innerHTML = matches.map(function(n) {
+    return `<div class="search-result-item" tabindex="0" data-name="${n}">${n}</div>`;
+  }).join('');
+  searchDropdown.classList.add('is-open');
+});
+
+searchDropdown.addEventListener('click', function(e) {
+  const item = e.target.closest('.search-result-item');
+  if (!item) return;
+  const displayName = item.dataset.name;
+  const geoKey = hoodToGeoName[displayName];
+  searchInput.value = displayName;
+  searchDropdown.classList.remove('is-open');
+  if (geoKey) {
+    // Scroll to map
+    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() { openProfile(geoKey); }, 400);
+  }
+});
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-search-wrap')) searchDropdown.classList.remove('is-open');
+});
+
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') searchDropdown.classList.remove('is-open');
+});
+
+// ============================================================
+// BUILD TABLES
+// ============================================================
+const TABLE_DATA = [
+  { display:'حي المعمورة', buy:'10,000–15,000 درهم/م²', rent:'3,700–8,500 درهم/شهر', tier:'upper', geoKey:'Maamora', daam:'Low', char:'Central' },
+  { display:'حي الميموزا', buy:'10,000–14,000 درهم/م²', rent:'3,500–6,500 درهم/شهر', tier:'upper', geoKey:'Mimosas', daam:'Low', char:'Central' },
+  { display:'لا فيل أوت', buy:'7,000–12,500 درهم/م²', rent:'2,150–7,500 درهم/شهر', tier:'upper', geoKey:'La Ville Haute', daam:'Low', char:'Central' },
+  { display:'فال فلوري', buy:'سوق فيلات؛ حالة بحالة', rent:'4,000–5,500 درهم (شقق)؛ الفيلات تتفاوت', tier:'premium', geoKey:'Val Fleury', daam:'N/A', char:'Villa' },
+  { display:'الكورنيش', buy:'8,000–12,000 درهم/م²', rent:'3,000–6,000 درهم/شهر', tier:'upper', geoKey:'La Corniche', daam:'Low', char:'Central' },
+  { display:'مسجد بدر', buy:'سوق فيلات؛ حالة بحالة', rent:'الفيلات تتفاوت', tier:'premium', geoKey:'Masjid Badr', daam:'N/A', char:'Villa' },
+  { display:'الملاح', buy:'مخزون قديم؛ إعادة تطوير انتقائية', rent:'2,500–4,500 درهم/شهر', tier:'affordable-mid', geoKey:'El Mellah', daam:'Low', char:'Medina' },
+  { display:'لا سيغون', buy:'6,500–8,500 درهم/م²', rent:'2,500–4,000 درهم/شهر', tier:'affordable', geoKey:'La Cigogne', daam:'Low', char:'Residential' },
+  { display:'لا شنيل', buy:'ترفيهي؛ غير متاح', rent:'غير متاح', tier:'restricted', geoKey:'La Chenille', daam:'N/A', char:'Industrial' },
+  { display:'جردة القاضي', buy:'6,500–9,000 درهم/م²', rent:'2,500–4,200 درهم/شهر', tier:'affordable', geoKey:'Jardat Al Qadi', daam:'Low', char:'Medina' },
+  { display:'ممر شارع محمد الخامس', buy:'6,000–8,500 درهم/م²', rent:'2,200–4,000 درهم/شهر', tier:'affordable-mid', geoKey:'Rue Mohamed V Corridor Medina', daam:'Low', char:'Medina' },
+  { display:'باب فاس', buy:'6,000–7,500 درهم/م²', rent:'2,000–3,000 درهم/شهر', tier:'affordable', geoKey:'Bab Fes', daam:'Low', char:'Medina' },
+  { display:'الخبازة / المدينة العتيقة القديمة', buy:'مخزون قديم؛ حالة بحالة', rent:'1,800–2,500 درهم/شهر', tier:'affordable', geoKey:'Khabbazate', daam:'Low', char:'Medina' },
+  { display:'منطقة المدينة العتيقة الكبرى', buy:'5,800–7,200 درهم/م²', rent:'1,800–2,500 درهم/شهر', tier:'affordable', geoKey:'Greater Medina Area', daam:'Low', char:'Medina' },
+  { display:'المنتزه', buy:'8,000–9,000 درهم/م²', rent:'3,000–3,500 درهم/شهر', tier:'middle', geoKey:'Al Montazah', daam:'Medium', char:'Residential' },
+  { display:'الميزان', buy:'~5,000 درهم/م²', rent:'1,800–2,500 درهم/شهر', tier:'affordable', geoKey:'Al Mizane', daam:'Low', char:'Medina' },
+  { display:'حي الجيني', buy:'عسكري؛ غير متاح', rent:'غير متاح', tier:'restricted', geoKey:'Quartier Génie', daam:'N/A', char:'Industrial' },
+  { display:'الحرم الجامعي', buy:'مدفوع بالإعادة؛ مخزون محدود', rent:'2,500–4,500 درهم/شهر', tier:'middle', geoKey:'Campus Universitaire', daam:'Low', char:'Academic' },
+  { display:'بير رامي الغرب', buy:'سوق فيلات؛ حالة بحالة', rent:'الفيلات تتفاوت بشكل ملحوظ', tier:'premium', geoKey:'Bir Rami Ouest', daam:'N/A', char:'Villa' },
+  { display:'بير رامي الشرق', buy:'6,500–8,500 درهم/م²', rent:'2,800–4,800 درهم/شهر', tier:'affordable-mid', geoKey:'Bir Rami Est', daam:'High', char:'Expansion' },
+  { display:'بير رامي الجنوب', buy:'6,200–8,200 درهم/م²', rent:'2,400–3,800 درهم/شهر', tier:'affordable-mid', geoKey:'Bir Rami Sud', daam:'High', char:'Expansion' },
+  { display:'المغرب العربي', buy:'6,500–8,000 درهم/م²', rent:'2,800–4,200 درهم/شهر', tier:'middle', geoKey:'Maghreb Al Arabi', daam:'Medium', char:'Residential' },
+  { display:'لو فالون', buy:'6,500–8,500 درهم/م²', rent:'3,000–4,500 درهم/شهر', tier:'middle', geoKey:'Le Vallon', daam:'High', char:'Expansion' },
+  { display:'حي الصياد', buy:'6,000–7,800 درهم/م²', rent:'2,500–3,800 درهم/شهر', tier:'middle', geoKey:'Sayad', daam:'Medium', char:'Residential' },
+  { display:'لا سيتي', buy:'6,000–7,800 درهم/م²', rent:'2,500–4,000 درهم/شهر', tier:'middle', geoKey:'La Cité', daam:'Medium', char:'Residential' },
+  { display:'الطيبية', buy:'6,000–7,800 درهم/م²', rent:'2,500–4,000 درهم/شهر', tier:'middle', geoKey:'Taibia', daam:'Medium', char:'Residential' },
+  { display:'الإسماعيلية', buy:'6,500–8,000 درهم/م²', rent:'2,500–4,000 درهم/شهر', tier:'middle', geoKey:'Al Ismailia', daam:'Medium', char:'Residential' },
+  { display:'الحدادة', buy:'6,500–9,000 درهم/م²', rent:'3,200–5,000 درهم/شهر', tier:'middle', geoKey:'Haddada', daam:'Medium', char:'Residential' },
+  { display:'الهواء', buy:'6,500–9,000 درهم/م²', rent:'3,000–4,800 درهم/شهر', tier:'middle', geoKey:'Al Haouzia', daam:'Medium', char:'Residential' },
+  { display:'أولاد عويجة', buy:'6,500–8,500 درهم/م²', rent:'2,500–3,200 درهم/شهر', tier:'middle', geoKey:'Oulad Oujih', daam:'Medium', char:'Residential' },
+  { display:'الحديقة 1 و2', buy:'6,500–8,500 درهم/م²', rent:'2,600–4,000 درهم/شهر', tier:'affordable-mid', geoKey:'Al Hadiqa', daam:'High', char:'Expansion' },
+  { display:'الجنان', buy:'7,400–9,000 درهم/م²', rent:'2,800–4,800 درهم/شهر', tier:'affordable-mid', geoKey:'Jenane', daam:'High', char:'Expansion' },
+  { display:'جنان الحلالة', buy:'فيلات مميزة؛ مماثلة لبير رامي الغرب', rent:'الفيلات تتفاوت؛ لا تزال في طور التطوير', tier:'premium', geoKey:'Les Jardins de Hellala', daam:'N/A', char:'Villa' },
+  { display:'لوتيسمان أليانس', buy:'7,400–9,000 درهم/م²', rent:'2,500–4,500 درهم/شهر', tier:'affordable-mid', geoKey:'Alliance', daam:'High', char:'Expansion' },
+  { display:'أضواء (رزيدانس دو غولف)', buy:'مخزون مستعمل ~200,000–250,000 درهم', rent:'2,000–2,800 درهم/شهر', tier:'affordable', geoKey:'Addoha', daam:'N/A — pre-2023', char:'Residential' },
+  { display:'غولف / منطقة فيلات الغولف', buy:'7,500–9,500 درهم/م²', rent:'3,000–4,800 درهم/شهر', tier:'upper', geoKey:'Golf', daam:'N/A', char:'Villa' },
+  { display:'قصبة مهدية', buy:'نسيج عضوي؛ يتفاوت', rent:'2,500–5,000 درهم/شهر', tier:'affordable', geoKey:'Kasbah Mehdia', daam:'Low', char:'Coastal' },
+  { display:'مهدية شاطئ', buy:'من ~12,000–20,000 درهم/م²', rent:'3,650–5,500+ درهم/شهر', tier:'coastal', geoKey:'Mehdia', daam:'N/A — above threshold', char:'Coastal' },
+  { display:'ميناء مهدية', buy:'ميناء صناعي؛ غير متاح', rent:'غير متاح', tier:'restricted', geoKey:null, daam:'N/A', char:'Industrial' },
+  { display:'السكنية', buy:'7,500–9,000 درهم/م²', rent:'1,500–2,300 درهم/شهر', tier:'affordable-mid', geoKey:'Saknia', daam:'Medium', char:'Expansion' },
+  { display:'حي الوفاء', buy:'~6,000 درهم/م²', rent:'1,500–2,300 درهم/شهر', tier:'affordable-mid', geoKey:'Hay El Wafaa', daam:'High', char:'Expansion' },
+  { display:'عين السبع', buy:'6,000–7,500 درهم/م²', rent:'1,500–2,000 درهم/شهر', tier:'affordable', geoKey:'Ain Sebaa', daam:'High', char:'Expansion' },
+  { display:'حي أولاد عرفة', buy:'~6,000 درهم/م²', rent:'1,800–2,800 درهم/شهر', tier:'affordable-mid', geoKey:'Hay Ouled Arfaa', daam:'High', char:'Expansion' },
+  { display:'فواريت', buy:'إعادة بيع محلية؛ حالة بحالة', rent:'1,800–2,500 درهم/شهر', tier:'affordable', geoKey:'Fouarat', daam:'High', char:'Expansion' },
+  { display:'حي العصام', buy:'إعادة بيع محلية؛ حالة بحالة', rent:'1,800–2,500 درهم/شهر', tier:'affordable', geoKey:'Assam', daam:'High', char:'Expansion' }
+];
+
+const TIER_DOT_COLORS = {
+  premium: '#6B2FA0', upper: '#B8860B', middle: '#185FA5',
+  'affordable-mid': '#3B6D11', affordable: '#B22222',
+  coastal: '#0F6E56', restricted: '#888'
+};
+const TIER_LABELS = {
+  premium: 'مميز', upper: 'فوق المتوسط', middle: 'متوسط',
+  'affordable-mid': 'متوسط ميسور', affordable: 'ميسور',
+  coastal: 'ساحلي', restricted: 'مؤسسي'
+};
+const DAAM_COLORS = { 'High':'#0F6E56', 'Medium':'#B8860B', 'Low':'#5F5E5A' };
+
+function buildMainTable() {
+  const tbody = document.getElementById('main-tbody');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  TABLE_DATA.forEach(function(row) {
+    const tr = document.createElement('tr');
+    tr.dataset.tier = row.tier;
+    tr.dataset.daam = row.daam.startsWith('N/A') ? 'na' : row.daam;
+    tr.dataset.char = row.char;
+
+    const nameCell = document.createElement('td');
+    if (row.geoKey) {
+      const a = document.createElement('a');
+      a.className = 'map-link';
+      a.textContent = row.display;
+      a.href = '#map';
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('map').scrollIntoView({ behavior:'smooth', block:'start' });
+        setTimeout(function() { openProfile(row.geoKey); }, 400);
+      });
+      nameCell.appendChild(a);
+    } else {
+      nameCell.textContent = row.display;
+      nameCell.style.color = 'var(--text-muted)';
+    }
+
+    const buyCell = document.createElement('td');
+    const isPlainBuy = !row.buy.match(/N\/A|varies|case|stock|Villas|villa|Military|Recreational|Industrial|Premium|applicable|لا ينطبق|يتفاوت|حالة|مخزون|فيلات|عسكري|ترفيهي|صناعي|مميز/i);
+    if (isPlainBuy) {
+      const s = document.createElement('span'); s.className = 'price-figure'; s.textContent = row.buy; buyCell.appendChild(s);
+    } else { buyCell.textContent = row.buy; buyCell.style.fontSize = '.8rem'; }
+
+    const rentCell = document.createElement('td');
+    const isPlainRent = !row.rent.match(/N\/A|varies|Villas|لا ينطبق|يتفاوت|فيلات/i);
+    if (isPlainRent) {
+      const s = document.createElement('span'); s.className = 'price-figure'; s.textContent = row.rent; rentCell.appendChild(s);
+    } else { rentCell.textContent = row.rent; rentCell.style.fontSize = '.8rem'; }
+
+    const tierCell = document.createElement('td');
+    const dot = document.createElement('span');
+    dot.className = 'tier-dot';
+    dot.style.background = TIER_DOT_COLORS[row.tier] || '#888';
+    tierCell.appendChild(dot);
+    tierCell.appendChild(document.createTextNode(TIER_LABELS[row.tier] || row.tier));
+    tierCell.style.fontSize = '.78rem'; tierCell.style.color = 'var(--text-muted)';
+
+    const daamCell = document.createElement('td');
+    const daamKey = row.daam.split(' ')[0];
+    const daamDot = document.createElement('span');
+    daamDot.className = 'tier-dot';
+    daamDot.style.background = DAAM_COLORS[daamKey] || '#bbb';
+    daamCell.appendChild(daamDot);
+    daamCell.appendChild(document.createTextNode(row.daam));
+    daamCell.style.fontSize = '.78rem';
+    daamCell.style.color = DAAM_COLORS[daamKey] ? 'var(--text-muted)' : 'rgba(0,0,0,.35)';
+
+    const charCell = document.createElement('td');
+    const badge = document.createElement('span');
+    badge.className = 'char-badge char-' + row.char;
+    badge.textContent = row.char;
+    charCell.appendChild(badge);
+
+    tr.appendChild(nameCell); tr.appendChild(buyCell); tr.appendChild(rentCell);
+    tr.appendChild(tierCell); tr.appendChild(daamCell); tr.appendChild(charCell);
+    tbody.appendChild(tr);
+  });
+  updateCount();
+}
+
+buildMainTable();
+
+let activeFilters = { tier:'all', daam:'all', char:'all' };
+
+function applyFilters() {
+  const rows = document.querySelectorAll('#main-tbody tr');
+  let visible = 0;
+  rows.forEach(function(row) {
+    const tierOk = activeFilters.tier === 'all' || row.dataset.tier === activeFilters.tier;
+    const daamOk = activeFilters.daam === 'all' || row.dataset.daam === activeFilters.daam;
+    const charOk = activeFilters.char === 'all' || row.dataset.char === activeFilters.char;
+    if (tierOk && daamOk && charOk) { row.classList.remove('is-hidden'); visible++; }
+    else row.classList.add('is-hidden');
+  });
+  updateCount(visible);
+}
+
+function updateCount(n) {
+  const el = document.getElementById('table-count');
+  if (!el) return;
+  const total = n !== undefined ? n : TABLE_DATA.length;
+  el.textContent = (total === TABLE_DATA.length ? 'جميع' : total) + ' ' + 'حي';
+}
+
+document.querySelectorAll('.filter-pill').forEach(function(pill) {
+  pill.addEventListener('click', function() {
+    const filterType = this.dataset.filter;
+    const val = this.dataset.value;
+    activeFilters[filterType] = val;
+    document.querySelectorAll('.filter-pill[data-filter="' + filterType + '"]').forEach(function(p) {
+      p.classList.toggle('active', p.dataset.value === val);
+    });
+    applyFilters();
+  });
+});
+
+document.getElementById('filter-reset').addEventListener('click', function() {
+  activeFilters = { tier:'all', daam:'all', char:'all' };
+  document.querySelectorAll('.filter-pill').forEach(function(p) {
+    p.classList.toggle('active', p.dataset.value === 'all');
+  });
+  applyFilters();
+});
+
+let sortState = { col: null, dir: 1 };
+const TIER_ORDER = { premium:0, upper:1, middle:2, 'affordable-mid':3, affordable:4, coastal:5, restricted:6 };
+const DAAM_ORDER = { High:0, Medium:1, Low:2 };
+
+document.querySelectorAll('.sortable').forEach(function(th) {
+  th.addEventListener('click', function() {
+    const col = this.dataset.col;
+    if (sortState.col === col) { sortState.dir *= -1; } else { sortState.col = col; sortState.dir = 1; }
+    document.querySelectorAll('.sortable').forEach(function(h) {
+      h.classList.remove('sort-asc','sort-desc');
+      h.querySelector('.sort-icon').textContent = String.fromCharCode(8597);
+    });
+    this.classList.add(sortState.dir === 1 ? 'sort-asc' : 'sort-desc');
+    this.querySelector('.sort-icon').textContent = sortState.dir === 1 ? String.fromCharCode(8593) : String.fromCharCode(8595);
+    const tbody = document.getElementById('main-tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function(a, b) {
+      const aName = (a.querySelector('.map-link') || a.querySelector('td')).textContent.trim();
+      const bName = (b.querySelector('.map-link') || b.querySelector('td')).textContent.trim();
+      const aRow = TABLE_DATA.find(r => r.display === aName);
+      const bRow = TABLE_DATA.find(r => r.display === bName);
+      if (!aRow || !bRow) return 0;
+      let aVal, bVal;
+      if (col === 'name') return aRow.display.localeCompare(bRow.display) * sortState.dir;
+      if (col === 'tier') { aVal = TIER_ORDER[aRow.tier] ?? 9; bVal = TIER_ORDER[bRow.tier] ?? 9; }
+      else if (col === 'daam') { aVal = DAAM_ORDER[aRow.daam] ?? 9; bVal = DAAM_ORDER[bRow.daam] ?? 9; }
+      else if (col === 'char') return aRow.char.localeCompare(bRow.char) * sortState.dir;
+      else if (col === 'buy') { aVal = parseFloat((aRow.buy.match(/[\d]+/) || ['9999'])[0]); bVal = parseFloat((bRow.buy.match(/[\d]+/) || ['9999'])[0]); }
+      else if (col === 'rent') { aVal = parseFloat((aRow.rent.match(/[\d]+/) || ['9999'])[0]); bVal = parseFloat((bRow.rent.match(/[\d]+/) || ['9999'])[0]); }
+      return (aVal - bVal) * sortState.dir;
+    });
+    rows.forEach(function(r) { tbody.appendChild(r); });
+  });
+});
+
+})();
 </script>
 <script src="../../shared.js"></script>
 </body>
