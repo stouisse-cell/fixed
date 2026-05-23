@@ -76,6 +76,13 @@
   .map-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr);gap:2rem;align-items:stretch;}
   .map-board{position:relative;height:560px;border:1px solid rgba(8,26,51,.12);box-shadow:var(--shadow);overflow:hidden;background:#dfe7ec;}
   #kenitra-map{width:100%;height:100%;}
+  .map-watermark{position:absolute;inset:0;pointer-events:none;z-index:450;}
+  .map-watermark-logo{position:absolute;left:50%;top:50%;width:min(68%,430px);transform:translate(-50%,-50%) rotate(-10deg);opacity:.14;filter:drop-shadow(0 12px 28px rgba(7,17,31,.18));}
+  .map-watermark-badge{position:absolute;right:1rem;bottom:1rem;display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem;background:rgba(7,17,31,.72);border:1px solid rgba(210,180,134,.3);backdrop-filter:blur(4px);box-shadow:0 12px 30px rgba(7,17,31,.22);}
+  .map-watermark-badge img{width:38px;height:38px;object-fit:contain;opacity:.95;filter:drop-shadow(0 2px 8px rgba(0,0,0,.22));}
+  .map-watermark-badge-text{display:flex;flex-direction:column;gap:.1rem;}
+  .map-watermark-badge-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.52);}
+  .map-watermark-badge-name{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
 
   /* ---- Side Panel ---- */
   .map-panel{background:rgba(7,17,31,.98);color:var(--white);border:1px solid rgba(210,180,134,.18);box-shadow:var(--shadow);display:flex;flex-direction:column;height:560px;overflow-y:auto;}
@@ -196,6 +203,10 @@
     .price-table th:nth-child(3),.price-table td:nth-child(3){display:none;}
     .mp-prices{grid-template-columns:1fr;}
     .nav-search{width:130px;}
+    .map-watermark-logo{width:min(78%,300px);opacity:.12;}
+    .map-watermark-badge{right:.75rem;bottom:.75rem;padding:.55rem .7rem;}
+    .map-watermark-badge img{width:30px;height:30px;}
+    .map-watermark-badge-name{font-size:.68rem;}
   }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Real estate advisory, consulting, marketing, and brokerage for buyers and developers in the Rabat-Salé-Kénitra region of Morocco.","inLanguage":"en"}</script>
@@ -283,6 +294,16 @@
     <div class="map-shell">
       <div class="map-board">
         <div id="kenitra-map"></div>
+        <div class="map-watermark" aria-hidden="true">
+          <img class="map-watermark-logo" src="../ri_logo_gold.png" alt="">
+          <div class="map-watermark-badge">
+            <img src="../ri_logo_gold.png" alt="">
+            <div class="map-watermark-badge-text">
+              <span class="map-watermark-badge-label">Map by</span>
+              <span class="map-watermark-badge-name">Rahim International</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="map-panel" id="map-panel">
         <div class="map-panel-placeholder" id="panel-placeholder">
