@@ -25,20 +25,65 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../../shared.css">
 <style>
-  .mi-hero{padding:9rem 5% 5rem;background:radial-gradient(circle at 20% 18%,rgba(183,106,63,.26),transparent 32%),linear-gradient(225deg,var(--ink) 0%,var(--navy) 58%,#172b4c 100%);position:relative;overflow:hidden;}
+  .mi-hero{padding:9rem 5% 5rem;background:
+      radial-gradient(circle at 18% 18%,rgba(183,106,63,.24),transparent 28%),
+      linear-gradient(102deg,rgba(8,15,30,.96) 8%,rgba(13,27,45,.9) 38%,rgba(17,43,76,.58) 66%,rgba(15,35,62,.78) 100%),
+      url('../../marketinsights.png.jpeg') center/cover no-repeat;
+    position:relative;overflow:hidden;}
   .mi-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(210,180,134,.04) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(210,180,134,.03) 80px);}
-  .mi-hero-inner{position:relative;z-index:2;max-width:760px;}
-  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+  .mi-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,12,23,.18),rgba(6,12,23,.38));pointer-events:none;}
+  .mi-overview{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.9fr);gap:2.5rem;align-items:end;max-width:1280px;margin:0 auto;}
+  .mi-hero-inner{max-width:760px;}
+  .mi-stat-card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(210,180,134,.24);backdrop-filter:blur(12px);padding:2rem 2rem 2.2rem;box-shadow:0 30px 80px rgba(0,0,0,.18);}
+  .mi-stat-label{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-bottom:1rem;}
+  .mi-stat-title{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;line-height:1.1;color:var(--white);margin:0 0 .9rem;}
+  .mi-stat-text{font-size:.95rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.7);margin:0 0 1.4rem;}
+  .mi-stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(210,180,134,.18);}
+  .mi-stat-cell{background:rgba(10,21,39,.72);padding:1rem .9rem;}
+  .mi-stat-value{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);margin-bottom:.2rem;}
+  .mi-stat-copy{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.54);}
+  .mi-feature-wrap{background:linear-gradient(180deg,#f6f1ea 0%,#ece5dc 100%);padding:var(--section-pad);}
+  .mi-feature-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.85fr);gap:1px;background:var(--border);box-shadow:var(--shadow);}
+  .mi-featured,.mi-side-column{background:var(--white);}
+  .mi-featured{padding:3rem;display:flex;flex-direction:column;justify-content:space-between;min-height:460px;background:
+      linear-gradient(225deg,rgba(200,168,119,.15),transparent 42%),
+      linear-gradient(180deg,#fff,#f8f5f0);}
+  .mi-feature-label,.mi-side-label{font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);}
+  .mi-feature-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,4vw,3.6rem);font-weight:300;line-height:1.08;color:var(--navy);margin:.85rem 0 1rem;}
+  .mi-feature-text{max-width:48rem;font-size:.96rem;font-weight:300;line-height:1.95;color:var(--text-muted);margin:0 0 1.6rem;}
+  .mi-feature-meta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);}
+  .mi-feature-arrow{display:inline-flex;align-self:flex-start;margin-top:1.7rem;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);border-bottom:1px solid rgba(183,106,63,.28);padding-bottom:.28rem;}
+  .mi-side-column{display:grid;grid-template-rows:repeat(2,1fr);}
+  .mi-side-card{padding:2rem 2rem 2.2rem;text-decoration:none;color:inherit;display:block;border-top:1px solid var(--border);transition:background .25s ease,transform .25s ease;}
+  .mi-side-column > *:first-child{border-top:none;}
+  .mi-side-card:hover{background:#fbf8f4;transform:translateY(-2px);}
+  .mi-side-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;line-height:1.2;color:var(--navy);margin:.7rem 0 .8rem;}
+  .mi-side-text{font-size:.86rem;font-weight:300;line-height:1.8;color:var(--text-muted);margin:0;}
+  .mi-index-wrap{padding:var(--section-pad);background:linear-gradient(180deg,#fbf7f1 0%,#f1e8dd 100%);}
+  .mi-index-head{max-width:1280px;margin:0 auto 2.25rem;display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;}
+  .mi-index-copy{max-width:720px;}
+  .mi-chip-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.25rem;}
+  .mi-chip{display:inline-flex;padding:.55rem .8rem;border:1px solid rgba(15,27,43,.12);font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:rgba(255,255,255,.72);}
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);max-width:1280px;margin:0 auto;box-shadow:var(--shadow);}
   .article-card{background:var(--white);padding:2.5rem;text-decoration:none;display:block;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;}
   .article-card::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(270deg,var(--copper),var(--gold));transform:scaleX(0);transform-origin:right;transition:transform .35s ease;}
   .article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
   .article-card:hover::before{transform:scaleX(1);}
-  .article-card-label{font-size:.7rem;font-weight:500;letter-spacing:.1em;color:var(--copper);margin-bottom:.6rem;}
-  .article-card-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--navy);margin-bottom:.8rem;line-height:1.3;}
-  .article-card-text{font-size:.9rem;font-weight:300;line-height:1.9;color:var(--text-muted);margin-bottom:1.2rem;}
-  .article-card-meta{font-size:.7rem;font-weight:500;color:var(--text-muted);}
-  .article-card-arrow{display:inline-flex;font-size:.7rem;font-weight:500;color:var(--copper);border-bottom:1px solid rgba(183,106,63,.3);padding-bottom:.2rem;margin-top:1rem;}
-  @media(max-width:900px){.articles-grid{grid-template-columns:1fr;}}
+  .article-card-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.6rem;}
+  .article-card-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--navy);margin-bottom:.8rem;line-height:1.25;}
+  .article-card-text{font-size:.86rem;font-weight:300;line-height:1.8;color:var(--text-muted);margin-bottom:1.2rem;}
+  .article-card-meta{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);}
+  .article-card-arrow{display:inline-flex;font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);border-bottom:1px solid rgba(183,106,63,.3);padding-bottom:.2rem;margin-top:1rem;}
+  .mi-archive-note{font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);}
+  @media(max-width:1100px){
+    .mi-overview,.mi-feature-grid{grid-template-columns:1fr;}
+    .mi-side-column{grid-template-rows:auto;}
+  }
+  @media(max-width:900px){
+    .articles-grid,.mi-stat-strip{grid-template-columns:1fr;}
+    .mi-hero{padding:8rem 5% 4.2rem;}
+    .mi-featured,.mi-side-card{padding:2rem 1.6rem;}
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://rahiminternational.com/"},{"@type":"ListItem","position":2,"name":"تحليلات السوق","item":"https://rahiminternational.com/ar/tahlilet-souq/index.html"}]}</script>
 </head>
@@ -67,31 +112,118 @@
 <nav class="breadcrumb"><a href="../index.html">الرئيسية</a><span>›</span><span class="current">تحليلات السوق</span></nav>
 
 <div class="mi-hero">
-  <div class="mi-hero-inner">
-    <p class="eyebrow">تحليل راحيم إنترناشيونال</p>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.4rem);font-weight:300;line-height:1.15;color:var(--white);">تحليلات السوق<br><em style="color:var(--gold);font-style:normal;">الرباط-سلا-القنيطرة.</em></h1>
-    <p style="font-size:1rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.66);max-width:600px;margin-top:1.5rem;">تحليلات تحريرية للمشترين والمستثمرين والمطورين النشطين في الممر المغربي — الأسعار، الجغرافيا، ومنطق توزع القيمة.</p>
+  <div class="mi-overview">
+    <div class="mi-hero-inner">
+      <p class="eyebrow">تحليل راحيم إنترناشيونال</p>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.4rem);font-weight:300;line-height:1.06;color:var(--white);">تحليلات السوق<br><em style="color:var(--gold);font-style:normal;">الرباط-سلا-القنيطرة.</em></h1>
+      <p style="font-size:1rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.66);max-width:600px;margin-top:1.5rem;">تحليلات تحريرية مستقلة للمشترين والمستثمرين والمطورين النشطين في الممر المغربي — أين تتمركز القيمة، كيف تتصرف الأسعار حسب الحي، وما تعنيه الأرقام فعلاً لقراركم.</p>
+    </div>
+    <aside class="mi-stat-card reveal" aria-label="المحاور التحريرية">
+      <div class="mi-stat-label">ما يغطيه هذا القسم</div>
+      <h2 class="mi-stat-title">من أسعار الإطلاق إلى منطق الأحياء.</h2>
+      <p class="mi-stat-text">افهم كيف تتصرف القيمة على أرض الواقع: أين تتمركز العلاوات، كيف تؤثر برامج الدعم على الامتصاص، ولماذا تتحكم جودة الموقع في القيمة أكثر من التشطيبات أو المساحة.</p>
+      <div class="mi-stat-strip">
+        <div class="mi-stat-cell">
+          <span class="mi-stat-value">03</span>
+          <span class="mi-stat-copy">تحليلات منشورة</span>
+        </div>
+        <div class="mi-stat-cell">
+          <span class="mi-stat-value">01</span>
+          <span class="mi-stat-copy">قيد الإعداد</span>
+        </div>
+        <div class="mi-stat-cell">
+          <span class="mi-stat-value">RSK</span>
+          <span class="mi-stat-copy">محور السوق الرئيسي</span>
+        </div>
+      </div>
+    </aside>
   </div>
 </div>
 
-<section style="background:linear-gradient(135deg,var(--steel),#f7f1ea);padding:var(--section-pad);">
+<section class="mi-feature-wrap">
+  <div class="mi-feature-grid">
+    <a class="mi-featured reveal" href="kenitra-istratijiya-ahya.html">
+      <div>
+        <div class="mi-feature-label">تحليل مميز</div>
+        <h2 class="mi-feature-title">أكبر خطأ يرتكبه المشترون في القنيطرة هو اختيار الشقة قبل الموقع.</h2>
+        <p class="mi-feature-text">مقال قصير عن سيكولوجية الشراء يشرح لماذا تبدأ القرارات الذكية بجودة الحي والوصول ومنطق الاستثمار وقابلية الدفاع عن القيمة مستقبلاً — لا بالتشطيبات أو الصالة الأوسع أو السعر المغري ظاهرياً.</p>
+        <div class="mi-feature-meta">
+          <span>سيكولوجية المشتري</span>
+          <span>مايو 2026</span>
+          <span>5 دقائق للقراءة</span>
+        </div>
+      </div>
+      <span class="mi-feature-arrow">قراءة التحليل المميز ←</span>
+    </a>
+    <div class="mi-side-column">
+      <a class="mi-side-card reveal" href="kenitra-tahlilet-souq-shamil.html">
+        <div class="mi-side-label">تحليل شامل</div>
+        <h3 class="mi-side-title">تحليل شامل لسوق القنيطرة مبني على جغرافيتها المتباينة وهيكلها الحيّي المختلط.</h3>
+        <p class="mi-side-text">مقال تحليلي موسّع يشرح لماذا قد تتصرف الأحياء المتجاورة كأسواق مختلفة، ولماذا يتحكم المنطق الحيّي في القيمة أكثر من الفوارق الجمالية بين الوحدات.</p>
+      </a>
+      <a class="mi-side-card reveal" href="../guides/kenitra-vs-rabat.html">
+        <div class="mi-side-label">دليل ذو صلة</div>
+        <h3 class="mi-side-title">القنيطرة مقابل الرباط للمشترين الذين يقارنون الموقع والميزانية ومنطق التقدير.</h3>
+        <p class="mi-side-text">مقارنة عملية للمشترين الذين يتساءلون هل يدفعون مقابل المركزية في الرباط أم يستفيدون من قيمة المباني الأحدث في القنيطرة.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="mi-index-wrap">
+  <div class="mi-index-head">
+    <div class="mi-index-copy">
+      <p class="section-eyebrow">الأرشيف التحريري</p>
+      <h2 class="section-title">ما نرصده عبر الممر</h2>
+      <p class="section-copy">أرشيف متنامٍ من المنطق الاستثماري للمشترين النشطين: نطاقات الأسعار، سلوك المشترين، تأثير برامج الدعم، وأنماط الأحياء المحددة التي تهم أكثر بكثير من عناوين السوق العامة.</p>
+      <div class="mi-chip-row" aria-label="المحاور">
+        <span class="mi-chip">القنيطرة</span>
+        <span class="mi-chip">الأحياء</span>
+        <span class="mi-chip">استراتيجية الشراء</span>
+        <span class="mi-chip">منطق التسعير</span>
+        <span class="mi-chip">دعم السكني</span>
+      </div>
+    </div>
+    <div class="mi-archive-note">يُضاف المزيد من التحليلات باستمرار.</div>
+  </div>
   <div class="articles-grid">
+    <a class="article-card reveal" href="kenitra-istratijiya-ahya.html">
+      <div class="article-card-label">استراتيجية الشراء</div>
+      <h2 class="article-card-title">كيف تختار الحي الصحيح في القنيطرة</h2>
+      <p class="article-card-text">لماذا يبدأ المشترون الأذكياء في القنيطرة بالموقع والوصول والطلب وقابلية الدفاع طويلة الأمد قبل مقارنة التشطيبات أو الأمتار أو الصفقات الظاهرية.</p>
+      <div class="article-card-meta">مايو 2026 · 5 دقائق للقراءة</div>
+      <span class="article-card-arrow">قراءة المقال ←</span>
+    </a>
+    <a class="article-card reveal" href="kenitra-tahlilet-souq-shamil.html">
+      <div class="article-card-label">تحليل السوق</div>
+      <h2 class="article-card-title">تحليل سوق القنيطرة</h2>
+      <p class="article-card-text">تحليل موسّع لسبب عدم تسعّر القنيطرة كمدينة واحدة، وكيف تُشكّل حواجزها الداخلية الطلب، ولماذا يهم الحي الصحيح أكثر من أجمل وحدة مظهراً.</p>
+      <div class="article-card-meta">مايو 2026 · 9 دقائق للقراءة</div>
+      <span class="article-card-arrow">قراءة المقال ←</span>
+    </a>
     <a class="article-card reveal" href="kenitra-ahya.html">
       <div class="article-card-label">تحليل الأحياء</div>
-      <h2 class="article-card-title">جغرافيا القيمة في القنيطرة</h2>
-      <p class="article-card-text">يُسجّل المركز علاوة سعرية بين 40 و60 % مقارنةً بالمناطق الطرفية. فهم الموقع الذي تشتري فيه داخل المدينة لا يقل أهمية عن سعر المتر المربع.</p>
+      <h2 class="article-card-title">خريطة القنيطرة الاثنا عشر منطقة</h2>
+      <p class="article-card-text">أين ينتهي وسط المدينة الحقيقي، لماذا تنفصل الحرم الجامعي عن غيرها، كيف تنقسم الأحزمة الغربية، وأي المناطق ساحلية أو عائلية أو إيجارية أو حساسة للدعم.</p>
       <div class="article-card-meta">مايو 2026 · 7 دقائق للقراءة</div>
       <span class="article-card-arrow">قراءة المقال ←</span>
     </a>
+    <article class="article-card reveal">
+      <div class="article-card-label">منطق التسعير · قيد الإعداد</div>
+      <h2 class="article-card-title">لماذا تبدو بعض مشاريع القنيطرة رخيصة عند الإطلاق وتظل في النهاية مبالغاً في سعرها.</h2>
+      <p class="article-card-text">ضغوط مرحلة الإطلاق، تضخم المواصفات، والفرق بين القدرة الشرائية الظاهرية والقيمة الحقيقية طويلة الأمد — مع أمثلة محددة من ممر RSK.</p>
+      <div class="article-card-meta">قيد الإعداد</div>
+      <span class="article-card-arrow">قريباً</span>
+    </article>
   </div>
 </section>
 
 <section style="background:var(--ink);padding:var(--section-pad);text-align:center;">
   <p class="section-eyebrow">تواصل معنا</p>
-  <h2 class="section-title" style="color:var(--white);">لديك سؤال عقاري؟</h2>
-  <p style="color:rgba(255,255,255,.62);max-width:520px;margin:0 auto 2.5rem;">أخبرنا بوضعك وسنوجهك نحو الدليل المناسب أو مسار الشراء أو الفرصة الاستثمارية الحالية.</p>
+  <h2 class="section-title" style="color:var(--white);">مستعد للتصرف بناءً على ما قرأته؟</h2>
+  <p style="color:rgba(255,255,255,.62);max-width:520px;margin:0 auto 2.5rem;">مستشارونا متخصصون حصرياً في ممر RSK. شاركنا وضعك وسنوجهك مباشرة نحو ما يهم في ميزانيتك وجدولك الزمني وهدفك.</p>
   <div class="cta-actions">
-    <a href="../../index.html#contact" class="btn-gold">تواصل مع راحيم إنترناشيونال</a>
+    <a href="../index.html#contact" class="btn-gold">تواصل مع راحيم إنترناشيونال</a>
     <a href="../guides/index.html" class="btn-outline-dark">تصفح أدلة المشترين</a>
   </div>
 </section>
