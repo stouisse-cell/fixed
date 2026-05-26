@@ -16,7 +16,7 @@
 <link rel="canonical" href="https://rahiminternational.com/guides/mortgage-financing-guide.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/mortgage-financing-guide.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/guide-financement-immobilier.html">
-<link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/mortgage-financing-guide.html">
+<link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/dalil-tamwil-aqari.html">
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/mortgage-financing-guide.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="Mortgage &amp; Financing in Morocco | Rahim International">
@@ -253,7 +253,7 @@
       <div class="nav-dropdown-menu"><a href="../elaf-sky-view.html">Elaf Sky View</a></div>
     </li>
     <li><a href="../index.html#contact">Contact</a></li>
-    <li class="language-switcher"><a href="mortgage-financing-guide.html" class="active">EN</a><a href="../fr/guides/guide-financement-immobilier.html">FR</a><a href="../ar/guides/mortgage-financing-guide.html">AR</a></li>
+    <li class="language-switcher"><a href="mortgage-financing-guide.html" class="active">EN</a><a href="../fr/guides/guide-financement-immobilier.html">FR</a><a href="../ar/guides/dalil-tamwil-aqari.html">AR</a></li>
   </ul>
   <a href="../index.html#contact" class="nav-cta">Enquire</a>
 </nav>
@@ -1059,31 +1059,6 @@ window.addEventListener('scroll', function() {
   el.style.width = (docH > 0 ? (window.scrollY / docH) * 100 : 0) + '%';
 });
 
-/* ── Mobile nav toggle ── */
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.getElementById('nav-links');
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', function() {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open);
-  });
-}
-
-/* ── Nav dropdowns ── */
-document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    const parent = btn.closest('.nav-dropdown');
-    const isOpen = parent.classList.contains('open');
-    document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
-    if (!isOpen) parent.classList.add('open');
-  });
-});
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-dropdown')) {
-    document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
-  }
-});
-
 /* ── FAQ accordion ── */
 document.querySelectorAll('.faq-question').forEach(function(btn) {
   btn.addEventListener('click', function() {
@@ -1118,5 +1093,6 @@ window.addEventListener('scroll', function() {
   });
 }, { passive: true });
 </script>
+<script src="../shared.js"></script>
 </body>
 </html>
