@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4ET5NZQ4S"></script>
 <script>
@@ -16,6 +15,10 @@
 <title>Questionnaire de consultation | Rahim International</title>
 <meta name="description" content="Préparez votre consultation découverte gratuite : décrivez votre projet immobilier au Maroc en quelques minutes.">
 <link rel="canonical" href="https://rahiminternational.com/fr/consultation.html">
+<link rel="alternate" hreflang="en" href="https://rahiminternational.com/consultation.html">
+<link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/consultation.html">
+<link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/consultation.html">
+<link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/consultation.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="Questionnaire de consultation | Rahim International">
 <meta property="og:description" content="Préparez votre consultation découverte gratuite : décrivez votre projet immobilier au Maroc en quelques minutes.">
@@ -25,7 +28,7 @@
 <meta name="theme-color" content="#07111f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;700;800&family=Cairo:wght@300;400;600;700&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;700;800&family=Cairo:wght@300;400;600;700;800&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#0e1726;--navy3:#1a2b41;
@@ -50,8 +53,6 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 .g-firm{font-family:'Anybody',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:block}
 .g-h{font-family:'Anybody',sans-serif;font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:.9rem}
 .g-p{font-size:.95rem;font-weight:300;color:var(--dt2);line-height:1.8;margin-bottom:1.6rem}
-.g-next{font-size:.86rem;line-height:1.6;color:var(--dt2);text-align:left;padding:.85rem 1rem;margin-bottom:1.4rem;border:1px solid rgba(210,164,59,.3);background:rgba(210,164,59,.07);border-radius:12px}
-.g-next strong{color:var(--gold2);font-weight:600}
 .g-trust{display:flex;flex-wrap:wrap;gap:.6rem 1.1rem;justify-content:center;margin-top:1.4rem}
 .g-trust-item{font-size:.74rem;font-weight:300;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:.35rem}
 .g-trust-item::before{content:'✓';color:var(--gold)}
@@ -138,6 +139,32 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 }
 @media(max-width:360px){.ob-cards.two{grid-template-columns:1fr}}
 
+/* intro extras */
+#gate::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.22;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='41.57'%3E%3Cpath d='M0 0 L24 41.57 L48 0 M0 0 H48 M0 41.57 H48' fill='none' stroke='%23d2a43b' stroke-width='1'/%3E%3Ccircle cx='24' cy='13.86' r='2.2' fill='none' stroke='%23d2a43b' stroke-width='.8'/%3E%3C/svg%3E");
+  -webkit-mask-image:radial-gradient(ellipse at center,transparent 25%,#000 80%);mask-image:radial-gradient(ellipse at center,transparent 25%,#000 80%)}
+.g-inner{position:relative;z-index:1}
+.g-logo{width:118px;height:auto;margin:0 auto 1.3rem;display:block}
+.g-next{font-size:.86rem;line-height:1.6;color:var(--dt2);text-align:start;padding:.85rem 1rem;margin-bottom:1.4rem;border:1px solid rgba(210,164,59,.3);background:rgba(210,164,59,.07);border-radius:12px}
+.g-next strong{color:var(--gold2);font-weight:600}
+/* icon cards */
+.ob-card.has-ico{display:flex;align-items:center;gap:.95rem}
+.ob-ico{flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(210,164,59,.10);border:1px solid rgba(210,164,59,.28);color:var(--gold2)}
+.ob-ico svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ob-card.selected .ob-ico{background:rgba(210,164,59,.2);border-color:rgba(210,164,59,.6)}
+.ob-card-txt{min-width:0}
+.ob-card{text-align:start}
+/* RTL */
+html[dir=rtl] body{font-family:'Cairo',sans-serif}
+html[dir=rtl] .g-h,html[dir=rtl] .ob-q,html[dir=rtl] .ob-step-label,html[dir=rtl] .ob-brand,html[dir=rtl] .btn-gold,html[dir=rtl] .ob-back,html[dir=rtl] .btn-wa,html[dir=rtl] .g-firm{font-family:'Cairo',sans-serif;letter-spacing:0}
+html[dir=rtl] .g-h,html[dir=rtl] .ob-q{font-weight:800;line-height:1.35}
+html[dir=rtl] .ob-step-label{font-size:.82rem}
+html[dir=rtl] .btn-gold{font-size:1rem}
+html[dir=rtl] .ob-card-title{font-size:1.05rem}
+html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email]{text-align:right}
+html[dir=rtl] .nav-links a,html[dir=rtl] .nav-dropdown-toggle{text-align:right}
+html[dir=rtl] .nav-dropdown-menu{padding-left:0}
+@media(max-width:1450px){html[dir=rtl] .nav-dropdown-menu{padding-right:1rem}}
 /* SHARED SITE NAV OVERRIDES */
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:950;height:84px;padding:0 5%;background:rgba(7,17,31,.96);border-bottom:1px solid rgba(210,180,134,.24);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:1.2rem}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;min-width:max-content}
@@ -209,15 +236,13 @@ body{padding-top:84px}
       <span class="brand-subtitle">Conseil immobilier et stratégie</span>
     </span>
   </a>
-  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false">
-    <span></span>
-  </button>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false"><span></span></button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Accueil</a></li>
     <li><a href="about.html">À propos</a></li>
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Acheteurs</button>
-      <div class="nav-dropdown-menu" aria-label="Catégories d'acheteurs">
+      <div class="nav-dropdown-menu">
         <a href="investors-international.html">Investisseurs internationaux</a>
         <a href="investors-mre.html">Diaspora marocaine / MRE</a>
         <a href="investors-local.html">Investisseurs locaux</a>
@@ -236,7 +261,7 @@ body{padding-top:84px}
       </div>
     </li>
     <li><a href="index.html#contact">Nous contacter</a></li>
-    <li class="language-switcher" aria-label="Sélection de langue"><a href="../index.html">EN</a><a href="consultation.html" class="active">FR</a><a href="../ar/index.html">AR</a></li>
+    <li class="language-switcher"><a href="../consultation.html">EN</a><a href="consultation.html" class="active">FR</a><a href="../ar/consultation.html">AR</a></li>
   </ul>
   <a href="index.html#contact" class="nav-cta">Nous contacter</a>
 </nav>
@@ -244,16 +269,12 @@ body{padding-top:84px}
 <!-- ── INTRO ── -->
 <div id="gate">
   <div class="g-inner">
-    <span class="g-firm">Rahim International</span>
+    <img class="g-logo" src="../ri_logo_gold_240.png" alt="Rahim International" width="240" height="197">
     <h1 class="g-h">Préparez votre consultation</h1>
     <p class="g-p">Quelques questions rapides sur votre projet. Il suffit de toucher la réponse qui vous correspond. Nous arriverons à votre consultation gratuite avec des pistes concrètes.</p>
     <div class="g-next"><strong>Ce qui se passe ensuite :</strong> nous vous envoyons notre brochure et un premier aperçu de votre projet, puis nous fixons ensemble votre consultation gratuite.</div>
     <button type="button" class="btn-gold" id="start-btn">Commencer →</button>
-    <div class="g-trust">
-      <span class="g-trust-item">Environ 2 minutes</span>
-      <span class="g-trust-item">Gratuit et sans engagement</span>
-      <span class="g-trust-item">Réponses confidentielles</span>
-    </div>
+    <div class="g-trust"><span class="g-trust-item">Environ 2 minutes</span><span class="g-trust-item">Gratuit et sans engagement</span><span class="g-trust-item">Réponses confidentielles</span></div>
   </div>
 </div>
 
@@ -269,7 +290,6 @@ body{padding-top:84px}
   <div class="ob-body" id="ob-body">
     <div id="ob-screens"></div>
 
-    <!-- Contact -->
     <div class="ob-screen" id="screen-contact">
       <span class="ob-step-label">Dernière étape</span>
       <h2 class="ob-q">Comment vous joindre ?</h2>
@@ -279,16 +299,12 @@ body{padding-top:84px}
           <label class="c-field"><span>Prénom et nom</span>
             <input class="g-input" name="nom" autocomplete="name" required placeholder="Ex. Karim Alaoui"></label>
           <label class="c-field"><span>Numéro WhatsApp</span>
-            <input class="g-input" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex. +1 514 555 0123"></label>
+            <input class="g-input" name="whatsapp" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" placeholder="Ex. +1 514 555 0123"></label>
           <label class="c-field"><span>E-mail <em>(facultatif si WhatsApp rempli)</em></span>
-            <input class="g-input" name="email" type="email" inputmode="email" autocomplete="email" placeholder="vous@exemple.com"></label>
+            <input class="g-input" name="email" type="email" dir="ltr" inputmode="email" autocomplete="email" placeholder="vous@exemple.com"></label>
         </div>
         <span class="c-sub">Comment préférez-vous être contacté ?</span>
-        <div class="ob-cards three" id="pref-cards">
-          <button type="button" class="ob-card small" data-v="WhatsApp" aria-pressed="false"><span class="ob-card-title">WhatsApp</span></button>
-          <button type="button" class="ob-card small" data-v="Appel téléphonique" aria-pressed="false"><span class="ob-card-title">Appel</span></button>
-          <button type="button" class="ob-card small" data-v="E-mail" aria-pressed="false"><span class="ob-card-title">E-mail</span></button>
-        </div>
+        <div class="ob-cards three" id="pref-cards"><button type="button" class="ob-card small" data-v="WhatsApp" aria-pressed="false"><span class="ob-card-title">WhatsApp</span></button><button type="button" class="ob-card small" data-v="Appel téléphonique" aria-pressed="false"><span class="ob-card-title">Appel</span></button><button type="button" class="ob-card small" data-v="E-mail" aria-pressed="false"><span class="ob-card-title">E-mail</span></button></div>
         <label class="g-check">
           <input type="checkbox" name="consent" id="consent">
           <span class="g-check-label">J'accepte que Rahim International utilise ces informations pour préparer ma consultation et me recontacter.</span>
@@ -299,11 +315,10 @@ body{padding-top:84px}
       </form>
     </div>
 
-    <!-- Merci -->
     <div class="ob-screen" id="screen-done">
       <div class="done">
         <div class="done-ico">✓</div>
-        <h2 class="ob-q">Merci<span id="done-name"></span> !</h2>
+        <h2 class="ob-q" id="done-h"></h2>
         <p class="ob-hint">Vos réponses nous sont bien parvenues. Nous vous envoyons notre brochure et un premier aperçu de votre projet, puis nous vous contactons pour fixer votre consultation gratuite.</p>
         <a class="btn-wa" href="https://wa.me/212642773249" target="_blank" rel="noopener">Nous écrire sur WhatsApp</a>
         <a class="g-skip" href="index.html">Retour à l'accueil</a>
@@ -315,60 +330,17 @@ body{padding-top:84px}
     <button type="button" class="btn-gold btn-next" id="ob-next" hidden>Continuer →</button>
   </div>
 </div>
-
 <script>
 (function(){
   var ENDPOINT = 'https://formspree.io/f/xojypvlq';
   var WA = '212642773249';
-
-  var Q = [
-    {k:'objectif', label:'Votre projet', q:'Quel est votre projet ?', opts:[
-      ['Résidence principale','Pour y vivre, maintenant ou à votre retour.'],
-      ['Résidence secondaire ou vacances','Pour vos séjours au Maroc.'],
-      ['Investissement locatif','Pour générer un revenu.'],
-      ['Achat sur plan (VEFA)','Un appartement neuf, en construction.'],
-      ['Villa, terrain ou local','Projet sur mesure.']
-    ]},
-    {k:'pays', label:'Votre situation', q:'Où vivez-vous actuellement ?', grid:'two', opts:[
-      ['Canada'],['France'],['Belgique'],['Espagne ou Italie'],['Autre pays d\'Europe'],['Pays du Golfe'],['États-Unis'],['Au Maroc'],['Autre pays']
-    ]},
-    {k:'villes', label:'Localisation', q:'Dans quelle ville souhaitez-vous acheter ?', hint:'Plusieurs choix possibles.', multi:true, grid:'two', opts:[
-      ['Kénitra'],['Salé'],['Rabat'],['Casablanca'],['Tanger'],['Autre ville'],['Pas encore décidé']
-    ]},
-    {k:'chambres', label:'Le bien', q:'Combien de chambres ?', grid:'two', when:function(A){return A.objectif!=='Villa, terrain ou local';}, opts:[
-      ['Studio ou 1 chambre'],['2 chambres'],['3 chambres'],['4 chambres ou plus'],['Je ne sais pas encore']
-    ]},
-    {k:'budget', label:'Budget', q:'Quel est votre budget ?', hint:'Prix du bien, hors frais de notaire.', opts:[
-      ['Moins de 500 000 DH'],['500 000 à 800 000 DH'],['800 000 à 1 200 000 DH'],['1 200 000 à 2 000 000 DH'],['Plus de 2 000 000 DH'],['Je ne sais pas encore','Nous vous aiderons à le définir.']
-    ]},
-    {k:'financement', label:'Financement', q:'Comment pensez-vous financer l\'achat ?', opts:[
-      ['Comptant'],['Crédit auprès d\'une banque marocaine'],['Crédit dans mon pays de résidence'],['Apport et crédit'],['Je ne sais pas encore']
-    ]},
-    {k:'premier_bien', label:'Financement', q:'Serait-ce votre premier bien au Maroc ?', hint:'Cela nous permet de vérifier si vous pouvez bénéficier de certaines aides, comme Daam Sakane.', opts:[
-      ['Oui, ce serait mon premier bien'],['Non, je possède déjà un bien au Maroc'],['Je ne suis pas sûr']
-    ]},
-    {k:'location', label:'Investissement', q:'Quel type de location envisagez-vous ?', when:function(A){return A.objectif==='Investissement locatif';}, opts:[
-      ['Location longue durée','Un locataire à l\'année, un revenu régulier.'],
-      ['Location courte durée','Location saisonnière ou meublée.'],
-      ['Je souhaite être conseillé']
-    ]},
-    {k:'horizon', label:'Calendrier', q:'Quand souhaitez-vous acheter ?', opts:[
-      ['Dans les 3 prochains mois'],['Dans 3 à 6 mois'],['Dans 6 à 12 mois'],['Dans plus d\'un an'],['Je m\'informe pour l\'instant']
-    ]},
-    {k:'presence', label:'À distance', q:'Pourrez-vous venir au Maroc pendant l\'achat ?', opts:[
-      ['Oui, pour les visites et la signature'],['Seulement pour la signature'],['Non, je préfère tout faire à distance','Nous organisons la procuration.'],['Je vis au Maroc']
-    ]},
-    {k:'source', label:'Pour finir', q:'Comment nous avez-vous connus ?', grid:'two', opts:[
-      ['TikTok'],['Instagram'],['Facebook'],['Google'],['Recommandation'],['Autre']
-    ]}
-  ];
-
+  var LANG = "fr", Q = [{"k": "objectif", "label": "Votre projet", "q": "Quel est votre projet ?", "qfr": "Quel est votre projet ?", "opts": [{"v": "Résidence principale", "t": "Résidence principale", "d": "Pour y vivre, maintenant ou à votre retour.", "ico": "<path d=\"M3 11l9-7 9 7\"/><path d=\"M5 10v10h14V10\"/><path d=\"M10 20v-6h4v6\"/>"}, {"v": "Résidence secondaire ou vacances", "t": "Résidence secondaire ou vacances", "d": "Pour vos séjours au Maroc.", "ico": "<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4\"/>"}, {"v": "Investissement locatif", "t": "Investissement locatif", "d": "Pour générer un revenu.", "ico": "<path d=\"M3 20h18\"/><path d=\"M5 16l5-5 4 3 6-7\"/><path d=\"M15 7h5v5\"/>"}, {"v": "Achat sur plan (VEFA)", "t": "Achat sur plan (VEFA)", "d": "Un appartement neuf, en construction.", "ico": "<path d=\"M6 21V4\"/><path d=\"M3 21h8\"/><path d=\"M6 4h14l-3 3\"/><path d=\"M6 8l4-4\"/><path d=\"M17 7v5\"/><rect x=\"15\" y=\"12\" width=\"4\" height=\"3\"/>"}, {"v": "Villa, terrain ou local", "t": "Villa, terrain ou local", "d": "Projet sur mesure.", "ico": "<path d=\"M3 20h18\"/><path d=\"M5 20v-6l4-3 4 3v6\"/><path d=\"M15 20v-9h4v9\"/><path d=\"M8 20v-3h2v3\"/>"}]}, {"k": "pays", "label": "Votre situation", "q": "Où vivez-vous actuellement ?", "qfr": "Où vivez-vous actuellement ?", "opts": [{"v": "Canada", "t": "Canada"}, {"v": "France", "t": "France"}, {"v": "Belgique", "t": "Belgique"}, {"v": "Espagne ou Italie", "t": "Espagne ou Italie"}, {"v": "Autre pays d'Europe", "t": "Autre pays d'Europe"}, {"v": "Pays du Golfe", "t": "Pays du Golfe"}, {"v": "États-Unis", "t": "États-Unis"}, {"v": "Au Maroc", "t": "Au Maroc"}, {"v": "Autre pays", "t": "Autre pays"}], "grid": "two"}, {"k": "villes", "label": "Localisation", "q": "Dans quelle ville souhaitez-vous acheter ?", "qfr": "Dans quelle ville souhaitez-vous acheter ?", "opts": [{"v": "Kénitra", "t": "Kénitra"}, {"v": "Salé", "t": "Salé"}, {"v": "Rabat", "t": "Rabat"}, {"v": "Casablanca", "t": "Casablanca"}, {"v": "Tanger", "t": "Tanger"}, {"v": "Autre ville", "t": "Autre ville"}, {"v": "Pas encore décidé", "t": "Pas encore décidé"}], "hint": "Plusieurs choix possibles.", "grid": "two", "multi": true, "none": "Pas encore décidé"}, {"k": "chambres", "label": "Le bien", "q": "Combien de chambres ?", "qfr": "Combien de chambres ?", "opts": [{"v": "Studio ou 1 chambre", "t": "Studio ou 1 chambre"}, {"v": "2 chambres", "t": "2 chambres"}, {"v": "3 chambres", "t": "3 chambres"}, {"v": "4 chambres ou plus", "t": "4 chambres ou plus"}, {"v": "Je ne sais pas encore", "t": "Je ne sais pas encore"}], "grid": "two", "skip_if": ["objectif", "Villa, terrain ou local"]}, {"k": "budget", "label": "Budget", "q": "Quel est votre budget ?", "qfr": "Quel est votre budget ?", "opts": [{"v": "Moins de 500 000 DH", "t": "Moins de 500 000 DH"}, {"v": "500 000 à 800 000 DH", "t": "500 000 à 800 000 DH"}, {"v": "800 000 à 1 200 000 DH", "t": "800 000 à 1 200 000 DH"}, {"v": "1 200 000 à 2 000 000 DH", "t": "1 200 000 à 2 000 000 DH"}, {"v": "Plus de 2 000 000 DH", "t": "Plus de 2 000 000 DH"}, {"v": "Je ne sais pas encore", "t": "Je ne sais pas encore", "d": "Nous vous aiderons à le définir."}], "hint": "Prix du bien, hors frais de notaire."}, {"k": "financement", "label": "Financement", "q": "Comment pensez-vous financer l'achat ?", "qfr": "Comment pensez-vous financer l'achat ?", "opts": [{"v": "Comptant", "t": "Comptant"}, {"v": "Crédit auprès d'une banque marocaine", "t": "Crédit auprès d'une banque marocaine"}, {"v": "Crédit dans mon pays de résidence", "t": "Crédit dans mon pays de résidence"}, {"v": "Apport et crédit", "t": "Apport et crédit"}, {"v": "Je ne sais pas encore", "t": "Je ne sais pas encore"}]}, {"k": "premier_bien", "label": "Financement", "q": "Serait-ce votre premier bien au Maroc ?", "qfr": "Serait-ce votre premier bien au Maroc ?", "opts": [{"v": "Oui, ce serait mon premier bien", "t": "Oui, ce serait mon premier bien"}, {"v": "Non, je possède déjà un bien au Maroc", "t": "Non, je possède déjà un bien au Maroc"}, {"v": "Je ne suis pas sûr", "t": "Je ne suis pas sûr"}], "hint": "Cela nous permet de vérifier si vous pouvez bénéficier de certaines aides, comme Daam Sakane."}, {"k": "location", "label": "Investissement", "q": "Quel type de location envisagez-vous ?", "qfr": "Quel type de location envisagez-vous ?", "opts": [{"v": "Location longue durée", "t": "Location longue durée", "d": "Un locataire à l'année, un revenu régulier."}, {"v": "Location courte durée", "t": "Location courte durée", "d": "Location saisonnière ou meublée."}, {"v": "Je souhaite être conseillé", "t": "Je souhaite être conseillé"}], "only_if": ["objectif", "Investissement locatif"]}, {"k": "horizon", "label": "Calendrier", "q": "Quand souhaitez-vous acheter ?", "qfr": "Quand souhaitez-vous acheter ?", "opts": [{"v": "Dans les 3 prochains mois", "t": "Dans les 3 prochains mois"}, {"v": "Dans 3 à 6 mois", "t": "Dans 3 à 6 mois"}, {"v": "Dans 6 à 12 mois", "t": "Dans 6 à 12 mois"}, {"v": "Dans plus d'un an", "t": "Dans plus d'un an"}, {"v": "Je m'informe pour l'instant", "t": "Je m'informe pour l'instant"}]}, {"k": "presence", "label": "À distance", "q": "Pourrez-vous venir au Maroc pendant l'achat ?", "qfr": "Pourrez-vous venir au Maroc pendant l'achat ?", "opts": [{"v": "Oui, pour les visites et la signature", "t": "Oui, pour les visites et la signature"}, {"v": "Seulement pour la signature", "t": "Seulement pour la signature"}, {"v": "Non, je préfère tout faire à distance", "t": "Non, je préfère tout faire à distance", "d": "Nous organisons la procuration."}, {"v": "Je vis au Maroc", "t": "Je vis au Maroc"}]}, {"k": "source", "label": "Pour finir", "q": "Comment nous avez-vous connus ?", "qfr": "Comment nous avez-vous connus ?", "opts": [{"v": "TikTok", "t": "TikTok"}, {"v": "Instagram", "t": "Instagram"}, {"v": "Facebook", "t": "Facebook"}, {"v": "Google", "t": "Google"}, {"v": "Recommandation", "t": "Recommandation"}, {"v": "Autre", "t": "Autre"}], "grid": "two"}], T = {"step": "{n} sur {N}", "sending": "Envoi en cours…", "retry": "Réessayer", "e_nom": "Merci d'indiquer votre nom.", "e_contact": "Merci d'indiquer un numéro WhatsApp ou un e-mail.", "e_wa": "Le numéro WhatsApp semble incomplet. Pensez à l'indicatif du pays.", "e_email": "L'adresse e-mail semble incorrecte.", "e_consent": "Merci de cocher la case d'accord pour que nous puissions vous recontacter.", "e_send": "L'envoi n'a pas abouti. Réessayez, ou envoyez vos réponses directement sur WhatsApp.", "d_h": "Merci{name} !", "wa_intro": "Bonjour Rahim International, voici mes réponses au questionnaire de consultation :", "wa_nom": "Nom", "wa_email": "E-mail"};
   var A = {}, steps = [], idx = 0, inContact = false, pref = '';
   var $ = function(id){return document.getElementById(id);};
-  var screensEl = $('ob-screens');
-
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function lab(q,v){ for (var i=0;i<q.opts.length;i++) if (q.opts[i].v===v) return q.opts[i].t; return v; }
 
+  var screensEl = $('ob-screens');
   Q.forEach(function(q){
     var d = document.createElement('div');
     d.className = 'ob-screen'; d.id = 'screen-' + q.k;
@@ -376,36 +348,38 @@ body{padding-top:84px}
     h += q.hint ? '<p class="ob-hint">' + esc(q.hint) + '</p>' : '<div class="ob-gap"></div>';
     h += '<div class="ob-cards' + (q.grid ? ' ' + q.grid : '') + '">';
     q.opts.forEach(function(o){
-      h += '<button type="button" class="ob-card" aria-pressed="false" data-v="' + esc(o[0]) + '"><span class="ob-card-title">' + esc(o[0]) + '</span>' + (o[1] ? '<span class="ob-card-desc">' + esc(o[1]) + '</span>' : '') + '</button>';
+      var txt = '<span class="ob-card-title">' + esc(o.t) + '</span>' + (o.d ? '<span class="ob-card-desc">' + esc(o.d) + '</span>' : '');
+      h += '<button type="button" class="ob-card' + (o.ico ? ' has-ico' : '') + '" aria-pressed="false" data-v="' + esc(o.v) + '">' +
+           (o.ico ? '<span class="ob-ico" aria-hidden="true"><svg viewBox="0 0 24 24">' + o.ico + '</svg></span><span class="ob-card-txt">' + txt + '</span>' : txt) + '</button>';
     });
     d.innerHTML = h + '</div>';
-    d.querySelectorAll('.ob-card').forEach(function(btn){
-      btn.addEventListener('click', function(){ pick(q, btn); });
-    });
+    d.querySelectorAll('.ob-card').forEach(function(btn){ btn.addEventListener('click', function(){ pick(q, btn); }); });
     screensEl.appendChild(d);
   });
 
-  function computeSteps(){ steps = Q.filter(function(q){ return !q.when || q.when(A); }); }
+  function shown(q){
+    if (q.only_if) return A[q.only_if[0]] === q.only_if[1];
+    if (q.skip_if) return A[q.skip_if[0]] !== q.skip_if[1];
+    return true;
+  }
+  function computeSteps(){ steps = Q.filter(shown); }
 
   function pick(q, btn){
     var v = btn.dataset.v;
     if (q.multi){
       var cur = A[q.k] || [];
-      if (v === 'Pas encore décidé') cur = cur.indexOf(v) > -1 ? [] : [v];
+      if (v === q.none) cur = cur.indexOf(v) > -1 ? [] : [v];
       else {
-        cur = cur.filter(function(x){return x !== 'Pas encore décidé';});
+        cur = cur.filter(function(x){return x !== q.none;});
         cur = cur.indexOf(v) > -1 ? cur.filter(function(x){return x !== v;}) : cur.concat(v);
       }
-      A[q.k] = cur;
-      paint(q);
+      A[q.k] = cur; paint(q);
       $('ob-next').hidden = cur.length === 0;
       return;
     }
-    A[q.k] = v;
-    paint(q);
+    A[q.k] = v; paint(q);
     setTimeout(function(){ computeSteps(); next(); }, 280);
   }
-
   function paint(q){
     var val = A[q.k];
     $('screen-' + q.k).querySelectorAll('.ob-card').forEach(function(b){
@@ -413,68 +387,53 @@ body{padding-top:84px}
       b.classList.toggle('selected', on); b.setAttribute('aria-pressed', on);
     });
   }
-
-  function total(){ return steps.length + 1; }
-
   function show(id){
     document.querySelectorAll('.ob-screen').forEach(function(s){ s.classList.remove('active'); });
-    $(id).classList.add('active');
-    $('ob-body').scrollTop = 0;
+    $(id).classList.add('active'); $('ob-body').scrollTop = 0;
   }
-
   function render(){
-    var n = total(), cur = inContact ? n : idx + 1;
-    var dots = '';
+    var n = steps.length + 1, cur = inContact ? n : idx + 1, dots = '';
     for (var i = 1; i <= n; i++) dots += '<span class="ob-dot' + (i < cur ? ' done' : i === cur ? ' active' : '') + '"></span>';
     $('ob-dots').innerHTML = dots;
-    $('ob-step-txt').textContent = cur + ' sur ' + n;
+    $('ob-step-txt').textContent = T.step.replace('{n}', cur).replace('{N}', n);
     $('ob-back').style.visibility = cur > 1 ? 'visible' : 'hidden';
     if (inContact){ show('screen-contact'); $('ob-next').hidden = true; return; }
-    var q = steps[idx];
-    show('screen-' + q.k);
+    var q = steps[idx]; show('screen-' + q.k);
     $('ob-next').hidden = !(q.multi && A[q.k] && A[q.k].length);
   }
-
-  function next(){
-    if (idx < steps.length - 1){ idx++; } else { inContact = true; }
-    render();
-  }
+  function next(){ if (idx < steps.length - 1) idx++; else inContact = true; render(); }
 
   $('ob-next').addEventListener('click', function(){ computeSteps(); next(); });
   $('ob-back').addEventListener('click', function(){
-    if (inContact){ inContact = false; idx = steps.length - 1; }
-    else if (idx > 0){ idx--; }
+    if (inContact){ inContact = false; idx = steps.length - 1; } else if (idx > 0){ idx--; }
     render();
   });
-
   $('start-btn').addEventListener('click', function(){
-    $('gate').classList.add('off');
-    $('ob').classList.add('active');
+    $('gate').classList.add('off'); $('ob').classList.add('active');
     computeSteps(); idx = 0; render();
   });
-
   document.querySelectorAll('#pref-cards .ob-card').forEach(function(b){
     b.addEventListener('click', function(){
       pref = b.dataset.v;
-      document.querySelectorAll('#pref-cards .ob-card').forEach(function(x){
-        var on = x === b; x.classList.toggle('selected', on); x.setAttribute('aria-pressed', on);
-      });
+      document.querySelectorAll('#pref-cards .ob-card').forEach(function(x){ var on = x === b; x.classList.toggle('selected', on); x.setAttribute('aria-pressed', on); });
     });
   });
 
+  // answers: [frenchQuestion, frenchValue, localQuestion, localValue]
   function answers(){
     var out = [];
     steps.forEach(function(q){
-      var v = A[q.k];
-      if (v && v.length) out.push([q.q, Array.isArray(v) ? v.join(', ') : v]);
+      var v = A[q.k]; if (!v || !v.length) return;
+      var fr = Array.isArray(v) ? v.join(', ') : v;
+      var loc = Array.isArray(v) ? v.map(function(x){return lab(q,x);}).join(', ') : lab(q,v);
+      out.push([q.qfr, fr, q.q, loc]);
     });
     return out;
   }
-
   function waLink(f){
-    var t = 'Bonjour Rahim International, voici mes réponses au questionnaire de consultation :\n\n';
-    answers().forEach(function(a){ t += '• ' + a[0] + ' ' + a[1] + '\n'; });
-    t += '\nNom : ' + f.nom + (f.email ? '\nE-mail : ' + f.email : '');
+    var t = T.wa_intro + '\n\n';
+    answers().forEach(function(a){ t += '• ' + a[2] + ' ' + a[3] + '\n'; });
+    t += '\n' + T.wa_nom + ' : ' + f.nom + (f.email ? '\n' + T.wa_email + ' : ' + f.email : '');
     return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t);
   }
 
@@ -484,41 +443,38 @@ body{padding-top:84px}
     var f = { nom: form.nom.value.trim(), whatsapp: form.whatsapp.value.trim(), email: form.email.value.trim() };
     err.style.display = 'none';
     var msg = '';
-    if (!f.nom) msg = 'Merci d\'indiquer votre nom.';
-    else if (!f.whatsapp && !f.email) msg = 'Merci d\'indiquer un numéro WhatsApp ou un e-mail.';
-    else if (f.whatsapp && f.whatsapp.replace(/\D/g,'').length < 8) msg = 'Le numéro WhatsApp semble incomplet. Pensez à l\'indicatif du pays.';
-    else if (f.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) msg = 'L\'adresse e-mail semble incorrecte.';
-    else if (!$('consent').checked) msg = 'Merci de cocher la case d\'accord pour que nous puissions vous recontacter.';
+    if (!f.nom) msg = T.e_nom;
+    else if (!f.whatsapp && !f.email) msg = T.e_contact;
+    else if (f.whatsapp && f.whatsapp.replace(/\D/g,'').length < 8) msg = T.e_wa;
+    else if (f.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) msg = T.e_email;
+    else if (!$('consent').checked) msg = T.e_consent;
     if (msg){ err.textContent = msg; err.style.display = 'block'; err.scrollIntoView({block:'center',behavior:'smooth'}); return; }
 
     var payload = {
-      _subject: 'Questionnaire de consultation — ' + f.nom,
+      _subject: 'Questionnaire de consultation' + (LANG !== 'fr' ? ' (' + LANG.toUpperCase() + ')' : '') + ' — ' + f.nom,
       'Nom': f.nom, 'WhatsApp': f.whatsapp || '—', 'E-mail': f.email || '—',
-      'Contact préféré': pref || 'Non précisé'
+      'Contact préféré': pref || 'Non précisé',
+      'Langue du client': {fr:'Français', en:'Anglais', ar:'Arabe'}[LANG]
     };
     if (f.email) payload._replyto = f.email;
     answers().forEach(function(a){ payload[a[0]] = a[1]; });
     payload.lead_source = 'questionnaire-consultation';
-    payload.lead_locale = 'fr';
+    payload.lead_locale = LANG;
 
     var btn = $('submit-btn');
-    btn.disabled = true; btn.textContent = 'Envoi en cours…';
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(function(r){
+    btn.disabled = true; btn.textContent = T.sending;
+    fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(payload) })
+    .then(function(r){
       if (!r.ok) throw new Error('HTTP ' + r.status);
-      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'consultation_fr' });
-      $('done-name').textContent = ' ' + f.nom.split(' ')[0];
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'consultation_' + LANG });
+      var first = esc(f.nom.split(' ')[0]); var parts = esc(T.d_h).split('{name}'); $('done-h').innerHTML = parts[0] + ' <bdi>' + first + '</bdi>' + (parts[1]||'');
       inContact = false;
       $('ob-dots').innerHTML = ''; $('ob-step-txt').textContent = '';
       $('ob-back').style.visibility = 'hidden';
       show('screen-done');
     }).catch(function(){
-      btn.disabled = false; btn.textContent = 'Réessayer';
-      err.textContent = 'L\'envoi n\'a pas abouti. Réessayez, ou envoyez vos réponses directement sur WhatsApp.';
-      err.style.display = 'block';
+      btn.disabled = false; btn.textContent = T.retry;
+      err.textContent = T.e_send; err.style.display = 'block';
       var wa = $('wa-fallback'); wa.href = waLink(f); wa.hidden = false;
       wa.scrollIntoView({block:'center',behavior:'smooth'});
     });
