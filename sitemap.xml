@@ -673,4 +673,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/privacy-policy.html"/>
   </url>
 
+  <url>
+    <loc>https://rahiminternational.com/consultation.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/consultation.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/consultation.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/consultation.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/consultation.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/consultation.html"/>
+  </url>
 </urlset>
