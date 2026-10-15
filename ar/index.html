@@ -10,10 +10,18 @@
 
   gtag("config", "G-G4ET5NZQ4S");
 </script>
+<script>
+  (function() {
+    var k = 'ri_locale', q = new URLSearchParams(window.location.search), saved = '';
+    try { saved = (window.localStorage.getItem(k) || '').toLowerCase(); } catch (e) {}
+    if (q.get('intro') === '1' || !saved) document.documentElement.classList.add('ri-intro');
+    try { if (!saved) window.localStorage.setItem(k, 'ar'); } catch (e) {}
+  })();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>استشارات عقارية في المغرب | منطقة القنيطرة والرباط وسلا</title>
-<meta name="description" content="تواكب Rahim International المشترين الدوليين ومغاربة العالم والمستثمرين والمطورين في سوق الرباط–سلا–القنيطرة بوضوح أكبر، وهيكلة أفضل، ومعلومات موثقة.">
+<meta name="description" content="تعيش في الخارج وترغب في الشراء بالمغرب؟ تبحث Rahim International وتزور وتتحقق وتتفاوض نيابة عنك في القنيطرة والرباط وسلا، حتى تسلّم المفاتيح.">
 <link rel="canonical" href="https://rahiminternational.com/ar/index.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/index.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/index.html">
@@ -21,7 +29,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/index.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="Rahim International | استشارات عقارية في المغرب">
-<meta property="og:description" content="تواكب Rahim International المشترين الدوليين ومغاربة العالم والمستثمرين والمطورين في سوق الرباط–سلا–القنيطرة بوضوح أكبر، وهيكلة أفضل، ومعلومات موثقة.">
+<meta property="og:description" content="تعيش في الخارج وترغب في الشراء بالمغرب؟ تبحث Rahim International وتزور وتتحقق وتتفاوض نيابة عنك في القنيطرة والرباط وسلا، حتى تسلّم المفاتيح.">
 <meta property="og:image" content="https://rahiminternational.com/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/ar/index.html">
@@ -576,10 +584,94 @@
     .dash-card { padding-left: 1.15rem; padding-right: 1.15rem; }
     .elaf-stats { grid-template-columns: 1fr; }
   }
+
+  /* ── Home 2026: cinematic intro ── */
+  html.ri-intro, html.ri-intro body { overflow: hidden; }
+  .site-nav, .float-buttons { transition: opacity .8s ease, transform .8s ease; }
+  html.ri-intro .site-nav, html.ri-intro .float-buttons { opacity: 0; pointer-events: none; }
+  html.ri-intro .site-nav { transform: translateY(-12px); }
+  .rh-stage { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; background: #06111f; margin-top: 0; }
+  .rh-stage video, .rh-stage .rh-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .rh-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); transition: background 1.2s ease; }
+  [dir="rtl"] .rh-shade { background: linear-gradient(270deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); }
+  html.ri-intro .rh-shade { background: linear-gradient(180deg, rgba(6,17,31,.55) 0%, rgba(6,17,31,.25) 40%, rgba(6,17,31,.85) 100%); }
+  .rh-gate { position: absolute; inset: 0; z-index: 4; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 2.4rem; transition: opacity .7s ease; }
+  html.ri-gate .rh-gate { display: flex; }
+  .rh-gate.is-out { opacity: 0; pointer-events: none; }
+  .rh-gate img { width: 150px; height: auto; filter: drop-shadow(0 8px 30px rgba(0,0,0,.5)); }
+  .rh-gate-choices { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+  .rh-gate-choices button { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff; background: rgba(6,17,31,.35); border: 1px solid rgba(201,169,110,.35); padding: .75rem 2.2rem; min-width: 170px; cursor: pointer; backdrop-filter: blur(6px); transition: background .25s, color .25s, border-color .25s; }
+  .rh-gate-choices button:hover, .rh-gate-choices button:focus-visible { background: var(--gold); color: var(--navy); border-color: var(--gold); outline: none; }
+  .rh-gate-choices button[lang="ar"] { font-family: 'Amiri', serif; font-size: 1.45rem; }
+  .rh-lines { position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: center; padding: 0 6%; pointer-events: none; }
+  .rh-line { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: 1.05; color: #fff; text-align: center; text-wrap: balance; opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  [dir="rtl"] .rh-line { font-family: 'Amiri', serif; line-height: 1.4; }
+  .rh-line.is-on { opacity: 1; transform: none; }
+  .rh-copy { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 0 5% clamp(4rem, 10vh, 7rem); max-width: 1180px; }
+  .rh-copy > * { transition: opacity .8s ease, transform .8s ease; }
+  html.ri-intro .rh-copy > * { opacity: 0; transform: translateY(16px); }
+  .rh-copy > :nth-child(2) { transition-delay: .15s; }
+  .rh-copy > :nth-child(3) { transition-delay: .35s; }
+  .rh-copy > :nth-child(4) { transition-delay: .55s; }
+  .rh-copy .hero-eyebrow { margin-bottom: 1.1rem; }
+  .rh-copy h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: 1.05; color: #fff; margin: 0 0 1.2rem; text-wrap: balance; }
+  .rh-copy h1 em { color: var(--gold); }
+  [dir="rtl"] .rh-copy h1 { font-family: 'Amiri', serif; line-height: 1.35; }
+  .rh-copy .rh-sub { font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.75; color: rgba(255,255,255,.72); max-width: 580px; margin: 0 0 2rem; }
+  .rh-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+  .rh-skip { position: absolute; bottom: 1.4rem; right: 5%; z-index: 5; display: none; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.65); background: none; border: 0; cursor: pointer; padding: .5rem; }
+  [dir="rtl"] .rh-skip { right: auto; left: 5%; letter-spacing: 0; font-size: .85rem; }
+  html.ri-lines .rh-skip { display: block; }
+  .rh-sec { padding: var(--section-pad); }
+  .rh-light { background: var(--cream); color: var(--navy); }
+  .rh-dark { background: var(--navy); color: #fff; }
+  .rh-wrap { max-width: 1160px; margin: 0 auto; }
+  .rh-sec .section-title { margin-bottom: 2.4rem; }
+  .rh-light .section-title { color: var(--navy); }
+  .rh-dark .section-title { color: #fff; }
+  .rh-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .rh-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; color: #fff; background: var(--navy); }
+  .rh-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+  .rh-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,17,31,0) 30%, rgba(6,17,31,.92) 100%); }
+  .rh-tile:hover img, .rh-tile:focus-visible img { transform: scale(1.05); }
+  .rh-tile > div { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 1.4rem; }
+  .rh-tile h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.65rem; line-height: 1.1; margin: 0 0 .35rem; color: #fff; }
+  [dir="rtl"] .rh-tile h3 { font-family: 'Amiri', serif; }
+  .rh-tile p { margin: 0; font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
+  .rh-tile span { display: inline-block; margin-top: .9rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  [dir="rtl"] .rh-tile span { letter-spacing: 0; font-size: .85rem; }
+  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
+  .rh-steps li { counter-increment: rh; border-top: 1px solid rgba(201,169,110,.35); padding-top: 1.4rem; }
+  .rh-steps li::before { content: counter(rh); display: block; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 1; color: var(--gold); margin-bottom: .8rem; }
+  .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
+  [dir="rtl"] .rh-steps h3 { font-family: 'Amiri', serif; }
+  .rh-steps p { margin: 0; color: rgba(255,255,255,.7); line-height: 1.7; }
+  .rh-ali { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; max-width: 960px; margin: 0 auto; }
+  .rh-ali img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border: 1px solid rgba(201,169,110,.5); display: block; }
+  .rh-ali h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--navy); margin: 0 0 1rem; }
+  [dir="rtl"] .rh-ali h3 { font-family: 'Amiri', serif; }
+  .rh-ali p { font-size: 1.05rem; line-height: 1.85; color: #3d4a5c; margin: 0 0 1.4rem; }
+  .rh-ali a { color: var(--copper-dark, #87452c); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  [dir="rtl"] .rh-ali a { letter-spacing: 0; font-size: .95rem; }
+  .rh-end { text-align: center; }
+  .rh-end .section-title { margin-bottom: 1.6rem; }
+  .rh-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem; margin-top: 1.8rem; font-size: .95rem; }
+  .rh-contacts a { color: rgba(255,255,255,.75); text-decoration: none; direction: ltr; unicode-bidi: embed; }
+  .rh-contacts a:hover { color: var(--gold); }
+  @media (max-width: 1000px) { .rh-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) {
+    .rh-tiles { grid-template-columns: minmax(0, 1fr); }
+    .rh-tile { aspect-ratio: 16 / 10; }
+    .rh-steps, .rh-ali { grid-template-columns: minmax(0, 1fr); }
+    .rh-ali img { max-width: 300px; }
+    .rh-gate-choices { flex-direction: column; }
+    .rh-actions .btn-primary, .rh-actions .btn-outline { flex: 1 1 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .rh-line, .rh-copy > *, .site-nav, .rh-tile img { transition: none !important; } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rahim International | استشارات عقارية في المغرب">
-<meta name="twitter:description" content="تواكب Rahim International المشترين الدوليين ومغاربة العالم والمستثمرين والمطورين في سوق الرباط–سلا–القنيطرة بوضوح أكبر، وهيكلة أفضل، ومعلومات موثقة.">
+<meta name="twitter:description" content="تعيش في الخارج وترغب في الشراء بالمغرب؟ تبحث Rahim International وتزور وتتحقق وتتفاوض نيابة عنك في القنيطرة والرباط وسلا، حتى تسلّم المفاتيح.">
 <meta name="twitter:image" content="https://rahiminternational.com/logo.png">
 <meta property="og:image:alt" content="Rahim International">
 <meta name="twitter:image:alt" content="Rahim International">
@@ -641,230 +733,67 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero" aria-label="Rahim International — استشارات عقارية في المغرب">
-    <div class="hero-video-wrap" aria-hidden="true">
-      <img src="../hero-poster.jpg" alt="" style="position:absolute;inset:0;">
-      <video autoplay muted loop playsinline poster="../hero-poster.jpg">
-        <source src="../hero.mp4" type="video/mp4">
-      </video>
+  <!-- HERO (cinematic intro) -->
+  <section class="rh-stage" id="top" aria-label="Rahim International">
+    <img class="rh-poster" src="../hero-poster.jpg" alt="">
+    <video autoplay muted loop playsinline preload="auto" poster="../hero-poster.jpg"><source src="../hero.mp4" type="video/mp4"></video>
+    <div class="rh-shade" aria-hidden="true"></div>
+    <div class="rh-lines" aria-hidden="true"><div class="rh-line" id="rh-line"></div></div>
+    <div class="rh-copy">
+      <p class="hero-eyebrow">وساطة واستشارات عقارية · القنيطرة · الرباط · سلا</p>
+      <h1>نقرّب المسافة.<br><em>ونوصلك إلى الضفة الأخرى.</em></h1>
+      <p class="rh-sub">تعيش في الخارج وترغب في الشراء بالمغرب؟ نبحث ونزور ونتحقق ونتفاوض نيابة عنك، حتى تسلّم المفاتيح.</p>
+      <div class="rh-actions"><a href="consultation.html" class="btn-primary">حضّر استشارتك</a><a href="#how" class="btn-outline">كيف نعمل</a></div>
     </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-pattern" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">استشارات عقارية واستراتيجية</p>
-      <h1 class="hero-title">نحن القَنْطَرّة التي تختصر المسافات،<br><em>وتوصلك إلى الضفة الأخرى.</em></h1>
-      <p class="hero-sub">تواكب Rahim International المشترين الدوليين ومغاربة العالم والمستثمرين والمطورين في سوق الرباط–سلا–القنيطرة بوضوح أكبر، وهيكلة أفضل، ومعلومات موثقة.</p>
-      <div class="hero-actions">
-        <a href="consultation.html" class="btn-primary">احجز استشارتك المجانية عبر الإنترنت</a>
-        <a href="guides/kenitra-dalil-ahya.html" class="btn-outline">استكشف دليل القنيطرة</a>
+    <button type="button" class="rh-skip" id="rh-skip">تخطي</button>
+  </section>
+
+  <!-- WHO -->
+  <section class="rh-sec rh-light" id="who">
+    <div class="rh-wrap">
+      <p class="section-eyebrow">لمن نعمل</p>
+      <h2 class="section-title">أنت…</h2>
+      <div class="rh-tiles">
+        <a class="rh-tile" href="investors-mre.html"><img src="../home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>من مغاربة العالم</h3><p>اشترِ دون أن تكون هناك.</p><span>اكتشف ←</span></div></a>
+        <a class="rh-tile" href="investors-international.html"><img src="../home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>مستثمر دولي</h3><p>استثمر في المغرب بوضوح تام.</p><span>اكتشف ←</span></div></a>
+        <a class="rh-tile" href="investors-local.html"><img src="../home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>مستثمر محلي</h3><p>العقار المناسب بالسعر المناسب.</p><span>اكتشف ←</span></div></a>
+        <a class="rh-tile" href="services-developers.html"><img src="../home-dev.jpg" alt="" loading="lazy" decoding="async"><div><h3>مطوّر عقاري</h3><p>اجعل مشروعك يصل إلى المشترين المناسبين.</p><span>اكتشف ←</span></div></a>
       </div>
     </div>
-    <span class="hero-scroll" aria-hidden="true">اسحب للأسفل</span>
   </section>
 
-  <!-- DASHBOARD -->
-  <section class="dashboard-section" dir="rtl" id="start-here">
-    <div class="dashboard-quicknav" aria-label="روابط سريعة">
-      <a href="investors-mre.html" class="dashboard-chip">مغاربة العالم</a>
-      <a href="investors-international.html" class="dashboard-chip">مستثمر دولي</a>
-      <a href="guides/kenitra-dalil-ahya.html" class="dashboard-chip">دليل القنيطرة</a>
-      <a href="guides/index.html" class="dashboard-chip">الأدلة</a>
-      <a href="tahlilet-souq/index.html" class="dashboard-chip">تحليلات السوق</a>
-      <a href="#contact" class="dashboard-chip">استشارة</a>
-    </div>
-    <p class="dash-row-header">من أنت؟</p>
-    <div class="dash-row dash-row-4">
-      <a href="investors-mre.html" class="dash-card dash-card-featured dash-card-profile">
-        <span class="dash-card-kicker">المسار الأكثر طلباً</span>
-        <h2 class="dash-card-title">مشتري MRE</h2>
-        <p class="dash-card-desc">مرافقة المغاربة المقيمين بالخارج في الشراء عن بُعد، خطوة بخطوة.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">شراء عن بُعد</span>
-          <span class="dash-card-tag">خطوة بخطوة</span>
-        </div>
-        <span class="dash-card-cta">ابدأ من هنا</span>
-      </a>
-      <a href="investors-international.html" class="dash-card dash-card-profile">
-        <span class="dash-card-kicker">مسار المستثمر</span>
-        <h2 class="dash-card-title">مشتري دولي</h2>
-        <p class="dash-card-desc">استشارات وفرص عقارية للمستثمرين غير المغاربة.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">دخول السوق</span>
-          <span class="dash-card-tag">عبر الحدود</span>
-        </div>
-        <span class="dash-card-cta">استكشف الخيارات</span>
-      </a>
-      <a href="investors-local.html" class="dash-card dash-card-profile">
-        <span class="dash-card-kicker">تركيز محلي</span>
-        <h2 class="dash-card-title">مستثمر محلي</h2>
-        <p class="dash-card-desc">فرص أفضل تموضعاً وتقييم دقيق للمستثمرين المحليين.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">تموضع</span>
-          <span class="dash-card-tag">فرص موثقة</span>
-        </div>
-        <span class="dash-card-cta">اعرض المسار</span>
-      </a>
-      <a href="services-developers.html" class="dash-card dash-card-profile">
-        <span class="dash-card-kicker">خدمات الأعمال</span>
-        <h2 class="dash-card-title">مطور عقاري</h2>
-        <p class="dash-card-desc">وصِل مشروعك بالمشترين الدوليين وقدِّمه بوضوح.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">تموضع المشروع</span>
-          <span class="dash-card-tag">عملاء مؤهلون</span>
-        </div>
-        <span class="dash-card-cta">عرض الخدمات</span>
-      </a>
-    </div>
-    <p class="dash-row-header">استكشف</p>
-    <div class="dash-row dash-row-4">
-      <a href="consultation.html" class="dash-card dash-card-opportunity">
-        <span class="dash-card-kicker">استشارة مجانية</span>
-        <h2 class="dash-card-title">حضّر استشارتك</h2>
-        <p class="dash-card-desc">بضعة أسئلة سريعة دون كتابة. نرسل إليك كتيّبنا ولمحة أولى عن مشروعك.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">دقيقتان</span>
-          <span class="dash-card-tag">مجاناً</span>
-        </div>
-        <span class="dash-card-cta">ابدأ الاستبيان</span>
-      </a>
-      <a href="tahlilet-souq/index.html" class="dash-card dash-card-opportunity">
-        <span class="dash-card-kicker">سياق السوق</span>
-        <h2 class="dash-card-title">تحليلات السوق</h2>
-        <p class="dash-card-desc">لماذا المغرب، لماذا الآن — السياق الاقتصادي الكلي.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">نظرة كلية</span>
-          <span class="dash-card-tag">توقيت</span>
-        </div>
-        <span class="dash-card-cta">اقرأ التحليل</span>
-      </a>
-      <a href="about.html" class="dash-card dash-card-opportunity">
-        <span class="dash-card-kicker">عن الشركة</span>
-        <h2 class="dash-card-title">من نحن</h2>
-        <p class="dash-card-desc">الشركة، المؤسس، والمنهج الاستشاري.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">المؤسس</span>
-          <span class="dash-card-tag">المنهج</span>
-        </div>
-        <span class="dash-card-cta">تعرّف علينا</span>
-      </a>
-    </div>
-    <p class="dash-row-header">تعلّم</p>
-    <div class="dash-row dash-row-4">
-      <a href="guides/kenitra-dalil-ahya.html" class="dash-card dash-card-featured dash-card-learn">
-        <span class="dash-card-kicker">المورد الأهم</span>
-        <h2 class="dash-card-title">دليل أحياء القنيطرة</h2>
-        <p class="dash-card-desc">أول دليل كامل ومتعمق لأحياء القنيطرة، مع خريطة تفاعلية وتحليل مفصل للأحياء الستة والأربعين.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">46 حيّاً</span>
-          <span class="dash-card-tag">خريطة تفاعلية</span>
-        </div>
-        <span class="dash-card-cta">افتح الدليل</span>
-      </a>
-      <a href="guides/buying-property-morocco.html" class="dash-card dash-card-learn">
-        <span class="dash-card-kicker">الدليل الأساسي</span>
-        <h2 class="dash-card-title">شراء عقار في المغرب</h2>
-        <p class="dash-card-desc">الخطوات القانونية، العدل، وما يجب التحقق منه قبل الالتزام.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">خطوات قانونية</span>
-          <span class="dash-card-tag">تحقق مسبق</span>
-        </div>
-        <span class="dash-card-cta">اقرأ الدليل</span>
-      </a>
-      <a href="guides/dalil-tamwil-aqari.html" class="dash-card dash-card-learn">
-        <span class="dash-card-kicker">دليل التمويل</span>
-        <h2 class="dash-card-title">دليل التمويل العقاري</h2>
-        <p class="dash-card-desc">كيف يعمل التمويل البنكي في المغرب، من نسب المساهمة والمدة إلى منطق القروض الخاص بمغاربة العالم.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">شروط القرض</span>
-          <span class="dash-card-tag">المسار البنكي</span>
-        </div>
-        <span class="dash-card-cta">اعرض الخيارات</span>
-      </a>
-      <a href="guides/daam-sakani-guide.html" class="dash-card dash-card-learn">
-        <span class="dash-card-kicker">دليل البرنامج</span>
-        <h2 class="dash-card-title">دليل Daam Sakani</h2>
-        <p class="dash-card-desc">برنامج الدعم السكاني المغربي — الأهلية والدعم المالي.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">الأهلية</span>
-          <span class="dash-card-tag">الدعم</span>
-        </div>
-        <span class="dash-card-cta">عرض البرنامج</span>
-      </a>
+  <!-- HOW -->
+  <section class="rh-sec rh-dark" id="how">
+    <div class="rh-wrap">
+      <p class="section-eyebrow">بسيط وواضح</p>
+      <h2 class="section-title">كيف نعمل</h2>
+      <ol class="rh-steps">
+        <li><h3>أجب عن بضعة أسئلة</h3><p>دقيقتان، دون كتابة.</p></li>
+        <li><h3>استشارة مجانية</h3><p>نحلل مشروعك معك.</p></li>
+        <li><h3>نتكفّل بالباقي</h3><p>البحث والزيارات والتفاوض حتى المفاتيح.</p></li>
+      </ol>
     </div>
   </section>
 
-
-
-  <!-- CONTACT -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">اتصل بنا</p>
-    <h2 class="section-title" style="color:var(--white);">أخبرنا بما ترغب في<br>شرائه أو بنائه.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:1.8rem;">سواء كنت تقارن بين العقارات، أو تشتري من الخارج، أو تعود إلى أرض الوطن، أو ترغب في تسويق مشروعك العقاري، فإن الخطوة التالية تعتمد على وضعك الخاص. أخبرنا عما تعمل عليه وسنرد عليك بالمسار الأنسب للمضي قدماً.</p>
-    <div class="consult-callout" style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin-bottom:3.2rem;"><a href="consultation.html" class="btn-gold">حضّر استشارتك ←</a><span style="font-size:.82rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.55);max-width:420px;">دقيقتان فقط، يكفي أن تضغط على إجاباتك. نرسل إليك بعد ذلك كتيّبنا ولمحة أولى عن مشروعك.</span></div>
-    
-    <div class="contact-grid">
+  <!-- ALI -->
+  <section class="rh-sec rh-light">
+    <div class="rh-ali">
+      <img src="../alirahim-900.jpg" alt="علي رحيم، شريك مؤسس لـ Rahim International" width="720" height="900" loading="lazy" decoding="async">
       <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div>
-              <div class="contact-item-label">البريد الإلكتروني</div>
-              <div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">☎</div>
-            <div>
-              <div class="contact-item-label">الهاتف وواتساب</div>
-              <div class="contact-item-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">◎</div>
-            <div>
-              <div class="contact-item-label">المكتب</div>
-              <div class="contact-item-value">70 شارع يوسف بن تاشفين، القنيطرة 14000<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(المكتب المستقبلي)</em></div>
-            </div>
-          </div>
-        </div>
+        <p class="section-eyebrow">جهة اتصالك في الميدان</p>
+        <h3>علي رحيم، شريك مؤسس</h3>
+        <p>أكثر من 5 سنوات في العقار بالقنيطرة. هو من يزور ويتحقق ويتفاوض نيابة عنك.</p>
+        <a href="about.html">قصتنا ←</a>
       </div>
+    </div>
+  </section>
 
-      <div class="reveal">
-        <form id="contact-form" action="https://formspree.io/f/xvgzlowq" method="POST" class="contact-form" 
-              data-sending="جارٍ الإرسال…" 
-              data-success="تم إرسال رسالتك بنجاح. سنتواصل معك قريباً." 
-              data-error="حدث خطأ. يرجى مراسلتنا مباشرة على contact@RahimInternational.com.">
-          <input type="hidden" name="_subject" value="استفسار من RahimInternational.com/ar">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="name">الاسم الكامل</label>
-              <input type="text" id="name" name="name" required placeholder="كيف ناديك؟">
-            </div>
-            <div class="form-group">
-              <label for="email">البريد الإلكتروني</label>
-              <input type="email" id="email" name="email" required placeholder="عنوان بريدك الإلكتروني">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="profile">من أنت؟</label>
-            <select id="profile" name="profile" required>
-              <option value="" disabled selected>اختر الملف الشخصي...</option>
-              <option value="International">مشتري دولي</option>
-              <option value="MRE">مغربي مقيم بالخارج (MRE)</option>
-              <option value="Local">مستثمر محلي</option>
-              <option value="Developer">مطور عقاري</option>
-              <option value="Other">أخرى</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">رسالتك</label>
-            <textarea id="message" name="message" rows="5" required placeholder="أخبرنا عن أهدافك أو أسئلتك..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">إرسال الاستفسار</button>
-          <div id="form-status" class="form-status"></div>
-        </form>
-      </div>
+  <!-- START -->
+  <section class="rh-sec rh-dark rh-end" id="contact">
+    <div class="rh-wrap">
+      <h2 class="section-title">مستعد للبدء؟</h2>
+      <a href="consultation.html" class="btn-primary">حضّر استشارتك</a>
+      <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
     </div>
   </section>
 
@@ -883,6 +812,46 @@
 <div class="float-buttons"><a href="https://wa.me/212642773249?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="الدردشة عبر واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><button class="btn-back-top" aria-label="العودة إلى الأعلى"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button></div>
 
 
+<script>
+(function() {
+  var html = document.documentElement, LINES = ["تعيش بعيداً.", "مشروعك في المغرب.", "نحن نقرّب المسافة."], LANG = "ar";
+  var line = document.getElementById('rh-line'), gate = document.getElementById('rh-gate'), skip = document.getElementById('rh-skip');
+  var timers = [], playing = false;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
+  function finish() {
+    timers.forEach(clearTimeout); timers = []; playing = false;
+    if (line) line.classList.remove('is-on');
+    html.classList.remove('ri-intro', 'ri-gate', 'ri-lines');
+    if (window.history && window.location.search.indexOf('intro=1') > -1) { try { history.replaceState(null, '', window.location.pathname + window.location.hash); } catch (e) {} }
+  }
+  function play() {
+    html.classList.remove('ri-gate'); html.classList.add('ri-lines'); playing = true;
+    if (reduce || !line) { finish(); return; }
+    var t = 400;
+    LINES.forEach(function(text, i) {
+      at(t, function() { line.textContent = text; line.classList.add('is-on'); });
+      if (i < LINES.length - 1) { at(t + 1500, function() { line.classList.remove('is-on'); }); t += 2100; }
+      else { at(t + 1600, function() { line.classList.remove('is-on'); }); at(t + 2100, finish); }
+    });
+  }
+  if (gate) gate.querySelectorAll('[data-go]').forEach(function(b) {
+    b.addEventListener('click', function() {
+      var l = b.getAttribute('data-go');
+      try { localStorage.setItem('ri_locale', l); } catch (e) {}
+      gate.classList.add('is-out');
+      if (l === LANG) { setTimeout(play, 300); }
+      else { setTimeout(function() { window.location.href = l + '/index.html?intro=1'; }, 500); }
+    });
+  });
+  if (skip) skip.addEventListener('click', finish);
+  ['wheel', 'touchmove', 'keydown'].forEach(function(ev) {
+    window.addEventListener(ev, function(e) { if (playing && !(ev === 'keydown' && e.key === 'Tab')) finish(); }, { passive: true });
+  });
+  document.addEventListener('click', function(e) { if (playing && !e.target.closest('.rh-gate')) finish(); });
+  if (html.classList.contains('ri-intro')) { if (!html.classList.contains('ri-gate')) play(); }
+})();
+</script>
 <script src="../shared.js"></script>
 </body>
 </html>

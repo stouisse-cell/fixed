@@ -10,10 +10,18 @@
 
   gtag("config", "G-G4ET5NZQ4S");
 </script>
+<script>
+  (function() {
+    var k = 'ri_locale', q = new URLSearchParams(window.location.search), saved = '';
+    try { saved = (window.localStorage.getItem(k) || '').toLowerCase(); } catch (e) {}
+    if (q.get('intro') === '1' || !saved) document.documentElement.classList.add('ri-intro');
+    try { if (!saved) window.localStorage.setItem(k, 'fr'); } catch (e) {}
+  })();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conseil immobilier au Maroc | Kénitra &amp; région Rabat-Salé-Kénitra</title>
-<meta name="description" content="Rahim International accompagne les acheteurs internationaux, les MRE, les investisseurs et les promoteurs dans le marché Rabat–Salé–Kénitra avec plus de clarté, de structure et d'informations vérifiées.">
+<meta name="description" content="Vous vivez à l’étranger et voulez acheter au Maroc ? Rahim International cherche, visite, vérifie et négocie pour vous à Kénitra, Rabat et Salé, jusqu’à la remise des clés.">
 <link rel="canonical" href="https://rahiminternational.com/">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/index.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/index.html">
@@ -21,7 +29,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/index.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="Rahim International | Conseil immobilier au Maroc">
-<meta property="og:description" content="Rahim International accompagne les acheteurs internationaux, les MRE, les investisseurs et les promoteurs dans le marché Rabat–Salé–Kénitra avec plus de clarté, de structure et d'informations vérifiées.">
+<meta property="og:description" content="Vous vivez à l’étranger et voulez acheter au Maroc ? Rahim International cherche, visite, vérifie et négocie pour vous à Kénitra, Rabat et Salé, jusqu’à la remise des clés.">
 <meta property="og:image" content="https://rahiminternational.com/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/">
@@ -585,10 +593,94 @@
     .dash-card { padding-left: 1.15rem; padding-right: 1.15rem; }
     .elaf-stats { grid-template-columns: 1fr; }
   }
+
+  /* ── Home 2026: cinematic intro ── */
+  html.ri-intro, html.ri-intro body { overflow: hidden; }
+  .site-nav, .float-buttons { transition: opacity .8s ease, transform .8s ease; }
+  html.ri-intro .site-nav, html.ri-intro .float-buttons { opacity: 0; pointer-events: none; }
+  html.ri-intro .site-nav { transform: translateY(-12px); }
+  .rh-stage { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; background: #06111f; margin-top: 0; }
+  .rh-stage video, .rh-stage .rh-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .rh-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); transition: background 1.2s ease; }
+  [dir="rtl"] .rh-shade { background: linear-gradient(270deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); }
+  html.ri-intro .rh-shade { background: linear-gradient(180deg, rgba(6,17,31,.55) 0%, rgba(6,17,31,.25) 40%, rgba(6,17,31,.85) 100%); }
+  .rh-gate { position: absolute; inset: 0; z-index: 4; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 2.4rem; transition: opacity .7s ease; }
+  html.ri-gate .rh-gate { display: flex; }
+  .rh-gate.is-out { opacity: 0; pointer-events: none; }
+  .rh-gate img { width: 150px; height: auto; filter: drop-shadow(0 8px 30px rgba(0,0,0,.5)); }
+  .rh-gate-choices { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+  .rh-gate-choices button { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff; background: rgba(6,17,31,.35); border: 1px solid rgba(201,169,110,.35); padding: .75rem 2.2rem; min-width: 170px; cursor: pointer; backdrop-filter: blur(6px); transition: background .25s, color .25s, border-color .25s; }
+  .rh-gate-choices button:hover, .rh-gate-choices button:focus-visible { background: var(--gold); color: var(--navy); border-color: var(--gold); outline: none; }
+  .rh-gate-choices button[lang="ar"] { font-family: 'Amiri', serif; font-size: 1.45rem; }
+  .rh-lines { position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: center; padding: 0 6%; pointer-events: none; }
+  .rh-line { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: 1.05; color: #fff; text-align: center; text-wrap: balance; opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  [dir="rtl"] .rh-line { font-family: 'Amiri', serif; line-height: 1.4; }
+  .rh-line.is-on { opacity: 1; transform: none; }
+  .rh-copy { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 0 5% clamp(4rem, 10vh, 7rem); max-width: 1180px; }
+  .rh-copy > * { transition: opacity .8s ease, transform .8s ease; }
+  html.ri-intro .rh-copy > * { opacity: 0; transform: translateY(16px); }
+  .rh-copy > :nth-child(2) { transition-delay: .15s; }
+  .rh-copy > :nth-child(3) { transition-delay: .35s; }
+  .rh-copy > :nth-child(4) { transition-delay: .55s; }
+  .rh-copy .hero-eyebrow { margin-bottom: 1.1rem; }
+  .rh-copy h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: 1.05; color: #fff; margin: 0 0 1.2rem; text-wrap: balance; }
+  .rh-copy h1 em { color: var(--gold); }
+  [dir="rtl"] .rh-copy h1 { font-family: 'Amiri', serif; line-height: 1.35; }
+  .rh-copy .rh-sub { font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.75; color: rgba(255,255,255,.72); max-width: 580px; margin: 0 0 2rem; }
+  .rh-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+  .rh-skip { position: absolute; bottom: 1.4rem; right: 5%; z-index: 5; display: none; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.65); background: none; border: 0; cursor: pointer; padding: .5rem; }
+  [dir="rtl"] .rh-skip { right: auto; left: 5%; letter-spacing: 0; font-size: .85rem; }
+  html.ri-lines .rh-skip { display: block; }
+  .rh-sec { padding: var(--section-pad); }
+  .rh-light { background: var(--cream); color: var(--navy); }
+  .rh-dark { background: var(--navy); color: #fff; }
+  .rh-wrap { max-width: 1160px; margin: 0 auto; }
+  .rh-sec .section-title { margin-bottom: 2.4rem; }
+  .rh-light .section-title { color: var(--navy); }
+  .rh-dark .section-title { color: #fff; }
+  .rh-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .rh-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; color: #fff; background: var(--navy); }
+  .rh-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+  .rh-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,17,31,0) 30%, rgba(6,17,31,.92) 100%); }
+  .rh-tile:hover img, .rh-tile:focus-visible img { transform: scale(1.05); }
+  .rh-tile > div { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 1.4rem; }
+  .rh-tile h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.65rem; line-height: 1.1; margin: 0 0 .35rem; color: #fff; }
+  [dir="rtl"] .rh-tile h3 { font-family: 'Amiri', serif; }
+  .rh-tile p { margin: 0; font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
+  .rh-tile span { display: inline-block; margin-top: .9rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  [dir="rtl"] .rh-tile span { letter-spacing: 0; font-size: .85rem; }
+  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
+  .rh-steps li { counter-increment: rh; border-top: 1px solid rgba(201,169,110,.35); padding-top: 1.4rem; }
+  .rh-steps li::before { content: counter(rh); display: block; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 1; color: var(--gold); margin-bottom: .8rem; }
+  .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
+  [dir="rtl"] .rh-steps h3 { font-family: 'Amiri', serif; }
+  .rh-steps p { margin: 0; color: rgba(255,255,255,.7); line-height: 1.7; }
+  .rh-ali { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; max-width: 960px; margin: 0 auto; }
+  .rh-ali img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border: 1px solid rgba(201,169,110,.5); display: block; }
+  .rh-ali h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--navy); margin: 0 0 1rem; }
+  [dir="rtl"] .rh-ali h3 { font-family: 'Amiri', serif; }
+  .rh-ali p { font-size: 1.05rem; line-height: 1.85; color: #3d4a5c; margin: 0 0 1.4rem; }
+  .rh-ali a { color: var(--copper-dark, #87452c); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  [dir="rtl"] .rh-ali a { letter-spacing: 0; font-size: .95rem; }
+  .rh-end { text-align: center; }
+  .rh-end .section-title { margin-bottom: 1.6rem; }
+  .rh-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem; margin-top: 1.8rem; font-size: .95rem; }
+  .rh-contacts a { color: rgba(255,255,255,.75); text-decoration: none; direction: ltr; unicode-bidi: embed; }
+  .rh-contacts a:hover { color: var(--gold); }
+  @media (max-width: 1000px) { .rh-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) {
+    .rh-tiles { grid-template-columns: minmax(0, 1fr); }
+    .rh-tile { aspect-ratio: 16 / 10; }
+    .rh-steps, .rh-ali { grid-template-columns: minmax(0, 1fr); }
+    .rh-ali img { max-width: 300px; }
+    .rh-gate-choices { flex-direction: column; }
+    .rh-actions .btn-primary, .rh-actions .btn-outline { flex: 1 1 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .rh-line, .rh-copy > *, .site-nav, .rh-tile img { transition: none !important; } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rahim International | Conseil immobilier au Maroc">
-<meta name="twitter:description" content="Rahim International accompagne les acheteurs internationaux, les MRE, les investisseurs et les promoteurs dans le marché Rabat–Salé–Kénitra avec plus de clarté, de structure et d'informations vérifiées.">
+<meta name="twitter:description" content="Vous vivez à l’étranger et voulez acheter au Maroc ? Rahim International cherche, visite, vérifie et négocie pour vous à Kénitra, Rabat et Salé, jusqu’à la remise des clés.">
 <meta name="twitter:image" content="https://rahiminternational.com/logo.png">
 <meta property="og:image:alt" content="Rahim International">
 <meta name="twitter:image:alt" content="Rahim International">
@@ -646,228 +738,67 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero" aria-label="Rahim International — Morocco real estate advisory">
-    <div class="hero-video-wrap" aria-hidden="true">
-      <img src="../hero-poster.jpg" alt="" style="position:absolute;inset:0;">
-      <video autoplay muted loop playsinline poster="hero-poster.jpg">
-        <source src="../hero.mp4" type="video/mp4">
-      </video>
+  <!-- HERO (cinematic intro) -->
+  <section class="rh-stage" id="top" aria-label="Rahim International">
+    <img class="rh-poster" src="../hero-poster.jpg" alt="">
+    <video autoplay muted loop playsinline preload="auto" poster="../hero-poster.jpg"><source src="../hero.mp4" type="video/mp4"></video>
+    <div class="rh-shade" aria-hidden="true"></div>
+    <div class="rh-lines" aria-hidden="true"><div class="rh-line" id="rh-line"></div></div>
+    <div class="rh-copy">
+      <p class="hero-eyebrow">Courtage et conseil immobilier · Kénitra · Rabat · Salé</p>
+      <h1>Nous comblons la distance.<br><em>Et vous menons jusqu’à l’autre rive.</em></h1>
+      <p class="rh-sub">Vous vivez à l’étranger et voulez acheter au Maroc ? Nous cherchons, visitons, vérifions et négocions pour vous, jusqu’à la remise des clés.</p>
+      <div class="rh-actions"><a href="consultation.html" class="btn-primary">Préparer ma consultation</a><a href="#how" class="btn-outline">Comment ça marche</a></div>
     </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-pattern" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Conseil immobilier et stratégie</p>
-      <h1 class="hero-title">Le pont qui rapproche les distances<br><em>et vous mène à l'autre rive.</em></h1>
-      <p class="hero-sub">Rahim International est un cabinet de conseil immobilier qui accompagne les acheteurs internationaux, les MRE, les investisseurs et les promoteurs dans le marché Rabat–Salé–Kénitra avec plus de clarté, de structure et d'informations vérifiées.</p>
-      <div class="hero-actions">
-        <a href="consultation.html" class="btn-primary">Réserver votre consultation en ligne gratuite</a>
-        <a href="guides/kenitra-guide-quartiers.html" class="btn-outline">Explorer le guide de Kénitra</a>
-      </div>
-    </div>
-    <span class="hero-scroll" aria-hidden="true">DÉFILER</span>
+    <button type="button" class="rh-skip" id="rh-skip">Passer</button>
   </section>
 
-  <!-- DASHBOARD -->
-  <section class="dashboard-section" id="start-here">
-    <div class="dashboard-quicknav" aria-label="Accès rapides">
-      <a href="investors-mre.html" class="dashboard-chip">MRE</a>
-      <a href="investors-international.html" class="dashboard-chip">International</a>
-      <a href="guides/kenitra-guide-quartiers.html" class="dashboard-chip">Guide Kénitra</a>
-      <a href="guides/index.html" class="dashboard-chip">Guides</a>
-      <a href="analyses-marche/index.html" class="dashboard-chip">Analyses</a>
-      <a href="#contact" class="dashboard-chip">Consultation</a>
-    </div>
-    <p class="dash-row-header">Qui êtes-vous ?</p>
-    <div class="dash-row dash-row-4">
-      <a href="investors-mre.html" class="dash-card dash-card-featured dash-card-profile">
-        <span class="dash-card-kicker">Parcours principal</span>
-        <h2 class="dash-card-title">Diaspora marocaine / MRE</h2>
-        <p class="dash-card-desc">Accompagnement pour acheter à distance, étape par étape.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Achat à distance</span>
-          <span class="dash-card-tag">Étape par étape</span>
-        </div>
-        <span class="dash-card-cta">Commencer ici</span>
-      </a>
-      <a href="investors-international.html" class="dash-card dash-card-profile">
-        <span class="dash-card-kicker">Parcours investisseur</span>
-        <h2 class="dash-card-title">Investisseur international</h2>
-        <p class="dash-card-desc">Conseil et accès aux biens pour investisseurs non-marocains.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Entrée marché</span>
-          <span class="dash-card-tag">International</span>
-        </div>
-        <span class="dash-card-cta">Voir les options</span>
-      </a>
-      <a href="investors-local.html" class="dash-card dash-card-profile">
-        <span class="dash-card-kicker">Marché local</span>
-        <h2 class="dash-card-title">Investisseur local</h2>
-        <p class="dash-card-desc">Meilleures opportunités et évaluation précise pour acheteurs locaux.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Positionnement</span>
-          <span class="dash-card-tag">Opportunités</span>
-        </div>
-        <span class="dash-card-cta">Voir le parcours</span>
-      </a>
-      <a href="services-developers.html" class="dash-card dash-card-profile">
-        <span class="dash-card-kicker">Services B2B</span>
-        <h2 class="dash-card-title">Promoteur</h2>
-        <p class="dash-card-desc">Atteignez les acheteurs internationaux et positionnez votre projet.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Positionnement</span>
-          <span class="dash-card-tag">Leads qualifiés</span>
-        </div>
-        <span class="dash-card-cta">Voir les services</span>
-      </a>
-    </div>
-    <p class="dash-row-header">Explorer</p>
-    <div class="dash-row dash-row-4">
-      <a href="consultation.html" class="dash-card dash-card-opportunity">
-        <span class="dash-card-kicker">Consultation gratuite</span>
-        <h2 class="dash-card-title">Préparer ma consultation</h2>
-        <p class="dash-card-desc">Quelques questions rapides, sans rien écrire. Nous vous envoyons notre brochure et un premier aperçu de votre projet.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">2 minutes</span>
-          <span class="dash-card-tag">Gratuit</span>
-        </div>
-        <span class="dash-card-cta">Commencer le questionnaire</span>
-      </a>
-      <a href="analyses-marche/index.html" class="dash-card dash-card-opportunity">
-        <span class="dash-card-kicker">Contexte marché</span>
-        <h2 class="dash-card-title">Analyses de marché</h2>
-        <p class="dash-card-desc">Pourquoi le Maroc, pourquoi maintenant — le contexte macroéconomique.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Macro</span>
-          <span class="dash-card-tag">Timing</span>
-        </div>
-        <span class="dash-card-cta">Lire l'analyse</span>
-      </a>
-      <a href="about.html" class="dash-card dash-card-opportunity">
-        <span class="dash-card-kicker">Le cabinet</span>
-        <h2 class="dash-card-title">À propos</h2>
-        <p class="dash-card-desc">Le cabinet, le fondateur et l’approche conseil.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Fondateur</span>
-          <span class="dash-card-tag">Approche</span>
-        </div>
-        <span class="dash-card-cta">Découvrir le cabinet</span>
-      </a>
-    </div>
-    <p class="dash-row-header">En savoir plus</p>
-    <div class="dash-row dash-row-4">
-      <a href="guides/kenitra-guide-quartiers.html" class="dash-card dash-card-featured dash-card-learn">
-        <span class="dash-card-kicker">Ressource signature</span>
-        <h2 class="dash-card-title">Guide des quartiers de Kénitra</h2>
-        <p class="dash-card-desc">Le premier guide complet et approfondi des quartiers de Kénitra, avec carte interactive et analyse détaillée des 46 quartiers.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">46 quartiers</span>
-          <span class="dash-card-tag">Carte interactive</span>
-        </div>
-        <span class="dash-card-cta">Ouvrir le guide</span>
-      </a>
-      <a href="guides/buying-property-morocco.html" class="dash-card dash-card-learn">
-        <span class="dash-card-kicker">Guide essentiel</span>
-        <h2 class="dash-card-title">Acheter au Maroc</h2>
-        <p class="dash-card-desc">Étapes juridiques, notaire et ce qu’il faut vérifier avant de s’engager.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Juridique</span>
-          <span class="dash-card-tag">Vérifications</span>
-        </div>
-        <span class="dash-card-cta">Lire le guide</span>
-      </a>
-      <a href="guides/guide-financement-immobilier.html" class="dash-card dash-card-learn">
-        <span class="dash-card-kicker">Guide financement</span>
-        <h2 class="dash-card-title">Financement immobilier</h2>
-        <p class="dash-card-desc">Comment fonctionne le crédit au Maroc, des apports et durées jusqu’à la logique bancaire pour les MRE.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Conditions de prêt</span>
-          <span class="dash-card-tag">Processus bancaire</span>
-        </div>
-        <span class="dash-card-cta">Voir les options</span>
-      </a>
-      <a href="guides/daam-sakani-guide.html" class="dash-card dash-card-learn">
-        <span class="dash-card-kicker">Guide programme</span>
-        <h2 class="dash-card-title">Guide Daam Sakani</h2>
-        <p class="dash-card-desc">Le programme de logement social marocain — éligibilité et subventions.</p>
-        <div class="dash-card-meta">
-          <span class="dash-card-tag">Éligibilité</span>
-          <span class="dash-card-tag">Subventions</span>
-        </div>
-        <span class="dash-card-cta">Voir le programme</span>
-      </a>
+  <!-- WHO -->
+  <section class="rh-sec rh-light" id="who">
+    <div class="rh-wrap">
+      <p class="section-eyebrow">Pour qui</p>
+      <h2 class="section-title">Vous êtes…</h2>
+      <div class="rh-tiles">
+        <a class="rh-tile" href="investors-mre.html"><img src="../home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>Marocain du monde</h3><p>Acheter sans être sur place.</p><span>Découvrir →</span></div></a>
+        <a class="rh-tile" href="investors-international.html"><img src="../home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>Investisseur international</h3><p>Investir au Maroc en toute clarté.</p><span>Découvrir →</span></div></a>
+        <a class="rh-tile" href="investors-local.html"><img src="../home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>Investisseur local</h3><p>Le bon bien, au juste prix.</p><span>Découvrir →</span></div></a>
+        <a class="rh-tile" href="services-developers.html"><img src="../home-dev.jpg" alt="" loading="lazy" decoding="async"><div><h3>Promoteur</h3><p>Faire voir votre projet aux bons acheteurs.</p><span>Découvrir →</span></div></a>
+      </div>
     </div>
   </section>
 
+  <!-- HOW -->
+  <section class="rh-sec rh-dark" id="how">
+    <div class="rh-wrap">
+      <p class="section-eyebrow">Simple et clair</p>
+      <h2 class="section-title">Comment ça marche</h2>
+      <ol class="rh-steps">
+        <li><h3>Répondez à quelques questions</h3><p>2 minutes, sans rien écrire.</p></li>
+        <li><h3>Consultation gratuite</h3><p>Nous analysons votre projet avec vous.</p></li>
+        <li><h3>Nous nous occupons du reste</h3><p>Recherche, visites, négociation, jusqu’aux clés.</p></li>
+      </ol>
+    </div>
+  </section>
 
-  <!-- CONTACT -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">Nous contacter</p>
-    <h2 class="section-title" style="color:var(--white);">Dites-nous ce que vous souhaitez<br>acheter ou construire.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:1.8rem;">Que vous compariez des biens, achetiez depuis l'étranger, rentriez au pays ou lanciez un projet immobilier, la prochaine étape dépend de votre situation. Dites-nous ce sur quoi vous travaillez et nous vous répondrons avec le parcours le plus pertinent.</p>
-    <div class="consult-callout" style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin-bottom:3.2rem;"><a href="consultation.html" class="btn-gold">Préparer ma consultation →</a><span style="font-size:.82rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.55);max-width:420px;">2 minutes, il suffit de toucher vos réponses. Nous vous envoyons ensuite notre brochure et un premier aperçu de votre projet.</span></div>
-    <div class="contact-grid">
+  <!-- ALI -->
+  <section class="rh-sec rh-light">
+    <div class="rh-ali">
+      <img src="../alirahim-900.jpg" alt="Ali Rahim, cofondateur de Rahim International" width="720" height="900" loading="lazy" decoding="async">
       <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div>
-              <div class="contact-item-label">E-mail</div>
-              <div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">☎</div>
-            <div>
-              <div class="contact-item-label">Téléphone &amp; WhatsApp</div>
-              <div class="contact-item-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">◎</div>
-            <div>
-              <div class="contact-item-label">Siège</div>
-              <div class="contact-item-value">70 Av. Youssef Ben Tachfine,<br>Kénitra 14000, Maroc<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(futur bureau)</em></div>
-            </div>
-          </div>
-        </div>
+        <p class="section-eyebrow">Votre contact sur place</p>
+        <h3>Ali Rahim, cofondateur</h3>
+        <p>Plus de 5 ans dans l’immobilier à Kénitra. C’est lui qui visite, vérifie et négocie pour vous.</p>
+        <a href="about.html">Notre histoire →</a>
       </div>
-      <div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST" data-sending="Envoi en cours…" data-success="Message envoyé. Nous vous répondrons prochainement." data-error="Une erreur s'est produite. Écrivez-nous directement à contact@RahimInternational.com.">
-          <input type="hidden" name="subject" value="Demande depuis RahimInternational.com/fr">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">Prénom</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="Votre prénom" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">Nom de famille</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="Votre nom de famille" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">E-mail</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">Je suis</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">Sélectionnez votre profil</option>
-              <option>Promoteur immobilier cherchant un partenaire commercial</option>
-              <option>Investisseur international</option>
-              <option>Acheteur de la diaspora marocaine / MRE</option>
-              <option>Investisseur local</option>
-              <option>Autre</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Dites-nous ce sur quoi vous travaillez…"></textarea>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">Envoyer</button>
-        </form>
-      </div>
+    </div>
+  </section>
+
+  <!-- START -->
+  <section class="rh-sec rh-dark rh-end" id="contact">
+    <div class="rh-wrap">
+      <h2 class="section-title">Prêt à commencer ?</h2>
+      <a href="consultation.html" class="btn-primary">Préparer ma consultation</a>
+      <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
     </div>
   </section>
 
@@ -928,6 +859,46 @@
   </button>
 </div>
 
+<script>
+(function() {
+  var html = document.documentElement, LINES = ["Vous vivez loin.", "Votre projet est au Maroc.", "Nous comblons la distance."], LANG = "fr";
+  var line = document.getElementById('rh-line'), gate = document.getElementById('rh-gate'), skip = document.getElementById('rh-skip');
+  var timers = [], playing = false;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
+  function finish() {
+    timers.forEach(clearTimeout); timers = []; playing = false;
+    if (line) line.classList.remove('is-on');
+    html.classList.remove('ri-intro', 'ri-gate', 'ri-lines');
+    if (window.history && window.location.search.indexOf('intro=1') > -1) { try { history.replaceState(null, '', window.location.pathname + window.location.hash); } catch (e) {} }
+  }
+  function play() {
+    html.classList.remove('ri-gate'); html.classList.add('ri-lines'); playing = true;
+    if (reduce || !line) { finish(); return; }
+    var t = 400;
+    LINES.forEach(function(text, i) {
+      at(t, function() { line.textContent = text; line.classList.add('is-on'); });
+      if (i < LINES.length - 1) { at(t + 1500, function() { line.classList.remove('is-on'); }); t += 2100; }
+      else { at(t + 1600, function() { line.classList.remove('is-on'); }); at(t + 2100, finish); }
+    });
+  }
+  if (gate) gate.querySelectorAll('[data-go]').forEach(function(b) {
+    b.addEventListener('click', function() {
+      var l = b.getAttribute('data-go');
+      try { localStorage.setItem('ri_locale', l); } catch (e) {}
+      gate.classList.add('is-out');
+      if (l === LANG) { setTimeout(play, 300); }
+      else { setTimeout(function() { window.location.href = l + '/index.html?intro=1'; }, 500); }
+    });
+  });
+  if (skip) skip.addEventListener('click', finish);
+  ['wheel', 'touchmove', 'keydown'].forEach(function(ev) {
+    window.addEventListener(ev, function(e) { if (playing && !(ev === 'keydown' && e.key === 'Tab')) finish(); }, { passive: true });
+  });
+  document.addEventListener('click', function(e) { if (playing && !e.target.closest('.rh-gate')) finish(); });
+  if (html.classList.contains('ri-intro')) { if (!html.classList.contains('ri-gate')) play(); }
+})();
+</script>
 <script src="../shared.js"></script>
 </body>
 </html>
