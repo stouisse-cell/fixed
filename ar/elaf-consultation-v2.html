@@ -350,7 +350,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 .nav-cta:hover,.nav-cta:focus-visible{opacity:.88;color:var(--navy)}
 .nav-toggle{display:none}
 body{padding-top:84px}
-@media(max-width:1600px){.site-nav>.nav-cta{display:none}}
+.nav-links .nav-cta-item{display:none}
 @media(max-width:1500px){
   .site-nav{gap:1rem}
   .brand-logo{width:58px;height:50px}
@@ -358,7 +358,9 @@ body{padding-top:84px}
   .brand-subtitle{font-size:.5rem;letter-spacing:.13em}
   .nav-links a,.nav-dropdown-toggle,.nav-cta{font-size:.64rem;letter-spacing:.06em}
 }
-@media(max-width:1450px){
+@media(max-width:1200px){
+  .nav-links .nav-cta-item{display:block;width:100%}
+  .nav-links .nav-cta-item .nav-cta{display:flex;justify-content:center}
   .site-nav{height:72px;min-height:72px}
   .brand-logo{width:56px;height:48px}
   .brand-name{font-size:1.15rem}
@@ -407,28 +409,37 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
   <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-controls="nav-links" aria-expanded="false"><span></span></button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">الرئيسية</a></li>
-    <li><a href="about.html">من نحن</a></li>
     <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">المشترون</button>
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">للمشترين</button>
       <div class="nav-dropdown-menu">
-        <a href="investors-international.html">المشترون الدوليون</a>
-        <a href="investors-mre.html">مغاربة العالم (MRE)</a>
-        <a href="investors-local.html">المشترون المحليون</a>
+        <a href="investors-mre.html">مغاربة العالم MRE</a>
+        <a href="investors-international.html">المستثمرون الدوليون</a>
+        <a href="investors-local.html">المستثمرون المحليون</a>
       </div>
     </li>
-    <li><a href="services-developers.html">خدمات المطورين</a></li>
+    <li><a href="services-developers.html">المطورون</a></li>
     <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">الأدلة والموارد</button><div class="nav-dropdown-menu"><a href="guides/index.html">نظرة عامة على الأدلة والموارد</a><a href="guides/buying-property-morocco.html">شراء عقار في المغرب</a><a href="guides/foreign-investor-guide.html">دليل المستثمر الأجنبي</a><a href="guides/mre-buying-guide.html">دليل الشراء للمغاربة المقيمين بالخارج</a><a href="guides/daam-sakani-guide.html">دليل دعم السكني</a><a href="guides/preconstruction-guide.html">دليل الشراء على الخارطة</a><a href="guides/dalil-tamwil-aqari.html">دليل التمويل العقاري</a><a href="guides/kenitra-dalil-ahya.html">دليل أحياء القنيطرة</a><a href="guides/kenitra-vs-rabat.html">القنيطرة مقابل الرباط</a></div>
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">الأدلة</button>
+      <div class="nav-dropdown-menu">
+        <a href="guides/index.html">جميع الأدلة</a>
+        <a href="guides/buying-property-morocco.html">الشراء في المغرب</a>
+        <a href="guides/mre-buying-guide.html">دليل الشراء لمغاربة العالم</a>
+        <a href="guides/dalil-tamwil-aqari.html">التمويل ودعم السكني</a>
+        <a href="guides/preconstruction-guide.html">الشراء على التصميم</a>
+        <a href="guides/kenitra-dalil-ahya.html">أحياء القنيطرة</a>
+        <a href="tahlilet-souq/index.html">تحليلات السوق</a>
+      </div>
     </li>
-    <li><a href="tahlilet-souq/index.html">تحليلات السوق</a></li>
+    <li><a href="about.html">من نحن</a></li>
     <li><a href="index.html#contact">اتصل بنا</a></li>
     <li class="language-switcher">
       <a href="../elaf-consultation-v2.html">EN</a>
       <a href="../fr/elaf-consultation-v2.html">FR</a>
       <a href="elaf-consultation-v2.html" class="active">AR</a>
     </li>
+    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">حضّر استشارتك</a></li>
   </ul>
-  <a href="index.html#contact" class="nav-cta">استفسر الآن</a>
+  <a href="consultation.html" class="nav-cta">حضّر استشارتك</a>
 </nav>
 
 <div id="prog"></div>

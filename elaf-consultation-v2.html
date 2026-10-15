@@ -350,7 +350,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 .nav-cta:hover,.nav-cta:focus-visible{opacity:.88;color:var(--navy)}
 .nav-toggle{display:none}
 body{padding-top:84px}
-@media(max-width:1600px){.site-nav>.nav-cta{display:none}}
+.nav-links .nav-cta-item{display:none}
 @media(max-width:1500px){
   .site-nav{gap:1rem}
   .brand-logo{width:58px;height:50px}
@@ -358,7 +358,9 @@ body{padding-top:84px}
   .brand-subtitle{font-size:.5rem;letter-spacing:.13em}
   .nav-links a,.nav-dropdown-toggle,.nav-cta{font-size:.64rem;letter-spacing:.1em}
 }
-@media(max-width:1450px){
+@media(max-width:1200px){
+  .nav-links .nav-cta-item{display:block;width:100%}
+  .nav-links .nav-cta-item .nav-cta{display:flex;justify-content:center}
   .site-nav{height:72px;min-height:72px}
   .brand-logo{width:56px;height:48px}
   .brand-name{font-size:1.15rem}
@@ -407,29 +409,37 @@ html[dir="rtl"] .auto-lang-switcher{right:auto;left:14px}
   <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false"><span></span></button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">Who We Are</a></li>
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Buyers</button>
       <div class="nav-dropdown-menu">
-        <a href="investors-international.html">International Buyers</a>
-        <a href="investors-mre.html">MRE Buyers</a>
-        <a href="investors-local.html">Local Buyers</a>
+        <a href="investors-mre.html">Moroccan Diaspora / MRE</a>
+        <a href="investors-international.html">International Investors</a>
+        <a href="investors-local.html">Local Investors</a>
       </div>
     </li>
-    <li><a href="services-developers.html">Developer Services</a></li>
+    <li><a href="services-developers.html">Developers</a></li>
     <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides &amp; Resources</button>
-      <div class="nav-dropdown-menu"><a href="guides/index.html">Guides &amp; Resources Overview</a><a href="guides/buying-property-morocco.html">Buying Property in Morocco</a><a href="guides/foreign-investor-guide.html">Foreign Investor Guide</a><a href="guides/mre-buying-guide.html">MRE Buying Guide</a><a href="guides/daam-sakani-guide.html">Daam Sakani Guide</a><a href="guides/preconstruction-guide.html">Pre-Construction Guide</a><a href="guides/mortgage-financing-guide.html">Mortgage &amp; Financing</a><a href="guides/kenitra-neighborhood-guide.html">Kénitra Neighbourhood Guide</a><a href="guides/kenitra-vs-rabat.html">Kénitra vs Rabat</a></div>
+      <button class="nav-dropdown-toggle" type="button" aria-haspopup="true">Guides</button>
+      <div class="nav-dropdown-menu">
+        <a href="guides/index.html">All guides</a>
+        <a href="guides/buying-property-morocco.html">Buying in Morocco</a>
+        <a href="guides/mre-buying-guide.html">MRE Buying Guide</a>
+        <a href="guides/mortgage-financing-guide.html">Financing &amp; Daam Sakane</a>
+        <a href="guides/preconstruction-guide.html">Buying Off-Plan</a>
+        <a href="guides/kenitra-neighborhood-guide.html">Kénitra Neighbourhoods</a>
+        <a href="market-insights/index.html">Market Insights</a>
+      </div>
     </li>
-    <li><a href="market-insights/index.html">Market Insights</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li class="language-switcher">
       <a href="elaf-consultation-v2.html" class="active">EN</a>
       <a href="fr/elaf-consultation-v2.html">FR</a>
       <a href="ar/elaf-consultation-v2.html">AR</a>
     </li>
+    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Prepare Your Consultation</a></li>
   </ul>
-  <a href="index.html#contact" class="nav-cta">Enquire</a>
+  <a href="consultation.html" class="nav-cta">Prepare Your Consultation</a>
 </nav>
 
 <div id="prog"></div>

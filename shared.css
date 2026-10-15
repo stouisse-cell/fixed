@@ -1351,13 +1351,14 @@ footer {
   }
 }
 
-@media (max-width: 1600px) {
-  .site-nav > .nav-cta { display: none; }
-}
+/* In-menu copy of the consultation button: only shown in the collapsed (hamburger) menu. */
+.nav-links .nav-cta-item { display: none; }
 
 /* Collapse the desktop nav earlier — this menu is too wide to remain on a
    single row once the viewport gets near laptop/tablet widths. */
-@media (max-width: 1450px) {
+@media (max-width: 1200px) {
+  .nav-links .nav-cta-item { display: block; width: 100%; }
+  .nav-links .nav-cta-item .nav-cta { display: flex; justify-content: center; color: var(--navy); font-weight: 700; text-align: center; }
   .site-nav {
     height: 72px;
     min-height: 72px;
