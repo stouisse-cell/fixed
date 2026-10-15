@@ -82,6 +82,11 @@
   .rb-checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
   .rb-checks li { position: relative; padding-inline-start: 1.8rem; font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,.8); }
   .rb-checks li::before { content: '\2713'; position: absolute; inset-inline-start: 0; color: var(--copper); }
+  .rb-intro { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,.78); max-width: 760px; margin: -0.8rem 0 2rem; }
+  .rb-svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.4rem; }
+  .rb-svc li { position: relative; padding-inline-start: 1.6rem; font-size: .98rem; line-height: 1.75; color: rgba(255,255,255,.72); min-width: 0; }
+  .rb-svc li::before { content: ''; position: absolute; inset-inline-start: 0; top: .55em; width: 8px; height: 8px; border: 1px solid var(--copper); transform: rotate(45deg); }
+  .rb-svc strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--white); margin-bottom: .2rem; }
   .rb-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; counter-reset: rb; }
   .rb-steps li { counter-increment: rb; border-top: 2px solid var(--copper); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: #3d4a5c; min-width: 0; }
   .rb-steps li::before { content: '0' counter(rb); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark); margin-bottom: .4rem; }
@@ -93,7 +98,7 @@
   @media (max-width: 900px) { .rb-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 680px) {
     .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
-    .rb-checks, .rb-steps { grid-template-columns: minmax(0, 1fr); }
+    .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
   }
 </style>
 <meta name="twitter:card" content="summary_large_image">
@@ -177,17 +182,17 @@
     </div>
   </section>
 
-  <!-- VISIT CHECKLIST -->
+  <!-- WHAT WE DO -->
   <section class="rb-sec rb-dark">
     <div class="rb-inner">
-      <h2 class="section-title">ما نتحقق منه في كل زيارة</h2>
-      <ul class="rb-checks">
-        <li>المساحة الفعلية مقارنة بالمساحة المعلنة</li>
-        <li>التشطيبات والتشققات والرطوبة والتهوية</li>
-        <li>العزل الصوتي وضجيج الشارع</li>
-        <li>الاتجاه والإضاءة الطبيعية</li>
-        <li>الأجزاء المشتركة والمرآب والأمن</li>
-        <li>ضغط الماء والتجهيزات الكهربائية</li>
+      <h2 class="section-title">ما نقوم به من أجلك</h2>
+      <ul class="rb-svc">
+        <li><strong>الاستشارة الاستراتيجية</strong>نحدد معك المشروع المناسب والميزانية المناسبة والأحياء المناسبة.</li>
+        <li><strong>البحث والزيارات</strong>نبحث عن العقارات ونزورها ونصوّرها نيابة عنك.</li>
+        <li><strong>التحليل والتوصية</strong>نقارن أفضل الخيارات ونخبرك أيها تختار، ولماذا.</li>
+        <li><strong>التمويل</strong>القرض، و«دعم السكني»، واختيار البنك.</li>
+        <li><strong>التفاوض</strong>نتفاوض على السعر والشروط باسمك.</li>
+        <li><strong>المرافقة حتى المفاتيح</strong>الموثّق، والوكالة، والتوقيع، وتسليم المفاتيح.</li>
       </ul>
     </div>
   </section>
