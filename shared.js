@@ -432,6 +432,7 @@
         templateInput.defaultValue = '';
         form.appendChild(templateInput);
 
+        const defaultTemplate = parseInt(form.dataset.defaultTemplate || '0', 10) || 0;
         copy.templates.forEach((template, index) => {
           const button = document.createElement('button');
           button.type = 'button';
@@ -451,7 +452,7 @@
               messageField.setSelectionRange(end, end);
             }
           });
-          if (index === 0) {
+          if (index === defaultTemplate) {
             button.classList.add('is-active');
             templateInput.value = template.label;
             if (!messageField.value.trim()) messageField.value = template.body;
