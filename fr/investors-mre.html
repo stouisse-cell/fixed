@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Acheter au Maroc depuis l'étranger | Acheteurs MRE</title>
-<meta name="description" content="Un accompagnement pour les MRE et les acheteurs de la diaspora marocaine qui souhaitent acheter une résidence secondaire, un bien locatif ou une base de retour au pays avec une vraie vérification locale.">
+<meta name="description" content="Acheter au Maroc sans être sur place : Rahim International cherche, visite et vérifie pour les Marocains résidant à l&#x27;étranger, jusqu&#x27;à la remise des clés.">
 <link rel="canonical" href="https://rahiminternational.com/fr/investors-mre.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/investors-mre.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/investors-mre.html">
@@ -21,8 +21,8 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/investors-mre.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="MRE et diaspora marocaine | Rahim International">
-<meta property="og:description" content="Acheter au pays ne devrait pas sembler étranger. Nous aidons les acheteurs MRE à avancer avec une information plus claire et un vrai accompagnement sur place.">
-<meta property="og:image" content="https://rahiminternational.com/elaf.jpg">
+<meta property="og:description" content="Acheter au Maroc sans être sur place : Rahim International cherche, visite et vérifie pour les Marocains résidant à l&#x27;étranger, jusqu&#x27;à la remise des clés.">
+<meta property="og:image" content="https://rahiminternational.com/mre.png">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,15 +67,43 @@
     .cards-grid{grid-template-columns:1fr;}
   }
   .guide-link-desc{font-size:.78rem;font-weight:300;line-height:1.65;color:var(--text-muted);margin-top:.4rem;}
+
+  /* ── Buyer page (2026 refonte) ── */
+  .rb-sec { padding: var(--section-pad); }
+  .rb-inner { max-width: 980px; margin: 0 auto; }
+  .rb-light { background: var(--cream); }
+  .rb-dark { background: var(--navy); }
+  .rb-light h2 { color: var(--navy); margin-bottom: 2rem; }
+  .rb-dark h2 { color: var(--white); margin-bottom: 2rem; }
+  .rb-qa { display: grid; gap: 0; border-top: 1px solid rgba(8,26,51,.15); }
+  .rb-qa > div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(8,26,51,.12); }
+  .rb-qa dt { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.3; color: var(--navy); }
+  .rb-qa dd { margin: 0; font-size: 1rem; line-height: 1.8; color: #3d4a5c; }
+  .rb-checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+  .rb-checks li { position: relative; padding-inline-start: 1.8rem; font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,.8); }
+  .rb-checks li::before { content: '\2713'; position: absolute; inset-inline-start: 0; color: var(--copper); }
+  .rb-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; counter-reset: rb; }
+  .rb-steps li { counter-increment: rb; border-top: 2px solid var(--copper); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: #3d4a5c; min-width: 0; }
+  .rb-steps li::before { content: '0' counter(rb); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark); margin-bottom: .4rem; }
+  .rb-steps strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-bottom: .3rem; }
+  .rb-cta { background: var(--navy); text-align: center; padding: var(--section-pad-sm); }
+  .rb-cta h2 { color: var(--white); margin-bottom: 1.6rem; }
+  .rb-cta-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 1.6rem; }
+  .rb-cta-links a.rb-link { color: rgba(255,255,255,.7); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 900px) { .rb-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 680px) {
+    .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+    .rb-checks, .rb-steps { grid-template-columns: minmax(0, 1fr); }
+  }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MRE et diaspora marocaine | Rahim International">
-<meta name="twitter:description" content="Acheter au pays ne devrait pas sembler étranger. Nous aidons les acheteurs MRE à avancer avec une information plus claire et un vrai accompagnement sur place.">
-<meta name="twitter:image" content="https://rahiminternational.com/elaf.jpg">
+<meta name="twitter:description" content="Acheter au Maroc sans être sur place : Rahim International cherche, visite et vérifie pour les Marocains résidant à l&#x27;étranger, jusqu&#x27;à la remise des clés.">
+<meta name="twitter:image" content="https://rahiminternational.com/mre.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Conseil, marketing et courtage immobilier pour acheteurs et promoteurs dans la région Rabat-Salé-Kénitra au Maroc.","inLanguage":"fr"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://rahiminternational.com/fr/index.html"},{"@type":"ListItem","position":2,"name":"Acheter au Maroc depuis l'étranger","item":"https://rahiminternational.com/fr/investors-mre.html"}]}</script>
-<meta property="og:image:alt" content="Elaf Sky View — programme résidentiel au centre de Kénitra, Maroc">
-<meta name="twitter:image:alt" content="Elaf Sky View — programme résidentiel au centre de Kénitra, Maroc">
+<meta property="og:image:alt" content="Acheter au Maroc depuis l'étranger avec Rahim International">
+<meta name="twitter:image:alt" content="Acheter au Maroc depuis l'étranger avec Rahim International">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="ar_MA">
@@ -129,257 +157,60 @@
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">Diaspora marocaine / MRE</p>
-      <h1 class="page-hero-title">Rentrer au pays<br><em>ne devrait pas sembler étranger.</em></h1>
-      <p class="page-hero-sub">Pour beaucoup d'acheteurs MRE, acheter au Maroc est à la fois émotionnel et pratique : un endroit pour la famille, une base de retour future, ou un investissement qui devrait avoir du sens pendant que vous êtes à l'étranger. Nous vous aidons à ralentir le processus, à vérifier les détails et à avancer avec une information plus claire.</p>
-    </div>
-  </section>
-<!-- THE REALITY -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">The MRE Buying Reality</p>
-    <h2 class="section-title" style="color:var(--navy);">Quand les enjeux sont importants,<br>les détails font la différence.</h2>
-    <p class="intro-text">Le marché intermédiaire marocain n'est pas organisé autour de l'acheteur. La plupart des opportunités sérieuses à ce niveau de prix ne sont jamais listées en ligne. Elles circulent par réseaux personnels — un contact, une connexion familiale, un projet dont quelqu'un a entendu parler. Quand vous en entendez parler, vous disposez souvent d'un contexte limité pour l'évaluer et d'un temps limité pour agir.</p>
-    <p class="intro-text">Parce que vous ne pouvez pas être là, quelqu'un d'autre doit faire les recherches. Cette personne est généralement un proche, et fera de son mieux. Mais une visite informelle et une évaluation professionnelle ne sont pas la même chose. La première confirme une impression. La seconde répond aux questions qui vous protègent — et ces questions vont bien au-delà de savoir si l'appartement a bonne allure le jour de la visite.</p>
-    <p class="intro-text">Un logement neuf donne toujours son meilleur aspect. Les vrais indicateurs de qualité de construction n'apparaissent que plus tard : si la structure se stabilise proprement, si les finitions résistent à un cycle saisonnier complet, si la ventilation gère correctement l'humidité, si la main-d'œuvre cachée sous la peinture fraîche a réellement été réalisée aux normes. Le bilan du promoteur compte pour la même raison — pas ce qu'il promet, mais à quoi ressemblaient ses projets précédents un an après la livraison.</p>
-    <p class="intro-text">Il y a aussi des choses qu'aucune visite ne capte à moins de savoir quoi chercher : combien de lumière naturelle l'unité reçoit réellement tout au long de la journée, le niveau sonore un matin de semaine, comment le bâtiment est géré quand personne n'essaie de vous vendre quoi que ce soit.</p>
-    <p class="intro-text" style="font-style:italic;color:var(--copper-dark);border-left:2px solid var(--copper);padding-left:1.2rem;margin-top:1.8rem;">C'est l'écart que nous comblons. Pas en remplaçant votre jugement — mais en vous donnant quelque chose sur lequel le fonder.</p>
-        <div class="cards-grid stagger">
-      <article class="info-card reveal">
-        <div class="card-kicker">Second Home</div>
-        <h3 class="card-title">Un bien que votre famille peut réellement utiliser.</h3>
-        <p class="card-text">Une résidence secondaire doit fonctionner quand vous n'êtes pas là : quand elle est fermée pendant six mois, quand vos parents y séjournent, quand vous arrivez en août et que la gestion du bâtiment n'a rien entretenu. Nous regardons le bruit de la rue, l'état des parties communes, le parking, la sécurité du bâtiment, la qualité du voisinage et si le bien tiendra comme actif à long terme plutôt qu'un achat à court terme.</p>
-      </article>
-      <article class="info-card reveal">
-        <div class="card-kicker">Rental Investment</div>
-        <h3 class="card-title">Les revenus locatifs nécessitent de vrais chiffres, pas des projections.</h3>
-        <p class="card-text">Une équipe de vente vous dira le potentiel locatif. Nous regardons ce que les unités de la même zone louent réellement, ce pour quoi elles restent vides, les coûts d'ameublement à intégrer, les charges de bâtiment qui réduisent le rendement et si l'emplacement génère une vraie demande locative ou seulement des projections optimistes sur un tableau blanc.</p>
-      </article>
-      <article class="info-card reveal">
-        <div class="card-kicker">Pre-Construction</div>
-        <h3 class="card-title">Le meilleur prix est souvent celui qui demande le plus de vérification.</h3>
-        <p class="card-text">Les achats sur plan peuvent être excellents. Ils peuvent aussi être problématiques si la réservation est informelle, si le promoteur n'a pas de bilan vérifiable et si la seule documentation est un plan sur l'écran d'un téléphone. Nous regardons le statut des permis, l'historique du promoteur, la structure du calendrier de paiement, les matériaux promis par rapport aux grades typiques et les justificatifs écrits que vous recevez à chaque étape.</p>
-      </article>
-      <article class="info-card reveal">
-        <div class="card-kicker">Daam Sakani</div>
-        <h3 class="card-title">Vérifiez l'éligibilité avant de construire votre budget autour.</h3>
-        <p class="card-text">Les acheteurs MRE peuvent être éligibles au Daam Sakani, mais uniquement sous des conditions spécifiques. Nous vérifions si le prix de l'unité, le type de bien, votre profil d'acheteur, l'usage prévu et les documents s'alignent réellement — avant que la subvention devienne une hypothèse dans votre plan plutôt qu'un fait confirmé.</p>
-      </article>
+      <h1 class="page-hero-title">Acheter au Maroc,<br><em>sans être sur place.</em></h1>
+      <p class="page-hero-sub">Résidence, retour au pays ou investissement : nous cherchons, visitons et vérifions pour vous, et vous accompagnons jusqu&#x27;à la remise des clés.</p>
     </div>
   </section>
 
-  __PLACEHOLDER_<!-- COMMENT NOUS AIDONS -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <div class="support-split">
-      <div>
-        <p class="section-eyebrow">Comment nous aidons</p>
-        <h2 class="section-title" style="color:var(--navy);">Vos yeux<br>sur le terrain.</h2>
-        <p class="intro-text">Nous aidons à structurer la décision pour que vous ne dépendiez pas uniquement des opinions familiales, des réservations informelles ou des réponses incomplètes. L'objectif n'est pas de vous précipiter vers un bien. L'objectif est de s'assurer que le bien, le prix, le processus et les documents ont du sens avant d'avancer.</p>
-        <p class="intro-text">Pour les acheteurs MRE, cela signifie transformer une information éparpillée en une décision plus claire : ce qu'est l'unité, ce qu'elle coûte, qui la construit, ce qui est promis, ce qui est documenté et ce qui doit encore être vérifié.</p>
-      </div>
-      <div class="reveal">
-        <div class="highlight-panel-light">
-          <h3 class="highlight-title" style="font-size:1.5rem;margin-bottom:1.2rem;">Ce que nous documentons lors d'une visite.</h3>
-          <div class="check-list">
-            <div class="check-item"><span class="check-mark">✓</span><span>Superficie réelle mesurée par rapport à la superficie annoncée.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Qualité des finitions et des matériaux — pas seulement si cela paraît bien le jour J, mais si cela tiendra dans 12 mois.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Qualité d'exécution — joints de carrelage, plâtrage, alignement des plafonds et les détails qui révèlent une mauvaise exécution une fois le bâtiment stabilisé.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Fissures dans les murs ou plafonds — premiers signes de mouvement structurel ou de finitions bâclées qui s'aggraveront avec le temps.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Contrôle de l'humidité et ventilation — une isolation médiocre et une circulation d'air insuffisante se manifestent après l'achat, pas avant.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Qualité de la peinture et finitions murales — une construction neuve paraît propre en été ; en hiver, on voit exactement ce que valaient les matériaux.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Isolation phonique entre les unités — murs, planchers et plafonds.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>État des parties communes : hall, cages d'escalier, façade extérieure, parking.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Bruit de la rue, trafic et quartier immédiat — pas seulement au moment de la visite.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Orientation du logement — s'il donne sur une cour, la rue ou un autre bâtiment, et ce que cela implique pour la circulation d'air, la lumière naturelle et la vie privée.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Pression d'eau et évacuation — infrastructure de base qui varie considérablement d'un bâtiment à l'autre et qui est rarement mentionnée dans une conversation commerciale.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Qualité de l'installation électrique — prises suffisantes, capacité du circuit, et si les travaux ont été correctement réalisés plutôt qu'au minimum.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Bilan du promoteur — ce qu'il a livré avant, quand et si cela correspondait à ce qui avait été promis.</span></div>
-            <div class="check-item"><span class="check-mark">✓</span><span>Statut des permis, structure du calendrier de paiement et documentation écrite remise à chaque étape.</span></div>
-          </div>
-        </div>
-      </div>
+  <!-- QUESTIONS -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">Vos questions, nos réponses</h2>
+      <dl class="rb-qa">
+        <div><dt>Comment choisir sans pouvoir visiter ?</dt><dd>Nous visitons et filmons chaque bien, et vous envoyons une fiche de visite détaillée sous 72 heures.</dd></div>
+        <div><dt>Le prix est-il juste ?</dt><dd>Nous comparons chaque prix aux biens similaires du quartier avant toute offre.</dd></div>
+        <div><dt>Puis-je obtenir un crédit ou Daam Sakane depuis l&#x27;étranger ?</dt><dd>Nous vérifions votre éligibilité et montons votre dossier avec des banques habituées aux MRE.</dd></div>
+        <div><dt>Le promoteur est-il fiable ?</dt><dd>Nous vérifions ses projets livrés, le respect de ses délais et la qualité réelle de ses finitions.</dd></div>
+        <div><dt>Comment signer sans faire le voyage ?</dt><dd>Nous coordonnons le notaire et organisons la procuration.</dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- 9-STEP PROCESS -->
-  <section class="bg-navy-grad" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Notre accompagnement</p>
-    <h2 class="section-title" style="color:var(--white);">Tout commence par<br>une vraie consultation.</h2>
-    <p class="intro-text dark-intro" style="max-width:780px;">Que vous soyez au Maroc ou à l'étranger, le processus commence par une consultation structurée : en personne, par vidéo ou par téléphone. Ce n'est pas une discussion informelle. C'est là que nous établissons les bases de l'acquisition — comprendre pourquoi vous souhaitez acheter, ce que le bien doit accomplir, votre budget, votre calendrier et vos contraintes de déplacement, et vos attentes en termes de style de vie, d'usage ou de rendement.</p>
-    <div class="steps-timeline">
-      <article class="timeline-step reveal">
-        <div class="timeline-num">01</div>
-        <h3 class="timeline-title">Nous construisons votre profil acheteur</h3>
-        <p class="timeline-text">Nous traduisons vos objectifs en un cadre d'acquisition précis : objectif de l'achat, considérations d'éligibilité comme le Daam Sakani si pertinent, emplacements préférés, type de bien, fourchette de budget réaliste et niveau d'implication ou de gestion souhaité après l'achat.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">02</div>
-        <h3 class="timeline-title">Orientation de marché et alignement stratégique</h3>
-        <p class="timeline-text">Avant de présenter des biens, nous vous donnons le contexte. Nous vous guidons à travers les niveaux de prix par zone et type de produit, la différence entre construction neuve, revente et préconstruction, le positionnement des promoteurs, les réalités locatives si pertinentes et les risques liés à votre stratégie.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">03</div>
-        <h3 class="timeline-title">Nous présélectionnons et comparons les opportunités</h3>
-        <p class="timeline-text">Nous travaillons à partir de notre réseau de promoteurs vérifiés, de notre recherche de marché continue et des opportunités émergentes pertinentes. À partir de là, nous construisons une liste restreinte structurée et comparons chaque option selon le prix, la qualité de l'emplacement, le potentiel de développement futur, les spécifications techniques, la crédibilité du promoteur et l'adéquation à votre usage prévu.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">04</div>
-        <h3 class="timeline-title">Présélection et validation à distance</h3>
-        <p class="timeline-text">Pour les clients MRE à l'étranger, nous éliminons l'incertitude avant tout déplacement. Nous effectuons des évaluations de premier niveau, fournissons des visites vidéo et des évaluations initiales, mettons en évidence les points forts et les incohérences, et éliminons les options faibles tôt pour que votre temps au Maroc soit consacré à l'évaluation plutôt qu'à la découverte.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">05</div>
-        <h3 class="timeline-title">Nous inspectons, documentons et rapportons</h3>
-        <p class="timeline-text">Pour chaque option sérieuse, nous effectuons une évaluation détaillée en personne avec documentation photo et vidéo, vérification des plans, analyse spatiale, vérification des superficies si possible, et inspection des matériaux, finitions, équipements, installations et qualité globale de construction. Nous évaluons également la qualité du quartier, l'accès, le bruit, les commodités, l'habitabilité et les attentes en matière de gestion du bâtiment.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">06</div>
-        <h3 class="timeline-title">Vérification financière, juridique et promoteur</h3>
-        <p class="timeline-text">Avant tout engagement, nous approfondissons le dossier. Nous examinons le bilan et l'historique de livraison du promoteur, la documentation légale disponible, la structure du calendrier de paiement, les obligations contractuelles et le statut du titre ou de l'enregistrement si pertinent. Si nécessaire, nous coordonnons avec des notaires ou des professionnels juridiques pour plus de clarté.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">07</div>
-        <h3 class="timeline-title">Structuration de la décision et orientation à la négociation</h3>
-        <p class="timeline-text">Une fois un bien sélectionné, nous guidons le processus de décision. Nous confirmons que le choix correspond toujours à votre objectif initial, identifions clairement les compromis, conseillons sur le prix et le positionnement à la négociation, et aidons à structurer le calendrier de réservation et de paiement sans vous pousser dans un engagement précipité.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">08</div>
-        <h3 class="timeline-title">Coordination de la réservation et de la transaction</h3>
-        <p class="timeline-text">Nous restons impliqués tout au long de la transaction en aidant au processus de réservation, à la vérification des documents, à la coordination avec le promoteur ou le vendeur, au suivi des paiements, à la clarté des jalons et à la communication de suivi pour que les retards et malentendus ne s'accumulent pas pendant votre absence.</p>
-      </article>
-      <article class="timeline-step reveal">
-        <div class="timeline-num">09</div>
-        <h3 class="timeline-title">Suivi et visibilité post-achat</h3>
-        <p class="timeline-text">Notre rôle ne s'arrête pas à la réservation. Pour les nouvelles constructions en particulier, nous continuons à aider avec le suivi de construction, la communication avec le promoteur, les mises à jour des calendriers et de livraison, et le soutien si des problèmes ou retards apparaissent après votre retour à l'étranger.</p>
-      </article>
+  <!-- VISIT CHECKLIST -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">Ce que nous vérifions lors d&#x27;une visite</h2>
+      <ul class="rb-checks">
+        <li>La surface réelle par rapport à la surface annoncée</li>
+        <li>Les finitions, les fissures, l&#x27;humidité et la ventilation</li>
+        <li>L&#x27;isolation phonique et le bruit de la rue</li>
+        <li>L&#x27;orientation et la lumière naturelle</li>
+        <li>Les parties communes, le parking et la sécurité</li>
+        <li>La pression d&#x27;eau et l&#x27;installation électrique</li>
+      </ul>
     </div>
-    <p class="timeline-note">Notre processus est conçu pour réduire l'incertitude à chaque étape, de la première consultation au suivi post-achat. Chaque étape s'appuie sur la précédente pour que les décisions soient prises avec structure, contexte et vérification.</p>
   </section>
 
-  <!-- RELEVANT GUIDES -->
-  <section class="guide-links-section" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Go Deeper</p>
-    <h2 class="section-title" style="color:var(--navy);">Guides pertinents<br>pour votre situation.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.85;color:var(--text-muted);max-width:600px;margin-bottom:2rem;">Ces guides couvrent les détails qui appartiennent aux documents de référence — pas dans un aperçu acheteur rapide.</p>
-    <div class="guide-links-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-      <a href="guides/buying-property-morocco.html" class="guide-link-card">
-        <div class="guide-link-label">Guide général</div>
-        <div class="guide-link-title">Acheter au Maroc</div>
-        <p class="guide-link-desc">Frais, processus, checklist préconstruction et règles bancaires et de rapatriement pour les acheteurs depuis l'étranger.</p>
-      </a>
-      <a href="guides/daam-sakani-guide.html" class="guide-link-card">
-        <div class="guide-link-label">Guide d'aide</div>
-        <div class="guide-link-title">Guide Daam Sakani</div>
-        <p class="guide-link-desc">Éligibilité complète, alternative MRE à la règle des 5 ans, niveaux de subvention et processus de demande étape par étape.</p>
-      </a>
-      <a href="guides/kenitra-vs-rabat.html" class="guide-link-card">
-        <div class="guide-link-label">Comparaison de marché</div>
-        <div class="guide-link-title">Kénitra vs Rabat</div>
-        <p class="guide-link-desc">Si une ville secondaire connectée a du sens pour votre budget et votre usage.</p>
-      </a>
-    </div>
-  </section>
-  <!-- ELAF / OPPORTUNITÉ ACTUELLE -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <div class="support-split">
-      <div>
-        <p class="section-eyebrow">Opportunité actuelle</p>
-        <h2 class="section-title" style="color:var(--navy);">Elaf Sky View,<br>Kénitra.</h2>
-        <p class="intro-text">Elaf Sky View n'est pas un projet que nous représentons à distance. Nous l'avons trouvé de la même façon que vous pourriez — en tant qu'acheteurs, coordonnant depuis le Canada, passant cinq mois à faire des allers-retours entre le Canada et le Maroc, visitant des projets, cherchant des adresses de bureaux déplacées, attendant sur site des commerciaux qui ne venaient jamais. Nous avons retenu Elaf parce que c'était le seul projet que nous pouvions réellement vérifier. Nous avons engagé notre propre argent avant même de proposer un partenariat avec le promoteur.</p>
-        <p class="intro-text">Cela compte spécifiquement pour les acheteurs MRE. Nous ne recommandons pas quelque chose que nous avons évalué depuis une brochure. Nous avons traversé la même recherche que vous. Nous avons inspecté le chantier plusieurs fois, suivi la construction jusqu'à l'achèvement, vérifié le bilan du promoteur et choisi ce projet plutôt que toutes les autres options disponibles sur le marché à l'époque.</p>
-        <p class="intro-text">Le projet offre des unités sélectionnées éligibles au Daam, des appartements plus grands pour une utilisation en résidence secondaire ou locative, et un emplacement central à Kénitra qui convient aux acheteurs qui veulent une vraie valeur et un bâtiment en lequel ils peuvent avoir confiance. Nous pouvons en parler par expérience directe — car nous en sommes propriétaires.</p>
-      </div>
-      <div class="reveal">
-        <div class="highlight-panel-light">
-          <h3 class="highlight-title" style="font-size:1.4rem;margin-bottom:1.2rem;">Utilisez les guides pour comprendre les détails derrière la décision.</h3>
-          <div style="display:grid;gap:.8rem;margin-top:1rem;">
-            <a href="guides/mre-buying-guide.html" style="font-size:.84rem;font-weight:300;color:var(--copper-dark);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:.8rem;">→ Guide d'achat MRE</a>
-            <a href="guides/daam-sakani-guide.html" style="font-size:.84rem;font-weight:300;color:var(--copper-dark);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:.8rem;">→ Guide Daam Sakani</a>
-            <a href="guides/preconstruction-guide.html" style="font-size:.84rem;font-weight:300;color:var(--copper-dark);text-decoration:none;">→ Guide de préconstruction</a>
-          </div>
-        </div>
-      </div>
+  <!-- METHOD -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">Notre méthode</h2>
+      <ol class="rb-steps">
+        <li><strong>Stratégie</strong>analyse de votre projet, de votre budget et de vos critères.</li>
+        <li><strong>Recherche</strong>présélection à distance et visites filmées.</li>
+        <li><strong>Analyse</strong>comparaison des meilleurs biens et notre recommandation.</li>
+        <li><strong>Négociation</strong>prix, crédit, notaire et compromis.</li>
+        <li><strong>Finalisation</strong>acte de vente et remise des clés.</li>
+      </ol>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="dark-cta" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Commencez votre recherche</p>
-    <h2 class="section-title">Vous prévoyez d'acheter au pays ?</h2>
-    <p class="cta-sub" style="color:rgba(255,255,255,.62);max-width:540px;margin:0 auto 2.5rem;">Dites-nous si vous achetez depuis l'étranger, visitez le Maroc bientôt ou envisagez déjà un projet spécifique. Nous vous aiderons à comprendre ce qui doit être vérifié avant de vous engager.</p>
-    <div class="cta-actions">
+  <section class="rb-cta">
+    <h2 class="section-title">Vous prévoyez d&#x27;acheter au pays ?</h2>
+    <div class="rb-cta-links">
       <a href="consultation.html" class="btn-gold">Préparer ma consultation</a>
-      <a href="index.html#contact" class="btn-outline-dark">Commencer une conversation</a>
-      <a href="guides/mre-buying-guide.html" class="btn-outline-dark">Lire le guide MRE</a>
-      <a href="elaf-sky-view.html" class="btn-outline-dark">Voir Elaf Sky View</a>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">Nous contacter</p>
-    <h2 class="section-title" style="color:var(--white);">Dites-nous ce que vous souhaitez<br>acheter ou construire.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">Que vous compariez des biens, achetiez depuis l'étranger, rentriez au pays ou lanciez un projet immobilier, la prochaine étape dépend de votre situation. Dites-nous ce sur quoi vous travaillez et nous vous répondrons avec le parcours le plus pertinent.</p>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div>
-              <div class="contact-item-label">E-mail</div>
-              <div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">☎</div>
-            <div>
-              <div class="contact-item-label">Téléphone &amp; WhatsApp</div>
-              <div class="contact-item-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">◎</div>
-            <div>
-              <div class="contact-item-label">Siège</div>
-              <div class="contact-item-value">70 Av. Youssef Ben Tachfine,<br>Kénitra 14000, Maroc<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(futur bureau)</em></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST">
-          <input type="hidden" name="subject" value="Demande depuis RahimInternational.com/fr">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">Prénom</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="Votre prénom" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">Nom de famille</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="Votre nom de famille" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">E-mail</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">Je suis</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">Sélectionnez votre profil</option>
-              <option>Promoteur immobilier cherchant un partenaire commercial</option>
-              <option>Investisseur international</option>
-              <option>Acheteur de la diaspora marocaine / MRE</option>
-              <option>Investisseur local</option>
-              <option>Autre</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Dites-nous ce sur quoi vous travaillez…"></textarea>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">Envoyer</button>
-        </form>
-      </div>
+      <a class="rb-link" href="guides/mre-buying-guide.html">Lire le guide d&#x27;achat MRE</a>
     </div>
   </section>
 
