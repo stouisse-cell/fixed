@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Qui Sommes-Nous | Conseil immobilier à Kénitra</title>
-<meta name="description" content="Rahim International est un cabinet de conseil immobilier fondé sur une expérience directe du marché marocain, au service des acheteurs, de la diaspora marocaine et des promoteurs.">
+<meta name="description" content="Rahim International accompagne les Marocains résidant à l&#x27;étranger et les investisseurs qui souhaitent acheter au Maroc sans être sur place.">
 <link rel="canonical" href="https://rahiminternational.com/fr/about.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/about.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/about.html">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/about.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="À propos | Rahim International">
-<meta property="og:description" content="Fondé sur une vraie expérience d'achat immobilier au Maroc. Nous aidons les acheteurs et promoteurs à prendre de meilleures décisions dans la région Rabat-Salé-Kénitra.">
+<meta property="og:description" content="Rahim International accompagne les Marocains résidant à l&#x27;étranger et les investisseurs qui souhaitent acheter au Maroc sans être sur place.">
 <meta property="og:image" content="https://rahiminternational.com/alirahim.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/about.html">
@@ -299,10 +299,40 @@
   @media (max-width: 680px) {
     .values-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── About page (2026 refonte) ── */
+  .ra-story { background: var(--cream); }
+  .ra-story-inner { max-width: 760px; margin: 0 auto; }
+  .ra-story h2 { color: var(--navy); margin-bottom: 1.8rem; text-wrap: balance; }
+  .ra-story p.ra-p { font-size: 1.02rem; line-height: 1.95; color: #3d4a5c; margin: 0 0 1.25rem; }
+  .ra-quote { margin: 2.2rem 0 0; padding: 1.4rem 1.6rem; border-inline-start: 2px solid var(--copper); background: rgba(201,169,110,.08); }
+  .ra-quote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; line-height: 1.4; color: var(--navy); margin: 0 0 .6rem; }
+  .ra-quote cite { font-style: normal; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-muted); }
+  .ra-ali { background: var(--navy); }
+  .ra-ali-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .ra-ali-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border: 1px solid rgba(201,169,110,.45); display: block; max-width: 100%; }
+  .ra-ali .section-eyebrow { margin-bottom: .6rem; }
+  .ra-ali h2 { color: var(--white); margin-bottom: 1.6rem; }
+  .ra-facts { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+  .ra-facts li { position: relative; padding-inline-start: 1.6rem; font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,.78); }
+  .ra-facts li::before { content: ''; position: absolute; inset-inline-start: 0; top: .6em; width: 8px; height: 8px; border: 1px solid var(--copper); transform: rotate(45deg); }
+  .ra-bridge { background: var(--cream); }
+  .ra-bridge-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+  .ra-bridge img { width: 100%; max-width: 180px; height: auto; display: block; }
+  .ra-bridge h2 { color: var(--navy); margin-bottom: 1rem; }
+  .ra-bridge p { font-size: 1.02rem; line-height: 1.9; color: #3d4a5c; margin: 0; }
+  .ra-cta { background: var(--navy); text-align: center; }
+  .ra-cta h2 { color: var(--white); margin-bottom: 1.6rem; }
+  @media (max-width: 760px) {
+    .ra-ali-inner, .ra-bridge-inner { grid-template-columns: minmax(0, 1fr); }
+    .ra-ali-photo { max-width: 340px; }
+    .ra-bridge img { max-width: 130px; }
+    .ra-quote p { font-size: 1.3rem; }
+  }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="À propos | Rahim International">
-<meta name="twitter:description" content="Fondé sur une vraie expérience d">
+<meta name="twitter:description" content="Rahim International accompagne les Marocains résidant à l&#x27;étranger et les investisseurs qui souhaitent acheter au Maroc sans être sur place.">
 <meta name="twitter:image" content="https://rahiminternational.com/alirahim.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://rahiminternational.com/fr/index.html"},{"@type":"ListItem","position":2,"name":"Qui Sommes","item":"https://rahiminternational.com/fr/about.html"}]}</script>
 <meta property="og:image:alt" content="Ali Rahim, fondateur de Rahim International, conseil immobilier">
@@ -377,278 +407,60 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Rabat-Salé-Kénitra · Maroc</p>
-      <h1 class="page-hero-title">Conseil immobilier<br><em>bâti sur l'expérience.</em></h1>
-      <p class="page-hero-sub">Nous aidons les acheteurs et les promoteurs immobiliers à prendre de meilleures décisions dans un marché où les bonnes opportunités ne sont pas toujours faciles à voir de l'extérieur.</p>
+      <p class="page-hero-eyebrow">Kénitra · Rabat · Salé</p>
+      <h1 class="page-hero-title">Nous avons vécu<br><em>ce que vivent nos clients.</em></h1>
+      <p class="page-hero-sub">Rahim International accompagne les Marocains résidant à l&#x27;étranger et les investisseurs qui souhaitent acheter au Maroc sans être sur place.</p>
     </div>
   </section>
 
-  <!-- WHO WE ARE -->
-  <section class="bg-cream" style="padding: var(--section-pad);">
-    <div class="about-intro-grid">
+  <!-- STORY -->
+  <section class="ra-story" style="padding: var(--section-pad);">
+    <div class="ra-story-inner">
+      <p class="section-eyebrow">Notre histoire</p>
+      <h2 class="section-title">Tout a commencé par une mission pour un proche.</h2>
+      <p class="ra-p">Ali Rahim gère depuis plus de cinq ans des locations de courte durée à Kénitra. Les loyers, la rentabilité, ce qu&#x27;un bien rapporte vraiment : il connaît ces chiffres quartier par quartier. C&#x27;est une mission pour un proche qui l&#x27;a plongé dans l&#x27;univers de la vente.</p>
+      <p class="ra-p">Ce proche vivait à l&#x27;étranger et cherchait un appartement qui soit un vrai investissement : un bon rendement locatif, un bon emplacement, un immeuble de standing, un budget serré, et l&#x27;éligibilité à l&#x27;aide Daam Sakane. Ali sur le terrain, l&#x27;acheteur à des milliers de kilomètres : c&#x27;est exactement la situation de nos clients aujourd&#x27;hui.</p>
+      <p class="ra-p">Au début, Ali visitait les appartements repérés à distance par ce proche. Il a vite constaté que les annonces ne disaient pas tout, et a proposé de mener la recherche lui-même. Il a visité plus de quinze appartements, pris des notes, envoyé des vidéos, comparé les prix au mètre carré d&#x27;un quartier à l&#x27;autre. Il s&#x27;est heurté à ce que vivent la plupart des acheteurs : des prix différents selon l&#x27;interlocuteur, peu de transparence, des promoteurs qui présentaient à peine leurs projets, et même une réservation annulée le matin où il arrivait avec l&#x27;acompte, parce qu&#x27;il avait posé trop de questions.</p>
+      <p class="ra-p">Menée en parallèle de son activité, la recherche a pris quatre mois. Le bon appartement a été trouvé, et avec lui une conviction : les acheteurs, surtout ceux qui vivent loin, ont besoin de quelqu&#x27;un sur place qui cherche, visite, vérifie et explique. Rahim International est né de ce constat.</p>
+      <blockquote class="ra-quote">
+        <p>« Notre rôle est de rendre visibles les éléments importants avant que vous n&#x27;engagiez votre argent. »</p>
+        <cite>Ali Rahim, cofondateur</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ALI -->
+  <section class="ra-ali" style="padding: var(--section-pad);">
+    <div class="ra-ali-inner">
+      <img src="../alirahim-900.jpg" alt="Ali Rahim, cofondateur de Rahim International" class="ra-ali-photo" width="720" height="900" decoding="async">
       <div>
-        <p class="section-eyebrow">À propos</p>
-        <h2 class="section-title" style="color:var(--navy);">Conseil immobilier<br>et stratégie.</h2>
-        <p class="body-text">Rahim International est un cabinet de conseil immobilier, de courtage et de stratégie de projet opérant dans la région Rabat-Salé-Kénitra, avec une présence concentrée à Kénitra. Nous travaillons avec les acheteurs qui achètent depuis l'étranger, les investisseurs locaux comparant des opportunités, et les promoteurs immobiliers qui ont besoin de stratégie commerciale, de marketing et d'exécution des ventes.</p>
-        <div style="margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);">
-          <p class="section-eyebrow" style="margin-bottom:.6rem;">Comment nous avons commencé</p>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:var(--navy);margin-bottom:1.4rem;line-height:1.2;">Nous comprenons le processus<br>parce que nous l'avons vécu.</h3>
-          <p class="body-text">Rahim International n'a pas été bâti à partir d'un business plan. Il a été bâti à partir d'une recherche.</p>
-          <p class="body-text">Nous avons traversé le marché de Kénitra en tant qu'acheteurs — coordonnant depuis le Canada, avec peu de temps sur place, comptant sur la famille pour visiter des biens en notre nom. Pendant cinq mois d'allers-retours entre le Canada et le Maroc, nous avons vécu ce que la plupart des acheteurs MRE vivent sans en parler en détail. Mauvaises adresses. Bureaux encore listés comme actifs mais déménagés depuis longtemps. Promoteurs jamais présents pour les visites. Prix annoncés ne correspondant qu'à une unité peu attrayante. Un promoteur qui a annulé une réservation confirmée le matin où nous sommes arrivés avec l'acompte — parce que nous avions posé trop de questions directes sur la structure de la transaction.</p>
-          <p class="body-text">Nous avons finalement trouvé notre promoteur par élimination. Nous avons visité le chantier plusieurs fois pendant la construction, l'avons comparé à tous les autres projets accessibles, et l'avons choisi parce que c'était le seul que nous pouvions réellement vérifier. Nous avons engagé notre propre argent avant même de proposer un partenariat.</p>
-          <p class="body-text">Cette conversation s'est faite naturellement, avec le temps, après qu'une relation de travail a déjà été établie. Le promoteur avait un produit sérieux et une visibilité limitée pour l'accompagner. Les bons projets dans ce marché atteignent régulièrement moins d'acheteurs qu'ils ne le devraient — non pas parce que le bâtiment est mauvais, mais parce que l'infrastructure pour le présenter correctement n'existe tout simplement pas.</p>
-          <p class="body-text" style="margin-bottom:0;">Cet écart — entre ce que mérite un projet immobilier et ce que le marché voit réellement — est ce pour quoi Rahim International a été créé. Nous savons à quoi cela ressemble des deux côtés.</p>
-        </div>
-
-        <div class="pull-quote" style="margin-top: 2.5rem;">
-          <p>« Notre rôle est de rendre les éléments importants visibles avant que quelqu'un n'engage un capital sérieux. »</p>
-          <cite>Ali Rahim · Fondateur</cite>
-        </div>
-      </div>
-      <div class="reveal">
-        <div style="background: var(--navy); padding: 0; border: 1px solid var(--border-warm); overflow: hidden;">
-          <div style="background: linear-gradient(135deg, rgba(183,106,63,0.12), rgba(8,26,51,0.06)); height: 360px; overflow: hidden;">
-            <img src="../scope.png" alt="Périmètre de Rahim International" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; opacity: 0.98;">
-          </div>
-          <div style="padding: 2rem; border-top: 1px solid var(--border-warm);">
-            <div style="font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); margin-bottom: 1rem;">Notre périmètre</div>
-            <div style="display: grid; gap: 0.9rem;">
-              <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.84rem; color: rgba(255,255,255,0.72);">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0;"></span>
-                Conseil &amp; recherche
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.84rem; color: rgba(255,255,255,0.72);">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0;"></span>
-                Courtage
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.84rem; color: rgba(255,255,255,0.72);">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0;"></span>
-                Stratégie de projet &amp; marketing
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.84rem; color: rgba(255,255,255,0.72);">
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0;"></span>
-                Appui aux ventes promoteurs
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="section-eyebrow">Cofondateur · Kénitra</p>
+        <h2 class="section-title">Ali Rahim</h2>
+        <ul class="ra-facts">
+        <li>Bac+3 en logistique</li>
+        <li>Plus de 5 ans d&#x27;expérience en gestion de locations de courte durée à Kénitra</li>
+        <li>Dirige les recherches, les visites et les négociations pour nos clients</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- TEAM / ALI RAHIM -->
-  <section class="team-section" style="padding: var(--section-pad);">
-    <div>
-      <p class="section-eyebrow">Notre équipe</p>
-      <h2 class="section-title">Concentré, local<br>et responsable.</h2>
-      <p class="body-text">Rahim International est fondé sur un travail pratique sur le terrain : recherche, conseil acheteurs, coordination avec les promoteurs, marketing et courtage.</p>
-      <p class="body-text">Notre équipe principale est basée à Kénitra, où le marché est activement géré. Nous sommes soutenus par un représentant au Canada pour les clients nord-américains et un en France pour les clients européens, offrant une communication accessible tout en gardant l'exécution ancrée localement.</p>
-      <div class="team-locations reveal" style="max-width: 440px; margin-top: 2rem;">
-        <div class="team-location">
-          <div class="team-location-label">Canada</div>
-          <p class="team-location-text">Accompagnement clients Amérique du Nord</p>
-        </div>
-        <div class="team-location">
-          <div class="team-location-label">France</div>
-          <p class="team-location-text">Accompagnement clients Europe</p>
-        </div>
-      </div>
-    </div>
-    <article class="team-panel reveal">
-      <img src="../alirahim.png" alt="Ali Rahim, Fondateur of Rahim International" class="team-panel-photo">
-      <div class="team-panel-body">
-        <p class="team-role">Fondateur</p>
-        <h3 class="team-name">Ali Rahim</h3>
-        <p class="team-bio">Basé à Kénitra, Ali dirige la stratégie de conseil, les relations avec les promoteurs et la direction des mandats. Il est soutenu par une petite équipe gérant la recherche, le marketing, la coordination et le suivi client. Le nom et l'identité de l'entreprise sont enracinés dans Kénitra elle-même — « le petit pont » — et le Pont Mohammed VI, symbole de connexion et de mouvement en avant.</p>
-        <div class="team-contact-row">
-          <div class="team-contact-item">
-            <div class="team-contact-icon">✉</div>
-            <div>
-              <div class="team-contact-label">E-mail</div>
-              <div class="team-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="team-contact-item">
-            <div class="team-contact-icon">☎</div>
-            <div>
-              <div class="team-contact-label">Téléphone &amp; WhatsApp</div>
-              <div class="team-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="team-contact-item">
-            <div class="team-contact-icon">◎</div>
-            <div>
-              <div class="team-contact-label">Bureau</div>
-              <div class="team-contact-value">70 Av. Youssef Ben Tachfine, Kénitra 14000</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </section>
-
-  <!-- TEAM EXPERIENCE -->
-  <section class="experience-section" style="padding: var(--section-pad);">
-    <p class="section-eyebrow">Parcours &amp; expertise</p>
-    <h2 class="section-title" style="color: var(--navy);">Ce que nous apportons<br>à chaque mandat.</h2>
-    <p class="body-text" style="max-width: 680px;">L'expérience combinée de l'équipe couvre des secteurs qui s'appliquent directement au conseil immobilier, à l'accompagnement des acheteurs et aux services aux promoteurs.</p>
-    <div class="experience-grid stagger">
-      <div class="exp-tag reveal"><div class="exp-icon">🌍</div><div class="exp-label">Commerce international</div></div>
-      <div class="exp-tag reveal"><div class="exp-icon">📊</div><div class="exp-label">Recherche analytique</div></div>
-      <div class="exp-tag reveal"><div class="exp-icon">📣</div><div class="exp-label">Marketing international</div></div>
-      <div class="exp-tag reveal"><div class="exp-icon">🤝</div><div class="exp-label">Communication interculturelle</div></div>
-      <div class="exp-tag reveal"><div class="exp-icon">🏠</div><div class="exp-label">Gestion immobilière</div></div>
-      <div class="exp-tag reveal"><div class="exp-icon">🔑</div><div class="exp-label">Gestion de location courte durée</div></div>
-      <div class="exp-tag reveal"><div class="exp-icon">📦</div><div class="exp-label">Logistique internationale</div></div>
-      <div class="exp-tag reveal"><div class="exp-icon">🇲🇦</div><div class="exp-label">Expérience directe MRE</div></div>
-    </div>
-  </section>
-
-  <!-- LE PONT / STORY -->
-  <section class="story-section" style="padding: var(--section-pad);">
-    <p class="section-eyebrow">Le pont</p>
-    <h2 class="section-title">Pourquoi cela compte.</h2>
-    <div class="story-grid">
+  <!-- BRIDGE -->
+  <section class="ra-bridge" style="padding: var(--section-pad);">
+    <div class="ra-bridge-inner">
+      <img src="../ri_logo_gold_240.png" alt="Logo Rahim International : le pont" width="240" height="197" loading="lazy" decoding="async">
       <div>
-        <p class="story-text">Notre identité est fondée sur la connexion. Notre nom est inspiré de Kénitra — « le petit pont » — et notre logo reflète le Pont Mohammed VI, symbole d'infrastructure moderne et de mouvement en avant au Maroc.</p>
-        <div class="story-image reveal" role="img" aria-label="Mohammed VI Bridge in Morocco"></div>
-        <p class="story-text">Cette idée définit notre rôle. Nous connectons les acheteurs qui ont besoin de clarté avec les projets qui méritent d'être correctement compris et présentés.</p>
-        <div class="story-highlight">
-          <div class="story-highlight-label">Pour les acheteurs</div>
-          <div class="story-highlight-text">Nous nous concentrons sur la protection du temps, du capital et de la confiance décisionnelle grâce à la vérification locale, la recherche structurée, les explications claires et le soutien continu.</div>
-        </div>
+        <p class="section-eyebrow">Notre nom</p>
+        <h2 class="section-title">Pourquoi un pont ?</h2>
+        <p>Kénitra signifie « le petit pont », et notre logo reprend la silhouette du pont Mohammed VI. Il symbolise notre rôle : relier ceux qui vivent loin à un projet immobilier au Maroc, et les accompagner jusqu&#x27;à l&#x27;autre rive.</p>
       </div>
-      <div>
-        <p class="story-text">Pour les promoteurs immobiliers, nous aidons à transformer de bons projets en opportunités claires et bien positionnées : analyse commerciale, positionnement de marché, marketing, présentation et accès aux acheteurs au-delà des réseaux locaux.</p>
-        <p class="story-text">Nous ne sommes pas là pour rendre l'immobilier marocain plus complexe. Nous nous concentrons sur la clarification des éléments essentiels : emplacement, crédibilité du promoteur, logique de prix, structure juridique, qualité de construction et usage réel.</p>
-        <p class="story-text" style="margin-top: 1.2rem;">Nous travaillons avec des acheteurs et des promoteurs qui cherchent à prendre la bonne décision, pas la plus rapide.</p>
-        <div class="story-highlight" style="margin-top: 2rem;">
-          <div class="story-highlight-label">Pour les promoteurs immobiliers</div>
-          <div class="story-highlight-text">Nous structurons, positionnons et présentons les projets pour que le marché comprenne leur valeur — en atteignant les acheteurs locaux, de la diaspora et internationaux.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUOTE BREAK -->
-  <div class="image-break" aria-hidden="true">
-    <div class="image-break-bg"></div>
-    <div class="image-break-overlay"></div>
-    <div class="image-break-content">
-      <p class="image-break-quote">« La bonne décision immobilière commence par une information claire, pas par la pression. »</p>
-    </div>
-  </div>
-
-  <!-- COMMENT NOUS TRAVAILLONS -->
-  <section class="values-section" style="padding: var(--section-pad);">
-    <p class="section-eyebrow">Comment nous travaillons</p>
-    <h2 class="section-title" style="color: var(--navy);">Rendre les décisions plus claires.</h2>
-    <div class="values-grid stagger">
-      <article class="value-card reveal">
-        <div class="value-num">01</div>
-        <h3 class="value-title">Recherche avant recommandation</h3>
-        <p class="value-desc">Chaque opportunité est examinée en détail avant d'être présentée à un acheteur ou un promoteur.</p>
-      </article>
-      <article class="value-card reveal">
-        <div class="value-num">02</div>
-        <h3 class="value-title">Protection claire des acheteurs</h3>
-        <p class="value-desc">Les acheteurs reçoivent l'information dont ils ont besoin pour avancer à leur propre rythme, sans pression.</p>
-      </article>
-      <article class="value-card reveal">
-        <div class="value-num">03</div>
-        <h3 class="value-title">Stratégie commerciale pour les promoteurs</h3>
-        <p class="value-desc">Nous aidons à structurer, positionner et présenter les projets pour qu'ils atteignent efficacement le bon public.</p>
-      </article>
-      <article class="value-card reveal">
-        <div class="value-num">04</div>
-        <h3 class="value-title">Immobilier pratique et bien tarifé</h3>
-        <p class="value-desc">Nous nous concentrons sur la vraie valeur : objectif clair, points d'entrée sensés et utilisabilité à long terme.</p>
-      </article>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="about-cta" style="padding: var(--section-pad);">
-    <p class="section-eyebrow">Avec qui nous travaillons</p>
-    <h2 class="section-title">Commencez par la bonne conversation.</h2>
-    <p class="cta-sub" style="color: rgba(255,255,255,0.62);">Que vous achetiez depuis l'étranger, rentriez au pays en tant que membre de la diaspora marocaine, investissiez localement ou développiez un projet, commencez par le parcours qui vous correspond.</p>
-    <div class="cta-actions" style="margin-top: 2.5rem;">
-      <a href="investors-international.html" class="btn-gold">Investisseurs internationaux</a>
-      <a href="investors-mre.html" class="btn-outline">Diaspora / MRE</a>
-      <a href="investors-local.html" class="btn-outline">Investisseurs locaux</a>
-      <a href="services-developers.html" class="btn-outline">Services aux promoteurs</a>
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">Nous contacter</p>
-    <h2 class="section-title" style="color:var(--white);">Dites-nous ce que vous souhaitez<br>acheter ou construire.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">Que vous compariez des biens, achetiez depuis l'étranger, rentriez au pays ou lanciez un projet immobilier, la prochaine étape dépend de votre situation. Dites-nous ce sur quoi vous travaillez et nous vous répondrons avec le parcours le plus pertinent.</p>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div>
-              <div class="contact-item-label">E-mail</div>
-              <div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">☎</div>
-            <div>
-              <div class="contact-item-label">Téléphone &amp; WhatsApp</div>
-              <div class="contact-item-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">◎</div>
-            <div>
-              <div class="contact-item-label">Siège</div>
-              <div class="contact-item-value">70 Av. Youssef Ben Tachfine,<br>Kénitra 14000, Maroc<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(futur bureau)</em></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST">
-          <input type="hidden" name="subject" value="Demande depuis RahimInternational.com/fr">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">Prénom</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="Votre prénom" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">Nom de famille</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="Votre nom de famille" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">E-mail</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="votre@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">Je suis</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">Sélectionnez votre profil</option>
-              <option>Promoteur immobilier cherchant un partenaire commercial</option>
-              <option>Investisseur international</option>
-              <option>Acheteur de la diaspora marocaine / MRE</option>
-              <option>Investisseur local</option>
-              <option>Autre</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Dites-nous ce sur quoi vous travaillez…"></textarea>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">Envoyer</button>
-        </form>
-      </div>
-    </div>
+  <section class="ra-cta" style="padding: var(--section-pad-sm);">
+    <h2 class="section-title">Prêt à commencer ?</h2>
+    <a href="consultation.html" class="btn-gold">Préparer ma consultation</a>
   </section>
 
 </main>
