@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الاستثمار العقاري المحلي في القنيطرة والرباط</title>
-<meta name="description" content="إرشادات للمشترين المغاربة والمستثمرين المحليين لمقارنة الفرص العقارية، وإمكانات الإيجار، والعقارات في المدن الثانوية عبر منطقة الرباط-سلا-القنيطرة.">
+<meta name="description" content="المشترون والمستثمرون المحليون: تقارن Rahim International المشاريع، وتتحقق من كل التفاصيل، وتتفاوض نيابة عنك لشراء العقار المناسب بالسعر المناسب.">
 <link rel="canonical" href="https://rahiminternational.com/ar/investors-local.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/investors-local.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/investors-local.html">
@@ -21,8 +21,8 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/investors-local.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="المستثمرون المحليون | Rahim International">
-<meta property="og:description" content="استثمر بالقرب من منزلك بمعلومات أفضل. نساعد المشترين المحليين على مقارنة المطورين والأسعار والمواقع وفرص المدن الثانوية.">
-<meta property="og:image" content="https://rahiminternational.com/elaf.jpg">
+<meta property="og:description" content="المشترون والمستثمرون المحليون: تقارن Rahim International المشاريع، وتتحقق من كل التفاصيل، وتتفاوض نيابة عنك لشراء العقار المناسب بالسعر المناسب.">
+<meta property="og:image" content="https://rahiminternational.com/localbuyers.png">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,15 +58,50 @@
     .timeline-num,.timeline-step:nth-child(odd) .timeline-num,.timeline-step:nth-child(even) .timeline-num{right:-3rem;left:auto;top:1.3rem;width:2.7rem;height:2.7rem;font-size:1rem;}
   }
   @media(max-width:680px){.cards-grid{grid-template-columns:1fr;}}
+
+  /* ── Buyer page (2026 refonte) ── */
+  .rb-sec { padding: var(--section-pad); }
+  .rb-inner { max-width: 980px; margin: 0 auto; }
+  .rb-light { background: var(--cream); }
+  .rb-dark { background: var(--navy); }
+  .rb-steel { background: var(--steel); }
+  .rb-steel h2 { color: var(--navy); margin-bottom: 2rem; }
+  .rb-light h2 { color: var(--navy); margin-bottom: 2rem; }
+  .rb-dark h2 { color: var(--white); margin-bottom: 2rem; }
+  .rb-qa { display: grid; gap: 0; border-top: 1px solid rgba(8,26,51,.15); }
+  .rb-qa > div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(8,26,51,.12); }
+  .rb-qa dt { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.3; color: var(--navy); }
+  .rb-qa dd { margin: 0; font-size: 1rem; line-height: 1.8; color: #3d4a5c; }
+  .rb-checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+  .rb-checks li { position: relative; padding-inline-start: 1.8rem; font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,.8); }
+  .rb-checks li::before { content: '\2713'; position: absolute; inset-inline-start: 0; color: var(--copper); }
+  .rb-intro { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,.78); max-width: 760px; margin: -0.8rem 0 2rem; }
+  .rb-svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.4rem; }
+  .rb-svc li { position: relative; padding-inline-start: 1.6rem; font-size: .98rem; line-height: 1.75; color: rgba(255,255,255,.72); min-width: 0; }
+  .rb-svc li::before { content: ''; position: absolute; inset-inline-start: 0; top: .55em; width: 8px; height: 8px; border: 1px solid var(--copper); transform: rotate(45deg); }
+  .rb-svc strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--white); margin-bottom: .2rem; }
+  .rb-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; counter-reset: rb; }
+  .rb-steps li { counter-increment: rb; border-top: 2px solid var(--copper); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: #3d4a5c; min-width: 0; }
+  .rb-steps li::before { content: '0' counter(rb); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark); margin-bottom: .4rem; }
+  .rb-steps strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-bottom: .3rem; }
+  .rb-cta { background: var(--navy); text-align: center; padding: var(--section-pad-sm); }
+  .rb-cta h2 { color: var(--white); margin-bottom: 1.6rem; }
+  .rb-cta-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 1.6rem; }
+  .rb-cta-links a.rb-link { color: rgba(255,255,255,.7); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 900px) { .rb-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 680px) {
+    .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+    .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
+  }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="المستثمرون المحليون | Rahim International">
-<meta name="twitter:description" content="استثمر بالقرب من منزلك بمعلومات أفضل. نساعد المشترين المحليين على مقارنة المطورين والأسعار والمواقع وفرص المدن الثانوية.">
-<meta name="twitter:image" content="https://rahiminternational.com/elaf.jpg">
+<meta name="twitter:description" content="المشترون والمستثمرون المحليون: تقارن Rahim International المشاريع، وتتحقق من كل التفاصيل، وتتفاوض نيابة عنك لشراء العقار المناسب بالسعر المناسب.">
+<meta name="twitter:image" content="https://rahiminternational.com/localbuyers.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"القنيطرة","postalCode":"14000","addressCountry":"MA"},"description":"استشارات عقارية وتسويق ووساطة للمشترين والمطورين في منطقة الرباط وسلا والقنيطرة بالمغرب.","inLanguage":"ar"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://rahiminternational.com/ar/index.html"},{"@type":"ListItem","position":2,"name":"الاستثمار العقاري المحلي في القنيطرة والرباط","item":"https://rahiminternational.com/ar/investors-local.html"}]}</script>
-<meta property="og:image:alt" content="إيلاف سكاي فيو — مشروع سكني في وسط القنيطرة، المغرب">
-<meta name="twitter:image:alt" content="إيلاف سكاي فيو — مشروع سكني في وسط القنيطرة، المغرب">
+<meta property="og:image:alt" content="المشترون والمستثمرون المحليون في القنيطرة والرباط مع Rahim International">
+<meta name="twitter:image:alt" content="المشترون والمستثمرون المحليون في القنيطرة والرباط مع Rahim International">
 <meta property="og:locale" content="ar_MA">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -104,170 +139,62 @@
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">المشترون والمستثمرون المحليون</p>
-      <h1 class="page-hero-title">الفرصة حقيقية.<br><em>وفجوة المعلومات حقيقية أيضًا.</em></h1>
-      <p class="page-hero-sub">يكتشف معظم المشترين المحليين المشاريع عبر الاتصالات أو المكالمات أو التوصيات الشفهية. نحن نساعدك على الانتقال من المعلومات المتناثرة إلى قرار منظم — مع المقارنة الصحيحة، والأسئلة الصحيحة، ومع شخص قام بالفعل بأعمال التحقق.</p>
+      <h1 class="page-hero-title">العقار المناسب،<br><em>بالسعر المناسب.</em></h1>
+      <p class="page-hero-sub">سكن رئيسي أو استثمار: نقارن المشاريع، ونتحقق من كل التفاصيل، ونتفاوض نيابة عنك، لتشتري بكل ثقة.</p>
     </div>
   </section>
 
-  <!-- THE LOCAL BUYER PROBLEM -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">مشكلة المشتري المحلي</p>
-    <h2 class="section-title" style="color:var(--navy);">التفاصيل<br>تصنع الفارق.</h2>
-    <p class="intro-text">يكتشف العديد من المشترين المحليين المشاريع عبر المكالمات أو الاتصالات أو التوصيات الشفهية. يمكن أن ينجح ذلك — لكنه غالبًا ما يترك أسئلة جدية دون إجابة. سجل المطور، والتشطيبات الدقيقة، والجدول الزمني للتسليم، وجدول الدفع، والطلب على الإيجار، وما إذا كان السعر عادلاً للموقع بالفعل. بدون إجابات على هذه الأسئلة، يمكن للقرار الذي يبدو صحيحًا أن يؤدي لنتائج مختلفة.</p>
-    <div class="cards-grid stagger">
-      <article class="info-card reveal"><div class="card-kicker">01</div><h3 class="card-title">مقارنة المشاريع</h3><p class="card-text">نقارن بين الموقع، ونوع الوحدة، ومستوى التشطيب، والسعر، والمواقف، وحالة الاستخدام طويل الأمد قبل اعتبار الفرصة جدية.</p></article>
-      <article class="info-card reveal"><div class="card-kicker">02</div><h3 class="card-title">فرص المدن الثانوية</h3><p class="card-text">ننظر إلى ما وراء المناطق الواضحة نحو المجتمعات المتصلة مثل القنيطرة، وسلا، وتمارة، والصخيرات حيث يمكن أن تكون القيمة أقوى.</p></article>
-      <article class="info-card reveal"><div class="card-kicker">03</div><h3 class="card-title">منطق الاستثمار</h3><p class="card-text">الصفقة الجيدة ليست مجرد سعر أقل. ننظر في استخدام الإيجار، ومنطق إعادة البيع، وتكاليف التجهيز، وما إذا كان العقار يمكن أن يؤدي بشكل جيد بمرور الوقت.</p></article>
+  <!-- WHAT WE DO -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">ما نقوم به من أجلك</h2>
+      <p class="rb-intro">يمكنك زيارة العقارات بنفسك، لكن الوقت والمقارنات والتحقق تصنع الفرق. نحن نقوم بهذا العمل من أجلك.</p>
+      <ul class="rb-svc">
+        <li><strong>الاستشارة الاستراتيجية</strong>المشروع المناسب، والميزانية المناسبة، والأحياء المناسبة.</li>
+        <li><strong>مقارنة المشاريع</strong>الموقع، والتشطيبات، والسعر، والمطوّر، جنباً إلى جنب.</li>
+        <li><strong>تحليل المردودية</strong>الإيجار الواقعي، والطلب على الكراء، والتكاليف، وإمكانية إعادة البيع.</li>
+        <li><strong>التمويل</strong>القرض، و«دعم السكني»، واختيار البنك.</li>
+        <li><strong>التفاوض</strong>نتفاوض على السعر والشروط باسمك.</li>
+        <li><strong>المرافقة حتى المفاتيح</strong>الوعد بالبيع، والموثّق، والتوقيع، وتسليم المفاتيح.</li>
+      </ul>
     </div>
   </section>
 
-  <!-- HOW WE WORK WITH YOU — 9-STEP TIMELINE -->
-  <section class="bg-navy-grad" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">كيف نعمل معك</p>
-    <h2 class="section-title" style="color:var(--white);">عملية منظمة،<br>من البداية إلى النهاية.</h2>
-    <p style="font-size:.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.64);max-width:700px;">تبدأ العملية باستشارة — شخصيًا، أو عبر الهاتف، أو الفيديو. هنا نضع الأساس: لماذا تريد الشراء، وما الذي يجب أن يحققه العقار، وميزانيتك، والجدول الزمني، وما إذا كانت مدينة ثانوية متصلة مثل القنيطرة تغير مسار النقاش.</p>
-    <div class="steps-timeline">
-      <article class="timeline-step reveal"><div class="timeline-num">01</div><div><h3 class="timeline-title">نبني ملف المشتري الخاص بك</h3><p class="timeline-text">سكن رئيسي، أو دخل إيجار، أو إعادة بيع، أو استخدام عائلي، أو الحفاظ على رأس المال — يعتمد العقار الصحيح على الغرض. ننظر أيضًا في مدى صلة أهلية Daam Sakani وكيف يجب أن تشكل استراتيجية الاستحواذ.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">02</div><div><h3 class="timeline-title">قراءة السوق ومقارنة المدن</h3><p class="timeline-text">قبل عرض العقارات، نضع لك الصورة كاملة: الأسعار حسب المنطقة، وفجوة القيمة بين الرباط والمدن الثانوية المتصلة مثل القنيطرة، والفروق بين البناء الجديد وإعادة البيع والشراء على الخارطة، والمخاطر المرتبطة بكل استراتيجية.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">03</div><div><h3 class="timeline-title">نختار ونقارن الفرص</h3><p class="timeline-text">نقارن بين الرباط والقنيطرة وسلا وتمارة والصخيرات والمناطق المماثلة حيث يمكن لفجوة القيمة أن تشكل فرقًا كبيرًا — نبني قائمة مختصرة منظمة ونقارن كل خيار عبر السعر وجودة الموقع ومصداقية المطور ومدى ملاءمتها لاستخدامك.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">04</div><div><h3 class="timeline-title">التحقق من المطور والمشروع</h3><p class="timeline-text">يتم التعريف بالعديد من المشاريع المحلية عبر الاتصالات أو المكالمات أو الاستفسارات في موقع البناء. نحن نذهب إلى أبعد من التعريف — نسأل عن سجل المطور، وتاريخ التسليم، وحالة التصاريح، ومنطق التسعير، وما إذا كان المشروع يصمد أمام المقارنة.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">05</div><div><h3 class="timeline-title">نفحص، نوثق، ونقدم التقارير</h3><p class="timeline-text">لكل خيار جدي، نجري تقييمًا مفصلاً شخصيًا: مراجعة مخطط الطابق، والتحقق من المساحة السطحية حيثما أمكن، وفحص المواد والتشطيبات والتجهيزات وجودة البناء، بالإضافة إلى تقييم الحي والوصول وصلاحية السكن.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">06</div><div><h3 class="timeline-title">التحقق المالي والقانوني والاستثماري</h3><p class="timeline-text">نراجع وثائق المطور، وهيكل جدول الدفع، وحالة السجل العقاري، وحيثما كان ذلك مناسبًا، منطق الاستثمار — طلب الإيجار، وتكاليف التجهيز، وتوقعات إعادة البيع، وما إذا كانت الأرقام تعمل بالفعل.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">07</div><div><h3 class="timeline-title">هيكلة القرار والتوجيه في التفاوض</h3><p class="timeline-text">بمجرد اختيار العقار، نؤكد أنه لا يزال يطابق هدفك الأصلي، ونحدد المقايضات بوضوح، ونقدم المشورة بشأن التسعير وموقف التفاوض، ونساعد في هيكلة توقيت الحجز والدفع دون ضغوط.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">08</div><div><h3 class="timeline-title">متابعة الحجز وإتمام المعاملة</h3><p class="timeline-text">نظل مشاركين طوال المعاملة: من الحجز، ومراجعة الوثائق، والتنسيق مع المطور أو الموثق، وتتبع الدفعات، إلى متابعة التواصل لضمان سير العملية بسلاسة.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">09</div><div><h3 class="timeline-title">متابعة ما بعد الشراء</h3><p class="timeline-text">بالنسبة للشراء على الخارطة بشكل خاص، لا يتوقف دورنا عند الحجز. نواصل متابعة البناء، والتواصل مع المطور، وتحديثات التسليم، والدعم في حالة ظهور مشكلات قبل تسليم المفاتيح.</p></div></article>
-    </div>
-    <p class="timeline-note">تم تصميم عمليتنا لتقليل عدم اليقين في كل مرحلة — من الاستشارة الأولى إلى متابعة ما بعد الشراء. كل خطوة تبنى على السابقة بحيث يتم اتخاذ القرارات بهيكلية وسياق وتحقق.</p>
-  </section>
-
-  <!-- RELEVANT GUIDES -->
-  <section class="guide-links-section" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">تعمق أكثر</p>
-    <h2 class="section-title" style="color:var(--navy);">أدلة ذات صلة<br>لوضعك.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.85;color:var(--text-muted);max-width:600px;margin-bottom:2rem;">تغطي هذه الأدلة التفاصيل التي تنتمي إلى المواد المرجعية — وليس في نظرة عامة للمشتري.</p>
-    <div class="guide-links-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-      <a href="guides/buying-property-morocco.html" class="guide-link-card">
-        <div class="guide-link-label">دليل عام</div>
-        <div class="guide-link-title">شراء العقارات في المغرب</div>
-        <p class="guide-link-desc">التكاليف، والعملية، وقائمة التحقق قبل البناء. الأساس قبل أي مقارنة أخرى.</p>
-      </a>
-      <a href="guides/daam-sakani-guide.html" class="guide-link-card">
-        <div class="guide-link-label">دليل الدعم</div>
-        <div class="guide-link-title">دليل Daam Sakani</div>
-        <p class="guide-link-desc">هل أنت مؤهل للحصول على دعم مالي مباشر من الدولة يصل إلى 70,000 MAD؟ وكيف تتم إجراءات التقديم؟</p>
-      </a>
-      <a href="guides/kenitra-vs-rabat.html" class="guide-link-card">
-        <div class="guide-link-label">مقارنة السوق</div>
-        <div class="guide-link-title">القنيطرة مقابل الرباط</div>
-        <p class="guide-link-desc">مقارنة واضحة بين الأسعار وسهولة التنقل: الرباط بمتوسط 14,500 MAD/م² مقابل القنيطرة بين 10,000 و13,000.</p>
-      </a>
+  <!-- METHOD -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">منهجيتنا</h2>
+      <ol class="rb-steps">
+        <li><strong>الاستراتيجية</strong>تحليل مشروعك وميزانيتك ومعاييرك.</li>
+        <li><strong>البحث</strong>انتقاء أولي وزيارات بمرافقتنا.</li>
+        <li><strong>التحليل</strong>مقارنة أفضل العقارات وتوصيتنا.</li>
+        <li><strong>التفاوض</strong>السعر، والقرض، والموثق، والوعد بالبيع.</li>
+        <li><strong>الإتمام</strong>عقد البيع وتسليم المفاتيح.</li>
+      </ol>
     </div>
   </section>
 
-  <!-- CURRENT OPPORTUNITY -->
-  <section class="bg-navy-grad" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">الفرصة الحالية</p>
-    <h2 class="section-title" style="color:var(--white);">تستأجر في الرباط؟<br>تمتلك في القنيطرة؟</h2>
-    <div class="split" style="margin-top:3rem;">
-      <div>
-        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.64);margin-bottom:1.2rem;">بالنسبة للمشترين الذين يعملون في الرباط أو يخدمون مستأجرين هناك، تستحق القنيطرة نظرة جدية. السؤال ليس ما إذا كانت الرباط أقوى، بل ما إذا كانت مدينة ثانوية متصلة توفر طريقًا أفضل للملكية ومساحة أكبر وقيمة طويلة الأمد.</p>
-        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.64);margin-bottom:2rem;">يناسب مشروع Elaf Sky View هذا السياق: وسط القنيطرة، وتصاميم عملية، وأهلية Daam مختارة، ووحدات أكبر يمكن أن تصلح للعائلات أو المستثمرين في الإيجار.</p>
-        <a href="elaf-sky-view.html" class="btn-gold">عرض Elaf Sky View</a>
-      </div>
-      <div>
-        <div class="highlight-panel">
-          <div class="highlight-kicker">قراءات موصى بها</div>
-          <div class="highlight-title">استخدم الأدلة للمقارنة التفصيلية.</div>
-          <p style="font-size:.84rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.9;">
-            <a href="guides/kenitra-vs-rabat.html" style="color:var(--gold);text-decoration:none;">دليل القنيطرة مقابل الرباط</a>
-            · <a href="guides/buying-property-morocco.html" style="color:var(--gold);text-decoration:none;">شراء العقارات في المغرب</a>
-            · <a href="guides/daam-sakani-guide.html" style="color:var(--gold);text-decoration:none;">دليل Daam Sakani</a>
-          </p>
-        </div>
-      </div>
+  <!-- QUESTIONS -->
+  <section class="rb-sec rb-steel">
+    <div class="rb-inner">
+      <h2 class="section-title">أسئلتكم وأجوبتنا</h2>
+      <dl class="rb-qa">
+        <div><dt>أين أشتري: القنيطرة أم سلا أم الرباط؟</dt><dd>نقارن الأسعار والطلب في كل مدينة وحي حسب ميزانيتك واستعمالك.</dd></div>
+        <div><dt>هل هذا السعر مناسب؟</dt><dd>نقارن كل سعر بأسعار العقارات المماثلة في الحي قبل أي عرض.</dd></div>
+        <div><dt>هل المطوّر موثوق؟</dt><dd>نتحقق من مشاريعه المُسلَّمة، ومدى احترامه للآجال، والجودة الفعلية لتشطيباته.</dd></div>
+        <div><dt>كم يمكنني أن أقترض؟</dt><dd>نحسب قدرتك على الاقتراض ونحاكي أقساطك الشهرية.</dd></div>
+        <div><dt>هل أستفيد من «دعم السكني»؟</dt><dd>نتحقق من أهليتك وأهلية العقار قبل أن تعتمد عليه.</dd></div>
+        <div><dt>هل هو استثمار جيد؟</dt><dd>نحسب العائد، والدخل الشهري بعد القرض، وإمكانية إعادة البيع.</dd></div>
+      </dl>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="dark-cta" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">ابدأ رحلتك</p>
-    <h2 class="section-title">هل تفكر في عقارك<br>القادم؟</h2>
-    <p class="cta-sub" style="color:rgba(255,255,255,.62);">أخبرنا بما تحاول شراءه، وكيف تخطط لاستخدامه، وما هو نوع العائد أو القيمة طويلة الأمد التي تتوقعها.</p>
-    <div class="cta-actions" style="margin-top:2.5rem;">
-      <a href="index.html#contact" class="btn-gold">ابدأ محادثة</a>
-      <a href="guides/kenitra-vs-rabat.html" class="btn-outline-dark">اقرأ القنيطرة مقابل الرباط</a>
-      <a href="elaf-sky-view.html" class="btn-outline-dark">عرض Elaf Sky View</a>
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">اتصل بنا</p>
-    <h2 class="section-title" style="color:var(--white);">أخبرنا بما تنوي<br>شراءه أو بناءه.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">سواء كنت تقارن بين العقارات، أو تشتري من الخارج، أو تعود إلى الوطن، أو تطرح مشروعًا في السوق، فإن الخطوة التالية الصحيحة تعتمد على وضعك. أخبرنا بما تعمل عليه وسنرد عليك بالمسار الأكثر صلة.</p>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div>
-              <div class="contact-item-label">البريد الإلكتروني</div>
-              <div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">☎</div>
-            <div>
-              <div class="contact-item-label">الهاتف وواتساب</div>
-              <div class="contact-item-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">◎</div>
-            <div>
-              <div class="contact-item-label">المقر الرئيسي</div>
-              <div class="contact-item-value">70 شارع يوسف بن تاشفين،<br>القنيطرة 14000، المغرب<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(المكتب المستقبلي)</em></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST" data-sending="جارٍ الإرسال…" data-success="تم إرسال رسالتك. سنتواصل معك قريبًا." data-error="حدث خطأ. يرجى مراسلتنا مباشرة على contact@RahimInternational.com.">
-          <input type="hidden" name="subject" value="استفسار من RahimInternational.com/ar">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">الاسم الشخصي</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="اسمك الشخصي" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">الاسم العائلي</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="اسمك العائلي" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">البريد الإلكتروني</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="بريدك الإلكتروني" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">أنا</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">اختر ملفك الشخصي</option>
-              <option>مطور عقاري يبحث عن شريك مبيعات</option>
-              <option>مستثمر دولي</option>
-              <option>مغاربة العالم / مشتري MRE</option>
-              <option>مستثمر محلي</option>
-              <option>آخر</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">الرسالة</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="أخبرنا بما تعمل عليه…"></textarea>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">إرسال الاستفسار</button>
-        </form>
-      </div>
+  <section class="rb-cta">
+    <h2 class="section-title">مستعد لإيجاد العقار المناسب؟</h2>
+    <div class="rb-cta-links">
+      <a href="consultation.html" class="btn-gold">حضّر استشارتك</a>
+      <a class="rb-link" href="guides/kenitra-dalil-ahya.html">اقرأ دليل أحياء القنيطرة</a>
     </div>
   </section>
 

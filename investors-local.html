@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local Property Investment in Kénitra and Rabat</title>
-<meta name="description" content="Guidance for Moroccan buyers and local investors comparing property opportunities, rental potential, and second-city real estate across the Rabat-Salé-Kénitra corridor.">
+<meta name="description" content="Local buyers and investors: Rahim International compares projects, checks every detail and negotiates for you, so you buy the right property at the right price.">
 <link rel="canonical" href="https://rahiminternational.com/investors-local.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/investors-local.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/investors-local.html">
@@ -21,8 +21,8 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/investors-local.html">
 <link rel="icon" type="image/png" href="logo.png">
 <meta property="og:title" content="Local Investors | Rahim International">
-<meta property="og:description" content="Invest close to home with better information. We help local buyers compare developers, prices, locations, and second-city opportunities.">
-<meta property="og:image" content="https://rahiminternational.com/elaf.jpg">
+<meta property="og:description" content="Local buyers and investors: Rahim International compares projects, checks every detail and negotiates for you, so you buy the right property at the right price.">
+<meta property="og:image" content="https://rahiminternational.com/localbuyers.png">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,15 +66,50 @@
     .timeline-num,.timeline-step:nth-child(odd) .timeline-num,.timeline-step:nth-child(even) .timeline-num{left:-3rem;right:auto;top:1.3rem;width:2.7rem;height:2.7rem;font-size:1rem;}
   }
   @media(max-width:680px){.cards-grid{grid-template-columns:1fr;}}
+
+  /* ── Buyer page (2026 refonte) ── */
+  .rb-sec { padding: var(--section-pad); }
+  .rb-inner { max-width: 980px; margin: 0 auto; }
+  .rb-light { background: var(--cream); }
+  .rb-dark { background: var(--navy); }
+  .rb-steel { background: var(--steel); }
+  .rb-steel h2 { color: var(--navy); margin-bottom: 2rem; }
+  .rb-light h2 { color: var(--navy); margin-bottom: 2rem; }
+  .rb-dark h2 { color: var(--white); margin-bottom: 2rem; }
+  .rb-qa { display: grid; gap: 0; border-top: 1px solid rgba(8,26,51,.15); }
+  .rb-qa > div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(8,26,51,.12); }
+  .rb-qa dt { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.3; color: var(--navy); }
+  .rb-qa dd { margin: 0; font-size: 1rem; line-height: 1.8; color: #3d4a5c; }
+  .rb-checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+  .rb-checks li { position: relative; padding-inline-start: 1.8rem; font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,.8); }
+  .rb-checks li::before { content: '\2713'; position: absolute; inset-inline-start: 0; color: var(--copper); }
+  .rb-intro { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,.78); max-width: 760px; margin: -0.8rem 0 2rem; }
+  .rb-svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.4rem; }
+  .rb-svc li { position: relative; padding-inline-start: 1.6rem; font-size: .98rem; line-height: 1.75; color: rgba(255,255,255,.72); min-width: 0; }
+  .rb-svc li::before { content: ''; position: absolute; inset-inline-start: 0; top: .55em; width: 8px; height: 8px; border: 1px solid var(--copper); transform: rotate(45deg); }
+  .rb-svc strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--white); margin-bottom: .2rem; }
+  .rb-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; counter-reset: rb; }
+  .rb-steps li { counter-increment: rb; border-top: 2px solid var(--copper); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: #3d4a5c; min-width: 0; }
+  .rb-steps li::before { content: '0' counter(rb); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark); margin-bottom: .4rem; }
+  .rb-steps strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-bottom: .3rem; }
+  .rb-cta { background: var(--navy); text-align: center; padding: var(--section-pad-sm); }
+  .rb-cta h2 { color: var(--white); margin-bottom: 1.6rem; }
+  .rb-cta-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 1.6rem; }
+  .rb-cta-links a.rb-link { color: rgba(255,255,255,.7); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 900px) { .rb-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 680px) {
+    .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+    .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
+  }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Local Investors | Rahim International">
-<meta name="twitter:description" content="Invest close to home with better information. We help local buyers compare developers, prices, locations, and second-city opportunities.">
-<meta name="twitter:image" content="https://rahiminternational.com/elaf.jpg">
+<meta name="twitter:description" content="Local buyers and investors: Rahim International compares projects, checks every detail and negotiates for you, so you buy the right property at the right price.">
+<meta name="twitter:image" content="https://rahiminternational.com/localbuyers.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Real estate advisory, consulting, marketing, and brokerage for buyers and developers in the Rabat-Salé-Kénitra region of Morocco.","inLanguage":"en"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://rahiminternational.com/"},{"@type":"ListItem","position":2,"name":"Local Property Investment in Kénitra and Rabat","item":"https://rahiminternational.com/investors-local.html"}]}</script>
-<meta property="og:image:alt" content="Elaf Sky View — residential development in central Kénitra, Morocco">
-<meta name="twitter:image:alt" content="Elaf Sky View — residential development in central Kénitra, Morocco">
+<meta property="og:image:alt" content="Local buyers and investors in Kénitra and Rabat with Rahim International">
+<meta name="twitter:image:alt" content="Local buyers and investors in Kénitra and Rabat with Rahim International">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="og:locale:alternate" content="ar_MA">
@@ -113,191 +148,62 @@
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">Local Buyers &amp; Investors</p>
-      <h1 class="page-hero-title">The Opportunity Is Real.<br><em>The Information Gap Is Too.</em></h1>
-      <p class="page-hero-sub">Most local buyers find out about projects through contacts, calls, or word of mouth. We help you move from scattered information to a structured decision — with the right comparison, the right questions, and someone who has already done the verification work.</p>
+      <h1 class="page-hero-title">The right property,<br><em>at the right price.</em></h1>
+      <p class="page-hero-sub">A main home or an investment: we compare projects, check every detail and negotiate for you, so you can buy with confidence.</p>
     </div>
   </section>
 
-  <!-- HOW WE HELP STRIP -->
-  <section class="help-strip">
-    <div class="help-strip-grid">
-      <div class="help-strip-card">
-        <div class="help-strip-num">01</div>
-        <h3 class="help-strip-title">Project Comparison</h3>
-        <p class="help-strip-text">We compare listings on location, build quality, unit size, finish grade, price per m2, and long-term value — so you are choosing between properly evaluated options, not competing impressions.</p>
-      </div>
-      <div class="help-strip-card">
-        <div class="help-strip-num">02</div>
-        <h3 class="help-strip-title">Independent Verification</h3>
-        <p class="help-strip-text">We provide a professional evaluation separate from any sales conversation — verifying developer track record, delivery history, permit status, and what was actually delivered on previous projects.</p>
-      </div>
-      <div class="help-strip-card">
-        <div class="help-strip-num">03</div>
-        <h3 class="help-strip-title">Market Context</h3>
-        <p class="help-strip-text">We put every opportunity in the context of the broader Kénitra and Rabat–Salé–Kénitra market so you know whether the price is actually fair and the location will hold its value.</p>
-      </div>
+  <!-- WHAT WE DO -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">What we do for you</h2>
+      <p class="rb-intro">You can visit properties yourself, but time, comparisons and checks make all the difference. We do that work for you.</p>
+      <ul class="rb-svc">
+        <li><strong>Strategic advice</strong>the right project, budget and neighbourhoods.</li>
+        <li><strong>Project comparison</strong>location, finishes, price and developer, side by side.</li>
+        <li><strong>Return analysis</strong>realistic rent, rental demand, charges and resale potential.</li>
+        <li><strong>Financing</strong>mortgage, Daam Sakane, choice of bank.</li>
+        <li><strong>Negotiation</strong>we negotiate the price and terms on your behalf.</li>
+        <li><strong>Support to the keys</strong>preliminary contract, notary, signing and handover of the keys.</li>
+      </ul>
     </div>
   </section>
 
-  <!-- THE LOCAL BUYER PROBLEM -->
-  <section class="bg-cream" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">The Local Buyer Problem</p>
-    <h2 class="section-title" style="color:var(--navy);">The Details<br>Make the Difference.</h2>
-    <p class="intro-text">Many local buyers discover projects through calls, contacts, or word of mouth. That can work — but it often leaves serious questions unanswered. Developer track record, exact finishes, delivery timeline, payment schedule, rental demand, and whether the price is actually fair for the location. Without answers to those questions, a decision that looks right can turn out differently.</p>
-    <div class="cards-grid stagger">
-      <article class="info-card reveal"><div class="card-kicker">01</div><h3 class="card-title">Project Comparison</h3><p class="card-text">We compare location, unit type, finish level, price, parking, and long-term use case before treating an opportunity as serious.</p></article>
-      <article class="info-card reveal"><div class="card-kicker">02</div><h3 class="card-title">Second-City Opportunities</h3><p class="card-text">We look beyond the obvious areas toward connected communities like Kénitra, Salé, Témara, and Skhirat where value can be stronger.</p></article>
-      <article class="info-card reveal"><div class="card-kicker">03</div><h3 class="card-title">Investment Logic</h3><p class="card-text">A good deal is not just a lower price. We look at rental use, resale logic, setup costs, and whether the property can perform over time.</p></article>
+  <!-- METHOD -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">Our method</h2>
+      <ol class="rb-steps">
+        <li><strong>Strategy</strong>analysis of your project, budget and criteria.</li>
+        <li><strong>Search</strong>shortlisting and accompanied visits.</li>
+        <li><strong>Analysis</strong>comparison of the best properties and our recommendation.</li>
+        <li><strong>Negotiation</strong>price, mortgage, notary and preliminary contract.</li>
+        <li><strong>Completion</strong>deed of sale and handover of the keys.</li>
+      </ol>
     </div>
   </section>
 
-  <!-- HOW WE WORK WITH YOU — 9-STEP TIMELINE -->
-  <section class="bg-navy-grad" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">How We Work With You</p>
-    <h2 class="section-title" style="color:var(--white);">A Structured Process,<br>Start to Finish.</h2>
-    <p style="font-size:.92rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.64);max-width:700px;">The process begins with a consultation — in person, by phone, or by video. This is where we establish the foundation: why you want to buy, what the property needs to achieve, your budget, your timeline, and whether a connected second city like Kénitra changes the conversation.</p>
-    <div class="steps-timeline">
-      <article class="timeline-step reveal"><div class="timeline-num">01</div><div><h3 class="timeline-title">We Build Your Buyer Profile</h3><p class="timeline-text">Primary home, rental income, resale, family use, or capital preservation — the right property depends on the purpose. We also look at whether Daam Sakani eligibility is relevant and whether it should shape the acquisition strategy.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">02</div><div><h3 class="timeline-title">Market Orientation and City Comparison</h3><p class="timeline-text">Before presenting properties, we give you context: pricing by area, the value gap between Rabat and connected second cities like Kénitra, the difference between new construction, resale, and pre-construction, and the risks attached to each strategy.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">03</div><div><h3 class="timeline-title">We Shortlist and Compare Opportunities</h3><p class="timeline-text">We compare Rabat, Kénitra, Salé, Témara, Skhirat, and similar areas where the value gap can matter significantly — building a structured shortlist and comparing each option across price, location quality, developer credibility, and suitability for your intended use.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">04</div><div><h3 class="timeline-title">Developer and Project Verification</h3><p class="timeline-text">Many local projects are introduced through contacts, calls, or construction-site enquiries. We go beyond the introduction — asking about the developer's track record, delivery history, permit status, pricing logic, and whether the project stands up to comparison.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">05</div><div><h3 class="timeline-title">We Inspect, Document, and Report</h3><p class="timeline-text">For each serious option, we conduct a detailed in-person evaluation: floor plan review, surface area verification where possible, inspection of materials, finishes, fixtures, and build quality, plus an assessment of neighbourhood, access, and livability.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">06</div><div><h3 class="timeline-title">Financial, Legal, and Investment Verification</h3><p class="timeline-text">We review the developer's documentation, payment schedule structure, title or registration status, and where relevant, the investment logic — rental demand, setup costs, resale expectations, and whether the numbers actually work.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">07</div><div><h3 class="timeline-title">Decision Structuring and Negotiation Guidance</h3><p class="timeline-text">Once a property is selected, we confirm it still matches your original objective, identify trade-offs clearly, advise on pricing and negotiation positioning, and help structure reservation and payment timing without pressure.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">08</div><div><h3 class="timeline-title">Reservation and Transaction Coordination</h3><p class="timeline-text">We stay involved through the transaction — reservation process, documentation review, coordination with the developer or notary, payment tracking, and communication follow-up to keep the process moving cleanly.</p></div></article>
-      <article class="timeline-step reveal"><div class="timeline-num">09</div><div><h3 class="timeline-title">Post-Purchase Follow-Up</h3><p class="timeline-text">For off-plan purchases especially, our role does not stop at reservation. We continue with construction follow-up, developer communication, delivery updates, and support if issues appear before keys are handed over.</p></div></article>
-    </div>
-    <p class="timeline-note">Our process is designed to reduce uncertainty at every stage — from first consultation through post-purchase follow-up. Each step builds on the previous one so decisions are made with structure, context, and verification.</p>
-  </section>
-
-  <!-- RELEVANT GUIDES -->
-  <section class="guide-links-section" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Go Deeper</p>
-    <h2 class="section-title" style="color:var(--navy);">Relevant Guides<br>for Your Situation.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.85;color:var(--text-muted);max-width:600px;margin-bottom:2rem;">These guides cover the detail that belongs in reference material — not in a buyer overview.</p>
-    <div class="guide-links-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-      <a href="guides/buying-property-morocco.html" class="guide-link-card">
-        <div class="guide-link-label">General Guide</div>
-        <div class="guide-link-title">Buying Property in Morocco</div>
-        <p class="guide-link-desc">Costs, process, pre-construction checklist. The foundation before any other comparison.</p>
-      </a>
-      <a href="guides/daam-sakani-guide.html" class="guide-link-card">
-        <div class="guide-link-label">Subsidy Guide</div>
-        <div class="guide-link-title">Daam Sakani Guide</div>
-        <p class="guide-link-desc">Whether you qualify for up to 70,000 MAD in direct state support, and how to apply.</p>
-      </a>
-      <a href="guides/kenitra-vs-rabat.html" class="guide-link-card">
-        <div class="guide-link-label">Market Comparison</div>
-        <div class="guide-link-title">Kénitra vs Rabat</div>
-        <p class="guide-link-desc">The full price and connectivity comparison — Rabat at 14,500 MAD/m² vs Kénitra at 10,000–13,000.</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- CURRENT OPPORTUNITY -->
-  <section class="bg-navy-grad" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Current Opportunity</p>
-    <h2 class="section-title" style="color:var(--white);">Rent in Rabat?<br>Own in Kénitra?</h2>
-    <div class="split" style="margin-top:3rem;">
-      <div>
-        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.64);margin-bottom:1.2rem;">For buyers who work in Rabat or serve tenants who do, Kénitra deserves a serious look. The question is not whether Rabat is stronger. The question is whether a connected second city offers a better path to ownership, more space, and long-term value.</p>
-        <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.64);margin-bottom:2rem;">Elaf Sky View fits that conversation: central Kénitra, practical layouts, selected Daam eligibility, and larger units that can work for families or rental investors.</p>
-        <a href="elaf-sky-view.html" class="btn-gold">View Elaf Sky View</a>
-      </div>
-      <div>
-        <div class="highlight-panel">
-          <div class="highlight-kicker">Recommended Reading</div>
-          <div class="highlight-title">Use the guides for the detailed comparison.</div>
-          <p style="font-size:.84rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.9;">
-            <a href="guides/kenitra-vs-rabat.html" style="color:var(--gold);text-decoration:none;">Kénitra vs Rabat Guide</a>
-            · <a href="guides/buying-property-morocco.html" style="color:var(--gold);text-decoration:none;">Buying Property in Morocco</a>
-            · <a href="guides/daam-sakani-guide.html" style="color:var(--gold);text-decoration:none;">Daam Sakani Guide</a>
-          </p>
-        </div>
-      </div>
+  <!-- QUESTIONS -->
+  <section class="rb-sec rb-steel">
+    <div class="rb-inner">
+      <h2 class="section-title">Your questions, our answers</h2>
+      <dl class="rb-qa">
+        <div><dt>Where should I buy: Kénitra, Salé or Rabat?</dt><dd>We compare prices and demand in each city and neighbourhood based on your budget and use.</dd></div>
+        <div><dt>Is this price fair?</dt><dd>We compare every price with similar properties in the neighbourhood before any offer.</dd></div>
+        <div><dt>Is the developer reliable?</dt><dd>We check the projects they have delivered, whether they met their deadlines and the real quality of their finishes.</dd></div>
+        <div><dt>How much can I borrow?</dt><dd>We calculate your borrowing capacity and simulate your monthly payments.</dd></div>
+        <div><dt>Am I eligible for Daam Sakane?</dt><dd>We check your eligibility, and the property’s, before you count on it.</dd></div>
+        <div><dt>Is it a good investment?</dt><dd>We calculate the yield, the monthly income after the mortgage and the resale potential.</dd></div>
+      </dl>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="dark-cta" style="padding:var(--section-pad);">
-    <p class="section-eyebrow">Start Your Journey</p>
-    <h2 class="section-title">Thinking About Your<br>Next Property?</h2>
-    <p class="cta-sub" style="color:rgba(255,255,255,.62);">Tell us what you are trying to buy, how you plan to use it, and what kind of return or long-term value you expect.</p>
-    <div class="cta-actions" style="margin-top:2.5rem;">
-      <a href="index.html#contact" class="btn-gold">Begin a Conversation</a>
-      <a href="guides/kenitra-vs-rabat.html" class="btn-outline-dark">Read Kénitra vs Rabat</a>
-      <a href="elaf-sky-view.html" class="btn-outline-dark">View Elaf Sky View</a>
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">Contact</p>
-    <h2 class="section-title" style="color:var(--white);">Tell Us What You Are<br>Trying to Buy or Build.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">Whether you are comparing properties, buying from abroad, returning home, or bringing a development to market, the right next step depends on your situation. Tell us what you are working on and we will respond with the most relevant path forward.</p>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div>
-              <div class="contact-item-label">Email</div>
-              <div class="contact-item-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">☎</div>
-            <div>
-              <div class="contact-item-label">Phone &amp; WhatsApp</div>
-              <div class="contact-item-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">◎</div>
-            <div>
-              <div class="contact-item-label">Headquarters</div>
-              <div class="contact-item-value">70 Av. Youssef Ben Tachfine,<br>Kénitra 14000, Morocco<br><em style="font-style:italic;opacity:.7;font-size:.78rem;">(future office)</em></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST">
-          <input type="hidden" name="subject" value="Enquiry from RahimInternational.com">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">First Name</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="Your first name" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">Last Name</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="Your last name" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">I am a</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">Select your profile</option>
-              <option>Real Estate Developer seeking a sales partner</option>
-              <option>International investor</option>
-              <option>Moroccan diaspora / MRE buyer</option>
-              <option>Local investor</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what you are working on…"></textarea>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">Send Enquiry</button>
-        </form>
-      </div>
+  <section class="rb-cta">
+    <h2 class="section-title">Ready to find the right property?</h2>
+    <div class="rb-cta-links">
+      <a href="consultation.html" class="btn-gold">Prepare Your Consultation</a>
+      <a class="rb-link" href="guides/kenitra-neighborhood-guide.html">Read the Kénitra Neighbourhood Guide</a>
     </div>
   </section>
 
