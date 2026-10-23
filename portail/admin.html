@@ -135,7 +135,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-navy" id="save-info" type="button">${isNew ? 'Créer l’espace client' : 'Enregistrer'}</button>
-            ${isNew ? '' : '<button class="btn btn-line" id="copy-invite" type="button">Copier le message d’invitation</button><button class="btn btn-danger btn-sm" id="del-client" type="button">Supprimer</button>'}
+            ${isNew ? '' : '<button class="btn btn-gold" id="preview" type="button">Voir comme le client</button><button class="btn btn-line" id="copy-invite" type="button">Copier le message d’invitation</button><button class="btn btn-danger btn-sm" id="del-client" type="button">Supprimer</button>'}
           </div>
         </div>
         ${isNew ? '' : `
@@ -171,6 +171,7 @@
     };
     if (isNew) return;
 
+    $('preview').onclick = () => window.open('index.html?client=' + encodeURIComponent(c.id) + (API.DEMO ? '&demo=1' : ''), '_blank');
     $('copy-invite').onclick = async () => {
       const txt = `Bonjour ${c.full_name},\n\nVotre espace client Rahim International est prêt. Vous pourrez y suivre chaque étape de votre projet et retrouver tous vos documents.\n\n1. Rendez-vous sur ${portalUrl}\n2. Saisissez cette adresse courriel : ${c.email}\n3. Cliquez sur le lien de connexion reçu par courriel.\n\nL’équipe Relations clients de Rahim International`;
       try { await navigator.clipboard.writeText(txt); toast('Message copié'); } catch (e) { prompt('Copiez ce message :', txt); }

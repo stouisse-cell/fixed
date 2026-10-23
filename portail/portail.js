@@ -136,6 +136,13 @@ window.RI_CONFIG = {
       if (error) throw error;
       return data[0] || null;
     },
+    async getClient(id) {
+      if (DEMO) return demoClients.find(c => c.id === id) || null;
+      const c = await client();
+      const { data, error } = await c.from('clients').select('*').eq('id', id).maybeSingle();
+      if (error) throw error;
+      return data;
+    },
     async listDocs(clientId) {
       if (DEMO) return demoDocs.filter(d => d.client_id === clientId).sort((a, b) => b.created_at.localeCompare(a.created_at));
       const c = await client();

@@ -127,8 +127,12 @@
   $('user-box').classList.remove('hidden');
   $('user-email').textContent = API.DEMO ? 'Démonstration' : session.email;
 
-  let c;
-  try { c = await API.myClient(); } catch (e) { toast(errMsg(e)); }
+  let c, preview = false;
+  const pid = new URLSearchParams(location.search).get('client');
+  try {
+    if (pid && await API.isAdmin()) { c = await API.getClient(pid); preview = !!c; }
+    else c = await API.myClient();
+  } catch (e) { toast(errMsg(e)); }
   if (!c) {
     if (!API.DEMO && await API.isAdmin().catch(() => false)) { location.replace('admin.html'); return; }
     $('none-email').textContent = session.email; show('view-none'); return;
@@ -136,6 +140,7 @@
 
   show('view-dash');
   if (API.DEMO) $('demo-note').classList.remove('hidden');
+  if (preview) { $('demo-note').innerHTML = 'Aperçu conseiller : vous voyez exactement ce que voit <strong>' + esc(c.full_name) + '</strong> (' + esc(c.email) + '). <a href="admin.html">Retour à la gestion</a>'; $('demo-note').classList.remove('hidden'); }
   const steps = stepsFor(c.formule);
   const cur = Math.min(Math.max(c.current_step || 1, 1), steps.length + 1);
   const done = cur - 1;
