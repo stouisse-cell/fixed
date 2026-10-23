@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace client | Rahim International</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portail.css">
+</head>
+<body>
+<header class="pt-bar">
+  <div class="pt-bar-in">
+    <a href="../fr/index.html" class="brand" aria-label="Rahim International, accueil">
+      <img src="../logo.png" alt="">
+      <span><span class="brand-name">Rahim <span>International</span></span><span class="brand-sub" style="display:block">Espace client</span></span>
+    </a>
+    <div class="pt-user hidden" id="user-box">
+      <span class="who" id="user-email"></span>
+      <button class="btn btn-ghost" id="logout" type="button">Déconnexion</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Connexion ===== -->
+<section class="login-wrap hidden" id="view-login">
+  <div class="card login">
+    <div class="eyebrow">Espace client</div>
+    <h1>Votre projet,<br><em>suivi pas à pas.</em></h1>
+    <p class="muted small">Saisissez l’adresse courriel communiquée à votre conseiller. Vous recevrez un lien de connexion sécurisé, sans mot de passe.</p>
+    <form id="login-form">
+      <label for="email">Adresse courriel</label>
+      <input type="email" id="email" required autocomplete="email" placeholder="vous@exemple.com">
+      <button class="btn btn-navy" type="submit" id="login-btn">Recevoir mon lien de connexion</button>
+    </form>
+    <div class="ok-box hidden" id="login-ok"></div>
+    <div class="err-box hidden" id="login-err"></div>
+    <p class="muted small" style="margin-top:18px">Une question ? Écrivez-nous sur <a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp</a>.</p>
+  </div>
+</section>
+
+<!-- ===== Aucun dossier ===== -->
+<section class="login-wrap hidden" id="view-none">
+  <div class="card login">
+    <div class="eyebrow">Espace client</div>
+    <h1>Votre espace est <em>en préparation.</em></h1>
+    <p class="muted small">Aucun dossier n’est encore associé à <strong id="none-email"></strong>. Votre conseiller l’ouvre après la consultation découverte. Si vous pensez qu’il s’agit d’une erreur, contactez-nous.</p>
+    <a class="btn btn-gold" style="width:100%;margin-top:18px" href="https://wa.me/212642773249" target="_blank" rel="noopener">Nous écrire sur WhatsApp</a>
+  </div>
+</section>
+
+<!-- ===== Tableau de bord ===== -->
+<main class="hidden" id="view-dash">
+  <div class="notice hidden" id="demo-note">Mode démonstration : les informations affichées sont fictives.</div>
+  <section class="hero">
+    <div class="eyebrow">Votre projet</div>
+    <h1 id="hello"></h1>
+    <div class="chips" id="chips"></div>
+    <div class="progress-label"><span id="progress-text"></span><span id="progress-pct"></span></div>
+    <div class="progress"><span id="progress-bar" style="width:0"></span></div>
+  </section>
+
+  <div class="grid-2" style="margin-top:20px">
+    <div class="grid">
+      <section class="card">
+        <h2>Les étapes de votre projet</h2>
+        <ol class="steps" id="steps"></ol>
+      </section>
+      <section class="card">
+        <h2>Vos documents</h2>
+        <div id="docs"></div>
+      </section>
+    </div>
+    <div class="grid">
+      <section class="card hidden" id="message-card">
+        <h2>Le mot de votre conseiller</h2>
+        <div class="message" id="message"></div>
+        <div class="message-from" id="message-from"></div>
+      </section>
+      <section class="card">
+        <h2>Votre conseiller</h2>
+        <div class="advisor">
+          <div class="avatar">AR</div>
+          <div><div style="font-weight:700;color:var(--navy)">Ali Rahim</div><div class="muted small">Fondateur et conseiller en immobilier, sur place à Kénitra</div></div>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-line" href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Bon à savoir</h2>
+        <p class="small muted" style="line-height:1.55">Aucune offre ni décision engageante n’est prise sans votre accord écrit. Chaque compte rendu de visite est mis en ligne sous 72 heures ouvrables, après la confirmation de votre bon de visite.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
+
+<script src="portail.js"></script>
+<script>
+(async function () {
+  const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
+  const $ = id => document.getElementById(id);
+  const show = id => ['view-login', 'view-none', 'view-dash'].forEach(v => $(v).classList.toggle('hidden', v !== id));
+
+  $('logout').onclick = () => API.signOut();
+  $('login-form').onsubmit = async e => {
+    e.preventDefault();
+    const email = $('email').value.trim();
+    $('login-err').classList.add('hidden'); $('login-btn').disabled = true;
+    try {
+      await API.sendLink(email, location.origin + location.pathname);
+      $('login-ok').innerHTML = 'C’est envoyé ! Ouvrez le courriel reçu à <strong>' + esc(email) + '</strong> et cliquez sur le lien pour accéder à votre espace. Pensez à vérifier vos indésirables.';
+      $('login-ok').classList.remove('hidden');
+    } catch (err) { $('login-err').textContent = errMsg(err); $('login-err').classList.remove('hidden'); }
+    $('login-btn').disabled = false;
+  };
+
+  let session;
+  try { session = await API.session(); } catch (e) { session = null; }
+  if (!session) { show('view-login'); return; }
+  $('user-box').classList.remove('hidden');
+  $('user-email').textContent = API.DEMO ? 'Démonstration' : session.email;
+
+  let c;
+  try { c = await API.myClient(); } catch (e) { toast(errMsg(e)); }
+  if (!c) { $('none-email').textContent = session.email; show('view-none'); return; }
+
+  show('view-dash');
+  if (API.DEMO) $('demo-note').classList.remove('hidden');
+  const steps = stepsFor(c.formule);
+  const cur = Math.min(Math.max(c.current_step || 1, 1), steps.length + 1);
+  const done = cur - 1;
+  $('hello').innerHTML = 'Bonjour,<br><em>' + esc(c.full_name) + '</em>';
+  $('chips').innerHTML = [
+    '<span class="chip gold">' + esc((FORMULES[c.formule] || {}).label || c.formule) + '</span>',
+    c.city ? '<span class="chip">' + esc(c.city) + '</span>' : '',
+    '<span class="chip">Client depuis ' + esc(fmtDate(c.created_at)) + '</span>',
+  ].join('');
+  const pct = Math.round(done / steps.length * 100);
+  $('progress-text').textContent = cur > steps.length ? 'Projet finalisé' : 'Étape ' + cur + ' sur ' + steps.length + ' · ' + steps[cur - 1][0];
+  $('progress-pct').textContent = pct + ' %';
+  requestAnimationFrame(() => { $('progress-bar').style.width = Math.max(pct, 3) + '%'; });
+
+  const dates = c.step_dates || {};
+  $('steps').innerHTML = steps.map((s, i) => {
+    const n = i + 1, st = n < cur ? 'done' : n === cur ? 'current' : 'todo';
+    const meta = st === 'done' ? '✓ Terminée' + (dates[n] ? ' · ' + fmtDate(dates[n]) : '') : st === 'current' ? 'En cours' + (dates[n] ? ' depuis le ' + fmtDate(dates[n]) : '') : '';
+    return '<li class="step ' + st + '"><div class="dot">' + (st === 'done' ? '✓' : n) + '</div><div><div class="step-title">' + esc(s[0]) + '</div><div class="step-desc">' + esc(s[1]) + '</div>' + (meta ? '<div class="step-meta">' + meta + '</div>' : '') + '</div></li>';
+  }).join('');
+
+  if (c.message) {
+    $('message-card').classList.remove('hidden');
+    $('message').textContent = c.message;
+    $('message-from').textContent = 'Ali Rahim' + (c.message_date ? ' · ' + fmtDate(c.message_date) : '');
+  }
+
+  let docs = [];
+  try { docs = await API.listDocs(c.id); } catch (e) { toast(errMsg(e)); }
+  if (!docs.length) { $('docs').innerHTML = '<div class="empty">Vos documents apparaîtront ici au fil de votre projet.</div>'; return; }
+  const order = Object.keys(CATEGORIES);
+  const groups = {};
+  docs.forEach(d => (groups[d.category] = groups[d.category] || []).push(d));
+  $('docs').innerHTML = order.filter(k => groups[k]).map(k =>
+    '<div class="doc-group"><h3>' + esc(CATEGORIES[k]) + '</h3>' + groups[k].map(d =>
+      '<button type="button" class="doc" data-id="' + esc(d.id) + '"><span class="doc-ico' + (k === 'video' ? ' video' : '') + '">' + (k === 'video' ? '▶' : 'PDF') + '</span><span class="doc-body"><span class="doc-title" style="display:block">' + esc(d.title) + '</span><span class="doc-date">Ajouté le ' + esc(fmtDate(d.created_at)) + '</span></span><span class="doc-go">→</span></button>'
+    ).join('') + '</div>').join('');
+  $('docs').querySelectorAll('.doc').forEach(b => b.onclick = async () => {
+    const d = docs.find(x => x.id === b.dataset.id);
+    try { await API.openDoc(d); } catch (e) { toast(errMsg(e)); }
+  });
+})();
+</script>
+</body>
+</html>

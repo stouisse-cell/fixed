@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestion des clients | Rahim International</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portail.css">
+</head>
+<body>
+<header class="pt-bar">
+  <div class="pt-bar-in">
+    <a href="index.html" class="brand">
+      <img src="../logo.png" alt="">
+      <span><span class="brand-name">Rahim <span>International</span></span><span class="brand-sub" style="display:block">Gestion des clients</span></span>
+    </a>
+    <div class="pt-user hidden" id="user-box">
+      <span class="who" id="user-email"></span>
+      <button class="btn btn-ghost" id="logout" type="button">Déconnexion</button>
+    </div>
+  </div>
+</header>
+
+<section class="login-wrap hidden" id="view-login">
+  <div class="card login">
+    <div class="eyebrow">Accès conseillers</div>
+    <h1>Gestion <em>des clients</em></h1>
+    <p class="muted small">Réservé à l’équipe Rahim International. Un lien de connexion vous sera envoyé par courriel.</p>
+    <form id="login-form">
+      <label for="email">Adresse courriel</label>
+      <input type="email" id="email" required autocomplete="email">
+      <button class="btn btn-navy" type="submit" id="login-btn">Recevoir mon lien</button>
+    </form>
+    <div class="ok-box hidden" id="login-ok"></div>
+    <div class="err-box hidden" id="login-err"></div>
+  </div>
+</section>
+
+<section class="login-wrap hidden" id="view-denied">
+  <div class="card login">
+    <h1>Accès <em>refusé</em></h1>
+    <p class="muted small">Cette adresse n’a pas accès à la gestion des clients.</p>
+    <a href="index.html" class="btn btn-line" style="width:100%;margin-top:18px">Aller à l’espace client</a>
+  </div>
+</section>
+
+<main class="hidden" id="view-admin">
+  <div class="notice hidden" id="demo-note">Mode démonstration : rien n’est enregistré.</div>
+  <div class="adm">
+    <aside class="card">
+      <h2>Clients</h2>
+      <button class="btn btn-gold" style="width:100%" id="new-client" type="button">+ Nouveau client</button>
+      <input type="text" id="search" placeholder="Rechercher…" style="margin-top:12px">
+      <ul class="client-list" id="client-list"></ul>
+    </aside>
+
+    <section id="detail">
+      <div class="card"><p class="muted">Sélectionnez un client ou créez-en un nouveau.</p></div>
+    </section>
+  </div>
+</main>
+
+<footer class="pt-foot">Rahim International · Gestion interne</footer>
+
+<script src="portail.js"></script>
+<script>
+(async function () {
+  const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
+  const $ = id => document.getElementById(id);
+  const show = id => ['view-login', 'view-denied', 'view-admin'].forEach(v => $(v).classList.toggle('hidden', v !== id));
+  const today = () => new Date().toISOString().slice(0, 10);
+  const portalUrl = location.origin + location.pathname.replace(/admin\.html$/, '');
+
+  $('logout').onclick = () => API.signOut();
+  $('login-form').onsubmit = async e => {
+    e.preventDefault();
+    const email = $('email').value.trim();
+    $('login-err').classList.add('hidden'); $('login-btn').disabled = true;
+    try {
+      await API.sendLink(email, location.origin + location.pathname);
+      $('login-ok').textContent = 'Lien envoyé à ' + email + '. Ouvrez le courriel pour vous connecter.';
+      $('login-ok').classList.remove('hidden');
+    } catch (err) { $('login-err').textContent = errMsg(err); $('login-err').classList.remove('hidden'); }
+    $('login-btn').disabled = false;
+  };
+
+  const session = await API.session().catch(() => null);
+  if (!session) { show('view-login'); return; }
+  $('user-box').classList.remove('hidden');
+  $('user-email').textContent = API.DEMO ? 'Démonstration' : session.email;
+  if (!(await API.isAdmin())) { show('view-denied'); return; }
+  show('view-admin');
+  if (API.DEMO) $('demo-note').classList.remove('hidden');
+
+  let clients = [], current = null;
+  async function refresh(selectId) {
+    try { clients = await API.listClients(); } catch (e) { toast(errMsg(e)); }
+    renderList();
+    if (selectId) select(selectId);
+  }
+  function renderList() {
+    const q = $('search').value.trim().toLowerCase();
+    const list = clients.filter(c => !q || (c.full_name + ' ' + c.email).toLowerCase().includes(q));
+    $('client-list').innerHTML = list.length ? list.map(c => {
+      const steps = stepsFor(c.formule);
+      const st = c.current_step > steps.length ? 'Finalisé' : 'Étape ' + c.current_step + '/' + steps.length;
+      return '<li><button type="button" class="client-item' + (current && current.id === c.id ? ' active' : '') + '" data-id="' + esc(c.id) + '"><div class="n">' + esc(c.full_name) + '</div><div class="s">' + esc((FORMULES[c.formule] || {}).label || '') + ' · ' + st + '</div></button></li>';
+    }).join('') : '<li class="muted small" style="padding:8px">Aucun client.</li>';
+    $('client-list').querySelectorAll('.client-item').forEach(b => b.onclick = () => select(b.dataset.id));
+  }
+  $('search').oninput = renderList;
+  $('new-client').onclick = () => { current = null; renderList(); renderForm(null); };
+
+  function select(id) { current = clients.find(c => c.id === id) || null; renderList(); renderForm(current); }
+
+  function renderForm(c) {
+    const isNew = !c;
+    c = c || { full_name: '', email: '', formule: 'essentiel', city: 'Kénitra', current_step: 1, step_dates: {}, message: '' };
+    const steps = stepsFor(c.formule);
+    const opts = Object.entries(FORMULES).map(([k, v]) => '<option value="' + k + '"' + (k === c.formule ? ' selected' : '') + '>' + v.label + '</option>').join('');
+    $('detail').innerHTML = `
+      <div class="grid">
+        <div class="card">
+          <div class="eyebrow">${isNew ? 'Nouveau client' : 'Fiche client'}</div>
+          <h2>${isNew ? 'Ouvrir un espace client' : esc(c.full_name)}</h2>
+          <div class="row">
+            <div><label for="f-name">Nom affiché</label><input type="text" id="f-name" value="${esc(c.full_name)}" placeholder="Famille Alaoui"></div>
+            <div><label for="f-email">Courriel du client</label><input type="email" id="f-email" value="${esc(c.email)}" placeholder="client@exemple.com"></div>
+            <div><label for="f-formule">Formule</label><select id="f-formule">${opts}</select></div>
+            <div><label for="f-city">Ville</label><input type="text" id="f-city" value="${esc(c.city || '')}"></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-navy" id="save-info" type="button">${isNew ? 'Créer l’espace client' : 'Enregistrer'}</button>
+            ${isNew ? '' : '<button class="btn btn-line" id="copy-invite" type="button">Copier le message d’invitation</button><button class="btn btn-danger btn-sm" id="del-client" type="button">Supprimer</button>'}
+          </div>
+        </div>
+        ${isNew ? '' : `
+        <div class="card">
+          <h2>Étape en cours</h2>
+          <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client.</p>
+          <div id="step-edit">
+            ${steps.map((s, i) => `<div class="step-edit"><input type="radio" name="cur" value="${i + 1}" ${c.current_step === i + 1 ? 'checked' : ''} aria-label="${esc(s[0])}"><span class="t">${i + 1}. ${esc(s[0])}</span><input type="date" data-step="${i + 1}" value="${esc((c.step_dates || {})[i + 1] || '')}"></div>`).join('')}
+            <div class="step-edit"><input type="radio" name="cur" value="${steps.length + 1}" ${c.current_step > steps.length ? 'checked' : ''}><span class="t">Projet finalisé</span><span></span></div>
+          </div>
+          <label for="f-msg">Mot du conseiller (visible par le client)</label>
+          <textarea id="f-msg" placeholder="Ex. : Le compte rendu de la visite 2 est en ligne.">${esc(c.message || '')}</textarea>
+          <div class="actions"><button class="btn btn-navy" id="save-steps" type="button">Enregistrer l’avancement</button></div>
+        </div>
+        <div class="card">
+          <h2>Documents</h2>
+          <div id="doc-list"><p class="muted small">Chargement…</p></div>
+          <div class="row" style="margin-top:8px">
+            <div><label for="d-title">Titre</label><input type="text" id="d-title" placeholder="Compte rendu · Visite 2 · Maamora"></div>
+            <div><label for="d-cat">Catégorie</label><select id="d-cat">${Object.entries(CATEGORIES).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}</select></div>
+            <div><label for="d-file">Fichier (PDF, image…)</label><input type="file" id="d-file"></div>
+            <div><label for="d-url">ou lien (vidéo YouTube non répertoriée, Drive…)</label><input type="url" id="d-url" placeholder="https://"></div>
+          </div>
+          <div class="actions"><button class="btn btn-gold" id="add-doc" type="button">Ajouter le document</button></div>
+        </div>`}
+      </div>`;
+
+    $('save-info').onclick = async () => {
+      const row = { full_name: $('f-name').value.trim(), email: $('f-email').value.trim(), formule: $('f-formule').value, city: $('f-city').value.trim() || null };
+      if (!row.full_name || !row.email) { toast('Nom et courriel obligatoires'); return; }
+      if (!isNew) row.id = c.id;
+      try { const saved = await API.saveClient(row); toast(isNew ? 'Espace client créé' : 'Enregistré'); await refresh(saved.id); } catch (e) { toast(errMsg(e)); }
+    };
+    if (isNew) return;
+
+    $('copy-invite').onclick = async () => {
+      const txt = `Bonjour ${c.full_name},\n\nVotre espace client Rahim International est prêt. Vous pourrez y suivre chaque étape de votre projet et retrouver tous vos documents.\n\n1. Rendez-vous sur ${portalUrl}\n2. Saisissez cette adresse courriel : ${c.email}\n3. Cliquez sur le lien de connexion reçu par courriel.\n\nL’équipe Relations clients de Rahim International`;
+      try { await navigator.clipboard.writeText(txt); toast('Message copié'); } catch (e) { prompt('Copiez ce message :', txt); }
+    };
+    $('del-client').onclick = async () => {
+      if (!confirm('Supprimer définitivement ' + c.full_name + ' et tous ses documents ?')) return;
+      try { await API.deleteClient(c.id); current = null; toast('Client supprimé'); await refresh(); renderForm(null); } catch (e) { toast(errMsg(e)); }
+    };
+    $('save-steps').onclick = async () => {
+      const cur = +($('step-edit').querySelector('input[name=cur]:checked') || {}).value || 1;
+      const dates = {};
+      $('step-edit').querySelectorAll('input[type=date]').forEach(i => { if (i.value) dates[i.dataset.step] = i.value; });
+      if (cur <= steps.length && !dates[cur]) dates[cur] = today();
+      const msg = $('f-msg').value.trim();
+      const row = { id: c.id, current_step: cur, step_dates: dates, message: msg || null, message_date: msg && msg !== (c.message || '') ? today() : (c.message_date || null) };
+      try { await API.saveClient(row); toast('Avancement enregistré'); await refresh(c.id); } catch (e) { toast(errMsg(e)); }
+    };
+    $('add-doc').onclick = async () => {
+      const title = $('d-title').value.trim(), category = $('d-cat').value, file = $('d-file').files[0], url = $('d-url').value.trim();
+      if (!title) { toast('Ajoutez un titre'); return; }
+      if (!file && !url) { toast('Choisissez un fichier ou collez un lien'); return; }
+      $('add-doc').disabled = true; $('add-doc').textContent = 'Envoi…';
+      try { await API.addDoc(c.id, { title, category, file, url }); toast('Document ajouté'); renderForm(c); } catch (e) { toast(errMsg(e)); $('add-doc').disabled = false; $('add-doc').textContent = 'Ajouter le document'; }
+    };
+    loadDocs(c);
+  }
+
+  async function loadDocs(c) {
+    let docs = [];
+    try { docs = await API.listDocs(c.id); } catch (e) { toast(errMsg(e)); }
+    const box = $('doc-list'); if (!box) return;
+    box.innerHTML = docs.length ? docs.map(d => `<div class="adm-doc"><span class="t">${esc(d.title)} <span class="muted">· ${esc(CATEGORIES[d.category] || d.category)} · ${esc(fmtDate(d.created_at))}</span></span><button class="btn btn-line btn-sm" data-open="${esc(d.id)}" type="button">Voir</button><button class="btn btn-danger btn-sm" data-del="${esc(d.id)}" type="button">Retirer</button></div>`).join('') : '<div class="empty">Aucun document pour l’instant.</div>';
+    box.querySelectorAll('[data-open]').forEach(b => b.onclick = () => API.openDoc(docs.find(d => d.id === b.dataset.open)).catch(e => toast(errMsg(e))));
+    box.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
+      const d = docs.find(x => x.id === b.dataset.del);
+      if (!confirm('Retirer « ' + d.title + ' » ?')) return;
+      try { await API.deleteDoc(d); toast('Document retiré'); loadDocs(c); } catch (e) { toast(errMsg(e)); }
+    });
+  }
+
+  await refresh();
+})();
+</script>
+</body>
+</html>
