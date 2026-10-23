@@ -129,7 +129,10 @@
 
   let c;
   try { c = await API.myClient(); } catch (e) { toast(errMsg(e)); }
-  if (!c) { $('none-email').textContent = session.email; show('view-none'); return; }
+  if (!c) {
+    if (!API.DEMO && await API.isAdmin().catch(() => false)) { location.replace('admin.html'); return; }
+    $('none-email').textContent = session.email; show('view-none'); return;
+  }
 
   show('view-dash');
   if (API.DEMO) $('demo-note').classList.remove('hidden');
