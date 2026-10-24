@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240407">
+<link rel="stylesheet" href="portail.css?v=202610240415">
 </head>
 <body>
 <header class="pt-bar">
@@ -70,7 +70,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202610240407"></script>
+<script src="portail.js?v=202610240415"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -185,13 +185,18 @@
         </div>
         <div class="card">
           <h2>Documents</h2>
+          <div id="doc-types"></div>
+          <div class="eyebrow" style="margin-top:18px">Comptes rendus, vidéos et pièces du client</div>
           <div id="doc-list"><p class="muted small">Chargement…</p></div>
+          <div class="eyebrow" style="margin-top:18px" id="d-form-title">Ajouter un document</div>
           <div class="row" style="margin-top:8px">
             <div><label for="d-title">Titre</label><input type="text" id="d-title" placeholder="Compte rendu · Visite 2 · Maamora"></div>
             <div><label for="d-cat">Catégorie</label><select id="d-cat">${Object.entries(CATEGORIES).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}</select></div>
             <div><label for="d-file">Fichier (PDF, image…)</label><input type="file" id="d-file"></div>
             <div><label for="d-url">ou lien (vidéo YouTube non répertoriée, Drive…)</label><input type="url" id="d-url" placeholder="https://"></div>
           </div>
+          <label for="d-note">Ce qui a changé (facultatif, visible par le client)</label>
+          <input type="text" id="d-note" placeholder="Ex. : budget ajusté et quartier Maamora ajouté après notre appel du 18 octobre">
           <div id="d-visit-wrap" class="hidden">
             <label for="d-visit">Lié au bon de visite</label>
             <select id="d-visit"></select>
@@ -255,14 +260,14 @@
       } catch (e) { toast(errMsg(e)); }
     };
     $('add-doc').onclick = async () => {
-      const title = $('d-title').value.trim(), category = $('d-cat').value, file = $('d-file').files[0], url = $('d-url').value.trim();
+      const title = $('d-title').value.trim(), category = $('d-cat').value, file = $('d-file').files[0], url = $('d-url').value.trim(), note = $('d-note').value.trim();
       const needsVisit = category === 'compte_rendu' || category === 'video';
       const visit_id = needsVisit ? $('d-visit').value : null;
       if (category === 'compte_rendu' && !visit_id) { toast('Créez d’abord le bon de visite correspondant'); return; }
       if (!title) { toast('Ajoutez un titre'); return; }
       if (!file && !url) { toast('Choisissez un fichier ou collez un lien'); return; }
       $('add-doc').disabled = true; $('add-doc').textContent = 'Envoi…';
-      try { await API.addDoc(c.id, { title, category, file, url, visit_id }); toast('Document ajouté'); renderForm(c); } catch (e) { toast(errMsg(e)); $('add-doc').disabled = false; $('add-doc').textContent = 'Ajouter le document'; }
+      try { await API.addDoc(c.id, { title, category, file, url, visit_id, note }); toast('Document ajouté'); renderForm(c); } catch (e) { toast(errMsg(e)); $('add-doc').disabled = false; $('add-doc').textContent = 'Ajouter le document'; }
     };
     $('d-cat').onchange = () => $('d-visit-wrap').classList.toggle('hidden', !['compte_rendu', 'video'].includes($('d-cat').value));
     loadDocs(c);
@@ -316,7 +321,27 @@
     let docs = [];
     try { docs = await API.listDocs(c.id); } catch (e) { toast(errMsg(e)); }
     const box = $('doc-list'); if (!box) return;
-    box.innerHTML = docs.length ? docs.map(d => `<div class="adm-doc"><span class="t">${d.uploaded_by === 'client' ? '<span class="tag-client">Client</span> ' : ''}${(() => { const v = currentVisits.find(x => x.id === d.visit_id); return v ? (v.status === 'confirmed' ? '<span class="tag-ok">' + RI.visitNo(v) + '</span> ' : '<span class="tag-client">🔒 ' + RI.visitNo(v) + '</span> ') : ''; })()}${esc(d.title)} <span class="muted">· ${esc(CATEGORIES[d.category] || d.category)} · ${esc(fmtDate(d.created_at))}</span></span><button class="btn btn-line btn-sm" data-open="${esc(d.id)}" type="button">Voir</button><button class="btn btn-danger btn-sm" data-del="${esc(d.id)}" type="button">Retirer</button></div>`).join('') : '<div class="empty">Aucun document pour l’instant.</div>';
+    // une ligne par document « vivant », avec ses versions
+    const sorted = [...docs].sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+    $('doc-types').innerHTML = RI.typesFor(c.formule).map(t => {
+      const v = sorted.filter(d => d.category === t.k);
+      return `<div class="type-row">
+        <div class="type-main"><div class="type-name">${esc(t.label)}</div>
+          <div class="muted small">${v.length ? (v.length > 1 ? 'Version ' + v.length + ' · mise à jour le ' : 'Ajouté le ') + esc(fmtDate(v[0].created_at)) : 'Pas encore ajouté'}</div></div>
+        ${v.length ? `<button class="btn btn-line btn-sm" type="button" data-open="${esc(v[0].id)}">Voir</button>` : ''}
+        <button class="btn ${v.length ? 'btn-navy' : 'btn-gold'} btn-sm" type="button" data-newver="${t.k}" data-title="${esc(v.length ? v[0].title : t.label + (t.k === 'plan' ? ' Personnalisé' : ''))}">${v.length ? 'Nouvelle version' : 'Ajouter'}</button>
+        ${v.length > 1 ? `<details class="type-hist"><summary>Historique (${v.length})</summary>${v.map((d, i) => `<div class="adm-doc"><span class="t">v${v.length - i} · ${esc(fmtDate(d.created_at))}${d.note ? ' · <span class="muted">' + esc(d.note) + '</span>' : ''}</span><button class="btn btn-line btn-sm" data-open="${esc(d.id)}" type="button">Voir</button><button class="btn btn-danger btn-sm" data-del="${esc(d.id)}" type="button">Retirer</button></div>`).join('')}</details>` : (v.length ? `<button class="btn btn-danger btn-sm" type="button" data-del="${esc(v[0].id)}">Retirer</button>` : '')}
+      </div>`;
+    }).join('');
+    $('doc-types').querySelectorAll('[data-newver]').forEach(b => b.onclick = () => {
+      $('d-cat').value = b.dataset.newver; $('d-cat').onchange();
+      $('d-title').value = b.dataset.title; $('d-note').value = '';
+      $('d-form-title').textContent = 'Nouvelle version · ' + (RI.DOC_TYPES.find(t => t.k === b.dataset.newver) || {}).label;
+      $('d-file').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      toast('Choisissez le fichier de la nouvelle version');
+    });
+    const others = docs.filter(d => ['compte_rendu', 'video', 'piece_client'].includes(d.category) || !RI.typesFor(c.formule).some(t => t.k === d.category));
+    box.innerHTML = others.length ? others.map(d => `<div class="adm-doc"><span class="t">${d.uploaded_by === 'client' ? '<span class="tag-client">Client</span> ' : ''}${(() => { const v = currentVisits.find(x => x.id === d.visit_id); return v ? (v.status === 'confirmed' ? '<span class="tag-ok">' + RI.visitNo(v) + '</span> ' : '<span class="tag-client">🔒 ' + RI.visitNo(v) + '</span> ') : ''; })()}${esc(d.title)} <span class="muted">· ${esc(CATEGORIES[d.category] || d.category)} · ${esc(fmtDate(d.created_at))}</span></span><button class="btn btn-line btn-sm" data-open="${esc(d.id)}" type="button">Voir</button><button class="btn btn-danger btn-sm" data-del="${esc(d.id)}" type="button">Retirer</button></div>`).join('') : '<div class="empty">Aucun document pour l’instant.</div>';
     const fresh = docs.filter(d => d.uploaded_by !== 'client' && !d.notified_at).length;
     const nb = $('notify-docs');
     if (nb) {
@@ -329,8 +354,9 @@
         nb.disabled = false; loadDocs(c);
       };
     }
-    box.querySelectorAll('[data-open]').forEach(b => b.onclick = () => API.openDoc(docs.find(d => d.id === b.dataset.open)).catch(e => toast(errMsg(e))));
-    box.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
+    const card = box.closest('.card');
+    card.querySelectorAll('[data-open]').forEach(b => b.onclick = () => API.openDoc(docs.find(d => d.id === b.dataset.open)).catch(e => toast(errMsg(e))));
+    card.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
       const d = docs.find(x => x.id === b.dataset.del);
       if (!confirm('Retirer « ' + d.title + ' » ?')) return;
       try { await API.deleteDoc(d); toast('Document retiré'); loadDocs(c); } catch (e) { toast(errMsg(e)); }

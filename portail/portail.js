@@ -60,11 +60,21 @@ window.RI_CONFIG = {
     video: 'Vidéos des visites',
     comparatif: 'Comparatif des biens',
     negociation: 'Stratégie de négociation',
-    contrat: 'Contrats et bons de visite',
+    contrat: 'Contrats',
     dossier: 'Dossier Propriétaire',
     autre: 'Autres documents',
     piece_client: 'Pièces déposées par le client',
   };
+  // documents « vivants » : une page chacun, avec versions successives
+  const DOC_TYPES = [
+    { k: 'plan', label: 'Plan d’Acquisition', desc: 'Votre stratégie : budget réel, quartiers, critères et calendrier.', when: 'Présenté lors de votre 2e appel, puis mis à jour si votre projet évolue.' },
+    { k: 'comparatif', label: 'Comparatif', desc: 'Les meilleurs biens côte à côte, notés, avec notre recommandation.', when: 'Après les premières visites, puis mis à jour au fil des nouvelles visites.' },
+    { k: 'negociation', label: 'Négociation', desc: 'Le juste prix, nos arguments et votre plafond, validés par vous.', when: 'Une fois le bien choisi.', only: ['premium', 'vefa'] },
+    { k: 'contrat', label: 'Contrats', desc: 'Votre engagement, votre contrat d’accompagnement et les documents signés.', when: 'Dès la signature.' },
+    { k: 'dossier', label: 'Dossier Propriétaire', desc: 'Tous les documents essentiels de votre achat, réunis au même endroit.', when: 'À la remise des clés.' },
+    { k: 'autre', label: 'Autres', desc: 'Autres documents partagés par votre conseiller.', hideEmpty: true },
+  ];
+  const typesFor = f => DOC_TYPES.filter(t => !t.only || t.only.includes(f));
   const PIECES = [
     ['identite', 'Pièce d’identité', 'Passeport ou CIN, recto et verso'],
     ['residence', 'Justificatif de résidence à l’étranger', 'Facture, bail ou titre de séjour récent'],
@@ -93,6 +103,7 @@ window.RI_CONFIG = {
   ];
   const demoDocs = [
     { id: 'd1', client_id: 'demo-1', title: 'Plan d’Acquisition Personnalisé', category: 'plan', created_at: '2026-10-09', url: '#' },
+    { id: 'd1b', client_id: 'demo-1', title: 'Plan d’Acquisition Personnalisé', category: 'plan', note: 'Budget ajusté à 1 200 000 DH et quartier Maamora ajouté après notre appel du 18 octobre.', created_at: '2026-10-19', url: '#' },
     { id: 'd2', client_id: 'demo-1', title: 'Compte rendu · Visite 1 · Bir Rami', category: 'compte_rendu', visit_id: 'v0', created_at: '2026-10-09', url: '#' },
     { id: 'd3', client_id: 'demo-1', title: 'Compte rendu · Visite 2 · Maamora', category: 'compte_rendu', visit_id: 'v1', created_at: '2026-10-20', url: '#' },
     { id: 'd4', client_id: 'demo-1', title: 'Compte rendu · Visite 3 · Centre-ville', category: 'compte_rendu', created_at: '2026-10-21', url: '#' },
@@ -243,8 +254,8 @@ window.RI_CONFIG = {
       const { error } = await c.from('clients').delete().eq('id', id);
       if (error) throw error;
     },
-    async addDoc(clientId, { title, category, file, url, visit_id }) {
-      if (DEMO) { const d = { id: uid(), client_id: clientId, title, category, visit_id: visit_id || null, url: url || '#', created_at: today() }; demoDocs.unshift(d); return d; }
+    async addDoc(clientId, { title, category, file, url, visit_id, note }) {
+      if (DEMO) { const d = { id: uid(), client_id: clientId, title, category, note: note || null, visit_id: visit_id || null, url: url || '#', created_at: today() }; demoDocs.unshift(d); return d; }
       const c = await client();
       let storage_path = null;
       if (file) {
@@ -253,7 +264,7 @@ window.RI_CONFIG = {
         const { error } = await c.storage.from(cfg.BUCKET).upload(storage_path, file, { upsert: false, contentType: file.type || undefined });
         if (error) throw error;
       }
-      const { data, error } = await c.from('documents').insert({ client_id: clientId, title, category, storage_path, url: url || null, visit_id: visit_id || null }).select().single();
+      const { data, error } = await c.from('documents').insert({ client_id: clientId, title, category, storage_path, url: url || null, visit_id: visit_id || null, note: note || null }).select().single();
       if (error) throw error; return data;
     },
     async uploadPiece(clientId, docType, file) {
@@ -386,5 +397,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();

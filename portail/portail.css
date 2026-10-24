@@ -260,3 +260,29 @@ main.app-main { padding: 0; max-width: none; margin: 0; flex: initial; }
 .lock-txt { display: grid; gap: 2px; font-size: .8rem; min-width: 0; }
 .lock-txt strong { color: var(--gold); font-weight: 700; overflow: hidden; text-overflow: ellipsis; }
 .lock-txt span { color: rgba(255,255,255,.7); font-size: .74rem; }
+
+/* ---- documents vivants ---- */
+.doc-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 16px; scrollbar-width: thin; }
+.doc-tab { flex: 0 0 auto; border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 8px 14px; font-size: .82rem; color: var(--navy); cursor: pointer; position: relative; white-space: nowrap; }
+.doc-tab.empty-tab { color: var(--muted); border-style: dashed; }
+.doc-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); border-style: solid; }
+.doc-tab .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-left: 7px; vertical-align: 2px; }
+.doc-current { border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.doc-cur-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+.doc-cur-title { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; color: var(--navy); font-weight: 600; margin: 2px 0 4px; }
+.pdf-preview { margin-top: 14px; }
+.pdf-preview iframe { width: 100%; height: 70vh; min-height: 420px; border: 1px solid var(--border); border-radius: 10px; background: var(--cream); }
+@media (max-width: 860px) { .pdf-preview { display: none; } }
+.versions { margin-top: 16px; }
+.versions summary { cursor: pointer; font-size: .85rem; color: var(--navy); text-decoration: underline; margin-bottom: 10px; }
+.versions .doc { margin-top: 8px; }
+.doc-empty { border: 1px dashed var(--border); border-radius: 12px; padding: 30px 20px; text-align: center; }
+.doc-empty h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--navy); margin: 6px 0; }
+.doc-empty p { font-size: .9rem; color: #33404f; line-height: 1.5; max-width: 460px; margin: 0 auto 6px; }
+.doc-empty-ico { width: 46px; height: 46px; border-radius: 50%; background: var(--pale); color: var(--navy); display: grid; place-items: center; margin: 0 auto; font-size: 1.1rem; }
+/* admin */
+.type-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 11px 0; border-bottom: 1px solid var(--steel); }
+.type-main { flex: 1 1 200px; min-width: 0; }
+.type-name { font-weight: 700; color: var(--navy); font-size: .92rem; }
+.type-hist { flex-basis: 100%; }
+.type-hist summary { cursor: pointer; font-size: .8rem; color: var(--navy); text-decoration: underline; }

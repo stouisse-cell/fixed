@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240407">
+<link rel="stylesheet" href="portail.css?v=202610240415">
 </head>
 <body>
 <header class="pt-bar">
@@ -110,7 +110,7 @@
   <div class="view hidden" data-view="documents">
     <section class="card">
       <h2>Vos documents</h2>
-      <p class="muted small" style="margin:-6px 0 14px">Les documents préparés pour vous par votre conseiller.</p>
+      <p class="muted small" style="margin:-6px 0 14px">Chaque document a sa page. Votre conseiller le met à jour au fil du projet : vous voyez toujours la dernière version, et les précédentes restent disponibles.</p>
       <div id="docs"></div>
     </section>
   </div>
@@ -156,7 +156,7 @@
 
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202610240407"></script>
+<script src="portail.js?v=202610240415"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -268,16 +268,49 @@
     }
     renderDocs(); renderPieces(); loadVisits();
   }
+  let docTab = null;
   function renderDocs() {
     const mine = docs.filter(d => !['piece_client', 'compte_rendu', 'video'].includes(d.category));
-    if (!mine.length) { $('docs').innerHTML = '<div class="empty">Vos documents apparaîtront ici au fil de votre projet.</div>'; return; }
-    const groups = {};
-    mine.forEach(d => (groups[d.category] = groups[d.category] || []).push(d));
-    $('docs').innerHTML = Object.keys(CATEGORIES).filter(k => groups[k]).map(k =>
-      '<div class="doc-group"><h3>' + esc(CATEGORIES[k]) + '</h3>' + groups[k].map(d =>
-        '<button type="button" class="doc" data-id="' + esc(d.id) + '"><span class="doc-ico' + (k === 'video' ? ' video' : '') + '">' + (k === 'video' ? '▶' : 'PDF') + '</span><span class="doc-body"><span class="doc-title" style="display:block">' + esc(d.title) + '</span><span class="doc-date">Ajouté le ' + esc(fmtDate(d.created_at)) + '</span></span><span class="doc-go">→</span></button>'
-      ).join('') + '</div>').join('');
-    $('docs').querySelectorAll('.doc').forEach(b => b.onclick = () => open(docs.find(x => x.id === b.dataset.id)));
+    const types = RI.typesFor(c.formule).filter(t => !t.hideEmpty || mine.some(d => d.category === t.k));
+    const byType = k => mine.filter(d => d.category === k).sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+    if (!docTab || !types.some(t => t.k === docTab)) docTab = (types.find(t => byType(t.k).length) || types[0]).k;
+    const recent = d => d && (Date.now() - new Date(d.created_at).getTime()) < 7 * 864e5;
+    $('docs').innerHTML = '<div class="doc-tabs" role="tablist">' + types.map(t => {
+      const v = byType(t.k);
+      return `<button type="button" role="tab" class="doc-tab${t.k === docTab ? ' active' : ''}${v.length ? '' : ' empty-tab'}" data-tab="${t.k}">${esc(t.label)}${recent(v[0]) ? '<span class="dot" title="Mis à jour récemment"></span>' : ''}</button>`;
+    }).join('') + '</div><div id="doc-panel"></div>';
+    const t = types.find(x => x.k === docTab), v = byType(docTab), cur = v[0];
+    $('doc-panel').innerHTML = cur ? `
+      <div class="doc-current">
+        <div class="doc-cur-head">
+          <div style="min-width:0">
+            <div class="eyebrow">${v.length > 1 ? 'Version ' + v.length + ' · la plus récente' : 'Version actuelle'}</div>
+            <h3 class="doc-cur-title">${esc(cur.title)}</h3>
+            <div class="muted small">${v.length > 1 ? 'Mis à jour le ' : 'Ajouté le '}${esc(fmtDate(cur.created_at))}</div>
+          </div>
+          <button class="btn btn-gold" type="button" data-id="${esc(cur.id)}">Ouvrir</button>
+        </div>
+        ${cur.note ? `<div class="message" style="margin-top:14px"><strong>Ce qui a changé :</strong> ${esc(cur.note)}</div>` : ''}
+        <div class="pdf-preview" id="pdf-preview"><button type="button" class="btn btn-line btn-sm" data-preview="${esc(cur.id)}">Afficher l’aperçu ici</button></div>
+        ${v.length > 1 ? `<details class="versions"><summary>Versions précédentes (${v.length - 1})</summary>${v.slice(1).map((d, i) => `<button type="button" class="doc" data-id="${esc(d.id)}"><span class="doc-ico">v${v.length - 1 - i}</span><span class="doc-body"><span class="doc-title" style="display:block">${esc(d.title)}</span><span class="doc-date">${esc(fmtDate(d.created_at))}${d.note ? ' · ' + esc(d.note) : ''}</span></span><span class="doc-go">→</span></button>`).join('')}</details>` : ''}
+      </div>` : `
+      <div class="doc-empty">
+        <div class="doc-empty-ico">◇</div>
+        <h3>${esc(t.label)}</h3>
+        <p>${esc(t.desc)}</p>
+        ${t.when ? `<p class="muted small">${esc(t.when)}</p>` : ''}
+        <div class="muted small" style="margin-top:6px">Ce document apparaîtra ici dès que votre conseiller l’aura ajouté.</div>
+      </div>`;
+    $('docs').querySelectorAll('[data-tab]').forEach(b => b.onclick = () => { docTab = b.dataset.tab; renderDocs(); });
+    $('docs').querySelectorAll('[data-id]').forEach(b => b.onclick = () => open(docs.find(x => x.id === b.dataset.id)));
+    const pv = $('docs').querySelector('[data-preview]');
+    if (pv) pv.onclick = async () => {
+      const d = docs.find(x => x.id === pv.dataset.preview);
+      if (API.DEMO) { toast('Mode démonstration : aperçu fictif'); return; }
+      pv.disabled = true;
+      try { const url = await API.mediaUrl(d); $('pdf-preview').innerHTML = `<iframe src="${esc(url)}#view=FitH" title="${esc(d.title)}"></iframe>`; }
+      catch (e) { toast(errMsg(e)); pv.disabled = false; }
+    };
   }
 
   // ---- pièces déposées par le client ----
