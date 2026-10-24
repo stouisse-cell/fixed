@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240351">
+<link rel="stylesheet" href="portail.css?v=202610240403">
 </head>
 <body>
 <header class="pt-bar">
@@ -101,7 +101,7 @@
   <div class="view hidden" data-view="visites">
     <section class="card" id="visits-card">
       <h2>Vos visites</h2>
-      <p class="muted small" style="margin:-6px 0 14px">Chaque visite, son bon de visite et son compte rendu. Le compte rendu se débloque dès la confirmation du bon.</p>
+      <p class="muted small" style="margin:-6px 0 14px">Chaque visite avec son bon de visite, son compte rendu et sa vidéo. Ils se débloquent dès la confirmation du bon.</p>
       <div id="visits"></div>
     </section>
   </div>
@@ -156,7 +156,7 @@
 
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202610240351"></script>
+<script src="portail.js?v=202610240403"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -347,17 +347,38 @@
         <div class="actions"><button class="btn btn-navy" type="button" data-confirm="${v.id}">Confirmer le bon de visite</button></div>`}
       </div>`).join('') +
       done.map(v => {
-        const mine = reports.filter(d => d.visit_id === v.id);
+        const crs = reports.filter(d => d.visit_id === v.id && d.category === 'compte_rendu');
+        const vids = reports.filter(d => d.visit_id === v.id && d.category === 'video');
         return `<div class="visit">
           <div class="visit-head"><span class="visit-no">Visite du ${esc(fmtDate(v.visit_date))}</span><span class="tag-ok">✓ Bon confirmé</span></div>
-          <div class="small muted" style="margin-bottom:10px">${places(v)}</div>
-          ${mine.length ? mine.map(docBtn).join('') : '<div class="empty">Compte rendu en préparation : il sera mis en ligne sous 72 heures ouvrables.</div>'}
+          <div class="small muted" style="margin-bottom:12px">${places(v)}</div>
+          <div class="visit-slots">
+            <div class="slot">
+              <div class="slot-label">Compte rendu</div>
+              ${crs.length ? crs.map(docBtn).join('') : '<div class="empty">En préparation : mis en ligne sous 72 heures ouvrables.</div>'}
+            </div>
+            <div class="slot">
+              <div class="slot-label">Vidéo de la visite</div>
+              ${vids.length ? vids.map(d => `<div class="video" data-video="${esc(d.id)}"><button type="button" class="video-play" data-play="${esc(d.id)}"><span class="play-ico">▶</span><span>${esc(d.title)}</span></button></div>`).join('') : '<div class="empty">La vidéo sera ajoutée ici.</div>'}
+            </div>
+          </div>
           <a class="visit-bon" href="bon.html?id=${encodeURIComponent(v.id)}${API.DEMO ? '&demo=1' : ''}" target="_blank" rel="noopener">Voir le bon de visite ${visitNo(v)} signé le ${esc(fmtDate(v.confirmed_at))} →</a>
         </div>`;
       }).join('') +
       (orphan.length ? '<div class="doc-group" style="margin-top:14px"><h3>Autres comptes rendus et vidéos</h3>' + orphan.map(docBtn).join('') + '</div>' : '') +
       (!visits.length && !orphan.length ? '<div class="empty">Vos visites apparaîtront ici dès la première présentation de biens.</div>' : '');
     $('visits').querySelectorAll('.doc').forEach(b => b.onclick = () => open(docs.find(x => x.id === b.dataset.id)));
+    $('visits').querySelectorAll('[data-play]').forEach(b => b.onclick = async () => {
+      const d = docs.find(x => x.id === b.dataset.play), box = b.parentElement;
+      if (API.DEMO) { toast('Mode démonstration : vidéo fictive'); return; }
+      b.disabled = true;
+      try {
+        const url = await API.mediaUrl(d), yt = RI.youtubeId(url);
+        if (yt) box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0" title="${esc(d.title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+        else if (d.storage_path) box.innerHTML = `<video src="${esc(url)}" controls autoplay playsinline preload="metadata"></video>`;
+        else { window.open(url, '_blank', 'noopener'); b.disabled = false; }
+      } catch (e) { toast(errMsg(e)); b.disabled = false; }
+    });
     $('visits').querySelectorAll('[data-confirm]').forEach(b => b.onclick = async () => {
       const id = b.dataset.confirm, name = $('n-' + id).value.trim();
       if (!$('visits').querySelector('[data-ok="' + id + '"]').checked) { toast('Cochez la case de confirmation'); return; }

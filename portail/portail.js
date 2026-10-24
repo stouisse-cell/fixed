@@ -96,7 +96,7 @@ window.RI_CONFIG = {
     { id: 'd2', client_id: 'demo-1', title: 'Compte rendu · Visite 1 · Bir Rami', category: 'compte_rendu', visit_id: 'v0', created_at: '2026-10-09', url: '#' },
     { id: 'd3', client_id: 'demo-1', title: 'Compte rendu · Visite 2 · Maamora', category: 'compte_rendu', visit_id: 'v1', created_at: '2026-10-20', url: '#' },
     { id: 'd4', client_id: 'demo-1', title: 'Compte rendu · Visite 3 · Centre-ville', category: 'compte_rendu', created_at: '2026-10-21', url: '#' },
-    { id: 'd5', client_id: 'demo-1', title: 'Vidéo · Visite 2 · Maamora', category: 'video', created_at: '2026-10-20', url: '#' },
+    { id: 'd5', client_id: 'demo-1', title: 'Vidéo · Visite 2 · Maamora', category: 'video', visit_id: 'v1', created_at: '2026-10-20', url: '#' },
     { id: 'd6', client_id: 'demo-1', title: 'Contrat d’accompagnement signé', category: 'contrat', created_at: '2026-10-09', url: '#' },
     { id: 'd7', client_id: 'demo-1', title: 'Bon de visite n° 014', category: 'contrat', created_at: '2026-10-20', url: '#' },
   ];
@@ -201,6 +201,14 @@ window.RI_CONFIG = {
       const { data, error } = await c.storage.from(cfg.BUCKET).createSignedUrl(doc.storage_path, 300);
       if (error) throw error;
       window.open(data.signedUrl, '_blank', 'noopener');
+    },
+    async mediaUrl(doc) {
+      if (DEMO) return null;
+      if (doc.url) return doc.url;
+      const c = await client();
+      const { data, error } = await c.storage.from(cfg.BUCKET).createSignedUrl(doc.storage_path, 3600);
+      if (error) throw error;
+      return data.signedUrl;
     },
     // ---- admin ----
     async listClients() {
@@ -332,6 +340,10 @@ window.RI_CONFIG = {
     const rows = (v.properties || []).map((p, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(p.address) + '</td><td>' + esc(p.type) + '</td><td>' + esc(p.price) + '</td></tr>').join('');
     return '<table class="ptable"><thead><tr><th>N°</th><th>Adresse, projet ou référence</th><th>Type et surface</th><th>Prix annoncé</th></tr></thead><tbody>' + (rows || '<tr><td colspan="4" class="muted">Aucun bien</td></tr>') + '</tbody></table>';
   }
+  function youtubeId(u) {
+    const m = String(u || '').match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([A-Za-z0-9_-]{11})/);
+    return m ? m[1] : null;
+  }
   function genPassword() {
     const a = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789';
     const r = crypto.getRandomValues(new Uint32Array(10));
@@ -374,5 +386,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();

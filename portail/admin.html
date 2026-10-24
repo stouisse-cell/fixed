@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240351">
+<link rel="stylesheet" href="portail.css?v=202610240403">
 </head>
 <body>
 <header class="pt-bar">
@@ -70,7 +70,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202610240351"></script>
+<script src="portail.js?v=202610240403"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -196,6 +196,7 @@
             <label for="d-visit">Lié au bon de visite</label>
             <select id="d-visit"></select>
             <p class="muted small" style="margin-top:6px">🔒 Le client ne pourra ouvrir ce document qu’après avoir confirmé ce bon de visite.</p>
+            <p class="muted small" style="margin-top:4px">Vidéo : un lien YouTube « non répertorié » est conseillé (lecture fluide, pas de limite de taille). Fichier vidéo direct : 50 Mo maximum.</p>
           </div>
           <div class="actions"><button class="btn btn-gold" id="add-doc" type="button">Ajouter le document</button><button class="btn btn-navy hidden" id="notify-docs" type="button"></button></div>
           <p class="muted small" style="margin-top:10px">Ajoutez tous vos documents, puis prévenez le client en une seule fois.</p>
@@ -296,7 +297,15 @@
     if (sel) sel.innerHTML = vs.length ? vs.map(v => `<option value="${esc(v.id)}">${RI.visitNo(v)} · ${esc(fmtDate(v.visit_date))} · ${v.status === 'confirmed' ? 'confirmé' : 'en attente'}</option>`).join('') + (vs.length ? '' : '') : '<option value="">Aucun bon de visite : créez-en un ci-dessus</option>';
     loadDocs(c);
     const box = $('visit-list'); if (!box) return;
-    box.innerHTML = vs.length ? vs.map(v => `<div class="adm-doc"><span class="t"><strong>${RI.visitNo(v)}</strong> · ${esc(fmtDate(v.visit_date))} · ${(v.properties || []).length} bien(s) <span class="${v.status === 'confirmed' ? 'tag-ok' : 'tag-client'}">${v.status === 'confirmed' ? 'Confirmé le ' + esc(RI.fmtDateTime(v.confirmed_at)) + ' par ' + esc(v.confirmed_name) : 'En attente'}</span></span><a class="btn btn-line btn-sm" href="bon.html?id=${encodeURIComponent(v.id)}${API.DEMO ? '&demo=1' : ''}" target="_blank" rel="noopener">Voir</a>${v.status === 'pending' ? `<button class="btn btn-danger btn-sm" data-vdel="${esc(v.id)}" type="button">Annuler</button>` : ''}</div>`).join('') : '<div class="empty">Aucun bon de visite pour l’instant.</div>';
+    box.innerHTML = vs.length ? vs.map(v => `<div class="adm-doc"><span class="t"><strong>${RI.visitNo(v)}</strong> · ${esc(fmtDate(v.visit_date))} · ${(v.properties || []).length} bien(s) <span class="${v.status === 'confirmed' ? 'tag-ok' : 'tag-client'}">${v.status === 'confirmed' ? 'Confirmé le ' + esc(RI.fmtDateTime(v.confirmed_at)) + ' par ' + esc(v.confirmed_name) : 'En attente'}</span></span><button class="btn btn-line btn-sm" type="button" data-add="compte_rendu" data-v="${esc(v.id)}">+ Compte rendu</button><button class="btn btn-line btn-sm" type="button" data-add="video" data-v="${esc(v.id)}">+ Vidéo</button><a class="btn btn-line btn-sm" href="bon.html?id=${encodeURIComponent(v.id)}${API.DEMO ? '&demo=1' : ''}" target="_blank" rel="noopener">Voir</a>${v.status === 'pending' ? `<button class="btn btn-danger btn-sm" data-vdel="${esc(v.id)}" type="button">Annuler</button>` : ''}</div>`).join('') : '<div class="empty">Aucun bon de visite pour l’instant.</div>';
+    box.querySelectorAll('[data-add]').forEach(b => b.onclick = () => {
+      const v = vs.find(x => x.id === b.dataset.v), cat = b.dataset.add;
+      $('d-cat').value = cat; $('d-cat').onchange();
+      $('d-visit').value = v.id;
+      $('d-title').value = (cat === 'video' ? 'Vidéo' : 'Compte rendu') + ' · Visite du ' + fmtDate(v.visit_date) + ((v.properties || [])[0] ? ' · ' + v.properties[0].address : '');
+      $('d-title').scrollIntoView({ behavior: 'smooth', block: 'center' }); $('d-title').focus();
+      toast(cat === 'video' ? 'Choisissez la vidéo ou collez un lien YouTube' : 'Choisissez le PDF du compte rendu');
+    });
     box.querySelectorAll('[data-vdel]').forEach(b => b.onclick = async () => {
       if (!confirm('Annuler ce bon de visite en attente ?')) return;
       try { await API.deleteVisit(b.dataset.vdel); toast('Bon annulé'); loadVisits(c); } catch (e) { toast(errMsg(e)); }
