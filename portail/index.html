@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240336">
+<link rel="stylesheet" href="portail.css?v=202610240344">
 </head>
 <body>
 <header class="pt-bar">
@@ -53,7 +53,9 @@
 </section>
 
 <!-- ===== Tableau de bord ===== -->
-<main class="hidden" id="view-dash">
+<div class="app hidden" id="view-dash">
+  <nav class="side" aria-label="Menu de l’espace client"><a href="#home" class="nav-item" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="nav-label">Accueil</span><span class="nav-badge hidden" id="badge-home"></span></a><a href="#visites" class="nav-item" data-nav="visites"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="nav-label">Visites</span><span class="nav-badge hidden" id="badge-visites"></span></a><a href="#documents" class="nav-item" data-nav="documents"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg><span class="nav-label">Documents</span><span class="nav-badge hidden" id="badge-documents"></span></a><a href="#pieces" class="nav-item" data-nav="pieces"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg><span class="nav-label">Mes pièces</span><span class="nav-badge hidden" id="badge-pieces"></span></a><a href="#contact" class="nav-item" data-nav="contact"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="nav-label">Contact</span><span class="nav-badge hidden" id="badge-contact"></span></a></nav>
+  <main class="app-main">
   <div class="notice hidden" id="demo-note">Mode démonstration : les informations affichées sont fictives.</div>
   <section class="hero">
     <div class="eyebrow">Votre projet</div>
@@ -63,35 +65,67 @@
     <div class="progress"><span id="progress-bar" style="width:0"></span></div>
   </section>
 
-  <div class="grid-2" style="margin-top:20px">
-    <div class="grid">
+  <!-- Accueil -->
+  <div class="view" data-view="home">
+    <section class="card todo-card">
+      <h2>À faire</h2>
+      <div id="todo"></div>
+    </section>
+    <div class="grid-2 even">
       <section class="card">
         <h2>Les étapes de votre projet</h2>
         <ol class="steps" id="steps"></ol>
       </section>
-      <section class="card hidden" id="visits-card">
-        <h2>Vos visites</h2>
-        <p class="muted small" style="margin:-6px 0 14px">Chaque visite, son bon de visite et son compte rendu.</p>
-        <div id="visits"></div>
-      </section>
-      <section class="card">
-        <h2>Vos documents</h2>
-        <div id="docs"></div>
-      </section>
-      <section class="card" id="pieces-card">
-        <h2>Vos pièces à déposer</h2>
-        <p class="muted small" style="margin-bottom:14px;line-height:1.5">Déposez ici les documents demandés pour votre dossier (crédit, notaire). Ils sont stockés de façon sécurisée et visibles uniquement par vous et votre conseiller.</p>
-        <div id="pieces"></div>
-        <p class="muted small" style="margin-top:12px">Formats acceptés : PDF, JPG, PNG · 20 Mo maximum par fichier.</p>
-        <input type="file" id="piece-input" accept=".pdf,.jpg,.jpeg,.png,.heic,application/pdf,image/*" class="hidden">
-      </section>
+      <div class="grid">
+        <section class="card hidden" id="message-card">
+          <h2>Le mot de votre conseiller</h2>
+          <div class="message" id="message"></div>
+          <div class="message-from" id="message-from"></div>
+        </section>
+        <section class="card">
+          <h2>Votre conseiller</h2>
+          <div class="advisor">
+            <div class="avatar">AR</div>
+            <div><div style="font-weight:700;color:var(--navy)">Ali Rahim</div><div class="muted small">Fondateur et conseiller en immobilier, sur place à Kénitra</div></div>
+          </div>
+          <div class="contact-actions"><a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">Écrire sur WhatsApp</a></div>
+        </section>
+      </div>
     </div>
-    <div class="grid">
-      <section class="card hidden" id="message-card">
-        <h2>Le mot de votre conseiller</h2>
-        <div class="message" id="message"></div>
-        <div class="message-from" id="message-from"></div>
-      </section>
+  </div>
+
+  <!-- Visites -->
+  <div class="view hidden" data-view="visites">
+    <section class="card" id="visits-card">
+      <h2>Vos visites</h2>
+      <p class="muted small" style="margin:-6px 0 14px">Chaque visite, son bon de visite et son compte rendu. Le compte rendu se débloque dès la confirmation du bon.</p>
+      <div id="visits"></div>
+    </section>
+  </div>
+
+  <!-- Documents -->
+  <div class="view hidden" data-view="documents">
+    <section class="card">
+      <h2>Vos documents</h2>
+      <p class="muted small" style="margin:-6px 0 14px">Les documents préparés pour vous par votre conseiller.</p>
+      <div id="docs"></div>
+    </section>
+  </div>
+
+  <!-- Mes pièces -->
+  <div class="view hidden" data-view="pieces">
+    <section class="card" id="pieces-card">
+      <h2>Vos pièces à déposer</h2>
+      <p class="muted small" style="margin-bottom:14px;line-height:1.5">Déposez ici les documents demandés pour votre dossier (crédit, notaire). Ils sont stockés de façon sécurisée et visibles uniquement par vous et votre conseiller.</p>
+      <div id="pieces"></div>
+      <p class="muted small" style="margin-top:12px">Formats acceptés : PDF, JPG, PNG · 20 Mo maximum par fichier.</p>
+      <input type="file" id="piece-input" accept=".pdf,.jpg,.jpeg,.png,.heic,application/pdf,image/*" class="hidden">
+    </section>
+  </div>
+
+  <!-- Contact -->
+  <div class="view hidden" data-view="contact">
+    <div class="grid-2 even">
       <section class="card">
         <h2>Votre conseiller</h2>
         <div class="advisor">
@@ -99,21 +133,26 @@
           <div><div style="font-weight:700;color:var(--navy)">Ali Rahim</div><div class="muted small">Fondateur et conseiller en immobilier, sur place à Kénitra</div></div>
         </div>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp · +212 6 42 77 32 49</a>
           <a class="btn btn-line" href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a>
         </div>
       </section>
       <section class="card">
         <h2>Bon à savoir</h2>
-        <p class="small muted" style="line-height:1.55">Aucune offre ni décision engageante n’est prise sans votre accord écrit. Chaque compte rendu de visite est mis en ligne sous 72 heures ouvrables, après la confirmation de votre bon de visite.</p>
+        <ul class="facts">
+          <li>Aucune offre ni décision engageante n’est prise sans votre accord écrit.</li>
+          <li>Chaque compte rendu de visite est mis en ligne sous 72 heures ouvrables, après la confirmation de votre bon de visite.</li>
+          <li>Vos documents et vos pièces sont visibles uniquement par vous et votre conseiller.</li>
+        </ul>
       </section>
     </div>
   </div>
-</main>
+  </main>
+</div>
 
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202610240336"></script>
+<script src="portail.js?v=202610240344"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -180,6 +219,29 @@
     $('message-from').textContent = 'Ali Rahim' + (c.message_date ? ' · ' + fmtDate(c.message_date) : '');
   }
 
+  // ---- navigation ----
+  const VIEWS = ['home', 'visites', 'documents', 'pieces', 'contact'];
+  function go(v) {
+    if (!VIEWS.includes(v)) v = 'home';
+    document.querySelectorAll('.view').forEach(el => el.classList.toggle('hidden', el.dataset.view !== v));
+    document.querySelectorAll('[data-nav]').forEach(a => a.classList.toggle('active', a.dataset.nav === v));
+    document.querySelector('.hero').classList.toggle('hero-compact', v !== 'home');
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+  window.addEventListener('hashchange', () => go(location.hash.slice(1)));
+  go(location.hash.slice(1));
+  const badge = (k, n) => { const b = $('badge-' + k); b.textContent = n; b.classList.toggle('hidden', !n); };
+
+  let visitsState = { pending: 0 }, piecesState = { missing: 0, total: 0 }, docsState = { fresh: 0 };
+  function renderTodo() {
+    const items = [];
+    if (visitsState.pending) items.push(['visites', '✍', visitsState.pending > 1 ? `Confirmer ${visitsState.pending} bons de visite` : 'Confirmer votre bon de visite', 'Votre compte rendu se débloque dès la confirmation.']);
+    if (piecesState.missing) items.push(['pieces', '⬆', `Déposer ${piecesState.missing} pièce${piecesState.missing > 1 ? 's' : ''} pour votre dossier`, piecesState.total - piecesState.missing + ' sur ' + piecesState.total + ' déjà déposées.']);
+    $('todo').innerHTML = items.length ? items.map(([v, ico, t, sub]) => `<a class="act" href="#${v}"><span class="act-ico">${ico}</span><span class="act-body"><span class="act-title">${esc(t)}</span><span class="act-sub">${esc(sub)}</span></span><span class="doc-go">→</span></a>`).join('')
+      : '<div class="act-none">✓ Rien à faire pour l’instant. Nous vous tenons informé à chaque étape.</div>';
+    badge('visites', visitsState.pending); badge('pieces', piecesState.missing);
+  }
+
   let docs = [];
   const open = async d => { try { await API.openDoc(d); } catch (e) { toast(errMsg(e)); } };
   async function loadAll() {
@@ -209,6 +271,7 @@
     const pieces = docs.filter(d => d.category === 'piece_client');
     const rows = PIECES.concat([['autre', 'Autre document', 'Tout autre document demandé par votre conseiller']]);
     const done = PIECES.filter(p => pieces.some(d => d.doc_type === p[0])).length;
+    piecesState = { missing: PIECES.length - done, total: PIECES.length }; renderTodo();
     $('pieces').innerHTML = '<div class="pieces-count">' + done + ' sur ' + PIECES.length + ' pièces déposées</div>' + rows.map(([k, label, hint]) => {
       const files = pieces.filter(d => d.doc_type === k);
       const ok = files.length > 0;
@@ -249,7 +312,8 @@
     } catch (e) {}
     const reports = docs.filter(d => d.category === 'compte_rendu' || d.category === 'video');
     const orphan = reports.filter(d => !d.visit_id || !visits.some(v => v.id === d.visit_id));
-    $('visits-card').classList.toggle('hidden', !visits.length && !reports.length);
+    visitsState = { pending: visits.filter(v => v.status === 'pending').length };
+    renderTodo();
     const docBtn = d => '<button type="button" class="doc" data-id="' + esc(d.id) + '"><span class="doc-ico' + (d.category === 'video' ? ' video' : '') + '">' + (d.category === 'video' ? '▶' : 'PDF') + '</span><span class="doc-body"><span class="doc-title" style="display:block">' + esc(d.title) + '</span><span class="doc-date">Ajouté le ' + esc(fmtDate(d.created_at)) + '</span></span><span class="doc-go">→</span></button>';
     const places = v => (v.properties || []).map(p => esc(p.address)).join(' · ');
     const pending = visits.filter(v => v.status === 'pending'), done = visits.filter(v => v.status === 'confirmed');
@@ -275,7 +339,8 @@
           <a class="visit-bon" href="bon.html?id=${encodeURIComponent(v.id)}${API.DEMO ? '&demo=1' : ''}" target="_blank" rel="noopener">Voir le bon de visite ${visitNo(v)} signé le ${esc(fmtDate(v.confirmed_at))} →</a>
         </div>`;
       }).join('') +
-      (orphan.length ? '<div class="doc-group" style="margin-top:14px"><h3>Autres comptes rendus et vidéos</h3>' + orphan.map(docBtn).join('') + '</div>' : '');
+      (orphan.length ? '<div class="doc-group" style="margin-top:14px"><h3>Autres comptes rendus et vidéos</h3>' + orphan.map(docBtn).join('') + '</div>' : '') +
+      (!visits.length && !orphan.length ? '<div class="empty">Vos visites apparaîtront ici dès la première présentation de biens.</div>' : '');
     $('visits').querySelectorAll('.doc').forEach(b => b.onclick = () => open(docs.find(x => x.id === b.dataset.id)));
     $('visits').querySelectorAll('[data-confirm]').forEach(b => b.onclick = async () => {
       const id = b.dataset.confirm, name = $('n-' + id).value.trim();
