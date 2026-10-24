@@ -148,6 +148,7 @@
           </div>
           <label for="f-msg">Mot du conseiller (visible par le client)</label>
           <textarea id="f-msg" placeholder="Ex. : Le compte rendu de la visite 2 est en ligne.">${esc(c.message || '')}</textarea>
+          <label class="check"><input type="checkbox" id="notify-progress"> Prévenir le client par courriel (nouvelle étape ou nouveau mot)</label>
           <div class="actions"><button class="btn btn-navy" id="save-steps" type="button">Enregistrer l’avancement</button></div>
         </div>
         <div class="card">
@@ -159,7 +160,8 @@
             <div><label for="d-file">Fichier (PDF, image…)</label><input type="file" id="d-file"></div>
             <div><label for="d-url">ou lien (vidéo YouTube non répertoriée, Drive…)</label><input type="url" id="d-url" placeholder="https://"></div>
           </div>
-          <div class="actions"><button class="btn btn-gold" id="add-doc" type="button">Ajouter le document</button></div>
+          <div class="actions"><button class="btn btn-gold" id="add-doc" type="button">Ajouter le document</button><button class="btn btn-navy hidden" id="notify-docs" type="button"></button></div>
+          <p class="muted small" style="margin-top:10px">Ajoutez tous vos documents, puis prévenez le client en une seule fois.</p>
         </div>`}
       </div>`;
 
@@ -187,7 +189,16 @@
       if (cur <= steps.length && !dates[cur]) dates[cur] = today();
       const msg = $('f-msg').value.trim();
       const row = { id: c.id, current_step: cur, step_dates: dates, message: msg || null, message_date: msg && msg !== (c.message || '') ? today() : (c.message_date || null) };
-      try { await API.saveClient(row); toast('Avancement enregistré'); await refresh(c.id); } catch (e) { toast(errMsg(e)); }
+      const stepChanged = cur !== c.current_step, msgChanged = !!msg && msg !== (c.message || '');
+      const wantMail = $('notify-progress').checked && (stepChanged || msgChanged);
+      try {
+        await API.saveClient(row);
+        if (wantMail) {
+          try { await API.notify({ kind: 'progress', client_id: c.id, step_changed: stepChanged, message_changed: msgChanged }); toast('Enregistré · client prévenu par courriel'); }
+          catch (e) { toast('Enregistré, mais courriel non envoyé : ' + errMsg(e)); }
+        } else toast('Avancement enregistré');
+        await refresh(c.id);
+      } catch (e) { toast(errMsg(e)); }
     };
     $('add-doc').onclick = async () => {
       const title = $('d-title').value.trim(), category = $('d-cat').value, file = $('d-file').files[0], url = $('d-url').value.trim();
@@ -204,6 +215,18 @@
     try { docs = await API.listDocs(c.id); } catch (e) { toast(errMsg(e)); }
     const box = $('doc-list'); if (!box) return;
     box.innerHTML = docs.length ? docs.map(d => `<div class="adm-doc"><span class="t">${d.uploaded_by === 'client' ? '<span class="tag-client">Client</span> ' : ''}${esc(d.title)} <span class="muted">· ${esc(CATEGORIES[d.category] || d.category)} · ${esc(fmtDate(d.created_at))}</span></span><button class="btn btn-line btn-sm" data-open="${esc(d.id)}" type="button">Voir</button><button class="btn btn-danger btn-sm" data-del="${esc(d.id)}" type="button">Retirer</button></div>`).join('') : '<div class="empty">Aucun document pour l’instant.</div>';
+    const fresh = docs.filter(d => d.uploaded_by !== 'client' && !d.notified_at).length;
+    const nb = $('notify-docs');
+    if (nb) {
+      nb.classList.toggle('hidden', !fresh);
+      nb.textContent = 'Prévenir le client (' + fresh + ' nouveau' + (fresh > 1 ? 'x' : '') + ' document' + (fresh > 1 ? 's' : '') + ')';
+      nb.onclick = async () => {
+        nb.disabled = true;
+        try { const r = await API.notify({ kind: 'documents', client_id: c.id }); toast(r && r.sent ? 'Client prévenu par courriel' : 'Aucun nouveau document à annoncer'); if (API.DEMO) docs.forEach(d => d.notified_at = 'x'); }
+        catch (e) { toast(errMsg(e)); }
+        nb.disabled = false; loadDocs(c);
+      };
+    }
     box.querySelectorAll('[data-open]').forEach(b => b.onclick = () => API.openDoc(docs.find(d => d.id === b.dataset.open)).catch(e => toast(errMsg(e))));
     box.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
       const d = docs.find(x => x.id === b.dataset.del);

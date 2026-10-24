@@ -163,3 +163,5 @@ textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
 .linkish { background: none; border: 0; padding: 0; cursor: pointer; color: var(--navy); text-decoration: underline; font-size: .8rem; }
 .linkish.danger { color: #a23b3b; }
 .tag-client { display: inline-block; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; background: var(--gold-soft); color: #87452c; border: 1px solid rgba(201,169,110,.5); border-radius: 999px; padding: 1px 7px; vertical-align: 1px; }
+label.check { display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: 0; font-size: .85rem; color: var(--navy); margin: 14px 0 0; cursor: pointer; }
+label.check input { width: 17px; height: 17px; accent-color: var(--navy); }

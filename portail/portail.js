@@ -225,6 +225,18 @@ window.RI_CONFIG = {
       if (error) { await c.storage.from(cfg.BUCKET).remove([storage_path]); throw error; }
       return data;
     },
+    async notify(payload) {
+      if (DEMO) return { sent: true, demo: true };
+      const c = await client();
+      const { data, error } = await c.functions.invoke('notify', { body: payload });
+      if (error) {
+        let detail = '';
+        try { detail = (await error.context.json()).error; } catch (e) {}
+        if (detail === 'email_not_configured') throw new Error('Les notifications par courriel ne sont pas encore activées.');
+        throw new Error(detail || error.message);
+      }
+      return data;
+    },
     async deleteDoc(doc) {
       if (DEMO) { const i = demoDocs.findIndex(x => x.id === doc.id); demoDocs.splice(i, 1); return; }
       const c = await client();
