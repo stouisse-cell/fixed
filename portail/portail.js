@@ -64,7 +64,17 @@ window.RI_CONFIG = {
     dossier: 'Dossier Propriétaire',
     autre: 'Autres documents',
     piece_client: 'Pièces déposées par le client',
+    financement: 'Financement',
   };
+  const FIN_STAGES = [
+    ['Simulation et capacité d’emprunt', 'Votre budget, votre apport et la mensualité visée.'],
+    ['Dossier de crédit constitué', 'Vos pièces réunies et vérifiées.'],
+    ['Dossier déposé à la banque', 'La banque étudie votre demande.'],
+    ['Accord de principe', 'La banque confirme qu’elle peut vous financer.'],
+    ['Offre de prêt reçue', 'Conditions définitives : montant, taux, durée, assurance.'],
+    ['Prêt signé', 'Signature chez le notaire, le jour de l’acte.'],
+  ];
+  const DAAM = { na: 'Non applicable', eligible: 'Éligible, à demander', demande: 'Demande déposée', accorde: 'Accordée', refuse: 'Non retenue' };
   // documents « vivants » : une page chacun, avec versions successives
   const DOC_TYPES = [
     { k: 'plan', label: 'Plan d’Acquisition', desc: 'Votre stratégie : budget réel, quartiers, critères et calendrier.', when: 'Présenté lors de votre 2e appel, puis mis à jour si votre projet évolue.' },
@@ -94,7 +104,7 @@ window.RI_CONFIG = {
 
   // ---------- mode démonstration ----------
   const demoClients = [
-    { id: 'demo-1', email: 'famille.alaoui@exemple.com', full_name: 'Famille Alaoui', formule: 'premium', city: 'Kénitra', current_step: 3,
+    { id: 'demo-1', email: 'famille.alaoui@exemple.com', full_name: 'Famille Alaoui', formule: 'premium', city: 'Kénitra', current_step: 3, financing: 'credit', fin: { bank: 'Saham Bank', amount: 600000, years: 20, rate: 4.6, stage: 3, daam: 'na', note: 'Dossier déposé le 22 octobre. Réponse de principe attendue sous 10 jours ouvrables.' },
       step_dates: { 1: '2026-09-28', 2: '2026-10-09', 3: '2026-10-21' },
       message: 'Bonjour ! Les comptes rendus des visites 2 et 3 sont en ligne. L’appartement de Maamora est notre coup de cœur : nous en parlons lors de l’appel vidéo du 28 octobre.',
       message_date: '2026-10-21', created_at: '2026-09-28' },
@@ -110,6 +120,7 @@ window.RI_CONFIG = {
     { id: 'd5', client_id: 'demo-1', title: 'Vidéo · Visite 2 · Maamora', category: 'video', visit_id: 'v1', created_at: '2026-10-20', url: '#' },
     { id: 'd6', client_id: 'demo-1', title: 'Contrat d’accompagnement signé', category: 'contrat', created_at: '2026-10-09', url: '#' },
     { id: 'd7', client_id: 'demo-1', title: 'Bon de visite n° 014', category: 'contrat', created_at: '2026-10-20', url: '#' },
+    { id: 'd8', client_id: 'demo-1', title: 'Simulation de crédit · Saham Bank', category: 'financement', created_at: '2026-10-15', url: '#' },
   ];
 
   const demoVisits = [
@@ -397,5 +408,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240415">
+<link rel="stylesheet" href="portail.css?v=202610241253">
 </head>
 <body>
 <header class="pt-bar">
@@ -57,7 +57,7 @@
 
 <!-- ===== Tableau de bord ===== -->
 <div class="app hidden" id="view-dash">
-  <nav class="side" aria-label="Menu de l’espace client"><a href="#home" class="nav-item" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="nav-label">Accueil</span><span class="nav-badge hidden" id="badge-home"></span></a><a href="#visites" class="nav-item" data-nav="visites"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="nav-label">Visites</span><span class="nav-badge hidden" id="badge-visites"></span></a><a href="#documents" class="nav-item" data-nav="documents"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg><span class="nav-label">Documents</span><span class="nav-badge hidden" id="badge-documents"></span></a><a href="#pieces" class="nav-item" data-nav="pieces"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg><span class="nav-label">Mes pièces</span><span class="nav-badge hidden" id="badge-pieces"></span></a><a href="#contact" class="nav-item" data-nav="contact"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="nav-label">Contact</span><span class="nav-badge hidden" id="badge-contact"></span></a></nav>
+  <nav class="side" aria-label="Menu de l’espace client"><a href="#home" class="nav-item" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="nav-label">Accueil</span><span class="nav-badge hidden" id="badge-home"></span></a><a href="#visites" class="nav-item" data-nav="visites"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="nav-label">Visites</span><span class="nav-badge hidden" id="badge-visites"></span></a><a href="#documents" class="nav-item" data-nav="documents"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg><span class="nav-label">Documents</span><span class="nav-badge hidden" id="badge-documents"></span></a><a href="#financement" class="nav-item hidden" data-nav="financement"><svg viewBox="0 0 24 24"><path d="M3 10l9-5 9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg><span class="nav-label">Financement</span><span class="nav-badge hidden" id="badge-financement"></span></a><a href="#pieces" class="nav-item" data-nav="pieces"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg><span class="nav-label">Mes pièces</span><span class="nav-badge hidden" id="badge-pieces"></span></a><a href="#contact" class="nav-item" data-nav="contact"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="nav-label">Contact</span><span class="nav-badge hidden" id="badge-contact"></span></a></nav>
   <main class="app-main">
   <div class="notice hidden" id="demo-note">Mode démonstration : les informations affichées sont fictives.</div>
   <section class="hero">
@@ -116,6 +116,35 @@
   </div>
 
   <!-- Mes pièces -->
+  <div class="view hidden" data-view="financement">
+    <section class="card">
+      <h2>Votre financement</h2>
+      <p class="muted small" style="margin:-6px 0 16px">Le suivi de votre crédit immobilier, en parallèle de votre recherche.</p>
+      <div id="fin-summary"></div>
+    </section>
+    <div class="grid-2 even">
+      <section class="card">
+        <h2>Votre dossier de crédit</h2>
+        <ol class="steps" id="fin-steps"></ol>
+      </section>
+      <div class="grid">
+        <section class="card hidden" id="fin-note-card">
+          <h2>Où en est votre dossier</h2>
+          <div class="message" id="fin-note"></div>
+        </section>
+        <section class="card">
+          <h2>Documents de financement</h2>
+          <div id="fin-docs"></div>
+        </section>
+        <section class="card">
+          <h2>Vos pièces</h2>
+          <div id="fin-pieces"></div>
+        </section>
+      </div>
+    </div>
+    <p class="muted small" style="padding:0 4px">Chiffres indicatifs, confirmés par la banque. Le prêt reste soumis à l’accord de la banque.</p>
+  </div>
+
   <div class="view hidden" data-view="pieces">
     <section class="card" id="pieces-card">
       <h2>Vos pièces à déposer</h2>
@@ -156,7 +185,7 @@
 
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202610240415"></script>
+<script src="portail.js?v=202610241253"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -236,7 +265,7 @@
   }
 
   // ---- navigation ----
-  const VIEWS = ['home', 'visites', 'documents', 'pieces', 'contact'];
+  const VIEWS = ['home', 'visites', 'documents', 'financement', 'pieces', 'contact'];
   function go(v) {
     if (!VIEWS.includes(v)) v = 'home';
     document.querySelectorAll('.view').forEach(el => el.classList.toggle('hidden', el.dataset.view !== v));
@@ -266,7 +295,34 @@
       // l'admin voit tout : on masque ce que le client ne voit pas encore
       try { const pend = (await API.listVisits(c.id)).filter(v => v.status === 'pending').map(v => v.id); docs = docs.filter(d => !pend.includes(d.visit_id)); } catch (e) {}
     }
-    renderDocs(); renderPieces(); loadVisits();
+    renderDocs(); renderPieces(); loadVisits(); renderFin();
+  }
+  function renderFin() {
+    const credit = (c.financing || 'credit') === 'credit';
+    document.querySelector('[data-nav=financement]').classList.toggle('hidden', !credit);
+    if (!credit) return;
+    const f = c.fin || {}, money = n => n ? Number(n).toLocaleString('fr-FR') + ' DH' : '—';
+    let monthly = f.monthly;
+    if (!monthly && f.amount && f.rate && f.years) { const r = f.rate / 100 / 12, n = f.years * 12; monthly = Math.round(f.amount * r / (1 - Math.pow(1 + r, -n))); }
+    const tiles = [
+      ['Banque', f.bank || 'À choisir'], ['Montant du prêt', money(f.amount)], ['Durée', f.years ? f.years + ' ans' : '—'],
+      ['Taux', f.rate ? String(f.rate).replace('.', ',') + ' %' : '—'], ['Mensualité estimée', monthly ? (f.monthly ? '' : '≈ ') + money(monthly) : '—'], ['Daam Sakane', RI.DAAM[f.daam] || '—'],
+    ];
+    $('fin-summary').innerHTML = '<div class="fin-tiles">' + tiles.map(([k, v]) => `<div class="fin-tile"><div class="fin-k">${esc(k)}</div><div class="fin-v">${esc(v)}</div></div>`).join('') + '</div>';
+    const st = Math.min(Math.max(f.stage || 1, 1), RI.FIN_STAGES.length + 1);
+    $('fin-steps').innerHTML = RI.FIN_STAGES.map((s, i) => {
+      const n = i + 1, k = n < st ? 'done' : n === st ? 'current' : 'todo';
+      return `<li class="step ${k}"><div class="dot">${k === 'done' ? '✓' : n}</div><div><div class="step-title">${esc(s[0])}</div><div class="step-desc">${esc(s[1])}</div>${k === 'current' ? '<div class="step-meta">En cours</div>' : ''}</div></li>`;
+    }).join('');
+    $('fin-note-card').classList.toggle('hidden', !f.note);
+    if (f.note) $('fin-note').textContent = f.note;
+    const fd = docs.filter(d => d.category === 'financement').sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+    $('fin-docs').innerHTML = fd.length ? fd.map(d => `<button type="button" class="doc" data-id="${esc(d.id)}"><span class="doc-ico">PDF</span><span class="doc-body"><span class="doc-title" style="display:block">${esc(d.title)}</span><span class="doc-date">Ajouté le ${esc(fmtDate(d.created_at))}</span></span><span class="doc-go">→</span></button>`).join('')
+      : '<div class="empty">Simulation, offre de prêt et tableau d’amortissement apparaîtront ici.</div>';
+    $('fin-docs').querySelectorAll('[data-id]').forEach(b => b.onclick = () => open(docs.find(x => x.id === b.dataset.id)));
+    $('fin-pieces').innerHTML = piecesState.missing
+      ? `<p class="small" style="line-height:1.5;margin-bottom:12px">${piecesState.total - piecesState.missing} sur ${piecesState.total} pièces déposées. Il en manque <strong>${piecesState.missing}</strong> pour compléter votre dossier de crédit.</p><a class="btn btn-navy btn-sm" href="#pieces">Déposer mes pièces</a>`
+      : '<div class="todo-none act-none">✓ Toutes vos pièces sont déposées.</div>';
   }
   let docTab = null;
   function renderDocs() {

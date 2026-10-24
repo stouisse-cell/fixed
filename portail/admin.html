@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240415">
+<link rel="stylesheet" href="portail.css?v=202610241253">
 </head>
 <body>
 <header class="pt-bar">
@@ -70,7 +70,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202610240415"></script>
+<script src="portail.js?v=202610241253"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -169,6 +169,22 @@
           <div class="actions"><button class="btn btn-navy" id="save-steps" type="button">Enregistrer l’avancement</button></div>
         </div>
         <div class="card">
+          <h2>Financement</h2>
+          <div class="row">
+            <div><label for="f-mode">Mode d’achat</label><select id="f-mode"><option value="credit">Avec crédit immobilier</option><option value="comptant">Comptant (onglet masqué)</option></select></div>
+            <div><label for="f-bank">Banque</label><input type="text" id="f-bank" placeholder="Saham Bank"></div>
+            <div><label for="f-amount">Montant du prêt (DH)</label><input type="text" inputmode="numeric" id="f-amount" placeholder="600000"></div>
+            <div><label for="f-years">Durée (années)</label><input type="text" inputmode="numeric" id="f-years" placeholder="20"></div>
+            <div><label for="f-rate">Taux (%)</label><input type="text" inputmode="decimal" id="f-rate" placeholder="4,6"></div>
+            <div><label for="f-monthly">Mensualité (DH, vide = calcul auto)</label><input type="text" inputmode="numeric" id="f-monthly"></div>
+            <div><label for="f-daam">Daam Sakane</label><select id="f-daam">${Object.entries(RI.DAAM).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}</select></div>
+            <div><label for="f-stage">Étape du dossier</label><select id="f-stage">${RI.FIN_STAGES.map((s, i) => `<option value="${i + 1}">${i + 1}. ${s[0]}</option>`).join('')}<option value="${RI.FIN_STAGES.length + 1}">Terminé</option></select></div>
+          </div>
+          <label for="f-fnote">Où en est le dossier (visible par le client)</label>
+          <textarea id="f-fnote" placeholder="Ex. : Dossier déposé le 22 octobre, réponse de principe attendue sous 10 jours."></textarea>
+          <div class="actions"><button class="btn btn-navy" id="f-save" type="button">Enregistrer le financement</button><button class="btn btn-line" id="f-adddoc" type="button">+ Document de financement</button></div>
+        </div>
+        <div class="card">
           <h2>Bons de visite</h2>
           <div id="visit-list"><p class="muted small">Chargement…</p></div>
           <div class="eyebrow" style="margin-top:18px">Nouveau bon de visite</div>
@@ -231,6 +247,23 @@
         toast('Accès client créé');
       } catch (e) { toast(errMsg(e)); }
       $('set-access').disabled = false;
+    };
+    // ---- financement ----
+    const fin = c.fin || {};
+    $('f-mode').value = c.financing || 'credit';
+    $('f-bank').value = fin.bank || ''; $('f-amount').value = fin.amount || ''; $('f-years').value = fin.years || '';
+    $('f-rate').value = fin.rate ? String(fin.rate).replace('.', ',') : ''; $('f-monthly').value = fin.monthly || '';
+    $('f-daam').value = fin.daam || 'na'; $('f-stage').value = fin.stage || 1; $('f-fnote').value = fin.note || '';
+    const num = id => { const v = $(id).value.replace(/\s/g, '').replace(',', '.'); return v ? Number(v) : null; };
+    $('f-save').onclick = async () => {
+      const f = { bank: $('f-bank').value.trim() || null, amount: num('f-amount'), years: num('f-years'), rate: num('f-rate'), monthly: num('f-monthly'), daam: $('f-daam').value, stage: Number($('f-stage').value), note: $('f-fnote').value.trim() || null };
+      if ([f.amount, f.years, f.rate, f.monthly].some(x => x !== null && isNaN(x))) { toast('Vérifiez les montants (chiffres uniquement)'); return; }
+      try { await API.saveClient({ id: c.id, financing: $('f-mode').value, fin: f }); toast('Financement enregistré'); await refresh(c.id); } catch (e) { toast(errMsg(e)); }
+    };
+    $('f-adddoc').onclick = () => {
+      $('d-cat').value = 'financement'; $('d-cat').onchange(); $('d-title').value = 'Offre de prêt · ' + ($('f-bank').value || 'banque');
+      $('d-form-title').textContent = 'Document de financement'; $('d-file').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      toast('Choisissez le fichier (simulation, offre de prêt, tableau d’amortissement…)');
     };
     $('copy-invite').onclick = async () => {
       const txt = inviteText();
