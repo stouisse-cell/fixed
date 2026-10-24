@@ -94,7 +94,7 @@ window.RI_CONFIG = {
   const demoDocs = [
     { id: 'd1', client_id: 'demo-1', title: 'Plan d’Acquisition Personnalisé', category: 'plan', created_at: '2026-10-09', url: '#' },
     { id: 'd2', client_id: 'demo-1', title: 'Compte rendu · Visite 1 · Bir Rami', category: 'compte_rendu', created_at: '2026-10-09', url: '#' },
-    { id: 'd3', client_id: 'demo-1', title: 'Compte rendu · Visite 2 · Maamora', category: 'compte_rendu', created_at: '2026-10-20', url: '#' },
+    { id: 'd3', client_id: 'demo-1', title: 'Compte rendu · Visite 2 · Maamora', category: 'compte_rendu', visit_id: 'v1', created_at: '2026-10-20', url: '#' },
     { id: 'd4', client_id: 'demo-1', title: 'Compte rendu · Visite 3 · Centre-ville', category: 'compte_rendu', created_at: '2026-10-21', url: '#' },
     { id: 'd5', client_id: 'demo-1', title: 'Vidéo · Visite 2 · Maamora', category: 'video', created_at: '2026-10-20', url: '#' },
     { id: 'd6', client_id: 'demo-1', title: 'Contrat d’accompagnement signé', category: 'contrat', created_at: '2026-10-09', url: '#' },
@@ -214,8 +214,8 @@ window.RI_CONFIG = {
       const { error } = await c.from('clients').delete().eq('id', id);
       if (error) throw error;
     },
-    async addDoc(clientId, { title, category, file, url }) {
-      if (DEMO) { const d = { id: uid(), client_id: clientId, title, category, url: url || '#', created_at: today() }; demoDocs.unshift(d); return d; }
+    async addDoc(clientId, { title, category, file, url, visit_id }) {
+      if (DEMO) { const d = { id: uid(), client_id: clientId, title, category, visit_id: visit_id || null, url: url || '#', created_at: today() }; demoDocs.unshift(d); return d; }
       const c = await client();
       let storage_path = null;
       if (file) {
@@ -224,7 +224,7 @@ window.RI_CONFIG = {
         const { error } = await c.storage.from(cfg.BUCKET).upload(storage_path, file, { upsert: false, contentType: file.type || undefined });
         if (error) throw error;
       }
-      const { data, error } = await c.from('documents').insert({ client_id: clientId, title, category, storage_path, url: url || null }).select().single();
+      const { data, error } = await c.from('documents').insert({ client_id: clientId, title, category, storage_path, url: url || null, visit_id: visit_id || null }).select().single();
       if (error) throw error; return data;
     },
     async uploadPiece(clientId, docType, file) {
@@ -274,6 +274,12 @@ window.RI_CONFIG = {
       const c = await client();
       const { error } = await c.from('visits').delete().eq('id', id).eq('status', 'pending');
       if (error) throw error;
+    },
+    async lockedReports() {
+      if (DEMO) return demoVisits.filter(v => v.status === 'pending').map(v => ({ visit_id: v.id, title: 'Compte rendu · Visite 2 · Maamora' }));
+      const c = await client();
+      const { data, error } = await c.rpc('locked_reports');
+      if (error) throw error; return data || [];
     },
     async confirmVisit(id, name) {
       if (DEMO) { const v = demoVisits.find(x => x.id === id); Object.assign(v, { status: 'confirmed', confirmed_at: new Date().toISOString(), confirmed_name: name, confirmed_email: 'demo' }); return v; }

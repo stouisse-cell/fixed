@@ -183,6 +183,10 @@
   const open = async d => { try { await API.openDoc(d); } catch (e) { toast(errMsg(e)); } };
   async function loadAll() {
     try { docs = await API.listDocs(c.id); } catch (e) { toast(errMsg(e)); }
+    if (preview || API.DEMO) {
+      // l'admin voit tout : on masque ce que le client ne voit pas encore
+      try { const pend = (await API.listVisits(c.id)).filter(v => v.status === 'pending').map(v => v.id); docs = docs.filter(d => !pend.includes(d.visit_id)); } catch (e) {}
+    }
     renderDocs(); renderPieces();
   }
   function renderDocs() {
@@ -236,8 +240,12 @@
 
   // ---- bons de visite ----
   async function loadVisits() {
-    let visits = [];
+    let visits = [], locked = [];
     try { visits = await API.listVisits(c.id); } catch (e) { toast(errMsg(e)); }
+    try {
+      if (preview) { const all = await API.listDocs(c.id); locked = all.filter(d => visits.some(v => v.id === d.visit_id && v.status === 'pending')).map(d => ({ visit_id: d.visit_id, title: d.title })); }
+      else locked = await API.lockedReports();
+    } catch (e) {}
     $('visits-card').classList.toggle('hidden', !visits.length);
     const pending = visits.filter(v => v.status === 'pending'), done = visits.filter(v => v.status === 'confirmed');
     $('visits').innerHTML =
@@ -245,6 +253,7 @@
         <div class="visit-head"><span class="visit-no">${visitNo(v)}</span><span class="badge-wait">À confirmer</span></div>
         <div class="small muted">${esc(fmtDate(v.visit_date))} · ${esc(MODES[v.mode] || v.mode)}${v.visitor_name ? ' · par ' + esc(v.visitor_name) : ''}</div>
         ${propsTable(v)}
+        ${locked.filter(l => l.visit_id === v.id).map(l => `<div class="locked">🔒 <strong>${esc(l.title)}</strong> est prêt. Confirmez ce bon de visite pour y accéder.</div>`).join('')}
         <details class="decl"><summary>Lire les déclarations</summary><div>${esc(v.declaration)}</div></details>
         ${preview ? '<p class="small muted">Aperçu conseiller : la confirmation est réservée au client.</p>' : `
         <label class="check"><input type="checkbox" data-ok="${v.id}"> J’ai lu les déclarations et je confirme que ces biens m’ont été présentés par Rahim International.</label>
@@ -258,8 +267,8 @@
       if (!$('visits').querySelector('[data-ok="' + id + '"]').checked) { toast('Cochez la case de confirmation'); return; }
       if (name.length < 3) { toast('Saisissez votre nom complet'); return; }
       b.disabled = true; b.textContent = 'Confirmation…';
-      try { await API.confirmVisit(id, name); toast('Bon de visite confirmé, merci !'); } catch (e) { toast(errMsg(e)); }
-      loadVisits();
+      try { await API.confirmVisit(id, name); toast('Bon de visite confirmé, merci ! Vos documents sont débloqués.'); } catch (e) { toast(errMsg(e)); }
+      loadVisits(); loadAll();
     });
   }
   loadVisits();

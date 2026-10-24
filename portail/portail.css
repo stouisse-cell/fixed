@@ -184,3 +184,5 @@ label.check input { width: 17px; height: 17px; accent-color: var(--navy); }
 @media (max-width: 560px) { .prop-row { grid-template-columns: minmax(0, 1fr) auto; } .prop-row input:not(:first-child) { grid-column: 1; } }
 .tag-ok { display: inline-block; font-size: .62rem; letter-spacing: .06em; background: var(--ok-soft); color: var(--ok); border-radius: 999px; padding: 1px 8px; vertical-align: 1px; }
 @media (max-width: 560px) { .ptable { font-size: .76rem; } .ptable th:nth-child(3), .ptable td:nth-child(3) { display: none; } }
+.locked { background: var(--navy); color: #fff; border-radius: 10px; padding: 11px 14px; font-size: .85rem; margin: 4px 0 8px; line-height: 1.45; }
+.locked strong { color: var(--gold); }
