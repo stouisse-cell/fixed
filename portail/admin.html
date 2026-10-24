@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240344">
+<link rel="stylesheet" href="portail.css?v=202610240351">
 </head>
 <body>
 <header class="pt-bar">
@@ -20,7 +20,7 @@
     </a>
     <div class="pt-user hidden" id="user-box">
       <span class="who" id="user-email"></span>
-      <button class="btn btn-ghost" id="logout" type="button">Déconnexion</button>
+      <button class="btn btn-ghost" id="change-pw" type="button" title="Changer mon mot de passe">Mot de passe</button><button class="btn btn-ghost" id="logout" type="button">Déconnexion</button>
     </div>
   </div>
 </header>
@@ -29,12 +29,15 @@
   <div class="card login">
     <div class="eyebrow">Accès conseillers</div>
     <h1>Gestion <em>des clients</em></h1>
-    <p class="muted small">Réservé à l’équipe Rahim International. Un lien de connexion vous sera envoyé par courriel.</p>
+    <p class="muted small">Réservé à l’équipe Rahim International.</p>
     <form id="login-form">
       <label for="email">Adresse courriel</label>
-      <input type="email" id="email" required autocomplete="email">
-      <button class="btn btn-navy" type="submit" id="login-btn">Recevoir mon lien</button>
+      <input type="email" id="email" required autocomplete="email" placeholder="vous@exemple.com">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" autocomplete="current-password">
+      <button class="btn btn-navy" type="submit" id="login-btn">Se connecter</button>
     </form>
+    <button class="linkish" type="button" id="link-btn" style="margin-top:14px">Première connexion ou mot de passe oublié ? Recevoir un lien par courriel</button>
     <div class="ok-box hidden" id="login-ok"></div>
     <div class="err-box hidden" id="login-err"></div>
   </div>
@@ -56,6 +59,7 @@
       <button class="btn btn-gold" style="width:100%" id="new-client" type="button">+ Nouveau client</button>
       <input type="text" id="search" placeholder="Rechercher…" style="margin-top:12px">
       <ul class="client-list" id="client-list"></ul>
+      <button class="linkish" type="button" id="change-pw-2" style="margin-top:14px">Changer mon mot de passe</button>
     </aside>
 
     <section id="detail">
@@ -66,7 +70,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202610240344"></script>
+<script src="portail.js?v=202610240351"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -76,21 +80,33 @@
   const portalUrl = location.origin + location.pathname.replace(/admin\.html$/, '');
 
   $('logout').onclick = () => API.signOut();
+  const loginMsg = (ok, msg) => { $('login-ok').classList.add('hidden'); $('login-err').classList.add('hidden'); const el = $(ok ? 'login-ok' : 'login-err'); el.innerHTML = msg; el.classList.remove('hidden'); };
   $('login-form').onsubmit = async e => {
     e.preventDefault();
+    const email = $('email').value.trim(), pw = $('password').value;
+    if (!pw) { loginMsg(false, 'Saisissez votre mot de passe, ou demandez un lien par courriel ci-dessous.'); return; }
+    $('login-btn').disabled = true;
+    try { await API.signInPassword(email, pw); location.reload(); }
+    catch (err) { loginMsg(false, esc(errMsg(err))); $('login-btn').disabled = false; }
+  };
+  $('link-btn').onclick = async () => {
     const email = $('email').value.trim();
-    $('login-err').classList.add('hidden'); $('login-btn').disabled = true;
+    if (!/^\S+@\S+\.\S+$/.test(email)) { loginMsg(false, 'Saisissez d’abord votre adresse courriel.'); return; }
+    $('link-btn').disabled = true;
     try {
       await API.sendLink(email, location.origin + location.pathname);
-      $('login-ok').textContent = 'Lien envoyé à ' + email + '. Ouvrez le courriel pour vous connecter.';
-      $('login-ok').classList.remove('hidden');
-    } catch (err) { $('login-err').textContent = errMsg(err); $('login-err').classList.remove('hidden'); }
-    $('login-btn').disabled = false;
+      loginMsg(true, 'Lien envoyé à <strong>' + esc(email) + '</strong>. Ouvrez le courriel le plus récent et cliquez sur le lien (pensez à vos indésirables). Vous pourrez ensuite créer votre mot de passe.');
+    } catch (err) {
+      loginMsg(false, /rate|seconds|limit/i.test(errMsg(err)) ? 'Trop de demandes de lien en peu de temps. Réessayez dans quelques minutes, ou connectez-vous avec votre mot de passe.' : esc(errMsg(err)));
+    }
+    $('link-btn').disabled = false;
   };
 
   const session = await API.session().catch(() => null);
   if (!session) { show('view-login'); return; }
   $('user-box').classList.remove('hidden');
+  if (!API.DEMO && (session.must_change || !session.has_password)) await RI.passwordModal({ force: true });
+  $('change-pw').onclick = $('change-pw-2').onclick = () => RI.passwordModal();
   $('user-email').textContent = API.DEMO ? 'Démonstration' : session.email;
   if (!(await API.isAdmin())) { show('view-denied'); return; }
   show('view-admin');
@@ -135,8 +151,9 @@
           </div>
           <div class="actions">
             <button class="btn btn-navy" id="save-info" type="button">${isNew ? 'Créer l’espace client' : 'Enregistrer'}</button>
-            ${isNew ? '' : '<button class="btn btn-gold" id="preview" type="button">Voir comme le client</button><button class="btn btn-line" id="copy-invite" type="button">Copier le message d’invitation</button><button class="btn btn-danger btn-sm" id="del-client" type="button">Supprimer</button>'}
+            ${isNew ? '' : '<button class="btn btn-gold" id="preview" type="button">Voir comme le client</button><button class="btn btn-navy" id="set-access" type="button">Créer l’accès client</button><button class="btn btn-line" id="copy-invite" type="button">Copier le message d’invitation</button><button class="btn btn-danger btn-sm" id="del-client" type="button">Supprimer</button>'}
           </div>
+          <div id="access-box" class="hidden"></div>
         </div>
         ${isNew ? '' : `
         <div class="card">
@@ -194,10 +211,26 @@
     if (isNew) return;
 
     $('preview').onclick = () => window.open('index.html?client=' + encodeURIComponent(c.id) + (API.DEMO ? '&demo=1' : ''), '_blank');
-    $('copy-invite').onclick = async () => {
-      const txt = `Bonjour ${c.full_name},\n\nVotre espace client Rahim International est prêt. Vous pourrez y suivre chaque étape de votre projet et retrouver tous vos documents.\n\n1. Rendez-vous sur ${portalUrl}\n2. Saisissez cette adresse courriel : ${c.email}\n3. Cliquez sur le lien de connexion reçu par courriel.\n\nL’équipe Relations clients de Rahim International`;
-      try { await navigator.clipboard.writeText(txt); toast('Message copié'); } catch (e) { prompt('Copiez ce message :', txt); }
+    let tempPw = null;
+    const inviteText = () => `Bonjour ${c.full_name},\n\nVotre espace client Rahim International est prêt. Vous pourrez y suivre chaque étape de votre projet, confirmer vos bons de visite et retrouver tous vos documents.\n\n1. Rendez-vous sur ${portalUrl}\n2. Adresse courriel : ${c.email}\n` + (tempPw ? `3. Mot de passe provisoire : ${tempPw}\n\nÀ votre première connexion, vous choisirez votre propre mot de passe.` : `3. Cliquez sur « Recevoir un lien par courriel », puis sur le lien reçu.`) + `\n\nL’équipe Relations clients de Rahim International`;
+    $('set-access').onclick = async () => {
+      if (!confirm('Créer un mot de passe provisoire pour ' + c.email + ' ? S’il en avait déjà un, il sera remplacé.')) return;
+      const pw = RI.genPassword();
+      $('set-access').disabled = true;
+      try {
+        await API.setClientPassword(c.id, pw);
+        tempPw = pw;
+        $('access-box').innerHTML = `<div class="ok-box">Accès créé pour <strong>${esc(c.email)}</strong>.<br>Mot de passe provisoire : <strong class="pw">${esc(pw)}</strong><br><span class="small">Copiez le message d’invitation ci-dessus : il contient ce mot de passe. Le client choisira le sien à sa première connexion.</span></div>`;
+        $('access-box').classList.remove('hidden');
+        toast('Accès client créé');
+      } catch (e) { toast(errMsg(e)); }
+      $('set-access').disabled = false;
     };
+    $('copy-invite').onclick = async () => {
+      const txt = inviteText();
+      try { await navigator.clipboard.writeText(txt); toast('Message d’invitation copié'); } catch (e) { prompt('Copiez ce message :', txt); }
+    };
+
     $('del-client').onclick = async () => {
       if (!confirm('Supprimer définitivement ' + c.full_name + ' et tous ses documents ?')) return;
       try { await API.deleteClient(c.id); current = null; toast('Client supprimé'); await refresh(); renderForm(null); } catch (e) { toast(errMsg(e)); }

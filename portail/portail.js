@@ -133,7 +133,28 @@ window.RI_CONFIG = {
       if (DEMO) return { email: params.get('as') || 'demo' };
       const c = await client();
       const { data } = await c.auth.getSession();
-      return data.session ? { email: data.session.user.email } : null;
+      if (!data.session) return null;
+      const m = data.session.user.user_metadata || {};
+      return { email: data.session.user.email, must_change: !!m.must_change, has_password: !!m.has_password };
+    },
+    async signInPassword(email, password) {
+      if (DEMO) return;
+      const c = await client();
+      const { error } = await c.auth.signInWithPassword({ email: email.trim().toLowerCase(), password });
+      if (error) throw new Error(/invalid/i.test(error.message) ? 'Courriel ou mot de passe incorrect.' : error.message);
+    },
+    async updatePassword(password) {
+      if (DEMO) return;
+      const c = await client();
+      const { error } = await c.auth.updateUser({ password, data: { must_change: false, has_password: true } });
+      if (error) throw new Error(/different from the old/i.test(error.message) ? 'Choisissez un mot de passe différent du mot de passe provisoire.' : error.message);
+    },
+    async setClientPassword(clientId, password) {
+      if (DEMO) return { ok: true };
+      const c = await client();
+      const { data, error } = await c.functions.invoke('account', { body: { action: 'set_password', client_id: clientId, password } });
+      if (error) { let d = ''; try { d = (await error.context.json()).error; } catch (e) {} throw new Error(d || error.message); }
+      return data;
     },
     async sendLink(email, redirect) {
       if (DEMO) return;
@@ -311,6 +332,40 @@ window.RI_CONFIG = {
     const rows = (v.properties || []).map((p, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(p.address) + '</td><td>' + esc(p.type) + '</td><td>' + esc(p.price) + '</td></tr>').join('');
     return '<table class="ptable"><thead><tr><th>N°</th><th>Adresse, projet ou référence</th><th>Type et surface</th><th>Prix annoncé</th></tr></thead><tbody>' + (rows || '<tr><td colspan="4" class="muted">Aucun bien</td></tr>') + '</tbody></table>';
   }
+  function genPassword() {
+    const a = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789';
+    const r = crypto.getRandomValues(new Uint32Array(10));
+    return 'RI-' + Array.from(r, x => a[x % a.length]).join('');
+  }
+  // fenêtre « Créer / changer mon mot de passe »
+  function passwordModal({ force = false } = {}) {
+    return new Promise(resolve => {
+      const w = document.createElement('div');
+      w.className = 'modal-wrap';
+      w.innerHTML = `<div class="card modal" role="dialog" aria-modal="true">
+        <div class="eyebrow">Votre compte</div>
+        <h2>${force ? 'Choisissez votre mot de passe' : 'Changer mon mot de passe'}</h2>
+        <p class="muted small">${force ? 'Pour sécuriser votre espace, remplacez le mot de passe provisoire par le vôtre. Vous l’utiliserez pour vos prochaines connexions.' : 'Au moins 8 caractères.'}</p>
+        <label for="pw1">Nouveau mot de passe</label><input type="password" id="pw1" autocomplete="new-password" minlength="8">
+        <label for="pw2">Confirmer le mot de passe</label><input type="password" id="pw2" autocomplete="new-password" minlength="8">
+        <div class="err-box hidden" id="pw-err"></div>
+        <div class="actions"><button class="btn btn-navy" type="button" id="pw-ok">Enregistrer</button>${force ? '' : '<button class="btn btn-line" type="button" id="pw-cancel">Annuler</button>'}</div>
+      </div>`;
+      document.body.appendChild(w);
+      const q = s => w.querySelector(s);
+      q('#pw1').focus();
+      const fail = m => { q('#pw-err').textContent = m; q('#pw-err').classList.remove('hidden'); };
+      if (!force) q('#pw-cancel').onclick = () => { w.remove(); resolve(false); };
+      q('#pw-ok').onclick = async () => {
+        const a = q('#pw1').value, b = q('#pw2').value;
+        if (a.length < 8) return fail('Au moins 8 caractères.');
+        if (a !== b) return fail('Les deux mots de passe ne correspondent pas.');
+        q('#pw-ok').disabled = true;
+        try { await API.updatePassword(a); w.remove(); toast('Mot de passe enregistré'); resolve(true); }
+        catch (e) { fail(errMsg(e)); q('#pw-ok').disabled = false; }
+      };
+    });
+  }
   function toast(msg) {
     let t = document.querySelector('.toast');
     if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
@@ -319,5 +374,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();

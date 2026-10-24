@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240344">
+<link rel="stylesheet" href="portail.css?v=202610240351">
 </head>
 <body>
 <header class="pt-bar">
@@ -20,7 +20,7 @@
     </a>
     <div class="pt-user hidden" id="user-box">
       <span class="who" id="user-email"></span>
-      <button class="btn btn-ghost" id="logout" type="button">Déconnexion</button>
+      <button class="btn btn-ghost" id="change-pw" type="button" title="Changer mon mot de passe">Mot de passe</button><button class="btn btn-ghost" id="logout" type="button">Déconnexion</button>
     </div>
   </div>
 </header>
@@ -30,12 +30,15 @@
   <div class="card login">
     <div class="eyebrow">Espace client</div>
     <h1>Votre projet,<br><em>suivi pas à pas.</em></h1>
-    <p class="muted small">Saisissez l’adresse courriel communiquée à votre conseiller. Vous recevrez un lien de connexion sécurisé, sans mot de passe.</p>
+    <p class="muted small">Connectez-vous avec l’adresse courriel communiquée à votre conseiller et votre mot de passe.</p>
     <form id="login-form">
       <label for="email">Adresse courriel</label>
       <input type="email" id="email" required autocomplete="email" placeholder="vous@exemple.com">
-      <button class="btn btn-navy" type="submit" id="login-btn">Recevoir mon lien de connexion</button>
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" autocomplete="current-password">
+      <button class="btn btn-navy" type="submit" id="login-btn">Se connecter</button>
     </form>
+    <button class="linkish" type="button" id="link-btn" style="margin-top:14px">Première connexion ou mot de passe oublié ? Recevoir un lien par courriel</button>
     <div class="ok-box hidden" id="login-ok"></div>
     <div class="err-box hidden" id="login-err"></div>
     <p class="muted small" style="margin-top:18px">Une question ? Écrivez-nous sur <a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp</a>.</p>
@@ -144,6 +147,7 @@
           <li>Chaque compte rendu de visite est mis en ligne sous 72 heures ouvrables, après la confirmation de votre bon de visite.</li>
           <li>Vos documents et vos pièces sont visibles uniquement par vous et votre conseiller.</li>
         </ul>
+        <button class="btn btn-line btn-sm" type="button" id="change-pw-2" style="margin-top:16px">Changer mon mot de passe</button>
       </section>
     </div>
   </div>
@@ -152,7 +156,7 @@
 
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202610240344"></script>
+<script src="portail.js?v=202610240351"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -160,22 +164,34 @@
   const show = id => ['view-login', 'view-none', 'view-dash'].forEach(v => $(v).classList.toggle('hidden', v !== id));
 
   $('logout').onclick = () => API.signOut();
+  const loginMsg = (ok, msg) => { $('login-ok').classList.add('hidden'); $('login-err').classList.add('hidden'); const el = $(ok ? 'login-ok' : 'login-err'); el.innerHTML = msg; el.classList.remove('hidden'); };
   $('login-form').onsubmit = async e => {
     e.preventDefault();
+    const email = $('email').value.trim(), pw = $('password').value;
+    if (!pw) { loginMsg(false, 'Saisissez votre mot de passe, ou demandez un lien par courriel ci-dessous.'); return; }
+    $('login-btn').disabled = true;
+    try { await API.signInPassword(email, pw); location.reload(); }
+    catch (err) { loginMsg(false, esc(errMsg(err))); $('login-btn').disabled = false; }
+  };
+  $('link-btn').onclick = async () => {
     const email = $('email').value.trim();
-    $('login-err').classList.add('hidden'); $('login-btn').disabled = true;
+    if (!/^\S+@\S+\.\S+$/.test(email)) { loginMsg(false, 'Saisissez d’abord votre adresse courriel.'); return; }
+    $('link-btn').disabled = true;
     try {
       await API.sendLink(email, location.origin + location.pathname);
-      $('login-ok').innerHTML = 'C’est envoyé ! Ouvrez le courriel reçu à <strong>' + esc(email) + '</strong> et cliquez sur le lien pour accéder à votre espace. Pensez à vérifier vos indésirables.';
-      $('login-ok').classList.remove('hidden');
-    } catch (err) { $('login-err').textContent = errMsg(err); $('login-err').classList.remove('hidden'); }
-    $('login-btn').disabled = false;
+      loginMsg(true, 'Lien envoyé à <strong>' + esc(email) + '</strong>. Ouvrez le courriel le plus récent et cliquez sur le lien (pensez à vos indésirables). Vous pourrez ensuite créer votre mot de passe.');
+    } catch (err) {
+      loginMsg(false, /rate|seconds|limit/i.test(errMsg(err)) ? 'Trop de demandes de lien en peu de temps. Réessayez dans quelques minutes, ou connectez-vous avec votre mot de passe.' : esc(errMsg(err)));
+    }
+    $('link-btn').disabled = false;
   };
 
   let session;
   try { session = await API.session(); } catch (e) { session = null; }
   if (!session) { show('view-login'); return; }
   $('user-box').classList.remove('hidden');
+  if (!API.DEMO && (session.must_change || !session.has_password)) await RI.passwordModal({ force: true });
+  $('change-pw').onclick = $('change-pw-2').onclick = () => RI.passwordModal();
   $('user-email').textContent = API.DEMO ? 'Démonstration' : session.email;
 
   let c, preview = false;
