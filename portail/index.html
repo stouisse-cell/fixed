@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610240403">
+<link rel="stylesheet" href="portail.css?v=202610240407">
 </head>
 <body>
 <header class="pt-bar">
@@ -156,7 +156,7 @@
 
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202610240403"></script>
+<script src="portail.js?v=202610240407"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -323,7 +323,7 @@
     let visits = [], locked = [];
     try { visits = await API.listVisits(c.id); } catch (e) { toast(errMsg(e)); }
     try {
-      if (preview) { const all = await API.listDocs(c.id); locked = all.filter(d => visits.some(v => v.id === d.visit_id && v.status === 'pending')).map(d => ({ visit_id: d.visit_id, title: d.title })); }
+      if (preview) { const all = await API.listDocs(c.id); locked = all.filter(d => visits.some(v => v.id === d.visit_id && v.status === 'pending')).map(d => ({ visit_id: d.visit_id, title: d.title, category: d.category })); }
       else locked = await API.lockedReports();
     } catch (e) {}
     const reports = docs.filter(d => d.category === 'compte_rendu' || d.category === 'video');
@@ -338,7 +338,14 @@
         <div class="visit-head"><span class="visit-no">Visite du ${esc(fmtDate(v.visit_date))}</span><span class="badge-wait">À confirmer</span></div>
         <div class="small muted">${visitNo(v)} · ${esc(MODES[v.mode] || v.mode)}${v.visitor_name ? ' · par ' + esc(v.visitor_name) : ''}</div>
         ${propsTable(v)}
-        ${locked.filter(l => l.visit_id === v.id).map(l => `<div class="locked">🔒 <strong>${esc(l.title)}</strong> est prêt. Confirmez ce bon de visite pour y accéder.</div>`).join('')}
+        ${(() => {
+          const lk = locked.filter(l => l.visit_id === v.id);
+          const cr = lk.filter(l => l.category !== 'video'), vd = lk.filter(l => l.category === 'video');
+          const slot = (label, items, isVid) => `<div class="slot"><div class="slot-label">${label}</div>${items.length
+            ? items.map(l => `<div class="lock-tile${isVid ? ' vid' : ''}"><span class="lock-ico">🔒</span><span class="lock-txt"><strong>${esc(l.title)}</strong><span>Prêt · se débloque à la confirmation</span></span></div>`).join('')
+            : `<div class="empty">${isVid ? 'La vidéo sera ajoutée ici.' : 'En préparation.'}</div>`}</div>`;
+          return `<div class="visit-slots" style="margin:4px 0 10px">${slot('Compte rendu', cr, false)}${slot('Vidéo de la visite', vd, true)}</div>`;
+        })()}
         <details class="decl"><summary>Lire les déclarations</summary><div>${esc(v.declaration)}</div></details>
         ${preview ? '<p class="small muted">Aperçu conseiller : la confirmation est réservée au client.</p>' : `
         <label class="check"><input type="checkbox" data-ok="${v.id}"> J’ai lu les déclarations et je confirme que ces biens m’ont été présentés par Rahim International.</label>

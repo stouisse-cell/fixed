@@ -305,7 +305,7 @@ window.RI_CONFIG = {
       if (error) throw error;
     },
     async lockedReports() {
-      if (DEMO) return demoVisits.filter(v => v.status === 'pending').map(v => ({ visit_id: v.id, title: 'Compte rendu · Visite 2 · Maamora' }));
+      if (DEMO) return demoDocs.filter(d => demoVisits.some(v => v.id === d.visit_id && v.status === 'pending')).map(d => ({ visit_id: d.visit_id, title: d.title, category: d.category }));
       const c = await client();
       const { data, error } = await c.rpc('locked_reports');
       if (error) throw error; return data || [];

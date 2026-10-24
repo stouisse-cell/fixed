@@ -253,3 +253,10 @@ main.app-main { padding: 0; max-width: none; margin: 0; flex: initial; }
 .play-ico { width: 52px; height: 52px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-size: 1.1rem; padding-left: 3px; }
 .video-play:hover .play-ico { background: #d8bb84; }
 .adm-doc { flex-wrap: wrap; } .adm-doc .t { flex-basis: 220px; }
+.lock-tile { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; background: var(--navy); color: #fff; min-height: 64px; }
+.lock-tile + .lock-tile { margin-top: 8px; }
+.lock-tile.vid { aspect-ratio: 16 / 9; flex-direction: column; justify-content: center; text-align: center; background: radial-gradient(circle at 50% 45%, var(--navy-soft), var(--ink)); }
+.lock-ico { width: 40px; height: 40px; border-radius: 50%; background: rgba(201,169,110,.18); border: 1px solid var(--gold); display: grid; place-items: center; flex: 0 0 auto; }
+.lock-txt { display: grid; gap: 2px; font-size: .8rem; min-width: 0; }
+.lock-txt strong { color: var(--gold); font-weight: 700; overflow: hidden; text-overflow: ellipsis; }
+.lock-txt span { color: rgba(255,255,255,.7); font-size: .74rem; }
