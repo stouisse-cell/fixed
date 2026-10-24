@@ -63,7 +63,16 @@ window.RI_CONFIG = {
     contrat: 'Contrats et bons de visite',
     dossier: 'Dossier Propriétaire',
     autre: 'Autres documents',
+    piece_client: 'Pièces déposées par le client',
   };
+  const PIECES = [
+    ['identite', 'Pièce d’identité', 'Passeport ou CIN, recto et verso'],
+    ['residence', 'Justificatif de résidence à l’étranger', 'Facture, bail ou titre de séjour récent'],
+    ['salaire', 'Bulletins de salaire', 'Les 3 derniers'],
+    ['impots', 'Avis d’imposition', 'Le dernier reçu'],
+    ['releves', 'Relevés bancaires', 'Les 6 derniers mois'],
+    ['apport', 'Justificatif de l’apport', 'Relevé d’épargne ou attestation'],
+  ];
   const stepsFor = f => STEPS[(FORMULES[f] || FORMULES.essentiel).steps];
 
   // ---------- mode démonstration ----------
@@ -204,6 +213,18 @@ window.RI_CONFIG = {
       const { data, error } = await c.from('documents').insert({ client_id: clientId, title, category, storage_path, url: url || null }).select().single();
       if (error) throw error; return data;
     },
+    async uploadPiece(clientId, docType, file) {
+      const label = (PIECES.find(p => p[0] === docType) || [, 'Autre document'])[1];
+      if (DEMO) { const d = { id: uid(), client_id: clientId, title: label, category: 'piece_client', doc_type: docType, uploaded_by: 'client', file_name: file.name, url: '#', created_at: today() }; demoDocs.unshift(d); return d; }
+      const c = await client();
+      const safe = file.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9._-]+/g, '-');
+      const storage_path = `${clientId}/client/${Date.now()}-${safe}`;
+      const up = await c.storage.from(cfg.BUCKET).upload(storage_path, file, { upsert: false, contentType: file.type || undefined });
+      if (up.error) throw up.error;
+      const { data, error } = await c.from('documents').insert({ client_id: clientId, title: label + ' · ' + file.name, category: 'piece_client', doc_type: docType, uploaded_by: 'client', storage_path }).select().single();
+      if (error) { await c.storage.from(cfg.BUCKET).remove([storage_path]); throw error; }
+      return data;
+    },
     async deleteDoc(doc) {
       if (DEMO) { const i = demoDocs.findIndex(x => x.id === doc.id); demoDocs.splice(i, 1); return; }
       const c = await client();
@@ -228,5 +249,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { API, STEPS, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { API, STEPS, FORMULES, CATEGORIES, PIECES, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();

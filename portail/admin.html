@@ -203,7 +203,7 @@
     let docs = [];
     try { docs = await API.listDocs(c.id); } catch (e) { toast(errMsg(e)); }
     const box = $('doc-list'); if (!box) return;
-    box.innerHTML = docs.length ? docs.map(d => `<div class="adm-doc"><span class="t">${esc(d.title)} <span class="muted">· ${esc(CATEGORIES[d.category] || d.category)} · ${esc(fmtDate(d.created_at))}</span></span><button class="btn btn-line btn-sm" data-open="${esc(d.id)}" type="button">Voir</button><button class="btn btn-danger btn-sm" data-del="${esc(d.id)}" type="button">Retirer</button></div>`).join('') : '<div class="empty">Aucun document pour l’instant.</div>';
+    box.innerHTML = docs.length ? docs.map(d => `<div class="adm-doc"><span class="t">${d.uploaded_by === 'client' ? '<span class="tag-client">Client</span> ' : ''}${esc(d.title)} <span class="muted">· ${esc(CATEGORIES[d.category] || d.category)} · ${esc(fmtDate(d.created_at))}</span></span><button class="btn btn-line btn-sm" data-open="${esc(d.id)}" type="button">Voir</button><button class="btn btn-danger btn-sm" data-del="${esc(d.id)}" type="button">Retirer</button></div>`).join('') : '<div class="empty">Aucun document pour l’instant.</div>';
     box.querySelectorAll('[data-open]').forEach(b => b.onclick = () => API.openDoc(docs.find(d => d.id === b.dataset.open)).catch(e => toast(errMsg(e))));
     box.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
       const d = docs.find(x => x.id === b.dataset.del);

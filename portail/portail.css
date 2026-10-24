@@ -146,3 +146,20 @@ textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
   .brand img { width: 40px; height: 36px; }
   .hero, .card { padding: 20px; }
 }
+
+/* ---- pièces du client ---- */
+.pieces-count { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.piece { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }
+.piece + .piece { margin-top: 8px; }
+.piece.ok { border-color: rgba(47,125,91,.35); background: #f7fbf9; }
+.piece-head { display: flex; align-items: center; gap: 12px; }
+.piece-check { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--steel); display: grid; place-items: center; font-size: .75rem; color: #fff; flex: 0 0 auto; }
+.piece.ok .piece-check { background: var(--ok); border-color: var(--ok); }
+.piece-txt { flex: 1; min-width: 0; }
+.piece-label { font-size: .9rem; font-weight: 700; color: var(--navy); }
+.piece-hint { font-size: .76rem; color: var(--muted); }
+.piece-file { display: flex; align-items: center; gap: 10px; font-size: .8rem; margin: 8px 0 0 36px; flex-wrap: wrap; }
+.piece-file .linkish:first-child { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+.linkish { background: none; border: 0; padding: 0; cursor: pointer; color: var(--navy); text-decoration: underline; font-size: .8rem; }
+.linkish.danger { color: #a23b3b; }
+.tag-client { display: inline-block; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; background: var(--gold-soft); color: #87452c; border: 1px solid rgba(201,169,110,.5); border-radius: 999px; padding: 1px 7px; vertical-align: 1px; }
