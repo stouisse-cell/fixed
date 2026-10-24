@@ -165,3 +165,22 @@ textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
 .tag-client { display: inline-block; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; background: var(--gold-soft); color: #87452c; border: 1px solid rgba(201,169,110,.5); border-radius: 999px; padding: 1px 7px; vertical-align: 1px; }
 label.check { display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: 0; font-size: .85rem; color: var(--navy); margin: 14px 0 0; cursor: pointer; }
 label.check input { width: 17px; height: 17px; accent-color: var(--navy); }
+
+/* ---- bons de visite ---- */
+.visit { border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.visit + .visit, .visit + .doc-group { margin-top: 14px; }
+.visit.pending { border-color: var(--gold); background: #fffdf8; }
+.visit-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+.visit-no { font-weight: 700; color: var(--navy); letter-spacing: .04em; }
+.badge-wait { font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; background: var(--gold); color: var(--ink); border-radius: 999px; padding: 3px 9px; }
+.ptable { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .82rem; table-layout: fixed; }
+.ptable th { text-align: left; font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--navy); padding: 6px; font-weight: 400; }
+.ptable td { border-bottom: 1px solid var(--steel); padding: 7px 6px; vertical-align: top; overflow-wrap: anywhere; }
+.ptable th:first-child, .ptable td:first-child { width: 34px; }
+.decl { font-size: .82rem; margin: 6px 0 4px; }
+.decl summary { cursor: pointer; color: var(--navy); text-decoration: underline; }
+.decl div { white-space: pre-line; line-height: 1.5; color: #33404f; background: var(--pale); border-radius: 8px; padding: 12px; margin-top: 8px; }
+.prop-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1fr) auto; gap: 8px; margin-top: 8px; }
+@media (max-width: 560px) { .prop-row { grid-template-columns: minmax(0, 1fr) auto; } .prop-row input:not(:first-child) { grid-column: 1; } }
+.tag-ok { display: inline-block; font-size: .62rem; letter-spacing: .06em; background: var(--ok-soft); color: var(--ok); border-radius: 999px; padding: 1px 8px; vertical-align: 1px; }
+@media (max-width: 560px) { .ptable { font-size: .76rem; } .ptable th:nth-child(3), .ptable td:nth-child(3) { display: none; } }

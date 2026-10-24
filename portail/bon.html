@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bon de visite | Rahim International</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portail.css">
+<style>
+  body { background: #e9edf0; }
+  .sheet { max-width: 794px; margin: 24px auto; background: #fff; padding: 40px 48px; box-shadow: var(--shadow); color: var(--ink); }
+  .sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 1px solid var(--gold); padding-bottom: 14px; }
+  .sheet-head img { width: 54px; }
+  .sheet h1 { font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--navy); font-size: 2rem; text-align: center; margin: 22px 0 4px; }
+  .sub { text-align: center; color: var(--muted); font-style: italic; font-size: .85rem; margin-bottom: 20px; }
+  .kv { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 6px 14px; font-size: .88rem; margin: 10px 0 16px; }
+  .kv dt { color: var(--muted); }
+  .sec { font-weight: 700; color: var(--navy); margin: 18px 0 6px; font-size: .95rem; }
+  .declaration { white-space: pre-line; font-size: .84rem; line-height: 1.55; text-align: justify; }
+  .seal { margin-top: 22px; border: 2px solid var(--ok); border-radius: 10px; padding: 14px 16px; font-size: .86rem; line-height: 1.6; background: #f7fbf9; }
+  .seal.wait { border-color: var(--gold); background: #fffdf8; }
+  .seal strong { color: var(--navy); }
+  .tools { max-width: 794px; margin: 16px auto 0; display: flex; justify-content: flex-end; gap: 8px; padding: 0 16px; }
+  .foot { margin-top: 26px; padding-top: 10px; border-top: 1px solid var(--steel); font-size: .72rem; color: var(--muted); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  @media (max-width: 600px) { .sheet { padding: 24px 18px; margin: 12px; } .kv { grid-template-columns: minmax(0, 1fr); } .kv dd { margin-bottom: 6px; } }
+  @media print { body { background: #fff; } .tools { display: none; } .sheet { box-shadow: none; margin: 0; max-width: none; padding: 0; } @page { size: A4; margin: 16mm; } }
+</style>
+</head>
+<body>
+<div class="tools"><button class="btn btn-navy btn-sm" type="button" onclick="window.print()">Imprimer ou enregistrer en PDF</button></div>
+<article class="sheet" id="sheet"><p class="muted">Chargement…</p></article>
+<script src="portail.js"></script>
+<script>
+(async function () {
+  const { API, MODES, visitNo, fmtDate, fmtDateTime, propsTable, esc, errMsg } = RI;
+  const el = document.getElementById('sheet');
+  try {
+    const s = await API.session();
+    if (!s) { el.innerHTML = '<p>Connectez-vous à votre <a href="index.html">espace client</a> pour voir ce bon de visite.</p>'; return; }
+    const v = await API.getVisit(new URLSearchParams(location.search).get('id'));
+    if (!v) { el.innerHTML = '<p>Bon de visite introuvable.</p>'; return; }
+    const c = API.DEMO ? await API.myClient() : await API.getClient(v.client_id);
+    const ok = v.status === 'confirmed';
+    document.title = visitNo(v) + ' · Bon de visite | Rahim International';
+    el.innerHTML = `
+      <div class="sheet-head"><div style="display:flex;align-items:center;gap:12px"><img src="../logo.png" alt=""><div><div class="serif" style="font-size:1.2rem;letter-spacing:.2em;color:var(--navy)">RAHIM</div><div style="font-size:.6rem;letter-spacing:.3em;color:var(--gold)">INTERNATIONAL</div></div></div><div class="small muted" style="text-align:right">Conseil et courtage immobilier<br>Kénitra · Salé · Rabat</div></div>
+      <h1>Bon de visite</h1>
+      <div class="sub">Confirmation de présentation de biens immobiliers</div>
+      <dl class="kv">
+        <dt>Bon n°</dt><dd><strong>${visitNo(v)}</strong></dd>
+        <dt>Date de présentation</dt><dd>${esc(fmtDate(v.visit_date))}</dd>
+        <dt>Client</dt><dd>${esc(c ? c.full_name : '')}${c ? ' · ' + esc(c.email) : ''}</dd>
+        ${v.visitor_name ? `<dt>Personne présente</dt><dd>${esc(v.visitor_name)}</dd>` : ''}
+        <dt>Mode de présentation</dt><dd>${esc(MODES[v.mode] || v.mode)}</dd>
+        <dt>Présenté par</dt><dd>Rahim International, représenté par M. Ali Rahim</dd>
+      </dl>
+      <div class="sec">Biens présentés</div>
+      ${propsTable(v)}
+      <div class="sec">Déclarations du client</div>
+      <div class="declaration">${esc(v.declaration)}</div>
+      ${ok ? `<div class="seal">✓ <strong>Confirmé électroniquement</strong> le ${esc(fmtDateTime(v.confirmed_at))}<br>
+        Par : <strong>${esc(v.confirmed_name)}</strong>, connecté à son espace client avec l’adresse ${esc(v.confirmed_email)}<br>
+        ${v.confirmed_ip ? 'Adresse IP : ' + esc(v.confirmed_ip) + '<br>' : ''}Mention : « J’ai lu les déclarations et je confirme que ces biens m’ont été présentés par Rahim International. »</div>`
+        : `<div class="seal wait"><strong>En attente de confirmation</strong> par le client dans son espace client.</div>`}
+      <div class="foot"><span>Bon de visite ${visitNo(v)} · généré depuis l’espace client Rahim International</span><span>rahiminternational.com · +212 6 42 77 32 49</span></div>`;
+  } catch (e) { el.innerHTML = '<p>' + esc(errMsg(e)) + '</p>'; }
+})();
+</script>
+</body>
+</html>

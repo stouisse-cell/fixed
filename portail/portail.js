@@ -73,6 +73,13 @@ window.RI_CONFIG = {
     ['releves', 'Relevés bancaires', 'Les 6 derniers mois'],
     ['apport', 'Justificatif de l’apport', 'Relevé d’épargne ou attestation'],
   ];
+  const MODES = {
+    sur_place: 'Visite sur place en présence du client',
+    proche: 'Visite sur place par un proche ou un mandataire',
+    distance: 'Présentation à distance (visite filmée, appel vidéo, photos)',
+    informations: 'Envoi d’informations (fiche, adresse, plans, coordonnées)',
+  };
+  const visitNo = v => 'BV-' + String(v.num || 0).padStart(4, '0');
   const stepsFor = f => STEPS[(FORMULES[f] || FORMULES.essentiel).steps];
 
   // ---------- mode démonstration ----------
@@ -94,6 +101,13 @@ window.RI_CONFIG = {
     { id: 'd7', client_id: 'demo-1', title: 'Bon de visite n° 014', category: 'contrat', created_at: '2026-10-20', url: '#' },
   ];
 
+  const demoVisits = [
+    { id: 'v1', num: 14, client_id: 'demo-1', visit_date: '2026-10-20', mode: 'distance', visitor_name: null, status: 'pending',
+      properties: [{ address: 'Résidence Al Andalous, Mimosas', type: '3 pièces, 92 m²', price: '1 176 000 DH' }, { address: 'Avenue Mohammed V, Val Fleuri', type: '3 pièces, 104 m²', price: '1 050 000 DH' }],
+      declaration: '1. Présentation par Rahim International. Je reconnais que les biens listés ci-dessus m’ont été présentés par Rahim International.\n2. Présentation à distance. La communication d’informations permettant d’identifier un bien vaut présentation.\n3. Non-contournement. Pendant 24 mois, je m’engage à ne pas acheter ce bien sans passer par Rahim International.\n4. Rémunération. Celle prévue au contrat que j’ai signé.\n5. Confidentialité. Les informations communiquées sont strictement personnelles.', created_at: '2026-10-20' },
+    { id: 'v0', num: 9, client_id: 'demo-1', visit_date: '2026-10-09', mode: 'sur_place', status: 'confirmed', confirmed_at: '2026-10-09T17:42:00Z', confirmed_name: 'Karim Alaoui', confirmed_email: 'famille.alaoui@exemple.com',
+      properties: [{ address: 'Rue Abdelmoumen, Bir Rami', type: '3 pièces, 88 m²', price: '980 000 DH' }], declaration: '…', created_at: '2026-10-09' },
+  ];
   let sb = null;
   function loadSupabase() {
     return new Promise((res, rej) => {
@@ -237,6 +251,36 @@ window.RI_CONFIG = {
       }
       return data;
     },
+    async listVisits(clientId) {
+      if (DEMO) return demoVisits.filter(v => v.client_id === clientId).sort((a, b) => b.num - a.num);
+      const c = await client();
+      const { data, error } = await c.from('visits').select('*').eq('client_id', clientId).order('num', { ascending: false });
+      if (error) throw error; return data;
+    },
+    async getVisit(id) {
+      if (DEMO) return demoVisits.find(v => v.id === id) || null;
+      const c = await client();
+      const { data, error } = await c.from('visits').select('*').eq('id', id).maybeSingle();
+      if (error) throw error; return data;
+    },
+    async createVisit(row) {
+      if (DEMO) { const v = { id: uid(), num: 15 + demoVisits.length, status: 'pending', declaration: demoVisits[0].declaration, created_at: today(), ...row }; demoVisits.unshift(v); return v; }
+      const c = await client();
+      const { data, error } = await c.from('visits').insert(row).select().single();
+      if (error) throw error; return data;
+    },
+    async deleteVisit(id) {
+      if (DEMO) { demoVisits.splice(demoVisits.findIndex(v => v.id === id), 1); return; }
+      const c = await client();
+      const { error } = await c.from('visits').delete().eq('id', id).eq('status', 'pending');
+      if (error) throw error;
+    },
+    async confirmVisit(id, name) {
+      if (DEMO) { const v = demoVisits.find(x => x.id === id); Object.assign(v, { status: 'confirmed', confirmed_at: new Date().toISOString(), confirmed_name: name, confirmed_email: 'demo' }); return v; }
+      const c = await client();
+      const { data, error } = await c.rpc('confirm_visit', { p_visit: id, p_name: name });
+      if (error) throw error; return data;
+    },
     async deleteDoc(doc) {
       if (DEMO) { const i = demoDocs.findIndex(x => x.id === doc.id); demoDocs.splice(i, 1); return; }
       const c = await client();
@@ -253,6 +297,14 @@ window.RI_CONFIG = {
     const x = new Date(String(d).slice(0, 10) + 'T12:00:00');
     return x.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
   }
+  function fmtDateTime(d) {
+    if (!d) return '';
+    return new Date(d).toLocaleString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+  }
+  function propsTable(v) {
+    const rows = (v.properties || []).map((p, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(p.address) + '</td><td>' + esc(p.type) + '</td><td>' + esc(p.price) + '</td></tr>').join('');
+    return '<table class="ptable"><thead><tr><th>N°</th><th>Adresse, projet ou référence</th><th>Type et surface</th><th>Prix annoncé</th></tr></thead><tbody>' + (rows || '<tr><td colspan="4" class="muted">Aucun bien</td></tr>') + '</tbody></table>';
+  }
   function toast(msg) {
     let t = document.querySelector('.toast');
     if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
@@ -261,5 +313,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { API, STEPS, FORMULES, CATEGORIES, PIECES, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();

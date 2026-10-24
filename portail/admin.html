@@ -152,6 +152,21 @@
           <div class="actions"><button class="btn btn-navy" id="save-steps" type="button">Enregistrer l’avancement</button></div>
         </div>
         <div class="card">
+          <h2>Bons de visite</h2>
+          <div id="visit-list"><p class="muted small">Chargement…</p></div>
+          <div class="eyebrow" style="margin-top:18px">Nouveau bon de visite</div>
+          <div class="row">
+            <div><label for="v-date">Date de présentation</label><input type="date" id="v-date"></div>
+            <div><label for="v-mode">Mode de présentation</label><select id="v-mode">${Object.entries(RI.MODES).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}</select></div>
+          </div>
+          <label for="v-who">Personne présente, si ce n’est pas le client (facultatif)</label>
+          <input type="text" id="v-who" placeholder="Ex. : Samira Alaoui, sœur du client">
+          <label>Biens présentés</label>
+          <div id="v-props"></div>
+          <button class="btn btn-line btn-sm" id="v-add-prop" type="button" style="margin-top:8px">+ Ajouter un bien</button>
+          <div class="actions"><button class="btn btn-gold" id="v-create" type="button">Envoyer au client pour confirmation</button></div>
+        </div>
+        <div class="card">
           <h2>Documents</h2>
           <div id="doc-list"><p class="muted small">Chargement…</p></div>
           <div class="row" style="margin-top:8px">
@@ -208,6 +223,38 @@
       try { await API.addDoc(c.id, { title, category, file, url }); toast('Document ajouté'); renderForm(c); } catch (e) { toast(errMsg(e)); $('add-doc').disabled = false; $('add-doc').textContent = 'Ajouter le document'; }
     };
     loadDocs(c);
+    initVisitForm(c);
+    loadVisits(c);
+  }
+
+  function propRow() {
+    const d = document.createElement('div'); d.className = 'prop-row';
+    d.innerHTML = '<input type="text" placeholder="Adresse, projet ou référence" data-f="address"><input type="text" placeholder="Type et surface" data-f="type"><input type="text" placeholder="Prix annoncé" data-f="price"><button type="button" class="btn btn-danger btn-sm" aria-label="Retirer">✕</button>';
+    d.querySelector('button').onclick = () => d.remove();
+    $('v-props').appendChild(d);
+  }
+  function initVisitForm(c) {
+    $('v-date').value = today();
+    $('v-props').innerHTML = ''; propRow();
+    $('v-add-prop').onclick = () => { if ($('v-props').children.length < 5) propRow(); else toast('5 biens maximum par bon'); };
+    $('v-create').onclick = async () => {
+      const properties = [...$('v-props').children].map(r => Object.fromEntries([...r.querySelectorAll('input')].map(i => [i.dataset.f, i.value.trim()]))).filter(p => p.address);
+      if (!properties.length) { toast('Ajoutez au moins un bien (adresse ou référence)'); return; }
+      const row = { client_id: c.id, visit_date: $('v-date').value || today(), mode: $('v-mode').value, visitor_name: $('v-who').value.trim() || null, properties };
+      $('v-create').disabled = true;
+      try { await API.createVisit(row); toast('Bon de visite envoyé au client'); initVisitForm(c); loadVisits(c); } catch (e) { toast(errMsg(e)); }
+      $('v-create').disabled = false;
+    };
+  }
+  async function loadVisits(c) {
+    let vs = [];
+    try { vs = await API.listVisits(c.id); } catch (e) { toast(errMsg(e)); }
+    const box = $('visit-list'); if (!box) return;
+    box.innerHTML = vs.length ? vs.map(v => `<div class="adm-doc"><span class="t"><strong>${RI.visitNo(v)}</strong> · ${esc(fmtDate(v.visit_date))} · ${(v.properties || []).length} bien(s) <span class="${v.status === 'confirmed' ? 'tag-ok' : 'tag-client'}">${v.status === 'confirmed' ? 'Confirmé le ' + esc(RI.fmtDateTime(v.confirmed_at)) + ' par ' + esc(v.confirmed_name) : 'En attente'}</span></span><a class="btn btn-line btn-sm" href="bon.html?id=${encodeURIComponent(v.id)}${API.DEMO ? '&demo=1' : ''}" target="_blank" rel="noopener">Voir</a>${v.status === 'pending' ? `<button class="btn btn-danger btn-sm" data-vdel="${esc(v.id)}" type="button">Annuler</button>` : ''}</div>`).join('') : '<div class="empty">Aucun bon de visite pour l’instant.</div>';
+    box.querySelectorAll('[data-vdel]').forEach(b => b.onclick = async () => {
+      if (!confirm('Annuler ce bon de visite en attente ?')) return;
+      try { await API.deleteVisit(b.dataset.vdel); toast('Bon annulé'); loadVisits(c); } catch (e) { toast(errMsg(e)); }
+    });
   }
 
   async function loadDocs(c) {
