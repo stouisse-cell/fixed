@@ -70,7 +70,8 @@
         <ol class="steps" id="steps"></ol>
       </section>
       <section class="card hidden" id="visits-card">
-        <h2>Vos bons de visite</h2>
+        <h2>Vos visites</h2>
+        <p class="muted small" style="margin:-6px 0 14px">Chaque visite, son bon de visite et son compte rendu.</p>
         <div id="visits"></div>
       </section>
       <section class="card">
@@ -187,10 +188,10 @@
       // l'admin voit tout : on masque ce que le client ne voit pas encore
       try { const pend = (await API.listVisits(c.id)).filter(v => v.status === 'pending').map(v => v.id); docs = docs.filter(d => !pend.includes(d.visit_id)); } catch (e) {}
     }
-    renderDocs(); renderPieces();
+    renderDocs(); renderPieces(); loadVisits();
   }
   function renderDocs() {
-    const mine = docs.filter(d => d.category !== 'piece_client');
+    const mine = docs.filter(d => !['piece_client', 'compte_rendu', 'video'].includes(d.category));
     if (!mine.length) { $('docs').innerHTML = '<div class="empty">Vos documents apparaîtront ici au fil de votre projet.</div>'; return; }
     const groups = {};
     mine.forEach(d => (groups[d.category] = groups[d.category] || []).push(d));
@@ -246,12 +247,16 @@
       if (preview) { const all = await API.listDocs(c.id); locked = all.filter(d => visits.some(v => v.id === d.visit_id && v.status === 'pending')).map(d => ({ visit_id: d.visit_id, title: d.title })); }
       else locked = await API.lockedReports();
     } catch (e) {}
-    $('visits-card').classList.toggle('hidden', !visits.length);
+    const reports = docs.filter(d => d.category === 'compte_rendu' || d.category === 'video');
+    const orphan = reports.filter(d => !d.visit_id || !visits.some(v => v.id === d.visit_id));
+    $('visits-card').classList.toggle('hidden', !visits.length && !reports.length);
+    const docBtn = d => '<button type="button" class="doc" data-id="' + esc(d.id) + '"><span class="doc-ico' + (d.category === 'video' ? ' video' : '') + '">' + (d.category === 'video' ? '▶' : 'PDF') + '</span><span class="doc-body"><span class="doc-title" style="display:block">' + esc(d.title) + '</span><span class="doc-date">Ajouté le ' + esc(fmtDate(d.created_at)) + '</span></span><span class="doc-go">→</span></button>';
+    const places = v => (v.properties || []).map(p => esc(p.address)).join(' · ');
     const pending = visits.filter(v => v.status === 'pending'), done = visits.filter(v => v.status === 'confirmed');
     $('visits').innerHTML =
       pending.map(v => `<div class="visit pending">
-        <div class="visit-head"><span class="visit-no">${visitNo(v)}</span><span class="badge-wait">À confirmer</span></div>
-        <div class="small muted">${esc(fmtDate(v.visit_date))} · ${esc(MODES[v.mode] || v.mode)}${v.visitor_name ? ' · par ' + esc(v.visitor_name) : ''}</div>
+        <div class="visit-head"><span class="visit-no">Visite du ${esc(fmtDate(v.visit_date))}</span><span class="badge-wait">À confirmer</span></div>
+        <div class="small muted">${visitNo(v)} · ${esc(MODES[v.mode] || v.mode)}${v.visitor_name ? ' · par ' + esc(v.visitor_name) : ''}</div>
         ${propsTable(v)}
         ${locked.filter(l => l.visit_id === v.id).map(l => `<div class="locked">🔒 <strong>${esc(l.title)}</strong> est prêt. Confirmez ce bon de visite pour y accéder.</div>`).join('')}
         <details class="decl"><summary>Lire les déclarations</summary><div>${esc(v.declaration)}</div></details>
@@ -261,17 +266,26 @@
         <input type="text" id="n-${v.id}" autocomplete="name" placeholder="Prénom Nom">
         <div class="actions"><button class="btn btn-navy" type="button" data-confirm="${v.id}">Confirmer le bon de visite</button></div>`}
       </div>`).join('') +
-      (done.length ? '<div class="doc-group"><h3>Bons confirmés</h3>' + done.map(v => `<a class="doc" href="bon.html?id=${encodeURIComponent(v.id)}${API.DEMO ? '&demo=1' : ''}" target="_blank" rel="noopener"><span class="doc-ico">✓</span><span class="doc-body"><span class="doc-title" style="display:block">${visitNo(v)} · ${(v.properties || []).length} bien${(v.properties || []).length > 1 ? 's' : ''}</span><span class="doc-date">Confirmé le ${esc(fmtDateTime(v.confirmed_at))}</span></span><span class="doc-go">→</span></a>`).join('') + '</div>' : '');
+      done.map(v => {
+        const mine = reports.filter(d => d.visit_id === v.id);
+        return `<div class="visit">
+          <div class="visit-head"><span class="visit-no">Visite du ${esc(fmtDate(v.visit_date))}</span><span class="tag-ok">✓ Bon confirmé</span></div>
+          <div class="small muted" style="margin-bottom:10px">${places(v)}</div>
+          ${mine.length ? mine.map(docBtn).join('') : '<div class="empty">Compte rendu en préparation : il sera mis en ligne sous 72 heures ouvrables.</div>'}
+          <a class="visit-bon" href="bon.html?id=${encodeURIComponent(v.id)}${API.DEMO ? '&demo=1' : ''}" target="_blank" rel="noopener">Voir le bon de visite ${visitNo(v)} signé le ${esc(fmtDate(v.confirmed_at))} →</a>
+        </div>`;
+      }).join('') +
+      (orphan.length ? '<div class="doc-group" style="margin-top:14px"><h3>Autres comptes rendus et vidéos</h3>' + orphan.map(docBtn).join('') + '</div>' : '');
+    $('visits').querySelectorAll('.doc').forEach(b => b.onclick = () => open(docs.find(x => x.id === b.dataset.id)));
     $('visits').querySelectorAll('[data-confirm]').forEach(b => b.onclick = async () => {
       const id = b.dataset.confirm, name = $('n-' + id).value.trim();
       if (!$('visits').querySelector('[data-ok="' + id + '"]').checked) { toast('Cochez la case de confirmation'); return; }
       if (name.length < 3) { toast('Saisissez votre nom complet'); return; }
       b.disabled = true; b.textContent = 'Confirmation…';
       try { await API.confirmVisit(id, name); toast('Bon de visite confirmé, merci ! Vos documents sont débloqués.'); } catch (e) { toast(errMsg(e)); }
-      loadVisits(); loadAll();
+      loadAll();
     });
   }
-  loadVisits();
 })();
 </script>
 </body>
