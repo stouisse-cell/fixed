@@ -294,3 +294,49 @@ main.app-main { padding: 0; max-width: none; margin: 0; flex: initial; }
 .fin-v { font-size: 1.02rem; font-weight: 700; color: var(--navy); margin-top: 4px; overflow-wrap: anywhere; }
 .nav-item.hidden { display: none; }
 @media (max-width: 860px) { .side { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); } .nav-label { font-size: .6rem; } }
+
+/* ---- feuille de route ---- */
+.road { list-style: none; }
+.road-step { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; padding-bottom: 22px; position: relative; }
+.road-step:not(:last-child)::before { content: ''; position: absolute; left: 16px; top: 36px; bottom: 0; width: 2px; background: var(--steel); }
+.road-step.done:not(:last-child)::before { background: var(--ok); }
+.road-step.done .dot { background: var(--ok); border-color: var(--ok); color: #fff; }
+.road-step.current .dot { border-color: var(--gold); color: var(--navy); background: var(--gold-soft); box-shadow: 0 0 0 5px rgba(201,169,110,.15); }
+.road-body { min-width: 0; }
+.road-step.current .road-body { background: #fffdf8; border: 1px solid rgba(201,169,110,.5); border-radius: 12px; padding: 14px 16px; margin-top: -6px; }
+.road-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; padding-top: 6px; }
+.road-step.current .road-head { padding-top: 0; }
+.road-title { font-weight: 700; color: var(--navy); font-size: 1rem; }
+.road-step.todo .road-title { color: var(--muted); }
+.road-when { font-size: .74rem; color: var(--muted); }
+.road-step.done .road-when { color: var(--ok); }
+.road-step.current .road-when { color: var(--warn); font-weight: 700; }
+.road-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+@media (max-width: 700px) { .road-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
+.road-k { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+.road-line { font-size: .84rem; line-height: 1.45; color: #33404f; }
+.road-step.todo .road-line { color: var(--muted); }
+.road-files { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.road-doc { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 6px 12px; font-size: .78rem; color: var(--navy); text-decoration: none; cursor: pointer; max-width: 100%; }
+.road-doc:hover { border-color: var(--gold); }
+.road-doc.road-todo { background: var(--navy); color: #fff; border-color: var(--navy); }
+.road-end { list-style: none; background: var(--ok-soft); color: var(--ok); border-radius: 12px; padding: 14px; font-weight: 700; }
+/* accueil : où en est le projet */
+.nn { border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+.nn + .nn { margin-top: 10px; }
+.nn-cur { border-color: rgba(201,169,110,.6); background: #fffdf8; }
+.nn-done { background: var(--ok-soft); border-color: transparent; }
+.nn-k { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.nn-t { font-weight: 700; color: var(--navy); margin: 3px 0 6px; }
+.nn-d { font-size: .82rem; color: #33404f; line-height: 1.45; }
+.nn-d + .nn-d { margin-top: 3px; }
+/* bouton WhatsApp flottant (mobile) */
+.wa-float { display: none; }
+@media (max-width: 860px) {
+  .nav-item.nav-desktop { display: none; }
+  .wa-float { display: grid; place-items: center; position: fixed; right: 16px; bottom: calc(78px + env(safe-area-inset-bottom)); width: 52px; height: 52px; border-radius: 50%; background: #25D366; box-shadow: 0 8px 24px rgba(8,26,51,.25); z-index: 45; }
+  .wa-float svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 2; stroke-linejoin: round; }
+  #view-dash.hidden ~ .wa-float { display: none; }
+}
+.l-short { display: none; }
+@media (max-width: 860px) { .l-long { display: none; } .l-short { display: inline; } }

@@ -100,6 +100,33 @@ window.RI_CONFIG = {
     informations: 'Envoi d’informations (fiche, adresse, plans, coordonnées)',
   };
   const visitNo = v => 'BV-' + String(v.num || 0).padStart(4, '0');
+  // feuille de route : ce que vous faites / ce que vous recevez, et les documents rattachés à chaque étape
+  const ROADMAP = {
+    standard: [
+      { you: 'Remplir le questionnaire et signer votre engagement de non-contournement.', get: 'Un échange pour comprendre votre projet.', cats: [] },
+      { you: 'Valider votre Plan, tel quel ou ajusté, puis signer votre contrat.', get: 'Votre Plan d’Acquisition Personnalisé et votre 1er compte rendu de visite.', cats: ['plan', 'contrat'] },
+      { you: 'Confirmer chaque bon de visite et nous donner vos retours.', get: 'Un compte rendu sous 72 heures ouvrables et la vidéo de chaque visite.', cats: [], visits: true },
+      { you: 'Choisir votre bien lors de l’appel vidéo.', get: 'Le Comparatif des meilleurs biens et notre recommandation.', cats: ['comparatif'] },
+      { you: 'Valider l’offre et votre plafond, déposer vos pièces pour le crédit.', get: 'La stratégie de négociation et la relecture du compromis.', cats: ['negociation', 'financement'] },
+      { you: 'Signer chez le notaire, sur place ou par procuration.', get: 'Votre Dossier Propriétaire et les clés.', cats: ['dossier'] },
+    ],
+    vefa: [
+      { you: 'Remplir le questionnaire et signer votre engagement de non-contournement.', get: 'Un échange pour comprendre votre projet.', cats: [] },
+      { you: 'Valider votre Plan, tel quel ou ajusté, puis signer votre contrat.', get: 'Votre Plan d’Acquisition Personnalisé et votre 1er compte rendu de visite.', cats: ['plan', 'contrat'] },
+      { you: 'Confirmer chaque bon de visite et nous donner vos retours.', get: 'Le compte rendu et la vidéo de chaque projet visité.', cats: [], visits: true },
+      { you: 'Choisir votre projet et votre logement.', get: 'Le Comparatif des projets et notre recommandation.', cats: ['comparatif'] },
+      { you: 'Valider les conditions et signer le contrat de réservation.', get: 'La négociation (prix, logement, échéancier) et la relecture du contrat.', cats: ['negociation', 'financement'] },
+      { you: 'Suivre l’avancement du chantier depuis votre espace.', get: 'Le suivi jusqu’à la remise des clés et votre Dossier Propriétaire.', cats: ['dossier'] },
+    ],
+    mise_en_relation: [
+      { you: 'Signer votre engagement de non-contournement.', get: 'Un échange pour préciser votre recherche.', cats: ['contrat'] },
+      { you: 'Nous dire quels biens vous intéressent.', get: 'Les biens disponibles correspondant à vos critères.', cats: [] },
+      { you: 'Confirmer chaque bon de visite.', get: 'Les visites, sur place ou à distance.', cats: [], visits: true },
+      { you: 'Valider votre offre.', get: 'L’intermédiation avec le vendeur jusqu’au compromis.', cats: ['negociation', 'financement'] },
+      { you: 'Signer chez le notaire.', get: 'Votre acte de vente.', cats: ['dossier'] },
+    ],
+  };
+  const roadmapFor = f => ROADMAP[(FORMULES[f] || FORMULES.essentiel).steps];
   const stepsFor = f => STEPS[(FORMULES[f] || FORMULES.essentiel).steps];
 
   // ---------- mode démonstration ----------
@@ -408,5 +435,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { roadmapFor, FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610241253">
+<link rel="stylesheet" href="portail.css?v=202610242008">
 </head>
 <body>
 <header class="pt-bar">
@@ -70,7 +70,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202610241253"></script>
+<script src="portail.js?v=202610242008"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -158,7 +158,7 @@
         ${isNew ? '' : `
         <div class="card">
           <h2>Étape en cours</h2>
-          <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client.</p>
+          <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client. Pour les étapes à venir, la date sert d’estimation (« prévue vers le… » sur sa feuille de route).</p>
           <div id="step-edit">
             ${steps.map((s, i) => `<div class="step-edit"><input type="radio" name="cur" value="${i + 1}" ${c.current_step === i + 1 ? 'checked' : ''} aria-label="${esc(s[0])}"><span class="t">${i + 1}. ${esc(s[0])}</span><input type="date" data-step="${i + 1}" value="${esc((c.step_dates || {})[i + 1] || '')}"></div>`).join('')}
             <div class="step-edit"><input type="radio" name="cur" value="${steps.length + 1}" ${c.current_step > steps.length ? 'checked' : ''}><span class="t">Projet finalisé</span><span></span></div>

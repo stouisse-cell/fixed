@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610241253">
+<link rel="stylesheet" href="portail.css?v=202610242008">
 </head>
 <body>
 <header class="pt-bar">
@@ -57,7 +57,7 @@
 
 <!-- ===== Tableau de bord ===== -->
 <div class="app hidden" id="view-dash">
-  <nav class="side" aria-label="Menu de l’espace client"><a href="#home" class="nav-item" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="nav-label">Accueil</span><span class="nav-badge hidden" id="badge-home"></span></a><a href="#visites" class="nav-item" data-nav="visites"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="nav-label">Visites</span><span class="nav-badge hidden" id="badge-visites"></span></a><a href="#documents" class="nav-item" data-nav="documents"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg><span class="nav-label">Documents</span><span class="nav-badge hidden" id="badge-documents"></span></a><a href="#financement" class="nav-item hidden" data-nav="financement"><svg viewBox="0 0 24 24"><path d="M3 10l9-5 9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg><span class="nav-label">Financement</span><span class="nav-badge hidden" id="badge-financement"></span></a><a href="#pieces" class="nav-item" data-nav="pieces"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg><span class="nav-label">Mes pièces</span><span class="nav-badge hidden" id="badge-pieces"></span></a><a href="#contact" class="nav-item" data-nav="contact"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="nav-label">Contact</span><span class="nav-badge hidden" id="badge-contact"></span></a></nav>
+  <nav class="side" aria-label="Menu de l’espace client"><a href="#home" class="nav-item" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="nav-label">Accueil</span><span class="nav-badge hidden" id="badge-home"></span></a><a href="#route" class="nav-item" data-nav="route"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h7"/></svg><span class="nav-label"><span class="l-long">Feuille de route</span><span class="l-short">Étapes</span></span><span class="nav-badge hidden" id="badge-route"></span></a><a href="#visites" class="nav-item" data-nav="visites"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="nav-label">Visites</span><span class="nav-badge hidden" id="badge-visites"></span></a><a href="#documents" class="nav-item" data-nav="documents"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg><span class="nav-label">Documents</span><span class="nav-badge hidden" id="badge-documents"></span></a><a href="#financement" class="nav-item hidden" data-nav="financement"><svg viewBox="0 0 24 24"><path d="M3 10l9-5 9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg><span class="nav-label">Financement</span><span class="nav-badge hidden" id="badge-financement"></span></a><a href="#pieces" class="nav-item" data-nav="pieces"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg><span class="nav-label">Mes pièces</span><span class="nav-badge hidden" id="badge-pieces"></span></a><a href="#contact" class="nav-item nav-desktop" data-nav="contact"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="nav-label">Contact</span><span class="nav-badge hidden" id="badge-contact"></span></a></nav>
   <main class="app-main">
   <div class="notice hidden" id="demo-note">Mode démonstration : les informations affichées sont fictives.</div>
   <section class="hero">
@@ -76,8 +76,9 @@
     </section>
     <div class="grid-2 even">
       <section class="card">
-        <h2>Les étapes de votre projet</h2>
-        <ol class="steps" id="steps"></ol>
+        <h2>Où en est votre projet</h2>
+        <div id="now-next"></div>
+        <a class="btn btn-line btn-sm" href="#route" style="margin-top:14px">Voir toute la feuille de route →</a>
       </section>
       <div class="grid">
         <section class="card hidden" id="message-card">
@@ -91,10 +92,19 @@
             <div class="avatar">AR</div>
             <div><div style="font-weight:700;color:var(--navy)">Ali Rahim</div><div class="muted small">Fondateur et conseiller en immobilier, sur place à Kénitra</div></div>
           </div>
-          <div class="contact-actions"><a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">Écrire sur WhatsApp</a></div>
+          <div class="contact-actions"><a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">Écrire sur WhatsApp</a><a class="btn btn-line btn-sm" href="#contact">Contact et mot de passe</a></div>
         </section>
       </div>
     </div>
+  </div>
+
+  <!-- Feuille de route -->
+  <div class="view hidden" data-view="route">
+    <section class="card">
+      <h2>Votre feuille de route</h2>
+      <p class="muted small" style="margin:-6px 0 18px">Toutes les étapes de votre projet : ce que nous faisons, ce que vous faites, et les documents remis à chaque étape.</p>
+      <ol class="road" id="road"></ol>
+    </section>
   </div>
 
   <!-- Visites -->
@@ -183,9 +193,10 @@
   </main>
 </div>
 
+<a class="wa-float" href="https://wa.me/212642773249" target="_blank" rel="noopener" aria-label="Écrire à votre conseiller sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1z"/></svg></a>
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202610241253"></script>
+<script src="portail.js?v=202610242008"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -252,11 +263,12 @@
   requestAnimationFrame(() => { $('progress-bar').style.width = Math.max(pct, 3) + '%'; });
 
   const dates = c.step_dates || {};
-  $('steps').innerHTML = steps.map((s, i) => {
-    const n = i + 1, st = n < cur ? 'done' : n === cur ? 'current' : 'todo';
-    const meta = st === 'done' ? '✓ Terminée' + (dates[n] ? ' · ' + fmtDate(dates[n]) : '') : st === 'current' ? 'En cours' + (dates[n] ? ' depuis le ' + fmtDate(dates[n]) : '') : '';
-    return '<li class="step ' + st + '"><div class="dot">' + (st === 'done' ? '✓' : n) + '</div><div><div class="step-title">' + esc(s[0]) + '</div><div class="step-desc">' + esc(s[1]) + '</div>' + (meta ? '<div class="step-meta">' + meta + '</div>' : '') + '</div></li>';
-  }).join('');
+  const road = RI.roadmapFor(c.formule);
+  const stepCard = (n, label) => {
+    if (n > steps.length) return `<div class="nn nn-done"><div class="nn-k">${label}</div><div class="nn-t">Projet finalisé 🎉</div></div>`;
+    return `<div class="nn${label === 'Étape en cours' ? ' nn-cur' : ''}"><div class="nn-k">${label}${dates[n] ? ' · ' + (n < cur ? '' : n === cur ? 'depuis le ' : 'prévue vers le ') + esc(fmtDate(dates[n])) : ''}</div><div class="nn-t">${n}. ${esc(steps[n - 1][0])}</div><div class="nn-d"><strong>Vous :</strong> ${esc(road[n - 1].you)}</div><div class="nn-d"><strong>Vous recevez :</strong> ${esc(road[n - 1].get)}</div></div>`;
+  };
+  $('now-next').innerHTML = cur > steps.length ? stepCard(cur, 'Étape en cours') : stepCard(cur, 'Étape en cours') + (cur < steps.length ? stepCard(cur + 1, 'Étape suivante') : '');
 
   if (c.message) {
     $('message-card').classList.remove('hidden');
@@ -265,7 +277,7 @@
   }
 
   // ---- navigation ----
-  const VIEWS = ['home', 'visites', 'documents', 'financement', 'pieces', 'contact'];
+  const VIEWS = ['home', 'route', 'visites', 'documents', 'financement', 'pieces', 'contact'];
   function go(v) {
     if (!VIEWS.includes(v)) v = 'home';
     document.querySelectorAll('.view').forEach(el => el.classList.toggle('hidden', el.dataset.view !== v));
@@ -295,7 +307,44 @@
       // l'admin voit tout : on masque ce que le client ne voit pas encore
       try { const pend = (await API.listVisits(c.id)).filter(v => v.status === 'pending').map(v => v.id); docs = docs.filter(d => !pend.includes(d.visit_id)); } catch (e) {}
     }
-    renderDocs(); renderPieces(); loadVisits(); renderFin();
+    renderDocs(); renderPieces(); loadVisits(); renderFin(); renderRoad();
+  }
+  async function renderRoad() {
+    let visits = [];
+    try { visits = await API.listVisits(c.id); } catch (e) {}
+    const byCat = k => docs.filter(d => d.category === k).sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+    const chip = (d, label) => `<button type="button" class="road-doc" data-id="${esc(d.id)}"><span>${d.category === 'video' ? '▶' : '📄'}</span>${esc(label || d.title)}</button>`;
+    $('road').innerHTML = steps.map((s, i) => {
+      const n = i + 1, st = n < cur ? 'done' : n === cur ? 'current' : 'todo', r = road[i];
+      let files = '';
+      r.cats.forEach(k => {
+        const v = byCat(k); if (!v.length) return;
+        const t = (RI.DOC_TYPES.find(x => x.k === k) || {}).label || CATEGORIES[k];
+        files += k === 'contrat' || k === 'financement' ? v.map(d => chip(d)).join('') : chip(v[0], t + (v.length > 1 ? ' (v' + v.length + ')' : ''));
+      });
+      if (r.visits) {
+        const done = visits.filter(v => v.status === 'confirmed'), pend = visits.filter(v => v.status === 'pending');
+        const crs = docs.filter(d => d.category === 'compte_rendu'), vids = docs.filter(d => d.category === 'video');
+        if (visits.length) files += `<a class="road-doc" href="#visites"><span>📍</span>${visits.length} visite${visits.length > 1 ? 's' : ''} · ${crs.length} compte${crs.length > 1 ? 's' : ''} rendu${crs.length > 1 ? 's' : ''} · ${vids.length} vidéo${vids.length > 1 ? 's' : ''}</a>`;
+        if (pend.length && st !== 'todo') files += `<a class="road-doc road-todo" href="#visites"><span>✍</span>Confirmer ${pend.length > 1 ? pend.length + ' bons de visite' : 'votre bon de visite'}</a>`;
+      }
+      if (st === 'current' && piecesState.missing && r.cats.includes('financement')) files += `<a class="road-doc road-todo" href="#pieces"><span>⬆</span>Déposer ${piecesState.missing} pièce${piecesState.missing > 1 ? 's' : ''}</a>`;
+      const when = dates[n] ? (st === 'done' ? 'Terminée · ' : st === 'current' ? 'En cours depuis le ' : 'Prévue vers le ') + fmtDate(dates[n]) : (st === 'done' ? 'Terminée' : st === 'current' ? 'En cours' : 'À venir');
+      return `<li class="road-step ${st}">
+        <div class="dot">${st === 'done' ? '✓' : n}</div>
+        <div class="road-body">
+          <div class="road-head"><span class="road-title">${esc(s[0])}</span><span class="road-when">${esc(when)}</span></div>
+          ${st === 'done' ? `<div class="road-line">${esc(r.get)}</div>` : st === 'todo' && n > cur + 1 ? `<div class="road-line">${esc(s[1])}</div>` : `
+          <div class="road-grid">
+            <div><div class="road-k">Ce que nous faisons</div><div class="road-line">${esc(s[1])}</div></div>
+            <div><div class="road-k">Ce que vous faites</div><div class="road-line">${esc(r.you)}</div></div>
+            <div><div class="road-k">${st === 'done' ? 'Vous avez reçu' : 'Vous recevrez'}</div><div class="road-line">${esc(r.get)}</div></div>
+          </div>`}
+          ${files ? `<div class="road-files">${files}</div>` : ''}
+        </div>
+      </li>`;
+    }).join('') + (cur > steps.length ? '<li class="road-end">🎉 Projet finalisé. Félicitations, vous êtes propriétaire !</li>' : '');
+    $('road').querySelectorAll('button[data-id]').forEach(b => b.onclick = () => open(docs.find(x => x.id === b.dataset.id)));
   }
   function renderFin() {
     const credit = (c.financing || 'credit') === 'credit';
