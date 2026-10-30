@@ -14,7 +14,7 @@
   (function() {
     var k = 'ri_locale', q = new URLSearchParams(window.location.search), saved = '';
     try { saved = (window.localStorage.getItem(k) || '').toLowerCase(); } catch (e) {}
-    if (q.get('intro') === '1' || !saved) document.documentElement.classList.add('ri-intro');
+    if (q.get('from') === 'gate') document.documentElement.classList.add('ri-intro', 'ri-handoff');
     try { if (!saved) window.localStorage.setItem(k, 'ar'); } catch (e) {}
   })();
 </script>
@@ -591,6 +591,8 @@
   html.ri-intro .site-nav, html.ri-intro .float-buttons { opacity: 0; pointer-events: none; }
   html.ri-intro .site-nav { transform: translateY(-12px); }
   .rh-stage { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; background: #06111f; margin-top: 0; }
+  @view-transition { navigation: auto; }
+  html { background: #06111f; }
   .rh-stage video, .rh-stage .rh-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .rh-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); transition: background 1.2s ease; }
   [dir="rtl"] .rh-shade { background: linear-gradient(270deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); }
@@ -849,7 +851,13 @@
     window.addEventListener(ev, function(e) { if (playing && !(ev === 'keydown' && e.key === 'Tab')) finish(); }, { passive: true });
   });
   document.addEventListener('click', function(e) { if (playing && !e.target.closest('.rh-gate')) finish(); });
-  if (html.classList.contains('ri-intro')) { if (!html.classList.contains('ri-gate')) play(); }
+  if (html.classList.contains('ri-handoff')) {
+    var v = document.querySelector('.rh-stage video'), vt = 0;
+    try { vt = parseFloat(sessionStorage.getItem('ri_vt')) || 0; sessionStorage.removeItem('ri_vt'); } catch (e) {}
+    if (v && vt) { var seek = function() { try { v.currentTime = vt; } catch (e) {} }; if (v.readyState >= 1) seek(); else v.addEventListener('loadedmetadata', seek, { once: true }); }
+    try { history.replaceState(null, '', window.location.pathname + window.location.hash); } catch (e) {}
+    setTimeout(function() { html.classList.remove('ri-intro', 'ri-handoff'); }, 150);
+  }
 })();
 </script>
 <script src="../shared.js"></script>

@@ -689,6 +689,8 @@
   html.ri-intro .site-nav, html.ri-intro .float-buttons { opacity: 0; pointer-events: none; }
   html.ri-intro .site-nav { transform: translateY(-12px); }
   .rh-stage { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; background: #06111f; margin-top: 0; }
+  @view-transition { navigation: auto; }
+  html { background: #06111f; }
   .rh-stage video, .rh-stage .rh-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .rh-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); transition: background 1.2s ease; }
   [dir="rtl"] .rh-shade { background: linear-gradient(270deg, rgba(6,17,31,.88) 0%, rgba(6,17,31,.55) 55%, rgba(6,17,31,.3) 100%); }
@@ -696,6 +698,9 @@
   .rh-gate { position: absolute; inset: 0; z-index: 4; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 2.4rem; transition: opacity .7s ease; }
   html.ri-gate .rh-gate { display: flex; }
   .rh-gate.is-out { opacity: 0; pointer-events: none; }
+  html.ri-gate .rh-gate:not(.is-out) { animation: rh-gate-in .9s ease 1.6s both; }
+  @keyframes rh-gate-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { html.ri-gate .rh-gate:not(.is-out) { animation: none; } }
   .rh-gate img { width: 150px; height: auto; filter: drop-shadow(0 8px 30px rgba(0,0,0,.5)); }
   .rh-gate-choices { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
   .rh-gate-choices button { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff; background: rgba(6,17,31,.35); border: 1px solid rgba(201,169,110,.35); padding: .75rem 2.2rem; min-width: 170px; cursor: pointer; backdrop-filter: blur(6px); transition: background .25s, color .25s, border-color .25s; }
@@ -727,7 +732,72 @@
   .rh-sec .section-title { margin-bottom: 2.4rem; }
   .rh-light .section-title { color: var(--navy); }
   .rh-dark .section-title { color: #fff; }
-  .rh-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .rh-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .rh-intro .section-title { margin-bottom: 1.2rem; }
+  .rh-intro .section-title em { font-style: italic; color: var(--copper-dark, #87452c); }
+  .rh-lead { font-size: 1.05rem; line-height: 1.85; color: #3d4a5c; margin: 0; }
+  .rh-lead + .rh-lead { margin-top: 1rem; }
+  .rh-values { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6rem; }
+  .rh-values li { border-top: 1px solid rgba(201,169,110,.5); padding-top: 1.1rem; }
+  .rh-values h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.55rem; line-height: 1.15; color: var(--navy); margin: 0 0 .35rem; }
+  [dir="rtl"] .rh-values h3 { font-family: 'Amiri', serif; }
+  .rh-values p { margin: 0; line-height: 1.75; color: #3d4a5c; }
+  .rh-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .rh-steps-note { margin: 2.2rem 0 0; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,.85); }
+  .rh-steps-cta { margin-top: 1.6rem; }
+  .rh-steps a { color: var(--gold); }
+  .rh-pro { background: #ece5d8; padding: clamp(2.2rem, 5vw, 3rem) 5%; }
+  .rh-pro .rh-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2.5rem; }
+  .rh-pro h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: var(--navy); margin: 0 0 .3rem; }
+  [dir="rtl"] .rh-pro h2 { font-family: 'Amiri', serif; }
+  .rh-pro p { margin: 0; color: #3d4a5c; line-height: 1.7; max-width: 640px; }
+  .rh-pro a { color: var(--copper-dark, #87452c); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; white-space: nowrap; }
+  [dir="rtl"] .rh-pro a { letter-spacing: 0; font-size: .95rem; }
+  .rh-pro p + p { margin-top: .6rem; }
+  .rh-pro .rh-label { margin-bottom: .5rem; }
+  .rh-trust { margin: 1.4rem 0 0; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+  [dir="rtl"] .rh-trust { letter-spacing: 0; font-size: .9rem; }
+  .rh-label { margin: 0 0 .4rem; font-size: .68rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-label { letter-spacing: 0; font-size: .85rem; }
+  .rh-sec .section-title em { font-style: italic; color: var(--gold); }
+  .rh-light .section-title em, .rh-cream2 .section-title em { color: var(--copper-dark, #87452c); }
+  .rh-intro-text { max-width: 760px; margin: -1rem 0 2.6rem; font-size: 1.05rem; line-height: 1.85; }
+  .rh-light .rh-intro-text { color: #3d4a5c; }
+  .rh-dark .rh-intro-text { color: rgba(255,255,255,.75); }
+  .rh-next { margin-top: 2.6rem; padding: 1.4rem 1.6rem; border: 1px solid rgba(201,169,110,.35); max-width: 760px; }
+  .rh-next h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.5rem; color: #fff; margin: 0 0 .4rem; }
+  [dir="rtl"] .rh-next h3 { font-family: 'Amiri', serif; }
+  .rh-next p { margin: 0; color: rgba(255,255,255,.75); line-height: 1.75; }
+  .rh-steps-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; }
+  .rh-steps-cta p { margin: 0; color: rgba(255,255,255,.65); font-size: .92rem; }
+  .rh-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+  .rh-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e3dccd; text-decoration: none; color: var(--navy); transition: box-shadow .25s, transform .25s; }
+  .rh-card:hover, .rh-card:focus-visible { box-shadow: 0 14px 34px rgba(7,17,31,.1); transform: translateY(-3px); }
+  .rh-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+  .rh-card > div { display: flex; flex-direction: column; flex: 1; padding: 1.4rem 1.4rem 1.6rem; }
+  .rh-card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; line-height: 1.15; margin: 0 0 .6rem; color: var(--navy); }
+  [dir="rtl"] .rh-card h3 { font-family: 'Amiri', serif; }
+  .rh-card p { margin: 0 0 1.2rem; line-height: 1.75; color: #3d4a5c; }
+  .rh-card span { margin-top: auto; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-card span { letter-spacing: 0; font-size: .9rem; }
+  .rh-cream2 { background: #fff; color: var(--navy); }
+  .rh-ali .section-title { margin-bottom: 1.4rem; }
+  .rh-ali .rh-role { margin: -.7rem 0 1.2rem; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-ali .rh-role { letter-spacing: 0; font-size: .9rem; }
+  .rh-ali p + a { display: inline-block; }
+  .rh-faq-wrap { max-width: 860px; }
+  .rh-faq details { border-top: 1px solid rgba(201,169,110,.5); }
+  .rh-faq details:last-child { border-bottom: 1px solid rgba(201,169,110,.5); }
+  .rh-faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding: 1.2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; line-height: 1.3; color: var(--navy); }
+  [dir="rtl"] .rh-faq summary { font-family: 'Amiri', serif; }
+  .rh-faq summary::-webkit-details-marker { display: none; }
+  .rh-faq summary::after { content: '+'; flex: none; color: var(--copper-dark, #87452c); font-size: 1.6rem; line-height: 1; }
+  .rh-faq details[open] summary::after { content: '−'; }
+  .rh-faq details p { margin: 0 0 1.3rem; line-height: 1.8; color: #3d4a5c; max-width: 720px; }
+  .rh-end-text { max-width: 640px; margin: -.6rem auto 2rem; color: rgba(255,255,255,.75); line-height: 1.8; font-size: 1.05rem; }
+  .rh-end-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+  .rh-end-note { margin: 1.2rem 0 0; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+  [dir="rtl"] .rh-end-note { letter-spacing: 0; font-size: .9rem; }
   .rh-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; color: #fff; background: var(--navy); }
   .rh-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
   .rh-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,17,31,0) 30%, rgba(6,17,31,.92) 100%); }
@@ -756,7 +826,9 @@
   .rh-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem; margin-top: 1.8rem; font-size: .95rem; }
   .rh-contacts a { color: rgba(255,255,255,.75); text-decoration: none; direction: ltr; unicode-bidi: embed; }
   .rh-contacts a:hover { color: var(--gold); }
-  @media (max-width: 1000px) { .rh-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 1000px) { .rh-cards { grid-template-columns: minmax(0, 1fr); max-width: 560px; } }
+  @media (max-width: 860px) { .rh-intro { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 640px) { .rh-end-actions .btn-primary, .rh-end-actions .btn-outline, .rh-steps-cta .btn-primary { flex: 1 1 100%; text-align: center; } }
   @media (max-width: 640px) {
     .rh-tiles { grid-template-columns: minmax(0, 1fr); }
     .rh-tile { aspect-ratio: 16 / 10; }
@@ -779,6 +851,7 @@
 <meta name="theme-color" content="#07111f">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/","name":"Rahim International","inLanguage":"en","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I buy property in Morocco if I live abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can coordinate searches, provide filmed property visits, share documentation and support many stages of your acquisition remotely. Your notary will advise you on signature requirements and any necessary legal representation."}},{"@type":"Question","name":"What is included in the free initial service?","acceptedAnswer":{"@type":"Answer","text":"A pre-consultation assessment, a free consultation, a personalised Strategic Acquisition Plan and an initial property visit. You decide afterward whether to continue with a paid service."}},{"@type":"Question","name":"Do you help with financing and Daam Sakane?","acceptedAnswer":{"@type":"Answer","text":"Our services can include guidance on financing preparation and Daam Sakane, depending on your chosen package. Eligibility and approvals remain subject to the relevant bank and programme authorities."}},{"@type":"Question","name":"Do you work with new developments and resale properties?","acceptedAnswer":{"@type":"Answer","text":"Yes. We assess new-build projects and resale opportunities based on your budget, property requirements and acquisition objectives."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"Founder","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
 </head>
 <body>
@@ -843,65 +916,123 @@
         <button type="button" data-go="ar" lang="ar">أهلاً وسهلاً</button>
       </div>
     </div>
-    <div class="rh-lines" aria-hidden="true"><div class="rh-line" id="rh-line"></div></div>
     <div class="rh-copy">
-      <p class="hero-eyebrow">Real estate brokerage &amp; advisory · Kénitra · Rabat · Salé</p>
+      <p class="hero-eyebrow">Real estate advisory &amp; brokerage · Kénitra · Rabat · Salé</p>
       <h1>We Bridge the Distance.<br><em>And Get You to the Other Side.</em></h1>
-      <p class="rh-sub">Living abroad and want to buy in Morocco? We search, visit, verify and negotiate for you, all the way to the keys.</p>
-      <div class="rh-actions"><a href="consultation.html" class="btn-primary">Prepare Your Consultation</a><a href="#how" class="btn-outline">How it works</a></div>
+      <p class="rh-sub">Buying a home or investment property in Morocco? We help you research the market, find and evaluate properties, and navigate the acquisition process with confidence. From your first search to your keys, we're by your side—whether you're buying locally or from abroad.</p>
+      <div class="rh-actions"><a href="consultation.html" class="btn-primary">Tell Us About Your Project</a><a href="#how" class="btn-outline">How It Works</a></div>
+      <p class="rh-trust">Free consultation · Personalised acquisition plan · First property visit included</p>
     </div>
-    <button type="button" class="rh-skip" id="rh-skip">Skip</button>
   </section>
 
-  <!-- WHO -->
+  <!-- WHO WE ARE -->
+  <section class="rh-sec rh-light" id="about">
+    <div class="rh-wrap rh-intro">
+      <div>
+        <p class="section-eyebrow">Who we are</p>
+        <h2 class="section-title">Your real estate project, <em>backed by research, expertise and local knowledge.</em></h2>
+        <p class="rh-lead">Rahim International is a real estate advisory and brokerage firm based in Kénitra, supporting property buyers in Morocco and internationally.</p>
+        <p class="rh-lead">We combine local market expertise with consulting, analysis and data-backed research to help our clients make informed property decisions. Our services cover the acquisition journey, from understanding your objectives and identifying opportunities to property evaluation, negotiation and purchase coordination.</p>
+      </div>
+      <div>
+        <p class="rh-label">Our approach</p>
+        <ul class="rh-values">
+          <li><h3>We study the market first</h3><p>We continuously monitor property prices, neighbourhoods, developers, new projects and resale opportunities. Through research and market comparisons, we help you understand property values and identify opportunities that deserve a closer look.</p></li>
+          <li><h3>A search built around your goals</h3><p>Your project starts with your priorities, budget, financing possibilities and property requirements. We use these to define clear search criteria and identify properties suited to your needs, rather than limiting your options to a standard catalogue.</p></li>
+          <li><h3>Informed decisions at every step</h3><p>We organise visits, compare properties, review available documentation and identify questions requiring further verification. Our market analysis also supports price discussions and negotiations.</p></li>
+          <li><h3>Personalised support, wherever you are</h3><p>Visit properties with us or receive filmed visits and updates from abroad. Depending on your service package, our assistance can extend to financing preparation, Daam Sakane guidance and coordination with your notary through the purchase process.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO GET STARTED -->
+  <section class="rh-sec rh-dark" id="how">
+    <div class="rh-wrap">
+      <p class="section-eyebrow">How to get started</p>
+      <h2 class="section-title">Start for free. <em>Decide how to proceed.</em></h2>
+      <p class="rh-intro-text">Every property project begins with a conversation. Before choosing a paid service, you can discuss your goals with us, receive a personalised Strategic Acquisition Plan and benefit from an initial property visit, free of charge.</p>
+      <ol class="rh-steps">
+        <li><h3>Tell us about your project</h3><p>Complete a short pre-consultation form covering your property preferences, budget, location and purchasing objectives. This helps us prepare for a meaningful first discussion.</p></li>
+        <li><h3>Meet your advisor</h3><p>During your free consultation, we discuss your priorities, available budget, financing options and the opportunities worth exploring. Consultations can take place in person, by telephone or by video call.</p></li>
+        <li><h3>Receive your acquisition plan and first visit</h3><p>We prepare a Strategic Acquisition Plan outlining your search direction, priorities and next steps. We also arrange an initial property visit at no cost, so you can experience our approach before deciding whether to continue.</p></li>
+      </ol>
+      <div class="rh-next">
+        <h3>What happens next?</h3>
+        <p>Choose the service package that suits your needs and the level of support you want, including options with no upfront fees. There is no obligation to continue after the free initial stage.</p>
+      </div>
+      <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">Tell Us About Your Project</a><p>Start with a short, free pre-consultation form.</p></div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
   <section class="rh-sec rh-light" id="who">
     <div class="rh-wrap">
       <p class="section-eyebrow">Who we help</p>
-      <h2 class="section-title">You are…</h2>
-      <div class="rh-tiles">
-        <a class="rh-tile" href="investors-mre.html"><img src="home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>Moroccan abroad</h3><p>Buy without being there.</p><span>Discover →</span></div></a>
-        <a class="rh-tile" href="investors-international.html"><img src="home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>International investor</h3><p>Invest in Morocco with complete clarity.</p><span>Discover →</span></div></a>
-        <a class="rh-tile" href="investors-local.html"><img src="home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>Local investor</h3><p>The right property at the right price.</p><span>Discover →</span></div></a>
-        <a class="rh-tile" href="services-developers.html"><img src="home-dev.jpg" alt="" loading="lazy" decoding="async"><div><h3>Developer</h3><p>Get your project in front of the right buyers.</p><span>Discover →</span></div></a>
+      <h2 class="section-title">Your project. Your priorities. <em>Our expertise.</em></h2>
+      <p class="rh-intro-text">Whether you're buying your first home, preparing a move or investing in Moroccan real estate, our approach adapts to your circumstances.</p>
+      <div class="rh-cards">
+        <a class="rh-card" href="investors-mre.html"><img src="home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>Moroccans Abroad (MRE)</h3><p>Planning to buy back home? We help you research opportunities, compare properties and coordinate your purchase from a distance, with local visits and regular updates.</p><span>Explore MRE Services →</span></div></a>
+        <a class="rh-card" href="investors-local.html"><img src="home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>Buyers Living in Morocco</h3><p>Buying your first home, moving or investing? We help you assess neighbourhoods, property values, financing possibilities and available opportunities with a clear acquisition strategy.</p><span>Explore Local Buyer Services →</span></div></a>
+        <a class="rh-card" href="investors-international.html"><img src="home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>International Buyers &amp; Investors</h3><p>Exploring property opportunities in Morocco? We provide local market insight, property research and acquisition coordination to help you understand your options and navigate the purchase process.</p><span>Explore International Buyer Services →</span></div></a>
       </div>
     </div>
   </section>
 
-  <!-- HOW -->
-  <section class="rh-sec rh-dark" id="how">
-    <div class="rh-wrap">
-      <p class="section-eyebrow">Simple and clear</p>
-      <h2 class="section-title">How it works</h2>
-      <ol class="rh-steps">
-        <li><h3>Answer a few questions</h3><p>2 minutes, no typing.</p></li>
-        <li><h3>Free consultation</h3><p>We go through your project with you.</p></li>
-        <li><h3>We take care of the rest</h3><p>Search, visits, negotiation, all the way to the keys.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ALI -->
-  <section class="rh-sec rh-light">
+  <!-- THE PEOPLE BEHIND YOUR PROJECT -->
+  <section class="rh-sec rh-cream2">
     <div class="rh-ali">
-      <img src="alirahim-900.jpg" alt="Ali Rahim, co-founder of Rahim International" width="720" height="900" loading="lazy" decoding="async">
+      <img src="alirahim-900.jpg" alt="Ali Rahim, founder of Rahim International" width="720" height="900" loading="lazy" decoding="async">
       <div>
-        <p class="section-eyebrow">Your contact on the ground</p>
-        <h3>Ali Rahim, Co-founder</h3>
-        <p>5+ years in real estate in Kénitra. He is the one who visits, checks and negotiates for you.</p>
-        <a href="about.html">Our story →</a>
+        <p class="section-eyebrow">The people behind your project</p>
+        <h2 class="section-title">Local knowledge. <em>Personal involvement.</em></h2>
+        <h3>Ali Rahim</h3>
+        <p class="rh-role">Founder · Rahim International</p>
+        <p>With more than five years of experience in Kénitra's real estate market, Ali brings practical local knowledge to property searches, visits, evaluations and negotiations.</p>
+        <p>His work combines firsthand market experience with the structured research and advisory approach of Rahim International, helping clients navigate their acquisitions with reliable local support.</p>
+        <a href="about.html">Get to Know Us →</a>
       </div>
     </div>
   </section>
 
-  <!-- START -->
+  <!-- DEVELOPERS & PROPERTY OWNERS (secondary) -->
+  <section class="rh-pro" aria-labelledby="pro-title">
+    <div class="rh-wrap">
+      <div>
+        <p class="rh-label">Developers &amp; property owners</p>
+        <h2 id="pro-title">Connecting properties with the right buyers.</h2>
+        <p>Rahim International also works with property developers and owners to support the marketing and commercialisation of real estate in Morocco.</p>
+        <p>Through property presentation, market positioning and outreach to local and international audiences, we help bring properties to qualified prospective buyers.</p>
+      </div>
+      <a href="services-developers.html">Explore Our Developer &amp; Seller Services →</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="rh-sec rh-light" id="faq">
+    <div class="rh-wrap rh-faq-wrap">
+      <p class="section-eyebrow">Frequently asked questions</p>
+      <h2 class="section-title">A few things <em>you may want to know.</em></h2>
+      <div class="rh-faq">
+        <details><summary>Can I buy property in Morocco if I live abroad?</summary><p>Yes. We can coordinate searches, provide filmed property visits, share documentation and support many stages of your acquisition remotely. Your notary will advise you on signature requirements and any necessary legal representation.</p></details>
+        <details><summary>What is included in the free initial service?</summary><p>A pre-consultation assessment, a free consultation, a personalised Strategic Acquisition Plan and an initial property visit. You decide afterward whether to continue with a paid service.</p></details>
+        <details><summary>Do you help with financing and Daam Sakane?</summary><p>Our services can include guidance on financing preparation and Daam Sakane, depending on your chosen package. Eligibility and approvals remain subject to the relevant bank and programme authorities.</p></details>
+        <details><summary>Do you work with new developments and resale properties?</summary><p>Yes. We assess new-build projects and resale opportunities based on your budget, property requirements and acquisition objectives.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- READY TO START -->
   <section class="rh-sec rh-dark rh-end" id="contact">
     <div class="rh-wrap">
-      <h2 class="section-title">Ready to start?</h2>
-      <a href="consultation.html" class="btn-primary">Prepare Your Consultation</a>
+      <p class="section-eyebrow">Ready to start?</p>
+      <h2 class="section-title">Your property project starts here.</h2>
+      <p class="rh-end-text">Tell us what you're looking for. We'll help you explore your options, understand the market and plan the next steps toward your purchase.</p>
+      <div class="rh-end-actions"><a href="consultation.html" class="btn-primary">Tell Us About Your Project</a><a href="https://wa.me/212642773249" class="btn-outline" target="_blank" rel="noopener">Ask a Question on WhatsApp</a></div>
+      <p class="rh-end-note">No commitment · Free initial consultation</p>
       <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
     </div>
   </section>
-
 </main>
 
 <!-- FOOTER -->
@@ -910,7 +1041,7 @@
     <div class="footer-brand">
       <img loading="lazy" decoding="async" src="logo.png" alt="Rahim International" class="footer-brand-logo">
       <span class="brand-name" style="margin-top:0.5rem;">Rahim <span>International</span></span>
-      <p class="footer-tagline">Real estate brokerage and advisory for Moroccans abroad, investors and developers. Kénitra · Rabat · Salé.</p>
+      <p class="footer-tagline">Real estate advisory and brokerage for Moroccans abroad, residents of Morocco and international investors. Kénitra · Rabat · Salé.</p>
     </div>
     <div>
       <div class="footer-col-label">Navigate</div><div class="footer-links"><a href="index.html">Home</a><a href="investors-mre.html">Moroccan Diaspora / MRE</a><a href="investors-international.html">International Investors</a><a href="investors-local.html">Local Investors</a><a href="services-developers.html">Developers</a><a href="about.html">About</a></div>
@@ -924,7 +1055,7 @@
         <div class="footer-contact-icon">✉</div>
         <div>
           <div class="footer-contact-label">Email</div>
-          <div class="footer-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
+          <div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
         </div>
       </div>
       <div class="footer-contact-item">
@@ -965,42 +1096,21 @@
 
 <script>
 (function() {
-  var html = document.documentElement, LINES = ["You live far away.", "Your project is in Morocco.", "We bridge the distance."], LANG = "en";
-  var line = document.getElementById('rh-line'), gate = document.getElementById('rh-gate'), skip = document.getElementById('rh-skip');
-  var timers = [], playing = false;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
-  function finish() {
-    timers.forEach(clearTimeout); timers = []; playing = false;
-    if (line) line.classList.remove('is-on');
-    html.classList.remove('ri-intro', 'ri-gate', 'ri-lines');
-    if (window.history && window.location.search.indexOf('intro=1') > -1) { try { history.replaceState(null, '', window.location.pathname + window.location.hash); } catch (e) {} }
-  }
-  function play() {
-    html.classList.remove('ri-gate'); html.classList.add('ri-lines'); playing = true;
-    if (reduce || !line) { finish(); return; }
-    var t = 400;
-    LINES.forEach(function(text, i) {
-      at(t, function() { line.textContent = text; line.classList.add('is-on'); });
-      if (i < LINES.length - 1) { at(t + 1500, function() { line.classList.remove('is-on'); }); t += 2100; }
-      else { at(t + 1600, function() { line.classList.remove('is-on'); }); at(t + 2100, finish); }
-    });
-  }
+  var html = document.documentElement, gate = document.getElementById('rh-gate');
+  function finish() { html.classList.remove('ri-intro', 'ri-gate'); }
   if (gate) gate.querySelectorAll('[data-go]').forEach(function(b) {
     b.addEventListener('click', function() {
       var l = b.getAttribute('data-go');
       try { localStorage.setItem('ri_locale', l); } catch (e) {}
       gate.classList.add('is-out');
-      if (l === LANG) { setTimeout(play, 300); }
-      else { setTimeout(function() { window.location.href = l + '/index.html?intro=1'; }, 500); }
+      if (l === 'en') { setTimeout(finish, 400); }
+      else {
+        var v = document.querySelector('.rh-stage video');
+        try { if (v) sessionStorage.setItem('ri_vt', String(v.currentTime + 0.4)); } catch (e) {}
+        setTimeout(function() { window.location.href = l + '/index.html?from=gate'; }, 400);
+      }
     });
   });
-  if (skip) skip.addEventListener('click', finish);
-  ['wheel', 'touchmove', 'keydown'].forEach(function(ev) {
-    window.addEventListener(ev, function(e) { if (playing && !(ev === 'keydown' && e.key === 'Tab')) finish(); }, { passive: true });
-  });
-  document.addEventListener('click', function(e) { if (playing && !e.target.closest('.rh-gate')) finish(); });
-  if (html.classList.contains('ri-intro')) { if (!html.classList.contains('ri-gate')) play(); }
 })();
 </script>
 <script src="shared.js"></script>
