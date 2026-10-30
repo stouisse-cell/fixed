@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://rahiminternational.com/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/ar/index.html">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"القنيطرة","postalCode":"14000","addressCountry":"MA"},"description":"استشارات عقارية ومرافقة استراتيجية للمشترين الدوليين ومغاربة العالم والمستثمرين والمطورين في منطقة الرباط وسلا والقنيطرة بالمغرب.","geo":{"@type":"GeoCoordinates","latitude":34.261,"longitude":-6.5802},"areaServed":[{"@type":"AdministrativeArea","name":"Rabat-Salé-Kénitra"},{"@type":"City","name":"Kénitra"},{"@type":"City","name":"Rabat"},{"@type":"City","name":"Salé"}],"openingHours":"Mo-Sa 09:00-19:00","priceRange":"$"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@rahiminternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"القنيطرة","postalCode":"14000","addressCountry":"MA"},"description":"استشارات عقارية ومرافقة استراتيجية للمشترين الدوليين ومغاربة العالم والمستثمرين والمطورين في منطقة الرباط وسلا والقنيطرة بالمغرب.","geo":{"@type":"GeoCoordinates","latitude":34.261,"longitude":-6.5802},"areaServed":[{"@type":"AdministrativeArea","name":"Rabat-Salé-Kénitra"},{"@type":"City","name":"Kénitra"},{"@type":"City","name":"Rabat"},{"@type":"City","name":"Salé"}],"openingHours":"Mo-Sa 09:00-19:00","priceRange":"$"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -631,7 +631,72 @@
   .rh-sec .section-title { margin-bottom: 2.4rem; }
   .rh-light .section-title { color: var(--navy); }
   .rh-dark .section-title { color: #fff; }
-  .rh-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .rh-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .rh-intro .section-title { margin-bottom: 1.2rem; }
+  .rh-intro .section-title em { font-style: italic; color: var(--copper-dark, #87452c); }
+  .rh-lead { font-size: 1.05rem; line-height: 1.85; color: #3d4a5c; margin: 0; }
+  .rh-lead + .rh-lead { margin-top: 1rem; }
+  .rh-values { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6rem; }
+  .rh-values li { border-top: 1px solid rgba(201,169,110,.5); padding-top: 1.1rem; }
+  .rh-values h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.55rem; line-height: 1.15; color: var(--navy); margin: 0 0 .35rem; }
+  [dir="rtl"] .rh-values h3 { font-family: 'Amiri', serif; }
+  .rh-values p { margin: 0; line-height: 1.75; color: #3d4a5c; }
+  .rh-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .rh-steps-note { margin: 2.2rem 0 0; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,.85); }
+  .rh-steps-cta { margin-top: 1.6rem; }
+  .rh-steps a { color: var(--gold); }
+  .rh-pro { background: #ece5d8; padding: clamp(2.2rem, 5vw, 3rem) 5%; }
+  .rh-pro .rh-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2.5rem; }
+  .rh-pro h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: var(--navy); margin: 0 0 .3rem; }
+  [dir="rtl"] .rh-pro h2 { font-family: 'Amiri', serif; }
+  .rh-pro p { margin: 0; color: #3d4a5c; line-height: 1.7; max-width: 640px; }
+  .rh-pro a { color: var(--copper-dark, #87452c); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; white-space: nowrap; }
+  [dir="rtl"] .rh-pro a { letter-spacing: 0; font-size: .95rem; }
+  .rh-pro p + p { margin-top: .6rem; }
+  .rh-pro .rh-label { margin-bottom: .5rem; }
+  .rh-trust { margin: 1.4rem 0 0; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+  [dir="rtl"] .rh-trust { letter-spacing: 0; font-size: .9rem; }
+  .rh-label { margin: 0 0 .4rem; font-size: .68rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-label { letter-spacing: 0; font-size: .85rem; }
+  .rh-sec .section-title em { font-style: italic; color: var(--gold); }
+  .rh-light .section-title em, .rh-cream2 .section-title em { color: var(--copper-dark, #87452c); }
+  .rh-intro-text { max-width: 760px; margin: -1rem 0 2.6rem; font-size: 1.05rem; line-height: 1.85; }
+  .rh-light .rh-intro-text { color: #3d4a5c; }
+  .rh-dark .rh-intro-text { color: rgba(255,255,255,.75); }
+  .rh-next { margin-top: 2.6rem; padding: 1.4rem 1.6rem; border: 1px solid rgba(201,169,110,.35); max-width: 760px; }
+  .rh-next h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.5rem; color: #fff; margin: 0 0 .4rem; }
+  [dir="rtl"] .rh-next h3 { font-family: 'Amiri', serif; }
+  .rh-next p { margin: 0; color: rgba(255,255,255,.75); line-height: 1.75; }
+  .rh-steps-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; }
+  .rh-steps-cta p { margin: 0; color: rgba(255,255,255,.65); font-size: .92rem; }
+  .rh-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+  .rh-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e3dccd; text-decoration: none; color: var(--navy); transition: box-shadow .25s, transform .25s; }
+  .rh-card:hover, .rh-card:focus-visible { box-shadow: 0 14px 34px rgba(7,17,31,.1); transform: translateY(-3px); }
+  .rh-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+  .rh-card > div { display: flex; flex-direction: column; flex: 1; padding: 1.4rem 1.4rem 1.6rem; }
+  .rh-card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; line-height: 1.15; margin: 0 0 .6rem; color: var(--navy); }
+  [dir="rtl"] .rh-card h3 { font-family: 'Amiri', serif; }
+  .rh-card p { margin: 0 0 1.2rem; line-height: 1.75; color: #3d4a5c; }
+  .rh-card span { margin-top: auto; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-card span { letter-spacing: 0; font-size: .9rem; }
+  .rh-cream2 { background: #fff; color: var(--navy); }
+  .rh-ali .section-title { margin-bottom: 1.4rem; }
+  .rh-ali .rh-role { margin: -.7rem 0 1.2rem; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-ali .rh-role { letter-spacing: 0; font-size: .9rem; }
+  .rh-ali p + a { display: inline-block; }
+  .rh-faq-wrap { max-width: 860px; }
+  .rh-faq details { border-top: 1px solid rgba(201,169,110,.5); }
+  .rh-faq details:last-child { border-bottom: 1px solid rgba(201,169,110,.5); }
+  .rh-faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding: 1.2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; line-height: 1.3; color: var(--navy); }
+  [dir="rtl"] .rh-faq summary { font-family: 'Amiri', serif; }
+  .rh-faq summary::-webkit-details-marker { display: none; }
+  .rh-faq summary::after { content: '+'; flex: none; color: var(--copper-dark, #87452c); font-size: 1.6rem; line-height: 1; }
+  .rh-faq details[open] summary::after { content: '−'; }
+  .rh-faq details p { margin: 0 0 1.3rem; line-height: 1.8; color: #3d4a5c; max-width: 720px; }
+  .rh-end-text { max-width: 640px; margin: -.6rem auto 2rem; color: rgba(255,255,255,.75); line-height: 1.8; font-size: 1.05rem; }
+  .rh-end-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+  .rh-end-note { margin: 1.2rem 0 0; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+  [dir="rtl"] .rh-end-note { letter-spacing: 0; font-size: .9rem; }
   .rh-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; color: #fff; background: var(--navy); }
   .rh-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
   .rh-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,17,31,0) 30%, rgba(6,17,31,.92) 100%); }
@@ -660,7 +725,9 @@
   .rh-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem; margin-top: 1.8rem; font-size: .95rem; }
   .rh-contacts a { color: rgba(255,255,255,.75); text-decoration: none; direction: ltr; unicode-bidi: embed; }
   .rh-contacts a:hover { color: var(--gold); }
-  @media (max-width: 1000px) { .rh-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 1000px) { .rh-cards { grid-template-columns: minmax(0, 1fr); max-width: 560px; } }
+  @media (max-width: 860px) { .rh-intro { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 640px) { .rh-end-actions .btn-primary, .rh-end-actions .btn-outline, .rh-steps-cta .btn-primary { flex: 1 1 100%; text-align: center; } }
   @media (max-width: 640px) {
     .rh-tiles { grid-template-columns: minmax(0, 1fr); }
     .rh-tile { aspect-ratio: 16 / 10; }
@@ -684,6 +751,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/ar/","name":"Rahim International","inLanguage":"ar","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"المؤسس","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/ar/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"ar","mainEntity":[{"@type":"Question","name":"هل يمكنني شراء عقار في المغرب وأنا أعيش في الخارج؟","acceptedAnswer":{"@type":"Answer","text":"نعم. يمكننا تنسيق البحث، وإرسال زيارات مصوّرة للعقارات، ومشاركة الوثائق، ومرافقتك في كثير من مراحل الاقتناء عن بُعد. وسيرشدك الموثق بشأن متطلبات التوقيع وأي وكالة قانونية لازمة."}},{"@type":"Question","name":"ماذا تشمل المرحلة المجانية؟","acceptedAnswer":{"@type":"Answer","text":"دراسة استمارتك قبل الاستشارة، واستشارة مجانية، وخطة اقتناء استراتيجية مخصّصة، وزيارة أولى لعقار. بعدها تقرر إن كنت تريد المتابعة بخدمة مدفوعة."}},{"@type":"Question","name":"هل تساعدون في التمويل ودعم السكن؟","acceptedAnswer":{"@type":"Answer","text":"حسب الباقة التي تختارها، قد تشمل خدماتنا الإرشاد في تحضير ملف التمويل وطلب دعم السكن. وتبقى الأهلية والموافقة من اختصاص البنك والجهات المسؤولة عن البرنامج."}},{"@type":"Question","name":"هل تعملون على العقارات الجديدة والمستعملة؟","acceptedAnswer":{"@type":"Answer","text":"نعم. ندرس المشاريع الجديدة وفرص إعادة البيع حسب ميزانيتك ومواصفات العقار الذي تريده وأهدافك من الاقتناء."}}]}</script>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -740,73 +808,131 @@
     <img class="rh-poster" src="../hero-poster.jpg" alt="">
     <video autoplay muted loop playsinline preload="auto" poster="../hero-poster.jpg"><source src="../hero.mp4" type="video/mp4"></video>
     <div class="rh-shade" aria-hidden="true"></div>
-    <div class="rh-lines" aria-hidden="true"><div class="rh-line" id="rh-line"></div></div>
     <div class="rh-copy">
-      <p class="hero-eyebrow">وساطة واستشارات عقارية · القنيطرة · الرباط · سلا</p>
+      <p class="hero-eyebrow">استشارات ووساطة عقارية · القنيطرة · الرباط · سلا</p>
       <h1>نقرّب المسافة.<br><em>ونوصلك إلى الضفة الأخرى.</em></h1>
-      <p class="rh-sub">تعيش في الخارج وترغب في الشراء بالمغرب؟ نبحث ونزور ونتحقق ونتفاوض نيابة عنك، حتى تسلّم المفاتيح.</p>
-      <div class="rh-actions"><a href="consultation.html" class="btn-primary">حضّر استشارتك</a><a href="#how" class="btn-outline">كيف نعمل</a></div>
+      <p class="rh-sub">تبحث عن مسكن أو عقار استثماري في المغرب؟ نساعدك على دراسة السوق، وإيجاد العقارات وتقييمها، وإتمام عملية الاقتناء بثقة. من أول بحث حتى تسلّم المفاتيح، نحن إلى جانبك، سواء كنت تشتري من داخل المغرب أو من الخارج.</p>
+      <div class="rh-actions"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><a href="#how" class="btn-outline">كيف نعمل</a></div>
+      <p class="rh-trust">استشارة مجانية · خطة اقتناء مخصّصة · أول زيارة مشمولة</p>
     </div>
-    <button type="button" class="rh-skip" id="rh-skip">تخطي</button>
   </section>
 
-  <!-- WHO -->
+  <!-- من نحن -->
+  <section class="rh-sec rh-light" id="about">
+    <div class="rh-wrap rh-intro">
+      <div>
+        <p class="section-eyebrow">من نحن</p>
+        <h2 class="section-title">مشروعك العقاري، <em>مدعوم بالبحث والخبرة ومعرفة الميدان.</em></h2>
+        <p class="rh-lead">Rahim International مكتب استشارات ووساطة عقارية مقرّه القنيطرة، يرافق مشتري العقار داخل المغرب وخارجه.</p>
+        <p class="rh-lead">نجمع بين خبرتنا بالسوق المحلي والاستشارة والتحليل والبحث المبني على البيانات، لنساعد عملاءنا على اتخاذ قرارات عقارية مدروسة. تغطي خدماتنا مسار الاقتناء كاملاً: من فهم أهدافك ورصد الفرص، إلى تقييم العقارات والتفاوض وتنسيق عملية الشراء.</p>
+      </div>
+      <div>
+        <p class="rh-label">منهجيتنا</p>
+        <ul class="rh-values">
+          <li><h3>ندرس السوق أولاً</h3><p>نتابع باستمرار أسعار العقارات والأحياء والمنعشين العقاريين والمشاريع الجديدة وفرص إعادة البيع. ومن خلال البحث والمقارنة، نساعدك على فهم قيمة العقارات ورصد الفرص التي تستحق نظرة أدق.</p></li>
+          <li><h3>بحث مبني على أهدافك</h3><p>ينطلق مشروعك من أولوياتك وميزانيتك وإمكانيات تمويلك ومواصفات العقار الذي تريده. نعتمد عليها لتحديد معايير بحث واضحة وإيجاد عقارات تناسب احتياجاتك، بدل حصر خياراتك في كتالوج جاهز.</p></li>
+          <li><h3>قرارات مدروسة في كل خطوة</h3><p>ننظّم الزيارات، ونقارن العقارات، ونراجع الوثائق المتوفرة، ونحدد النقاط التي تحتاج إلى تحقق إضافي. كما يدعم تحليلنا للسوق النقاش حول السعر والتفاوض.</p></li>
+          <li><h3>مرافقة شخصية أينما كنت</h3><p>زُر العقارات معنا، أو تلقَّ زيارات مصوّرة وتقارير منتظمة وأنت في الخارج. وحسب الباقة التي تختارها، قد تشمل مرافقتنا تحضير ملف التمويل، والإرشاد بشأن برنامج دعم السكن، والتنسيق مع الموثق حتى إتمام الشراء.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- كيف تبدأ -->
+  <section class="rh-sec rh-dark" id="how">
+    <div class="rh-wrap">
+      <p class="section-eyebrow">كيف تبدأ</p>
+      <h2 class="section-title">ابدأ مجاناً. <em>ثم قرّر كيف تتابع.</em></h2>
+      <p class="rh-intro-text">كل مشروع عقاري يبدأ بحوار. قبل اختيار أي خدمة مدفوعة، يمكنك مناقشة أهدافك معنا، والحصول على خطة اقتناء استراتيجية مخصّصة لك، والاستفادة من زيارة أولى لعقار، مجاناً.</p>
+      <ol class="rh-steps">
+        <li><h3>حدّثنا عن مشروعك</h3><p>املأ استمارة قصيرة قبل الاستشارة حول تفضيلاتك وميزانيتك والموقع وأهدافك من الشراء. تساعدنا على التحضير لأول لقاء مفيد.</p></li>
+        <li><h3>التقِ بمستشارك</h3><p>خلال استشارتك المجانية، نناقش أولوياتك وميزانيتك وخيارات التمويل والفرص التي تستحق الاستكشاف. يمكن أن تتم الاستشارة حضورياً أو عبر الهاتف أو بمكالمة فيديو.</p></li>
+        <li><h3>استلم خطتك وزيارتك الأولى</h3><p>نعدّ لك خطة اقتناء استراتيجية تحدد اتجاه البحث والأولويات والخطوات التالية. كما ننظّم زيارة أولى لعقار دون أي تكلفة، لتتعرّف على طريقة عملنا قبل أن تقرر المتابعة.</p></li>
+      </ol>
+      <div class="rh-next">
+        <h3>ماذا بعد؟</h3>
+        <p>اختر باقة الخدمات التي تناسب احتياجاتك ومستوى المرافقة الذي تريده، بما فيها خيارات دون رسوم مسبقة. لا يوجد أي التزام بالمتابعة بعد المرحلة المجانية.</p>
+      </div>
+      <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><p>ابدأ باستمارة قصيرة ومجانية قبل الاستشارة.</p></div>
+    </div>
+  </section>
+
+  <!-- لمن نعمل -->
   <section class="rh-sec rh-light" id="who">
     <div class="rh-wrap">
       <p class="section-eyebrow">لمن نعمل</p>
-      <h2 class="section-title">أنت…</h2>
-      <div class="rh-tiles">
-        <a class="rh-tile" href="investors-mre.html"><img src="../home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>من مغاربة العالم</h3><p>اشترِ دون أن تكون هناك.</p><span>اكتشف ←</span></div></a>
-        <a class="rh-tile" href="investors-international.html"><img src="../home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>مستثمر دولي</h3><p>استثمر في المغرب بوضوح تام.</p><span>اكتشف ←</span></div></a>
-        <a class="rh-tile" href="investors-local.html"><img src="../home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>مستثمر محلي</h3><p>العقار المناسب بالسعر المناسب.</p><span>اكتشف ←</span></div></a>
-        <a class="rh-tile" href="services-developers.html"><img src="../home-dev.jpg" alt="" loading="lazy" decoding="async"><div><h3>مطوّر عقاري</h3><p>اجعل مشروعك يصل إلى المشترين المناسبين.</p><span>اكتشف ←</span></div></a>
+      <h2 class="section-title">مشروعك. أولوياتك. <em>خبرتنا.</em></h2>
+      <p class="rh-intro-text">سواء كنت تشتري مسكنك الأول، أو تستعد للانتقال، أو تستثمر في العقار المغربي، تتكيّف منهجيتنا مع وضعك.</p>
+      <div class="rh-cards">
+        <a class="rh-card" href="investors-mre.html"><img src="../home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>مغاربة العالم</h3><p>تخطط للشراء في بلدك؟ نساعدك على دراسة الفرص ومقارنة العقارات وتنسيق عملية الشراء عن بُعد، مع زيارات ميدانية وتقارير منتظمة.</p><span>خدمات مغاربة العالم ←</span></div></a>
+        <a class="rh-card" href="investors-local.html"><img src="../home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>المقيمون في المغرب</h3><p>شراء أول مسكن أو انتقال أو استثمار؟ نساعدك على تقييم الأحياء وقيمة العقارات وإمكانيات التمويل والفرص المتاحة، باستراتيجية اقتناء واضحة.</p><span>خدمات المقيمين ←</span></div></a>
+        <a class="rh-card" href="investors-international.html"><img src="../home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>المشترون والمستثمرون الدوليون</h3><p>تستكشف فرص العقار في المغرب؟ نقدّم لك معرفة بالسوق المحلي وبحثاً في العقارات وتنسيقاً لعملية الاقتناء، لتفهم خياراتك وتتمّ الشراء بثقة.</p><span>خدمات المشترين الدوليين ←</span></div></a>
       </div>
     </div>
   </section>
 
-  <!-- HOW -->
-  <section class="rh-sec rh-dark" id="how">
-    <div class="rh-wrap">
-      <p class="section-eyebrow">بسيط وواضح</p>
-      <h2 class="section-title">كيف نعمل</h2>
-      <ol class="rh-steps">
-        <li><h3>أجب عن بضعة أسئلة</h3><p>دقيقتان، دون كتابة.</p></li>
-        <li><h3>استشارة مجانية</h3><p>نحلل مشروعك معك.</p></li>
-        <li><h3>نتكفّل بالباقي</h3><p>البحث والزيارات والتفاوض حتى المفاتيح.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ALI -->
-  <section class="rh-sec rh-light">
+  <!-- الفريق -->
+  <section class="rh-sec rh-cream2">
     <div class="rh-ali">
-      <img src="../alirahim-900.jpg" alt="علي رحيم، شريك مؤسس لـ Rahim International" width="720" height="900" loading="lazy" decoding="async">
+      <img src="../alirahim-900.jpg" alt="علي رحيم، مؤسس Rahim International" width="720" height="900" loading="lazy" decoding="async">
       <div>
-        <p class="section-eyebrow">جهة اتصالك في الميدان</p>
-        <h3>علي رحيم، شريك مؤسس</h3>
-        <p>أكثر من 5 سنوات في العقار بالقنيطرة. هو من يزور ويتحقق ويتفاوض نيابة عنك.</p>
-        <a href="about.html">قصتنا ←</a>
+        <p class="section-eyebrow">الفريق وراء مشروعك</p>
+        <h2 class="section-title">معرفة بالميدان. <em>والتزام شخصي.</em></h2>
+        <h3>علي رحيم</h3>
+        <p class="rh-role">المؤسس · Rahim International</p>
+        <p>بخبرة تفوق خمس سنوات في سوق العقار بالقنيطرة، يقدّم علي معرفة عملية بالميدان في البحث عن العقارات وزيارتها وتقييمها والتفاوض عليها.</p>
+        <p>يجمع عمله بين الخبرة المباشرة بالسوق ومنهجية Rahim International المنظّمة في البحث والاستشارة، ليرافق العملاء في اقتنائهم بدعم محلي موثوق.</p>
+        <a href="about.html">تعرّف علينا ←</a>
       </div>
     </div>
   </section>
 
-  <!-- START -->
+  <!-- المنعشون والملاك (ثانوي) -->
+  <section class="rh-pro" aria-labelledby="pro-title">
+    <div class="rh-wrap">
+      <div>
+        <p class="rh-label">المنعشون العقاريون والملاك</p>
+        <h2 id="pro-title">نوصل العقارات إلى المشترين المناسبين.</h2>
+        <p>ترافق Rahim International أيضاً المنعشين العقاريين والملاك في تسويق العقارات وبيعها في المغرب.</p>
+        <p>من خلال عرض العقارات وتموضعها في السوق والتواصل مع جمهور محلي ودولي، نساعد على إيصالها إلى مشترين جادّين.</p>
+      </div>
+      <a href="services-developers.html">خدماتنا للمنعشين والبائعين ←</a>
+    </div>
+  </section>
+
+  <!-- أسئلة شائعة -->
+  <section class="rh-sec rh-light" id="faq">
+    <div class="rh-wrap rh-faq-wrap">
+      <p class="section-eyebrow">أسئلة شائعة</p>
+      <h2 class="section-title">بعض ما قد <em>تودّ معرفته.</em></h2>
+      <div class="rh-faq">
+        <details><summary>هل يمكنني شراء عقار في المغرب وأنا أعيش في الخارج؟</summary><p>نعم. يمكننا تنسيق البحث، وإرسال زيارات مصوّرة للعقارات، ومشاركة الوثائق، ومرافقتك في كثير من مراحل الاقتناء عن بُعد. وسيرشدك الموثق بشأن متطلبات التوقيع وأي وكالة قانونية لازمة.</p></details>
+        <details><summary>ماذا تشمل المرحلة المجانية؟</summary><p>دراسة استمارتك قبل الاستشارة، واستشارة مجانية، وخطة اقتناء استراتيجية مخصّصة، وزيارة أولى لعقار. بعدها تقرر إن كنت تريد المتابعة بخدمة مدفوعة.</p></details>
+        <details><summary>هل تساعدون في التمويل ودعم السكن؟</summary><p>حسب الباقة التي تختارها، قد تشمل خدماتنا الإرشاد في تحضير ملف التمويل وطلب دعم السكن. وتبقى الأهلية والموافقة من اختصاص البنك والجهات المسؤولة عن البرنامج.</p></details>
+        <details><summary>هل تعملون على العقارات الجديدة والمستعملة؟</summary><p>نعم. ندرس المشاريع الجديدة وفرص إعادة البيع حسب ميزانيتك ومواصفات العقار الذي تريده وأهدافك من الاقتناء.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- مستعد للبدء -->
   <section class="rh-sec rh-dark rh-end" id="contact">
     <div class="rh-wrap">
-      <h2 class="section-title">مستعد للبدء؟</h2>
-      <a href="consultation.html" class="btn-primary">حضّر استشارتك</a>
+      <p class="section-eyebrow">مستعد للبدء؟</p>
+      <h2 class="section-title">مشروعك العقاري يبدأ من هنا.</h2>
+      <p class="rh-end-text">أخبرنا بما تبحث عنه. سنساعدك على استكشاف خياراتك وفهم السوق والتخطيط للخطوات التالية نحو الشراء.</p>
+      <div class="rh-end-actions"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><a href="https://wa.me/212642773249" class="btn-outline" target="_blank" rel="noopener">اطرح سؤالك على واتساب</a></div>
+      <p class="rh-end-note">دون أي التزام · استشارة أولى مجانية</p>
       <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
     </div>
   </section>
-
 </main>
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">وساطة واستشارات عقارية لمغاربة العالم والمستثمرين والمطورين العقاريين. القنيطرة · الرباط · سلا.</p></div>
+    <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">استشارات ووساطة عقارية لمغاربة العالم والمقيمين في المغرب والمستثمرين الدوليين. القنيطرة · الرباط · سلا.</p></div>
     <div><div class="footer-col-label">التنقل</div><div class="footer-links"><a href="index.html">الرئيسية</a><a href="investors-mre.html">مغاربة العالم MRE</a><a href="investors-international.html">المستثمرون الدوليون</a><a href="investors-local.html">المستثمرون المحليون</a><a href="services-developers.html">المطورون</a><a href="about.html">من نحن</a></div></div>
     <div><div class="footer-col-label">الموارد</div><div class="footer-links"><a href="guides/index.html">الأدلة</a><a href="tahlilet-souq/index.html">تحليلات السوق</a><a href="consultation.html">حضّر استشارتك</a><a href="../privacy-policy.html">سياسة الخصوصية</a></div></div>
-    <div><div class="footer-col-label">اتصل بنا</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">البريد الإلكتروني</div><div class="footer-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">الهاتف وواتساب</div><div class="footer-contact-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div></div></div></div>
+    <div><div class="footer-col-label">اتصل بنا</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">البريد الإلكتروني</div><div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">الهاتف وواتساب</div><div class="footer-contact-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div></div></div></div>
   </div>
   <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. جميع الحقوق محفوظة.</div><div class="footer-langs"><a href="../index.html">EN</a><a href="../fr/index.html">FR</a><a href="index.html" class="active">AR</a></div></div>
 </footer>

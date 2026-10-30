@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://rahiminternational.com/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@RahimInternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Conseil immobilier et accompagnement stratégique pour les acheteurs internationaux, les MRE, les investisseurs et les promoteurs dans la région Rabat-Salé-Kénitra au Maroc.","geo":{"@type":"GeoCoordinates","latitude":34.261,"longitude":-6.5802},"areaServed":[{"@type":"AdministrativeArea","name":"Rabat-Salé-Kénitra"},{"@type":"City","name":"Kénitra"},{"@type":"City","name":"Rabat"},{"@type":"City","name":"Salé"}],"openingHours":"Mo-Sa 09:00-19:00","priceRange":"$"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@rahiminternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","streetAddress":"70 Av. Youssef Ben Tachfine","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"description":"Conseil immobilier et accompagnement stratégique pour les acheteurs internationaux, les MRE, les investisseurs et les promoteurs dans la région Rabat-Salé-Kénitra au Maroc.","geo":{"@type":"GeoCoordinates","latitude":34.261,"longitude":-6.5802},"areaServed":[{"@type":"AdministrativeArea","name":"Rabat-Salé-Kénitra"},{"@type":"City","name":"Kénitra"},{"@type":"City","name":"Rabat"},{"@type":"City","name":"Salé"}],"openingHours":"Mo-Sa 09:00-19:00","priceRange":"$"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -640,7 +640,72 @@
   .rh-sec .section-title { margin-bottom: 2.4rem; }
   .rh-light .section-title { color: var(--navy); }
   .rh-dark .section-title { color: #fff; }
-  .rh-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .rh-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .rh-intro .section-title { margin-bottom: 1.2rem; }
+  .rh-intro .section-title em { font-style: italic; color: var(--copper-dark, #87452c); }
+  .rh-lead { font-size: 1.05rem; line-height: 1.85; color: #3d4a5c; margin: 0; }
+  .rh-lead + .rh-lead { margin-top: 1rem; }
+  .rh-values { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6rem; }
+  .rh-values li { border-top: 1px solid rgba(201,169,110,.5); padding-top: 1.1rem; }
+  .rh-values h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.55rem; line-height: 1.15; color: var(--navy); margin: 0 0 .35rem; }
+  [dir="rtl"] .rh-values h3 { font-family: 'Amiri', serif; }
+  .rh-values p { margin: 0; line-height: 1.75; color: #3d4a5c; }
+  .rh-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .rh-steps-note { margin: 2.2rem 0 0; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,.85); }
+  .rh-steps-cta { margin-top: 1.6rem; }
+  .rh-steps a { color: var(--gold); }
+  .rh-pro { background: #ece5d8; padding: clamp(2.2rem, 5vw, 3rem) 5%; }
+  .rh-pro .rh-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2.5rem; }
+  .rh-pro h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: var(--navy); margin: 0 0 .3rem; }
+  [dir="rtl"] .rh-pro h2 { font-family: 'Amiri', serif; }
+  .rh-pro p { margin: 0; color: #3d4a5c; line-height: 1.7; max-width: 640px; }
+  .rh-pro a { color: var(--copper-dark, #87452c); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; white-space: nowrap; }
+  [dir="rtl"] .rh-pro a { letter-spacing: 0; font-size: .95rem; }
+  .rh-pro p + p { margin-top: .6rem; }
+  .rh-pro .rh-label { margin-bottom: .5rem; }
+  .rh-trust { margin: 1.4rem 0 0; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+  [dir="rtl"] .rh-trust { letter-spacing: 0; font-size: .9rem; }
+  .rh-label { margin: 0 0 .4rem; font-size: .68rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-label { letter-spacing: 0; font-size: .85rem; }
+  .rh-sec .section-title em { font-style: italic; color: var(--gold); }
+  .rh-light .section-title em, .rh-cream2 .section-title em { color: var(--copper-dark, #87452c); }
+  .rh-intro-text { max-width: 760px; margin: -1rem 0 2.6rem; font-size: 1.05rem; line-height: 1.85; }
+  .rh-light .rh-intro-text { color: #3d4a5c; }
+  .rh-dark .rh-intro-text { color: rgba(255,255,255,.75); }
+  .rh-next { margin-top: 2.6rem; padding: 1.4rem 1.6rem; border: 1px solid rgba(201,169,110,.35); max-width: 760px; }
+  .rh-next h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.5rem; color: #fff; margin: 0 0 .4rem; }
+  [dir="rtl"] .rh-next h3 { font-family: 'Amiri', serif; }
+  .rh-next p { margin: 0; color: rgba(255,255,255,.75); line-height: 1.75; }
+  .rh-steps-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; }
+  .rh-steps-cta p { margin: 0; color: rgba(255,255,255,.65); font-size: .92rem; }
+  .rh-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+  .rh-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e3dccd; text-decoration: none; color: var(--navy); transition: box-shadow .25s, transform .25s; }
+  .rh-card:hover, .rh-card:focus-visible { box-shadow: 0 14px 34px rgba(7,17,31,.1); transform: translateY(-3px); }
+  .rh-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+  .rh-card > div { display: flex; flex-direction: column; flex: 1; padding: 1.4rem 1.4rem 1.6rem; }
+  .rh-card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; line-height: 1.15; margin: 0 0 .6rem; color: var(--navy); }
+  [dir="rtl"] .rh-card h3 { font-family: 'Amiri', serif; }
+  .rh-card p { margin: 0 0 1.2rem; line-height: 1.75; color: #3d4a5c; }
+  .rh-card span { margin-top: auto; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-card span { letter-spacing: 0; font-size: .9rem; }
+  .rh-cream2 { background: #fff; color: var(--navy); }
+  .rh-ali .section-title { margin-bottom: 1.4rem; }
+  .rh-ali .rh-role { margin: -.7rem 0 1.2rem; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rh-ali .rh-role { letter-spacing: 0; font-size: .9rem; }
+  .rh-ali p + a { display: inline-block; }
+  .rh-faq-wrap { max-width: 860px; }
+  .rh-faq details { border-top: 1px solid rgba(201,169,110,.5); }
+  .rh-faq details:last-child { border-bottom: 1px solid rgba(201,169,110,.5); }
+  .rh-faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding: 1.2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; line-height: 1.3; color: var(--navy); }
+  [dir="rtl"] .rh-faq summary { font-family: 'Amiri', serif; }
+  .rh-faq summary::-webkit-details-marker { display: none; }
+  .rh-faq summary::after { content: '+'; flex: none; color: var(--copper-dark, #87452c); font-size: 1.6rem; line-height: 1; }
+  .rh-faq details[open] summary::after { content: '−'; }
+  .rh-faq details p { margin: 0 0 1.3rem; line-height: 1.8; color: #3d4a5c; max-width: 720px; }
+  .rh-end-text { max-width: 640px; margin: -.6rem auto 2rem; color: rgba(255,255,255,.75); line-height: 1.8; font-size: 1.05rem; }
+  .rh-end-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+  .rh-end-note { margin: 1.2rem 0 0; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+  [dir="rtl"] .rh-end-note { letter-spacing: 0; font-size: .9rem; }
   .rh-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; color: #fff; background: var(--navy); }
   .rh-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
   .rh-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,17,31,0) 30%, rgba(6,17,31,.92) 100%); }
@@ -669,7 +734,9 @@
   .rh-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem; margin-top: 1.8rem; font-size: .95rem; }
   .rh-contacts a { color: rgba(255,255,255,.75); text-decoration: none; direction: ltr; unicode-bidi: embed; }
   .rh-contacts a:hover { color: var(--gold); }
-  @media (max-width: 1000px) { .rh-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 1000px) { .rh-cards { grid-template-columns: minmax(0, 1fr); max-width: 560px; } }
+  @media (max-width: 860px) { .rh-intro { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 640px) { .rh-end-actions .btn-primary, .rh-end-actions .btn-outline, .rh-steps-cta .btn-primary { flex: 1 1 100%; text-align: center; } }
   @media (max-width: 640px) {
     .rh-tiles { grid-template-columns: minmax(0, 1fr); }
     .rh-tile { aspect-ratio: 16 / 10; }
@@ -693,6 +760,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/fr/","name":"Rahim International","inLanguage":"fr","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"Fondateur","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/fr/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Puis-je acheter au Maroc si je vis à l’étranger ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous pouvons coordonner la recherche, vous envoyer des visites filmées, partager les documents et prendre en charge de nombreuses étapes de votre acquisition à distance. Votre notaire vous conseillera sur les signatures et sur une éventuelle procuration."}},{"@type":"Question","name":"Que comprend l’étape gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Une analyse de votre formulaire de préconsultation, une consultation gratuite, votre Plan d’Acquisition Personnalisé et une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant."}},{"@type":"Question","name":"Aidez-vous pour le financement et Daam Sakane ?","acceptedAnswer":{"@type":"Answer","text":"Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme."}},{"@type":"Question","name":"Travaillez-vous sur le neuf et l’ancien ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition."}}]}</script>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -745,65 +813,123 @@
     <img class="rh-poster" src="../hero-poster.jpg" alt="">
     <video autoplay muted loop playsinline preload="auto" poster="../hero-poster.jpg"><source src="../hero.mp4" type="video/mp4"></video>
     <div class="rh-shade" aria-hidden="true"></div>
-    <div class="rh-lines" aria-hidden="true"><div class="rh-line" id="rh-line"></div></div>
     <div class="rh-copy">
-      <p class="hero-eyebrow">Courtage et conseil immobilier · Kénitra · Rabat · Salé</p>
+      <p class="hero-eyebrow">Conseil et courtage immobilier · Kénitra · Rabat · Salé</p>
       <h1>Nous comblons la distance.<br><em>Et vous menons jusqu’à l’autre rive.</em></h1>
-      <p class="rh-sub">Vous vivez à l’étranger et voulez acheter au Maroc ? Nous cherchons, visitons, vérifions et négocions pour vous, jusqu’à la remise des clés.</p>
-      <div class="rh-actions"><a href="consultation.html" class="btn-primary">Préparer ma consultation</a><a href="#how" class="btn-outline">Comment ça marche</a></div>
+      <p class="rh-sub">Vous souhaitez acheter une résidence ou un bien d’investissement au Maroc ? Nous vous aidons à étudier le marché, à trouver et évaluer les biens, et à mener votre acquisition en toute confiance. De votre première recherche à la remise des clés, nous sommes à vos côtés, que vous achetiez sur place ou depuis l’étranger.</p>
+      <div class="rh-actions"><a href="consultation.html" class="btn-primary">Parlez-nous de votre projet</a><a href="#how" class="btn-outline">Comment ça marche</a></div>
+      <p class="rh-trust">Consultation gratuite · Plan d’acquisition personnalisé · Première visite incluse</p>
     </div>
-    <button type="button" class="rh-skip" id="rh-skip">Passer</button>
   </section>
 
-  <!-- WHO -->
+  <!-- QUI SOMMES-NOUS -->
+  <section class="rh-sec rh-light" id="about">
+    <div class="rh-wrap rh-intro">
+      <div>
+        <p class="section-eyebrow">Qui sommes-nous</p>
+        <h2 class="section-title">Votre projet immobilier, <em>appuyé par la recherche, l’expertise et la connaissance du terrain.</em></h2>
+        <p class="rh-lead">Rahim International est un cabinet de conseil et de courtage immobilier basé à Kénitra, qui accompagne les acheteurs au Maroc et à l’international.</p>
+        <p class="rh-lead">Nous associons notre connaissance du marché local au conseil, à l’analyse et à une recherche fondée sur les données, pour aider nos clients à prendre des décisions immobilières éclairées. Nos services couvrent tout le parcours d’acquisition : comprendre vos objectifs, identifier les opportunités, évaluer les biens, négocier et coordonner votre achat.</p>
+      </div>
+      <div>
+        <p class="rh-label">Notre approche</p>
+        <ul class="rh-values">
+          <li><h3>Nous étudions d’abord le marché</h3><p>Nous suivons en continu les prix, les quartiers, les promoteurs, les projets neufs et les opportunités de revente. Grâce à nos recherches et à des comparaisons de marché, nous vous aidons à comprendre la valeur des biens et à repérer les opportunités qui méritent un examen plus attentif.</p></li>
+          <li><h3>Une recherche construite autour de vos objectifs</h3><p>Votre projet part de vos priorités, de votre budget, de vos possibilités de financement et de vos critères. Nous nous en servons pour définir des critères de recherche clairs et identifier les biens adaptés à vos besoins, plutôt que de limiter vos options à un catalogue.</p></li>
+          <li><h3>Des décisions éclairées à chaque étape</h3><p>Nous organisons les visites, comparons les biens, examinons les documents disponibles et identifions les points qui demandent une vérification. Notre analyse du marché appuie aussi les discussions sur le prix et la négociation.</p></li>
+          <li><h3>Un accompagnement personnalisé, où que vous soyez</h3><p>Visitez les biens avec nous, ou recevez des visites filmées et des comptes rendus depuis l’étranger. Selon votre formule, notre accompagnement peut s’étendre à la préparation du financement, aux conseils Daam Sakane et à la coordination avec votre notaire jusqu’à l’achat.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- POUR COMMENCER -->
+  <section class="rh-sec rh-dark" id="how">
+    <div class="rh-wrap">
+      <p class="section-eyebrow">Pour commencer</p>
+      <h2 class="section-title">Commencez gratuitement. <em>Décidez ensuite.</em></h2>
+      <p class="rh-intro-text">Tout projet immobilier commence par une conversation. Avant de choisir un service payant, vous pouvez échanger avec nous sur vos objectifs, recevoir votre Plan d’Acquisition Personnalisé et profiter d’une première visite, gratuitement.</p>
+      <ol class="rh-steps">
+        <li><h3>Parlez-nous de votre projet</h3><p>Remplissez un court formulaire de préconsultation sur vos préférences, votre budget, la localisation et vos objectifs d’achat. Il nous aide à préparer un premier échange utile.</p></li>
+        <li><h3>Rencontrez votre conseiller</h3><p>Lors de votre consultation gratuite, nous faisons le point sur vos priorités, votre budget, vos options de financement et les opportunités à explorer. La consultation peut se faire en personne, par téléphone ou en visioconférence.</p></li>
+        <li><h3>Recevez votre plan et une première visite</h3><p>Nous préparons votre Plan d’Acquisition Personnalisé : orientation de la recherche, priorités et prochaines étapes. Nous organisons aussi une première visite sans frais, pour que vous découvriez notre méthode avant de décider de continuer.</p></li>
+      </ol>
+      <div class="rh-next">
+        <h3>Et ensuite ?</h3>
+        <p>Choisissez la formule qui correspond à vos besoins et au niveau d’accompagnement souhaité, y compris des options sans frais à l’avance. Rien ne vous oblige à continuer après l’étape gratuite.</p>
+      </div>
+      <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">Parlez-nous de votre projet</a><p>Commencez par un court formulaire de préconsultation gratuit.</p></div>
+    </div>
+  </section>
+
+  <!-- POUR QUI -->
   <section class="rh-sec rh-light" id="who">
     <div class="rh-wrap">
       <p class="section-eyebrow">Pour qui</p>
-      <h2 class="section-title">Vous êtes…</h2>
-      <div class="rh-tiles">
-        <a class="rh-tile" href="investors-mre.html"><img src="../home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>Marocain du monde</h3><p>Acheter sans être sur place.</p><span>Découvrir →</span></div></a>
-        <a class="rh-tile" href="investors-international.html"><img src="../home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>Investisseur international</h3><p>Investir au Maroc en toute clarté.</p><span>Découvrir →</span></div></a>
-        <a class="rh-tile" href="investors-local.html"><img src="../home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>Investisseur local</h3><p>Le bon bien, au juste prix.</p><span>Découvrir →</span></div></a>
-        <a class="rh-tile" href="services-developers.html"><img src="../home-dev.jpg" alt="" loading="lazy" decoding="async"><div><h3>Promoteur</h3><p>Faire voir votre projet aux bons acheteurs.</p><span>Découvrir →</span></div></a>
+      <h2 class="section-title">Votre projet. Vos priorités. <em>Notre expertise.</em></h2>
+      <p class="rh-intro-text">Que vous achetiez votre premier logement, prépariez un déménagement ou investissiez dans l’immobilier marocain, notre approche s’adapte à votre situation.</p>
+      <div class="rh-cards">
+        <a class="rh-card" href="investors-mre.html"><img src="../home-mre.jpg" alt="" loading="lazy" decoding="async"><div><h3>Marocains du monde (MRE)</h3><p>Vous voulez acheter au pays ? Nous vous aidons à étudier les opportunités, comparer les biens et coordonner votre achat à distance, avec des visites sur place et des comptes rendus réguliers.</p><span>Services MRE →</span></div></a>
+        <a class="rh-card" href="investors-local.html"><img src="../home-local.jpg" alt="" loading="lazy" decoding="async"><div><h3>Résidents au Maroc</h3><p>Premier achat, déménagement ou investissement ? Nous vous aidons à évaluer les quartiers, la valeur des biens, vos possibilités de financement et les opportunités, avec une stratégie d’acquisition claire.</p><span>Services résidents →</span></div></a>
+        <a class="rh-card" href="investors-international.html"><img src="../home-intl.jpg" alt="" loading="lazy" decoding="async"><div><h3>Acheteurs et investisseurs internationaux</h3><p>Vous explorez l’immobilier au Maroc ? Nous vous apportons une connaissance du marché local, des recherches sur les biens et la coordination de l’acquisition, pour comprendre vos options et mener votre achat.</p><span>Services internationaux →</span></div></a>
       </div>
     </div>
   </section>
 
-  <!-- HOW -->
-  <section class="rh-sec rh-dark" id="how">
-    <div class="rh-wrap">
-      <p class="section-eyebrow">Simple et clair</p>
-      <h2 class="section-title">Comment ça marche</h2>
-      <ol class="rh-steps">
-        <li><h3>Répondez à quelques questions</h3><p>2 minutes, sans rien écrire.</p></li>
-        <li><h3>Consultation gratuite</h3><p>Nous analysons votre projet avec vous.</p></li>
-        <li><h3>Nous nous occupons du reste</h3><p>Recherche, visites, négociation, jusqu’aux clés.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ALI -->
-  <section class="rh-sec rh-light">
+  <!-- L'ÉQUIPE -->
+  <section class="rh-sec rh-cream2">
     <div class="rh-ali">
-      <img src="../alirahim-900.jpg" alt="Ali Rahim, cofondateur de Rahim International" width="720" height="900" loading="lazy" decoding="async">
+      <img src="../alirahim-900.jpg" alt="Ali Rahim, fondateur de Rahim International" width="720" height="900" loading="lazy" decoding="async">
       <div>
-        <p class="section-eyebrow">Votre contact sur place</p>
-        <h3>Ali Rahim, cofondateur</h3>
-        <p>Plus de 5 ans dans l’immobilier à Kénitra. C’est lui qui visite, vérifie et négocie pour vous.</p>
-        <a href="about.html">Notre histoire →</a>
+        <p class="section-eyebrow">Les personnes derrière votre projet</p>
+        <h2 class="section-title">Connaissance du terrain. <em>Engagement personnel.</em></h2>
+        <h3>Ali Rahim</h3>
+        <p class="rh-role">Fondateur · Rahim International</p>
+        <p>Avec plus de cinq ans d’expérience sur le marché immobilier de Kénitra, Ali apporte une connaissance concrète du terrain aux recherches, aux visites, à l’évaluation des biens et à la négociation.</p>
+        <p>Son travail allie l’expérience directe du marché à l’approche structurée de recherche et de conseil de Rahim International, pour accompagner les clients dans leur acquisition avec un appui local fiable.</p>
+        <a href="about.html">Mieux nous connaître →</a>
       </div>
     </div>
   </section>
 
-  <!-- START -->
+  <!-- PROMOTEURS & PROPRIÉTAIRES (secondaire) -->
+  <section class="rh-pro" aria-labelledby="pro-title">
+    <div class="rh-wrap">
+      <div>
+        <p class="rh-label">Promoteurs et propriétaires</p>
+        <h2 id="pro-title">Rapprocher les biens des bons acheteurs.</h2>
+        <p>Rahim International accompagne aussi les promoteurs et les propriétaires dans la mise en marché et la commercialisation de biens immobiliers au Maroc.</p>
+        <p>Présentation des biens, positionnement sur le marché et prospection auprès d’acheteurs locaux et internationaux : nous aidons à faire connaître les biens à des acquéreurs qualifiés.</p>
+      </div>
+      <a href="services-developers.html">Nos services promoteurs et vendeurs →</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="rh-sec rh-light" id="faq">
+    <div class="rh-wrap rh-faq-wrap">
+      <p class="section-eyebrow">Questions fréquentes</p>
+      <h2 class="section-title">Quelques points <em>que vous voudrez peut-être savoir.</em></h2>
+      <div class="rh-faq">
+        <details><summary>Puis-je acheter au Maroc si je vis à l’étranger ?</summary><p>Oui. Nous pouvons coordonner la recherche, vous envoyer des visites filmées, partager les documents et prendre en charge de nombreuses étapes de votre acquisition à distance. Votre notaire vous conseillera sur les signatures et sur une éventuelle procuration.</p></details>
+        <details><summary>Que comprend l’étape gratuite ?</summary><p>Une analyse de votre formulaire de préconsultation, une consultation gratuite, votre Plan d’Acquisition Personnalisé et une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant.</p></details>
+        <details><summary>Aidez-vous pour le financement et Daam Sakane ?</summary><p>Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme.</p></details>
+        <details><summary>Travaillez-vous sur le neuf et l’ancien ?</summary><p>Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÊT À COMMENCER -->
   <section class="rh-sec rh-dark rh-end" id="contact">
     <div class="rh-wrap">
-      <h2 class="section-title">Prêt à commencer ?</h2>
-      <a href="consultation.html" class="btn-primary">Préparer ma consultation</a>
+      <p class="section-eyebrow">Prêt à commencer ?</p>
+      <h2 class="section-title">Votre projet immobilier commence ici.</h2>
+      <p class="rh-end-text">Dites-nous ce que vous recherchez. Nous vous aiderons à explorer vos options, comprendre le marché et planifier les prochaines étapes de votre achat.</p>
+      <div class="rh-end-actions"><a href="consultation.html" class="btn-primary">Parlez-nous de votre projet</a><a href="https://wa.me/212642773249" class="btn-outline" target="_blank" rel="noopener">Poser une question sur WhatsApp</a></div>
+      <p class="rh-end-note">Sans engagement · Consultation initiale gratuite</p>
       <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
     </div>
   </section>
-
 </main>
 
 <!-- FOOTER -->
@@ -812,7 +938,7 @@
     <div class="footer-brand">
       <img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo">
       <span class="brand-name" style="margin-top:0.5rem;">Rahim <span>International</span></span>
-      <p class="footer-tagline">Courtage et conseil immobilier pour les Marocains du monde, les investisseurs et les promoteurs. Kénitra · Rabat · Salé.</p>
+      <p class="footer-tagline">Conseil et courtage immobilier pour les Marocains du monde, les résidents au Maroc et les investisseurs internationaux. Kénitra · Rabat · Salé.</p>
     </div>
     <div>
       <div class="footer-col-label">Navigation</div><div class="footer-links"><a href="index.html">Accueil</a><a href="investors-mre.html">Diaspora marocaine / MRE</a><a href="investors-international.html">Investisseurs internationaux</a><a href="investors-local.html">Investisseurs locaux</a><a href="services-developers.html">Promoteurs</a><a href="about.html">À propos</a></div>
@@ -826,7 +952,7 @@
         <div class="footer-contact-icon">✉</div>
         <div>
           <div class="footer-contact-label">E-mail</div>
-          <div class="footer-contact-value"><a href="mailto:contact@RahimInternational.com">contact@RahimInternational.com</a></div>
+          <div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
         </div>
       </div>
       <div class="footer-contact-item">
