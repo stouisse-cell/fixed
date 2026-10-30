@@ -28,7 +28,7 @@
 <meta name="theme-color" content="#07111f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;700;800&family=Cairo:wght@300;400;600;700;800&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#0e1726;--navy3:#1a2b41;
@@ -50,8 +50,8 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
   display:flex;align-items:center;justify-content:center;padding:2rem;overflow-y:auto}
 #gate.off{display:none}
 .g-inner{width:100%;max-width:480px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px);border-radius:24px;padding:2.4rem 2.4rem 2.6rem;box-shadow:var(--shadow-lg);text-align:center}
-.g-firm{font-family:'Anybody',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:block}
-.g-h{font-family:'Anybody',sans-serif;font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:.9rem}
+.g-firm{font-family:'Didact Gothic',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:block}
+.g-h{font-family:'Didact Gothic',sans-serif;font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:.9rem}
 .g-p{font-size:.95rem;font-weight:300;color:var(--dt2);line-height:1.8;margin-bottom:1.6rem}
 .g-trust{display:flex;flex-wrap:wrap;gap:.6rem 1.1rem;justify-content:center;margin-top:1.4rem}
 .g-trust-item{font-size:.74rem;font-weight:300;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:.35rem}
@@ -59,10 +59,10 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 .g-skip{font-size:.8rem;font-weight:300;color:rgba(255,255,255,.4);margin-top:1rem;display:block;text-align:center}
 .g-skip:hover{color:var(--dt2)}
 
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-family:'Anybody',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.95rem 2rem;border:none;cursor:pointer;width:100%;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 12px 28px rgba(210,164,59,.28);transition:.2s}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-family:'Didact Gothic',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.95rem 2rem;border:none;cursor:pointer;width:100%;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 12px 28px rgba(210,164,59,.28);transition:.2s}
 .btn-gold:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(210,164,59,.32)}
 .btn-gold:disabled{opacity:.6;cursor:wait;transform:none}
-.btn-wa{display:flex;align-items:center;justify-content:center;width:100%;margin-top:.7rem;padding:.9rem 2rem;border-radius:999px;border:1px solid rgba(37,211,102,.55);color:#7ef0a8;font-family:'Anybody',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.btn-wa{display:flex;align-items:center;justify-content:center;width:100%;margin-top:.7rem;padding:.9rem 2rem;border-radius:999px;border:1px solid rgba(37,211,102,.55);color:#7ef0a8;font-family:'Didact Gothic',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 .btn-wa:hover{background:rgba(37,211,102,.08)}
 .btn-wa[hidden]{display:none}
 
@@ -73,7 +73,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
   linear-gradient(180deg,#0d1726 0%,#132238 100%)}
 #ob.active{display:flex}
 .ob-top{padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--db);flex-shrink:0}
-.ob-brand{font-family:'Anybody',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dt2)}
+.ob-brand{font-family:'Didact Gothic',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dt2)}
 .ob-progress{display:flex;align-items:center;gap:.9rem}
 .ob-dots{display:flex;gap:.3rem}
 .ob-dot{width:22px;height:3px;background:rgba(255,255,255,.12);border-radius:2px;transition:background .3s}
@@ -85,8 +85,8 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 .ob-screen{display:none}
 .ob-screen.active{display:block;margin:auto 0;animation:fadeIn .3s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
-.ob-step-label{font-family:'Anybody',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
-.ob-q{font-family:'Anybody',sans-serif;font-size:clamp(1.5rem,4.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:.5rem}
+.ob-step-label{font-family:'Didact Gothic',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
+.ob-q{font-family:'Didact Gothic',sans-serif;font-size:clamp(1.5rem,4.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:.5rem}
 .ob-hint{font-size:.92rem;font-weight:300;color:var(--dt2);line-height:1.7;margin-bottom:1.6rem}
 .ob-gap{height:1.2rem}
 .ob-cards{display:grid;gap:.6rem}
@@ -101,7 +101,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
 .ob-card-desc{display:block;font-size:.84rem;font-weight:300;color:var(--dt2);line-height:1.5;margin-top:.15rem}
 .ob-card.small{text-align:center;padding:.85rem .6rem}
 .ob-bot{padding:.9rem 5%;border-top:1px solid var(--db);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-shrink:0;min-height:64px}
-.ob-back{font-family:'Anybody',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--dt2);cursor:pointer;background:none;border:none;padding:.6rem 0;visibility:hidden}
+.ob-back{font-family:'Didact Gothic',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--dt2);cursor:pointer;background:none;border:none;padding:.6rem 0;visibility:hidden}
 .ob-back:hover{color:#fff}
 .btn-next{width:auto;padding:.75rem 1.6rem}
 .btn-next[hidden]{display:none}
@@ -249,6 +249,39 @@ body{padding-top:84px}
   body{padding-top:72px}
   #gate,#ob,#transition{top:72px}
 }
+
+/* ── Brand look: matches the homepage (bridge photo, serif headings, slim gold) ── */
+:root{--gold:#C9A96E;--gold2:#dcc08c;--navy:#081a33;--line:rgba(201,169,110,.28)}
+body{font-family:'Didact Gothic',sans-serif;background:#06111f}
+#gate,#ob{background:linear-gradient(180deg,rgba(6,17,31,.50) 0%,rgba(6,17,31,.72) 45%,rgba(6,17,31,.92) 100%),url("form-bridge.jpg") center 58%/cover no-repeat #06111f}
+#ob{background:linear-gradient(180deg,rgba(6,17,31,.86),rgba(6,17,31,.94)),url("form-bridge.jpg") center 58%/cover no-repeat #06111f}
+#gate::before{display:none}
+.g-inner{background:rgba(6,17,31,.58);border:1px solid var(--line);border-radius:4px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.g-h,.ob-q{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:0;line-height:1.08}
+.g-h{font-size:clamp(2rem,6vw,2.7rem)}
+.ob-q{font-size:clamp(1.8rem,5vw,2.6rem)}
+.g-firm,.ob-step-label,.ob-back,.ob-group-h{font-family:'Didact Gothic',sans-serif;font-weight:400;letter-spacing:.22em}
+.g-p,.ob-hint,.ob-card-desc,.g-input,.g-check-label{font-family:'Didact Gothic',sans-serif}
+.btn-gold,.btn-wa{font-family:'Didact Gothic',sans-serif;font-weight:400;font-size:.74rem;letter-spacing:.18em;border-radius:2px}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{transform:none;box-shadow:none;opacity:.9}
+.ob-card{border-radius:4px;background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.12);backdrop-filter:none}
+.ob-card:hover{transform:none;border-color:var(--line);background:rgba(201,169,110,.06)}
+.ob-card.selected{background:rgba(201,169,110,.12);border-color:var(--gold)}
+.ob-card-title{font-weight:400;letter-spacing:.01em}
+.ob-ico{border-radius:50%;background:transparent;border-color:var(--line)}
+.g-next,.g-check,.g-input{border-radius:4px}
+.g-next{background:rgba(201,169,110,.06);border-color:var(--line)}
+.done-ico{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.ob-dot.active{background:var(--gold)}
+[dir="rtl"] body,[dir="rtl"] .g-p,[dir="rtl"] .ob-hint,[dir="rtl"] .ob-card-desc,[dir="rtl"] .g-input,[dir="rtl"] .g-check-label,[dir="rtl"] .btn-gold,[dir="rtl"] .btn-wa,[dir="rtl"] .g-firm,[dir="rtl"] .ob-step-label,[dir="rtl"] .ob-back,[dir="rtl"] .ob-group-h{font-family:'Cairo',sans-serif;letter-spacing:0}
+[dir="rtl"] .g-h,[dir="rtl"] .ob-q{font-family:'Amiri',serif;line-height:1.35}
+[dir="rtl"] .btn-gold,[dir="rtl"] .btn-wa{font-size:.9rem;font-weight:600}
+@media(max-width:600px){.ob-card{border-radius:4px}}
+@media(min-width:900px){
+  #gate{justify-content:flex-start;padding-inline-start:7%;background:linear-gradient(90deg,#06111f 0%,#06111f 38%,rgba(6,17,31,.55) 62%,rgba(6,17,31,.15) 100%),url("form-bridge.jpg") right center/auto 100% no-repeat #06111f}
+  [dir="rtl"] #gate{background:linear-gradient(270deg,#06111f 0%,#06111f 38%,rgba(6,17,31,.55) 62%,rgba(6,17,31,.15) 100%),url("form-bridge.jpg") left center/auto 100% no-repeat #06111f}
+}
 </style>
 </head>
 <body>
@@ -378,7 +411,7 @@ body{padding-top:84px}
   function cardHtml(o){
     var txt = '<span class="ob-card-title">' + esc(o.t) + '</span>' + (o.d ? '<span class="ob-card-desc">' + esc(o.d) + '</span>' : '');
     return '<button type="button" class="ob-card' + (o.ico ? ' has-ico' : '') + '" aria-pressed="false" data-v="' + esc(o.v) + '">' +
-           (o.ico ? '<span class="ob-ico" aria-hidden="true"></span><span class="ob-card-txt">' + txt + '</span>' : txt) + '</button>';
+           (o.ico ? '<span class="ob-ico" aria-hidden="true"><svg viewBox="0 0 24 24">' + o.ico + '</svg></span><span class="ob-card-txt">' + txt + '</span>' : txt) + '</button>';
   }
   Q.forEach(function(q){
     var d = document.createElement('div');
