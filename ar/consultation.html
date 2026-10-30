@@ -154,6 +154,11 @@ textarea.g-input{min-height:84px;resize:vertical;line-height:1.5}
 .g-logo{width:118px;height:auto;margin:0 auto 1.3rem;display:block}
 .g-next{font-size:.86rem;line-height:1.6;color:var(--dt2);text-align:start;padding:.85rem 1rem;margin-bottom:1.4rem;border:1px solid rgba(210,164,59,.3);background:rgba(210,164,59,.07);border-radius:12px}
 .g-next strong{color:var(--gold2);font-weight:600}
+.g-assure{list-style:none;margin:1.4rem 0 0;padding:1rem 0 0;border-top:1px solid rgba(255,255,255,.1);display:grid;gap:.55rem;text-align:start}
+.g-assure li{position:relative;padding-inline-start:1.5rem;font-size:.8rem;line-height:1.55;color:rgba(255,255,255,.62)}
+.g-assure li::before{content:'';position:absolute;inset-inline-start:0;top:.25rem;width:.85rem;height:.85rem;background:currentColor;color:var(--gold);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E") center/contain no-repeat}
+.g-assure strong{color:rgba(255,255,255,.88);font-weight:600}
+.g-assure a{color:var(--gold2)}
 .g-gets{list-style:none;margin:.5rem 0 0;padding:0;display:grid;gap:.4rem}
 .g-gets li{position:relative;padding-inline-start:1.3rem}
 .g-gets li::before{content:'✓';position:absolute;inset-inline-start:0;color:var(--gold)}
@@ -284,11 +289,12 @@ body{padding-top:84px}
 <div id="gate">
   <div class="g-inner">
     <img class="g-logo" src="../ri_logo_gold_240.png" alt="Rahim International" width="240" height="197">
-    <h1 class="g-h">حضّر استشارتك</h1>
-    <p class="g-p">حدّثنا عن مشروعك. عند موعد استشارتك المجانية، ستكون خطتك وعقار بحثنا عنه خصيصاً لك في انتظارك.</p>
-    <div class="g-next"><strong>قبل استشارتك، نُحضّر لك:</strong><ul class="g-gets"><li>الجزء الأكبر من خطة الاقتناء الاستراتيجية: ما تتيحه ميزانيتك، وأين، وكيف تقارب عملية الشراء</li><li>عقاراً نبحث عنه خصيصاً لك ونعرضه عليك خلال الاستشارة</li><li>الأحياء الأنسب لأهدافك</li></ul></div>
-    <button type="button" class="btn-gold" id="start-btn">ابدأ ←</button>
-    <div class="g-trust"><span class="g-trust-item">من 19 إلى 31 سؤالاً</span><span class="g-trust-item">حوالي 5 دقائق</span><span class="g-trust-item">يكفي أن تضغط على الإجابة</span><span class="g-trust-item">مجاني وسري</span></div>
+    <h1 class="g-h">استشارتك المجانية، محضّرة مسبقاً</h1>
+    <p class="g-p">أجب عن بضعة أسئلة حول مشروعك. قبل لقائنا، نقوم بالعمل الميداني، لتجد أمامك إجابات واضحة، لا عرضاً تجارياً.</p>
+    <div class="g-next"><strong>جاهز لاستشارتك:</strong><ul class="g-gets"><li>خطة اقتناء استراتيجية أولية: ما تتيحه ميزانيتك، وأين، وكيف تقارب عملية الشراء</li><li>عرض مخصّص لعقار بحثنا عنه خصيصاً لك</li></ul></div>
+    <button type="button" class="btn-gold" id="start-btn">حدّثنا عن مشروعك ←</button>
+    <div class="g-trust"><span class="g-trust-item">من 19 إلى 31 سؤالاً</span><span class="g-trust-item">حوالي 5 دقائق</span><span class="g-trust-item">يكفي أن تضغط على الإجابة</span></div>
+    <ul class="g-assure"><li><strong>دون أي التزام.</strong> الاستبيان والاستشارة مجانيان، ولا شيء يُلزمك بالمتابعة.</li><li><strong>سرية تامة.</strong> نستعمل إجاباتك فقط لتحضير استشارتك، ولا نبيعها أو نشاركها لأغراض تسويقية.</li><li><strong>دون إزعاج.</strong> نتواصل معك فقط بخصوص مشروعك، وبالطريقة التي تفضّلها.</li><li><strong>بياناتك، قرارك.</strong> يكفي أن تطلب منا حذف إجاباتك في أي وقت. <a href="../privacy-policy.html">سياسة الخصوصية</a></li></ul>
   </div>
 </div>
 

@@ -154,6 +154,11 @@ textarea.g-input{min-height:84px;resize:vertical;line-height:1.5}
 .g-logo{width:118px;height:auto;margin:0 auto 1.3rem;display:block}
 .g-next{font-size:.86rem;line-height:1.6;color:var(--dt2);text-align:start;padding:.85rem 1rem;margin-bottom:1.4rem;border:1px solid rgba(210,164,59,.3);background:rgba(210,164,59,.07);border-radius:12px}
 .g-next strong{color:var(--gold2);font-weight:600}
+.g-assure{list-style:none;margin:1.4rem 0 0;padding:1rem 0 0;border-top:1px solid rgba(255,255,255,.1);display:grid;gap:.55rem;text-align:start}
+.g-assure li{position:relative;padding-inline-start:1.5rem;font-size:.8rem;line-height:1.55;color:rgba(255,255,255,.62)}
+.g-assure li::before{content:'';position:absolute;inset-inline-start:0;top:.25rem;width:.85rem;height:.85rem;background:currentColor;color:var(--gold);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E") center/contain no-repeat}
+.g-assure strong{color:rgba(255,255,255,.88);font-weight:600}
+.g-assure a{color:var(--gold2)}
 .g-gets{list-style:none;margin:.5rem 0 0;padding:0;display:grid;gap:.4rem}
 .g-gets li{position:relative;padding-inline-start:1.3rem}
 .g-gets li::before{content:'✓';position:absolute;inset-inline-start:0;color:var(--gold)}
@@ -284,11 +289,12 @@ body{padding-top:84px}
 <div id="gate">
   <div class="g-inner">
     <img class="g-logo" src="ri_logo_gold_240.png" alt="Rahim International" width="240" height="197">
-    <h1 class="g-h">Prepare your consultation</h1>
-    <p class="g-p">Tell us about your project. By the time of your free consultation, your plan and a property we've searched for specifically for you will already be waiting.</p>
-    <div class="g-next"><strong>Before your consultation, we prepare for you:</strong><ul class="g-gets"><li>Most of your Strategic Acquisition Plan: what your budget can buy, where, and how to approach your purchase</li><li>A property we go out and find specifically for you, presented during your consultation</li><li>The neighbourhoods best suited to your goals</li></ul></div>
-    <button type="button" class="btn-gold" id="start-btn">Start →</button>
-    <div class="g-trust"><span class="g-trust-item">19 to 31 questions</span><span class="g-trust-item">About 5 minutes</span><span class="g-trust-item">Just tap to answer</span><span class="g-trust-item">Free and confidential</span></div>
+    <h1 class="g-h">Your free consultation, prepared in advance</h1>
+    <p class="g-p">Answer a few questions about your project. Before we meet, we do the groundwork, so you arrive to real answers, not a sales pitch.</p>
+    <div class="g-next"><strong>Ready for your consultation:</strong><ul class="g-gets"><li>A preliminary Strategic Acquisition Plan: what your budget can buy, where, and how to approach your purchase</li><li>A custom presentation of a property we searched for specifically for you</li></ul></div>
+    <button type="button" class="btn-gold" id="start-btn">Tell us about your project →</button>
+    <div class="g-trust"><span class="g-trust-item">19 to 31 questions</span><span class="g-trust-item">About 5 minutes</span><span class="g-trust-item">Just tap to answer</span></div>
+    <ul class="g-assure"><li><strong>No commitment.</strong> The questionnaire and the consultation are free, with no obligation to continue.</li><li><strong>Confidential.</strong> Your answers are used only to prepare your consultation, never sold or shared for marketing.</li><li><strong>No spam.</strong> We only contact you about your project, in the way you prefer.</li><li><strong>Your data, your choice.</strong> Ask us at any time and we delete your answers. <a href="privacy-policy.html">Privacy policy</a></li></ul>
   </div>
 </div>
 
