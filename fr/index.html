@@ -716,7 +716,7 @@
   .rh-tile p { margin: 0; font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
   .rh-tile span { display: inline-block; margin-top: .9rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
   [dir="rtl"] .rh-tile span { letter-spacing: 0; font-size: .85rem; }
-  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
+  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
   .rh-steps li { counter-increment: rh; border-top: 1px solid rgba(201,169,110,.35); padding-top: 1.4rem; }
   .rh-steps li::before { content: counter(rh); display: block; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 1; color: var(--gold); margin-bottom: .8rem; }
   .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
@@ -734,7 +734,8 @@
   .rh-next { position: relative; border: 1px dashed rgba(201,169,110,.45); margin-top: 2.8rem; }
   .rh-next h3 { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem; }
   .rh-next-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; line-height: 1; color: rgba(201,169,110,.6); }
-  @media (max-width: 640px) {
+  @media (max-width: 900px) {
+    .rh-steps { grid-template-columns: minmax(0, 1fr); }
     .rh-steps li { border-top: 0; border-inline-start: 1px solid rgba(201,169,110,.7); padding: 0 0 2.2rem 1.6rem; }
     [dir="rtl"] .rh-steps li { padding: 0 1.6rem 2.2rem 0; }
     .rh-steps li:last-child { padding-bottom: .4rem; }
@@ -778,7 +779,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/fr/","name":"Rahim International","inLanguage":"fr","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"Fondateur","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/fr/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Puis-je acheter au Maroc si je vis à l’étranger ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous pouvons coordonner la recherche, vous envoyer des visites filmées, partager les documents et prendre en charge de nombreuses étapes de votre acquisition à distance. Votre notaire vous conseillera sur les signatures et sur une éventuelle procuration."}},{"@type":"Question","name":"Que comprend l’étape gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Le questionnaire de préconsultation, une consultation gratuite, votre Plan d’Acquisition Personnalisé et une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant."}},{"@type":"Question","name":"Aidez-vous pour le financement et Daam Sakane ?","acceptedAnswer":{"@type":"Answer","text":"Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme."}},{"@type":"Question","name":"Travaillez-vous sur le neuf et l’ancien ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Puis-je acheter au Maroc si je vis à l’étranger ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous pouvons coordonner la recherche, vous envoyer des visites filmées, partager les documents et prendre en charge de nombreuses étapes de votre acquisition à distance. Votre notaire vous conseillera sur les signatures et sur une éventuelle procuration."}},{"@type":"Question","name":"Que comprend l’étape gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Le questionnaire de préconsultation, un Plan d’Acquisition Personnalisé préliminaire établi à partir de vos réponses, une consultation gratuite pour l’affiner ensemble, puis une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant."}},{"@type":"Question","name":"Aidez-vous pour le financement et Daam Sakane ?","acceptedAnswer":{"@type":"Answer","text":"Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme."}},{"@type":"Question","name":"Travaillez-vous sur le neuf et l’ancien ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition."}}]}</script>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -866,15 +867,16 @@
     <div class="rh-wrap">
       <p class="section-eyebrow">Pour commencer</p>
       <h2 class="section-title">Commencez gratuitement. <em>Décidez quand vous êtes prêt.</em></h2>
-      <p class="rh-intro-text">Avant tout engagement, nous faisons le travail de terrain : un plan préliminaire, un bien trouvé pour vous et une première visite, sans frais.</p>
+      <p class="rh-intro-text">Avant tout engagement, nous prenons le temps de comprendre votre projet : un plan préliminaire établi à partir de vos réponses, une consultation pour l’affiner ensemble, puis une première visite.</p>
       <ol class="rh-steps">
-        <li><h3>Parlez-nous de votre projet</h3><p>Remplissez le questionnaire de préconsultation. Il prend 5 à 10 minutes et nous donne tout ce qu’il faut pour commencer votre recherche.</p><span class="rh-step-meta"><span class="rh-tag">Gratuit</span>5 à 10 minutes</span></li>
-        <li><h3>Nous préparons votre plan et votre recherche</h3><p>Avant notre rencontre, nous rédigeons votre Plan d’Acquisition Personnalisé préliminaire et allons chercher un bien qui correspond à votre profil.</p><span class="rh-step-meta"><span class="rh-tag">Gratuit</span>Sous 72 heures</span></li>
-        <li><h3>Rencontrez votre conseiller</h3><p>En personne, par téléphone ou en visioconférence, nous vous présentons votre plan et le bien trouvé, puis organisons une première visite, le tout gratuitement.</p><span class="rh-step-meta"><span class="rh-tag">Gratuit</span>Plan · bien · première visite</span></li>
+        <li><h3>Parlez-nous de votre projet</h3><p>Remplissez le questionnaire de préconsultation sur vos objectifs, votre budget et le bien recherché.</p><span class="rh-step-meta">5 à 10 minutes</span></li>
+        <li><h3>Nous préparons votre plan préliminaire</h3><p>À partir de vos réponses, nous établissons un Plan d’Acquisition Personnalisé préliminaire : orientation de la recherche, priorités et premier point sur votre budget face au marché.</p><span class="rh-step-meta">Sous 72 heures</span></li>
+        <li><h3>Rencontrez votre conseiller</h3><p>Consultation gratuite, en personne, par téléphone ou en visioconférence. Nous passons le plan en revue et l’affinons ensemble.</p><span class="rh-step-meta">Consultation gratuite</span></li>
+        <li><h3>Votre première visite</h3><p>Après la consultation, nous recherchons un bien adapté à votre profil et organisons une première visite, sans frais.</p><span class="rh-step-meta">Après la consultation</span></li>
       </ol>
       <div class="rh-next">
-        <h3><span class="rh-next-num" aria-hidden="true">4</span>Votre choix<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">Facultatif</span></span></h3>
-        <p>Si vous souhaitez continuer, choisissez la formule qui correspond à l’accompagnement dont vous avez besoin, y compris des options sans frais à l’avance. Sinon, vous n’êtes engagé à rien.</p>
+        <h3><span class="rh-next-num" aria-hidden="true">5</span>Votre choix<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">Facultatif</span></span></h3>
+        <p>Si vous souhaitez continuer, choisissez la formule qui correspond à l’accompagnement dont vous avez besoin, y compris des options sans frais à l’avance.</p>
       </div>
       <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">Parlez-nous de votre projet</a><p>Questionnaire de préconsultation · 5 à 10 minutes · sans engagement</p></div>
     </div>
@@ -930,7 +932,7 @@
       <h2 class="section-title">Quelques points <em>que vous voudrez peut-être savoir.</em></h2>
       <div class="rh-faq">
         <details><summary>Puis-je acheter au Maroc si je vis à l’étranger ?</summary><p>Oui. Nous pouvons coordonner la recherche, vous envoyer des visites filmées, partager les documents et prendre en charge de nombreuses étapes de votre acquisition à distance. Votre notaire vous conseillera sur les signatures et sur une éventuelle procuration.</p></details>
-        <details><summary>Que comprend l’étape gratuite ?</summary><p>Le questionnaire de préconsultation, une consultation gratuite, votre Plan d’Acquisition Personnalisé et une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant.</p></details>
+        <details><summary>Que comprend l’étape gratuite ?</summary><p>Le questionnaire de préconsultation, un Plan d’Acquisition Personnalisé préliminaire établi à partir de vos réponses, une consultation gratuite pour l’affiner ensemble, puis une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant.</p></details>
         <details><summary>Aidez-vous pour le financement et Daam Sakane ?</summary><p>Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme.</p></details>
         <details><summary>Travaillez-vous sur le neuf et l’ancien ?</summary><p>Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition.</p></details>
       </div>

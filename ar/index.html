@@ -707,7 +707,7 @@
   .rh-tile p { margin: 0; font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
   .rh-tile span { display: inline-block; margin-top: .9rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
   [dir="rtl"] .rh-tile span { letter-spacing: 0; font-size: .85rem; }
-  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
+  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
   .rh-steps li { counter-increment: rh; border-top: 1px solid rgba(201,169,110,.35); padding-top: 1.4rem; }
   .rh-steps li::before { content: counter(rh); display: block; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 1; color: var(--gold); margin-bottom: .8rem; }
   .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
@@ -725,7 +725,8 @@
   .rh-next { position: relative; border: 1px dashed rgba(201,169,110,.45); margin-top: 2.8rem; }
   .rh-next h3 { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem; }
   .rh-next-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; line-height: 1; color: rgba(201,169,110,.6); }
-  @media (max-width: 640px) {
+  @media (max-width: 900px) {
+    .rh-steps { grid-template-columns: minmax(0, 1fr); }
     .rh-steps li { border-top: 0; border-inline-start: 1px solid rgba(201,169,110,.7); padding: 0 0 2.2rem 1.6rem; }
     [dir="rtl"] .rh-steps li { padding: 0 1.6rem 2.2rem 0; }
     .rh-steps li:last-child { padding-bottom: .4rem; }
@@ -769,7 +770,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/ar/","name":"Rahim International","inLanguage":"ar","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"المؤسس","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/ar/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"ar","mainEntity":[{"@type":"Question","name":"هل يمكنني شراء عقار في المغرب وأنا أعيش في الخارج؟","acceptedAnswer":{"@type":"Answer","text":"نعم. يمكننا تنسيق البحث، وإرسال زيارات مصوّرة للعقارات، ومشاركة الوثائق، ومرافقتك في كثير من مراحل الاقتناء عن بُعد. وسيرشدك الموثق بشأن متطلبات التوقيع وأي وكالة قانونية لازمة."}},{"@type":"Question","name":"ماذا تشمل المرحلة المجانية؟","acceptedAnswer":{"@type":"Answer","text":"استبيان ما قبل الاستشارة، واستشارة مجانية، وخطة اقتناء استراتيجية مخصّصة، وزيارة أولى لعقار. بعدها تقرر إن كنت تريد المتابعة بخدمة مدفوعة."}},{"@type":"Question","name":"هل تساعدون في التمويل ودعم السكن؟","acceptedAnswer":{"@type":"Answer","text":"حسب الباقة التي تختارها، قد تشمل خدماتنا الإرشاد في تحضير ملف التمويل وطلب دعم السكن. وتبقى الأهلية والموافقة من اختصاص البنك والجهات المسؤولة عن البرنامج."}},{"@type":"Question","name":"هل تعملون على العقارات الجديدة والمستعملة؟","acceptedAnswer":{"@type":"Answer","text":"نعم. ندرس المشاريع الجديدة وفرص إعادة البيع حسب ميزانيتك ومواصفات العقار الذي تريده وأهدافك من الاقتناء."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"ar","mainEntity":[{"@type":"Question","name":"هل يمكنني شراء عقار في المغرب وأنا أعيش في الخارج؟","acceptedAnswer":{"@type":"Answer","text":"نعم. يمكننا تنسيق البحث، وإرسال زيارات مصوّرة للعقارات، ومشاركة الوثائق، ومرافقتك في كثير من مراحل الاقتناء عن بُعد. وسيرشدك الموثق بشأن متطلبات التوقيع وأي وكالة قانونية لازمة."}},{"@type":"Question","name":"ماذا تشمل المرحلة المجانية؟","acceptedAnswer":{"@type":"Answer","text":"استبيان ما قبل الاستشارة، وخطة اقتناء استراتيجية أولية مبنية على إجاباتك، واستشارة مجانية نراجعها فيها معاً، ثم زيارة أولى لعقار. بعدها تقرر إن كنت تريد المتابعة بخدمة مدفوعة."}},{"@type":"Question","name":"هل تساعدون في التمويل ودعم السكن؟","acceptedAnswer":{"@type":"Answer","text":"حسب الباقة التي تختارها، قد تشمل خدماتنا الإرشاد في تحضير ملف التمويل وطلب دعم السكن. وتبقى الأهلية والموافقة من اختصاص البنك والجهات المسؤولة عن البرنامج."}},{"@type":"Question","name":"هل تعملون على العقارات الجديدة والمستعملة؟","acceptedAnswer":{"@type":"Answer","text":"نعم. ندرس المشاريع الجديدة وفرص إعادة البيع حسب ميزانيتك ومواصفات العقار الذي تريده وأهدافك من الاقتناء."}}]}</script>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -861,15 +862,16 @@
     <div class="rh-wrap">
       <p class="section-eyebrow">كيف تبدأ</p>
       <h2 class="section-title">ابدأ مجاناً. <em>وقرّر حين تكون مستعداً.</em></h2>
-      <p class="rh-intro-text">قبل أي التزام، نقوم بالعمل الميداني: خطة أولية، وعقار وجدناه لك، وزيارة أولى، دون أي تكلفة.</p>
+      <p class="rh-intro-text">قبل أي التزام، نأخذ الوقت لفهم مشروعك: خطة أولية مبنية على إجاباتك، واستشارة نراجعها فيها معاً، ثم زيارة أولى لعقار.</p>
       <ol class="rh-steps">
-        <li><h3>حدّثنا عن مشروعك</h3><p>املأ استبيان ما قبل الاستشارة. يستغرق من 5 إلى 10 دقائق ويمنحنا كل ما نحتاجه لبدء البحث.</p><span class="rh-step-meta"><span class="rh-tag">مجاني</span>من 5 إلى 10 دقائق</span></li>
-        <li><h3>نُعدّ خطتك وبحثك</h3><p>قبل لقائنا، نُعدّ خطة الاقتناء الاستراتيجية الأولية ونبحث ميدانياً عن عقار يناسب ملفك.</p><span class="rh-step-meta"><span class="rh-tag">مجاني</span>خلال 72 ساعة</span></li>
-        <li><h3>التقِ بمستشارك</h3><p>حضورياً أو عبر الهاتف أو بمكالمة فيديو، نعرض عليك خطتك والعقار الذي وجدناه، وننظّم زيارة أولى، كل ذلك مجاناً.</p><span class="rh-step-meta"><span class="rh-tag">مجاني</span>الخطة · العقار · الزيارة الأولى</span></li>
+        <li><h3>حدّثنا عن مشروعك</h3><p>املأ استبيان ما قبل الاستشارة حول أهدافك وميزانيتك والعقار الذي تبحث عنه.</p><span class="rh-step-meta">من 5 إلى 10 دقائق</span></li>
+        <li><h3>نُعدّ خطتك الأولية</h3><p>انطلاقاً من إجاباتك، نُعدّ خطة اقتناء استراتيجية أولية: اتجاه البحث والأولويات وتقييم أول لميزانيتك مقارنة بالسوق.</p><span class="rh-step-meta">خلال 72 ساعة</span></li>
+        <li><h3>التقِ بمستشارك</h3><p>استشارة مجانية حضورياً أو عبر الهاتف أو بمكالمة فيديو، نراجع فيها الخطة معك ونحسّنها معاً.</p><span class="rh-step-meta">استشارة مجانية</span></li>
+        <li><h3>زيارتك الأولى</h3><p>بعد الاستشارة، نبحث عن عقار يناسب ملفك وننظّم زيارة أولى دون أي تكلفة.</p><span class="rh-step-meta">بعد الاستشارة</span></li>
       </ol>
       <div class="rh-next">
-        <h3><span class="rh-next-num" aria-hidden="true">4</span>قرارك<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">اختياري</span></span></h3>
-        <p>إذا رغبت في المتابعة، اختر الباقة التي تناسب المرافقة التي تحتاجها، بما فيها خيارات دون رسوم مسبقة. وإن لم ترغب، فلا شيء يُلزمك.</p>
+        <h3><span class="rh-next-num" aria-hidden="true">5</span>قرارك<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">اختياري</span></span></h3>
+        <p>إذا رغبت في المتابعة، اختر الباقة التي تناسب المرافقة التي تحتاجها، بما فيها خيارات دون رسوم مسبقة.</p>
       </div>
       <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><p>استبيان ما قبل الاستشارة · من 5 إلى 10 دقائق · دون التزام</p></div>
     </div>
@@ -925,7 +927,7 @@
       <h2 class="section-title">بعض ما قد <em>تودّ معرفته.</em></h2>
       <div class="rh-faq">
         <details><summary>هل يمكنني شراء عقار في المغرب وأنا أعيش في الخارج؟</summary><p>نعم. يمكننا تنسيق البحث، وإرسال زيارات مصوّرة للعقارات، ومشاركة الوثائق، ومرافقتك في كثير من مراحل الاقتناء عن بُعد. وسيرشدك الموثق بشأن متطلبات التوقيع وأي وكالة قانونية لازمة.</p></details>
-        <details><summary>ماذا تشمل المرحلة المجانية؟</summary><p>استبيان ما قبل الاستشارة، واستشارة مجانية، وخطة اقتناء استراتيجية مخصّصة، وزيارة أولى لعقار. بعدها تقرر إن كنت تريد المتابعة بخدمة مدفوعة.</p></details>
+        <details><summary>ماذا تشمل المرحلة المجانية؟</summary><p>استبيان ما قبل الاستشارة، وخطة اقتناء استراتيجية أولية مبنية على إجاباتك، واستشارة مجانية نراجعها فيها معاً، ثم زيارة أولى لعقار. بعدها تقرر إن كنت تريد المتابعة بخدمة مدفوعة.</p></details>
         <details><summary>هل تساعدون في التمويل ودعم السكن؟</summary><p>حسب الباقة التي تختارها، قد تشمل خدماتنا الإرشاد في تحضير ملف التمويل وطلب دعم السكن. وتبقى الأهلية والموافقة من اختصاص البنك والجهات المسؤولة عن البرنامج.</p></details>
         <details><summary>هل تعملون على العقارات الجديدة والمستعملة؟</summary><p>نعم. ندرس المشاريع الجديدة وفرص إعادة البيع حسب ميزانيتك ومواصفات العقار الذي تريده وأهدافك من الاقتناء.</p></details>
       </div>
