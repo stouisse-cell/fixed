@@ -713,6 +713,24 @@
   .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
   [dir="rtl"] .rh-steps h3 { font-family: 'Amiri', serif; }
   .rh-steps p { margin: 0; color: rgba(255,255,255,.7); line-height: 1.7; }
+  /* Start for free: connected timeline, timing and free tags */
+  .rh-steps { gap: 0; }
+  .rh-steps li { position: relative; border-top: 1px solid rgba(201,169,110,.7); padding: 1.6rem 2.2rem 0 0; }
+  [dir="rtl"] .rh-steps li { padding: 1.6rem 0 0 2.2rem; }
+  .rh-steps li::after { content: ''; position: absolute; top: -5px; inset-inline-start: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+  .rh-step-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .7rem; margin-top: 1rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  [dir="rtl"] .rh-step-meta { letter-spacing: 0; font-size: .85rem; }
+  .rh-tag { border: 1px solid rgba(201,169,110,.7); padding: .18rem .55rem; line-height: 1.3; }
+  .rh-tag-muted { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.65); }
+  .rh-next { position: relative; border: 1px dashed rgba(201,169,110,.45); margin-top: 2.8rem; }
+  .rh-next h3 { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem; }
+  .rh-next-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; line-height: 1; color: rgba(201,169,110,.6); }
+  @media (max-width: 640px) {
+    .rh-steps li { border-top: 0; border-inline-start: 1px solid rgba(201,169,110,.7); padding: 0 0 2.2rem 1.6rem; }
+    [dir="rtl"] .rh-steps li { padding: 0 1.6rem 2.2rem 0; }
+    .rh-steps li:last-child { padding-bottom: .4rem; }
+    .rh-steps li::after { top: .5rem; inset-inline-start: -5px; }
+  }
   .rh-ali { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; max-width: 960px; margin: 0 auto; }
   .rh-ali img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border: 1px solid rgba(201,169,110,.5); display: block; }
   .rh-ali h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--navy); margin: 0 0 1rem; }
@@ -845,12 +863,12 @@
       <h2 class="section-title">ابدأ مجاناً. <em>وقرّر حين تكون مستعداً.</em></h2>
       <p class="rh-intro-text">قبل أي التزام، نقوم بالعمل الميداني: خطة أولية، وعقار وجدناه لك، وزيارة أولى، دون أي تكلفة.</p>
       <ol class="rh-steps">
-        <li><h3>حدّثنا عن مشروعك</h3><p>املأ استبيان ما قبل الاستشارة. يستغرق من 5 إلى 10 دقائق ويمنحنا كل ما نحتاجه لبدء البحث.</p></li>
-        <li><h3>نُعدّ خطتك وبحثك</h3><p>قبل لقائنا، نُعدّ خطة الاقتناء الاستراتيجية الأولية ونبحث ميدانياً عن عقار يناسب ملفك.</p></li>
-        <li><h3>التقِ بمستشارك</h3><p>حضورياً أو عبر الهاتف أو بمكالمة فيديو، نعرض عليك خطتك والعقار الذي وجدناه، وننظّم زيارة أولى، كل ذلك مجاناً.</p></li>
+        <li><h3>حدّثنا عن مشروعك</h3><p>املأ استبيان ما قبل الاستشارة. يستغرق من 5 إلى 10 دقائق ويمنحنا كل ما نحتاجه لبدء البحث.</p><span class="rh-step-meta"><span class="rh-tag">مجاني</span>من 5 إلى 10 دقائق</span></li>
+        <li><h3>نُعدّ خطتك وبحثك</h3><p>قبل لقائنا، نُعدّ خطة الاقتناء الاستراتيجية الأولية ونبحث ميدانياً عن عقار يناسب ملفك.</p><span class="rh-step-meta"><span class="rh-tag">مجاني</span>خلال 72 ساعة</span></li>
+        <li><h3>التقِ بمستشارك</h3><p>حضورياً أو عبر الهاتف أو بمكالمة فيديو، نعرض عليك خطتك والعقار الذي وجدناه، وننظّم زيارة أولى، كل ذلك مجاناً.</p><span class="rh-step-meta"><span class="rh-tag">مجاني</span>الخطة · العقار · الزيارة الأولى</span></li>
       </ol>
       <div class="rh-next">
-        <h3>ماذا بعد؟</h3>
+        <h3><span class="rh-next-num" aria-hidden="true">4</span>قرارك<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">اختياري</span></span></h3>
         <p>إذا رغبت في المتابعة، اختر الباقة التي تناسب المرافقة التي تحتاجها، بما فيها خيارات دون رسوم مسبقة. وإن لم ترغب، فلا شيء يُلزمك.</p>
       </div>
       <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><p>استبيان ما قبل الاستشارة · من 5 إلى 10 دقائق · دون التزام</p></div>

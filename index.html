@@ -814,6 +814,24 @@
   .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
   [dir="rtl"] .rh-steps h3 { font-family: 'Amiri', serif; }
   .rh-steps p { margin: 0; color: rgba(255,255,255,.7); line-height: 1.7; }
+  /* Start for free: connected timeline, timing and free tags */
+  .rh-steps { gap: 0; }
+  .rh-steps li { position: relative; border-top: 1px solid rgba(201,169,110,.7); padding: 1.6rem 2.2rem 0 0; }
+  [dir="rtl"] .rh-steps li { padding: 1.6rem 0 0 2.2rem; }
+  .rh-steps li::after { content: ''; position: absolute; top: -5px; inset-inline-start: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+  .rh-step-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .7rem; margin-top: 1rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  [dir="rtl"] .rh-step-meta { letter-spacing: 0; font-size: .85rem; }
+  .rh-tag { border: 1px solid rgba(201,169,110,.7); padding: .18rem .55rem; line-height: 1.3; }
+  .rh-tag-muted { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.65); }
+  .rh-next { position: relative; border: 1px dashed rgba(201,169,110,.45); margin-top: 2.8rem; }
+  .rh-next h3 { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem; }
+  .rh-next-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; line-height: 1; color: rgba(201,169,110,.6); }
+  @media (max-width: 640px) {
+    .rh-steps li { border-top: 0; border-inline-start: 1px solid rgba(201,169,110,.7); padding: 0 0 2.2rem 1.6rem; }
+    [dir="rtl"] .rh-steps li { padding: 0 1.6rem 2.2rem 0; }
+    .rh-steps li:last-child { padding-bottom: .4rem; }
+    .rh-steps li::after { top: .5rem; inset-inline-start: -5px; }
+  }
   .rh-ali { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; max-width: 960px; margin: 0 auto; }
   .rh-ali img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border: 1px solid rgba(201,169,110,.5); display: block; }
   .rh-ali h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--navy); margin: 0 0 1rem; }
@@ -953,12 +971,12 @@
       <h2 class="section-title">Start for free. <em>Decide when you’re ready.</em></h2>
       <p class="rh-intro-text">Before you commit to anything, we do the groundwork: a preliminary plan, a property found for you and a first visit, at no cost.</p>
       <ol class="rh-steps">
-        <li><h3>Tell us about your project</h3><p>Fill in the pre-consultation questionnaire. It takes 5 to 10 minutes and gives us everything we need to start working on your search.</p></li>
-        <li><h3>We prepare your plan and search</h3><p>Before we meet, we draft your preliminary Strategic Acquisition Plan and go out to find a property that matches your profile.</p></li>
-        <li><h3>Meet your advisor</h3><p>In person, by phone or by video call, we walk you through your plan, present the property we found and arrange a first visit, all free of charge.</p></li>
+        <li><h3>Tell us about your project</h3><p>Fill in the pre-consultation questionnaire. It takes 5 to 10 minutes and gives us everything we need to start working on your search.</p><span class="rh-step-meta"><span class="rh-tag">Free</span>5–10 minutes</span></li>
+        <li><h3>We prepare your plan and search</h3><p>Before we meet, we draft your preliminary Strategic Acquisition Plan and go out to find a property that matches your profile.</p><span class="rh-step-meta"><span class="rh-tag">Free</span>Within 72 hours</span></li>
+        <li><h3>Meet your advisor</h3><p>In person, by phone or by video call, we walk you through your plan, present the property we found and arrange a first visit, all free of charge.</p><span class="rh-step-meta"><span class="rh-tag">Free</span>Plan · property · first visit</span></li>
       </ol>
       <div class="rh-next">
-        <h3>What happens next?</h3>
+        <h3><span class="rh-next-num" aria-hidden="true">4</span>Your choice<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">Optional</span></span></h3>
         <p>If you’d like to continue, choose the service package that fits the support you need, including options with no upfront fees. If not, you’re under no obligation.</p>
       </div>
       <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">Tell Us About Your Project</a><p>Pre-consultation questionnaire · 5 to 10 minutes · no commitment</p></div>
