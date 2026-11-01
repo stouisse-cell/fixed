@@ -366,6 +366,24 @@
     .ra-bridge img { max-width: 130px; }
     .ra-quote p { font-size: 1.3rem; }
   }
+
+  /* about: chapters, result, lessons */
+  .ra-story h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: var(--navy); margin: 2rem 0 .8rem; }
+  [dir="rtl"] .ra-story h3 { font-family: 'Amiri', serif; }
+  .ra-result { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.4rem; align-items: center; margin: 2.2rem 0 0; padding: 1.4rem 1.6rem; background: var(--navy); color: rgba(255,255,255,.82); }
+  .ra-result-big { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; line-height: 1; color: var(--gold); white-space: nowrap; }
+  .ra-result-big small { display: block; margin-top: .4rem; font-family: inherit; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .ra-result-big small { letter-spacing: 0; font-size: .85rem; }
+  .ra-result p { margin: 0; line-height: 1.8; }
+  .ra-result strong { color: #fff; font-weight: 600; }
+  .ra-lessons-t { margin: 2.6rem 0 1rem; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .ra-lessons-t { letter-spacing: 0; font-size: .9rem; }
+  .ra-lessons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.6rem; counter-reset: ral; }
+  .ra-lessons li { counter-increment: ral; position: relative; padding-inline-start: 2.4rem; font-size: .96rem; line-height: 1.7; color: #3d4a5c; }
+  .ra-lessons li::before { content: counter(ral); position: absolute; inset-inline-start: 0; top: 0; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .8rem; }
+  .ra-lessons strong { display: block; color: var(--navy); }
+  .ra-cta .ra-how { display: inline-block; margin-top: 1.2rem; color: rgba(255,255,255,.7); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 700px) { .ra-result { grid-template-columns: minmax(0, 1fr); } .ra-lessons { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About Us | Rahim International">
@@ -459,7 +477,7 @@
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">Kénitra · Rabat · Salé</p>
       <h1 class="page-hero-title">We've Been<br><em>Where Our Clients Are.</em></h1>
-      <p class="page-hero-sub">Rahim International helps Moroccans living abroad and investors buy property in Morocco without having to be there in person.</p>
+      <p class="page-hero-sub">Rahim International helps buyers in Morocco and abroad find the right property, at the right price, with research, local knowledge and support all the way to the keys.</p>
     </div>
   </section>
 
@@ -467,11 +485,16 @@
   <section class="ra-story" style="padding: var(--section-pad);">
     <div class="ra-story-inner">
       <p class="section-eyebrow">Our story</p>
-      <h2 class="section-title">It all started with a search for a relative.</h2>
-      <p class="ra-p">Ali Rahim has been managing short-term rentals in Kénitra for more than five years. Rents, returns, what a property really earns: he knows these numbers neighbourhood by neighbourhood. It was a search for a relative that brought him into the world of property sales.</p>
-      <p class="ra-p">This relative lived abroad and wanted an apartment that would be a real investment: strong rental returns, a good location, a premium building, a tight budget, and eligibility for the Daam Sakane housing subsidy. Ali on the ground, the buyer thousands of kilometres away: exactly the situation our clients are in today.</p>
-      <p class="ra-p">At first, Ali visited the apartments the relative had found from abroad. He quickly saw that listings didn&#x27;t tell the whole story, and offered to lead the search himself. He visited more than fifteen apartments, took notes, sent videos and compared prices per square metre from one neighbourhood to the next. He ran into what most buyers face: prices that changed depending on who you asked, little transparency, developers who barely presented their projects, and even a reservation cancelled on the morning he arrived with the deposit, because he had asked too many questions.</p>
-      <p class="ra-p">Carried out alongside his work, the search took four months. The right apartment was found, and with it a conviction: buyers, especially those who live far away, need someone on the ground who searches, visits, checks and explains. Rahim International was born from that realisation.</p>
+      <h2 class="section-title">It all started with a relative’s search.</h2>
+      <p class="ra-p">Rahim International began with a relative of Ali Rahim. From Canada, she was looking for an apartment in Kénitra: a good investment, in a good neighbourhood, on a tight budget. With several years of rental management in Kénitra behind him, Ali suggested an apartment from the start: he knew it was a good deal. But to an untrained eye, nothing showed it: a modest size, a little-known developer, almost no presence online. She set it aside and preferred to search alone.</p>
+      <p class="ra-p">From abroad, information was missing; on the spot, time was. With only a few days before her flight home, she couldn’t compare in depth. Under the pressure of leaving, she reserved a larger apartment on impulse, and the sale slipped away at the last minute. She went back to Canada empty-handed and discouraged, then turned to Ali again.</p>
+      <h3>First, clarify the project.</h3>
+      <p class="ra-p">Ali started with her goals and quickly spotted a mismatch: she wanted an investment, but was looking for the apartment she would have wanted for herself, with more space and location in second place. For an investment, location comes first, then rental demand, price per m², building quality, the developer and resale. Together, they redefined her priorities. Ali then called back the sellers of the properties she had visited: most quoted him lower prices than they had quoted her, the famous “MRE price”. He ruled out the bad deals and spotted warning signs at one developer.</p>
+      <h3>The right property was in front of her all along.</h3>
+      <p class="ra-p">Ali went back to the small apartment from the beginning, this time with facts: every criterion checked, figures included, the property filmed so she could see it from abroad, the neighbourhood assessed. The verdict was clear: better yield, better resale, higher future rents. Fewer square metres, more value. She saw the market differently, and the small apartment quickly became her favourite. A rare find she had almost let go.</p>
+      <div class="ra-result"><div class="ra-result-big">40,000 DH<small>below the asking price</small></div><p>Deal closed in about a month, with a verified developer. Ali handled the Daam Sakane and mortgage files, and <strong>a single trip was enough</strong> to sign the preliminary contract and the deed. <strong>Rahim International was born from that experience.</strong></p></div>
+      <p class="ra-lessons-t">What this story taught us</p>
+      <ol class="ra-lessons"><li><strong>Start with good advice</strong>Searching alone without experience is like driving without GPS on unfamiliar roads. Good advice keeps you on the right route.</li><li><strong>Set your goals, then your criteria</strong>Living in it or investing: your criteria should serve your long-term goals, not your first impressions.</li><li><strong>Always check before you sign</strong>A good listing proves nothing. The developer, the documents and the construction are checked before any commitment.</li><li><strong>Stay on course</strong>During a search, a big surface or nice finishes quickly distract from what really matters.</li></ol>
       <blockquote class="ra-quote">
         <p>“Our role is to make the important things visible before you commit your money.”</p>
         <cite>Ali Rahim, Founder</cite>
@@ -486,11 +509,7 @@
       <div>
         <p class="section-eyebrow">Founder · Kénitra</p>
         <h2 class="section-title">Ali Rahim</h2>
-        <ul class="ra-facts">
-        <li>Bachelor&#x27;s degree (Bac+3) in logistics</li>
-        <li>5+ years managing short-term rentals in Kénitra</li>
-        <li>Leads property searches, visits and negotiations for our clients</li>
-        </ul>
+        <ul class="ra-facts"><li>Bachelor’s degree (Bac+3) in logistics</li><li>5+ years of rental management in Kénitra</li><li>Leads a team that combines work on the ground in Kénitra, Salé and Rabat with in-depth market research</li></ul>
       </div>
     </div>
   </section>
@@ -502,7 +521,7 @@
       <div>
         <p class="section-eyebrow">Our name</p>
         <h2 class="section-title">Why a bridge?</h2>
-        <p>Kénitra means “the little bridge”, and our logo echoes the silhouette of the Mohammed VI Bridge. It stands for our role: connecting people who live far away with a property project in Morocco, and guiding them all the way to the other side.</p>
+        <p>Kénitra means “the little bridge”, and our logo echoes the silhouette of the Mohammed VI Bridge. It stands for our role: connecting buyers, near or far, with the right property in Morocco, and guiding them all the way to the other side.</p>
       </div>
     </div>
   </section>
@@ -511,6 +530,7 @@
   <section class="ra-cta" style="padding: var(--section-pad-sm);">
     <h2 class="section-title">Ready to start?</h2>
     <a href="consultation.html" class="btn-gold">Pre-Consultation Questionnaire</a>
+    <br><a class="ra-how" href="index.html#how">How it works</a>
   </section>
 
 </main>

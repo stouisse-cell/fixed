@@ -329,6 +329,24 @@
     .ra-bridge img { max-width: 130px; }
     .ra-quote p { font-size: 1.3rem; }
   }
+
+  /* about: chapters, result, lessons */
+  .ra-story h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: var(--navy); margin: 2rem 0 .8rem; }
+  [dir="rtl"] .ra-story h3 { font-family: 'Amiri', serif; }
+  .ra-result { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.4rem; align-items: center; margin: 2.2rem 0 0; padding: 1.4rem 1.6rem; background: var(--navy); color: rgba(255,255,255,.82); }
+  .ra-result-big { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; line-height: 1; color: var(--gold); white-space: nowrap; }
+  .ra-result-big small { display: block; margin-top: .4rem; font-family: inherit; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .ra-result-big small { letter-spacing: 0; font-size: .85rem; }
+  .ra-result p { margin: 0; line-height: 1.8; }
+  .ra-result strong { color: #fff; font-weight: 600; }
+  .ra-lessons-t { margin: 2.6rem 0 1rem; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .ra-lessons-t { letter-spacing: 0; font-size: .9rem; }
+  .ra-lessons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.6rem; counter-reset: ral; }
+  .ra-lessons li { counter-increment: ral; position: relative; padding-inline-start: 2.4rem; font-size: .96rem; line-height: 1.7; color: #3d4a5c; }
+  .ra-lessons li::before { content: counter(ral); position: absolute; inset-inline-start: 0; top: 0; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .8rem; }
+  .ra-lessons strong { display: block; color: var(--navy); }
+  .ra-cta .ra-how { display: inline-block; margin-top: 1.2rem; color: rgba(255,255,255,.7); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 700px) { .ra-result { grid-template-columns: minmax(0, 1fr); } .ra-lessons { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="من نحن | Rahim International">
@@ -422,7 +440,7 @@
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">القنيطرة · الرباط · سلا</p>
       <h1 class="page-hero-title">عشنا ما<br><em>يعيشه عملاؤنا.</em></h1>
-      <p class="page-hero-sub">ترافق Rahim International المغاربة المقيمين بالخارج والمستثمرين الراغبين في شراء عقار بالمغرب دون الحاجة إلى التواجد هناك.</p>
+      <p class="page-hero-sub">تساعد Rahim International المشترين، داخل المغرب وخارجه، على إيجاد العقار المناسب بالسعر المناسب، بفضل البحث ومعرفة الميدان ومرافقة حتى تسلّم المفاتيح.</p>
     </div>
   </section>
 
@@ -430,13 +448,18 @@
   <section class="ra-story" style="padding: var(--section-pad);">
     <div class="ra-story-inner">
       <p class="section-eyebrow">قصتنا</p>
-      <h2 class="section-title">بدأ كل شيء بمهمة لأحد الأقارب.</h2>
-      <p class="ra-p">يدير علي رحيم منذ أكثر من خمس سنوات شققاً للكراء قصير الأمد في القنيطرة. الإيجارات، والمردودية، وما يدرّه العقار فعلاً: يعرف هذه الأرقام حياً بحي. وكانت مهمة لأحد أقاربه هي التي أدخلته عالم البيع العقاري.</p>
-      <p class="ra-p">كان هذا القريب يقيم بالخارج ويبحث عن شقة تكون استثماراً حقيقياً: مردودية كرائية جيدة، وموقع جيد، وبناية راقية، وميزانية محدودة، مع الاستفادة من «دعم السكني». علي في الميدان، والمشتري على بُعد آلاف الكيلومترات: هذا بالضبط وضع عملائنا اليوم.</p>
-      <p class="ra-p">في البداية، كان علي يزور الشقق التي يعثر عليها قريبه عن بُعد. لكنه لاحظ سريعاً أن الإعلانات لا تقول كل شيء، فاقترح أن يتولى البحث بنفسه. زار أكثر من خمس عشرة شقة، ودوّن الملاحظات، وأرسل مقاطع الفيديو، وقارن أسعار المتر المربع من حي إلى آخر. واصطدم بما يعيشه أغلب المشترين: أسعار تختلف باختلاف المُحاور، وغياب الشفافية، ومنعشون عقاريون بالكاد يعرّفون بمشاريعهم، بل وحتى حجز أُلغي صباح اليوم الذي جاء فيه بالعربون، لأنه طرح أسئلة كثيرة.</p>
-      <p class="ra-p">استغرق البحث، الذي أجراه إلى جانب عمله، أربعة أشهر. وُجدت الشقة المناسبة، ومعها قناعة راسخة: المشترون، خاصة من يعيشون بعيداً، يحتاجون إلى شخص موثوق في عين المكان يبحث ويزور ويتحقق ويشرح. ومن هذه القناعة وُلدت Rahim International.</p>
+      <h2 class="section-title">بدأ كل شيء ببحث قريبة.</h2>
+      <p class="ra-p">هذه قصة قريبة لعلي رحيم، مؤسس Rahim International. من كندا، كانت تبحث عن شقة في القنيطرة: استثمار جيد، في حي جيد، بميزانية محدودة. منذ البداية، اقترح عليها علي، بفضل سنوات من تدبير الكراء في القنيطرة، شقة كان يعرف أنها صفقة جيدة. لكن لعين غير خبيرة، لم يكن هناك ما يدل على ذلك: مساحة متواضعة، ومنعش عقاري غير معروف، وحضور شبه منعدم على الإنترنت. فاستبعدتها وفضّلت البحث وحدها.</p>
+      <p class="ra-p">عن بُعد، كانت المعلومات ناقصة؛ وفي عين المكان، كان الوقت هو الناقص. لم يتبقَّ لها سوى أيام قليلة قبل رحلة العودة، فلم تستطع المقارنة بعمق. وتحت ضغط الرحيل، حجزت شقة أكبر بشكل متسرّع، لكن البيع أفلت منها في اللحظة الأخيرة. فعادت إلى كندا خالية الوفاض ومحبطة، ثم لجأت إلى علي من جديد.</p>
+      <h3>أولاً، توضيح المشروع.</h3>
+      <p class="ra-p">بدأ علي بأهدافها، وسرعان ما لاحظ تناقضاً: كانت تريد استثماراً، لكنها تبحث عن الشقة التي كانت ستريدها لنفسها، بمساحة أكبر والموقع في المرتبة الثانية. والحال أن الاستثمار يبدأ بالموقع، ثم الطلب على الكراء، وسعر المتر المربع، وجودة البناية، والمنعش العقاري، وإمكانية إعادة البيع. فأعادا معاً تحديد أولوياتها. ثم اتصل علي من جديد بباعة العقارات التي زارتها: أغلبهم أعطوه أسعاراً أقل من التي أعطوها لها، «سعر مغاربة العالم» الشهير. فاستبعد الصفقات السيئة ورصد إشارات تحذير لدى أحد المنعشين.</p>
+      <h3>العقار المناسب كان أمام عينيها.</h3>
+      <p class="ra-p">عاد علي إلى الشقة الصغيرة الأولى، هذه المرة بالحقائق: كل معيار مدروس بالأرقام، والعقار مصوّر لتراه عن بُعد، والحي مُقيَّم. وكان الحكم واضحاً: مردودية أفضل، وإعادة بيع أفضل، وكراء مستقبلي أعلى. أمتار أقل، لكن قيمة أكبر. فرأت السوق بعين أخرى، وسرعان ما أصبحت الشقة الصغيرة المفضلة لديها. جوهرة نادرة كادت أن تفوّتها.</p>
+      <div class="ra-result"><div class="ra-result-big"><bdi dir="ltr">40 000</bdi> درهم<small>أقل من السعر المطلوب</small></div><p>أُبرمت الصفقة في نحو شهر، مع منعش عقاري موثوق. وتكفّل علي بملفي دعم السكن والقرض، و<strong>كفت رحلة واحدة</strong> لتوقيع الوعد بالبيع والعقد النهائي. <strong>من هذه التجربة وُلدت Rahim International.</strong></p></div>
+      <p class="ra-lessons-t">ما علّمتنا إياه هذه القصة</p>
+      <ol class="ra-lessons"><li><strong>البداية بنصيحة جيدة</strong>البحث وحدك دون خبرة كالقيادة دون GPS في طريق مجهول. النصيحة الجيدة تبقيك على الطريق الصحيح.</li><li><strong>حدّد أهدافك، ثم معاييرك</strong>للسكن أو للاستثمار: يجب أن تخدم معاييرك أهدافك على المدى البعيد، لا انطباعاتك الأولى.</li><li><strong>تحقّق دائماً قبل التوقيع</strong>الإعلان الجميل لا يثبت شيئاً. المنعش والوثائق والبناء يُتحقق منها قبل أي التزام.</li><li><strong>حافظ على الوجهة</strong>أثناء البحث، سرعان ما تُلهي المساحة الكبيرة أو التشطيبات الجميلة عما يهم فعلاً.</li></ol>
       <blockquote class="ra-quote">
-        <p>«دورنا أن نُظهر العناصر المهمة قبل أن تلتزم بأموالك.»</p>
+        <p>«دورنا أن نُظهر الأمور المهمة قبل أن تلتزم بأموالك.»</p>
         <cite>علي رحيم، المؤسس</cite>
       </blockquote>
     </div>
@@ -449,11 +472,7 @@
       <div>
         <p class="section-eyebrow">المؤسس · القنيطرة</p>
         <h2 class="section-title">علي رحيم</h2>
-        <ul class="ra-facts">
-        <li>إجازة (باك+3) في اللوجستيك</li>
-        <li>أكثر من 5 سنوات من الخبرة في تدبير الكراء قصير الأمد بالقنيطرة</li>
-        <li>يقود البحث والزيارات والمفاوضات لفائدة عملائنا</li>
-        </ul>
+        <ul class="ra-facts"><li>إجازة (باك+3) في اللوجستيك</li><li>أكثر من 5 سنوات في تدبير الكراء بالقنيطرة</li><li>يقود فريقاً يجمع بين العمل الميداني في القنيطرة وسلا والرباط وبحث معمّق في السوق</li></ul>
       </div>
     </div>
   </section>
@@ -465,7 +484,7 @@
       <div>
         <p class="section-eyebrow">اسمنا</p>
         <h2 class="section-title">لماذا الجسر؟</h2>
-        <p>القنيطرة تعني «القنطرة الصغيرة»، وشعارنا يستلهم شكل جسر محمد السادس. إنه يرمز إلى دورنا: ربط من يعيشون بعيداً بمشروع عقاري في المغرب، ومرافقتهم حتى الضفة الأخرى.</p>
+        <p>القنيطرة تعني «القنطرة الصغيرة»، وشعارنا يستلهم شكل جسر محمد السادس. إنه يرمز إلى دورنا: ربط المشترين، قريبين كانوا أو بعيدين، بالعقار المناسب في المغرب، وإيصالهم إلى الضفة الأخرى.</p>
       </div>
     </div>
   </section>
@@ -474,6 +493,7 @@
   <section class="ra-cta" style="padding: var(--section-pad-sm);">
     <h2 class="section-title">مستعد للبدء؟</h2>
     <a href="consultation.html" class="btn-gold">استبيان ما قبل الاستشارة</a>
+    <br><a class="ra-how" href="index.html#how">كيف نعمل</a>
   </section>
 
 </main>
