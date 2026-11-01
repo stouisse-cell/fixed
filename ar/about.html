@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>من نحن | استشارات عقارية مبنية على الخبرة | Rahim International</title>
-<meta name="description" content="ترافق Rahim International المغاربة المقيمين بالخارج والمستثمرين الراغبين في شراء عقار بالمغرب دون الحاجة إلى التواجد هناك.">
+<meta name="description" content="Rahim International، مكتب استشارات ووساطة عقارية بالقنيطرة: الجسر بين المشترين داخل المغرب وخارجه والمشاريع ذات الجودة. بحث ومعرفة بالميدان ومرافقة حتى المفاتيح.">
 <link rel="canonical" href="https://rahiminternational.com/ar/about.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/about.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/about.html">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/about.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="من نحن | Rahim International">
-<meta property="og:description" content="ترافق Rahim International المغاربة المقيمين بالخارج والمستثمرين الراغبين في شراء عقار بالمغرب دون الحاجة إلى التواجد هناك.">
+<meta property="og:description" content="Rahim International، مكتب استشارات ووساطة عقارية بالقنيطرة: الجسر بين المشترين داخل المغرب وخارجه والمشاريع ذات الجودة. بحث ومعرفة بالميدان ومرافقة حتى المفاتيح.">
 <meta property="og:image" content="https://rahiminternational.com/alirahim.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/ar/about.html">
@@ -330,27 +330,53 @@
     .ra-quote p { font-size: 1.3rem; }
   }
 
-  /* about: chapters, result, lessons */
-  .ra-story h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: var(--navy); margin: 2rem 0 .8rem; }
-  [dir="rtl"] .ra-story h3 { font-family: 'Amiri', serif; }
-  .ra-result { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.4rem; align-items: center; margin: 2.2rem 0 0; padding: 1.4rem 1.6rem; background: var(--navy); color: rgba(255,255,255,.82); }
+  /* about v2 */
+  .ra-sec { padding: var(--section-pad); }
+  .ra-narrow { max-width: 780px; margin: 0 auto; }
+  .ra-cream { background: var(--cream); }
+  .ra-white { background: #fff; }
+  .ra-navy { background: var(--navy); }
+  .ra-cream .section-title, .ra-white .section-title { color: var(--navy); margin-bottom: 1.6rem; text-wrap: balance; }
+  .ra-navy .section-title { color: #fff; margin-bottom: 1.6rem; }
+  .ra-text { font-size: 1.04rem; line-height: 1.95; color: #3d4a5c; margin: 0 0 1.2rem; }
+  .ra-navy .ra-text { color: rgba(255,255,255,.78); }
+  .ra-result { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.4rem; align-items: center; margin: 2rem 0 0; padding: 1.4rem 1.6rem; background: var(--navy); color: rgba(255,255,255,.82); }
   .ra-result-big { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; line-height: 1; color: var(--gold); white-space: nowrap; }
-  .ra-result-big small { display: block; margin-top: .4rem; font-family: inherit; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  .ra-result-big small { display: block; margin-top: .4rem; font-family: 'Didact Gothic', sans-serif; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); }
   [dir="rtl"] .ra-result-big small { letter-spacing: 0; font-size: .85rem; }
   .ra-result p { margin: 0; line-height: 1.8; }
   .ra-result strong { color: #fff; font-weight: 600; }
-  .ra-lessons-t { margin: 2.6rem 0 1rem; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
-  [dir="rtl"] .ra-lessons-t { letter-spacing: 0; font-size: .9rem; }
-  .ra-lessons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.6rem; counter-reset: ral; }
-  .ra-lessons li { counter-increment: ral; position: relative; padding-inline-start: 2.4rem; font-size: .96rem; line-height: 1.7; color: #3d4a5c; }
-  .ra-lessons li::before { content: counter(ral); position: absolute; inset-inline-start: 0; top: 0; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .8rem; }
-  .ra-lessons strong { display: block; color: var(--navy); }
-  .ra-cta .ra-how { display: inline-block; margin-top: 1.2rem; color: rgba(255,255,255,.7); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
-  @media (max-width: 700px) { .ra-result { grid-template-columns: minmax(0, 1fr); } .ra-lessons { grid-template-columns: minmax(0, 1fr); } }
+  .ra-link { display: inline-block; margin-top: .4rem; color: var(--gold); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  [dir="rtl"] .ra-link { letter-spacing: 0; font-size: .95rem; }
+  .ra-values { list-style: none; margin: 2.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .ra-values li { border-top: 1px solid rgba(201,169,110,.6); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: rgba(255,255,255,.72); }
+  .ra-values strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; line-height: 1.2; color: #fff; margin-bottom: .4rem; }
+  [dir="rtl"] .ra-values strong { font-family: 'Amiri', serif; }
+  .ra-values-t { margin: 3rem 0 0; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+  [dir="rtl"] .ra-values-t { letter-spacing: 0; font-size: .9rem; }
+  .ra-team { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .ra-team img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border: 1px solid rgba(201,169,110,.45); display: block; }
+  .ra-team .ra-facts li { color: #3d4a5c; }
+  .ra-cta .page-hero-note { display: block; margin-top: 1rem; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .ra-cta .page-hero-note { letter-spacing: 0; font-size: .9rem; }
+  @media (max-width: 900px) { .ra-values { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 700px) { .ra-result, .ra-team { grid-template-columns: minmax(0, 1fr); } .ra-values { grid-template-columns: minmax(0, 1fr); } .ra-team img { max-width: 320px; } }
+
+  .ra-story-h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.75rem; line-height: 1.25; color: var(--navy); margin: 2.6rem 0 1rem; }
+  [dir="rtl"] .ra-story-h3 { font-family: 'Amiri', serif; }
+  .ra-pull { margin: 1.6rem 0; padding-inline-start: 1.2rem; border-inline-start: 2px solid var(--copper); font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.45; color: var(--navy); }
+  [dir="rtl"] .ra-pull { font-family: 'Amiri', serif; font-size: 1.3rem; }
+  .ra-closing { margin: 2.4rem 0 0; text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.55rem; line-height: 1.45; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .ra-closing { font-family: 'Amiri', serif; font-style: normal; }
+
+  .ra-em { font-weight: 600; color: var(--navy); }
+
+  .ra-dev-link { display: block; margin-top: 1.4rem; color: rgba(255,255,255,.75); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+  .ra-dev-link:hover { color: var(--gold); }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="من نحن | Rahim International">
-<meta name="twitter:description" content="ترافق Rahim International المغاربة المقيمين بالخارج والمستثمرين الراغبين في شراء عقار بالمغرب دون الحاجة إلى التواجد هناك.">
+<meta name="twitter:description" content="Rahim International، مكتب استشارات ووساطة عقارية بالقنيطرة: الجسر بين المشترين داخل المغرب وخارجه والمشاريع ذات الجودة. بحث ومعرفة بالميدان ومرافقة حتى المفاتيح.">
 <meta name="twitter:image" content="https://rahiminternational.com/alirahim.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://rahiminternational.com/ar/index.html"},{"@type":"ListItem","position":2,"name":"من نحن","item":"https://rahiminternational.com/ar/about.html"}]}</script>
 <meta property="og:image:alt" content="علي رحيم، مؤسس Rahim International للاستشارات العقارية">
@@ -438,62 +464,40 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">القنيطرة · الرباط · سلا</p>
-      <h1 class="page-hero-title">عشنا ما<br><em>يعيشه عملاؤنا.</em></h1>
-      <p class="page-hero-sub">تساعد Rahim International المشترين، داخل المغرب وخارجه، على إيجاد العقار المناسب بالسعر المناسب، بفضل البحث ومعرفة الميدان ومرافقة حتى تسلّم المفاتيح.</p>
+      <p class="page-hero-eyebrow">من نحن</p>
+      <h1 class="page-hero-title">كنّا<br><em>في مكان عملائنا.</em></h1>
+      <p class="page-hero-sub">Rahim International مكتب استشارات ووساطة عقارية مقرّه القنيطرة. نساعد المشترين، داخل المغرب وخارجه، على إيجاد العقار المناسب بالسعر المناسب، ونساعد المشاريع ذات الجودة على الوصول إلى جمهور أوسع من المشترين الجادين.</p>
     </div>
   </section>
 
-  <!-- STORY -->
-  <section class="ra-story" style="padding: var(--section-pad);">
-    <div class="ra-story-inner">
-      <p class="section-eyebrow">قصتنا</p>
-      <h2 class="section-title">بدأ كل شيء ببحث قريبة.</h2>
-      <p class="ra-p">هذه قصة قريبة لعلي رحيم، مؤسس Rahim International. من كندا، كانت تبحث عن شقة في القنيطرة: استثمار جيد، في حي جيد، بميزانية محدودة. منذ البداية، اقترح عليها علي، بفضل سنوات من تدبير الكراء في القنيطرة، شقة كان يعرف أنها صفقة جيدة. لكن لعين غير خبيرة، لم يكن هناك ما يدل على ذلك: مساحة متواضعة، ومنعش عقاري غير معروف، وحضور شبه منعدم على الإنترنت. فاستبعدتها وفضّلت البحث وحدها.</p>
-      <p class="ra-p">عن بُعد، كانت المعلومات ناقصة؛ وفي عين المكان، كان الوقت هو الناقص. لم يتبقَّ لها سوى أيام قليلة قبل رحلة العودة، فلم تستطع المقارنة بعمق. وتحت ضغط الرحيل، حجزت شقة أكبر بشكل متسرّع، لكن البيع أفلت منها في اللحظة الأخيرة. فعادت إلى كندا خالية الوفاض ومحبطة، ثم لجأت إلى علي من جديد.</p>
-      <h3>أولاً، توضيح المشروع.</h3>
-      <p class="ra-p">بدأ علي بأهدافها، وسرعان ما لاحظ تناقضاً: كانت تريد استثماراً، لكنها تبحث عن الشقة التي كانت ستريدها لنفسها، بمساحة أكبر والموقع في المرتبة الثانية. والحال أن الاستثمار يبدأ بالموقع، ثم الطلب على الكراء، وسعر المتر المربع، وجودة البناية، والمنعش العقاري، وإمكانية إعادة البيع. فأعادا معاً تحديد أولوياتها. ثم اتصل علي من جديد بباعة العقارات التي زارتها: أغلبهم أعطوه أسعاراً أقل من التي أعطوها لها، «سعر مغاربة العالم» الشهير. فاستبعد الصفقات السيئة ورصد إشارات تحذير لدى أحد المنعشين.</p>
-      <h3>العقار المناسب كان أمام عينيها.</h3>
-      <p class="ra-p">عاد علي إلى الشقة الصغيرة الأولى، هذه المرة بالحقائق: كل معيار مدروس بالأرقام، والعقار مصوّر لتراه عن بُعد، والحي مُقيَّم. وكان الحكم واضحاً: مردودية أفضل، وإعادة بيع أفضل، وكراء مستقبلي أعلى. أمتار أقل، لكن قيمة أكبر. فرأت السوق بعين أخرى، وسرعان ما أصبحت الشقة الصغيرة المفضلة لديها. جوهرة نادرة كادت أن تفوّتها.</p>
-      <div class="ra-result"><div class="ra-result-big"><bdi dir="ltr">40 000</bdi> درهم<small>أقل من السعر المطلوب</small></div><p>أُبرمت الصفقة في نحو شهر، مع منعش عقاري موثوق. وتكفّل علي بملفي دعم السكن والقرض، و<strong>كفت رحلة واحدة</strong> لتوقيع الوعد بالبيع والعقد النهائي. <strong>من هذه التجربة وُلدت Rahim International.</strong></p></div>
-      <p class="ra-lessons-t">ما علّمتنا إياه هذه القصة</p>
-      <ol class="ra-lessons"><li><strong>البداية بنصيحة جيدة</strong>البحث وحدك دون خبرة كالقيادة دون GPS في طريق مجهول. النصيحة الجيدة تبقيك على الطريق الصحيح.</li><li><strong>حدّد أهدافك، ثم معاييرك</strong>للسكن أو للاستثمار: يجب أن تخدم معاييرك أهدافك على المدى البعيد، لا انطباعاتك الأولى.</li><li><strong>تحقّق دائماً قبل التوقيع</strong>الإعلان الجميل لا يثبت شيئاً. المنعش والوثائق والبناء يُتحقق منها قبل أي التزام.</li><li><strong>حافظ على الوجهة</strong>أثناء البحث، سرعان ما تُلهي المساحة الكبيرة أو التشطيبات الجميلة عما يهم فعلاً.</li></ol>
-      <blockquote class="ra-quote">
-        <p>«دورنا أن نُظهر الأمور المهمة قبل أن تلتزم بأموالك.»</p>
-        <cite>علي رحيم، المؤسس</cite>
-      </blockquote>
-    </div>
+  <section class="ra-sec ra-white">
+    <div class="ra-narrow"><p class="section-eyebrow">قصتنا</p><h2 class="section-title">جسر بين المشاريع الجيدة والمشترين المطّلعين.</h2><p class="ra-text">تأسست Rahim International انطلاقاً من ملاحظة بسيطة: في المغرب، نادراً ما يلتقي العقار الجيد بالمشتري المطّلع. وقد حددنا لذلك ثلاثة أسباب، وعشناها كلها بأنفسنا. أولها الظهور. فكثير من المشاريع الجيدة، خاصة في مرحلة البناء، لا تستثمر إلا قليلاً في التسويق الرقمي، ولا تُعرض إلا في مكتب بيع في عين المكان. فتبقى في الغالب غير مرئية للمشترين المقيمين في الخارج أو في مدينة أخرى، حتى حين تقدم قيمة ممتازة.</p><p class="ra-text">وثانيها المعلومات. فأسعار المعاملات نادراً ما تُنشر، ولا توجد قاعدة بيانات عمومية موثوقة، والإعلانات غالباً ناقصة. ودون خبرة محلية، يصعب اكتشاف البناء الرديء أو المنعش غير الموثوق أو السعر المبالغ فيه، فيضطر المشترون إلى الاعتماد على ما يختار الباعة قوله لهم.</p><p class="ra-text"><strong class="ra-em">وثالثها، وأهمها، الوقت.</strong> فشراء عقار غالباً ما يكون من أكبر مشتريات العمر، والقرار الصحيح يتطلب البحث والمقارنة والاستعلام والزيارة مرات عدة والفحص بعناية. وحتى شراء الأثاث أو الأجهزة المنزلية، وهي أقل كلفة بكثير، قد يستغرق أسابيع. وفي السوق، قلّما يشتري الناس من أول دكان يقفون عنده: يقارنون بين اثنين أو ثلاثة، ويساومون، ولا يعودون، غالباً إلى الدكان الأول، ليشتروا بثقة إلا بعد أن يفهموا الأسعار والجودة. والمشترون المقيمون في الخارج، أو الذين يعملون بدوام كامل في المغرب، نادراً ما يملكون الوقت لاكتساب هذا الفهم لسوق العقار.</p><h3 class="ra-story-h3">ما عشناه بأنفسنا</h3><p class="ra-text">اتضحت لنا هذه الثغرات الثلاث من خلال تجربة قريبة لمؤسسنا علي رحيم. كانت تقيم في كندا وترغب في الاستثمار في شقة بالقنيطرة. وكان علي قد أمضى سنوات في تدبير عقارات للكراء في المدينة، وبفضل هذه الخبرة وشبكة علاقاته المحلية، كان قد رصد شقة في مشروع قيد البناء تجمع بين موقع جيد وبناء متين وسعر تنافسي. وككثير من المشاريع في تلك المرحلة، لم يكن له تقريباً أي حضور على الإنترنت، ولم يكن بالإمكان رؤيته إلا في مكتب البيع. لكن من كندا، لم يبدُ المشروع مقنعاً لقريبته: فالبناية كانت على بعد ستة عشر شهراً من التسليم، والشقة أصغر مما كانت تتوقع. فقررت مواصلة البحث وحدها، عبر أسابيع من البحث من الخارج ثم رحلة مليئة بالزيارات.</p><p class="ra-text">ودون وقت ودون معرفة بالسوق المحلي، لم يكن لديها أي مرجع. لم تكن تعرف ما هو السعر العادل، ولا أي الممارسات معتادة وأيها إشارات تحذير، ولا إن كان العرض جديراً بالثقة. ومع اقتراب موعد رحيلها، كادت تشتري شقة أكبر، ظناً منها أن مساحة أكبر تعني قيمة أكبر. وأُلغيت الصفقة قبيل التوقيع بقليل، فعادت إلى كندا دون أن تتخذ قراراً يمكنها الاطمئنان إليه.</p><h3 class="ra-story-h3">قيمة التحليل المدروس</h3><p class="ra-text">فقام علي بما لا يستطيع المشتري البعيد القيام به وحده: خصّص الوقت لتحليل السوق من أجلها. أعاد تحديد معايير الاختيار حول هدفها الاستثماري، وراجع كل عقار كانت قد فكرت فيه، واتصل بالباعة مباشرة. فوجد أن عدداً منهم عرضوا عليها أسعاراً أعلى مما يعرضونه على المشترين المحليين، وأن الشقة الأكبر تعاني من نقاط ضعف في البناء والموقع لا تظهر خلال زيارة قصيرة. ثم درس بالتفصيل المشروع الذي نصح به في البداية، بزيارات متكررة للورش وتحقق من المنعش ومقارنة مع المشاريع المنافسة. <strong class="ra-em">فتبيّن أن المشروع الذي استبعدته أولاً هو أفضل استثمار متاح.</strong> وحجزت الشقة على التصميم برحلة واحدة إضافية، وواظب علي على زيارة الورش كل شهر حتى التسليم، مطلعاً إياها على كل مرحلة. وقبل عودتها إلى المغرب لإتمام البيع النهائي، أعدّ ملف قرضها البنكي وطلب دعم السكن، حتى يكون كل شيء جاهزاً في الوقت المناسب للتوقيع.</p><h3 class="ra-story-h3">لماذا نحن الجسر</h3><p class="ra-text">أظهرت لنا هذه التجربة أن المشكلة نادراً ما تكون في قلة الفرص، بل في المسافة ونقص المعلومات وضيق الوقت التي تفصل المشاريع الجيدة عن المشترين الذين سيقدّرونها. وقد أُسّست Rahim International لتقريب هذه المسافة. فنمنح المشاريع الجيدة الظهور الذي ينقصها، داخل المغرب وخارجه. ونقدّم للمشترين النصيحة والمعلومات التي يحتاجونها لاتخاذ قرار مدروس بطمأنينة وثقة، مع استبعاد المشاريع رديئة البناء والمنعشين غير الموثوقين والعقارات المبالغ في أسعارها. ونمنحهم الوقت، بالقيام بالبحث والزيارات والتحليل التي لا يستطيعون القيام بها بأنفسهم. ومن هذه التجربة، طوّرنا منهجية منظّمة ونظام تواصل يُبقيان كل عميل على اطلاع في كل خطوة، سواء كان في القنيطرة أو في قارة أخرى.</p><p class="ra-closing">نقرّب المسافة بين العقار المناسب والمشتري المناسب.</p></div>
   </section>
 
-  <!-- ALI -->
-  <section class="ra-ali" style="padding: var(--section-pad);">
-    <div class="ra-ali-inner">
-      <img src="../alirahim-900.jpg" alt="علي رحيم، مؤسس Rahim International" class="ra-ali-photo" width="720" height="900" decoding="async">
-      <div>
-        <p class="section-eyebrow">المؤسس · القنيطرة</p>
-        <h2 class="section-title">علي رحيم</h2>
-        <ul class="ra-facts"><li>إجازة (باك+3) في اللوجستيك</li><li>أكثر من 5 سنوات في تدبير الكراء بالقنيطرة</li><li>يقود فريقاً يجمع بين العمل الميداني في القنيطرة وسلا والرباط وبحث معمّق في السوق</li></ul>
-      </div>
-    </div>
+  <section class="ra-sec ra-navy">
+    <div class="rb-inner" style="max-width:1100px;margin:0 auto"><h2 class="section-title">ما نؤمن به</h2><ul class="ra-values" style="margin-top:1rem"><li><strong>معرفة السوق</strong>تستند توصياتنا إلى بحث مستمر: الأسعار، والأحياء، والمنعشون، والمشاريع الجديدة، وإعادة البيع. وهذا ما يمكّننا من التعرف على القيمة الحقيقية، للمشترين وللمشاريع التي نعرضها.</li><li><strong>الانتقائية</strong>لا نعرض إلا المشاريع التي نؤمن بها. فاستبعاد المشاريع رديئة البناء والعقارات المبالغ في أسعارها يحمي عملاءنا، ويمنح المنعشين الجادين قناة يُقدَّر فيها العمل الجيد.</li><li><strong>الشفافية</strong>نشرح بوضوح الأسعار والممارسات المعتادة، وكذلك دورنا وأتعابنا، ليفهم الجميع كل خطوة قبل الالتزام.</li><li><strong>حضور على المدى البعيد</strong>نبقى إلى جانب عملائنا من أول بحث حتى تسليم المفاتيح، بنظام تواصل يُبقيهم على اطلاع، ونبني علاقات دائمة مع المنعشين الذين نعمل معهم.</li></ul><p style="margin-top:2rem"><a class="ra-link" href="index.html#how">اكتشف كيف نعمل →</a></p></div>
   </section>
 
-  <!-- BRIDGE -->
+  <section class="ra-sec ra-cream">
+    <div class="ra-team"><img src="../alirahim-900.jpg" alt="Ali Rahim" width="720" height="900" loading="lazy" decoding="async"><div><p class="section-eyebrow">الفريق وراء مشروعك</p><h2 class="section-title">علي رحيم وفريقه</h2><p class="ra-text">أسّس علي Rahim International بعد أكثر من خمس سنوات في تدبير الكراء بالقنيطرة. ويقود فريقاً صغيراً يجمع بين العمل الميداني في القنيطرة وسلا والرباط وبحث معمّق في السوق يُنجز عن بُعد، لتستند كل توصية إلى ما نراه وما تقوله الأرقام معاً.</p><ul class="ra-facts"><li>المؤسس · إجازة (باك+3) في اللوجستيك</li><li>أكثر من 5 سنوات في تدبير الكراء بالقنيطرة</li><li>في الميدان بالقنيطرة وسلا والرباط، وفي كل المغرب عند الطلب</li><li>نعمل بالعربية والفرنسية والإنجليزية</li></ul></div></div>
+  </section>
+
   <section class="ra-bridge" style="padding: var(--section-pad);">
     <div class="ra-bridge-inner">
-      <img src="../ri_logo_gold_240.png" alt="شعار Rahim International: الجسر" width="240" height="197" loading="lazy" decoding="async">
+      <img src="../ri_logo_gold_240.png" alt="" width="240" height="197" loading="lazy" decoding="async">
       <div>
         <p class="section-eyebrow">اسمنا</p>
-        <h2 class="section-title">لماذا الجسر؟</h2>
+        <h2 class="section-title">لماذا القنطرة؟</h2>
         <p>القنيطرة تعني «القنطرة الصغيرة»، وشعارنا يستلهم شكل جسر محمد السادس. إنه يرمز إلى دورنا: ربط المشترين، قريبين كانوا أو بعيدين، بالعقار المناسب في المغرب، وإيصالهم إلى الضفة الأخرى.</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="ra-cta" style="padding: var(--section-pad-sm);">
     <h2 class="section-title">مستعد للبدء؟</h2>
     <a href="consultation.html" class="btn-gold">استبيان ما قبل الاستشارة</a>
-    <br><a class="ra-how" href="index.html#how">كيف نعمل</a>
+    <span class="page-hero-note">من 5 إلى 10 دقائق · دون التزام</span>
+    <a class="ra-dev-link" href="services-developers.html">المنعشون والبائعون: خدماتنا التسويقية ←</a>
   </section>
 
 </main>

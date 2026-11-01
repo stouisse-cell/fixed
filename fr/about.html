@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Qui Sommes-Nous | Conseil immobilier à Kénitra</title>
-<meta name="description" content="Rahim International accompagne les Marocains résidant à l&#x27;étranger et les investisseurs qui souhaitent acheter au Maroc sans être sur place.">
+<meta name="description" content="Rahim International, cabinet de conseil et de courtage immobilier à Kénitra : le pont entre les acheteurs, au Maroc ou à l’étranger, et les projets de qualité. Recherche, connaissance du terrain et accompagnement jusqu’aux clés.">
 <link rel="canonical" href="https://rahiminternational.com/fr/about.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/about.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/about.html">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/about.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="À propos | Rahim International">
-<meta property="og:description" content="Rahim International accompagne les Marocains résidant à l&#x27;étranger et les investisseurs qui souhaitent acheter au Maroc sans être sur place.">
+<meta property="og:description" content="Rahim International, cabinet de conseil et de courtage immobilier à Kénitra : le pont entre les acheteurs, au Maroc ou à l’étranger, et les projets de qualité. Recherche, connaissance du terrain et accompagnement jusqu’aux clés.">
 <meta property="og:image" content="https://rahiminternational.com/alirahim.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rahiminternational.com/about.html">
@@ -330,27 +330,53 @@
     .ra-quote p { font-size: 1.3rem; }
   }
 
-  /* about: chapters, result, lessons */
-  .ra-story h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: var(--navy); margin: 2rem 0 .8rem; }
-  [dir="rtl"] .ra-story h3 { font-family: 'Amiri', serif; }
-  .ra-result { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.4rem; align-items: center; margin: 2.2rem 0 0; padding: 1.4rem 1.6rem; background: var(--navy); color: rgba(255,255,255,.82); }
+  /* about v2 */
+  .ra-sec { padding: var(--section-pad); }
+  .ra-narrow { max-width: 780px; margin: 0 auto; }
+  .ra-cream { background: var(--cream); }
+  .ra-white { background: #fff; }
+  .ra-navy { background: var(--navy); }
+  .ra-cream .section-title, .ra-white .section-title { color: var(--navy); margin-bottom: 1.6rem; text-wrap: balance; }
+  .ra-navy .section-title { color: #fff; margin-bottom: 1.6rem; }
+  .ra-text { font-size: 1.04rem; line-height: 1.95; color: #3d4a5c; margin: 0 0 1.2rem; }
+  .ra-navy .ra-text { color: rgba(255,255,255,.78); }
+  .ra-result { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.4rem; align-items: center; margin: 2rem 0 0; padding: 1.4rem 1.6rem; background: var(--navy); color: rgba(255,255,255,.82); }
   .ra-result-big { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; line-height: 1; color: var(--gold); white-space: nowrap; }
-  .ra-result-big small { display: block; margin-top: .4rem; font-family: inherit; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  .ra-result-big small { display: block; margin-top: .4rem; font-family: 'Didact Gothic', sans-serif; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); }
   [dir="rtl"] .ra-result-big small { letter-spacing: 0; font-size: .85rem; }
   .ra-result p { margin: 0; line-height: 1.8; }
   .ra-result strong { color: #fff; font-weight: 600; }
-  .ra-lessons-t { margin: 2.6rem 0 1rem; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
-  [dir="rtl"] .ra-lessons-t { letter-spacing: 0; font-size: .9rem; }
-  .ra-lessons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.6rem; counter-reset: ral; }
-  .ra-lessons li { counter-increment: ral; position: relative; padding-inline-start: 2.4rem; font-size: .96rem; line-height: 1.7; color: #3d4a5c; }
-  .ra-lessons li::before { content: counter(ral); position: absolute; inset-inline-start: 0; top: 0; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .8rem; }
-  .ra-lessons strong { display: block; color: var(--navy); }
-  .ra-cta .ra-how { display: inline-block; margin-top: 1.2rem; color: rgba(255,255,255,.7); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
-  @media (max-width: 700px) { .ra-result { grid-template-columns: minmax(0, 1fr); } .ra-lessons { grid-template-columns: minmax(0, 1fr); } }
+  .ra-link { display: inline-block; margin-top: .4rem; color: var(--gold); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  [dir="rtl"] .ra-link { letter-spacing: 0; font-size: .95rem; }
+  .ra-values { list-style: none; margin: 2.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .ra-values li { border-top: 1px solid rgba(201,169,110,.6); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: rgba(255,255,255,.72); }
+  .ra-values strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; line-height: 1.2; color: #fff; margin-bottom: .4rem; }
+  [dir="rtl"] .ra-values strong { font-family: 'Amiri', serif; }
+  .ra-values-t { margin: 3rem 0 0; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+  [dir="rtl"] .ra-values-t { letter-spacing: 0; font-size: .9rem; }
+  .ra-team { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .ra-team img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border: 1px solid rgba(201,169,110,.45); display: block; }
+  .ra-team .ra-facts li { color: #3d4a5c; }
+  .ra-cta .page-hero-note { display: block; margin-top: 1rem; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .ra-cta .page-hero-note { letter-spacing: 0; font-size: .9rem; }
+  @media (max-width: 900px) { .ra-values { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 700px) { .ra-result, .ra-team { grid-template-columns: minmax(0, 1fr); } .ra-values { grid-template-columns: minmax(0, 1fr); } .ra-team img { max-width: 320px; } }
+
+  .ra-story-h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.75rem; line-height: 1.25; color: var(--navy); margin: 2.6rem 0 1rem; }
+  [dir="rtl"] .ra-story-h3 { font-family: 'Amiri', serif; }
+  .ra-pull { margin: 1.6rem 0; padding-inline-start: 1.2rem; border-inline-start: 2px solid var(--copper); font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.45; color: var(--navy); }
+  [dir="rtl"] .ra-pull { font-family: 'Amiri', serif; font-size: 1.3rem; }
+  .ra-closing { margin: 2.4rem 0 0; text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.55rem; line-height: 1.45; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .ra-closing { font-family: 'Amiri', serif; font-style: normal; }
+
+  .ra-em { font-weight: 600; color: var(--navy); }
+
+  .ra-dev-link { display: block; margin-top: 1.4rem; color: rgba(255,255,255,.75); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+  .ra-dev-link:hover { color: var(--gold); }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="À propos | Rahim International">
-<meta name="twitter:description" content="Rahim International accompagne les Marocains résidant à l&#x27;étranger et les investisseurs qui souhaitent acheter au Maroc sans être sur place.">
+<meta name="twitter:description" content="Rahim International, cabinet de conseil et de courtage immobilier à Kénitra : le pont entre les acheteurs, au Maroc ou à l’étranger, et les projets de qualité. Recherche, connaissance du terrain et accompagnement jusqu’aux clés.">
 <meta name="twitter:image" content="https://rahiminternational.com/alirahim.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://rahiminternational.com/fr/index.html"},{"@type":"ListItem","position":2,"name":"Qui Sommes","item":"https://rahiminternational.com/fr/about.html"}]}</script>
 <meta property="og:image:alt" content="Ali Rahim, fondateur de Rahim International, conseil immobilier">
@@ -434,49 +460,27 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Kénitra · Rabat · Salé</p>
-      <h1 class="page-hero-title">Nous avons vécu<br><em>ce que vivent nos clients.</em></h1>
-      <p class="page-hero-sub">Rahim International aide les acheteurs, au Maroc et à l’étranger, à trouver le bon bien au juste prix, grâce à la recherche, à la connaissance du terrain et à un accompagnement jusqu’aux clés.</p>
+      <p class="page-hero-eyebrow">À propos</p>
+      <h1 class="page-hero-title">Nous avons été<br><em>à la place de nos clients.</em></h1>
+      <p class="page-hero-sub">Rahim International est un cabinet de conseil et de courtage immobilier basé à Kénitra. Nous aidons les acheteurs, au Maroc et à l’étranger, à trouver le bon bien au juste prix, et nous aidons les projets de qualité à toucher un public plus large d’acheteurs sérieux.</p>
     </div>
   </section>
 
-  <!-- STORY -->
-  <section class="ra-story" style="padding: var(--section-pad);">
-    <div class="ra-story-inner">
-      <p class="section-eyebrow">Notre histoire</p>
-      <h2 class="section-title">Tout a commencé par la recherche d’une proche.</h2>
-      <p class="ra-p">C’est l’histoire d’une proche d’Ali Rahim, fondateur de Rahim International. Depuis le Canada, elle cherchait un appartement à Kénitra : un bon investissement, dans un bon quartier, avec un budget serré. Dès le départ, Ali, fort de plusieurs années de gestion locative à Kénitra, lui a suggéré un appartement : il savait que c’était une bonne affaire. Mais pour un œil non averti, rien ne le montrait : superficie modeste, promoteur peu connu, presque aucune présence en ligne. Elle l’a écarté et a préféré chercher seule.</p>
-      <p class="ra-p">À distance, l’information manquait ; sur place, c’est le temps qui manquait. Avec quelques jours seulement avant son vol de retour, elle n’a pas pu comparer en profondeur. Sous la pression du départ, elle a réservé un appartement plus grand, sur un coup de tête, mais la vente lui a échappé au dernier moment. Elle est rentrée au Canada les mains vides, découragée, avant de se tourner de nouveau vers Ali.</p>
-      <h3>D’abord, clarifier le projet.</h3>
-      <p class="ra-p">Ali a commencé par ses objectifs, et a vite repéré un décalage : elle voulait un investissement, mais cherchait l’appartement qu’elle aurait voulu pour elle, avec plus d’espace et l’emplacement au second plan. Or, pour investir, l’emplacement passe en premier, puis la demande locative, le prix au m², la qualité de l’immeuble, le promoteur et la revente. Ensemble, ils ont redéfini ses priorités. Ali a ensuite recontacté les vendeurs des biens qu’elle avait visités : la plupart lui ont annoncé des prix plus bas qu’à elle, le fameux « prix MRE ». Il a éliminé les mauvaises affaires et repéré chez un promoteur des signaux d’alerte.</p>
-      <h3>Le bon bien était sous ses yeux.</h3>
-      <p class="ra-p">Ali est alors revenu au petit appartement du début, cette fois avec des faits : chaque critère passé au crible, chiffres à l’appui, le bien filmé pour qu’elle le découvre à distance, le quartier évalué. Le verdict était sans appel : meilleure rentabilité, meilleure revente, loyers futurs plus élevés. Moins de mètres carrés, mais plus de valeur. Éclairée par ses conseils, elle a vu le marché autrement, et le petit appartement est vite devenu son préféré. Une perle rare, qu’elle avait failli laisser passer.</p>
-      <div class="ra-result"><div class="ra-result-big">40 000 DH<small>sous le prix demandé</small></div><p>Affaire conclue en un mois environ, chez un promoteur vérifié. Ali s’est occupé des dossiers Daam Sakane et de crédit, et <strong>un seul voyage a suffi</strong> pour signer le compromis et l’acte. <strong>C’est de cette expérience qu’est né Rahim International.</strong></p></div>
-      <p class="ra-lessons-t">Ce que cette histoire nous a appris</p>
-      <ol class="ra-lessons"><li><strong>Commencer par un bon conseil</strong>Chercher seul sans expérience, c’est rouler sans GPS en terrain inconnu. Un bon conseil vous garde sur la bonne route.</li><li><strong>Définir ses objectifs, puis ses critères</strong>Habiter ou investir : vos critères doivent servir vos objectifs à long terme, pas vos coups de cœur.</li><li><strong>Toujours vérifier avant de signer</strong>Une belle annonce ne prouve rien. Promoteur, documents et construction se vérifient avant tout engagement.</li><li><strong>Garder le cap</strong>Pendant la recherche, une grande superficie ou de belles finitions détournent vite l’attention de ce qui compte vraiment.</li></ol>
-      <blockquote class="ra-quote">
-        <p>« Notre rôle : rendre visibles les choses importantes avant que vous engagiez votre argent. »</p>
-        <cite>Ali Rahim, fondateur</cite>
-      </blockquote>
-    </div>
+  <section class="ra-sec ra-white">
+    <div class="ra-narrow"><p class="section-eyebrow">Notre histoire</p><h2 class="section-title">Un pont entre les bons projets et des acheteurs bien informés.</h2><p class="ra-text">Rahim International est né d’un constat simple : au Maroc, les bons biens et les acheteurs bien informés se rencontrent trop rarement. Nous en avons identifié trois raisons, et nous les avons vécues toutes les trois. La première est la visibilité. De nombreux bons programmes, surtout pendant la phase de construction, investissent peu dans le marketing digital et ne sont présentés que dans un bureau de vente sur place. Ils restent ainsi largement invisibles pour les acheteurs qui vivent à l’étranger ou dans une autre ville, même lorsqu’ils offrent un excellent rapport qualité-prix.</p><p class="ra-text">La deuxième est l’information. Les prix de transaction sont rarement publiés, il n’existe pas de base de données publique fiable et les annonces sont souvent incomplètes. Sans expertise locale, il est difficile de détecter une construction de mauvaise qualité, un promoteur peu fiable ou un prix gonflé, et les acheteurs doivent se fier à ce que les vendeurs veulent bien leur dire.</p><p class="ra-text"><strong class="ra-em">La troisième, et la plus importante, est le temps.</strong> L’achat d’un bien est souvent l’un des plus gros achats d’une vie, et faire le bon choix demande de chercher, comparer, se renseigner, visiter plusieurs fois et inspecter avec soin. Même l’achat de meubles ou d’électroménager, bien moins coûteux, peut prendre plusieurs semaines. Au souk, rares sont ceux qui achètent au premier étal : on en compare deux ou trois, on négocie, et ce n’est qu’une fois les prix et la qualité compris que l’on revient, souvent au premier étal, pour acheter en confiance. Les acheteurs qui vivent à l’étranger, ou qui travaillent à plein temps au Maroc, ont rarement le temps d’acquérir cette compréhension du marché immobilier.</p><h3 class="ra-story-h3">Ce que nous avons vécu</h3><p class="ra-text">Ces trois lacunes nous sont apparues à travers l’expérience d’une proche de notre fondateur, Ali Rahim. Elle vivait au Canada et souhaitait investir dans un appartement à Kénitra. Ali gérait depuis plusieurs années des biens en location dans la ville, et grâce à cette expérience et à son réseau local, il avait déjà repéré un appartement sur plan offrant un bon emplacement, une construction solide et un prix compétitif. Comme beaucoup de projets à ce stade, il n’avait presque aucune présence en ligne et ne pouvait être vu qu’à son bureau de vente. Depuis le Canada, le projet n’a pourtant pas convaincu sa proche : l’immeuble était à seize mois de sa livraison et l’appartement plus petit qu’elle ne l’espérait. Elle a donc choisi de poursuivre sa recherche seule, avec plusieurs semaines de recherches depuis l’étranger, puis un séjour rempli de visites.</p><p class="ra-text">Sans temps et sans connaissance du marché local, elle n’avait aucun point de repère. Elle ne savait pas ce qu’était un prix juste, quelles pratiques étaient habituelles et lesquelles devaient l’alerter, ni si une offre était fiable. À l’approche de son départ, elle a failli acheter un appartement plus grand, en pensant que plus d’espace signifiait plus de valeur. La transaction a été annulée peu avant la signature, et elle est rentrée au Canada sans avoir pris une décision sur laquelle elle pouvait compter.</p><h3 class="ra-story-h3">La valeur d’une analyse éclairée</h3><p class="ra-text">Ali a alors fait ce qu’un acheteur à distance ne peut pas faire seul : il a pris le temps d’analyser le marché pour elle. Il a redéfini les critères de sélection autour de son objectif d’investissement, repris chaque bien qu’elle avait envisagé et contacté directement les vendeurs. Il a constaté que plusieurs d’entre eux lui avaient annoncé des prix plus élevés qu’aux acheteurs locaux, et que l’appartement plus grand présentait des faiblesses de construction et d’emplacement invisibles lors d’une courte visite. Il a ensuite étudié en détail le programme sur plan du départ, avec des visites répétées du chantier, des vérifications sur le promoteur et une comparaison avec les projets concurrents. <strong class="ra-em">Le projet qu’elle avait d’abord écarté s’est révélé le meilleur investissement disponible.</strong> Elle a réservé l’appartement sur plan avec un seul voyage supplémentaire, et Ali s’est rendu sur le chantier chaque mois jusqu’à la livraison, en la tenant informée à chaque étape. Avant son retour au Maroc pour la vente définitive, il a préparé son dossier de crédit et sa demande Daam Sakane, afin que tout soit prêt à temps pour la signature.</p><h3 class="ra-story-h3">Pourquoi nous sommes le pont</h3><p class="ra-text">Cette expérience nous a montré que le problème est rarement le manque d’opportunités. Ce sont la distance, le manque d’information et le manque de temps qui séparent les bons projets des acheteurs qui sauraient les apprécier. Rahim International a été créé pour réduire cette distance. Nous donnons aux bons programmes la visibilité qui leur manque, au Maroc et à l’étranger. Nous apportons aux acheteurs les conseils et les informations dont ils ont besoin pour prendre une décision éclairée, sereinement et en confiance, en écartant les projets mal construits, les promoteurs peu fiables et les biens surévalués. Et nous leur donnons du temps, en menant les recherches, les visites et les analyses qu’ils ne peuvent pas faire eux-mêmes. De cette expérience, nous avons tiré une méthode structurée et un système de communication qui tiennent chaque client informé à chaque étape, qu’il soit à Kénitra ou sur un autre continent.</p><p class="ra-closing">Nous comblons la distance entre le bon bien et le bon acheteur.</p></div>
   </section>
 
-  <!-- ALI -->
-  <section class="ra-ali" style="padding: var(--section-pad);">
-    <div class="ra-ali-inner">
-      <img src="../alirahim-900.jpg" alt="Ali Rahim, fondateur de Rahim International" class="ra-ali-photo" width="720" height="900" decoding="async">
-      <div>
-        <p class="section-eyebrow">Fondateur · Kénitra</p>
-        <h2 class="section-title">Ali Rahim</h2>
-        <ul class="ra-facts"><li>Licence (Bac+3) en logistique</li><li>Plus de 5 ans de gestion locative à Kénitra</li><li>Dirige une équipe qui allie le travail de terrain à Kénitra, Salé et Rabat à une recherche de marché approfondie</li></ul>
-      </div>
-    </div>
+  <section class="ra-sec ra-navy">
+    <div class="rb-inner" style="max-width:1100px;margin:0 auto"><h2 class="section-title">Ce qui nous guide</h2><ul class="ra-values" style="margin-top:1rem"><li><strong>La connaissance du marché</strong>Nos recommandations reposent sur une recherche continue : prix, quartiers, promoteurs, projets neufs et revente. C’est ce qui nous permet de reconnaître la vraie valeur, pour les acheteurs comme pour les projets que nous présentons.</li><li><strong>La sélectivité</strong>Nous ne présentons que des projets auxquels nous croyons. Écarter les programmes mal construits et les biens surévalués protège nos clients, et offre aux promoteurs sérieux un canal où le travail bien fait est reconnu.</li><li><strong>La transparence</strong>Nous expliquons clairement les prix, les pratiques habituelles ainsi que notre propre rôle et nos honoraires, pour que chacun comprenne chaque étape avant de s’engager.</li><li><strong>Une présence dans la durée</strong>Nous restons impliqués de la première recherche à la remise des clés, avec un système de communication qui tient nos clients informés, et nous construisons des relations durables avec les promoteurs avec lesquels nous travaillons.</li></ul><p style="margin-top:2rem"><a class="ra-link" href="index.html#how">Voir comment ça marche →</a></p></div>
   </section>
 
-  <!-- BRIDGE -->
+  <section class="ra-sec ra-cream">
+    <div class="ra-team"><img src="../alirahim-900.jpg" alt="Ali Rahim" width="720" height="900" loading="lazy" decoding="async"><div><p class="section-eyebrow">Les personnes derrière votre projet</p><h2 class="section-title">Ali Rahim et son équipe</h2><p class="ra-text">Ali a fondé Rahim International après plus de cinq ans de gestion locative à Kénitra. Il dirige une petite équipe qui allie le travail de terrain à Kénitra, Salé et Rabat à une recherche de marché approfondie menée à distance : chaque recommandation repose à la fois sur ce que nous voyons et sur ce que disent les chiffres.</p><ul class="ra-facts"><li>Fondateur · Licence (Bac+3) en logistique</li><li>Plus de 5 ans de gestion locative à Kénitra</li><li>Sur le terrain à Kénitra, Salé et Rabat, et partout au Maroc sur demande</li><li>Nous travaillons en arabe, en français et en anglais</li></ul></div></div>
+  </section>
+
   <section class="ra-bridge" style="padding: var(--section-pad);">
     <div class="ra-bridge-inner">
-      <img src="../ri_logo_gold_240.png" alt="Logo Rahim International : le pont" width="240" height="197" loading="lazy" decoding="async">
+      <img src="../ri_logo_gold_240.png" alt="" width="240" height="197" loading="lazy" decoding="async">
       <div>
         <p class="section-eyebrow">Notre nom</p>
         <h2 class="section-title">Pourquoi un pont ?</h2>
@@ -485,11 +489,11 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="ra-cta" style="padding: var(--section-pad-sm);">
     <h2 class="section-title">Prêt à commencer ?</h2>
     <a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a>
-    <br><a class="ra-how" href="index.html#how">Comment ça marche</a>
+    <span class="page-hero-note">5 à 10 minutes · sans engagement</span>
+    <a class="ra-dev-link" href="services-developers.html">Promoteurs et vendeurs : nos services marketing →</a>
   </section>
 
 </main>
