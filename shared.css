@@ -1351,12 +1351,22 @@ footer {
   }
 }
 
+/* Laptop widths: tighter spacing so the seven menu items fit beside the logo and button. */
+@media (min-width: 1261px) and (max-width: 1440px) {
+  .site-nav { gap: .75rem; }
+  .nav-links { gap: .85rem; }
+  .nav-links a,
+  .nav-dropdown-toggle { letter-spacing: .06em; }
+  .site-nav > .nav-cta { letter-spacing: .06em; padding: .46rem .75rem; }
+  .brand-name { font-size: 1.15rem; }
+}
+
 /* In-menu copy of the consultation button: only shown in the collapsed (hamburger) menu. */
 .nav-links .nav-cta-item { display: none; }
 
 /* Collapse the desktop nav earlier — this menu is too wide to remain on a
    single row once the viewport gets near laptop/tablet widths. */
-@media (max-width: 1200px) {
+@media (max-width: 1260px) {
   .nav-links .nav-cta-item { display: block; width: 100%; }
   .nav-links .nav-cta-item .nav-cta { display: flex; justify-content: center; color: var(--navy); font-weight: 700; text-align: center; }
   .site-nav {
