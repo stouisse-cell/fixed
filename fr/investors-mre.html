@@ -102,6 +102,25 @@
     .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
     .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
   }
+
+  /* buyer pages: hero button, pains, start steps, packages */
+  .page-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: 2rem; }
+  .page-hero-note { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .page-hero-note { letter-spacing: 0; font-size: .9rem; }
+  .rb-pains { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+  .rb-pains li { background: #fff; border: 1px solid #e3dccd; padding: 1.4rem 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-pains strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.2; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rb-pains strong { font-family: 'Amiri', serif; }
+  .rb-close { margin: 2rem 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--copper-dark, #87452c); max-width: 760px; }
+  [dir="rtl"] .rb-close { font-family: 'Amiri', serif; font-style: normal; }
+  .rb-steps.rb-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .rb-meta { display: block; margin-top: .8rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rb-meta { letter-spacing: 0; font-size: .85rem; }
+  .rb-choice { margin-top: 2rem; padding: 1.2rem 1.4rem; border: 1px dashed rgba(135,69,44,.45); font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
+  [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
+  .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MRE et diaspora marocaine | Rahim International">
@@ -172,38 +191,45 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Diaspora marocaine / MRE</p>
-      <h1 class="page-hero-title">Acheter au pays<br><em>ne devrait pas vous sembler étranger.</em></h1>
-      <p class="page-hero-sub">Résidence, retour au pays ou investissement : nous cherchons, visitons et vérifions pour vous, et vous accompagnons jusqu&#x27;à la remise des clés.</p>
+      <p class="page-hero-eyebrow">Marocains du monde (MRE)</p>
+      <h1 class="page-hero-title">Acheter au pays<br><em>sans s’y sentir étranger.</em></h1>
+      <p class="page-hero-sub">Une résidence, un pied-à-terre pour votre retour ou un investissement : nous étudions le marché, évaluons les biens et coordonnons votre achat à distance, pour que vous décidiez en confiance sans multiplier les allers-retours.</p>
+      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a><span class="page-hero-note">5 à 10 minutes · sans engagement</span></div>
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="rb-sec rb-dark">
-    <div class="rb-inner">
-      <h2 class="section-title">Ce que nous faisons pour vous</h2>
-      <ul class="rb-svc">
-        <li><strong>Conseil stratégique</strong>nous définissons avec vous le bon projet, le bon budget et les bons quartiers.</li>
-        <li><strong>Recherche et visites</strong>nous cherchons, visitons et filmons les biens pour vous.</li>
-        <li><strong>Analyse et recommandation</strong>nous comparons les meilleures options et vous disons laquelle choisir, et pourquoi.</li>
-        <li><strong>Financement</strong>crédit, Daam Sakane, choix de la banque.</li>
-        <li><strong>Négociation</strong>nous négocions le prix et les conditions en votre nom.</li>
-        <li><strong>Accompagnement jusqu&#x27;aux clés</strong>notaire, procuration, signature et remise des clés.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- METHOD -->
+  <!-- SOUND FAMILIAR -->
   <section class="rb-sec rb-light">
     <div class="rb-inner">
-      <h2 class="section-title">Notre méthode</h2>
-      <ol class="rb-steps">
-        <li><strong>Stratégie</strong>analyse de votre projet, de votre budget et de vos critères.</li>
-        <li><strong>Recherche</strong>présélection à distance et visites filmées.</li>
-        <li><strong>Analyse</strong>comparaison des meilleurs biens et notre recommandation.</li>
-        <li><strong>Négociation</strong>prix, crédit, notaire et compromis.</li>
-        <li><strong>Finalisation</strong>acte de vente et remise des clés.</li>
-      </ol>
+      <h2 class="section-title">Ça vous parle ?</h2>
+      <ul class="rb-pains"><li><strong>« Il faut venir voir. »</strong>Des annonces sans prix ni adresse, et à chaque question, un voyage que vous ne pouvez pas faire.</li><li><strong>Un proche qui n’a pas le temps</strong>Un cousin passe un samedi et envoie une vidéo floue. Vous n’osez pas le solliciter davantage.</li><li><strong>Le « prix MRE »</strong>Le même appartement, un prix plus élevé, parce que l’acheteur vit à l’étranger.</li></ul>
+      <p class="rb-close">Rahim International est né de cette expérience. Notre travail : combler le manque d’information, pour que vous décidiez sur des faits.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">Comment nous vous aidons</h2>
+      <p class="rb-intro">Selon la formule choisie, notre accompagnement couvre :</p>
+      <ul class="rb-svc"><li><strong>Conseil stratégique</strong>Nous définissons avec vous le bon projet, le budget et les quartiers, et les confrontons au marché.</li><li><strong>Recherche et visites filmées</strong>Nous prospectons le marché, visitons les biens pour vous et les filmons, comme si vous y étiez.</li><li><strong>Analyse et recommandation</strong>Nous comparons les meilleures options, chiffres à l’appui, et vous disons laquelle nous choisirions, et pourquoi.</li><li><strong>Financement</strong>Simulation de crédit, conseils Daam Sakane et banques habituées aux clients MRE.</li><li><strong>Négociation</strong>Nous négocions le prix et les conditions en votre nom, selon vos instructions.</li><li><strong>Jusqu’aux clés</strong>Notaire, procuration, signature et remise des clés.</li></ul>
+    </div>
+  </section>
+
+  <!-- HOW IT STARTS -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">Pour commencer</h2>
+      <ol class="rb-steps rb-flow"><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, où que vous viviez.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Orientation de la recherche, priorités et premier point sur votre budget face au marché.<span class="rb-meta">Sous 72 heures</span></li><li><strong>Consultation gratuite</strong>Nous passons le plan en revue ensemble, à une heure adaptée à votre fuseau horaire.<span class="rb-meta">Par téléphone ou visio</span></li><li><strong>Votre première visite</strong>Filmée pour vous, ou avec vous si vous êtes au Maroc. La visite ne vous coûte rien ; un bon de visite est signé au préalable.<span class="rb-meta">Après la consultation</span></li></ol>
+      <p class="rb-choice"><strong>Votre choix</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">Facultatif</span> Poursuivez avec la formule qui correspond à l’accompagnement dont vous avez besoin, ou arrêtez-vous là.</p>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">Choisissez votre niveau d’accompagnement</h2>
+      <p class="rb-text">De la simple mise en relation à l’accompagnement complet jusqu’aux clés, nos formules s’adaptent au degré d’implication que vous souhaitez. Pour les acheteurs à l’étranger, nos formules d’accompagnement complet sont pensées pour tout gérer à distance. La brochure que nous vous envoyons sous 24 heures après le questionnaire détaille chacune d’elles et nos honoraires.</p>
     </div>
   </section>
 
@@ -211,22 +237,16 @@
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
       <h2 class="section-title">Vos questions, nos réponses</h2>
-      <dl class="rb-qa">
-        <div><dt>Comment choisir sans pouvoir visiter ?</dt><dd>Nous visitons et filmons chaque bien, et vous envoyons une fiche de visite détaillée sous 72 heures.</dd></div>
-        <div><dt>Le prix est-il juste ?</dt><dd>Nous comparons chaque prix aux biens similaires du quartier avant toute offre.</dd></div>
-        <div><dt>Puis-je obtenir un crédit ou Daam Sakane depuis l&#x27;étranger ?</dt><dd>Nous vérifions votre éligibilité et montons votre dossier avec des banques habituées aux MRE.</dd></div>
-        <div><dt>Le promoteur est-il fiable ?</dt><dd>Nous vérifions ses projets livrés, le respect de ses délais et la qualité réelle de ses finitions.</dd></div>
-        <div><dt>Comment signer sans faire le voyage ?</dt><dd>Nous coordonnons le notaire et organisons la procuration.</dd></div>
-      </dl>
+      <dl class="rb-qa"><div><dt>Comment choisir sans visiter ?</dt><dd>Nous visitons les biens pour vous, les filmons et vous envoyons un compte rendu écrit, pour comparer à distance.</dd></div><div><dt>Le prix est-il juste ?</dt><dd>Nous comparons chaque prix avec des biens similaires du quartier avant toute offre.</dd></div><div><dt>Vais-je payer un « prix MRE » ?</dt><dd>Pas avec nous pour négocier. Nous comparons le prix demandé aux prix récents de biens similaires à proximité, et négocions à partir de là.</dd></div><div><dt>Puis-je obtenir un crédit ou Daam Sakane depuis l’étranger ?</dt><dd>Souvent, oui. Nous vérifions votre éligibilité et orientons votre dossier vers des banques habituées aux clients MRE. L’accord reste la décision de la banque.</dd></div><div><dt>Le promoteur est-il fiable ?</dt><dd>Nous vérifions les projets qu’il a livrés, le respect des délais et la qualité réelle des finitions.</dd></div><div><dt>Comment signer sans me déplacer ?</dt><dd>Nous coordonnons avec le notaire, qui vous conseillera sur une procuration si vous ne pouvez pas être présent.</dd></div></dl>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="rb-cta">
-    <h2 class="section-title">Vous prévoyez d&#x27;acheter au pays ?</h2>
+    <h2 class="section-title">Vous prévoyez d’acheter au pays ?</h2>
     <div class="rb-cta-links">
       <a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a>
-      <a class="rb-link" href="guides/mre-buying-guide.html">Lire le guide d&#x27;achat MRE</a>
+      <a class="rb-link" href="guides/mre-buying-guide.html">Lire le guide d’achat MRE</a>
     </div>
   </section>
 

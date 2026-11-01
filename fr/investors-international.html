@@ -90,6 +90,25 @@
     .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
     .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
   }
+
+  /* buyer pages: hero button, pains, start steps, packages */
+  .page-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: 2rem; }
+  .page-hero-note { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .page-hero-note { letter-spacing: 0; font-size: .9rem; }
+  .rb-pains { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+  .rb-pains li { background: #fff; border: 1px solid #e3dccd; padding: 1.4rem 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-pains strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.2; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rb-pains strong { font-family: 'Amiri', serif; }
+  .rb-close { margin: 2rem 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--copper-dark, #87452c); max-width: 760px; }
+  [dir="rtl"] .rb-close { font-family: 'Amiri', serif; font-style: normal; }
+  .rb-steps.rb-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .rb-meta { display: block; margin-top: .8rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rb-meta { letter-spacing: 0; font-size: .85rem; }
+  .rb-choice { margin-top: 2rem; padding: 1.2rem 1.4rem; border: 1px dashed rgba(135,69,44,.45); font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
+  [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
+  .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Acheteurs internationaux | Rahim International">
@@ -153,39 +172,45 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Investisseurs internationaux</p>
-      <h1 class="page-hero-title">Investir au Maroc,<br><em>en toute clarté.</em></h1>
-      <p class="page-hero-sub">Résidence, relocalisation ou investissement locatif : nous vous expliquons chaque règle et chaque procédure, vérifions chaque bien et vous accompagnons pas à pas, de A à Z.</p>
+      <p class="page-hero-eyebrow">Acheteurs et investisseurs internationaux</p>
+      <h1 class="page-hero-title">Investir au Maroc<br><em>en toute clarté.</em></h1>
+      <p class="page-hero-sub">Résidence, installation ou investissement locatif : nous vous expliquons chaque règle et chaque démarche, vérifions chaque bien et vous guidons pas à pas, de votre première question à vos clés.</p>
+      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a><span class="page-hero-note">5 à 10 minutes · sans engagement</span></div>
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="rb-sec rb-dark">
-    <div class="rb-inner">
-      <h2 class="section-title">Ce que nous faisons pour vous</h2>
-      <p class="rb-intro">Pour un investisseur étranger, chaque étape est nouvelle. Nous vous expliquons chaque procédure marocaine (documents, étapes légales, délais) et restons à vos côtés du premier échange à la signature.</p>
-      <ul class="rb-svc">
-        <li><strong>Conseil stratégique</strong>nous définissons avec vous le bon projet, le bon budget et les bons quartiers.</li>
-        <li><strong>Analyse de rentabilité</strong>loyer réaliste, demande locative, charges et rendement net.</li>
-        <li><strong>Recherche et visites</strong>nous cherchons, visitons et filmons les biens pour vous.</li>
-        <li><strong>Analyse et recommandation</strong>nous comparons les meilleures options et vous disons laquelle choisir, et pourquoi.</li>
-        <li><strong>Accompagnement bancaire</strong>transfert des fonds, compte en dirhams convertibles, financement.</li>
-        <li><strong>Négociation et signature</strong>prix, conditions, notaire et procuration si nécessaire.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- METHOD -->
+  <!-- SOUND FAMILIAR -->
   <section class="rb-sec rb-light">
     <div class="rb-inner">
-      <h2 class="section-title">Notre méthode</h2>
-      <ol class="rb-steps">
-        <li><strong>Stratégie</strong>analyse de votre projet, de votre budget et de vos critères.</li>
-        <li><strong>Recherche</strong>présélection à distance et visites filmées.</li>
-        <li><strong>Analyse</strong>comparaison des meilleurs biens et notre recommandation.</li>
-        <li><strong>Négociation</strong>prix, crédit, notaire et compromis.</li>
-        <li><strong>Finalisation</strong>acte de vente et remise des clés.</li>
-      </ol>
+      <h2 class="section-title">Ça vous parle ?</h2>
+      <ul class="rb-pains"><li><strong>Des règles inconnues</strong>Titre foncier, notaire, compte en dirhams convertibles : chaque étape fonctionne autrement que chez vous.</li><li><strong>À qui faire confiance ?</strong>Des annonces en plusieurs langues, des intermédiaires partout et aucun avis indépendant sur le prix.</li><li><strong>Des frais imprévus</strong>Frais de notaire, droits d’enregistrement et taxes qui changent le budget réel.</li></ul>
+      <p class="rb-close">Nous vous expliquons chaque étape avant que vous la franchissiez, et vérifions chaque bien avant que vous vous engagiez.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">Comment nous vous aidons</h2>
+      <p class="rb-intro">Selon la formule choisie, notre accompagnement couvre :</p>
+      <ul class="rb-svc"><li><strong>Conseil stratégique</strong>Le bon projet, le budget et les quartiers, et ce que vous pouvez acheter en tant qu’étranger.</li><li><strong>Analyse de rentabilité</strong>Loyer réaliste, demande locative, charges et rendement net.</li><li><strong>Recherche et visites filmées</strong>Nous prospectons le marché, visitons les biens pour vous et les filmons.</li><li><strong>Analyse et recommandation</strong>Nous comparons les meilleures options et vous disons laquelle nous choisirions, et pourquoi.</li><li><strong>Accompagnement bancaire</strong>Transfert de fonds, compte en dirhams convertibles et options de financement.</li><li><strong>Négociation et signature</strong>Prix, conditions, notaire et procuration si nécessaire.</li></ul>
+    </div>
+  </section>
+
+  <!-- HOW IT STARTS -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">Pour commencer</h2>
+      <ol class="rb-steps rb-flow"><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, en français, en anglais ou en arabe.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Orientation de la recherche, priorités, premier point sur votre budget et sur ce que vous pouvez acheter en tant qu’étranger.<span class="rb-meta">Sous 72 heures</span></li><li><strong>Consultation gratuite</strong>Nous passons le plan en revue et répondons à vos questions sur les règles et les coûts.<span class="rb-meta">En visio ou en personne</span></li><li><strong>Votre première visite</strong>Avec vous, ou filmée pour vous. La visite ne vous coûte rien ; un bon de visite est signé au préalable.<span class="rb-meta">Après la consultation</span></li></ol>
+      <p class="rb-choice"><strong>Votre choix</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">Facultatif</span> Poursuivez avec la formule qui correspond à l’accompagnement dont vous avez besoin, ou arrêtez-vous là.</p>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">Choisissez votre niveau d’accompagnement</h2>
+      <p class="rb-text">De la simple mise en relation à l’accompagnement complet jusqu’aux clés, nos formules s’adaptent au degré d’implication que vous souhaitez. La brochure que nous vous envoyons sous 24 heures après le questionnaire détaille chacune d’elles et nos honoraires.</p>
     </div>
   </section>
 
@@ -193,14 +218,7 @@
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
       <h2 class="section-title">Vos questions, nos réponses</h2>
-      <dl class="rb-qa">
-        <div><dt>Un étranger peut-il acheter au Maroc ?</dt><dd>Oui, en zone urbaine. Nous vérifions que le bien est titré et qu&#x27;il peut vous être vendu sans restriction.</dd></div>
-        <div><dt>Comment transférer mes fonds, et les récupérer à la revente ?</dt><dd>Nous vous orientons vers un compte en dirhams convertibles, qui permet de rapatrier votre capital à la revente.</dd></div>
-        <div><dt>Puis-je obtenir un crédit en tant que non-résident ?</dt><dd>Certaines banques marocaines financent les non-résidents. Nous comparons leurs conditions et montons votre dossier.</dd></div>
-        <div><dt>Quels frais et impôts prévoir ?</dt><dd>Nous calculons votre budget réel, frais de notaire, droits d&#x27;enregistrement et taxes compris, avant toute offre.</dd></div>
-        <div><dt>Le bien sera-t-il rentable ?</dt><dd>Nous estimons le loyer réel du quartier, la demande locative et les charges pour calculer votre rendement net.</dd></div>
-        <div><dt>Comment acheter sans être sur place ?</dt><dd>Nous visitons et filmons chaque bien, coordonnons le notaire et organisons la procuration.</dd></div>
-      </dl>
+      <dl class="rb-qa"><div><dt>Un étranger peut-il acheter au Maroc ?</dt><dd>Oui, en zone urbaine. Les terres agricoles relèvent d’autres règles, et nous vérifions ce qui s’applique à votre cas.</dd></div><div><dt>Comment savoir si le titre foncier est sain ?</dt><dd>Avant tout engagement, nous vérifions que le bien dispose d’un titre foncier, qu’il est au nom du vendeur et libre de charges qui bloqueraient la vente, et nous coordonnons les vérifications finales avec le notaire.</dd></div><div><dt>Comment transférer mes fonds, et les récupérer à la revente ?</dt><dd>Nous vous orientons vers un compte en dirhams convertibles, qui permet de rapatrier votre capital lors de la revente.</dd></div><div><dt>Puis-je obtenir un crédit en tant que non-résident ?</dt><dd>Certaines banques marocaines prêtent aux non-résidents. Nous comparons leurs conditions et aidons à préparer votre dossier.</dd></div><div><dt>Quels frais et taxes prévoir ?</dt><dd>Nous calculons votre budget réel, frais de notaire, droits d’enregistrement et taxes compris, avant toute offre.</dd></div><div><dt>Comment acheter sans être sur place ?</dt><dd>Nous visitons et filmons les biens pour vous, coordonnons avec le notaire et aidons à mettre en place une procuration si nécessaire.</dd></div></dl>
     </div>
   </section>
 
@@ -209,7 +227,7 @@
     <h2 class="section-title">Vous pensez à acheter au Maroc ?</h2>
     <div class="rb-cta-links">
       <a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a>
-      <a class="rb-link" href="guides/foreign-investor-guide.html">Lire le guide de l&#x27;investisseur étranger</a>
+      <a class="rb-link" href="guides/foreign-investor-guide.html">Lire le guide de l’investisseur étranger</a>
     </div>
   </section>
 

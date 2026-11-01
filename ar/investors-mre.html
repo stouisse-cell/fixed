@@ -102,6 +102,25 @@
     .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
     .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
   }
+
+  /* buyer pages: hero button, pains, start steps, packages */
+  .page-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: 2rem; }
+  .page-hero-note { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .page-hero-note { letter-spacing: 0; font-size: .9rem; }
+  .rb-pains { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+  .rb-pains li { background: #fff; border: 1px solid #e3dccd; padding: 1.4rem 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-pains strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.2; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rb-pains strong { font-family: 'Amiri', serif; }
+  .rb-close { margin: 2rem 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--copper-dark, #87452c); max-width: 760px; }
+  [dir="rtl"] .rb-close { font-family: 'Amiri', serif; font-style: normal; }
+  .rb-steps.rb-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .rb-meta { display: block; margin-top: .8rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rb-meta { letter-spacing: 0; font-size: .85rem; }
+  .rb-choice { margin-top: 2rem; padding: 1.2rem 1.4rem; border: 1px dashed rgba(135,69,44,.45); font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
+  [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
+  .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="مغاربة العالم / مشتري MRE | Rahim International">
@@ -173,38 +192,45 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">مغاربة العالم / MRE</p>
-      <h1 class="page-hero-title">الشراء في وطنك<br><em>لا ينبغي أن يشعرك بالغربة.</em></h1>
-      <p class="page-hero-sub">سكن، أو عودة إلى الوطن، أو استثمار: نبحث عن العقار المناسب لمشروعك، ونرافقك في كل خطوة حتى تسلّم المفاتيح.</p>
+      <p class="page-hero-eyebrow">مغاربة العالم</p>
+      <h1 class="page-hero-title">الشراء في الوطن<br><em>دون أن تشعر بالغربة.</em></h1>
+      <p class="page-hero-sub">مسكن، أو مقرّ لعودتك، أو استثمار: ندرس السوق، ونقيّم العقارات، وننسّق عملية الشراء عن بُعد، لتقرر بثقة دون أن تكثر من السفر.</p>
+      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">استبيان ما قبل الاستشارة</a><span class="page-hero-note">من 5 إلى 10 دقائق · دون التزام</span></div>
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="rb-sec rb-dark">
-    <div class="rb-inner">
-      <h2 class="section-title">ما نقوم به من أجلك</h2>
-      <ul class="rb-svc">
-        <li><strong>الاستشارة الاستراتيجية</strong>نحدد معك المشروع المناسب والميزانية المناسبة والأحياء المناسبة.</li>
-        <li><strong>البحث والزيارات</strong>نبحث عن العقارات ونزورها ونصوّرها نيابة عنك.</li>
-        <li><strong>التحليل والتوصية</strong>نقارن أفضل الخيارات ونخبرك أيها تختار، ولماذا.</li>
-        <li><strong>التمويل</strong>القرض، و«دعم السكني»، واختيار البنك.</li>
-        <li><strong>التفاوض</strong>نتفاوض على السعر والشروط باسمك.</li>
-        <li><strong>المرافقة حتى المفاتيح</strong>الموثّق، والوكالة، والتوقيع، وتسليم المفاتيح.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- METHOD -->
+  <!-- SOUND FAMILIAR -->
   <section class="rb-sec rb-light">
     <div class="rb-inner">
-      <h2 class="section-title">منهجيتنا</h2>
-      <ol class="rb-steps">
-        <li><strong>الاستراتيجية</strong>تحليل مشروعك وميزانيتك ومعاييرك.</li>
-        <li><strong>البحث</strong>انتقاء أولي عن بُعد وزيارات مصوّرة.</li>
-        <li><strong>التحليل</strong>مقارنة أفضل العقارات وتوصيتنا.</li>
-        <li><strong>التفاوض</strong>السعر، والقرض، والموثق، والوعد بالبيع.</li>
-        <li><strong>الإتمام</strong>عقد البيع وتسليم المفاتيح.</li>
-      </ol>
+      <h2 class="section-title">هل يبدو لك هذا مألوفاً؟</h2>
+      <ul class="rb-pains"><li><strong>«يجب أن تأتي لترى.»</strong>إعلانات بلا سعر ولا عنوان، وجواب كل سؤال رحلة لا تستطيع القيام بها.</li><li><strong>قريب لا وقت لديه</strong>ابن عمك يزور العقار يوم سبت ويرسل فيديو غير واضح، ولا تجرؤ على إزعاجه أكثر.</li><li><strong>«سعر مغاربة العالم»</strong>نفس الشقة بسعر أعلى، لأن المشتري يقيم في الخارج.</li></ul>
+      <p class="rb-close">من هذه التجربة بالذات وُلدت Rahim International. عملنا أن نسدّ نقص المعلومات، لتقرر بناءً على الحقائق.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">كيف نساعدك</h2>
+      <p class="rb-intro">حسب الباقة التي تختارها، تشمل مرافقتنا:</p>
+      <ul class="rb-svc"><li><strong>استشارة استراتيجية</strong>نحدد معك المشروع المناسب والميزانية والأحياء، ونقارنها بواقع السوق.</li><li><strong>بحث وزيارات مصوّرة</strong>نبحث في السوق، ونزور العقارات نيابة عنك ونصوّرها، كأنك هناك.</li><li><strong>تحليل وتوصية</strong>نقارن أفضل الخيارات بالأرقام، ونخبرك بالخيار الذي كنا سنختاره ولماذا.</li><li><strong>التمويل</strong>محاكاة القرض، والإرشاد بشأن دعم السكن، وبنوك معتادة على التعامل مع مغاربة العالم.</li><li><strong>التفاوض</strong>نتفاوض على السعر والشروط باسمك، وفق تعليماتك.</li><li><strong>حتى المفاتيح</strong>الموثق، والوكالة، والتوقيع، وتسليم المفاتيح.</li></ul>
+    </div>
+  </section>
+
+  <!-- HOW IT STARTS -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">كيف تبدأ</h2>
+      <ol class="rb-steps rb-flow"><li><strong>حدّثنا عن مشروعك</strong>استبيان ما قبل الاستشارة، أينما كنت تقيم.<span class="rb-meta">من 5 إلى 10 دقائق</span></li><li><strong>خطتك الأولية</strong>اتجاه البحث والأولويات وتقييم أول لميزانيتك مقارنة بالسوق.<span class="rb-meta">خلال 72 ساعة</span></li><li><strong>استشارة مجانية</strong>نراجع الخطة معاً، في وقت يناسب توقيتك.<span class="rb-meta">عبر الهاتف أو الفيديو</span></li><li><strong>زيارتك الأولى</strong>مصوّرة لك، أو معك إن كنت في المغرب. لا تدفع شيئاً مقابل الزيارة؛ ويُوقَّع قبلها بون زيارة.<span class="rb-meta">بعد الاستشارة</span></li></ol>
+      <p class="rb-choice"><strong>قرارك</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">اختياري</span> تابع بالباقة التي تناسب المرافقة التي تحتاجها، أو توقف عند هذا الحد.</p>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">اختر مستوى المرافقة</h2>
+      <p class="rb-text">من مجرد الربط مع البائع إلى المرافقة الكاملة حتى المفاتيح، تتكيّف باقاتنا مع مدى مشاركتنا الذي تريده. وبالنسبة للمشترين في الخارج، صُمّمت باقات المرافقة الكاملة لإدارة كل شيء عن بُعد. ويشرح الكتيّب الذي نرسله إليك خلال 24 ساعة من الاستبيان كل باقة وأتعابها.</p>
     </div>
   </section>
 
@@ -212,13 +238,7 @@
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
       <h2 class="section-title">أسئلتكم وأجوبتنا</h2>
-      <dl class="rb-qa">
-        <div><dt>كيف أختار دون أن أزور العقار؟</dt><dd>نزور كل عقار ونصوّره، ونرسل إليك بطاقة زيارة مفصّلة خلال 72 ساعة.</dd></div>
-        <div><dt>هل السعر مناسب؟</dt><dd>نقارن كل سعر بأسعار العقارات المماثلة في الحي قبل أي عرض.</dd></div>
-        <div><dt>هل يمكنني الحصول على قرض أو «دعم السكني» من الخارج؟</dt><dd>نتحقق من أهليتك ونُعدّ ملفك مع بنوك معتادة على التعامل مع مغاربة العالم.</dd></div>
-        <div><dt>هل المطوّر موثوق؟</dt><dd>نتحقق من مشاريعه المُسلَّمة، ومدى احترامه للآجال، والجودة الفعلية لتشطيباته.</dd></div>
-        <div><dt>كيف أوقّع دون أن أسافر؟</dt><dd>ننسّق مع الموثّق ونُعدّ الوكالة.</dd></div>
-      </dl>
+      <dl class="rb-qa"><div><dt>كيف أختار دون أن أزور؟</dt><dd>نزور العقارات نيابة عنك ونصوّرها ونرسل إليك تقريراً مكتوباً، لتقارن عن بُعد.</dd></div><div><dt>هل السعر مناسب؟</dt><dd>نقارن كل سعر بعقارات مماثلة في الحي قبل أي عرض.</dd></div><div><dt>هل سأدفع «سعر مغاربة العالم»؟</dt><dd>ليس ونحن نتفاوض نيابة عنك. نقارن السعر المطلوب بالأسعار الأخيرة لعقارات مماثلة قريبة، ونتفاوض انطلاقاً منها.</dd></div><div><dt>هل يمكنني الحصول على قرض أو دعم السكن من الخارج؟</dt><dd>غالباً نعم. نتحقق من أهليتك ونوجّه ملفك نحو بنوك معتادة على التعامل مع مغاربة العالم. ويبقى القرار للبنك.</dd></div><div><dt>هل المنعش العقاري موثوق؟</dt><dd>نتحقق من المشاريع التي سلّمها، ومن احترامه للآجال، ومن الجودة الحقيقية للتشطيبات.</dd></div><div><dt>كيف أوقّع دون أن أسافر؟</dt><dd>ننسّق مع الموثق، الذي سيرشدك بشأن الوكالة إن لم تستطع الحضور.</dd></div></dl>
     </div>
   </section>
 

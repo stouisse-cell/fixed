@@ -110,6 +110,25 @@
     .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
     .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
   }
+
+  /* buyer pages: hero button, pains, start steps, packages */
+  .page-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: 2rem; }
+  .page-hero-note { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .page-hero-note { letter-spacing: 0; font-size: .9rem; }
+  .rb-pains { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+  .rb-pains li { background: #fff; border: 1px solid #e3dccd; padding: 1.4rem 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-pains strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.2; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rb-pains strong { font-family: 'Amiri', serif; }
+  .rb-close { margin: 2rem 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--copper-dark, #87452c); max-width: 760px; }
+  [dir="rtl"] .rb-close { font-family: 'Amiri', serif; font-style: normal; }
+  .rb-steps.rb-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .rb-meta { display: block; margin-top: .8rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rb-meta { letter-spacing: 0; font-size: .85rem; }
+  .rb-choice { margin-top: 2rem; padding: 1.2rem 1.4rem; border: 1px dashed rgba(135,69,44,.45); font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
+  [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
+  .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Moroccan Diaspora / MRE Buyers | Rahim International">
@@ -184,38 +203,45 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Moroccan Diaspora / MRE</p>
-      <h1 class="page-hero-title">Buying back home<br><em>shouldn't feel foreign.</em></h1>
-      <p class="page-hero-sub">A home, a return base or an investment: we search, visit and verify for you, and stay with you until you get the keys.</p>
+      <p class="page-hero-eyebrow">Moroccans Abroad (MRE)</p>
+      <h1 class="page-hero-title">Buying back home<br><em>shouldn’t feel foreign.</em></h1>
+      <p class="page-hero-sub">A home, a base for your return or an investment: we research the market, evaluate properties and coordinate your purchase from a distance, so you can decide with confidence without travelling back and forth.</p>
+      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">Pre-Consultation Questionnaire</a><span class="page-hero-note">5–10 minutes · no commitment</span></div>
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="rb-sec rb-dark">
-    <div class="rb-inner">
-      <h2 class="section-title">What we do for you</h2>
-      <ul class="rb-svc">
-        <li><strong>Strategic advice</strong>we define the right project, budget and neighbourhoods with you.</li>
-        <li><strong>Search and visits</strong>we search, visit and film properties for you.</li>
-        <li><strong>Analysis and recommendation</strong>we compare the best options and tell you which one to choose, and why.</li>
-        <li><strong>Financing</strong>mortgage, Daam Sakane, choice of bank.</li>
-        <li><strong>Negotiation</strong>we negotiate the price and terms on your behalf.</li>
-        <li><strong>Support to the keys</strong>notary, power of attorney, signing and handover of the keys.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- METHOD -->
+  <!-- SOUND FAMILIAR -->
   <section class="rb-sec rb-light">
     <div class="rb-inner">
-      <h2 class="section-title">Our method</h2>
-      <ol class="rb-steps">
-        <li><strong>Strategy</strong>analysis of your project, budget and criteria.</li>
-        <li><strong>Search</strong>remote shortlisting and filmed visits.</li>
-        <li><strong>Analysis</strong>comparison of the best properties and our recommendation.</li>
-        <li><strong>Negotiation</strong>price, mortgage, notary and preliminary contract.</li>
-        <li><strong>Completion</strong>deed of sale and handover of the keys.</li>
-      </ol>
+      <h2 class="section-title">Sound familiar?</h2>
+      <ul class="rb-pains"><li><strong>“You have to come and see.”</strong>Listings without a price or an address, and every question answered with a trip you can’t take.</li><li><strong>A relative who has no time</strong>A cousin visits on a Saturday and sends a blurry video. You don’t dare keep asking.</li><li><strong>The “MRE price”</strong>The same flat, a higher price, because the buyer lives abroad.</li></ul>
+      <p class="rb-close">Rahim International was born from exactly this experience. Our work is to fill the information gap, so you decide on facts.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">How we help</h2>
+      <p class="rb-intro">Depending on the service package you choose, our support covers:</p>
+      <ul class="rb-svc"><li><strong>Strategic advice</strong>We define the right project, budget and neighbourhoods with you, and check them against the market.</li><li><strong>Search and filmed visits</strong>We search the market, visit properties for you and film them, so you can see them as if you were there.</li><li><strong>Analysis and recommendation</strong>We compare the best options, figures included, and tell you which one we would choose, and why.</li><li><strong>Financing</strong>Mortgage simulation, Daam Sakane guidance and banks used to working with MRE clients.</li><li><strong>Negotiation</strong>We negotiate the price and terms on your behalf, on your instructions.</li><li><strong>Support to the keys</strong>Notary, power of attorney, signing and handover of the keys.</li></ul>
+    </div>
+  </section>
+
+  <!-- HOW IT STARTS -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">How it starts</h2>
+      <ol class="rb-steps rb-flow"><li><strong>Tell us about your project</strong>The pre-consultation questionnaire, from wherever you live.<span class="rb-meta">5–10 minutes</span></li><li><strong>Your preliminary plan</strong>Search direction, priorities and a first check of your budget against the market.<span class="rb-meta">Within 72 hours</span></li><li><strong>Free consultation</strong>We go through the plan together, at a time that suits your time zone.<span class="rb-meta">By phone or video</span></li><li><strong>Your first property visit</strong>Filmed for you, or with you if you are in Morocco. Nothing to pay for the visit; a visit voucher is signed beforehand.<span class="rb-meta">After the consultation</span></li></ol>
+      <p class="rb-choice"><strong>Your choice</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">Optional</span> Continue with the service package that fits the support you need, or stop there.</p>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">Choose your level of support</h2>
+      <p class="rb-text">From a simple introduction to full support all the way to the keys, our service packages adapt to how involved you want us to be. For buyers abroad, our full-support packages are designed to handle everything at a distance. The brochure we send you within 24 hours of the questionnaire explains each one and its fees.</p>
     </div>
   </section>
 
@@ -223,13 +249,7 @@
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
       <h2 class="section-title">Your questions, our answers</h2>
-      <dl class="rb-qa">
-        <div><dt>How do I choose without visiting?</dt><dd>We visit and film every property and send you a detailed visit report within 72 hours.</dd></div>
-        <div><dt>Is the price fair?</dt><dd>We compare every price with similar properties in the neighbourhood before any offer.</dd></div>
-        <div><dt>Can I get a mortgage or Daam Sakane from abroad?</dt><dd>We check your eligibility and prepare your file with banks used to working with MRE clients.</dd></div>
-        <div><dt>Is the developer reliable?</dt><dd>We check the projects they have delivered, whether they met their deadlines and the real quality of their finishes.</dd></div>
-        <div><dt>How do I sign without travelling?</dt><dd>We coordinate with the notary and arrange the power of attorney.</dd></div>
-      </dl>
+      <dl class="rb-qa"><div><dt>How do I choose without visiting?</dt><dd>We visit properties for you, film them and send you a written visit report, so you can compare at a distance.</dd></div><div><dt>Is the price fair?</dt><dd>We compare every price with similar properties in the neighbourhood before any offer.</dd></div><div><dt>Will I pay a higher “MRE price”?</dt><dd>Not with us negotiating for you. We compare the asking price with recent prices for similar properties nearby, and negotiate from there.</dd></div><div><dt>Can I get a mortgage or Daam Sakane from abroad?</dt><dd>Often, yes. We check your eligibility and guide your file towards banks used to working with MRE clients. Approval remains the bank’s decision.</dd></div><div><dt>Is the developer reliable?</dt><dd>We check the projects they have delivered, whether they met their deadlines and the real quality of their finishes.</dd></div><div><dt>How do I sign without travelling?</dt><dd>We coordinate with the notary, who will advise you on a power of attorney if you cannot be there.</dd></div></dl>
     </div>
   </section>
 

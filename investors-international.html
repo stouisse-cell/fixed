@@ -98,6 +98,25 @@
     .rb-qa > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
     .rb-checks, .rb-steps, .rb-svc { grid-template-columns: minmax(0, 1fr); }
   }
+
+  /* buyer pages: hero button, pains, start steps, packages */
+  .page-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: 2rem; }
+  .page-hero-note { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+  [dir="rtl"] .page-hero-note { letter-spacing: 0; font-size: .9rem; }
+  .rb-pains { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+  .rb-pains li { background: #fff; border: 1px solid #e3dccd; padding: 1.4rem 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-pains strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.2; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rb-pains strong { font-family: 'Amiri', serif; }
+  .rb-close { margin: 2rem 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--copper-dark, #87452c); max-width: 760px; }
+  [dir="rtl"] .rb-close { font-family: 'Amiri', serif; font-style: normal; }
+  .rb-steps.rb-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .rb-meta { display: block; margin-top: .8rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rb-meta { letter-spacing: 0; font-size: .85rem; }
+  .rb-choice { margin-top: 2rem; padding: 1.2rem 1.4rem; border: 1px dashed rgba(135,69,44,.45); font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
+  [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
+  .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="International Investors | Rahim International">
@@ -161,39 +180,45 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">International Investors</p>
+      <p class="page-hero-eyebrow">International Buyers &amp; Investors</p>
       <h1 class="page-hero-title">Invest in Morocco<br><em>with complete clarity.</em></h1>
-      <p class="page-hero-sub">Residence, relocation or rental investment: we explain every rule and procedure, check every property and guide you step by step, from start to finish.</p>
+      <p class="page-hero-sub">Residence, relocation or rental investment: we explain every rule and procedure, check every property and guide you step by step, from your first question to your keys.</p>
+      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">Pre-Consultation Questionnaire</a><span class="page-hero-note">5–10 minutes · no commitment</span></div>
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="rb-sec rb-dark">
-    <div class="rb-inner">
-      <h2 class="section-title">What we do for you</h2>
-      <p class="rb-intro">For a foreign investor, every step is new. We explain each Moroccan procedure (documents, legal steps, timelines) and stay by your side from the first conversation to the signing.</p>
-      <ul class="rb-svc">
-        <li><strong>Strategic advice</strong>we define the right project, budget and neighbourhoods with you.</li>
-        <li><strong>Return analysis</strong>realistic rent, rental demand, charges and net yield.</li>
-        <li><strong>Search and visits</strong>we search, visit and film properties for you.</li>
-        <li><strong>Analysis and recommendation</strong>we compare the best options and tell you which one to choose, and why.</li>
-        <li><strong>Banking support</strong>fund transfers, convertible dirham account, financing.</li>
-        <li><strong>Negotiation and signing</strong>price, terms, notary and power of attorney if needed.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- METHOD -->
+  <!-- SOUND FAMILIAR -->
   <section class="rb-sec rb-light">
     <div class="rb-inner">
-      <h2 class="section-title">Our method</h2>
-      <ol class="rb-steps">
-        <li><strong>Strategy</strong>analysis of your project, budget and criteria.</li>
-        <li><strong>Search</strong>remote shortlisting and filmed visits.</li>
-        <li><strong>Analysis</strong>comparison of the best properties and our recommendation.</li>
-        <li><strong>Negotiation</strong>price, mortgage, notary and preliminary contract.</li>
-        <li><strong>Completion</strong>deed of sale and handover of the keys.</li>
-      </ol>
+      <h2 class="section-title">Sound familiar?</h2>
+      <ul class="rb-pains"><li><strong>Unfamiliar rules</strong>Land titles, notaries, convertible dirham accounts: every step works differently from home.</li><li><strong>Who can you trust?</strong>Listings in several languages, intermediaries everywhere and no independent view of the price.</li><li><strong>Costs you didn’t plan for</strong>Notary fees, registration duties and taxes that change the real budget.</li></ul>
+      <p class="rb-close">We explain each step before you take it, and check each property before you commit.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">How we help</h2>
+      <p class="rb-intro">Depending on the service package you choose, our support covers:</p>
+      <ul class="rb-svc"><li><strong>Strategic advice</strong>The right project, budget and neighbourhoods, and what you can buy as a foreign national.</li><li><strong>Return analysis</strong>Realistic rent, rental demand, charges and net yield.</li><li><strong>Search and filmed visits</strong>We search the market, visit properties for you and film them.</li><li><strong>Analysis and recommendation</strong>We compare the best options and tell you which one we would choose, and why.</li><li><strong>Banking support</strong>Fund transfers, convertible dirham account and financing options.</li><li><strong>Negotiation and signing</strong>Price, terms, notary and power of attorney if needed.</li></ul>
+    </div>
+  </section>
+
+  <!-- HOW IT STARTS -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">How it starts</h2>
+      <ol class="rb-steps rb-flow"><li><strong>Tell us about your project</strong>The pre-consultation questionnaire, in English, French or Arabic.<span class="rb-meta">5–10 minutes</span></li><li><strong>Your preliminary plan</strong>Search direction, priorities, a first check of your budget and of what you can buy as a foreign national.<span class="rb-meta">Within 72 hours</span></li><li><strong>Free consultation</strong>We go through the plan together and answer your questions on the rules and costs.<span class="rb-meta">By video or in person</span></li><li><strong>Your first property visit</strong>With you, or filmed for you. Nothing to pay for the visit; a visit voucher is signed beforehand.<span class="rb-meta">After the consultation</span></li></ol>
+      <p class="rb-choice"><strong>Your choice</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">Optional</span> Continue with the service package that fits the support you need, or stop there.</p>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">Choose your level of support</h2>
+      <p class="rb-text">From a simple introduction to full support all the way to the keys, our service packages adapt to how involved you want us to be. The brochure we send you within 24 hours of the questionnaire explains each one and its fees.</p>
     </div>
   </section>
 
@@ -201,14 +226,7 @@
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
       <h2 class="section-title">Your questions, our answers</h2>
-      <dl class="rb-qa">
-        <div><dt>Can a foreigner buy property in Morocco?</dt><dd>Yes, in urban areas. We check that the property has a land title and can be sold to you without restriction.</dd></div>
-        <div><dt>How do I transfer my funds, and get them back when I sell?</dt><dd>We guide you to a convertible dirham account, which lets you take your capital back out when you sell.</dd></div>
-        <div><dt>Can I get a mortgage as a non-resident?</dt><dd>Some Moroccan banks lend to non-residents. We compare their terms and prepare your file.</dd></div>
-        <div><dt>What fees and taxes should I plan for?</dt><dd>We calculate your real budget, including notary fees, registration duties and taxes, before any offer.</dd></div>
-        <div><dt>Will the property be profitable?</dt><dd>We estimate the real rent in the neighbourhood, rental demand and charges to calculate your net yield.</dd></div>
-        <div><dt>How can I buy without being there?</dt><dd>We visit and film every property, coordinate with the notary and arrange the power of attorney.</dd></div>
-      </dl>
+      <dl class="rb-qa"><div><dt>Can a foreigner buy property in Morocco?</dt><dd>Yes, in urban areas. Agricultural land is a different matter, and we check what applies to your case.</dd></div><div><dt>How do I know the land title is clean?</dt><dd>Before any commitment, we check that the property has a land title, that it is registered in the seller’s name and free of charges that would block the sale, and we coordinate the final checks with the notary.</dd></div><div><dt>How do I transfer my funds, and get them back when I sell?</dt><dd>We guide you to a convertible dirham account, which lets you take your capital back out when you sell.</dd></div><div><dt>Can I get a mortgage as a non-resident?</dt><dd>Some Moroccan banks lend to non-residents. We compare their terms and help prepare your file.</dd></div><div><dt>What fees and taxes should I plan for?</dt><dd>We calculate your real budget, including notary fees, registration duties and taxes, before any offer.</dd></div><div><dt>How can I buy without being there?</dt><dd>We visit and film properties for you, coordinate with the notary and help arrange a power of attorney if needed.</dd></div></dl>
     </div>
   </section>
 
