@@ -756,6 +756,12 @@
     .rh-actions .btn-primary, .rh-actions .btn-outline { flex: 1 1 100%; }
   }
   @media (prefers-reduced-motion: reduce) { .rh-line, .rh-copy > *, .site-nav, .rh-tile img { transition: none !important; } }
+
+  .rh-receive { list-style: none; margin: 0 auto 2.2rem; padding: 0; max-width: 900px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; text-align: start; }
+  .rh-receive li { border: 1px solid rgba(201,169,110,.35); padding: 1.2rem 1.3rem; color: rgba(255,255,255,.8); line-height: 1.6; font-size: .95rem; }
+  .rh-receive strong { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+  [dir="rtl"] .rh-receive strong { letter-spacing: 0; font-size: .85rem; }
+  @media (max-width: 760px) { .rh-receive { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rahim International | استشارات عقارية في المغرب">
@@ -840,7 +846,7 @@
       <p class="hero-eyebrow">استشارات ووساطة عقارية · القنيطرة · الرباط · سلا</p>
       <h1>نقرّب المسافة.<br><em>ونوصلك إلى الضفة الأخرى.</em></h1>
       <p class="rh-sub">تبحث عن مسكن أو عقار استثماري في المغرب؟ نساعدك على دراسة السوق، وإيجاد العقارات وتقييمها، وإتمام عملية الاقتناء بثقة. من أول بحث حتى تسلّم المفاتيح، نحن إلى جانبك، سواء كنت تشتري من داخل المغرب أو من الخارج.</p>
-      <div class="rh-actions"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><a href="#how" class="btn-outline">كيف نعمل</a></div>
+      <div class="rh-actions"><a href="consultation.html" class="btn-primary">استبيان ما قبل الاستشارة</a><a href="#how" class="btn-outline">كيف نعمل</a></div>
       <p class="rh-trust">استشارة مجانية · خطة اقتناء مخصّصة · أول زيارة مشمولة</p>
     </div>
   </section>
@@ -873,7 +879,7 @@
       <h2 class="section-title">ابدأ مجاناً. <em>وقرّر حين تكون مستعداً.</em></h2>
       <p class="rh-intro-text">قبل أي التزام، نأخذ الوقت لفهم مشروعك: خطة أولية مبنية على إجاباتك، واستشارة نراجعها فيها معاً، ثم زيارة أولى لعقار.</p>
       <ol class="rh-steps">
-        <li><h3>حدّثنا عن مشروعك</h3><p>املأ استبيان ما قبل الاستشارة حول أهدافك وميزانيتك والعقار الذي تبحث عنه.</p><span class="rh-step-meta">من 5 إلى 10 دقائق</span></li>
+        <li><h3>املأ استبيان ما قبل الاستشارة</h3><p>حدّثنا عن أهدافك وميزانيتك والعقار الذي تبحث عنه.</p><span class="rh-step-meta">من 5 إلى 10 دقائق</span></li>
         <li><h3>نُعدّ خطتك الأولية</h3><p>انطلاقاً من إجاباتك، نُعدّ خطة اقتناء استراتيجية أولية: اتجاه البحث والأولويات وتقييم أول لميزانيتك مقارنة بالسوق.</p><span class="rh-step-meta">خلال 72 ساعة</span></li>
         <li><h3>التقِ بمستشارك</h3><p>استشارة مجانية حضورياً أو عبر الهاتف أو بمكالمة فيديو، نراجع فيها الخطة معك ونحسّنها معاً.</p><span class="rh-step-meta">استشارة مجانية</span></li>
         <li><h3>زيارتك الأولى</h3><p>بعد الاستشارة، ننظّم زيارة أولى معك أو مصوّرة لك. لا تدفع شيئاً مقابل الزيارة: يُوقَّع قبلها بون زيارة معتاد، ولا تُستحق أتعابنا إلا إذا اشتريت هذا العقار.</p><span class="rh-step-meta">بعد الاستشارة</span></li>
@@ -882,7 +888,7 @@
         <h3><span class="rh-next-num" aria-hidden="true">5</span>قرارك<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">اختياري</span></span></h3>
         <p>إذا رغبت في المتابعة، اختر الباقة التي تناسب المرافقة التي تحتاجها، بما فيها خيارات دون رسوم مسبقة.</p>
       </div>
-      <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><p>استبيان ما قبل الاستشارة · من 5 إلى 10 دقائق · دون التزام</p></div>
+      <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">ابدأ استبيان ما قبل الاستشارة</a><p>من 5 إلى 10 دقائق · دون التزام</p></div>
     </div>
   </section>
 
@@ -947,11 +953,12 @@
   <!-- مستعد للبدء -->
   <section class="rh-sec rh-dark rh-end" id="contact">
     <div class="rh-wrap">
-      <p class="section-eyebrow">مستعد للبدء؟</p>
-      <h2 class="section-title">مشروعك العقاري يبدأ من هنا.</h2>
-      <p class="rh-end-text">أخبرنا بما تبحث عنه. سنساعدك على استكشاف خياراتك وفهم السوق والتخطيط للخطوات التالية نحو الشراء.</p>
-      <div class="rh-end-actions"><a href="consultation.html" class="btn-primary">حدّثنا عن مشروعك</a><a href="https://wa.me/212642773249" class="btn-outline" target="_blank" rel="noopener">اطرح سؤالك على واتساب</a></div>
-      <p class="rh-end-note">دون أي التزام · استشارة أولى مجانية</p>
+      <p class="section-eyebrow">استبيان ما قبل الاستشارة</p>
+      <h2 class="section-title">حضّر استشارتك المجانية و<em>خطة الاقتناء الاستراتيجية.</em></h2>
+      <p class="rh-end-text">في 5 إلى 10 دقائق، حدّثنا عن أهدافك وميزانيتك والعقار الذي تبحث عنه. تتيح لنا إجاباتك إعداد استشارتك وخطة اقتناء استراتيجية أولية مبنية حول مشروعك، حتى قبل أن نتحدث.</p>
+      <ul class="rh-receive"><li><strong>خلال 24 ساعة</strong>كتيّبنا، الملائم لملفك</li><li><strong>خلال 72 ساعة</strong>خطة الاقتناء الاستراتيجية الأولية</li><li><strong>خلال الاستشارة</strong>نُحسّن الخطة معاً، حضورياً أو عبر الهاتف أو مكالمة فيديو</li></ul>
+      <div class="rh-end-actions"><a href="consultation.html" class="btn-primary">ابدأ الاستبيان</a><a href="https://wa.me/212642773249" class="btn-outline" target="_blank" rel="noopener">اطرح سؤالك على واتساب</a></div>
+      <p class="rh-end-note">دون أي التزام · إجاباتك تبقى سرية</p>
       <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
     </div>
   </section>
