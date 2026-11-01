@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>خدمات المطورين | التسويق والمبيعات العقارية في المغرب</title>
-<meta name="description" content="تساعد Rahim International المطورين العقاريين على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين، داخل المغرب وخارجه.">
+<meta name="description" content="تساعد رحيم إنترناشيونال المنعشين العقاريين والملاك في المغرب على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين في المغرب وخارجه.">
 <link rel="canonical" href="https://rahiminternational.com/ar/services-developers.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/services-developers.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/services-developers.html">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/services-developers.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="المطورون العقاريون | Rahim International">
-<meta property="og:description" content="تساعد Rahim International المطورين العقاريين على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين، داخل المغرب وخارجه.">
+<meta property="og:description" content="تساعد رحيم إنترناشيونال المنعشين العقاريين والملاك في المغرب على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين في المغرب وخارجه.">
 <meta property="og:image" content="https://rahiminternational.com/preconstruction-site.png">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,10 +88,36 @@
   .rd-cta { background: var(--cream); text-align: center; }
   .rd-cta p { font-size: 1.05rem; color: #3d4a5c; margin: 0 0 1.4rem; }
   @media (max-width: 760px) { .rd-groups { grid-template-columns: minmax(0, 1fr); } .rd-quote p { font-size: 1.3rem; } }
+
+  /* developers v2 */
+  .rd-sec { padding: var(--section-pad); }
+  .rd-inner { max-width: 1100px; margin: 0 auto; }
+  .rd-light { background: #fff; }
+  .rd-steel { background: var(--steel); }
+  .rd-light .section-title, .rd-steel .section-title, .rd-story .section-title { color: var(--navy); margin-bottom: 2rem; }
+  .rd-why { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+  .rd-why li { background: #fff; border: 1px solid #e3dccd; border-top: 2px solid var(--copper); padding: 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rd-why strong, .rd-steps strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.25; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rd-why strong, [dir="rtl"] .rd-steps strong, [dir="rtl"] .rd-own h3 { font-family: 'Amiri', serif; }
+  .rd-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.2rem; counter-reset: rds; }
+  .rd-steps li { counter-increment: rds; border-top: 2px solid var(--copper); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: #3d4a5c; }
+  .rd-steps li::before { content: '0' counter(rds); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark, #87452c); margin-bottom: .4rem; }
+  .rd-work { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+  .rd-work img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid #e3dccd; display: block; }
+  .rd-link { display: inline-block; margin-top: 1rem; color: var(--copper-dark, #87452c); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  [dir="rtl"] .rd-link { letter-spacing: 0; font-size: .95rem; }
+  .rd-own { max-width: 860px; margin: 0 auto; text-align: center; }
+  .rd-own h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--navy); margin: 0 0 1rem; }
+  .rd-figs { list-style: none; margin: 1.6rem 0 .4rem; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+  .rd-figs li { border-top: 1px solid var(--copper); padding-top: .6rem; font-size: .85rem; color: #5a6575; }
+  .rd-figs strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.7rem; line-height: 1.1; color: var(--navy); }
+  [dir="rtl"] .rd-figs strong { font-family: 'Amiri', serif; }
+  @media (max-width: 1000px) { .rd-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .rd-why, .rd-work, .rd-steps { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="المطورون العقاريون | Rahim International">
-<meta name="twitter:description" content="تساعد Rahim International المطورين العقاريين على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين، داخل المغرب وخارجه.">
+<meta name="twitter:description" content="تساعد رحيم إنترناشيونال المنعشين العقاريين والملاك في المغرب على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين في المغرب وخارجه.">
 <meta name="twitter:image" content="https://rahiminternational.com/preconstruction-site.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@rahiminternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","addressLocality":"القنيطرة","addressCountry":"MA"},"description":"استشارات عقارية وتسويق ووساطة للمشترين والمطورين في منطقة الرباط وسلا والقنيطرة بالمغرب.","inLanguage":"ar"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://rahiminternational.com/ar/index.html"},{"@type":"ListItem","position":2,"name":"خدمات المطورين","item":"https://rahiminternational.com/ar/services-developers.html"}]}</script>
@@ -148,24 +174,31 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">المطورون العقاريون</p>
-      <h1 class="page-hero-title">شيّدتم مشروعاً جاداً.<br><em>ويستحق أن يُرى.</em></h1>
-      <p class="page-hero-sub">نساعد المطورين العقاريين على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين، داخل المغرب وخارجه.</p>
+      <p class="page-hero-eyebrow">المنعشون العقاريون والملاك</p>
+      <h1 class="page-hero-title">بنيتَ مشروعاً جاداً.<br><em>وهو يستحق أن يُرى.</em></h1>
+      <p class="page-hero-sub">نساعد المنعشين العقاريين والملاك على تقديم مشاريعهم بوضوح والوصول إلى مشترين جادين وعلى اطلاع جيد، في المغرب وخارجه.</p>
     </div>
   </section>
 
-  <!-- STORY -->
+  <!-- VISIBILITY GAP -->
   <section class="rd-story" style="padding:var(--section-pad);">
     <div class="rd-story-inner">
-      <p class="section-eyebrow">مقاربتنا</p>
-      <h2 class="section-title">رأينا المشكلة من جهة المشتري.</h2>
-      <p class="rd-p">قبل تأسيس Rahim International، قضى علي رحيم أربعة أشهر في البحث عن شقة بالقنيطرة لأحد أقاربه المقيمين بالخارج. زار أكثر من خمسة عشر عقاراً، واصطدم بما يعيشه أغلب المشترين: أسعار تختلف باختلاف المُحاور، ومشاريع دون تصاميم أو أسعار منشورة، ومكاتب بيع يصعب العثور عليها، ومندوبو مبيعات يتغيّبون عن المواعيد.</p>
-      <p class="rd-p">وُجد المشروع المناسب في النهاية: مشروع جاد، متقن البناء، بسعر عادل. ومع ذلك، اقتصر تسويقه على الحد الأدنى: بضع صور، ومعلومات قليلة، ودون حجة بيع حقيقية. ولو كان المشتري أقل إصراراً لفاته المشروع.</p>
-      <p class="rd-p">حينها أدرك علي أين تكمن الصعوبة الحقيقية في هذا السوق: مشاريع جيدة لا تصل إلى المشترين الذين قد يشترونها، لأنها لا تُقدَّم كما ينبغي. وتساعد Rahim International المطورين على سد هذه الفجوة.</p>
+      <p class="section-eyebrow">فجوة الظهور</p>
+      <h2 class="section-title">المشاريع الجيدة لا تصل دائماً إلى المشترين المناسبين.</h2>
+      <p class="rd-p">في المغرب، كثير من المشاريع المبنية بإتقان، خاصة خلال مرحلة البناء، لا تستثمر إلا القليل في التسويق الرقمي، ولا تُعرض إلا في مكتب بيع داخل الورش. ونادراً ما تُنشر التصاميم والأسعار والمواصفات، فلا يعرف المشروع في الغالب إلا من يمر بجانبه. ولهذا لا يكتشفه المشترون المقيمون في الخارج أو في مدينة أخرى، حتى عندما يقدّم قيمة ممتازة.</p><p class="rd-p">عشنا هذا الوضع من جهة المشتري. فالمشروع الذي أصبح أول نجاح لنا لم يكن له أي حضور تقريباً على الإنترنت، ولم يكن من الممكن التعرف عليه إلا في مكتب البيع. وكادت مشترية تبحث من كندا أن تفوّته، إلى أن قام مؤسسنا علي رحيم بتحليله بالتفصيل وبيّن أنه أفضل خيار في السوق. أظهرت لنا هذه التجربة حجم القيمة التي تضيع عندما لا تُقدَّم المشاريع الجيدة بشكل جيد، وهي من الأسباب التي أدت إلى تأسيس رحيم إنترناشيونال.</p>
       <blockquote class="rd-quote">
-        <p>«لا ينبغي أن يعتمد المشروع الجيد على التوصيات الشفهية وحدها.»</p>
+        <p>«لا ينبغي أن يعتمد مشروع جيد على الكلام المتناقل وحده.»</p>
         <cite>علي رحيم، المؤسس</cite>
       </blockquote>
+    </div>
+  </section>
+
+  <!-- WHY WORK WITH US -->
+  <section class="rd-sec rd-steel">
+    <div class="rd-inner">
+      <p class="section-eyebrow">لماذا تعمل معنا</p>
+      <h2 class="section-title">ما نقدّمه لمشروعك</h2>
+      <ul class="rd-why"><li><strong>الوصول إلى مشترين في المغرب وخارجه</strong>نعمل مع مغاربة العالم والمقيمين والمستثمرين الدوليين، بالعربية والفرنسية والإنجليزية، ونقدّم مشروعك إلى مشترين لن تصل إليهم عبر مكتب البيع وحده.</li><li><strong>مشترون مؤهَّلون ومستعدّون</strong>يتواصل معنا معظم المشترين عبر استبيان ما قبل الاستشارة، لذلك نعرف ميزانيتهم وتمويلهم وجدولهم الزمني قبل أن نعرّفهم بمشروعك.</li><li><strong>المصداقية من خلال الانتقاء</strong>لا نقدّم إلا المشاريع التي نثق بها. والمشترون يعرفون ذلك، مما يمنح المشاريع التي نمثّلها مستوى من الثقة لا يستطيع الإشهار وحده أن يصنعه.</li><li><strong>حضور ميداني</strong>ننظّم الزيارات، ونجيب عن أسئلة المشترين، ونتابع كل حجز حتى التوقيع، ونبقى على تواصل مع فريق البيع لديك طوال العملية.</li></ul>
     </div>
   </section>
 
@@ -173,38 +206,57 @@
   <section class="rd-help" style="padding:var(--section-pad);">
     <div class="rd-help-inner">
       <p class="section-eyebrow">خدماتنا</p>
-      <h2 class="section-title">كيف نساعدكم</h2>
+      <h2 class="section-title">كيف نساعدك</h2>
       <div class="rd-groups">
-        <div class="rd-group">
-          <h3>التسويق</h3>
-          <ul>
-          <li><strong>التموضع:</strong> الأسعار، والمشترون المستهدفون، ونقاط القوة أمام المنافسة.</li>
-          <li><strong>العرض:</strong> حجة البيع، والكتيّبات، وبطاقات الوحدات، وصور تحفّز على الشراء.</li>
-          <li><strong>التسويق الرقمي:</strong> إنشاء المواقع الإلكترونية، والتصوير الاحترافي، والإعلانات على وسائل التواصل الاجتماعي.</li>
-          </ul>
-        </div>
-        <div class="rd-group">
-          <h3>المبيعات</h3>
-          <ul>
-          <li><strong>الوصول إلى المشترين:</strong> مشترون محليون، ومغاربة العالم، ومستثمرون دوليون.</li>
-          <li><strong>متابعة المبيعات:</strong> نجيب عن أسئلة المشترين، وننظم زيارات المشروع، ونتابع كل حجز حتى التوقيع.</li>
-          </ul>
-        </div>
+        <div class="rd-group"><h3>التسويق</h3><ul><li><strong>التموضع:</strong> الأسعار والمشترون المستهدفون ونقاط القوة مقارنة بالمشاريع المنافسة.</li><li><strong>العرض:</strong> حجج البيع والكتيّبات وبطاقات الوحدات والمرئيات التي تساعد المشترين على فهم المشروع.</li><li><strong>التسويق الرقمي:</strong> مواقع المشاريع والتصوير الاحترافي وحملات وسائل التواصل الاجتماعي.</li></ul></div>
+        <div class="rd-group"><h3>المبيعات</h3><ul><li><strong>الوصول إلى المشترين:</strong> المشترون المحليون ومغاربة العالم والمستثمرون الدوليون.</li><li><strong>المتابعة التجارية:</strong> نجيب المشترين، وننظّم زيارات المشروع، ونتابع كل حجز حتى التوقيع.</li></ul></div>
       </div>
-      <p class="rd-note">يمكن التعاقد على الخدمتين معاً أو كلٍّ على حدة.</p>
+      <p class="rd-note">يمكن تقديم هذه الخدمات مجتمعة أو بشكل منفصل.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK TOGETHER -->
+  <section class="rd-sec rd-light">
+    <div class="rd-inner">
+      <p class="section-eyebrow">كيف نعمل معاً</p>
+      <h2 class="section-title">من اللقاء الأول إلى أولى المبيعات</h2>
+      <ol class="rd-steps"><li><strong>مكالمة تعارف</strong>نتحدث عن مشروعك وأهدافك ووضع مبيعاتك الحالي.</li><li><strong>دراسة المشروع</strong>نزور الموقع، وندرس التصاميم والأسعار والمواصفات، ونقارن المشروع بمنافسيه.</li><li><strong>التموضع والخطة</strong>نحدّد المشترين المستهدفين والحجج الرئيسية والإجراءات التسويقية.</li><li><strong>المواد والحملات</strong>نُعدّ مواد العرض ونطلق الحملات الرقمية.</li><li><strong>المشترون والمتابعة</strong>نقدّم المشروع إلى مشترين مؤهَّلين ونتابع كل حجز حتى التوقيع.</li></ol>
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section class="rd-sec rd-steel">
+    <div class="rd-inner rd-work">
+      <img src="../elaf.jpg" alt="Elaf Sky View" loading="lazy" decoding="async">
+      <div>
+        <p class="section-eyebrow">أعمالنا</p>
+        <h2 class="section-title">إيلاف سكاي فيو: مشروع قدّمناه إلى السوق</h2>
+        <p class="rd-p">إيلاف سكاي فيو مشروع سكني في وسط القنيطرة. عندما بدأنا العمل مع المنعش العقاري، لم تكن للمشروع أي ميزانية تسويقية. فتولّينا تسويقه: التقطنا مئات الصور للمشروع، وأنشأنا صفحة خاصة به ومسار استشارة للمشترين بالعربية والفرنسية والإنجليزية، وتابعنا كل طلب. وقد أثمر هذا العمل مئات العملاء المحتملين. واليوم، اكتمل البناء وبيع <bdi dir="ltr">85%</bdi> من الوحدات.</p>
+        <ul class="rd-figs"><li><strong>المئات</strong>من العملاء المحتملين</li><li><strong>المئات</strong>من الصور</li><li><strong>3</strong>لغات</li><li><strong><bdi dir="ltr">0 DH</bdi></strong>ميزانية تسويقية</li></ul>
+        <a class="rd-link" href="elaf-sky-view.html">اطّلع على صفحة مشروع إيلاف سكاي فيو ←</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTY OWNERS -->
+  <section class="rd-sec rd-light">
+    <div class="rd-own">
+      <p class="section-eyebrow">الملاك</p>
+      <h3>هل تبيع شقة أو فيلا أو أرضاً؟</h3>
+      <p class="rd-p">نساعد أيضاً الملاك الخواص على بيع عقاراتهم. نقيّم قيمة العقار في السوق، ونقدّمه بوضوح إلى مشترين مؤهَّلين، وننظّم الزيارات، ونتولّى التفاوض، حتى تبيع بالسعر المناسب دون أن تقضي وقتك في المكالمات والزيارات.</p>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="rd-cta" style="padding:var(--section-pad-sm);">
-    <p>نرسل إليكم عرضنا المفصّل عبر البريد الإلكتروني.</p>
-    <a href="#contact" class="btn-gold">اطلبوا عرضنا</a>
+    <p>نرسل إليك عرضنا المفصّل عبر البريد الإلكتروني.</p>
+    <a href="#contact" class="btn-gold">اطلب عرضنا</a>
   </section>
 
   <section class="contact-section" style="padding:var(--section-pad);" id="contact">
     <p class="section-eyebrow">اتصل بنا</p>
-    <h2 class="section-title" style="color:var(--white);">أخبرنا بما تنوي<br>شراءه أو بناءه.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">سواء كنت تقارن بين العقارات، أو تشتري من الخارج، أو تعود إلى الوطن، أو تطرح مشروعًا في السوق، فإن الخطوة التالية الصحيحة تعتمد على وضعك. أخبرنا بما تعمل عليه وسنرد عليك بالمسار الأكثر صلة.</p>
+    <h2 class="section-title" style="color:var(--white);">حدّثنا عن مشروعك.</h2>
+    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">عرّفنا بمشروعك أو بعقارك، وسنرد عليك بتقييم أولي وبأنسب طريقة للعمل معاً.</p>
     <div class="contact-grid">
       <div>
         <div class="contact-info">
@@ -232,39 +284,28 @@
         </div>
       </div>
       <div>
-        <form data-default-template="3" id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST" data-sending="جارٍ الإرسال…" data-success="تم إرسال رسالتك. سنتواصل معك قريبًا." data-error="حدث خطأ. يرجى مراسلتنا مباشرة على contact@rahiminternational.com.">
-          <input type="hidden" name="subject" value="استفسار من RahimInternational.com/ar">
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST" data-sending="جارٍ الإرسال…" data-success="تم إرسال رسالتك. سنتواصل معك قريبًا." data-error="حدث خطأ. يرجى مراسلتنا مباشرة على contact@rahiminternational.com.">
+          <input type="hidden" name="subject" value="Developer or seller enquiry (AR), RahimInternational.com">
+          <div data-lead-capture="true" hidden></div>
           <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">الاسم الشخصي</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="اسمك الشخصي" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">الاسم العائلي</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="اسمك العائلي" required>
-            </div>
+            <div class="form-group"><label class="form-label" for="first-name">الاسم الشخصي</label><input id="first-name" name="first_name" type="text" class="form-input" required></div>
+            <div class="form-group"><label class="form-label" for="last-name">الاسم العائلي</label><input id="last-name" name="last_name" type="text" class="form-input" required></div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="email">البريد الإلكتروني</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="بريدك الإلكتروني" required>
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label" for="email">البريد الإلكتروني</label><input id="email" name="email" type="email" class="form-input" dir="ltr" required></div>
+            <div class="form-group"><label class="form-label" for="phone">الهاتف أو واتساب</label><input id="phone" name="phone" type="tel" class="form-input" dir="ltr"></div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">أنا</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">اختر ملفك الشخصي</option>
-              <option selected>مطور عقاري يبحث عن شريك مبيعات</option>
-              <option>مستثمر دولي</option>
-              <option>مغاربة العالم / مشتري MRE</option>
-              <option>مقيم في المغرب</option>
-              <option>آخر</option>
-            </select>
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label" for="profile">أنا</label><select id="profile" name="profile" class="form-select" required><option value="">اختر</option><option>منعش عقاري</option><option>مالك خاص</option><option>غير ذلك</option></select></div>
+            <div class="form-group"><label class="form-label" for="ptype">المشروع أو العقار</label><select id="ptype" name="property_type" class="form-select"><option value="">اختر</option><option>مشروع سكني</option><option>شقة</option><option>فيلا أو منزل</option><option>أرض</option><option>عقار تجاري أو صناعي</option></select></div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="message">الرسالة</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="أخبرنا بما تعمل عليه…"></textarea>
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label" for="city">المدينة</label><input id="city" name="city" type="text" class="form-input"></div>
+            <div class="form-group"><label class="form-label" for="stage">المرحلة</label><select id="stage" name="stage" class="form-select"><option value="">اختر</option><option>في طور التخطيط</option><option>في طور البناء</option><option>مُسلَّم أو جاهز للبيع</option></select></div>
           </div>
+          <div class="form-group"><label class="form-label" for="message">الرسالة</label><textarea id="message" name="message" class="form-textarea" placeholder="حدّثنا عن مشروعك…"></textarea></div>
           <p id="form-status" class="form-status" aria-live="polite"></p>
-          <button type="submit" class="form-submit">إرسال الاستفسار</button>
+          <button type="submit" class="form-submit">إرسال</button>
         </form>
       </div>
     </div>

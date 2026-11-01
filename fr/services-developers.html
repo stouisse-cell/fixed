@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services aux promoteurs | Marketing &amp; Ventes immobilières au Maroc</title>
-<meta name="description" content="Rahim International aide les promoteurs immobiliers à présenter leurs projets clairement et à atteindre des acheteurs sérieux, au Maroc et à l&#x27;étranger.">
+<meta name="description" content="Rahim International aide les promoteurs immobiliers et les propriétaires au Maroc à présenter clairement leurs projets et à toucher des acheteurs sérieux au Maroc et à l’étranger.">
 <link rel="canonical" href="https://rahiminternational.com/fr/services-developers.html">
 <link rel="alternate" hreflang="en" href="https://rahiminternational.com/services-developers.html">
 <link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/services-developers.html">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/services-developers.html">
 <link rel="icon" type="image/png" href="../logo.png">
 <meta property="og:title" content="Promoteurs immobiliers | Rahim International">
-<meta property="og:description" content="Rahim International aide les promoteurs immobiliers à présenter leurs projets clairement et à atteindre des acheteurs sérieux, au Maroc et à l&#x27;étranger.">
+<meta property="og:description" content="Rahim International aide les promoteurs immobiliers et les propriétaires au Maroc à présenter clairement leurs projets et à toucher des acheteurs sérieux au Maroc et à l’étranger.">
 <meta property="og:image" content="https://rahiminternational.com/preconstruction-site.png">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,10 +88,36 @@
   .rd-cta { background: var(--cream); text-align: center; }
   .rd-cta p { font-size: 1.05rem; color: #3d4a5c; margin: 0 0 1.4rem; }
   @media (max-width: 760px) { .rd-groups { grid-template-columns: minmax(0, 1fr); } .rd-quote p { font-size: 1.3rem; } }
+
+  /* developers v2 */
+  .rd-sec { padding: var(--section-pad); }
+  .rd-inner { max-width: 1100px; margin: 0 auto; }
+  .rd-light { background: #fff; }
+  .rd-steel { background: var(--steel); }
+  .rd-light .section-title, .rd-steel .section-title, .rd-story .section-title { color: var(--navy); margin-bottom: 2rem; }
+  .rd-why { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+  .rd-why li { background: #fff; border: 1px solid #e3dccd; border-top: 2px solid var(--copper); padding: 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
+  .rd-why strong, .rd-steps strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.25; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rd-why strong, [dir="rtl"] .rd-steps strong, [dir="rtl"] .rd-own h3 { font-family: 'Amiri', serif; }
+  .rd-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.2rem; counter-reset: rds; }
+  .rd-steps li { counter-increment: rds; border-top: 2px solid var(--copper); padding-top: 1rem; font-size: .95rem; line-height: 1.7; color: #3d4a5c; }
+  .rd-steps li::before { content: '0' counter(rds); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark, #87452c); margin-bottom: .4rem; }
+  .rd-work { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+  .rd-work img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid #e3dccd; display: block; }
+  .rd-link { display: inline-block; margin-top: 1rem; color: var(--copper-dark, #87452c); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  [dir="rtl"] .rd-link { letter-spacing: 0; font-size: .95rem; }
+  .rd-own { max-width: 860px; margin: 0 auto; text-align: center; }
+  .rd-own h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--navy); margin: 0 0 1rem; }
+  .rd-figs { list-style: none; margin: 1.6rem 0 .4rem; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+  .rd-figs li { border-top: 1px solid var(--copper); padding-top: .6rem; font-size: .85rem; color: #5a6575; }
+  .rd-figs strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.7rem; line-height: 1.1; color: var(--navy); }
+  [dir="rtl"] .rd-figs strong { font-family: 'Amiri', serif; }
+  @media (max-width: 1000px) { .rd-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .rd-why, .rd-work, .rd-steps { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Promoteurs immobiliers | Rahim International">
-<meta name="twitter:description" content="Rahim International aide les promoteurs immobiliers à présenter leurs projets clairement et à atteindre des acheteurs sérieux, au Maroc et à l&#x27;étranger.">
+<meta name="twitter:description" content="Rahim International aide les promoteurs immobiliers et les propriétaires au Maroc à présenter clairement leurs projets et à toucher des acheteurs sérieux au Maroc et à l’étranger.">
 <meta name="twitter:image" content="https://rahiminternational.com/preconstruction-site.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Rahim International","url":"https://rahiminternational.com","email":"contact@rahiminternational.com","telephone":"+212642773249","address":{"@type":"PostalAddress","addressLocality":"Kénitra","addressCountry":"MA"},"description":"Conseil, marketing et courtage immobilier pour acheteurs et promoteurs dans la région Rabat-Salé-Kénitra au Maroc.","inLanguage":"fr"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://rahiminternational.com/fr/index.html"},{"@type":"ListItem","position":2,"name":"Services aux promoteurs","item":"https://rahiminternational.com/fr/services-developers.html"}]}</script>
@@ -148,24 +174,31 @@
     <div class="page-hero-fade" aria-hidden="true"></div>
     <div class="page-hero-pattern" aria-hidden="true"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Promoteurs immobiliers</p>
-      <h1 class="page-hero-title">Vous avez construit un projet sérieux.<br><em>Il mérite d'être vu.</em></h1>
-      <p class="page-hero-sub">Nous aidons les promoteurs à présenter leurs projets clairement et à atteindre des acheteurs sérieux, au Maroc et à l&#x27;étranger.</p>
+      <p class="page-hero-eyebrow">Promoteurs et propriétaires</p>
+      <h1 class="page-hero-title">Vous avez construit un projet sérieux.<br><em>Il mérite d’être vu.</em></h1>
+      <p class="page-hero-sub">Nous aidons les promoteurs et les propriétaires à présenter clairement leurs projets et à toucher des acheteurs sérieux et bien informés, au Maroc et à l’étranger.</p>
     </div>
   </section>
 
-  <!-- STORY -->
+  <!-- VISIBILITY GAP -->
   <section class="rd-story" style="padding:var(--section-pad);">
     <div class="rd-story-inner">
-      <p class="section-eyebrow">Notre approche</p>
-      <h2 class="section-title">Nous avons vu le problème du côté de l&#x27;acheteur.</h2>
-      <p class="rd-p">Avant Rahim International, Ali Rahim a mené pendant quatre mois une recherche d&#x27;appartement à Kénitra pour un proche vivant à l&#x27;étranger. Il a visité plus de quinze biens et s&#x27;est heurté à ce que vivent la plupart des acheteurs : des prix différents selon l&#x27;interlocuteur, des projets sans plans ni prix publiés, des bureaux de vente introuvables, des commerciaux absents aux rendez-vous.</p>
-      <p class="rd-p">Le bon projet a fini par être trouvé : un programme sérieux, bien construit, au juste prix. Pourtant, sa communication se limitait au strict minimum : quelques visuels, peu d&#x27;informations, aucun véritable argumentaire. Un acheteur moins persévérant serait passé à côté.</p>
-      <p class="rd-p">C&#x27;est là qu&#x27;Ali a compris où se situe la vraie difficulté de ce marché : de bons projets n&#x27;atteignent pas les acheteurs qui les achèteraient, faute d&#x27;une présentation à la hauteur. Rahim International aide les promoteurs à combler cet écart.</p>
+      <p class="section-eyebrow">Le manque de visibilité</p>
+      <h2 class="section-title">Les bons projets n’atteignent pas toujours les bons acheteurs.</h2>
+      <p class="rd-p">Au Maroc, de nombreux programmes bien construits, en particulier pendant la phase de chantier, investissent peu dans le marketing digital et ne sont présentés que dans un bureau de vente sur place. Les plans, les prix et les caractéristiques sont rarement publiés, et le projet n’est souvent visible que pour les personnes qui passent devant. Les acheteurs qui vivent à l’étranger ou dans une autre ville ne le découvrent donc jamais, même lorsqu’il offre un excellent rapport qualité-prix.</p><p class="rd-p">Nous avons vécu cette situation du côté de l’acheteur. Le programme qui est devenu notre premier succès n’avait presque aucune présence en ligne et ne pouvait être découvert qu’à son bureau de vente. Une acheteuse qui cherchait depuis le Canada a failli passer à côté, jusqu’à ce que notre fondateur, Ali Rahim, l’analyse en détail et montre qu’il s’agissait de la meilleure option du marché. Cette expérience nous a montré combien de valeur se perd lorsque de bons projets sont mal présentés, et c’est l’une des raisons pour lesquelles Rahim International existe.</p>
       <blockquote class="rd-quote">
-        <p>« Un bon projet ne devrait pas dépendre uniquement du bouche-à-oreille. »</p>
-        <cite>Ali Rahim, fondateur</cite>
+        <p>« Un bon programme ne devrait pas dépendre uniquement du bouche-à-oreille. »</p>
+        <cite>Ali Rahim, Fondateur</cite>
       </blockquote>
+    </div>
+  </section>
+
+  <!-- WHY WORK WITH US -->
+  <section class="rd-sec rd-steel">
+    <div class="rd-inner">
+      <p class="section-eyebrow">Pourquoi travailler avec nous</p>
+      <h2 class="section-title">Ce que nous apportons à votre projet</h2>
+      <ul class="rd-why"><li><strong>Un accès aux acheteurs au Maroc et à l’étranger</strong>Nous travaillons avec des Marocains résidant à l’étranger, des résidents et des investisseurs internationaux, en arabe, en français et en anglais, et présentons votre projet à des acheteurs que vous n’atteindriez pas avec un seul bureau de vente.</li><li><strong>Des acheteurs qualifiés et bien préparés</strong>La plupart des acheteurs nous contactent par notre questionnaire de pré-consultation : nous connaissons donc déjà leur budget, leur financement et leur calendrier avant de leur présenter votre projet.</li><li><strong>La crédibilité par la sélectivité</strong>Nous ne présentons que des projets auxquels nous croyons. Les acheteurs le savent, ce qui donne aux programmes que nous représentons un niveau de confiance que la publicité seule ne peut pas créer.</li><li><strong>Une présence sur le terrain</strong>Nous organisons les visites, répondons aux questions des acheteurs, suivons chaque réservation jusqu’à la signature et restons en contact avec votre équipe commerciale tout au long du processus.</li></ul>
     </div>
   </section>
 
@@ -175,23 +208,42 @@
       <p class="section-eyebrow">Nos services</p>
       <h2 class="section-title">Comment nous vous aidons</h2>
       <div class="rd-groups">
-        <div class="rd-group">
-          <h3>Marketing</h3>
-          <ul>
-          <li><strong>Positionnement :</strong> prix, acheteurs ciblés, points forts face à la concurrence.</li>
-          <li><strong>Présentation :</strong> argumentaire, brochures, fiches et visuels qui donnent envie d&#x27;acheter.</li>
-          <li><strong>Marketing digital :</strong> création de site web, photos professionnelles, publicités sur les réseaux sociaux.</li>
-          </ul>
-        </div>
-        <div class="rd-group">
-          <h3>Commercialisation</h3>
-          <ul>
-          <li><strong>Accès aux acheteurs :</strong> acheteurs locaux, MRE et investisseurs internationaux.</li>
-          <li><strong>Suivi des ventes :</strong> nous répondons aux acheteurs, organisons les visites du projet et suivons chaque réservation jusqu&#x27;à la signature.</li>
-          </ul>
-        </div>
+        <div class="rd-group"><h3>Marketing</h3><ul><li><strong>Positionnement:</strong> prix, acheteurs cibles et points forts par rapport aux projets concurrents.</li><li><strong>Présentation:</strong> arguments de vente, brochures, fiches de lots et visuels qui aident les acheteurs à comprendre le projet.</li><li><strong>Marketing digital:</strong> sites de projet, photographie professionnelle et campagnes sur les réseaux sociaux.</li></ul></div>
+        <div class="rd-group"><h3>Ventes</h3><ul><li><strong>Accès aux acheteurs:</strong> acheteurs locaux, Marocains résidant à l’étranger et investisseurs internationaux.</li><li><strong>Suivi commercial:</strong> nous répondons aux acheteurs, organisons les visites du projet et suivons chaque réservation jusqu’à la signature.</li></ul></div>
       </div>
-      <p class="rd-note">Ces deux services peuvent être confiés ensemble ou séparément.</p>
+      <p class="rd-note">Ces services peuvent être proposés ensemble ou séparément.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK TOGETHER -->
+  <section class="rd-sec rd-light">
+    <div class="rd-inner">
+      <p class="section-eyebrow">Comment nous travaillons ensemble</p>
+      <h2 class="section-title">De la première rencontre aux premières ventes</h2>
+      <ol class="rd-steps"><li><strong>Appel de découverte</strong>Nous échangeons sur votre projet, vos objectifs et la situation actuelle de vos ventes.</li><li><strong>Étude du projet</strong>Nous visitons le site, étudions les plans, les prix et les caractéristiques, et comparons le projet à ses concurrents.</li><li><strong>Positionnement et plan</strong>Nous définissons les acheteurs cibles, les principaux arguments et les actions marketing.</li><li><strong>Supports et campagnes</strong>Nous réalisons les supports de présentation et lançons les campagnes digitales.</li><li><strong>Acheteurs et suivi</strong>Nous présentons le projet à des acheteurs qualifiés et suivons chaque réservation jusqu’à la signature.</li></ol>
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section class="rd-sec rd-steel">
+    <div class="rd-inner rd-work">
+      <img src="../elaf.jpg" alt="Elaf Sky View" loading="lazy" decoding="async">
+      <div>
+        <p class="section-eyebrow">Nos réalisations</p>
+        <h2 class="section-title">Elaf Sky View : un projet que nous avons porté sur le marché</h2>
+        <p class="rd-p">Elaf Sky View est un programme résidentiel situé au centre de Kénitra. Lorsque nous avons commencé à travailler avec le promoteur, le projet n’avait aucun budget marketing. Nous avons pris en charge sa commercialisation : nous avons réalisé des centaines de photographies du projet, créé une page dédiée et un parcours de consultation pour les acheteurs en arabe, en français et en anglais, et suivi chaque demande. Ce travail a généré des centaines de prospects. Aujourd’hui, la construction est achevée et 85 % des lots ont été vendus.</p>
+        <ul class="rd-figs"><li><strong>Des centaines</strong>de prospects</li><li><strong>Des centaines</strong>de photographies</li><li><strong>3</strong>langues</li><li><strong>0 DH</strong>de budget marketing</li></ul>
+        <a class="rd-link" href="elaf-sky-view.html">Voir la page du projet Elaf Sky View →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTY OWNERS -->
+  <section class="rd-sec rd-light">
+    <div class="rd-own">
+      <p class="section-eyebrow">Propriétaires</p>
+      <h3>Vous vendez un appartement, une villa ou un terrain ?</h3>
+      <p class="rd-p">Nous aidons aussi les propriétaires particuliers à vendre leur bien. Nous évaluons sa valeur sur le marché, le présentons clairement à des acheteurs qualifiés, organisons les visites et menons la négociation, afin que vous vendiez au bon prix sans consacrer votre temps aux appels et aux visites.</p>
     </div>
   </section>
 
@@ -202,9 +254,9 @@
   </section>
 
   <section class="contact-section" style="padding:var(--section-pad);" id="contact">
-    <p class="section-eyebrow">Nous contacter</p>
-    <h2 class="section-title" style="color:var(--white);">Dites-nous ce que vous souhaitez<br>acheter ou construire.</h2>
-    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">Que vous compariez des biens, achetiez depuis l'étranger, rentriez au pays ou lanciez un projet immobilier, la prochaine étape dépend de votre situation. Dites-nous ce sur quoi vous travaillez et nous vous répondrons avec le parcours le plus pertinent.</p>
+    <p class="section-eyebrow">Contact</p>
+    <h2 class="section-title" style="color:var(--white);">Parlez-nous de votre projet.</h2>
+    <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.62);max-width:640px;margin-top:.8rem;margin-bottom:3.5rem;">Présentez-nous votre programme ou votre bien, et nous vous répondrons avec une première évaluation et la manière la plus pertinente de travailler ensemble.</p>
     <div class="contact-grid">
       <div>
         <div class="contact-info">
@@ -232,37 +284,26 @@
         </div>
       </div>
       <div>
-        <form data-default-template="3" id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST">
-          <input type="hidden" name="subject" value="Demande depuis RahimInternational.com/fr">
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xojypvlq" method="POST" data-sending="Envoi en cours…" data-success="Message envoyé. Nous vous répondrons très prochainement." data-error="Une erreur s’est produite. Veuillez nous écrire directement à contact@rahiminternational.com.">
+          <input type="hidden" name="subject" value="Demande promoteur ou vendeur (FR), RahimInternational.com">
+          <div data-lead-capture="true" hidden></div>
           <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="first-name">Prénom</label>
-              <input id="first-name" name="first_name" type="text" class="form-input" placeholder="Votre prénom" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">Nom de famille</label>
-              <input id="last-name" name="last_name" type="text" class="form-input" placeholder="Votre nom de famille" required>
-            </div>
+            <div class="form-group"><label class="form-label" for="first-name">Prénom</label><input id="first-name" name="first_name" type="text" class="form-input" required></div>
+            <div class="form-group"><label class="form-label" for="last-name">Nom</label><input id="last-name" name="last_name" type="text" class="form-input" required></div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="email">E-mail</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="votre@email.com" required>
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label" for="email">E-mail</label><input id="email" name="email" type="email" class="form-input" dir="ltr" required></div>
+            <div class="form-group"><label class="form-label" for="phone">Téléphone ou WhatsApp</label><input id="phone" name="phone" type="tel" class="form-input" dir="ltr"></div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="profile">Je suis</label>
-            <select id="profile" name="profile" class="form-select" required>
-              <option value="">Sélectionnez votre profil</option>
-              <option selected>Promoteur immobilier cherchant un partenaire commercial</option>
-              <option>Investisseur international</option>
-              <option>Acheteur de la diaspora marocaine / MRE</option>
-              <option>Résident au Maroc</option>
-              <option>Autre</option>
-            </select>
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label" for="profile">Je suis</label><select id="profile" name="profile" class="form-select" required><option value="">Choisir</option><option>Promoteur immobilier</option><option>Propriétaire particulier</option><option>Autre</option></select></div>
+            <div class="form-group"><label class="form-label" for="ptype">Projet ou bien</label><select id="ptype" name="property_type" class="form-select"><option value="">Choisir</option><option>Programme résidentiel</option><option>Appartement</option><option>Villa ou maison</option><option>Terrain</option><option>Bien commercial ou industriel</option></select></div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Dites-nous ce sur quoi vous travaillez…"></textarea>
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label" for="city">Ville</label><input id="city" name="city" type="text" class="form-input"></div>
+            <div class="form-group"><label class="form-label" for="stage">Stade</label><select id="stage" name="stage" class="form-select"><option value="">Choisir</option><option>En projet</option><option>En construction</option><option>Livré ou prêt à la vente</option></select></div>
           </div>
+          <div class="form-group"><label class="form-label" for="message">Message</label><textarea id="message" name="message" class="form-textarea" placeholder="Parlez-nous de votre projet…"></textarea></div>
           <p id="form-status" class="form-status" aria-live="polite"></p>
           <button type="submit" class="form-submit">Envoyer</button>
         </form>
