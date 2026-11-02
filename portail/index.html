@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202611021200">
+<link rel="stylesheet" href="portail.css?v=202611021400">
 </head>
 <body>
 <header class="pt-bar">
@@ -88,12 +88,9 @@
           <div class="message-from" id="message-from"></div>
         </section>
         <section class="card">
-          <h2>Votre conseiller</h2>
-          <div class="advisor">
-            <div class="avatar">AR</div>
-            <div><div style="font-weight:700;color:var(--navy)">Ali Rahim</div><div class="muted small">Fondateur et conseiller en immobilier, sur place à Kénitra</div></div>
-          </div>
-          <div class="contact-actions"><a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">Écrire sur WhatsApp</a><a class="btn btn-line btn-sm" href="#contact">Contact et mot de passe</a></div>
+          <h2 id="team-title-home">Votre conseiller</h2>
+          <div id="team-home"></div>
+          <div class="contact-actions"><a class="btn btn-gold" id="team-wa-home" href="https://wa.me/212642773249" target="_blank" rel="noopener">Écrire sur WhatsApp</a><a class="btn btn-line btn-sm" href="#contact">Contact et mot de passe</a></div>
         </section>
       </div>
     </div>
@@ -170,13 +167,10 @@
   <div class="view hidden" data-view="contact">
     <div class="grid-2 even">
       <section class="card">
-        <h2>Votre conseiller</h2>
-        <div class="advisor">
-          <div class="avatar">AR</div>
-          <div><div style="font-weight:700;color:var(--navy)">Ali Rahim</div><div class="muted small">Fondateur et conseiller en immobilier, sur place à Kénitra</div></div>
-        </div>
+        <h2 id="team-title-contact">Votre conseiller</h2>
+        <div id="team-contact"></div>
         <div class="contact-actions">
-          <a class="btn btn-gold" href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp · +212 6 42 77 32 49</a>
+          <a class="btn btn-gold" id="team-wa-contact" href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp · +212 6 42 77 32 49</a>
           <a class="btn btn-line" href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a>
         </div>
       </section>
@@ -194,10 +188,10 @@
   </main>
 </div>
 
-<a class="wa-float" href="https://wa.me/212642773249" target="_blank" rel="noopener" aria-label="Écrire à votre conseiller sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1z"/></svg></a>
+<a class="wa-float" id="team-wa-float" href="https://wa.me/212642773249" target="_blank" rel="noopener" aria-label="Écrire à votre conseiller sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1z"/></svg></a>
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202611021200"></script>
+<script src="portail.js?v=202611021400"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -275,7 +269,22 @@
   if (c.message) {
     $('message-card').classList.remove('hidden');
     $('message').textContent = c.message;
-    $('message-from').textContent = 'Ali Rahim' + (c.message_date ? ' · ' + fmtDate(c.message_date) : '');
+    $('message-from').textContent = RI.teamFor(c).advisor.name + (c.message_date ? ' · ' + fmtDate(c.message_date) : '');
+  }
+
+  // ---- équipe du client ----
+  {
+    const team = RI.teamFor(c);
+    const person = (p, label) => `<div class="advisor"><div class="avatar">${esc(RI.initials(p.name))}</div><div>${label ? `<div class="eyebrow" style="margin:0 0 2px">${esc(label)}</div>` : ''}<div style="font-weight:700;color:var(--navy)">${esc(p.name)}</div>${p.role ? `<div class="muted small">${esc(p.role)}</div>` : ''}${p.whatsapp ? `<div class="small"><a href="https://wa.me/${esc(RI.waDigits(p.whatsapp))}" target="_blank" rel="noopener" dir="ltr">WhatsApp · ${esc(p.whatsapp)}</a></div>` : ''}</div></div>`;
+    const html = team.agent ? person(team.advisor, 'Conseil et suivi') + person(team.agent, 'Sur le terrain') : person(team.advisor);
+    $('team-home').innerHTML = html; $('team-contact').innerHTML = html;
+    if (team.agent) { $('team-title-home').textContent = 'Votre équipe'; $('team-title-contact').textContent = 'Votre équipe'; }
+    const wa = RI.waDigits(team.advisor.whatsapp);
+    if (wa) {
+      ['team-wa-home', 'team-wa-contact', 'team-wa-float'].forEach(id => { $(id).href = 'https://wa.me/' + wa; });
+      $('team-wa-home').textContent = team.agent ? 'Écrire à ' + team.advisor.name.split(' ')[0] + ' sur WhatsApp' : 'Écrire sur WhatsApp';
+      $('team-wa-contact').textContent = 'WhatsApp · ' + team.advisor.whatsapp;
+    }
   }
 
   // ---- navigation ----

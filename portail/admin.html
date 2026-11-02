@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202611021200">
+<link rel="stylesheet" href="portail.css?v=202611021400">
 </head>
 <body>
 <header class="pt-bar">
@@ -74,7 +74,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202611021200"></script>
+<script src="portail.js?v=202611021400"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -209,6 +209,7 @@
     const fromReq = prefill && prefill.request;
     c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'essentiel', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: {}, message: '' };
     const steps = stepsFor(c.formule);
+    const team = RI.teamFor(c);
     const opts = Object.entries(FORMULES).map(([k, v]) => '<option value="' + k + '"' + (k === c.formule ? ' selected' : '') + '>' + v.label + '</option>').join('');
     $('detail').innerHTML = `
       <div class="grid">
@@ -220,6 +221,16 @@
             <div><label for="f-email">Courriel du client</label><input type="email" id="f-email" value="${esc(c.email)}" placeholder="client@exemple.com"></div>
             <div><label for="f-formule">Formule</label><select id="f-formule">${opts}</select></div>
             <div><label for="f-city">Ville</label><input type="text" id="f-city" value="${esc(c.city || '')}"></div>
+          </div>
+          <div class="eyebrow" style="margin-top:18px">Équipe du client</div>
+          <p class="muted small" style="margin:4px 0 0">Le conseiller signe le mot du conseiller et reçoit les messages WhatsApp du client. L’agent sur le terrain est facultatif : laissez son nom vide s’il n’y en a pas.</p>
+          <div class="row">
+            <div><label for="t-a-name">Conseiller · nom</label><input type="text" id="t-a-name" value="${esc(team.advisor.name)}"></div>
+            <div><label for="t-a-role">Conseiller · rôle</label><input type="text" id="t-a-role" value="${esc(team.advisor.role)}"></div>
+            <div><label for="t-a-wa">Conseiller · WhatsApp</label><input type="tel" id="t-a-wa" dir="ltr" value="${esc(team.advisor.whatsapp)}" placeholder="+212 6 00 00 00 00"></div>
+            <div><label for="t-g-name">Agent sur le terrain · nom</label><input type="text" id="t-g-name" value="${esc(team.agent ? team.agent.name : '')}" placeholder="Ex. : Ali Rahim"></div>
+            <div><label for="t-g-role">Agent sur le terrain · rôle</label><input type="text" id="t-g-role" value="${esc(team.agent ? team.agent.role : '')}" placeholder="Ex. : Directeur et expert du marché local, Kénitra"></div>
+            <div><label for="t-g-wa">Agent sur le terrain · WhatsApp</label><input type="tel" id="t-g-wa" dir="ltr" value="${esc(team.agent ? team.agent.whatsapp : '')}"></div>
           </div>
           <div class="actions">
             <button class="btn btn-navy" id="save-info" type="button">${isNew ? 'Créer l’espace client' : 'Enregistrer'}</button>
@@ -299,6 +310,10 @@
     $('save-info').onclick = async () => {
       const row = { full_name: $('f-name').value.trim(), email: $('f-email').value.trim(), formule: $('f-formule').value, city: $('f-city').value.trim() || null };
       if (!row.full_name || !row.email) { toast('Nom et courriel obligatoires'); return; }
+      const val = id => $(id).value.trim();
+      if (!val('t-a-name')) { toast('Indiquez le nom du conseiller'); return; }
+      row.team = { advisor: { name: val('t-a-name'), role: val('t-a-role'), whatsapp: val('t-a-wa') } };
+      if (val('t-g-name')) row.team.agent = { name: val('t-g-name'), role: val('t-g-role'), whatsapp: val('t-g-wa') };
       if (!isNew) row.id = c.id;
       try {
         const saved = await API.saveClient(row);
