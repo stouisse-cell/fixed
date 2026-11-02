@@ -2026,3 +2026,7 @@ footer {
 /* Eyebrow underline — stay symmetric */
 [dir="rtl"] .section-eyebrow,
 [dir="rtl"] .page-hero-eyebrow { letter-spacing: 0.15em; }
+
+/* Discreet client portal link in the footer bottom line */
+.footer-portal { color: inherit; opacity: .5; text-decoration: none; margin-inline-start: .8rem; transition: opacity .15s; }
+.footer-portal:hover { opacity: .85; }
