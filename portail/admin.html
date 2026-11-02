@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202611021400">
+<link rel="stylesheet" href="portail.css?v=202611021600">
 </head>
 <body>
 <header class="pt-bar">
@@ -74,7 +74,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202611021400"></script>
+<script src="portail.js?v=202611021600"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -223,7 +223,7 @@
             <div><label for="f-city">Ville</label><input type="text" id="f-city" value="${esc(c.city || '')}"></div>
           </div>
           <div class="eyebrow" style="margin-top:18px">Équipe du client</div>
-          <p class="muted small" style="margin:4px 0 0">Le conseiller signe le mot du conseiller et reçoit les messages WhatsApp du client. L’agent sur le terrain est facultatif : laissez son nom vide s’il n’y en a pas.</p>
+          <p class="muted small" style="margin:4px 0 0">Par défaut : Shireen Touisse (conseillère) et Ali Rahim (sur le terrain). Le conseiller signe le mot du conseiller et reçoit les messages WhatsApp du client. Pour un client sans agent sur le terrain, videz son nom puis enregistrez.</p>
           <div class="row">
             <div><label for="t-a-name">Conseiller · nom</label><input type="text" id="t-a-name" value="${esc(team.advisor.name)}"></div>
             <div><label for="t-a-role">Conseiller · rôle</label><input type="text" id="t-a-role" value="${esc(team.advisor.role)}"></div>

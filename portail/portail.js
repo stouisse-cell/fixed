@@ -128,9 +128,12 @@ window.RI_CONFIG = {
   };
   const roadmapFor = f => ROADMAP[(FORMULES[f] || FORMULES.essentiel).steps];
   // Équipe du client : conseiller (signe le mot du conseiller) et agent sur le terrain (facultatif).
-  const DEFAULT_ADVISOR = { name: 'Ali Rahim', role: 'Fondateur et conseiller en immobilier, sur place à Kénitra', whatsapp: '+212 6 42 77 32 49' };
+  // Équipe par défaut de chaque client ; une équipe enregistrée dans la fiche client la remplace.
+  const DEFAULT_ADVISOR = { name: 'Shireen Touisse', role: 'Conseillère client, Montréal', whatsapp: '+1 780 904 7129' };
+  const DEFAULT_AGENT = { name: 'Ali Rahim', role: 'Directeur et expert du marché local, Kénitra', whatsapp: '+212 6 42 77 32 49' };
   const teamFor = c => {
-    const t = (c && c.team) || {};
+    const t = c && c.team;
+    if (!t) return { advisor: DEFAULT_ADVISOR, agent: DEFAULT_AGENT };
     const clean = p => p && p.name ? { name: p.name, role: p.role || '', whatsapp: p.whatsapp || '' } : null;
     return { advisor: clean(t.advisor) || DEFAULT_ADVISOR, agent: clean(t.agent) };
   };
@@ -464,5 +467,5 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { roadmapFor, teamFor, waDigits, initials, DEFAULT_ADVISOR, FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { roadmapFor, teamFor, waDigits, initials, DEFAULT_ADVISOR, DEFAULT_AGENT, FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();
