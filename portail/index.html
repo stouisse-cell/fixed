@@ -50,8 +50,9 @@
   <div class="card login">
     <div class="eyebrow">Espace client</div>
     <h1>Votre espace est <em>en préparation.</em></h1>
-    <p class="muted small">Aucun dossier n’est encore associé à <strong id="none-email"></strong>. Votre conseiller l’ouvre après la consultation découverte. Si vous pensez qu’il s’agit d’une erreur, contactez-nous.</p>
+    <p class="muted small">Aucun dossier n’est encore associé à <strong id="none-email"></strong>. Votre conseiller l’ouvre après votre consultation. Si vous pensez qu’il s’agit d’une erreur, contactez-nous.</p>
     <a class="btn btn-gold" style="width:100%;margin-top:18px" href="https://wa.me/212642773249" target="_blank" rel="noopener">Nous écrire sur WhatsApp</a>
+    <p class="muted small none-links"><button type="button" class="linkish" id="none-logout">Se déconnecter</button><span aria-hidden="true">·</span><a href="../index.html">Retour au site</a></p>
   </div>
 </section>
 
@@ -204,6 +205,7 @@
   const show = id => ['view-login', 'view-none', 'view-dash'].forEach(v => $(v).classList.toggle('hidden', v !== id));
 
   $('logout').onclick = () => API.signOut();
+  $('none-logout').onclick = () => API.signOut();
   const loginMsg = (ok, msg) => { $('login-ok').classList.add('hidden'); $('login-err').classList.add('hidden'); const el = $(ok ? 'login-ok' : 'login-err'); el.innerHTML = msg; el.classList.remove('hidden'); };
   $('login-form').onsubmit = async e => {
     e.preventDefault();
@@ -219,7 +221,7 @@
     $('link-btn').disabled = true;
     try {
       await API.sendLink(email, location.origin + location.pathname);
-      loginMsg(true, 'Lien envoyé à <strong>' + esc(email) + '</strong>. Ouvrez le courriel le plus récent et cliquez sur le lien (pensez à vos indésirables). Vous pourrez ensuite créer votre mot de passe.');
+      loginMsg(true, 'Si <strong>' + esc(email) + '</strong> correspond à un espace client, un lien vient de vous être envoyé. Ouvrez le courriel le plus récent et cliquez sur le lien (pensez à vos indésirables). Vous pourrez ensuite créer votre mot de passe.');
     } catch (err) {
       loginMsg(false, /rate|seconds|limit/i.test(errMsg(err)) ? 'Trop de demandes de lien en peu de temps. Réessayez dans quelques minutes, ou connectez-vous avec votre mot de passe.' : esc(errMsg(err)));
     }

@@ -208,8 +208,9 @@ window.RI_CONFIG = {
     async sendLink(email, redirect) {
       if (DEMO) return;
       const c = await client();
-      const { error } = await c.auth.signInWithOtp({ email, options: { emailRedirectTo: redirect, shouldCreateUser: true } });
-      if (error) throw error;
+      const { error } = await c.auth.signInWithOtp({ email, options: { emailRedirectTo: redirect, shouldCreateUser: false } });
+      // Only existing accounts get a link; unknown emails get the same neutral reply.
+      if (error && !/signups? not allowed|otp_disabled|user not found/i.test(error.message || '')) throw error;
     },
     async signOut() {
       if (DEMO) { location.href = location.pathname; return; }

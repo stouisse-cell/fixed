@@ -340,3 +340,7 @@ main.app-main { padding: 0; max-width: none; margin: 0; flex: initial; }
 }
 .l-short { display: none; }
 @media (max-width: 860px) { .l-long { display: none; } .l-short { display: inline; } }
+
+.none-links { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 16px; }
+.none-links a, .linkish { color: inherit; background: none; border: 0; padding: 0; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.none-links a:hover, .linkish:hover { color: var(--gold); }
