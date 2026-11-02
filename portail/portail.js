@@ -290,13 +290,13 @@ window.RI_CONFIG = {
     async saveClient(row) {
       row = { ...row }; if (row.email !== undefined) row.email = String(row.email).trim().toLowerCase();
       if (DEMO) {
-        if (!row.id) { row = { id: uid(), current_step: 1, step_dates: { 1: today() }, created_at: today(), message: '', ...row }; demoClients.unshift(row); return row; }
+        if (!row.id) { row = { id: uid(), current_step: 1, step_dates: {}, created_at: today(), message: '', ...row }; demoClients.unshift(row); return row; }
         const i = demoClients.findIndex(x => x.id === row.id); demoClients[i] = { ...demoClients[i], ...row }; return demoClients[i];
       }
       const c = await client();
       if (!row.id) {
         delete row.id;
-        const { data, error } = await c.from('clients').insert({ current_step: 1, step_dates: { 1: today() }, ...row }).select().single();
+        const { data, error } = await c.from('clients').insert({ current_step: 1, step_dates: {}, ...row }).select().single();
         if (error) throw error; return data;
       }
       const { id, created_at, ...rest } = row;

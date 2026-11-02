@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202611020900">
+<link rel="stylesheet" href="portail.css?v=202611021200">
 </head>
 <body>
 <header class="pt-bar">
@@ -74,7 +74,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202611020900"></script>
+<script src="portail.js?v=202611021200"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -230,7 +230,7 @@
         ${isNew ? '' : `
         <div class="card">
           <h2>Étape en cours</h2>
-          <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client. Pour les étapes à venir, la date sert d’estimation (« prévue vers le… » sur sa feuille de route).</p>
+          <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client. Pour les étapes à venir, la date sert d’estimation (« prévue vers le… » sur sa feuille de route). Pour l’étape 1, indiquez la date de la consultation une fois fixée : sans date, le client voit « à planifier ».</p>
           <div id="step-edit">
             ${steps.map((s, i) => `<div class="step-edit"><input type="radio" name="cur" value="${i + 1}" ${c.current_step === i + 1 ? 'checked' : ''} aria-label="${esc(s[0])}"><span class="t">${i + 1}. ${esc(s[0])}</span><input type="date" data-step="${i + 1}" value="${esc((c.step_dates || {})[i + 1] || '')}"></div>`).join('')}
             <div class="step-edit"><input type="radio" name="cur" value="${steps.length + 1}" ${c.current_step > steps.length ? 'checked' : ''}><span class="t">Projet finalisé</span><span></span></div>
@@ -360,7 +360,8 @@
       const cur = +($('step-edit').querySelector('input[name=cur]:checked') || {}).value || 1;
       const dates = {};
       $('step-edit').querySelectorAll('input[type=date]').forEach(i => { if (i.value) dates[i.dataset.step] = i.value; });
-      if (cur <= steps.length && !dates[cur]) dates[cur] = today();
+      // When moving to a later step, date it today unless a date was entered. Step 1 (the consultation) stays « à planifier » until you set its date.
+      if (cur > 1 && cur <= steps.length && cur !== c.current_step && !dates[cur]) dates[cur] = today();
       const msg = $('f-msg').value.trim();
       const row = { id: c.id, current_step: cur, step_dates: dates, message: msg || null, message_date: msg && msg !== (c.message || '') ? today() : (c.message_date || null) };
       const stepChanged = cur !== c.current_step, msgChanged = !!msg && msg !== (c.message || '');

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202611020900">
+<link rel="stylesheet" href="portail.css?v=202611021200">
 </head>
 <body>
 <header class="pt-bar">
@@ -197,7 +197,7 @@
 <a class="wa-float" href="https://wa.me/212642773249" target="_blank" rel="noopener" aria-label="Écrire à votre conseiller sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1z"/></svg></a>
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202611020900"></script>
+<script src="portail.js?v=202611021200"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -268,7 +268,7 @@
   const road = RI.roadmapFor(c.formule);
   const stepCard = (n, label) => {
     if (n > steps.length) return `<div class="nn nn-done"><div class="nn-k">${label}</div><div class="nn-t">Projet finalisé 🎉</div></div>`;
-    return `<div class="nn${label === 'Étape en cours' ? ' nn-cur' : ''}"><div class="nn-k">${label}${dates[n] ? ' · ' + (n < cur ? '' : n === cur ? 'depuis le ' : 'prévue vers le ') + esc(fmtDate(dates[n])) : ''}</div><div class="nn-t">${n}. ${esc(steps[n - 1][0])}</div><div class="nn-d"><strong>Vous :</strong> ${esc(road[n - 1].you)}</div><div class="nn-d"><strong>Vous recevez :</strong> ${esc(road[n - 1].get)}</div></div>`;
+    return `<div class="nn${label === 'Étape en cours' ? ' nn-cur' : ''}"><div class="nn-k">${label}${dates[n] ? ' · ' + (n < cur ? '' : n === cur ? (dates[n] > new Date().toISOString().slice(0, 10) ? 'prévue le ' : 'depuis le ') : 'prévue vers le ') + esc(fmtDate(dates[n])) : (n === cur ? ' · à planifier' : '')}</div><div class="nn-t">${n}. ${esc(steps[n - 1][0])}</div><div class="nn-d"><strong>Vous :</strong> ${esc(road[n - 1].you)}</div><div class="nn-d"><strong>Vous recevez :</strong> ${esc(road[n - 1].get)}</div></div>`;
   };
   $('now-next').innerHTML = cur > steps.length ? stepCard(cur, 'Étape en cours') : stepCard(cur, 'Étape en cours') + (cur < steps.length ? stepCard(cur + 1, 'Étape suivante') : '');
 
@@ -331,7 +331,8 @@
         if (pend.length && st !== 'todo') files += `<a class="road-doc road-todo" href="#visites"><span>✍</span>Confirmer ${pend.length > 1 ? pend.length + ' bons de visite' : 'votre bon de visite'}</a>`;
       }
       if (st === 'current' && piecesState.missing && r.cats.includes('financement')) files += `<a class="road-doc road-todo" href="#pieces"><span>⬆</span>Déposer ${piecesState.missing} pièce${piecesState.missing > 1 ? 's' : ''}</a>`;
-      const when = dates[n] ? (st === 'done' ? 'Terminée · ' : st === 'current' ? 'En cours depuis le ' : 'Prévue vers le ') + fmtDate(dates[n]) : (st === 'done' ? 'Terminée' : st === 'current' ? 'En cours' : 'À venir');
+      const future = dates[n] && dates[n] > new Date().toISOString().slice(0, 10);
+      const when = dates[n] ? (st === 'done' ? 'Terminée · ' : st === 'current' ? (future ? 'Prévue le ' : 'En cours depuis le ') : 'Prévue vers le ') + fmtDate(dates[n]) : (st === 'done' ? 'Terminée' : st === 'current' ? 'À planifier' : 'À venir');
       return `<li class="road-step ${st}">
         <div class="dot">${st === 'done' ? '✓' : n}</div>
         <div class="road-body">
