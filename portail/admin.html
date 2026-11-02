@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202610242011">
+<link rel="stylesheet" href="portail.css?v=202611020900">
 </head>
 <body>
 <header class="pt-bar">
@@ -59,6 +59,10 @@
       <button class="btn btn-gold" style="width:100%" id="new-client" type="button">+ Nouveau client</button>
       <input type="text" id="search" placeholder="Rechercher…" style="margin-top:12px">
       <ul class="client-list" id="client-list"></ul>
+      <div class="adm-sub"><h2 style="margin:0">Demandes</h2></div>
+      <p class="muted small" style="margin:4px 0 0">Questionnaires de préconsultation reçus</p>
+      <ul class="client-list" id="req-list"></ul>
+      <button class="linkish" type="button" id="req-archived" style="margin-top:8px">Afficher les demandes archivées</button>
       <button class="linkish" type="button" id="change-pw-2" style="margin-top:14px">Changer mon mot de passe</button>
     </aside>
 
@@ -70,7 +74,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202610242011"></script>
+<script src="portail.js?v=202611020900"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -113,6 +117,73 @@
   if (API.DEMO) $('demo-note').classList.remove('hidden');
 
   let clients = [], current = null, currentVisits = [];
+  let requests = [], currentReq = null, showArchived = false;
+  const REQ_STATUS = { nouvelle: 'Nouvelle', traitee: 'Dossier créé', archivee: 'Archivée' };
+  const fmtDateTime = d => new Date(d).toLocaleString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  async function refreshRequests(selectId) {
+    try { requests = await API.listRequests(); } catch (e) { requests = []; toast('Demandes : ' + errMsg(e)); }
+    renderReqList();
+    if (selectId) selectRequest(selectId);
+  }
+  function renderReqList() {
+    const list = requests.filter(r => showArchived || r.status !== 'archivee');
+    $('req-list').innerHTML = list.length ? list.map(r =>
+      '<li><button type="button" class="client-item' + (r.status !== 'nouvelle' ? ' req-done' : '') + (currentReq && currentReq.id === r.id ? ' active' : '') + '" data-id="' + esc(r.id) + '"><div class="n">' + esc(r.full_name) + (r.status === 'nouvelle' ? '<span class="req-new">Nouvelle</span>' : '') + '</div><div class="s">' + esc(fmtDateTime(r.created_at)) + ' · ' + esc(REQ_STATUS[r.status] || r.status) + '</div></button></li>'
+    ).join('') : '<li class="muted small" style="padding:8px">Aucune demande.</li>';
+    $('req-list').querySelectorAll('.client-item').forEach(b => b.onclick = () => selectRequest(b.dataset.id));
+    $('req-archived').textContent = showArchived ? 'Masquer les demandes archivées' : 'Afficher les demandes archivées';
+  }
+  $('req-archived').onclick = () => { showArchived = !showArchived; renderReqList(); };
+  function selectRequest(id) {
+    currentReq = requests.find(r => r.id === id) || null; current = null; renderList(); renderReqList();
+    if (currentReq) renderRequest(currentReq);
+  }
+  function renderRequest(r) {
+    const linked = r.client_id && clients.find(c => c.id === r.client_id);
+    const lang = { en: 'Anglais', fr: 'Français', ar: 'Arabe' }[r.lang] || r.lang;
+    const wa = r.whatsapp ? 'https://wa.me/' + r.whatsapp.replace(/\D/g, '') : null;
+    const rows = (r.answers || []).map(x => '<dt>' + esc(String(x.q || '').split(' · ')[0]) + '</dt><dd>' + esc(x.a) + '</dd>').join('');
+    $('detail').innerHTML = `
+      <div class="card">
+        <div class="eyebrow">Questionnaire de préconsultation · ${esc(REQ_STATUS[r.status] || r.status)}</div>
+        <h2>${esc(r.full_name)}</h2>
+        <p class="muted small">Reçu le ${esc(fmtDateTime(r.created_at))} · Langue du client : ${esc(lang)}</p>
+        <dl class="qa">
+          <dt>Courriel</dt><dd>${r.email ? '<a href="mailto:' + esc(r.email) + '">' + esc(r.email) + '</a>' : '—'}</dd>
+          <dt>WhatsApp</dt><dd>${wa ? '<a href="' + esc(wa) + '" target="_blank" rel="noopener">' + esc(r.whatsapp) + '</a>' : '—'}</dd>
+          <dt>Contact préféré</dt><dd>${esc(r.preferred_contact || 'Non précisé')}</dd>
+          <dt>Brochure à envoyer (sous 24 h)</dt><dd>${esc(r.brochure || '—')}</dd>
+        </dl>
+        <div class="actions">
+          ${linked ? '<button class="btn btn-navy" id="req-open" type="button">Ouvrir le dossier client</button>'
+                   : (r.email ? '<button class="btn btn-gold" id="req-create" type="button">Créer le dossier client</button>' : '<span class="muted small">Pas de courriel : contactez le client pour l’obtenir avant de créer son dossier.</span>')}
+          ${r.status === 'archivee' ? '<button class="btn btn-line" id="req-unarchive" type="button">Désarchiver</button>' : '<button class="btn btn-line" id="req-archive" type="button">Archiver</button>'}
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="eyebrow">Réponses</div>
+        ${rows ? '<dl class="qa">' + rows + '</dl>' : '<p class="muted small">Aucune réponse enregistrée.</p>'}
+        <dl class="qa" style="margin-top:16px">
+          <dt>Annonces ou liens partagés</dt><dd style="white-space:pre-wrap;word-break:break-word">${esc(r.links || '—')}</dd>
+          <dt>Autres informations</dt><dd style="white-space:pre-wrap">${esc(r.notes || '—')}</dd>
+        </dl>
+      </div>`;
+    const setStatus = async status => { try { await API.updateRequest(r.id, { status }); toast(status === 'archivee' ? 'Demande archivée' : 'Demande désarchivée'); await refreshRequests(r.id); } catch (e) { toast(errMsg(e)); } };
+    if ($('req-archive')) $('req-archive').onclick = () => setStatus('archivee');
+    if ($('req-unarchive')) $('req-unarchive').onclick = () => setStatus(r.client_id ? 'traitee' : 'nouvelle');
+    if ($('req-open')) $('req-open').onclick = () => { currentReq = null; renderReqList(); select(r.client_id); };
+    if ($('req-create')) $('req-create').onclick = () => {
+      const existing = clients.find(c => c.email === String(r.email).toLowerCase());
+      if (existing) {
+        if (!confirm('Un dossier existe déjà pour ' + r.email + '. Lier ce questionnaire à ce dossier ?')) return;
+        API.updateRequest(r.id, { client_id: existing.id, status: 'traitee' }).then(() => refreshRequests()).then(() => { currentReq = null; select(existing.id); }).catch(e => toast(errMsg(e)));
+        return;
+      }
+      const villes = (r.raw && r.raw.villes) || [];
+      currentReq = null; current = null; renderList(); renderReqList();
+      renderForm(null, { request: r, full_name: r.full_name, email: r.email, city: (Array.isArray(villes) ? villes[0] : villes) || 'Kénitra' });
+    };
+  }
   async function refresh(selectId) {
     try { clients = await API.listClients(); } catch (e) { toast(errMsg(e)); }
     renderList();
@@ -131,11 +202,12 @@
   $('search').oninput = renderList;
   $('new-client').onclick = () => { current = null; renderList(); renderForm(null); };
 
-  function select(id) { current = clients.find(c => c.id === id) || null; renderList(); renderForm(current); }
+  function select(id) { current = clients.find(c => c.id === id) || null; currentReq = null; renderList(); if (requests.length) renderReqList(); renderForm(current); }
 
-  function renderForm(c) {
+  function renderForm(c, prefill) {
     const isNew = !c;
-    c = c || { full_name: '', email: '', formule: 'essentiel', city: 'Kénitra', current_step: 1, step_dates: {}, message: '' };
+    const fromReq = prefill && prefill.request;
+    c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'essentiel', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: {}, message: '' };
     const steps = stepsFor(c.formule);
     const opts = Object.entries(FORMULES).map(([k, v]) => '<option value="' + k + '"' + (k === c.formule ? ' selected' : '') + '>' + v.label + '</option>').join('');
     $('detail').innerHTML = `
@@ -228,9 +300,19 @@
       const row = { full_name: $('f-name').value.trim(), email: $('f-email').value.trim(), formule: $('f-formule').value, city: $('f-city').value.trim() || null };
       if (!row.full_name || !row.email) { toast('Nom et courriel obligatoires'); return; }
       if (!isNew) row.id = c.id;
-      try { const saved = await API.saveClient(row); toast(isNew ? 'Espace client créé' : 'Enregistré'); await refresh(saved.id); } catch (e) { toast(errMsg(e)); }
+      try {
+        const saved = await API.saveClient(row);
+        if (fromReq) { try { await API.updateRequest(fromReq.id, { client_id: saved.id, status: 'traitee' }); } catch (e) { toast('Dossier créé, mais questionnaire non lié : ' + errMsg(e)); } await refreshRequests(); }
+        toast(isNew ? 'Espace client créé' : 'Enregistré'); await refresh(saved.id);
+      } catch (e) { toast(errMsg(e)); }
     };
+    if (fromReq) $('detail').querySelector('.card h2').insertAdjacentHTML('afterend', '<p class="muted small">Pré-rempli à partir du questionnaire reçu le ' + esc(fmtDateTime(fromReq.created_at)) + '. Choisissez la formule, puis créez l’espace.</p>');
     if (isNew) return;
+    const linkedReq = requests.find(r => r.client_id === c.id);
+    if (linkedReq) {
+      $('detail').querySelector('.card h2').insertAdjacentHTML('afterend', '<p class="small"><button class="linkish" type="button" id="open-linked-req">Voir son questionnaire de préconsultation</button></p>');
+      $('open-linked-req').onclick = () => selectRequest(linkedReq.id);
+    }
 
     $('preview').onclick = () => window.open('index.html?client=' + encodeURIComponent(c.id) + (API.DEMO ? '&demo=1' : ''), '_blank');
     let tempPw = null;
@@ -397,6 +479,7 @@
   }
 
   await refresh();
+  await refreshRequests();
 })();
 </script>
 </body>

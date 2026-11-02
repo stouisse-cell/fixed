@@ -344,3 +344,13 @@ main.app-main { padding: 0; max-width: none; margin: 0; flex: initial; }
 .none-links { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 16px; }
 .none-links a, .linkish { color: inherit; background: none; border: 0; padding: 0; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .none-links a:hover, .linkish:hover { color: var(--gold); }
+
+/* Demandes (questionnaires de préconsultation) */
+.adm-sub { margin-top: 22px; display: flex; align-items: center; gap: 8px; }
+.req-new { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; background: var(--gold); color: var(--ink); border-radius: 999px; padding: 2px 8px; margin-inline-start: 6px; vertical-align: middle; }
+.req-done .n { color: var(--muted); }
+.qa { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 0; border-top: 1px solid var(--border); margin-top: 10px; }
+.qa dt, .qa dd { margin: 0; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: .86rem; line-height: 1.5; }
+.qa dt { color: var(--muted); padding-inline-end: 14px; }
+.qa dd { color: var(--navy); font-weight: 600; }
+@media (max-width: 640px) { .qa { grid-template-columns: minmax(0, 1fr); } .qa dt { border-bottom: 0; padding-bottom: 0; } }

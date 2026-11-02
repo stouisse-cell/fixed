@@ -130,6 +130,11 @@ window.RI_CONFIG = {
   const stepsFor = f => STEPS[(FORMULES[f] || FORMULES.essentiel).steps];
 
   // ---------- mode démonstration ----------
+  const demoRequests = [
+    { id: 'req-1', created_at: '2026-10-30T09:12:00Z', lang: 'en', full_name: 'Youssef Amrani', email: 'y.amrani@exemple.com', whatsapp: '+33 6 12 34 56 78', preferred_contact: 'WhatsApp', category: 'Appartement',
+      brochure: 'Brochure Accompagnement A–Z (Clients MRE)', status: 'nouvelle', client_id: null, links: null, notes: 'Disponible pour un appel le soir, heure de Paris.',
+      raw: { villes: ['Kénitra'] }, answers: [{ q: 'Votre projet · Quel est votre projet ?', a: 'Habiter et investir' }, { q: 'Budget · Quel est votre budget maximum ?', a: '900 000 à 1 200 000 DH' }, { q: 'Villes · Dans quelle(s) ville(s) ?', a: 'Kénitra' }, { q: 'Calendrier · Quand souhaitez-vous acheter ?', a: 'Dans les 6 mois' }] },
+  ];
   const demoClients = [
     { id: 'demo-1', email: 'famille.alaoui@exemple.com', full_name: 'Famille Alaoui', formule: 'premium', city: 'Kénitra', current_step: 3, financing: 'credit', fin: { bank: 'Saham Bank', amount: 600000, years: 20, rate: 4.6, stage: 3, daam: 'na', note: 'Dossier déposé le 22 octobre. Réponse de principe attendue sous 10 jours ouvrables.' },
       step_dates: { 1: '2026-09-28', 2: '2026-10-09', 3: '2026-10-21' },
@@ -259,6 +264,20 @@ window.RI_CONFIG = {
       const { data, error } = await c.storage.from(cfg.BUCKET).createSignedUrl(doc.storage_path, 3600);
       if (error) throw error;
       return data.signedUrl;
+    },
+    // ---- questionnaires de préconsultation ----
+    async listRequests() {
+      if (DEMO) return [...demoRequests];
+      const c = await client();
+      const { data, error } = await c.from('preconsultations').select('*').order('created_at', { ascending: false }).limit(500);
+      if (error) throw error;
+      return data;
+    },
+    async updateRequest(id, patch) {
+      if (DEMO) { const r = demoRequests.find(x => x.id === id); Object.assign(r, patch); return r; }
+      const c = await client();
+      const { data, error } = await c.from('preconsultations').update(patch).eq('id', id).select().single();
+      if (error) throw error; return data;
     },
     // ---- admin ----
     async listClients() {
