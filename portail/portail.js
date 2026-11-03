@@ -129,7 +129,7 @@ window.RI_CONFIG = {
   const roadmapFor = f => ROADMAP[(FORMULES[f] || FORMULES.essentiel).steps];
   // Équipe du client : conseiller (signe le mot du conseiller) et agent sur le terrain (facultatif).
   // Équipe par défaut de chaque client ; une équipe enregistrée dans la fiche client la remplace.
-  const DEFAULT_ADVISOR = { name: 'Shireen Touisse', role: 'Analyste de marché et consultante MRE, Montréal', whatsapp: '+1 780 904 7129' };
+  const DEFAULT_ADVISOR = { name: 'Shireen Touisse', role: 'Analyste de marché et consultante MRE', whatsapp: '+1 780 904 7129' };
   const DEFAULT_AGENT = { name: 'Ali Rahim', role: 'Directeur et expert du marché local, Kénitra', whatsapp: '+212 6 42 77 32 49' };
   const teamFor = c => {
     const t = c && c.team;
