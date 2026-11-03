@@ -330,9 +330,9 @@ body{font-family:'Didact Gothic',sans-serif;background:#06111f}
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li class="language-switcher"><a href="consultation.html" class="active">EN</a><a href="fr/consultation.html">FR</a><a href="ar/consultation.html">AR</a></li>
-    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Pre-Consultation Questionnaire</a></li>
+    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Get Your Plan</a></li>
   </ul>
-  <a href="consultation.html" class="nav-cta">Pre-Consultation Questionnaire</a>
+  <a href="consultation.html" class="nav-cta">Get Your Plan</a>
 </nav>
 
 <!-- ── INTRO ── -->
@@ -523,14 +523,18 @@ body{font-family:'Didact Gothic',sans-serif;background:#06111f}
     document.querySelectorAll('.ob-screen').forEach(function(s){ s.classList.remove('active'); });
     $(id).classList.add('active'); $('ob-body').scrollTop = 0;
   }
+  // Google Analytics: start, furthest question reached and contact screen, to see where visitors stop.
+  var furthest = -1, sentContact = false;
+  function track(name, params){ try { if (typeof gtag === 'function') gtag('event', name, Object.assign({ form_lang: LANG }, params || {})); } catch (e) {} }
   function render(){
     var n = steps.length + 1, cur = inContact ? n : idx + 1, dots = '';
     for (var i = 1; i <= n; i++) dots += '<span class="ob-dot' + (i < cur ? ' done' : i === cur ? ' active' : '') + '"></span>';
     $('ob-dots').innerHTML = dots;
     $('ob-step-txt').textContent = T.step.replace('{n}', cur).replace('{N}', n);
     $('ob-back').style.visibility = cur > 1 ? 'visible' : 'hidden';
-    if (inContact){ show('screen-contact'); $('ob-next').hidden = true; return; }
+    if (inContact){ show('screen-contact'); $('ob-next').hidden = true; if (!sentContact){ sentContact = true; track('questionnaire_contact', { step_number: n }); } return; }
     var q = steps[idx]; show('screen-' + q.k);
+    if (idx > furthest){ furthest = idx; track('questionnaire_step', { step_key: q.k, step_number: idx + 1 }); }
     if (q.type === 'groups'){
       var chosen = asList(A.villes);
       $('screen-' + q.k).querySelectorAll('.ob-group').forEach(function(gEl){ gEl.hidden = chosen.indexOf(gEl.dataset.city) < 0; });
@@ -557,7 +561,7 @@ body{font-family:'Didact Gothic',sans-serif;background:#06111f}
   });
   $('start-btn').addEventListener('click', function(){
     $('gate').classList.add('off'); $('ob').classList.add('active');
-    computeSteps(); idx = 0; render();
+    computeSteps(); idx = 0; track('questionnaire_start'); render();
   });
   document.querySelectorAll('#pref-cards .ob-card').forEach(function(b){
     b.addEventListener('click', function(){
