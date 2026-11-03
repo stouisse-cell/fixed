@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202611031100">
+<link rel="stylesheet" href="portail.css?v=202611031200">
 </head>
 <body>
 <header class="pt-bar">
@@ -74,7 +74,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202611031100"></script>
+<script src="portail.js?v=202611031200"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -229,7 +229,7 @@
             <div><label for="t-a-role">Conseiller · rôle</label><input type="text" id="t-a-role" value="${esc(team.advisor.role)}"></div>
             <div><label for="t-a-wa">Conseiller · WhatsApp</label><input type="tel" id="t-a-wa" dir="ltr" value="${esc(team.advisor.whatsapp)}" placeholder="+212 6 00 00 00 00"></div>
             <div><label for="t-g-name">Agent sur le terrain · nom</label><input type="text" id="t-g-name" value="${esc(team.agent ? team.agent.name : '')}" placeholder="Ex. : Ali Rahim"></div>
-            <div><label for="t-g-role">Agent sur le terrain · rôle</label><input type="text" id="t-g-role" value="${esc(team.agent ? team.agent.role : '')}" placeholder="Ex. : Directeur et expert du marché local, Kénitra"></div>
+            <div><label for="t-g-role">Agent sur le terrain · rôle</label><input type="text" id="t-g-role" value="${esc(team.agent ? team.agent.role : '')}" placeholder="Ex. : Fondateur · Consultant en acquisitions et opérations immobilières"></div>
             <div><label for="t-g-wa">Agent sur le terrain · WhatsApp</label><input type="tel" id="t-g-wa" dir="ltr" value="${esc(team.agent ? team.agent.whatsapp : '')}"></div>
           </div>
           <div class="actions">
