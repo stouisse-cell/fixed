@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portail.css?v=202611031200">
+<link rel="stylesheet" href="portail.css?v=202611031500">
 </head>
 <body>
 <header class="pt-bar">
@@ -74,7 +74,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202611031200"></script>
+<script src="portail.js?v=202611031500"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -142,7 +142,16 @@
     const linked = r.client_id && clients.find(c => c.id === r.client_id);
     const lang = { en: 'Anglais', fr: 'Français', ar: 'Arabe' }[r.lang] || r.lang;
     const wa = r.whatsapp ? 'https://wa.me/' + r.whatsapp.replace(/\D/g, '') : null;
-    const rows = (r.answers || []).map(x => '<dt>' + esc(String(x.q || '').split(' · ')[0]) + '</dt><dd>' + esc(x.a) + '</dd>').join('');
+    // Each answer is stored as « Section · Question » : show the question, grouped under its section.
+    let lastSec = null;
+    const rows = (r.answers || []).map(x => {
+      const parts = String(x.q || '').split(' · ');
+      const sec = parts.length > 1 ? parts[0] : '';
+      const q = parts.length > 1 ? parts.slice(1).join(' · ') : parts[0];
+      const head = sec && sec !== lastSec ? '<div class="qa-sec">' + esc(sec) + '</div>' : '';
+      lastSec = sec || lastSec;
+      return head + '<dt>' + esc(q) + '</dt><dd>' + esc(x.a) + '</dd>';
+    }).join('');
     $('detail').innerHTML = `
       <div class="card">
         <div class="eyebrow">Questionnaire de préconsultation · ${esc(REQ_STATUS[r.status] || r.status)}</div>

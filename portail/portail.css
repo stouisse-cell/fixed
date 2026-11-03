@@ -354,3 +354,5 @@ main.app-main { padding: 0; max-width: none; margin: 0; flex: initial; }
 .qa dt { color: var(--muted); padding-inline-end: 14px; }
 .qa dd { color: var(--navy); font-weight: 600; }
 @media (max-width: 640px) { .qa { grid-template-columns: minmax(0, 1fr); } .qa dt { border-bottom: 0; padding-bottom: 0; } }
+.qa-sec { grid-column: 1 / -1; margin-top: 14px; padding: 6px 0 4px; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep, #8A6A2F); border-bottom: 1px solid var(--border); }
+.qa .qa-sec:first-child { margin-top: 0; }
