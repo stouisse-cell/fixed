@@ -118,6 +118,48 @@
   .rb-diff strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.25; color: var(--navy); margin-bottom: .5rem; }
   [dir="rtl"] .rb-diff strong { font-family: 'Amiri', serif; }
   @media (max-width: 760px) { .rb-diff { grid-template-columns: minmax(0, 1fr); } }
+
+  /* residents page: stories, comparison, start */
+  .rb-lead { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; line-height: 1.4; color: var(--navy); max-width: 780px; margin: -0.6rem 0 1.2rem; }
+  [dir="rtl"] .rb-lead { font-family: 'Amiri', serif; }
+  .rb-p { font-size: 1.02rem; line-height: 1.85; color: #3d4a5c; max-width: 780px; margin: 0 0 1rem; }
+  .rb-stories { list-style: none; margin: 2.4rem 0 0; padding: 0; display: grid; gap: 2rem; }
+  .rb-stories li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 1.2rem; padding-top: 2rem; border-top: 1px solid rgba(8,26,51,.12); }
+  .rb-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; line-height: 1; color: var(--copper); }
+  .rb-stories h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.65rem; line-height: 1.25; color: var(--navy); margin: 0 0 .8rem; }
+  [dir="rtl"] .rb-num, [dir="rtl"] .rb-stories h3 { font-family: 'Amiri', serif; }
+  .rb-stories p { margin: 0 0 .9rem; font-size: 1rem; line-height: 1.85; color: #3d4a5c; max-width: 760px; }
+  .rb-stories p:last-child { margin-bottom: 0; }
+  .rb-stories p.rb-takeaway { margin-top: 1rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; line-height: 1.5; color: var(--copper-dark, #87452c); }
+  [dir="rtl"] .rb-stories p.rb-takeaway { font-family: 'Amiri', serif; font-style: normal; }
+  .rb-h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; line-height: 1.3; color: var(--navy); margin: 2.4rem 0 1rem; }
+  [dir="rtl"] .rb-h3 { font-family: 'Amiri', serif; }
+  .rb-story-link { display: inline-block; margin-top: .4rem; color: var(--copper-dark, #87452c); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  [dir="rtl"] .rb-story-link { letter-spacing: 0; font-size: .95rem; }
+  .rb-compare { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+  .rb-compare li { background: #fff; border: 1px solid #e3dccd; padding: 1.5rem 1.6rem; font-size: 1rem; line-height: 1.8; color: #3d4a5c; }
+  .rb-compare strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.3rem; line-height: 1.25; color: var(--navy); margin-bottom: .5rem; }
+  [dir="rtl"] .rb-compare strong { font-family: 'Amiri', serif; }
+  .rb-compare li.rb-us { background: var(--navy); border-color: var(--navy); color: rgba(255,255,255,.82); }
+  .rb-compare li.rb-us strong { color: var(--gold); }
+  /* residents page: section colour variants */
+  .rb-dark .rb-p { color: rgba(255,255,255,.8); }
+  .rb-dark .rb-lead, .rb-dark .rb-h3 { color: var(--white); }
+  .rb-dark .rb-story-link { color: var(--gold); }
+  .rb-dark .rb-compare { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+  .rb-dark .rb-compare li, .rb-dark .rb-diff li { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.8); font-size: 1rem; line-height: 1.8; padding: 1.5rem 1.6rem; }
+  .rb-dark .rb-diff li { border-top: 2px solid var(--copper); }
+  .rb-dark .rb-compare strong, .rb-dark .rb-diff strong { color: var(--white); }
+  .rb-dark .rb-compare li.rb-us { background: rgba(201,169,97,.1); border-color: var(--gold); }
+  .rb-dark .rb-compare li.rb-us strong { color: var(--gold); }
+  @media (max-width: 680px) { .rb-dark .rb-compare { grid-template-columns: minmax(0, 1fr); } }
+  .rb-steel .rb-intro { color: #3d4a5c; }
+  .rb-steel .rb-svc li { color: #3d4a5c; }
+  .rb-steel .rb-svc strong { color: var(--navy); }
+  .rb-start { margin-top: 1.6rem; }
+  .rb-start-cta { margin-top: 2.2rem; }
+  @media (max-width: 900px) { .rb-compare { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 680px) { .rb-stories li { grid-template-columns: minmax(0, 1fr); gap: .5rem; } .rb-num { font-size: 2.2rem; } .rb-compare { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="المستثمرون المحليون | Rahim International">
@@ -192,8 +234,8 @@
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">المقيمون في المغرب</p>
       <h1 class="page-hero-title">العقار المناسب،<br><em>بالسعر المناسب.</em></h1>
-      <p class="page-hero-sub">أول مسكن، أو انتقال، أو استثمار: نقارن السوق، ونتحقق من التفاصيل، ونتفاوض معك، حتى لا تضيع عطل نهاية الأسبوع في الزيارات والتخمين.</p>
-      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">استبيان ما قبل الاستشارة</a><span class="page-hero-note">من 5 إلى 10 دقائق · دون التزام</span></div>
+      <p class="page-hero-sub">شقة أو فيلا أو محل تجاري أو أرض؛ شراء أول أو سكن عائلي أو استثمار للكراء: نساعدك على مقارنة الفرص، وفهم أسعار السوق، واختيار عقار يناسب أهدافك وميزانيتك. من البحث إلى التفاوض، ثم التمويل والتوقيع، تستفيد من مرافقة عقارية تقوم على معرفة الميدان والتحليل والاستشارة.</p>
+      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">حدّثنا عن مشروعك</a><span class="page-hero-note">من 5 إلى 10 دقائق · دون التزام</span></div>
     </div>
   </section>
 
@@ -201,8 +243,42 @@
   <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">هل يبدو لك هذا مألوفاً؟</h2>
-      <ul class="rb-pains"><li><strong>كل عطل نهاية الأسبوع تضيع</strong>زيارات ومكالمات ومقارنات، سبتاً بعد سبت، دون أن تعرف إن كنت تقترب من هدفك.</li><li><strong>أسعار لا تستقر</strong>إعلانات بلا أسعار، ووسطاء يأخذون نصيبهم، وسعر يتغير من مكالمة إلى أخرى.</li><li><strong>الوقت يمضي</strong>الكراء يرتفع، والأسعار كذلك، ودعم السكن لن يدوم إلى الأبد.</li></ul>
-      <p class="rb-close">نقارن ونتحقق نيابة عنك، حتى لا تزور إلا ما يستحق وقتك.</p>
+      <p class="rb-lead">شراء عقار يبدو أمراً بسيطاً، إلى أن تبدأ الإجراءات فعلاً.</p>
+      <p class="rb-p">لديك فكرة عن ميزانيتك، وبعض الأحياء التي تجذبك، ورغبة في التملّك أو الاستثمار. أنت تقيم هنا وتعرف المدينة، وتظن أنه يكفي أن تتصفح الإعلانات وتزور بعض العقارات وتختار ما يعجبك. لكن بين أول بحث وتسلّم المفاتيح، تحمل كل مرحلة نصيبها من الأسئلة والتحققات والقرارات. وهذا ما يبدو عليه هذا المسار في كثير من الأحيان.</p>
+      <ol class="rb-stories">
+        <li><span class="rb-num">01</span><div><h3>كل شيء يبدأ بالإعلانات.</h3><p>مثل كثير من المشترين، تبدأ بتصفّح الإعلانات، وحفظ ما يعجبك منها، وأخذ بعض المواعيد. أنت تعرف مسبقاً إن كنت تريد السكن في العقار أو كراءه، لكن سؤالاً أهم يبقى في الغالب دون جواب: لكم من الوقت؟ هل هو مسكن العمر كله، أم شراء أول ستبيعه بعد خمس أو عشر أو خمس عشرة سنة حين تكبر العائلة؟ فالجواب يغيّر الحي الذي ينبغي تفضيله، ونوع العقار، ومساحته، وقبل كل شيء مدى سهولة بيعه أو كرائه حين يحين الوقت. ودون دراسة للسوق، يصعب أيضاً أن تعرف أي الأحياء تناسب ميزانيتك وهذا المشروع معاً، وأيها في طور النمو وأيها راكد.</p><p class="rb-takeaway">دون استراتيجية محددة منذ البداية، يبدو كل إعلان فرصة.</p></div></li>
+        <li><span class="rb-num">02</span><div><h3>عمل تحقيق حقيقي.</h3><p>خلال الأسابيع الأولى، تخصّص أمسياتك وعطل نهاية الأسبوع للبحث: تتصفح الإعلانات، وتتصل بالباعة، وتزور مكاتب البيع. وسرعان ما تلاحظ أن الإعلانات نادراً ما تقدّم كل المعلومات اللازمة. فالسعر «ابتداءً من» لا يخص إلا أصغر شقة في العمارة، والصور لا تطابق العقار دائماً، وبعض العقارات بيعت بينما يبقى إعلانها منشوراً، و«الراقي» و«الموقع الاستراتيجي» لا يصمدان دائماً أمام الزيارة. وحين تتصل لتعرف السعر أو العنوان أو بعض التفاصيل، يكون الجواب في الغالب واحداً: «يجب أن تأتي لترى».</p><p>كما تتفاوت الأسعار بشكل كبير، أحياناً في الشارع نفسه. ودون قاعدة بيانات عمومية لأسعار البيع الحقيقية، عليك أن تكثّر الزيارات وتسأل المهنيين وتقارن المعلومات بنفسك لتفهم السوق.</p><p class="rb-takeaway">ما بدا بحثاً بسيطاً يصبح عملاً ميدانياً حقيقياً.</p></div></li>
+        <li><span class="rb-num">03</span><div><h3>عقار واحد ووسطاء كثيرون.</h3><p>مع تقدّم بحثك، تجد العقار نفسه في عدة إعلانات، أحياناً بأسعار مختلفة. وكل وسيط يؤكد أنه على اتصال مباشر بالمالك ويريد عمولته. فلا تعود تعرف حقاً من يمثّل البائع، ولا ما كان السعر المطلوب في الأصل، ولا كم شخصاً يقف بينك وبين المالك.</p><p class="rb-takeaway">يصعب أن تعرف مع من تتعامل فعلاً، وكم ستدفع في النهاية.</p></div></li>
+        <li><span class="rb-num">04</span><div><h3>ما لا تُظهره الزيارة.</h3><p>بعض الزيارات تلفت انتباهك أخيراً. في عين المكان، تلاحظ خاصة المساحات والإضاءة والتشطيبات. لكن العزل وعدم تسرّب المياه وجودة التجهيزات وحالة الأجزاء المشتركة لا تظهر من النظرة الأولى. فأي وثائق ينبغي طلبها، وأي عيوب ينبغي البحث عنها، وكيف تتحقق من موثوقية المنعش العقاري ومشاريعه السابقة واحترامه لآجال التسليم؟ هذه المعلومات لا توجد في أي كتيّب.</p><p class="rb-takeaway">الزيارة الجيدة لا تكفي للحكم على الجودة الحقيقية للعقار. لا بد من معرفة ما ينبغي التحقق منه، وكيف.</p></div></li>
+        <li><span class="rb-num">05</span><div><h3>كيف تختار بين أفضل خياراتك؟</h3><p>بعد عدة أسابيع، يبقى أمامك ثلاثة عقارات: أحدها أكبر، والثاني أفضل موقعاً، والثالث أرخص. أيها يناسب مشروعك أكثر، وأيها سيحافظ على قيمته أكثر بعد خمس أو عشر سنوات؟ كل مندوب مبيعات يؤكد لك أن عقاره استثمار ممتاز، بكراء مغرٍ وقيمة مضافة كبيرة، لكن لا أحد منهم يقدّم لك الأرقام التي تثبت ذلك.</p><p>وبينما تحاول المقارنة، يزداد الضغط: «لم يتبقّ إلا واحد»، «هناك مشترٍ آخر مهتم»، «سيرتفع السعر الأسبوع المقبل».</p><p class="rb-takeaway">تحتاج إلى وقت لتحليل خياراتك، لكنهم يدفعونك إلى القرار قبل أن تتوفر لديك كل المعلومات.</p></div></li>
+        <li><span class="rb-num">06</span><div><h3>عليك أن تتفاوض.</h3><p>لقد اخترت، وعليك الآن أن تتفاوض. لكن على أي أساس؟ فأسعار المعاملات الحقيقية يصعب معرفتها، والباعة نادراً ما يبرّرون أسعارهم بمقارنات، فيصعب أن تعرف إن كان السعر المطلوب معقولاً، وأي عرض تقدّم، وأي شروط تطلب.</p><p>وقد يظهر أيضاً طلب جديد في منتصف الطريق: يريد البائع أن يُدفع جزء من الثمن نقداً دون أن يُذكر في عقد البيع، ويؤكد لك أن «هكذا تجري الأمور».</p><p class="rb-takeaway">عليك أن تدافع عن مصالحك في تفاوض لا تملك فيه بالضرورة المعلومات نفسها ولا الخبرة نفسها التي يملكها الطرف الآخر.</p></div></li>
+        <li><span class="rb-num">07</span><div><h3>التمويل على عجل.</h3><p>توصّلت إلى اتفاق، لكن تمويلك لم يتأكد بعد. عليك أن تُعدّ الملف البنكي، وتجمع الوثائق المطلوبة، وتقارن عروض القروض، وتحسب مصاريف الاقتناء، وعند الاقتضاء تُعدّ طلب دعم السكن. وفي هذه الأثناء، ينتظر البائع جوابك وقد يواصل النقاش مع مشترين آخرين.</p><p class="rb-takeaway">وجدت العقار المناسب، لكن ملفك ليس جاهزاً لشرائه.</p></div></li>
+        <li><span class="rb-num">08</span><div><h3>ولم ينته الأمر بعد.</h3><p>تم الاتفاق على الثمن والتمويل يتقدّم. لكن ما زال عليك التحقق من الوثائق، والتواصل مع الموثق والبنك، وإتمام الإجراءات الإدارية، واحترام الآجال، وتنظيم التوقيعات. وإن كنت تشتري على التصميم، فسيكون عليك أيضاً متابعة الورش والتزامات المنعش العقاري حتى التسليم، أحياناً لعدة سنوات.</p></div></li>
+      </ol>
+      <p class="rb-close">ظننت أنك تشتري عقاراً، فوجدت نفسك تدير مشروعاً عقارياً كاملاً.</p>
+    </div>
+  </section>
+
+  <!-- WHAT IF -->
+  <section class="rb-sec rb-dark">
+    <div class="rb-inner">
+      <h2 class="section-title">ماذا لو كان كل هذا العمل منظّماً منذ البداية؟</h2>
+      <p class="rb-p">مشروع محدّد حسب أهدافك وميزانيتك. بحث موجّه، وعقارات منتقاة مسبقاً، وأسعار مدروسة، وفرص مقارنة. تمويل مُعدّ مسبقاً، وتفاوض مُحضّر، وإجراءات منسّقة حتى تسلّم المفاتيح.</p>
+      <h3 class="rb-h3">هذا هو دور Rahim International.</h3>
+      <p class="rb-p">نجمع بين الاستشارة الاستراتيجية والبحث العقاري وتحليل السوق ومرافقة الاقتناء، لنساعدك على التقدّم بمنهجية، من أول فكرة إلى تحقيق مشروعك.</p>
+      <a class="rb-story-link" href="about.html#our-story">اكتشف قصتنا →</a>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="rb-sec rb-light">
+    <div class="rb-inner">
+      <h2 class="section-title">لماذا تتعامل مع Rahim International؟</h2>
+      <p class="rb-lead">الشراء وحدك، أو مباشرة من المنعش العقاري، أو عبر وكالة: ما الفرق؟</p>
+      <p class="rb-p">لكل طريقة مزاياها. ويتوقف الأمر على معرفتك بالسوق، والوقت المتاح لك، ومستوى المرافقة الذي تحتاجه.</p>
+      <ul class="rb-compare"><li><strong>الشراء وحدك</strong>تتولى بنفسك البحث والزيارات والمقارنات والتفاوض والإجراءات.</li><li><strong>التوجه مباشرة إلى المنعش العقاري</strong>تحصل على معلومات عن مشروعه، لكن مقارنته بالمشاريع الأخرى تبقى على عاتقك.</li><li><strong>المرور عبر وكالة تقليدية</strong>تطّلع على العقارات التي تعرضها الوكالة، وتستفيد من وسيط في المعاملة.</li><li class="rb-us"><strong>التعامل مع Rahim International</strong>تستفيد من بحث منظّم، ومقارنات للسوق، واستشارة تناسب أهدافك، حسب الباقة التي تختارها.</li></ul>
+      <h3 class="rb-h3">ما يميّزنا: الاستشارة جزء من البحث.</h3>
+      <ul class="rb-diff"><li><strong>ننطلق من مشروعك.</strong>نحرص على فهم ما تريد تحقيقه فعلاً قبل أن نقترح عليك أي عقار.</li><li><strong>نقارن البدائل.</strong>لا يُقيَّم العقار بمساحته أو تشطيباته فقط. ندرس محيطه وسعره وخصائصه ومدى ملاءمته لأهدافك.</li><li><strong>نقوم بالبحث في الميدان.</strong>نجمع المعلومات مباشرة من الباعة والمنعشين العقاريين، ونزور العقارات، ونحدد النقاط التي تحتاج إلى تحقق إضافي.</li><li><strong>نكيّف المرافقة مع احتياجاتك.</strong>بعض المشترين يريدون فقط إيجاد عقار والربط مع البائع. وآخرون يفضّلون مرافقة أشمل، خاصة في التمويل ودعم السكن والإجراءات حتى التوقيع.</li></ul>
     </div>
   </section>
 
@@ -211,24 +287,18 @@
     <div class="rb-inner">
       <h2 class="section-title">كيف نساعدك</h2>
       <p class="rb-intro">حسب الباقة التي تختارها، تشمل مرافقتنا:</p>
-      <ul class="rb-svc"><li><strong>استشارة استراتيجية</strong>المشروع المناسب والميزانية والأحياء، مقارنة بواقع السوق.</li><li><strong>مقارنة المشاريع</strong>الموقع والتشطيبات والسعر والمنعش العقاري، جنباً إلى جنب، جديداً ومستعملاً.</li><li><strong>زيارات معاً</strong>نختار أفضل الخيارات ونزورها معك، مع تقرير مكتوب لكل زيارة.</li><li><strong>تحليل المردودية</strong>كراء واقعي، والطلب على الكراء، والمصاريف، وإمكانية إعادة البيع، إن كنت تستثمر.</li><li><strong>التمويل</strong>القدرة على الاقتراض، والأهلية لدعم السكن، واختيار البنك.</li><li><strong>التفاوض وحتى المفاتيح</strong>السعر، والوعد بالبيع، والموثق، والتوقيع، وتسليم المفاتيح.</li></ul>
-    </div>
-  </section>
-
-  <!-- DIFFERENT FROM AN AGENCY -->
-  <section class="rb-sec rb-steel">
-    <div class="rb-inner">
-      <h2 class="section-title">ما الذي يميّزنا عن الوكالة التقليدية</h2>
-      <ul class="rb-diff"><li><strong>ننطلق من مشروعك، لا من قائمة عقارات.</strong>تعرض الوكالة التقليدية العقارات التي كُلّفت ببيعها. أما نحن فننطلق من أهدافك وميزانيتك، ثم نبحث في السوق كله، بما في ذلك مشاريع جديدة غير معلن عنها على الإنترنت وعقارات مستعملة من مصادر متعددة.</li><li><strong>نحلّل ونقارن ونوصي.</strong>غالباً ما ينتهي دور الوكالة عند ربطك بالبائع. أما نحن فندرس أسعار الحي، ونتحقق من البناء ومن سجل المنعش العقاري، ونقارن الخيارات، ونخبرك بوضوح بالخيار الذي كنا سنختاره ولماذا.</li><li><strong>نأخذ الوقت الذي لا تملكه.</strong>نبحث ونقارن ونتحقق نيابة عنك، حتى لا تزور إلا العقارات التي تستحق وقتك، وفي حالة الشراء على التصميم نتابع الورش حتى التسليم.</li><li><strong>نبقى إلى جانبك حتى المفاتيح.</strong>ننسّق لك التمويل ودعم السكن والموثق والتوقيع، ويُبقيك نظام التواصل لدينا على اطلاع في كل خطوة، سواء كنت في المغرب أو في الخارج.</li></ul>
+      <ul class="rb-svc"><li><strong>الاستشارة واستراتيجية الاقتناء</strong>نحدد معك أهدافك وأولوياتك وميزانيتك والمناطق التي ينبغي التركيز عليها، مع مراعاة واقع السوق.</li><li><strong>البحث العقاري والانتقاء</strong>نرصد العقارات التي تطابق معاييرك لدى المنعشين العقاريين والملاك وغيرهم من مهنيي السوق.</li><li><strong>التحليل والمقارنة</strong>ندرس أسعار المتر المربع، والمواقع، وخصائص البناء، والعروض المماثلة، لنساعدك على تقييم كل فرصة.</li><li><strong>التمويل ودعم السكن</strong>نساعدك على إعداد ملفك البنكي، وتقدير أقساطك الشهرية، وفهم شروط الاستفادة من دعم السكن.</li><li><strong>التفاوض</strong>نقارن الأسعار ونتفاوض على شروط البيع وفق الأهداف والحدود المتفق عليها معك.</li><li><strong>المرافقة حتى المفاتيح</strong>حسب باقتك، ننسّق الإجراءات مع البنك والموثق وباقي المتدخلين، ونتابع الاقتناء حتى إتمامه.</li></ul>
     </div>
   </section>
 
   <!-- HOW IT STARTS -->
-  <section class="rb-sec rb-light">
+  <section class="rb-sec rb-steel">
     <div class="rb-inner">
-      <h2 class="section-title">كيف تبدأ</h2>
-      <ol class="rb-steps rb-flow"><li><strong>حدّثنا عن مشروعك</strong>استبيان ما قبل الاستشارة: أهدافك وميزانيتك والعقار الذي تبحث عنه.<span class="rb-meta">من 5 إلى 10 دقائق</span></li><li><strong>خطتك الأولية</strong>اتجاه البحث والأولويات وتقييم أول لميزانيتك مقارنة بالسوق.<span class="rb-meta">خلال 72 ساعة</span></li><li><strong>استشارة مجانية</strong>نراجع الخطة معاً ونحسّنها.<span class="rb-meta">حضورياً أو عبر الهاتف أو الفيديو</span></li><li><strong>زيارتك الأولى</strong>نزور معاً. لا تدفع شيئاً مقابل الزيارة؛ ويُوقَّع قبلها بون زيارة.<span class="rb-meta">بعد الاستشارة</span></li></ol>
-      <p class="rb-choice"><strong>قرارك</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">اختياري</span> تابع بالباقة التي تناسب المرافقة التي تحتاجها، أو توقف عند هذا الحد.</p>
+      <p class="section-eyebrow">كيف تبدأ</p>
+      <h2 class="section-title">ابدأ مجاناً، ثم قرّر.</h2>
+      <p class="rb-p">قبل أي التزام، نخصّص الوقت لفهم مشروعك ومساعدتك على تحديد توجّه أول.</p>
+      <ol class="rb-steps rb-start"><li><strong>حدّثنا عن مشروعك</strong>املأ استبيان ما قبل الاستشارة: أهدافك، وميزانيتك، والمناطق التي تهمّك، ونوع العقار الذي تبحث عنه.<span class="rb-meta">من 5 إلى 10 دقائق</span></li><li><strong>خطتك الاستراتيجية الأولية</strong>نُعدّ لك توجّهاً أولياً شخصياً: الميزانية، ومناطق البحث، والمعايير ذات الأولوية، وأولى الملاحظات عن السوق.<span class="rb-meta">خلال 72 ساعة</span></li><li><strong>استشارتك المجانية</strong>نراجع الخطة معاً، ونجيب عن أسئلتك، ونعدّل توجّه بحثك.<span class="rb-meta">حضورياً أو بالهاتف أو بالفيديو</span></li><li><strong>زيارتك الأولى</strong>ننظّم زيارة أولى لعقار قد يناسبك. الزيارة مجانية، ويُوقَّع قبلها بون زيارة يحدّد الشروط المعمول بها.<span class="rb-meta">بعد الاستشارة</span></li><li><strong>تختار ما يلي</strong>إن أردت مواصلة العمل معنا، تختار الباقة التي تناسب احتياجاتك ومدى استقلاليتك.<span class="rb-meta">اختياري</span></li></ol>
+      <div class="rb-start-cta"><a href="consultation.html" class="btn-gold">املأ استبيان ما قبل الاستشارة</a></div>
     </div>
   </section>
 
@@ -241,10 +311,10 @@
   </section>
 
   <!-- QUESTIONS -->
-  <section class="rb-sec rb-steel">
+  <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">أسئلتكم وأجوبتنا</h2>
-      <dl class="rb-qa"><div><dt>أين أشتري: القنيطرة أم سلا أم الرباط؟</dt><dd>نقارن الأسعار والطلب في كل مدينة وكل حي، حسب ميزانيتك واستعمالك للعقار.</dd></div><div><dt>أليس الشراء مباشرة من المنعش العقاري أرخص؟</dt><dd>مكتب البيع يعمل لصالح المنعش ولا يعرض إلا مشاريعه. معنا تقارن بين عدة منعشين وسوق المستعمل، وتحصل على رأي مستقل في التشطيبات والتسليم، ويتفاوض أحد نيابة عنك.</dd></div><div><dt>هل هذا السعر مناسب؟</dt><dd>نقارن كل سعر بعقارات مماثلة في الحي قبل أي عرض.</dd></div><div><dt>هل المنعش العقاري موثوق؟</dt><dd>نتحقق من المشاريع التي سلّمها، ومن احترامه للآجال، ومن الجودة الحقيقية للتشطيبات.</dd></div><div><dt>كم يمكنني أن أقترض؟</dt><dd>نقدّر قدرتك على الاقتراض ونحاكي أقساطك الشهرية قبل بدء الزيارات.</dd></div><div><dt>هل أنا مؤهل لدعم السكن؟</dt><dd>نتحقق من أهليتك، وأهلية العقار، قبل أن تعتمد عليه.</dd></div><div><dt>هل هو استثمار جيد؟</dt><dd>نقدّر المردودية، والدخل الشهري بعد القرض، وإمكانية إعادة البيع.</dd></div></dl>
+      <dl class="rb-qa"><div><dt>أين أشتري: القنيطرة أم سلا أم الرباط؟</dt><dd>نقارن الأسعار والطلب في كل مدينة وكل حي، حسب ميزانيتك واستعمالك للعقار.</dd></div><div><dt>أليس الشراء مباشرة من المنعش العقاري أرخص؟</dt><dd>مكتب البيع يعمل لصالح المنعش ولا يعرض إلا مشاريعه. معنا تقارن بين عدة منعشين وسوق المستعمل، وتحصل على رأي مستقل في التشطيبات والتسليم، ويتفاوض أحد نيابة عنك.</dd></div><div><dt>هل هذا السعر مناسب؟</dt><dd>قبل أي عرض، نقارن السعر المطلوب بعقارات مماثلة في الحي، اعتماداً على بحثنا الميداني الخاص لا على أرقام البائع.</dd></div><div><dt>هل المنعش العقاري موثوق؟</dt><dd>نتحقق من المشاريع التي سلّمها، ومن احترامه للآجال، ومن الجودة الحقيقية للتشطيبات.</dd></div><div><dt>كم يمكنني أن أقترض؟</dt><dd>نقدّر قدرتك على الاقتراض ونحاكي أقساطك الشهرية قبل بدء الزيارات.</dd></div><div><dt>هل أنا مؤهل لدعم السكن؟</dt><dd>نتحقق من أهليتك، وأهلية العقار انطلاقاً من سعر بيعه الحقيقي، قبل أن تعتمد عليه.</dd></div><div><dt>هل هو استثمار جيد؟</dt><dd>نقدّر المردودية، والدخل الشهري بعد القرض، وإمكانية إعادة البيع.</dd></div></dl>
     </div>
   </section>
 
