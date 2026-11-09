@@ -142,6 +142,15 @@
     currentReq = requests.find(r => r.id === id) || null; current = null; currentBro = null; renderList(); renderReqList(); renderBroList();
     if (currentReq) renderRequest(currentReq);
   }
+  // brochure d’un questionnaire : déjà demandée sur le site, jointe à la confirmation, ou à envoyer à la main
+  function brochureStatus(r) {
+    const mail = String(r.email || '').toLowerCase();
+    const br = mail && brochures.find(b => b.email.toLowerCase() === mail);
+    if (br) return 'Déjà demandée sur le site le ' + esc(fmtDateTime(br.created_at)) + (br.email_sent ? ' (envoyée automatiquement)' : ' · <strong>à envoyer à la main</strong>');
+    if (r.confirmation_brochure) return 'Envoyée avec l’e-mail de confirmation';
+    if (r.category && r.category !== 'Appartement') return esc(r.brochure || 'Aucune : projet sur devis');
+    return '<strong>À envoyer à la main</strong> : ' + esc(r.brochure || '—');
+  }
   function renderRequest(r) {
     const linked = r.client_id && clients.find(c => c.id === r.client_id);
     const lang = { en: 'Anglais', fr: 'Français', ar: 'Arabe' }[r.lang] || r.lang;
@@ -165,7 +174,8 @@
           <dt>Courriel</dt><dd>${r.email ? '<a href="mailto:' + esc(r.email) + '">' + esc(r.email) + '</a>' : '—'}</dd>
           <dt>WhatsApp</dt><dd>${wa ? '<a href="' + esc(wa) + '" target="_blank" rel="noopener">' + esc(r.whatsapp) + '</a>' : '—'}</dd>
           <dt>Contact préféré</dt><dd>${esc(r.preferred_contact || 'Non précisé')}</dd>
-          <dt>Brochure à envoyer (sous 24 h)</dt><dd>${esc(r.brochure || '—')}</dd>
+          <dt>Brochure</dt><dd>${brochureStatus(r)}</dd>
+          <dt>E-mail de confirmation</dt><dd>${r.confirmation_sent_at ? 'Envoyé le ' + esc(fmtDateTime(r.confirmation_sent_at)) : '—'}</dd>
         </dl>
         <div class="actions">
           ${linked ? '<button class="btn btn-navy" id="req-open" type="button">Ouvrir le dossier client</button>'

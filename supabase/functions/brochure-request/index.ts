@@ -1,6 +1,7 @@
 // Rahim International — demandes de brochure du site (enregistrement, envoi par Brevo, contact Brevo)
 // et demandes de préconsultation par téléphone faites juste après ;
-// rappel du questionnaire envoyé à la main depuis l'espace de gestion (action 'reminder', admins seulement)
+// rappel du questionnaire envoyé à la main depuis l'espace de gestion (action 'reminder', admins seulement) ;
+// pré-remplissage du questionnaire (action 'prefill') et e-mail de confirmation après le questionnaire (action 'questionnaire')
 import { createClient, SupabaseClient } from 'jsr:@supabase/supabase-js@2';
 
 const SB_URL = Deno.env.get('SUPABASE_URL')!;
@@ -46,6 +47,14 @@ const T: Record<string, Record<string, string>> = {
     reminder_title: 'Où en est votre projet ?',
     reminder: 'Il y a quelques jours, vous avez reçu notre brochure. Si votre projet avance, le questionnaire de préconsultation nous permet de préparer votre plan préliminaire et votre consultation gratuite. Il ne prend que 5 à 10 minutes.',
     reminder_after: 'Vous préférez en parler par téléphone, ou vous avez une question sur nos formules ? Répondez simplement à cet e-mail ou écrivez-nous sur WhatsApp.',
+    q_subject: 'Nous avons bien reçu vos réponses',
+    q_title: 'Nous préparons votre plan',
+    q_text: 'Merci d’avoir rempli notre questionnaire de préconsultation. Nous préparons maintenant votre Plan d’Acquisition Personnalisé préliminaire, sous 72 heures. Nous vous contacterons ensuite pour fixer la date de votre consultation gratuite, où nous le passerons en revue ensemble.',
+    q_brochure: 'En attendant, vous trouverez ci-dessous notre brochure, qui présente notre accompagnement, nos formules et nos honoraires.',
+    q_brochure_later: 'Notre brochure, qui présente nos formules et nos honoraires, vous sera envoyée par e-mail séparément.',
+    q_after: 'Une question d’ici là ? Répondez simplement à cet e-mail ou écrivez-nous sur WhatsApp.',
+    q_pro_title: 'Nous avons bien reçu votre demande',
+    q_pro: 'Merci d’avoir rempli notre questionnaire. Votre projet demande une étude sur mesure : nous vous rappelons sous 24 heures pour en parler, puis nous vous présentons des options adaptées et un devis pour notre accompagnement.',
     sign: 'L’équipe de Rahim International',
   },
   en: {
@@ -72,6 +81,14 @@ const T: Record<string, Record<string, string>> = {
     reminder_title: 'How is your project going?',
     reminder: 'A few days ago, you received our brochure. If your project is moving forward, the pre-consultation questionnaire allows us to prepare your preliminary plan and your free consultation. It takes only 5 to 10 minutes.',
     reminder_after: 'Would you rather talk by phone, or do you have a question about our service packages? Simply reply to this email or write to us on WhatsApp.',
+    q_subject: 'We have received your answers',
+    q_title: 'We are preparing your plan',
+    q_text: 'Thank you for completing our pre-consultation questionnaire. We are now preparing your preliminary Strategic Acquisition Plan, within 72 hours. We will then contact you to set the date of your free consultation, where we will go through it together.',
+    q_brochure: 'In the meantime, you will find our brochure below, which presents our support, our service packages and our fees.',
+    q_brochure_later: 'Our brochure, which presents our service packages and fees, will be sent to you separately by email.',
+    q_after: 'Any questions in the meantime? Simply reply to this email or write to us on WhatsApp.',
+    q_pro_title: 'We have received your request',
+    q_pro: 'Thank you for completing our questionnaire. Your project needs a tailored study: we will call you back within 24 hours to discuss it, then present suitable options and a quote for our services.',
     sign: 'The Rahim International team',
   },
   ar: {
@@ -98,6 +115,14 @@ const T: Record<string, Record<string, string>> = {
     reminder_title: 'أين وصل مشروعك؟',
     reminder: 'توصّلت قبل بضعة أيام بكتيّبنا. إن كان مشروعك يتقدّم، يتيح لنا استبيان ما قبل الاستشارة إعداد خطتك الأولية واستشارتك المجانية. لا يستغرق سوى 5 إلى 10 دقائق.',
     reminder_after: 'تفضّل الحديث عبر الهاتف، أو لديك سؤال عن باقاتنا؟ يكفي أن ترد على هذه الرسالة أو تراسلنا عبر واتساب.',
+    q_subject: 'توصّلنا بإجاباتك',
+    q_title: 'نُعدّ خطتك',
+    q_text: 'شكراً على ملء استبيان ما قبل الاستشارة. نُعدّ الآن خطة الاقتناء الاستراتيجية الأولية الخاصة بك، خلال 72 ساعة. ثم نتواصل معك لتحديد موعد استشارتك المجانية، حيث نراجعها معاً.',
+    q_brochure: 'في انتظار ذلك، تجد أسفله كتيّبنا، الذي يعرض مرافقتنا وباقاتنا وأتعابنا.',
+    q_brochure_later: 'سيُرسل إليك كتيّبنا، الذي يعرض باقاتنا وأتعابنا، عبر البريد الإلكتروني بشكل منفصل.',
+    q_after: 'لديك سؤال في انتظار ذلك؟ يكفي أن ترد على هذه الرسالة أو تراسلنا عبر واتساب.',
+    q_pro_title: 'توصّلنا بطلبك',
+    q_pro: 'شكراً على ملء الاستبيان. يتطلب مشروعك دراسة خاصة: سنتصل بك خلال 24 ساعة للحديث عنه، ثم نعرض عليك خيارات مناسبة وعرض أسعار لمرافقتنا.',
     sign: 'فريق رحيم إنترناشيونال',
   },
 };
@@ -136,7 +161,8 @@ ${body}
 <tr><td style="padding:18px 28px;border-top:1px solid #e6edf1;font-size:12px;line-height:1.5;color:#657384">${esc(tr(lang).sign)}<br>WhatsApp : +212 6 42 77 32 49 · <a href="${SITE}" style="color:#081a33">rahiminternational.com</a></td></tr>
 </table></td></tr></table></body></html>`;
 }
-const questionnaireUrl = (lang: string, profile: string) => `${SITE}/${lang === 'en' ? '' : lang + '/'}consultation.html?profil=${profile}`;
+// la référence (id de la demande de brochure) permet au questionnaire de pré-remplir le prénom et l'e-mail
+const questionnaireUrl = (lang: string, profile: string, ref: string) => `${SITE}/${lang === 'en' ? '' : lang + '/'}consultation.html?profil=${profile}&ref=${ref}`;
 const para = (html: string) => `<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#33404f">${html}</p>`;
 
 async function brevo(path: string, body?: unknown) {
@@ -234,12 +260,78 @@ async function sendReminder(admin: SupabaseClient, req: Request, b: Record<strin
     await brevo('/smtp/email', {
       sender: SENDER, replyTo: REPLY_TO, to: [{ email: r.email, name: r.first_name }], subject: t.reminder_subject,
       htmlContent: layout(r.lang, t.reminder_title, para(`${esc(t.hello)} ${esc(r.first_name)},<br>${esc(t.reminder)}`)
-        + button(t.next_cta, questionnaireUrl(r.lang, r.profile), true) + para(esc(t.reminder_after))),
+        + button(t.next_cta, questionnaireUrl(r.lang, r.profile, r.id), true) + para(esc(t.reminder_after))),
     });
   } catch (e) { console.error(e); return out(502, { error: 'send' }); }
   const sent = new Date().toISOString();
   await admin.from('brochure_requests').update({ reminder_sent_at: sent }).eq('id', id);
   return out(200, { ok: true, reminder_sent_at: sent });
+}
+
+// lien signé vers la brochure du profil (repli sur la version française), ou null si le fichier manque
+async function brochureUrl(admin: SupabaseClient, profile: string, lang: string) {
+  for (const name of [`${profile}-${lang}.pdf`, `${profile}-fr.pdf`]) {
+    const { data } = await admin.storage.from('brochures').createSignedUrl(name, LINK_DAYS * 86400, { download: true });
+    if (data?.signedUrl) return data.signedUrl;
+  }
+  return null;
+}
+
+// questionnaire ouvert depuis l'e-mail de la brochure : prénom, e-mail et WhatsApp déjà donnés
+async function prefill(admin: SupabaseClient, b: Record<string, unknown>, out: (s: number, body: unknown) => Response) {
+  const ref = clean(b.ref, 40);
+  if (!/^[0-9a-f-]{36}$/.test(ref)) return out(400, { error: 'invalid' });
+  const since = new Date(Date.now() - 120 * 86400 * 1000).toISOString();
+  const { data: r } = await admin.from('brochure_requests').select('first_name,email,whatsapp').eq('id', ref).gte('created_at', since).maybeSingle();
+  if (!r) return out(404, { error: 'request' });
+  return out(200, r);
+}
+
+// e-mail de confirmation après le questionnaire, une seule fois par questionnaire reçu dans les 15 dernières minutes ;
+// la brochure y est jointe si le client ne l'a pas encore demandée
+async function questionnaireDone(admin: SupabaseClient, b: Record<string, unknown>, out: (s: number, body: unknown) => Response) {
+  const email = clean(b.email, 160).toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return out(400, { error: 'invalid' });
+  const since = new Date(Date.now() - 15 * 60 * 1000).toISOString();
+  const { data: rows } = await admin.from('preconsultations').select('*').ilike('email', email).gte('created_at', since).order('created_at', { ascending: false }).limit(1);
+  const p = rows?.[0];
+  if (!p) return out(404, { error: 'questionnaire' });
+  const day = new Date(Date.now() - 86400 * 1000).toISOString();
+  const { data: done } = await admin.from('preconsultations').select('id').ilike('email', email).gte('confirmation_sent_at', day).limit(1);
+  if (done?.length) return out(200, { ok: true, skipped: true });
+  if (!BREVO) return out(500, { error: 'brevo_not_configured' });
+
+  const lang = LANGS.includes(p.lang) ? p.lang : 'fr';
+  const t = tr(lang);
+  const first = clean(String(p.full_name ?? '').split(' ')[0], 60);
+  const hello = `${esc(t.hello)} ${esc(first)},<br>`;
+  const pro = !!p.category && p.category !== 'Appartement';
+  const situation = String(p.raw?.profil ?? '');
+  const profile = situation.startsWith('Résident') ? 'resident' : situation === 'Étranger(ère) résidant à l’étranger' ? 'international' : 'mre';
+
+  let body: string, withBrochure = false;
+  if (pro) {
+    body = para(hello + esc(t.q_pro)) + para(esc(t.q_after));
+  } else {
+    body = para(hello + esc(t.q_text));
+    const { data: had } = await admin.from('brochure_requests').select('id').ilike('email', email).limit(1);
+    if (!had?.length) {
+      const url = await brochureUrl(admin, profile, lang);
+      if (url) {
+        withBrochure = true;
+        body += para(esc(t.q_brochure)) + button(t.download, url, true) + `<p style="margin:-6px 0 22px;font-size:12px;color:#657384">${esc(t.validity)}</p>`;
+      } else body += para(esc(t.q_brochure_later));
+    }
+    body += para(esc(t.q_after));
+  }
+  try {
+    await brevo('/smtp/email', {
+      sender: SENDER, replyTo: REPLY_TO, to: [{ email, name: first }], subject: t.q_subject,
+      htmlContent: layout(lang, pro ? t.q_pro_title : t.q_title, body),
+    });
+  } catch (e) { console.error(e); return out(502, { error: 'send' }); }
+  await admin.from('preconsultations').update({ confirmation_sent_at: new Date().toISOString(), confirmation_brochure: withBrochure }).eq('id', p.id);
+  return out(200, { ok: true, brochure: withBrochure });
 }
 
 Deno.serve(async (req) => {
@@ -254,6 +346,8 @@ Deno.serve(async (req) => {
   const admin = createClient(SB_URL, SERVICE, { auth: { persistSession: false } });
   if (b.action === 'call') return requestCall(admin, b, out);
   if (b.action === 'reminder') return sendReminder(admin, req, b, out);
+  if (b.action === 'prefill') return prefill(admin, b, out);
+  if (b.action === 'questionnaire') return questionnaireDone(admin, b, out);
 
   const email = clean(b.email, 160).toLowerCase();
   const first = clean(b.first_name, 60);
@@ -287,17 +381,13 @@ Deno.serve(async (req) => {
 
   if (BREVO) {
     // 1. la brochure, par un lien signé valable 30 jours
-    let url: string | null = null;
-    for (const name of [`${profile}-${lang}.pdf`, `${profile}-fr.pdf`]) {
-      const { data } = await admin.storage.from('brochures').createSignedUrl(name, LINK_DAYS * 86400, { download: true });
-      if (data?.signedUrl) { url = data.signedUrl; break; }
-    }
+    const url = await brochureUrl(admin, profile, lang);
     try {
       const hello = `${esc(t.hello)} ${esc(first)},<br>`;
       if (url) {
         const next = seller
           ? para(esc(t.next_seller)) + button(t.next_seller_cta, WHATSAPP, false)
-          : para(esc(t.next)) + button(t.next_cta, questionnaireUrl(lang, profile), false);
+          : para(esc(t.next)) + button(t.next_cta, questionnaireUrl(lang, profile, saved.id), false);
         await brevo('/smtp/email', {
           sender: SENDER, replyTo: REPLY_TO, to: [{ email, name: first }], subject: t.subject,
           htmlContent: layout(lang, t.title, para(hello + esc(seller ? t.intro_seller : t.intro)) + button(t.download, url, true)
@@ -309,7 +399,7 @@ Deno.serve(async (req) => {
         await brevo('/smtp/email', {
           sender: SENDER, replyTo: REPLY_TO, to: [{ email, name: first }], subject: t.pending_subject,
           htmlContent: layout(lang, t.pending_title, para(hello + esc(t.pending))
-            + (seller ? '' : para(esc(t.next)) + button(t.next_cta, questionnaireUrl(lang, profile), false))),
+            + (seller ? '' : para(esc(t.next)) + button(t.next_cta, questionnaireUrl(lang, profile, saved.id), false))),
         });
       }
     } catch (e) { errors.push(String((e as Error).message)); }
