@@ -38,21 +38,31 @@ window.RI_CONFIG = {
       ['Visites de projets', 'Projets visités et filmés, promoteurs vérifiés.'],
       ['Comparatif et choix du logement', 'Comparaison des projets et choix du logement.'],
       ['Contrat de réservation', 'Négociation, relecture du contrat et réservation.'],
-      ['Suivi de chantier et livraison', 'Du gros œuvre à la remise des clés.'],
     ],
-    mise_en_relation: [
-      ['Consultation découverte', 'Nous faisons connaissance et définissons votre recherche.'],
-      ['Biens présentés', 'Les biens disponibles correspondant à vos critères.'],
-      ['Visites', 'Visites sur place ou à distance.'],
-      ['Offre et compromis', 'Intermédiation avec le vendeur jusqu’au compromis.'],
-      ['Acte de vente', 'Signature chez le notaire.'],
+    essentiel: [
+      ['Consultation découverte', 'Nous faisons connaissance et définissons votre projet.'],
+      ['Plan d’Acquisition', 'Présentation de votre Plan et d’une première recherche ciblée.'],
+      ['Sélections et Fiches Découverte', 'Des opportunités correspondant à votre profil, avec visite vidéo sur demande.'],
+      ['Choix du bien et inspection', 'Inspection visuelle du bien choisi et points de vigilance.'],
+      ['Offre et financement', 'Nos conseils avant l’offre, le financement et le compromis.'],
+      ['Acte et Dossier Propriétaire', 'Nos conseils pour la signature et la remise de votre Dossier Propriétaire.'],
+    ],
+    vefa_suivi: [
+      ['Contrat de réservation', 'Relecture du contrat, de l’échéancier et de la date de livraison.'],
+      ['Suivi du chantier', 'Visites régulières du chantier, avec photos et compte rendu.'],
+      ['Appels de fonds', 'Vérification de chaque appel de fonds par rapport à l’avancement réel.'],
+      ['Inspection du gros œuvre', 'Photos et contrôle de la structure.'],
+      ['Livraison et réserves', 'Contrôle du logement à la livraison et suivi des réserves.'],
+      ['Remise des clés', 'Votre Carnet du logement, votre Dossier Propriétaire et notre aide après les clés.'],
     ],
   };
+  // clés enregistrées dans clients.formule (les noms suivent la brochure)
   const FORMULES = {
-    essentiel: { label: 'Formule Essentiel', steps: 'standard' },
-    premium: { label: 'Formule Premium', steps: 'standard' },
-    vefa: { label: 'VEFA Recherche', steps: 'vefa' },
-    mise_en_relation: { label: 'Mise en relation', steps: 'mise_en_relation' },
+    essentiel: { label: 'Accompagnement Essentiel', steps: 'essentiel' },
+    complet: { label: 'Accompagnement Complet', steps: 'standard' },
+    premium: { label: 'Premium', steps: 'standard' },
+    vefa: { label: 'VEFA Recherche Complet', steps: 'vefa' },
+    vefa_suivi: { label: 'VEFA Suivi Complet', steps: 'vefa_suivi' },
   };
   const CATEGORIES = {
     plan: 'Plan d’Acquisition',
@@ -77,14 +87,15 @@ window.RI_CONFIG = {
   const DAAM = { na: 'Non applicable', eligible: 'Éligible, à demander', demande: 'Demande déposée', accorde: 'Accordée', refuse: 'Non retenue' };
   // documents « vivants » : une page chacun, avec versions successives
   const DOC_TYPES = [
-    { k: 'plan', label: 'Plan d’Acquisition', desc: 'Votre stratégie : budget réel, quartiers, critères et calendrier.', when: 'Présenté lors de votre 2e appel, puis mis à jour si votre projet évolue.' },
-    { k: 'comparatif', label: 'Comparatif', desc: 'Les meilleurs biens côte à côte, notés, avec notre recommandation.', when: 'Après les premières visites, puis mis à jour au fil des nouvelles visites.' },
-    { k: 'negociation', label: 'Négociation', desc: 'Le juste prix, nos arguments et votre plafond, validés par vous.', when: 'Une fois le bien choisi.', only: ['premium', 'vefa'] },
+    { k: 'plan', label: 'Plan d’Acquisition', desc: 'Votre stratégie : budget réel, quartiers, critères et calendrier.', when: 'Présenté lors de votre 2e appel, puis mis à jour si votre projet évolue.', hideEmptyFor: ['vefa_suivi'] },
+    { k: 'comparatif', label: 'Comparatif', desc: 'Les meilleurs biens côte à côte, notés, avec notre recommandation.', when: 'Après les premières visites, puis mis à jour au fil des nouvelles visites.', hideEmptyFor: ['essentiel', 'vefa_suivi'] },
+    { k: 'negociation', label: 'Négociation', desc: 'Le juste prix, nos arguments et votre plafond, validés par vous.', when: 'Une fois le bien choisi.', only: ['premium', 'vefa', 'vefa_suivi'], hideEmptyFor: ['vefa_suivi'] },
     { k: 'contrat', label: 'Contrats', desc: 'Votre engagement, votre contrat d’accompagnement et les documents signés.', when: 'Dès la signature.' },
     { k: 'dossier', label: 'Dossier Propriétaire', desc: 'Tous les documents essentiels de votre achat, réunis au même endroit.', when: 'À la remise des clés.' },
     { k: 'autre', label: 'Autres', desc: 'Autres documents partagés par votre conseiller.', hideEmpty: true },
   ];
-  const typesFor = f => DOC_TYPES.filter(t => !t.only || t.only.includes(f));
+  // hideEmptyFor : onglet masqué au client tant qu’il est vide (documents gardés après un changement de formule)
+  const typesFor = f => DOC_TYPES.filter(t => !t.only || t.only.includes(f)).map(t => t.hideEmptyFor && t.hideEmptyFor.includes(f) ? { ...t, hideEmpty: true } : t);
   const PIECES = [
     ['identite', 'Pièce d’identité', 'Passeport ou CIN, recto et verso'],
     ['residence', 'Justificatif de résidence à l’étranger', 'Facture, bail ou titre de séjour récent'],
@@ -116,14 +127,22 @@ window.RI_CONFIG = {
       { you: 'Confirmer chaque bon de visite et nous donner vos retours.', get: 'Le compte rendu et la vidéo de chaque projet visité.', cats: [], visits: true },
       { you: 'Choisir votre projet et votre logement.', get: 'Le Comparatif des projets et notre recommandation.', cats: ['comparatif'] },
       { you: 'Valider les conditions et signer le contrat de réservation.', get: 'La négociation (prix, logement, échéancier) et la relecture du contrat.', cats: ['negociation', 'financement'] },
-      { you: 'Suivre l’avancement du chantier depuis votre espace.', get: 'Le suivi jusqu’à la remise des clés et votre Dossier Propriétaire.', cats: ['dossier'] },
     ],
-    mise_en_relation: [
-      { you: 'Signer votre engagement de non-contournement.', get: 'Un échange pour préciser votre recherche.', cats: ['contrat'] },
-      { you: 'Nous dire quels biens vous intéressent.', get: 'Les biens disponibles correspondant à vos critères.', cats: [] },
-      { you: 'Confirmer chaque bon de visite.', get: 'Les visites, sur place ou à distance.', cats: [], visits: true },
-      { you: 'Valider votre offre.', get: 'L’intermédiation avec le vendeur jusqu’au compromis.', cats: ['negociation', 'financement'] },
-      { you: 'Signer chez le notaire.', get: 'Votre acte de vente.', cats: ['dossier'] },
+    essentiel: [
+      { you: 'Remplir le questionnaire et signer votre engagement de non-contournement.', get: 'Un échange pour comprendre votre projet.', cats: [] },
+      { you: 'Valider votre Plan, tel quel ou ajusté, puis signer votre contrat.', get: 'Votre Plan d’Acquisition Personnalisé et une première recherche ciblée.', cats: ['plan', 'contrat'] },
+      { you: 'Nous dire quels biens vous intéressent et confirmer chaque bon de visite.', get: 'Chaque mois, des opportunités correspondant à votre profil, avec leur Fiche Découverte.', cats: [], visits: true },
+      { you: 'Choisir votre bien.', get: 'Une inspection visuelle du bien et les points de vigilance relevés.', cats: [] },
+      { you: 'Faire votre offre et préparer votre financement.', get: 'Nos conseils avant l’offre, le financement et le compromis.', cats: ['financement'] },
+      { you: 'Signer chez le notaire, sur place ou par procuration.', get: 'Votre Dossier Propriétaire.', cats: ['dossier'] },
+    ],
+    vefa_suivi: [
+      { you: 'Nous transmettre votre contrat de réservation et signer votre contrat de suivi.', get: 'La relecture du contrat et de l’échéancier, et la date de référence de livraison.', cats: ['contrat'] },
+      { you: 'Suivre l’avancement depuis votre espace.', get: 'Des photos et un compte rendu à chaque visite du chantier.', cats: [] },
+      { you: 'Nous transmettre chaque appel de fonds avant de payer.', get: 'Notre vérification de l’appel de fonds par rapport à l’avancement.', cats: ['financement'] },
+      { you: 'Prendre connaissance de l’inspection.', get: 'Les photos et nos observations sur le gros œuvre.', cats: [] },
+      { you: 'Assister à la livraison, sur place ou à distance.', get: 'Le contrôle du logement et la liste des réserves.', cats: [] },
+      { you: 'Récupérer vos clés.', get: 'Votre Carnet du logement, votre Dossier Propriétaire et notre aide après les clés.', cats: ['dossier'] },
     ],
   };
   const roadmapFor = f => ROADMAP[(FORMULES[f] || FORMULES.essentiel).steps];

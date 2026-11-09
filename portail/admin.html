@@ -216,7 +216,7 @@
   function renderForm(c, prefill) {
     const isNew = !c;
     const fromReq = prefill && prefill.request;
-    c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'essentiel', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: {}, message: '' };
+    c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'complet', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: {}, message: '' };
     const steps = stepsFor(c.formule);
     const team = RI.teamFor(c);
     const opts = Object.entries(FORMULES).map(([k, v]) => '<option value="' + k + '"' + (k === c.formule ? ' selected' : '') + '>' + v.label + '</option>').join('');
