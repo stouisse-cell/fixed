@@ -29,6 +29,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="mre-design.css">
 <style>
   .intro-text{font-size:.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:720px;margin-bottom:1.5rem;}
   .dark-intro{color:rgba(255,255,255,.65);}
@@ -168,7 +169,7 @@
 <meta name="theme-color" content="#07111f">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 </head>
-<body>
+<body class="mre-design">
 <div id="progress-bar" aria-hidden="true"></div>
 <nav class="site-nav" aria-label="Navigation principale">
   <a href="index.html" class="brand" aria-label="Rahim International accueil">
@@ -240,56 +241,88 @@
   </section>
 
   <!-- SOUND FAMILIAR -->
-  <section class="rb-sec rb-light">
-    <div class="rb-inner">
-      <h2 class="section-title">Ça vous parle ?</h2>
-      <p class="bp-story">Vous voulez acheter au Maroc : pour les vacances, votre retour ou un investissement. Mais où chercher, avec quel budget et quelle stratégie ? Entre les prix du marché, la demande locative et les quartiers qui évoluent, difficile de savoir par où commencer. Vous ouvrez les annonces. Quelques soirées plus tard, vous avez vingt favoris et toujours autant de questions.</p>
-      <p class="bp-story">Depuis l’étranger, les appels et les messages WhatsApp s’accumulent. Il manque le prix, l’adresse ou le plan. « Venez voir sur place. » Un proche vous aide entre deux obligations, mais il ne peut pas tout vérifier. Alors vous prenez l’avion, décidé à avancer.</p>
-      <p class="bp-story">Vos journées se remplissent de visites, de trajets et de rendez-vous reportés. Le bien annoncé n’est plus disponible, le prix annoncé ne correspond pas toujours au bien visité, mais les arguments restent les mêmes : « bon investissement », « emplacement stratégique », « haut standing ». Vous cherchez les preuves derrière les promesses. Pour obtenir les documents, il faut patienter. Pour verser une avance, en revanche, il faudrait se dépêcher.</p>
-      <p class="bp-story">Puis on évoque un paiement important en espèces ou une partie du prix non déclarée. Est-ce habituel ? Est-ce un signal d’alerte ? Votre vol approche, votre téléphone déborde de photos, mais il vous manque encore des informations fiables pour comparer et décider.</p>
-      <p class="bp-story">Et si vous réservez enfin, comment poursuivre depuis l’étranger ? Banque, notaire, procuration, signatures : qui fait quoi, et qui suit le dossier ? Votre proche veut bien aider, mais il a déjà un travail à plein temps.</p>
-      <p class="bp-turn"><strong>Ces difficultés, nous les avons vécues aussi.</strong> C’est de cette expérience qu’est né Rahim International : pour vous apporter les repères, la structure et l’accompagnement qui nous avaient manqué. <a href="about.html#our-story">Découvrir notre histoire →</a></p>
+  <section class="rb-sec rb-light mre-story">
+    <div class="rb-inner mre-story-grid">
+      <div>
+        <p class="mre-eyebrow">La distance ne devrait pas tout compliquer</p>
+        <h2 class="section-title">Ça vous parle ?</h2>
+        <p class="bp-story">Vous voulez acheter au Maroc : pour les vacances, votre retour ou un investissement. Mais où chercher, avec quel budget et quelle stratégie ? Entre les prix du marché, la demande locative et les quartiers qui évoluent, difficile de savoir par où commencer. Vous ouvrez les annonces. Quelques soirées plus tard, vous avez vingt favoris et toujours autant de questions.</p>
+        <p class="bp-story">Depuis l’étranger, les appels et les messages WhatsApp s’accumulent. Il manque le prix, l’adresse ou le plan. « Venez voir sur place. » Un proche vous aide entre deux obligations, mais il ne peut pas tout vérifier. Alors vous prenez l’avion, décidé à avancer.</p>
+        <details class="mre-story-more">
+          <summary>Lire la suite <span aria-hidden="true">+</span></summary>
+          <div class="mre-story-rest">
+            <p class="bp-story">Vos journées se remplissent de visites, de trajets et de rendez-vous reportés. Le bien annoncé n’est plus disponible, le prix annoncé ne correspond pas toujours au bien visité, mais les arguments restent les mêmes : « bon investissement », « emplacement stratégique », « haut standing ». Vous cherchez les preuves derrière les promesses. Pour obtenir les documents, il faut patienter. Pour verser une avance, en revanche, il faudrait se dépêcher.</p>
+            <p class="bp-story">Puis on évoque un paiement important en espèces ou une partie du prix non déclarée. Est-ce habituel ? Est-ce un signal d’alerte ? Votre vol approche, votre téléphone déborde de photos, mais il vous manque encore des informations fiables pour comparer et décider.</p>
+            <p class="bp-story">Et si vous réservez enfin, comment poursuivre depuis l’étranger ? Banque, notaire, procuration, signatures : qui fait quoi, et qui suit le dossier ? Votre proche veut bien aider, mais il a déjà un travail à plein temps.</p>
+          </div>
+        </details>
+      </div>
+      <aside class="mre-story-aside">
+        <img src="../home-mre-airport.jpg" alt="L’aéroport de Rabat-Salé au coucher du soleil" width="1200" height="610" loading="lazy" decoding="async">
+        <div class="mre-story-aside-copy">
+          <span class="mre-eyebrow">Votre projet, même à distance</span>
+          <p class="bp-turn"><strong>Ces difficultés, nous les avons vécues aussi.</strong> C’est de cette expérience qu’est né Rahim International : pour vous apporter les repères, la structure et l’accompagnement qui nous avaient manqué. <a href="about.html#our-story">Découvrir notre histoire →</a></p>
+        </div>
+      </aside>
     </div>
   </section>
 
   <!-- WHAT WE DO -->
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
+      <p class="mre-eyebrow">Une méthode, du premier échange aux clés</p>
       <h2 class="section-title">Un achat structuré, des conseils à chaque étape</h2>
       <p class="bp-sub"><strong>Un projet clair, des informations fiables et des conseils pour décider.</strong> Nous structurons votre recherche et votre parcours d’achat, avec un interlocuteur qui suit votre projet et vous apporte les réponses au bon moment. Vous savez quels biens comparer, quelles démarches préparer et quelle décision prendre ensuite — sans passer vos journées à vous déplacer, relancer et essayer de tout comprendre seul.</p>
       <ol class="bp-do">
-        <li><strong>Un plan avant de chercher</strong>Objectif, budget tous frais compris, financement, quartiers et critères : votre Plan d’Acquisition Personnalisé donne une direction claire à la recherche.</li>
-        <li><strong>Une recherche organisée et documentée</strong>Les biens sont sélectionnés selon votre projet. Photos, observations et points de vigilance sont regroupés dans votre espace client pour retrouver les informations et comparer sans repartir de zéro.</li>
-        <li><strong>Des analyses pour éclairer vos décisions</strong>Prix, emplacement, qualité du bien et potentiel selon votre objectif : nous comparons les options, expliquons les compromis et vous donnons une recommandation argumentée.</li>
-        <li><strong>Un parcours suivi jusqu’aux clés</strong>Les étapes, documents et démarches sont organisés et suivis, avec une trace écrite de l’avancement. Selon votre formule, nous vous conseillons ou coordonnons les échanges avec les différents intervenants.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v3H8zM8 4H5v17h14V4h-3M8 12h8M8 16h5"/></svg></span><strong>Un plan avant de chercher</strong>Objectif, budget tous frais compris, financement, quartiers et critères : votre Plan d’Acquisition Personnalisé donne une direction claire à la recherche.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 10h6M10 7v6"/></svg></span><strong>Une recherche organisée et documentée</strong>Les biens sont sélectionnés selon votre projet. Photos, observations et points de vigilance sont regroupés dans votre espace client pour retrouver les informations et comparer sans repartir de zéro.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10m6 10V4m6 16v-7m-15 7h21"/></svg></span><strong>Des analyses pour éclairer vos décisions</strong>Prix, emplacement, qualité du bien et potentiel selon votre objectif : nous comparons les options, expliquons les compromis et vous donnons une recommandation argumentée.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M6 9v12h12V9M10 21v-7h4v7"/></svg></span><strong>Un parcours suivi jusqu’aux clés</strong>Les étapes, documents et démarches sont organisés et suivis, avec une trace écrite de l’avancement. Selon votre formule, nous vous conseillons ou coordonnons les échanges avec les différents intervenants.</li>
       </ol>
+    </div>
+  </section>
+
+  <!-- LOCAL PRESENCE -->
+  <section class="mre-presence" aria-label="Notre présence sur place">
+    <img src="../about.png" alt="Échange autour d’un projet immobilier dans un bureau Rahim International" width="1448" height="1086" loading="lazy" decoding="async">
+    <div class="mre-presence-copy">
+      <p class="mre-eyebrow">Proches de votre projet</p>
+      <p>Vous êtes à l’étranger.<br><em>Nous sommes sur le terrain.</em></p>
+      <a href="about.html#our-story">Découvrir notre histoire <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
   <!-- PACKAGES -->
   <section class="rb-sec rb-dark" id="formules">
     <div class="rb-inner">
+      <p class="mre-eyebrow">À votre rythme, selon vos besoins</p>
       <h2 class="section-title">Trois formules : laquelle est faite pour vous ?</h2>
       <div class="bp-plans">
         <article class="bp-plan">
           <span class="bp-badge bp-badge-light">Sans frais pour commencer</span>
           <h3>Essentiel</h3>
+          <p class="mre-plan-benefit">Préparer votre achat, à votre rythme.</p>
           <p class="bp-for">C’est pour vous si…</p>
           <ul><li>vous pensez à acheter au pays depuis longtemps et voulez enfin donner une direction claire à votre projet, sans avancer de frais ;</li><li>vous voulez préparer votre achat depuis l’étranger, découvrir les opportunités et avancer à votre rythme, avec un regard professionnel pour vous guider ;</li><li>vous souhaitez arriver au Maroc avec un projet déjà préparé, en sachant quoi vérifier, quoi prévoir et à qui vous adresser pour les grandes étapes.</li></ul>
           <p class="bp-level"><span>Niveau de conseil</span>vous gardez la main, avec un suivi à distance dans votre espace client et des conseils pour préparer votre achat et avancer jusqu’aux clés.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Recevoir la brochure <span aria-hidden="true">→</span></a>
         </article>
         <article class="bp-plan is-rec">
           <span class="bp-badge">Recommandée</span>
           <h3>Complet</h3>
+          <p class="mre-plan-benefit">Déléguer le travail, garder le choix.</p>
           <p class="bp-for">C’est pour vous si…</p>
           <ul><li>vous voulez acheter au Maroc sans passer vos vacances à courir les visites ni solliciter vos proches à chaque étape ;</li><li>vous voulez une recherche sur mesure, avec quelqu’un de votre côté sur place pour comparer les biens selon vos critères et défendre vos intérêts ;</li><li>vous souhaitez déléguer la recherche et les démarches, tout en suivant votre projet depuis l’étranger et en gardant le dernier mot sur chaque décision.</li></ul>
           <p class="bp-level"><span>Niveau de conseil</span>un conseiller dédié sur le terrain et un suivi à distance dans votre espace client, pour choisir en confiance et acheter au juste prix.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Recevoir la brochure <span aria-hidden="true">→</span></a>
         </article>
         <article class="bp-plan">
           <h3>Premium</h3>
+          <p class="mre-plan-benefit">Penser plus loin que la remise des clés.</p>
           <p class="bp-for">C’est pour vous si…</p>
           <ul><li>vous voulez une recherche sur mesure pour un choix qui compte pour votre avenir : un bien agréable à vivre, pertinent à louer ou intéressant à revendre ;</li><li>vous souhaitez nous confier davantage, du financement à la préparation de l’après-achat, pour préserver votre temps depuis l’étranger ;</li><li>vous recherchez un accompagnement plus poussé, une attention prioritaire et un regard stratégique sur la valeur de votre projet.</li></ul>
           <p class="bp-level"><span>Niveau de conseil</span>notre accompagnement le plus complet, avec un suivi à distance dans votre espace client pour piloter votre projet depuis l’étranger, jusqu’après les clés.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Recevoir la brochure <span aria-hidden="true">→</span></a>
         </article>
       </div>
       <div class="bp-cta"><p>Vous hésitez ? Commencez avec l’Essentiel, sans frais à avancer, et préparez votre projet à votre rythme. Besoin de plus d’accompagnement ? Passez au Complet ou au Premium à tout moment : les sommes déjà réglées sont déduites. Découvrez les détails et nos honoraires dans la brochure.</p><a href="#brochure" data-brochure class="btn-gold">Recevoir la brochure</a></div>
@@ -297,8 +330,9 @@
   </section>
 
   <!-- HOW IT STARTS -->
-  <section class="rb-sec rb-light">
+  <section class="rb-sec rb-light mre-start">
     <div class="rb-inner">
+      <p class="mre-eyebrow">Un premier pas, sans engagement</p>
       <h2 class="section-title">Pour commencer</h2>
       <ol class="bp-steps">
         <li><strong>Recevez notre brochure</strong>Nos formules et nos honoraires, avec le lien vers notre questionnaire.<span>1 minute</span></li>
