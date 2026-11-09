@@ -2102,7 +2102,7 @@ footer {
 .bp-plan > .bp-level { margin-top: auto; }
 .bp-level + .bp-plan-note { margin-top: 0; }
 .bp-badge-light { background: #fff; color: var(--copper-dark); outline: 1px solid var(--copper); }
-.bp-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.6rem; counter-reset: bps; }
+.bp-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.6rem; counter-reset: bps; }
 .bp-steps li { counter-increment: bps; border-top: 2px solid rgba(201,169,110,.6); padding-top: 1rem; font-size: .93rem; line-height: 1.65; color: #3d4a5c; }
 .bp-steps li::before { content: counter(bps, decimal-leading-zero); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark); margin-bottom: .5rem; }
 .bp-steps strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.25rem; line-height: 1.3; color: var(--navy); margin-bottom: .4rem; }
