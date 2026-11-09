@@ -29,6 +29,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="buyer-design.css">
 <style>
   .intro-text{font-size:.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:720px;margin-bottom:1.5rem;}
   .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem;}
@@ -184,7 +185,7 @@
 <meta name="theme-color" content="#07111f">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 </head>
-<body>
+<body class="buyer-design">
 <div id="progress-bar" aria-hidden="true"></div>
 <nav class="site-nav" aria-label="Primary navigation">
   <a href="index.html" class="brand" aria-label="Rahim International home">
@@ -249,58 +250,90 @@
   </section>
 
   <!-- SOUND FAMILIAR -->
-  <section class="rb-sec rb-light">
-    <div class="rb-inner">
-      <h2 class="section-title">Sound familiar?</h2>
-      <p class="bp-story">You live in Morocco, you have contacts, and you have been browsing listings for months. You plan to handle the purchase yourself. A colleague knows an agent; your uncle knows a developer. But have you defined your strategy, your budget including all costs, and your criteria? Knowing a city does not necessarily mean knowing its property market — especially if you are buying somewhere else.</p>
-      <p class="bp-story">You spend your evenings scrolling through listings. Everywhere: “strategic location”, “luxury finishes”, “ideal home or investment”. But what evidence helps you build a shortlist? To get details, you are invited to visit. Once there, the neighbourhood is not what you imagined, the price is for a different floor, and the “luxury” mostly stops at the entrance hall. An evening of searching, a Saturday of travelling, and still no property worth shortlisting.</p>
-      <p class="bp-story">Viewings take over your lunch breaks and weekends. In another city, every postponed appointment can mean another journey. Then the details blur: which apartment had that kitchen? Was the garage included? The photos are on your phone, the prices in WhatsApp, and the explanations somewhere in your memory. You go back to check. This time, the person opening the door is expecting a small tip.</p>
-      <p class="bp-story">You finally like a property. The construction, documents, floor areas and charges still need checking. The seller, meanwhile, wants you to reserve. In Kénitra, there is always “a buyer from Rabat on the way with the deposit”. He never arrives during your viewing, but the moment you hesitate, he is five minutes away.</p>
-      <p class="bp-story">Then you are asked for a large cash payment, part of which will not appear in the deed. “It is normal, everyone does it.” But this is your first purchase: you need to understand what it means and feel reassured before committing. You ask questions. The seller, so available to discuss the deposit, suddenly has less time for explanations. The answers get shorter; the atmosphere grows tense. You ask for a night to think. The next morning, you call back, ready to proceed: the property is no longer available. <strong>Did the famous buyer from Rabat finally arrive, or did your questions turn you from a “serious buyer” into a “difficult buyer”?</strong></p>
-      <p class="bp-story">And when you finally find and reserve a property, you still have to follow up with the bank and notary, organise documents and arrange signatures, during your working hours. Every stage takes planning, notes, checks and reminders.</p>
-      <p class="bp-story"><strong>You thought you were looking for a home in your spare time. You discover that taking a purchase through to the keys is a project in its own right — one that could keep you busy full-time.</strong></p>
-      <p class="bp-turn"><strong>We have faced these difficulties too.</strong> Rahim International grew out of that experience: to give you the guidance, structure and support we had been missing. <a href="about.html#our-story">Discover our story →</a></p>
+  <section class="rb-sec rb-light mre-story">
+    <div class="rb-inner mre-story-grid">
+      <div>
+        <p class="mre-eyebrow">Being local does not mean doing it all</p>
+        <h2 class="section-title">Sound familiar?</h2>
+        <p class="bp-story">You live in Morocco, you have contacts, and you have been browsing listings for months. You plan to handle the purchase yourself. A colleague knows an agent; your uncle knows a developer. But have you defined your strategy, your budget including all costs, and your criteria? Knowing a city does not necessarily mean knowing its property market — especially if you are buying somewhere else.</p>
+        <p class="bp-story">You spend your evenings scrolling through listings. Everywhere: “strategic location”, “luxury finishes”, “ideal home or investment”. But what evidence helps you build a shortlist? To get details, you are invited to visit. Once there, the neighbourhood is not what you imagined, the price is for a different floor, and the “luxury” mostly stops at the entrance hall. An evening of searching, a Saturday of travelling, and still no property worth shortlisting.</p>
+        <details class="mre-story-more">
+          <summary>Read more <span aria-hidden="true">+</span></summary>
+          <div class="mre-story-rest">
+            <p class="bp-story">Viewings take over your lunch breaks and weekends. In another city, every postponed appointment can mean another journey. Then the details blur: which apartment had that kitchen? Was the garage included? The photos are on your phone, the prices in WhatsApp, and the explanations somewhere in your memory. You go back to check. This time, the person opening the door is expecting a small tip.</p>
+            <p class="bp-story">You finally like a property. The construction, documents, floor areas and charges still need checking. The seller, meanwhile, wants you to reserve. In Kénitra, there is always “a buyer from Rabat on the way with the deposit”. He never arrives during your viewing, but the moment you hesitate, he is five minutes away.</p>
+            <p class="bp-story">Then you are asked for a large cash payment, part of which will not appear in the deed. “It is normal, everyone does it.” But this is your first purchase: you need to understand what it means and feel reassured before committing. You ask questions. The seller, so available to discuss the deposit, suddenly has less time for explanations. The answers get shorter; the atmosphere grows tense. You ask for a night to think. The next morning, you call back, ready to proceed: the property is no longer available. <strong>Did the famous buyer from Rabat finally arrive, or did your questions turn you from a “serious buyer” into a “difficult buyer”?</strong></p>
+            <p class="bp-story">And when you finally find and reserve a property, you still have to follow up with the bank and notary, organise documents and arrange signatures, during your working hours. Every stage takes planning, notes, checks and reminders.</p>
+            <p class="bp-story"><strong>You thought you were looking for a home in your spare time. You discover that taking a purchase through to the keys is a project in its own right — one that could keep you busy full-time.</strong></p>
+          </div>
+        </details>
+      </div>
+      <aside class="mre-story-aside">
+        <img src="localbuyers.png" alt="A conversation about a property purchase" loading="lazy" decoding="async">
+        <div class="mre-story-aside-copy">
+          <span class="mre-eyebrow">Your purchase, with clear guidance</span>
+          <p class="bp-turn"><strong>We have faced these difficulties too.</strong> Rahim International grew out of that experience: to give you the guidance, structure and support we had been missing. <a href="about.html#our-story">Discover our story →</a></p>
+        </div>
+      </aside>
     </div>
   </section>
 
   <!-- WHAT WE DO -->
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
+      <p class="mre-eyebrow">A clear process, from our first conversation to the keys</p>
       <h2 class="section-title">A structured purchase, advice at every step</h2>
       <p class="bp-sub"><strong>A clear plan, reliable information and advice to help you decide.</strong> We structure your search and your buying journey, with a point of contact who follows your project and gets you answers when you need them. You know which properties to compare, which steps to prepare for and what decision comes next — without spending your days travelling, chasing replies and trying to work everything out alone.</p>
       <ol class="bp-do">
-        <li><strong>A plan before the search</strong>Your goal, budget including all costs, financing, neighbourhoods and criteria: your Personalised Acquisition Plan gives the search a clear direction.</li>
-        <li><strong>An organised, documented search</strong>Properties are selected around your project. Photos, observations and points to watch are brought together in your client portal, so you can find the information and compare without starting over.</li>
-        <li><strong>Analysis to guide your decisions</strong>Price, location, property quality and potential for your goals: we compare the options, explain the trade-offs and give you a reasoned recommendation.</li>
-        <li><strong>A clear path through to the keys</strong>The stages, documents and procedures are organised and tracked, with a written record of progress. Depending on your package, we advise you or coordinate communication with the parties involved.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v3H8zM8 4H5v17h14V4h-3M8 12h8M8 16h5"/></svg></span><strong>A plan before the search</strong>Your goal, budget including all costs, financing, neighbourhoods and criteria: your Personalised Acquisition Plan gives the search a clear direction.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 10h6M10 7v6"/></svg></span><strong>An organised, documented search</strong>Properties are selected around your project. Photos, observations and points to watch are brought together in your client portal, so you can find the information and compare without starting over.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10m6 10V4m6 16v-7m-15 7h21"/></svg></span><strong>Analysis to guide your decisions</strong>Price, location, property quality and potential for your goals: we compare the options, explain the trade-offs and give you a reasoned recommendation.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M6 9v12h12V9M10 21v-7h4v7"/></svg></span><strong>A clear path through to the keys</strong>The stages, documents and procedures are organised and tracked, with a written record of progress. Depending on your package, we advise you or coordinate communication with the parties involved.</li>
       </ol>
+    </div>
+  </section>
+
+  <!-- LOCAL PRESENCE -->
+  <section class="mre-presence" aria-label="Close to your project">
+    <img src="home-dev.jpg" alt="Construction site follow-up: a person wearing a Rahim International helmet and vest reviews building plans" width="1000" height="667" loading="lazy" decoding="async">
+    <div class="mre-presence-copy">
+      <p class="mre-eyebrow">Close to your project</p>
+      <p>Your daily life continues.<br><em>Your project moves forward.</em></p>
+      <a href="about.html#our-story">Discover our story <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
   <!-- PACKAGES -->
   <section class="rb-sec rb-dark" id="formules">
     <div class="rb-inner">
+      <p class="mre-eyebrow">At your pace, around your needs</p>
       <h2 class="section-title">Three packages: which one is right for you?</h2>
       <div class="bp-plans">
         <article class="bp-plan">
           <span class="bp-badge bp-badge-light">Free to get started</span>
           <h3>Essentiel</h3>
+          <p class="mre-plan-benefit">Prepare your purchase at your own pace.</p>
           <p class="bp-for">This is for you if…</p>
           <ul><li>you want to give your purchase a clear direction, with no upfront fees;</li><li>you prefer to explore opportunities at your own pace, with advice on what to look for and which questions to ask;</li><li>you want to stay in control of your search, follow your project online and have support at the key stages.</li></ul>
           <p class="bp-level"><span>Level of advice</span>a framework to prepare your purchase, a client portal to follow your project and advice through to the keys.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Receive the brochure <span aria-hidden="true">→</span></a>
         </article>
         <article class="bp-plan is-rec">
           <span class="bp-badge">Recommended</span>
           <h3>Complet</h3>
+          <p class="mre-plan-benefit">Delegate the work, keep the choice.</p>
           <p class="bp-for">This is for you if…</p>
           <ul><li>you want to buy without spending your evenings scrolling through listings and your weekends at viewings;</li><li>you want a tailored property search, with an adviser who compares homes against your criteria and represents your interests;</li><li>you want to delegate the search and coordination, in your own city or elsewhere, while keeping the final say.</li></ul>
           <p class="bp-level"><span>Level of advice</span>a dedicated adviser, an organised search and online follow-up, so your purchase does not become a second job.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Receive the brochure <span aria-hidden="true">→</span></a>
         </article>
         <article class="bp-plan">
           <h3>Premium</h3>
+          <p class="mre-plan-benefit">Think beyond the handover of the keys.</p>
           <p class="bp-for">This is for you if…</p>
           <ul><li>you want a tailored property search that considers your life today and your property’s value tomorrow;</li><li>you want more in-depth analysis and to entrust more to us, from financing to preparing for life after the purchase;</li><li>you want priority attention and comprehensive support, whether you are buying a home or investing.</li></ul>
           <p class="bp-level"><span>Level of advice</span>our most comprehensive support, with a strategic view of your project and follow-up even after the keys.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Receive the brochure <span aria-hidden="true">→</span></a>
         </article>
       </div>
       <div class="bp-cta"><p>Not sure? Start with Essentiel, with no upfront fees, and prepare your project at your own pace. Need more support? Move up to Complet or Premium at any time: amounts already paid are deducted. Discover the details and our fees in the brochure.</p><a href="#brochure" data-brochure class="btn-gold">Receive the brochure</a></div>
@@ -308,8 +341,9 @@
   </section>
 
   <!-- HOW IT STARTS -->
-  <section class="rb-sec rb-light">
+  <section class="rb-sec rb-light mre-start">
     <div class="rb-inner">
+      <p class="mre-eyebrow">A first step, with no obligation</p>
       <h2 class="section-title">How to start</h2>
       <ol class="bp-steps">
         <li><strong>Receive our brochure</strong>Our packages and fees, with the link to our questionnaire.<span>1 minute</span></li>

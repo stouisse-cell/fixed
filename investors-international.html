@@ -29,6 +29,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="buyer-design.css">
 <style>
   .intro-text{font-size:.92rem;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:720px;margin-bottom:1.5rem;}
   .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem;}
@@ -140,7 +141,7 @@
 <meta name="theme-color" content="#07111f">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 </head>
-<body>
+<body class="buyer-design">
 <div id="progress-bar" aria-hidden="true"></div>
 <nav class="site-nav" aria-label="Primary navigation">
   <a href="index.html" class="brand" aria-label="Rahim International home">
@@ -205,58 +206,90 @@
   </section>
 
   <!-- SOUND FAMILIAR -->
-  <section class="rb-sec rb-light">
-    <div class="rb-inner">
-      <h2 class="section-title">Sound familiar?</h2>
-      <p class="bp-story">You fell in love with Morocco on a trip: the beaches, the souks, the sunsets, the evenings on a terrace… Back home, you keep browsing property listings. Whether to move here, visit more often or invest, the idea of having your own address in Morocco starts to feel serious.</p>
-      <p class="bp-story">You see other foreign buyers taking the plunge, cities developing and new projects taking shape. On social media, “Marrakech is the next Dubai”. You want to be part of it. For now, though, you mostly have a collection of pool villas in your saved listings and no idea what the first step should be.</p>
-      <p class="bp-story">Where should you buy, with what budget and for what purpose? Is the neighbourhood you loved on holiday suitable for year-round living or renting out? Listings promise attractive returns, but with what charges, occupancy and management fees? You ask for figures. You get more beautiful photos.</p>
-      <p class="bp-story">Then come the questions specific to your situation. You are not a Moroccan citizen: can you buy this type of property? Which documents should you check before signing? How do you arrange financing, transfer your funds and keep the records needed for a future sale? Documents arrive in a language you do not always understand, and the answers change depending on who you ask.</p>
-      <p class="bp-story">You plan a trip for viewings. Some properties do not match the listings; others are no longer available. The one you like needs more checks, but the seller is already inviting you to reserve. Your return flight does not leave much time to understand the market and make a decision.</p>
-      <p class="bp-story">And after you leave? The bank is waiting for a document, the notary for a reply from the seller, and you try to keep track around your working day. Who brings the information together, explains what still needs doing and follows the purchase through to the keys? Even if you already rent in Morocco, knowing the country does not mean knowing how to buy property here.</p>
-      <p class="bp-story"><strong>Falling in love with Morocco made you want to buy. Turning that feeling into a sound project takes a strategy, verified information and a local point of contact who advises you at every step.</strong></p>
-      <p class="bp-turn"><strong>We have faced these difficulties too.</strong> Rahim International grew out of that experience: to give you the guidance, structure and support we had been missing. <a href="about.html#our-story">Discover our story →</a></p>
+  <section class="rb-sec rb-light mre-story">
+    <div class="rb-inner mre-story-grid">
+      <div>
+        <p class="mre-eyebrow">A project in Morocco, a clearer way forward</p>
+        <h2 class="section-title">Sound familiar?</h2>
+        <p class="bp-story">You fell in love with Morocco on a trip: the beaches, the souks, the sunsets, the evenings on a terrace… Back home, you keep browsing property listings. Whether to move here, visit more often or invest, the idea of having your own address in Morocco starts to feel serious.</p>
+        <p class="bp-story">You see other foreign buyers taking the plunge, cities developing and new projects taking shape. On social media, “Marrakech is the next Dubai”. You want to be part of it. For now, though, you mostly have a collection of pool villas in your saved listings and no idea what the first step should be.</p>
+        <details class="mre-story-more">
+          <summary>Read more <span aria-hidden="true">+</span></summary>
+          <div class="mre-story-rest">
+            <p class="bp-story">Where should you buy, with what budget and for what purpose? Is the neighbourhood you loved on holiday suitable for year-round living or renting out? Listings promise attractive returns, but with what charges, occupancy and management fees? You ask for figures. You get more beautiful photos.</p>
+            <p class="bp-story">Then come the questions specific to your situation. You are not a Moroccan citizen: can you buy this type of property? Which documents should you check before signing? How do you arrange financing, transfer your funds and keep the records needed for a future sale? Documents arrive in a language you do not always understand, and the answers change depending on who you ask.</p>
+            <p class="bp-story">You plan a trip for viewings. Some properties do not match the listings; others are no longer available. The one you like needs more checks, but the seller is already inviting you to reserve. Your return flight does not leave much time to understand the market and make a decision.</p>
+            <p class="bp-story">And after you leave? The bank is waiting for a document, the notary for a reply from the seller, and you try to keep track around your working day. Who brings the information together, explains what still needs doing and follows the purchase through to the keys? Even if you already rent in Morocco, knowing the country does not mean knowing how to buy property here.</p>
+            <p class="bp-story"><strong>Falling in love with Morocco made you want to buy. Turning that feeling into a sound project takes a strategy, verified information and a local point of contact who advises you at every step.</strong></p>
+          </div>
+        </details>
+      </div>
+      <aside class="mre-story-aside">
+        <img src="home-intl.jpg" alt="Passport and map of Morocco for planning a property purchase" loading="lazy" decoding="async">
+        <div class="mre-story-aside-copy">
+          <span class="mre-eyebrow">Your project, supported locally</span>
+          <p class="bp-turn"><strong>We have faced these difficulties too.</strong> Rahim International grew out of that experience: to give you the guidance, structure and support we had been missing. <a href="about.html#our-story">Discover our story →</a></p>
+        </div>
+      </aside>
     </div>
   </section>
 
   <!-- WHAT WE DO -->
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
+      <p class="mre-eyebrow">A clear process, from our first conversation to the keys</p>
       <h2 class="section-title">A structured purchase, advice at every step</h2>
       <p class="bp-sub"><strong>A clear plan, reliable information and advice to help you decide.</strong> We structure your search and your buying journey, with a point of contact who follows your project and gets you answers when you need them. You know which properties to compare, which steps to prepare for and what decision comes next — without spending your days travelling, chasing replies and trying to work everything out alone.</p>
       <ol class="bp-do">
-        <li><strong>A plan before the search</strong>Your goal, budget including all costs, financing, neighbourhoods and criteria: your Personalised Acquisition Plan gives the search a clear direction.</li>
-        <li><strong>An organised, documented search</strong>Properties are selected around your project. Photos, observations and points to watch are brought together in your client portal, so you can find the information and compare without starting over.</li>
-        <li><strong>Analysis to guide your decisions</strong>Price, location, property quality and potential for your goals: we compare the options, explain the trade-offs and give you a reasoned recommendation.</li>
-        <li><strong>A clear path through to the keys</strong>The stages, documents and procedures are organised and tracked, with a written record of progress. Depending on your package, we advise you or coordinate communication with the parties involved.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v3H8zM8 4H5v17h14V4h-3M8 12h8M8 16h5"/></svg></span><strong>A plan before the search</strong>Your goal, budget including all costs, financing, neighbourhoods and criteria: your Personalised Acquisition Plan gives the search a clear direction.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 10h6M10 7v6"/></svg></span><strong>An organised, documented search</strong>Properties are selected around your project. Photos, observations and points to watch are brought together in your client portal, so you can find the information and compare without starting over.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10m6 10V4m6 16v-7m-15 7h21"/></svg></span><strong>Analysis to guide your decisions</strong>Price, location, property quality and potential for your goals: we compare the options, explain the trade-offs and give you a reasoned recommendation.</li>
+        <li><span class="mre-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M6 9v12h12V9M10 21v-7h4v7"/></svg></span><strong>A clear path through to the keys</strong>The stages, documents and procedures are organised and tracked, with a written record of progress. Depending on your package, we advise you or coordinate communication with the parties involved.</li>
       </ol>
+    </div>
+  </section>
+
+  <!-- LOCAL PRESENCE -->
+  <section class="mre-presence" aria-label="Close to your project">
+    <img src="home-dev.jpg" alt="Construction site follow-up: a person wearing a Rahim International helmet and vest reviews building plans" width="1000" height="667" loading="lazy" decoding="async">
+    <div class="mre-presence-copy">
+      <p class="mre-eyebrow">Close to your project</p>
+      <p>Your project is in Morocco.<br><em>We are on the ground.</em></p>
+      <a href="about.html#our-story">Discover our story <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
   <!-- PACKAGES -->
   <section class="rb-sec rb-dark" id="formules">
     <div class="rb-inner">
+      <p class="mre-eyebrow">At your pace, around your needs</p>
       <h2 class="section-title">Three packages: which one is right for you?</h2>
       <div class="bp-plans">
         <article class="bp-plan">
           <span class="bp-badge bp-badge-light">Free to get started</span>
           <h3>Essentiel</h3>
+          <p class="mre-plan-benefit">Prepare your purchase at your own pace.</p>
           <p class="bp-for">This is for you if…</p>
           <ul><li>you are not ready to commit yet, but you want to move forward in a structured way;</li><li>you want to follow your project online, at your own pace, with a selection of opportunities every month;</li><li>you want us present at the key stages: the inspection of the property you choose, the offer, the financing and the deed.</li></ul>
           <p class="bp-level"><span>Level of advice</span>your Personalised Acquisition Plan and a first tailored search free of charge, then our advice and professional eye at every key stage.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Receive the brochure <span aria-hidden="true">→</span></a>
         </article>
         <article class="bp-plan is-rec">
           <span class="bp-badge">Recommended</span>
           <h3>Complet</h3>
+          <p class="mre-plan-benefit">Delegate the work, keep the choice.</p>
           <p class="bp-for">This is for you if…</p>
           <ul><li>you live abroad and are discovering the rules of the Moroccan market;</li><li>you want us to search, visit and negotiate for you;</li><li>you want an adviser who coordinates the bank, the notary, the transfer of your funds and the power of attorney.</li></ul>
           <p class="bp-level"><span>Level of advice</span>an adviser who supports you at every stage and clearly recommends the best choice.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Receive the brochure <span aria-hidden="true">→</span></a>
         </article>
         <article class="bp-plan">
           <h3>Premium</h3>
+          <p class="mre-plan-benefit">Think beyond the handover of the keys.</p>
           <p class="bp-for">This is for you if…</p>
           <ul><li>you are investing a significant amount and want a complete analysis: rental yield, resale potential, how the neighbourhood is developing;</li><li>you want to hand everything over to us, entirely from abroad: the search, the steps to obtain your bank financing, through to the handover of the keys;</li><li>you want the right property without compromise: a tailored search until you are satisfied, and our new selections first.</li></ul>
           <p class="bp-level"><span>Level of advice</span>complete strategic advice, from the investment analysis to the handover of the keys, with priority follow-up.</p>
+          <a href="#brochure" data-brochure class="mre-plan-link">Receive the brochure <span aria-hidden="true">→</span></a>
         </article>
       </div>
       <div class="bp-cta"><p>Not sure? You can move up to a higher package at any time, and what you have already paid is deducted. The details of each package, our fees and our launch offer are in the brochure.</p><a href="#brochure" data-brochure class="btn-gold">Receive the brochure</a></div>
@@ -264,8 +297,9 @@
   </section>
 
   <!-- HOW IT STARTS -->
-  <section class="rb-sec rb-light">
+  <section class="rb-sec rb-light mre-start">
     <div class="rb-inner">
+      <p class="mre-eyebrow">A first step, with no obligation</p>
       <h2 class="section-title">How to start</h2>
       <ol class="bp-steps">
         <li><strong>Receive our brochure</strong>Our packages and fees, with the link to our questionnaire.<span>1 minute</span></li>
