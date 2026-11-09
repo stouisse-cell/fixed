@@ -76,7 +76,7 @@
   .rb-steel { background: var(--steel); }
   .rb-steel h2 { color: var(--navy); margin-bottom: 2rem; }
   .rb-light h2 { color: var(--navy); margin-bottom: 2rem; }
-  .rb-light .rb-intro { color: #3d4a5c; }
+  .rb-light .rb-intro, .rb-steel .rb-intro { color: #3d4a5c; }
   .rb-dark h2 { color: var(--white); margin-bottom: 2rem; }
   .rb-qa { display: grid; gap: 0; border-top: 1px solid rgba(8,26,51,.15); }
   .rb-qa > div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(8,26,51,.12); }
@@ -117,6 +117,7 @@
   .rb-story-link { display: inline-block; margin-top: 1rem; color: var(--copper-dark, #87452c); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
   [dir="rtl"] .rb-story-link { letter-spacing: 0; font-size: .95rem; }
   .rb-steps.rb-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+  .rb-steps.rb-flow-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .rb-meta { display: block; margin-top: .8rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
   [dir="rtl"] .rb-meta { letter-spacing: 0; font-size: .85rem; }
   .rb-choice { margin-top: 2rem; padding: 1.2rem 1.4rem; border: 1px dashed rgba(135,69,44,.45); font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
@@ -125,11 +126,62 @@
   .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
   @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 
-  .rb-diff { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
-  .rb-diff li { background: #fff; border: 1px solid #e3dccd; border-top: 2px solid var(--copper); padding: 1.4rem 1.5rem; font-size: .98rem; line-height: 1.75; color: #3d4a5c; }
-  .rb-diff strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; line-height: 1.25; color: var(--navy); margin-bottom: .5rem; }
-  [dir="rtl"] .rb-diff strong { font-family: 'Amiri', serif; }
-  @media (max-width: 760px) { .rb-diff { grid-template-columns: minmax(0, 1fr); } }
+  .rb-story { max-width: 760px; }
+  .rb-story p { font-size: 1.05rem; line-height: 1.9; color: #3d4a5c; margin: 0 0 1.3rem; }
+  .rb-story .rb-lead { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; line-height: 1.35; color: var(--navy); margin: -0.8rem 0 1.6rem; }
+  .rb-story q { quotes: none; font-style: italic; color: var(--navy); }
+  .rb-story h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.7rem; line-height: 1.3; color: var(--copper-dark, #87452c); margin: 2.4rem 0 1.4rem; }
+  .rb-pains + .rb-story h3 { margin-top: 2.6rem; }
+  .rb-story .rb-close { margin-top: 1.8rem; }
+  .rb-story .rb-origin { margin: 1.6rem 0 0; font-size: .98rem; }
+  [dir="rtl"] .rb-story .rb-lead, [dir="rtl"] .rb-story h3 { font-family: 'Amiri', serif; }
+  .rb-pains li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+  .rb-pillars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; counter-reset: rbp; }
+  .rb-pillars li { counter-increment: rbp; background: #fff; border: 1px solid #e3dccd; border-top: 2px solid var(--copper); padding: 1.5rem 1.6rem 1.6rem; font-size: .98rem; line-height: 1.8; color: #3d4a5c; }
+  .rb-pillars li::before { content: '0' counter(rbp); display: block; font-size: .72rem; letter-spacing: .16em; color: var(--copper-dark, #87452c); margin-bottom: .5rem; }
+  .rb-pillars strong { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.45rem; line-height: 1.25; color: var(--navy); margin-bottom: .6rem; }
+  [dir="rtl"] .rb-pillars strong { font-family: 'Amiri', serif; }
+  @media (max-width: 760px) { .rb-pillars { grid-template-columns: minmax(0, 1fr); } }
+  .rb-note { margin: 1rem 0 0; font-size: .85rem; font-style: italic; line-height: 1.7; color: #5a6475; }
+  .rb-on-dark { color: var(--copper); margin-top: 1.4rem; }
+  .rb-bro-grid { max-width: 1100px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 3rem; align-items: start; }
+  .rb-bro-label { margin: 1.8rem 0 .9rem; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper); }
+  .rb-bro-list { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
+  .rb-bro-alt { margin: 2rem 0 0; font-size: .9rem; line-height: 1.7; color: rgba(255,255,255,.65); }
+  .rb-bro-alt a { color: rgba(255,255,255,.85); text-decoration: underline; text-underline-offset: 4px; }
+  .rb-bro-form { background: #fff; padding: 1.8rem; display: grid; gap: 1.2rem; color: #3d4a5c; border-top: 2px solid var(--copper); }
+  .rb-bro-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+  .rb-field { display: grid; gap: .4rem; font-size: .85rem; color: var(--navy); }
+  .rb-field em { color: #5a6475; font-style: normal; }
+  .rb-field input, .rb-field select { width: 100%; box-sizing: border-box; min-height: 46px; padding: .7rem .8rem; border: 1px solid #cfd8e0; border-radius: 0; font: inherit; font-size: 1rem; color: var(--navy); background: #fff; }
+  .rb-field input:focus, .rb-field select:focus { outline: 2px solid var(--copper); outline-offset: 1px; border-color: var(--copper); }
+  .rb-chips { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .rb-chips legend { padding: 0; margin-bottom: .5rem; font-size: .85rem; color: var(--navy); }
+  .rb-chips label { position: relative; }
+  .rb-chips input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .rb-chips span { display: inline-flex; align-items: center; min-height: 40px; padding: .45rem .9rem; border: 1px solid #cfd8e0; font-size: .9rem; color: var(--navy); cursor: pointer; }
+  .rb-chips input:checked + span { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .rb-chips input:focus-visible + span { outline: 2px solid var(--copper); outline-offset: 2px; }
+  .rb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .rb-bro-form .btn-gold { justify-self: start; border: 0; cursor: pointer; }
+  .rb-bro-form .btn-gold[disabled] { opacity: .6; cursor: wait; }
+  .rb-bro-msg { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--navy); }
+  .rb-bro-msg:empty { display: none; }
+  .rb-bro-msg.is-error { color: #9a3e39; }
+  .rb-bro-legal { margin: 0; font-size: .78rem; line-height: 1.6; color: #5a6475; }
+  .rb-bro-legal a { color: inherit; }
+  .rb-bro-done h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.7rem; color: var(--navy); margin: 0 0 .6rem; }
+  .rb-bro-done p { margin: 0 0 1rem; line-height: 1.8; }
+  .rb-bro-done .rb-next-q { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid #e3dccd; color: var(--navy); font-weight: 600; }
+  .rb-next-online a { color: var(--navy); }
+  .rb-next-online span { margin-inline-start: .5rem; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
+  .rb-call-open { cursor: pointer; }
+  .rb-call { display: grid; gap: 1.1rem; margin-top: .4rem; }
+  .rb-call[hidden], .rb-call-open[hidden] { display: none; }
+  .rb-call .btn-gold { justify-self: start; border: 0; cursor: pointer; }
+  @media (max-width: 900px) { .rb-bro-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+  @media (max-width: 560px) { .rb-bro-row { grid-template-columns: minmax(0, 1fr); } .rb-bro-form { padding: 1.3rem; } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MRE et diaspora marocaine | Rahim International">
@@ -212,7 +264,7 @@
       <p class="page-hero-eyebrow">Marocains du monde (MRE)</p>
       <h1 class="page-hero-title">Acheter au pays<br><em>sans s’y sentir étranger.</em></h1>
       <p class="page-hero-sub">Une résidence, un pied-à-terre pour votre retour ou un investissement : nous étudions le marché, évaluons les biens et coordonnons votre achat à distance, pour que vous décidiez en confiance sans multiplier les allers-retours.</p>
-      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a><span class="page-hero-note">5 à 10 minutes · sans engagement</span></div>
+      <div class="page-hero-actions"><a href="#brochure" class="btn-gold">Recevoir la brochure</a><span class="page-hero-note">1 minute · par e-mail</span></div>
     </div>
   </section>
 
@@ -220,27 +272,32 @@
   <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">Ça vous parle ?</h2>
-      <p class="rb-intro">Pour les Marocains résidant à l’étranger, la principale difficulté est le temps. Prendre une décision éclairée demande beaucoup d’informations, et au Maroc, une grande partie d’entre elles est introuvable en ligne : l’essentiel des recherches doit donc se faire sur place, par des visites, des échanges et des vérifications sur le terrain. Pendant un court séjour, on a rarement assez de temps pour le faire correctement, et les difficultés ci-dessous en sont la conséquence.</p>
-      <ul class="rb-pains"><li><strong>« Il faut venir voir. »</strong>De nombreuses annonces n’indiquent ni prix ni adresse précise, et chaque question sur un bien reçoit la même réponse : une invitation à venir sur place, c’est-à-dire un voyage difficile à faire depuis l’étranger.</li><li><strong>Un proche qui n’a pas le temps</strong>Un cousin visite un appartement le week-end et vous envoie une courte vidéo. Vous auriez besoin de plus d’aide, mais vous hésitez à le solliciter davantage.</li><li><strong>Des quartiers que vous connaissez mal</strong>Depuis l’étranger, il est difficile de savoir quels quartiers se développent, lesquels sont bien desservis et lesquels se prêtent à un investissement, d’autant que presque chaque annonce promet un « emplacement stratégique ». Le Maroc a par ailleurs beaucoup changé depuis le départ de nombreux MRE : certains quartiers se sont améliorés, d’autres se sont dégradés.</li><li><strong>Des annonces loin de la réalité</strong>Le prix affiché est celui du plus petit lot, l’appartement « haut standing » se révèle de construction économique, et certaines annonces restent en ligne longtemps après la fermeture du bureau de vente.</li><li><strong>Un promoteur fiable ?</strong>Pour un achat sur plan, il est difficile de savoir depuis l’étranger si un promoteur livre dans les délais et construit avec la qualité promise.</li><li><strong>Le « prix MRE »</strong>Le même appartement est proposé à un prix plus élevé, parce que l’acheteur vit à l’étranger. Sans base de données publique des prix, il est difficile de savoir si un prix est juste, et le prix dépend souvent de ce que l’acheteur semble prêt à payer. En été, quand de nombreux MRE passent leurs vacances au Maroc, les prix augmentent nettement, car des acheteurs sans point de repère sont prêts à payer davantage.</li><li><strong>La pression pour décider vite</strong>Il y a toujours un autre acheteur prêt à verser l’avance, et avec seulement quelques jours au Maroc, vous avez peu de temps pour comparer et vérifier.</li><li><strong>Des frais au-delà du prix</strong>Les frais d’enregistrement et de notaire, les frais de conservation foncière et les charges mensuelles de la résidence sont souvent découverts tard, et ils changent le budget réel.</li><li><strong>Le financement depuis l’étranger</strong>Les banques marocaines demandent aux acheteurs résidant à l’étranger des documents spécifiques, et préparer un crédit ou une demande Daam Sakane à distance demande du temps et une coordination avec les différents intervenants. Il faut savoir quels documents apporter, combien de temps à l’avance et pour quelle durée être présent au Maroc, afin d’éviter plusieurs voyages.</li><li><strong>Suivre le chantier à distance</strong>Après une réservation sur plan, vous pouvez attendre un ou deux ans la livraison avec peu d’informations sur l’avancement des travaux.</li></ul>
-      <p class="rb-close">Rahim International est né de cette expérience, et nous en avons tiré une méthode qui mène ces recherches sur le terrain pour les acheteurs à l’étranger, afin qu’ils puissent décider en confiance.</p>
-      <a class="rb-story-link" href="about.html#our-story">Lire notre histoire →</a>
+      <div class="rb-story">
+        <p class="rb-lead">Acheter au pays est un beau projet. Mais faut-il vraiment tout gérer soi-même ?</p>
+        <p>Cela fait des années que vous pensez à acheter un bien au Maroc : un pied-à-terre pour vos vacances, une résidence pour votre retour au pays ou un investissement locatif. Avec les nouvelles infrastructures, les villes qui se développent et les dispositifs comme Daam Sakane, vous vous dites que c’est peut-être le bon moment pour concrétiser votre projet. Vous avez un budget en tête, quelques villes qui vous intéressent, et vous commencez vos recherches.</p>
+        <p>Depuis l’étranger, vous passez alors vos soirées sur Avito, Facebook et WhatsApp. Entre les annonces sans prix, les adresses imprécises et les informations manquantes, il est difficile de comparer les possibilités, d’autant que le Maroc a beaucoup changé depuis votre départ et que vous ne savez plus vraiment quels quartiers se sont améliorés et lesquels se sont dégradés. Et lorsque vous contactez les vendeurs, la réponse revient presque toujours : <q>« Il faut venir voir d’abord. »</q></p>
+        <p>Vous envoyez donc un cousin visiter un appartement. Entre le travail et les enfants, il trouve un moment le week-end et vous envoie une vidéo floue qui s’arrête juste avant la salle de bain, avec ce message : <q>« Ça a l’air bien, mais il faut que tu viennes voir toi-même. »</q> Vous auriez d’autres biens à lui faire visiter, mais vous sentez bien qu’il n’a pas le temps et vous n’osez pas le solliciter davantage. Vous réservez alors un court séjour au Maroc, avec l’intention de trouver votre futur appartement.</p>
+        <h3>Sur place, les surprises commencent.</h3>
+      </div>
+      <ul class="rb-pains"><li><strong>Le bureau de vente introuvable</strong>Le bureau du promoteur repéré en ligne a le rideau baissé et son numéro ne répond plus. Le concierge vous l’apprend : il est fermé depuis deux ans, mais l’annonce est toujours en ligne.</li><li><strong>Le prix trop beau pour être vrai</strong>Le prix affiché est celui du plus petit lot, au rez-de-chaussée, sans soleil, avec vue imprenable sur le mur d’en face.</li><li><strong>Le fameux « haut standing »</strong>L’annonce promettait un quartier prestige, des finitions haut standing, un emplacement stratégique et un appartement lumineux. Vous découvrez des finitions économiques en périphérie, loin du centre : l’humidité vous accueille à l’entrée, le soleil n’a jamais reçu l’adresse, et la peinture fraîche fait de son mieux pour garder le secret sur les fissures.</li><li><strong>Le célèbre « prix MRE »</strong>Le prix de l’appartement visité par votre cousin a changé depuis votre dernier échange, et vous vous demandez si le fait de vivre à l’étranger y est pour quelque chose. En été, quand de nombreux MRE passent leurs vacances au Maroc, les prix augmentent d’ailleurs nettement.</li><li><strong>L’incontournable client de Rabat</strong>À Kénitra, il y a toujours un mystérieux « client de Rabat » prêt à verser l’avance. Il est à deux minutes d’arriver, depuis trois jours.</li></ul>
+      <div class="rb-story">
+        <h3>Et pendant ce temps, votre vol de retour approche.</h3>
+        <p>Après plusieurs journées de déplacements, de visites et de rendez-vous, vous avez enfin repéré quelques appartements intéressants : l’un est mieux situé, l’autre plus grand, un troisième semble offrir un meilleur potentiel locatif. Mais lequel vaut réellement son prix ? Les loyers annoncés sont-ils réalistes, le promoteur est-il fiable, et quels frais d’enregistrement, de notaire et de conservation foncière faudra-t-il ajouter au montant affiché ? Vous aimeriez comparer, vérifier les informations et négocier tranquillement, mais vos vacances touchent à leur fin.</p>
+        <p>Et même une fois le bon appartement trouvé, il restera le financement, les documents à réunir pour la banque et pour Daam Sakane, les échanges avec le notaire, les signatures et peut-être un autre voyage pour finaliser la vente. Entre les billets d’avion, la voiture de location, les déplacements et les journées passées à chercher, vous avez déjà consacré beaucoup de temps et d’argent à votre projet.</p>
+        <p class="rb-close">Vous pensiez venir au Maroc pour choisir votre futur appartement. Vous découvrez que les recherches, les visites, les comparaisons et la préparation d’une acquisition représentent un véritable travail, difficile à concentrer sur quelques jours de vacances.</p>
+        <p class="rb-origin">Rahim International est né de cette expérience. Nous en avons tiré une méthode fondée sur la recherche, l’analyse du marché et une présence active sur le terrain, pour que les acheteurs à l’étranger puissent décider en confiance.</p>
+        <a class="rb-story-link" href="about.html#our-story">Lire notre histoire →</a>
+      </div>
     </div>
   </section>
 
   <!-- HOW WE HELP -->
-  <section class="rb-sec rb-dark">
-    <div class="rb-inner">
-      <h2 class="section-title">Comment nous vous aidons</h2>
-      <p class="rb-intro">Selon la formule choisie, notre accompagnement couvre :</p>
-      <ul class="rb-svc"><li><strong>Conseil stratégique</strong>Nous définissons avec vous le bon projet, le budget et les quartiers, et les confrontons au marché.</li><li><strong>Recherche et visites filmées</strong>Nous prospectons le marché, visitons les biens pour vous et les filmons, comme si vous y étiez.</li><li><strong>Analyse et recommandation</strong>Nous comparons les meilleures options, chiffres à l’appui, et vous disons laquelle nous choisirions, et pourquoi.</li><li><strong>Financement</strong>Nous préparons une simulation de crédit, vous accompagnons dans votre demande Daam Sakane et orientons votre dossier vers des banques habituées aux clients MRE, en vous indiquant quels documents apporter et quand être présent au Maroc.</li><li><strong>Négociation</strong>Nous négocions le prix et les conditions en votre nom, selon vos instructions.</li><li><strong>Jusqu’aux clés</strong>Nous assurons la coordination avec le notaire, y compris pour une procuration si vous ne pouvez pas vous déplacer, et restons à vos côtés jusqu’à la signature et la remise des clés.</li></ul>
-    </div>
-  </section>
-
-  <!-- DIFFERENT FROM AN AGENCY -->
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
-      <h2 class="section-title">Ce qui nous distingue d’une agence traditionnelle</h2>
-      <ul class="rb-diff"><li><strong>Nous partons de votre projet, pas d’un portefeuille.</strong>Une agence traditionnelle présente les biens qu’on lui a confiés à la vente. Nous partons de vos objectifs et de votre budget, puis cherchons sur tout le marché, y compris des programmes neufs qui ne sont pas annoncés en ligne et des biens en revente de sources multiples.</li><li><strong>Nous analysons, comparons et recommandons.</strong>Le rôle d’une agence s’arrête souvent à la mise en relation avec le vendeur. Nous étudions les prix du quartier, vérifions la construction et l’historique du promoteur, comparons les options et vous disons clairement laquelle nous choisirions, et pourquoi.</li><li><strong>Nous prenons le temps que vous n’avez pas.</strong>Un acheteur à l’étranger ne dispose souvent que de quelques jours au Maroc. Nous visitons les biens pour vous, y retournons aussi souvent que nécessaire, filmons les visites pour que vous les voyiez depuis l’étranger et, pour un achat sur plan, suivons le chantier jusqu’à la livraison.</li><li><strong>Nous restons à vos côtés jusqu’aux clés.</strong>Financement, Daam Sakane, notaire et signature sont coordonnés pour vous, et chaque étape est documentée dans votre espace client personnel, pour que vous puissiez suivre votre projet à tout moment, que vous soyez au Maroc ou à l’étranger.</li></ul>
+      <h2 class="section-title">Et si vous pouviez nous confier tout ce travail ?</h2>
+      <p class="rb-intro">Acheter un bien au Maroc depuis l’étranger demande du temps, une présence sur place et une bonne connaissance du marché local. C’est précisément ce que nous vous apportons. Rahim International est un cabinet de conseil et de courtage immobilier : nous travaillons pour l’acheteur, nous prenons en charge le travail sur le terrain, et vous gardez la maîtrise de vos décisions.</p>
+      <ol class="rb-pillars"><li><strong>Une stratégie avant les visites</strong>Avant de chercher un bien, nous prenons le temps de comprendre votre projet. S’agit-il d’une résidence pour votre retour, d’un pied-à-terre pour les vacances ou d’un investissement locatif ? Quel est votre budget réel, frais compris, et comment sera-t-il financé ? Quels quartiers correspondent à vos objectifs, aujourd’hui et dans dix ans ? Ensemble, nous transformons une idée encore générale en un projet clair et réaliste, confronté à notre analyse du marché et de ses perspectives, pour que chaque recherche et chaque visite servent votre objectif.</li><li><strong>Une recherche sur mesure, fondée sur notre analyse du marché</strong>Nous menons nos propres études de marché et suivons en continu l’évolution des prix, des quartiers, des promoteurs et de l’économie locale, des nouvelles infrastructures aux grands projets urbains. Dans nos formules d’accompagnement, cette connaissance est au service d’une recherche sur mesure : plutôt que de vous présenter seulement les biens que nous avons à vendre, nous recherchons pour vous sur l’ensemble du marché, programmes neufs comme biens de revente, y compris ceux qui ne sont pas annoncés en ligne. Vous recevez une sélection réfléchie de biens qui méritent votre attention, et non une simple liste d’annonces.</li><li><strong>Un conseil indépendant pour décider</strong>Nous comparons les options retenues et vous disons clairement ce que nous en pensons, y compris lorsqu’un bien ne vaut pas son prix ou qu’un projet ne correspond pas à vos objectifs. Notre rôle n’est pas de vous vendre un bien, mais de vous aider à acheter le bon, au juste prix. Lors de la négociation, vous êtes représenté par un conseiller qui connaît le marché local et qui défend vos intérêts, toujours selon vos instructions.</li><li><strong>Un accompagnement complet jusqu’aux clés</strong>Que vous veniez au Maroc ou que vous avanciez entièrement à distance, nous restons à vos côtés à chaque étape : financement et Daam Sakane, échanges avec la banque et le notaire, procuration lorsque cela est possible, signature, remise des clés et, pour un achat sur plan, suivi du chantier jusqu’à la livraison. Si vous venez au Maroc, vous venez pour choisir, pas pour commencer à chercher. Où que vous soyez, vous suivez l’avancement de votre projet dans votre espace client, et votre conseiller reste disponible.</li></ol>
+      <p class="rb-note">Les prestations incluses dépendent de la formule choisie.</p>
     </div>
   </section>
 
@@ -248,8 +305,8 @@
   <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">Pour commencer</h2>
-      <ol class="rb-steps rb-flow"><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, où que vous viviez.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Orientation de la recherche, priorités et premier point sur votre budget face au marché.<span class="rb-meta">Sous 72 heures</span></li><li><strong>Consultation gratuite</strong>Nous passons le plan en revue ensemble, à une heure adaptée à votre fuseau horaire.<span class="rb-meta">Par téléphone ou visio</span></li><li><strong>Votre première visite</strong>Filmée pour vous, ou avec vous si vous êtes au Maroc. La visite elle-même ne vous coûte rien, et un bon de visite est signé au préalable.<span class="rb-meta">Après la consultation</span></li></ol>
-      <p class="rb-choice"><strong>Votre choix</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">Facultatif</span> Poursuivez avec la formule qui correspond à l’accompagnement dont vous avez besoin, ou arrêtez-vous là.</p>
+      <ol class="rb-steps rb-flow"><li><strong>Recevez notre brochure</strong>Nos formules, ce qu’elles incluent et nos honoraires, par e-mail.<span class="rb-meta">1 minute</span></li><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, où que vous viviez.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Une première orientation pour votre recherche, établie à partir de vos réponses.<span class="rb-meta">Après le questionnaire</span></li><li><strong>Consultation</strong>Nous en discutons ensemble, à une heure adaptée à votre fuseau horaire, et vous présentons la formule la plus adaptée à votre projet.<span class="rb-meta">Par téléphone ou visio</span></li></ol>
+      <p class="rb-choice"><strong>Votre choix</strong> Vous décidez ensuite de poursuivre avec nous, ou de vous arrêter là.</p>
     </div>
   </section>
 
@@ -257,7 +314,8 @@
   <section class="rb-sec rb-dark">
     <div class="rb-inner">
       <h2 class="section-title">Choisissez votre niveau d’accompagnement</h2>
-      <p class="rb-text">De la simple mise en relation à l’accompagnement complet jusqu’aux clés, nos formules s’adaptent au degré d’implication que vous souhaitez. Pour les acheteurs à l’étranger, nos formules d’accompagnement complet sont pensées pour tout gérer à distance. La brochure que nous vous envoyons sous 24 heures après le questionnaire détaille chacune d’elles et nos honoraires.</p>
+      <p class="rb-text">De la simple mise en relation à l’accompagnement complet jusqu’aux clés, nos formules s’adaptent au degré d’implication que vous souhaitez. Pour les acheteurs à l’étranger, nos formules d’accompagnement complet sont pensées pour tout gérer à distance. Notre brochure, que vous recevez par e-mail dès votre demande, détaille chacune d’elles ainsi que nos honoraires.</p>
+      <a class="rb-story-link rb-on-dark" href="#brochure">Recevoir la brochure →</a>
     </div>
   </section>
 
@@ -265,16 +323,53 @@
   <section class="rb-sec rb-steel">
     <div class="rb-inner">
       <h2 class="section-title">Vos questions, nos réponses</h2>
-      <dl class="rb-qa"><div><dt>Comment choisir sans visiter ?</dt><dd>Nous visitons les biens pour vous, les filmons et vous envoyons un compte rendu écrit, pour comparer à distance.</dd></div><div><dt>Le prix est-il juste ?</dt><dd>Avant toute offre, nous comparons le prix demandé avec des biens similaires du quartier, à partir de nos propres recherches sur le terrain et non des chiffres du vendeur.</dd></div><div><dt>Vais-je payer un « prix MRE » ?</dt><dd>Pas avec nous pour négocier. Les vendeurs ont face à eux un conseiller qui connaît les prix locaux, et nous négocions sur la base de cette comparaison.</dd></div><div><dt>Puis-je obtenir un crédit ou Daam Sakane depuis l’étranger ?</dt><dd>Souvent, oui. Nous vérifions votre éligibilité et orientons votre dossier vers des banques habituées aux clients MRE. L’accord reste la décision de la banque.</dd></div><div><dt>Le promoteur est-il fiable ?</dt><dd>Nous vérifions les projets qu’il a livrés, le respect des délais et la qualité réelle des finitions.</dd></div><div><dt>Comment signer sans me déplacer ?</dt><dd>Nous coordonnons avec le notaire, qui vous conseillera sur une procuration si vous ne pouvez pas être présent.</dd></div></dl>
+      <dl class="rb-qa"><div><dt>Comment choisir sans visiter ?</dt><dd>Nous visitons les biens pour vous et vous permettons de les découvrir et de les comparer à distance.</dd></div><div><dt>Le prix est-il juste ?</dt><dd>Avant toute offre, nous vérifions le prix demandé par rapport au marché local, et non sur la base des seuls chiffres du vendeur.</dd></div><div><dt>Vais-je payer un « prix MRE » ?</dt><dd>Pas avec nous pour négocier : face aux vendeurs, vous êtes représenté par un conseiller qui connaît les prix locaux.</dd></div><div><dt>Puis-je obtenir un crédit ou Daam Sakane depuis l’étranger ?</dt><dd>Souvent, oui. Nous vous orientons dans la préparation de votre dossier, et l’accord reste la décision de la banque.</dd></div><div><dt>Le promoteur est-il fiable ?</dt><dd>Nous étudions le sérieux du promoteur avant que vous vous engagiez.</dd></div><div><dt>Comment signer sans me déplacer ?</dt><dd>Une procuration est souvent possible, et nous coordonnons les démarches avec le notaire.</dd></div></dl>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="rb-cta">
-    <h2 class="section-title">Vous prévoyez d’acheter au pays ?</h2>
-    <div class="rb-cta-links">
-      <a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a>
-      <a class="rb-link" href="guides/mre-buying-guide.html">Lire le guide d’achat MRE</a>
+  <!-- BROCHURE -->
+  <section class="rb-sec rb-dark rb-brochure" id="brochure">
+    <div class="rb-inner rb-bro-grid">
+      <div class="rb-bro-copy">
+        <h2 class="section-title">Recevez notre brochure</h2>
+        <p class="rb-text">Vous prévoyez d’acheter au pays ? Indiquez-nous en quelques mots où en est votre projet, et nous vous envoyons par e-mail la brochure qui correspond à votre situation.</p>
+        <p class="rb-bro-label">Dans la brochure</p>
+        <ul class="rb-checks rb-bro-list"><li>Nos formules et ce que chacune inclut</li><li>Nos honoraires et nos offres en cours</li><li>Des exemples des documents que vous recevez</li><li>Notre accompagnement pour l’achat sur plan et le suivi de chantier</li></ul>
+        <p class="rb-bro-alt">Déjà prêt à avancer ? <a href="consultation.html">Questionnaire de préconsultation</a> · <a href="guides/mre-buying-guide.html">Guide d’achat MRE</a></p>
+      </div>
+      <form class="rb-bro-form" id="bro-form" novalidate>
+        <div class="rb-bro-row">
+          <label class="rb-field"><span>Prénom</span><input name="first_name" type="text" autocomplete="given-name" required maxlength="60"></label>
+          <label class="rb-field"><span>E-mail</span><input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+        </div>
+        <fieldset class="rb-chips"><legend>Vous êtes</legend>
+          <label><input type="radio" name="profile" value="mre" checked><span>Marocain résidant à l’étranger</span></label>
+          <label><input type="radio" name="profile" value="resident"><span>Résident au Maroc</span></label>
+          <label><input type="radio" name="profile" value="international"><span>Investisseur international</span></label>
+          <label><input type="radio" name="profile" value="seller"><span>Vendeur ou promoteur</span></label>
+        </fieldset>
+        <label class="rb-field"><span data-buy="Quand souhaitez-vous acheter ?" data-sell="Quand souhaitez-vous vendre ?">Quand souhaitez-vous acheter ?</span>
+          <select name="timeframe"><option value="lt3m">Dans les 3 mois</option><option value="3to12m" selected>Dans 3 à 12 mois</option><option value="gt12m">Dans plus d’un an</option><option value="info">Je m’informe pour l’instant</option></select>
+        </label>
+        <fieldset class="rb-chips"><legend>Villes</legend>
+          <label><input type="checkbox" name="cities" value="Kénitra"><span>Kénitra</span></label>
+          <label><input type="checkbox" name="cities" value="Rabat"><span>Rabat</span></label>
+          <label><input type="checkbox" name="cities" value="Salé"><span>Salé</span></label>
+          <label><input type="checkbox" name="cities" value="Autre ville"><span>Autre ville</span></label>
+        </fieldset>
+        <fieldset class="rb-chips"><legend>Type de bien</legend>
+          <label><input type="checkbox" name="property_types" value="Appartement"><span>Appartement</span></label>
+          <label><input type="checkbox" name="property_types" value="Programme neuf (sur plan)"><span>Programme neuf (sur plan)</span></label>
+          <label><input type="checkbox" name="property_types" value="Villa"><span>Villa</span></label>
+          <label><input type="checkbox" name="property_types" value="Terrain"><span>Terrain</span></label>
+          <label><input type="checkbox" name="property_types" value="Local commercial"><span>Local commercial</span></label>
+        </fieldset>
+        <label class="rb-field"><span>WhatsApp <em>(facultatif)</em></span><input name="whatsapp" type="tel" autocomplete="tel" maxlength="30" placeholder="+33 6 12 34 56 78"></label>
+        <label class="rb-hp" aria-hidden="true">Site web<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        <button type="submit" class="btn-gold">Recevoir la brochure</button>
+        <p class="rb-bro-msg" role="status" aria-live="polite"></p>
+        <p class="rb-bro-legal">Vos informations servent à vous envoyer la brochure et à vous recontacter au sujet de votre projet. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
+      </form>
     </div>
   </section>
 
@@ -291,6 +386,91 @@
   <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. Tous droits réservés.<a class="footer-portal" href="../portail/index.html" rel="nofollow">Espace client</a></div><div class="footer-langs"><a href="../investors-mre.html">EN</a><a href="investors-mre.html" class="active">FR</a><a href="../ar/investors-mre.html">AR</a></div></div>
 </footer>
 <div class="float-buttons"><a href="https://wa.me/212642773249?text=Bonjour%2C%20je%20souhaite%20me%20renseigner%20sur%20vos%20services%20de%20conseil%20immobilier." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><button class="btn-back-top" aria-label="Retour en haut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button></div>
+<script>
+(function () {
+  var form = document.getElementById('bro-form');
+  if (!form) return;
+  var ENDPOINT = 'https://djaverrqyhemgyypuvbw.supabase.co/functions/v1/brochure-request';
+  var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqYXZlcnJxeWhlbWd5eXB1dmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3OTQ3MzEsImV4cCI6MjEwODM3MDczMX0.bcNmZ7PIoqb78z3WZNKbZAQSRwXBCm3T9EVG1N1cUhU';
+  var msg = form.querySelector('.rb-bro-msg'), btn = form.querySelector('button[type=submit]');
+  var when = form.querySelector('[data-buy]');
+  form.addEventListener('change', function (e) {
+    if (e.target.name === 'profile') when.textContent = when.getAttribute(e.target.value === 'seller' ? 'data-sell' : 'data-buy');
+  });
+  function values(name) { return [].map.call(form.querySelectorAll('[name="' + name + '"]:checked'), function (i) { return i.value; }); }
+  function post(body) {
+    return fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
+      body: JSON.stringify(body)
+    }).then(function (r) { return r.json().then(function (d) { if (!r.ok) throw d; return d; }); });
+  }
+  // préconsultation par téléphone, proposée juste après la demande de brochure
+  function callStep(id) {
+    var box = form.querySelector('.rb-call'), open = form.querySelector('.rb-call-open');
+    open.addEventListener('click', function () { box.hidden = false; open.hidden = true; box.querySelector('input').focus(); });
+    box.querySelector('.rb-call-send').addEventListener('click', function () {
+      var m = box.querySelector('.rb-bro-msg'), phone = box.querySelector('[name=phone]').value.trim(), send = this;
+      if ((phone.match(/\d/g) || []).length < 6) { m.className = 'rb-bro-msg is-error'; m.textContent = 'Merci d’indiquer un numéro de téléphone valide, avec l’indicatif du pays.'; return; }
+      var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+      send.disabled = true;
+      post({ action: 'call', id: id, phone: phone, channel: box.querySelector('[name=channel]:checked').value, slot: box.querySelector('[name=slot]').value, timezone: tz })
+        .then(function () {
+          if (typeof gtag === 'function') gtag('event', 'request_call', { form: 'brochure' });
+          box.innerHTML = '<p><strong>C’est noté.</strong> Nous vous contacterons pour faire le point sur votre projet. Cet échange remplace le questionnaire en ligne : vous n’avez rien d’autre à préparer.</p>';
+          [].forEach.call(form.querySelectorAll('.rb-next-q, .rb-next-online'), function (p) { p.hidden = true; });
+        })
+        .catch(function () {
+          send.disabled = false; m.className = 'rb-bro-msg is-error';
+          m.innerHTML = 'L’envoi n’a pas abouti. Merci de réessayer, ou de nous écrire sur <a href="https://wa.me/212642773249">WhatsApp</a>.';
+        });
+    });
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'rb-bro-msg'; msg.textContent = '';
+    var first = form.first_name.value.trim(), email = form.email.value.trim();
+    if (!first || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      msg.className = 'rb-bro-msg is-error'; msg.textContent = 'Merci d’indiquer votre prénom et une adresse e-mail valide.';
+      (first ? form.email : form.first_name).focus(); return;
+    }
+    btn.disabled = true;
+    post({
+      lang: 'fr', page: location.pathname, first_name: first, email: email,
+      profile: values('profile')[0], timeframe: form.timeframe.value,
+      cities: values('cities'), property_types: values('property_types'),
+      whatsapp: form.whatsapp.value.trim(), website: form.website.value
+    })
+      .then(function (d) {
+        var profile = values('profile')[0], phone = form.whatsapp.value.trim().replace(/[<>&"]/g, '');
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'brochure', profile: profile });
+        form.innerHTML = '<div class="rb-bro-done"><h3>Merci, ' + first.replace(/[<>&"]/g, '') + '.</h3><p>' +
+          (d.delivered ? 'Votre brochure vient de vous être envoyée par e-mail. Si vous ne la trouvez pas, pensez à vérifier vos courriers indésirables.'
+                       : 'Votre demande est bien enregistrée. Votre brochure vous sera envoyée par e-mail dans les prochaines heures.') + '</p>' +
+          (profile === 'seller'
+            ? '<p class="rb-next-q">Souhaitez-vous que nous vous appelions pour parler de votre bien ?</p>'
+            : '<p class="rb-next-q">Pour la suite, préférez-vous faire votre préconsultation en ligne ou par téléphone ?</p>' +
+              '<p class="rb-next-online"><a href="consultation.html">Remplir le questionnaire en ligne</a> <span>5 à 10 minutes</span></p>') +
+          '<button type="button" class="btn-outline-dark rb-call-open">' + (profile === 'seller' ? 'Être rappelé' : 'Faire ma préconsultation par téléphone') + '</button>' +
+          '<div class="rb-call" hidden>' +
+            '<label class="rb-field"><span>Numéro à appeler</span><input name="phone" type="tel" autocomplete="tel" maxlength="30" value="' + phone + '" placeholder="+33 6 12 34 56 78"></label>' +
+            '<fieldset class="rb-chips"><legend>Nous vous appelons</legend>' +
+              '<label><input type="radio" name="channel" value="phone" checked><span>Par téléphone</span></label>' +
+              '<label><input type="radio" name="channel" value="whatsapp"><span>Sur WhatsApp</span></label></fieldset>' +
+            '<label class="rb-field"><span>Le meilleur moment pour vous (heure de votre pays)</span><select name="slot">' +
+              '<option value="morning">Le matin</option><option value="afternoon">L’après-midi</option><option value="evening">En soirée</option><option value="any" selected>Peu importe</option></select></label>' +
+            '<button type="button" class="btn-gold rb-call-send">Demander un appel</button>' +
+            '<p class="rb-bro-msg" role="status" aria-live="polite"></p>' +
+          '</div></div>';
+        callStep(d.id);
+      })
+      .catch(function () {
+        btn.disabled = false; msg.className = 'rb-bro-msg is-error';
+        msg.innerHTML = 'L’envoi n’a pas abouti. Merci de réessayer, ou de nous écrire sur <a href="https://wa.me/212642773249">WhatsApp</a>.';
+      });
+  });
+})();
+</script>
 <script src="../shared.js"></script>
 </body>
 </html>
