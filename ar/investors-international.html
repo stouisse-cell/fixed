@@ -108,6 +108,7 @@
   .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
   [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
   .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (min-width: 901px) { .rb-steps.rb-flow.rb-flow-5 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); } }
   @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 
   .rb-diff { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
@@ -173,9 +174,9 @@
     <li><a href="about.html">من نحن</a></li>
     <li><a href="index.html#contact">اتصل بنا</a></li>
     <li class="language-switcher"><a href="../investors-international.html">EN</a><a href="../fr/investors-international.html">FR</a><a href="investors-international.html" class="active">AR</a></li>
-    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">خطة استراتيجية مجانية</a></li>
+    <li class="nav-cta-item"><a href="#brochure" data-brochure class="nav-cta">احصل على الكتيّب</a></li>
   </ul>
-  <a href="consultation.html" class="nav-cta">خطة استراتيجية مجانية</a>
+  <a href="#brochure" data-brochure class="nav-cta">احصل على الكتيّب</a>
 </nav>
 <nav class="breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><span>المشترون</span><span>›</span><span class="current">المشترون الدوليون</span></nav>
 
@@ -190,7 +191,7 @@
       <p class="page-hero-eyebrow">المشترون والمستثمرون الدوليون</p>
       <h1 class="page-hero-title">استثمر في المغرب<br><em>بوضوح تام.</em></h1>
       <p class="page-hero-sub">سكن، أو استقرار، أو استثمار للكراء: نشرح لك كل قاعدة وكل إجراء، ونتحقق من كل عقار، ونرافقك خطوة بخطوة، من أول سؤال حتى تسلّم المفاتيح.</p>
-      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">استبيان ما قبل الاستشارة</a><span class="page-hero-note">من 5 إلى 10 دقائق · دون التزام</span></div>
+      <div class="page-hero-actions"><a href="#brochure" data-brochure class="btn-gold">احصل على الكتيّب</a><span class="page-hero-note">دقيقة واحدة · دون التزام</span></div>
     </div>
   </section>
 
@@ -224,7 +225,7 @@
   <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">كيف تبدأ</h2>
-      <ol class="rb-steps rb-flow"><li><strong>حدّثنا عن مشروعك</strong>استبيان ما قبل الاستشارة، بالعربية أو الفرنسية أو الإنجليزية.<span class="rb-meta">من 5 إلى 10 دقائق</span></li><li><strong>خطتك الأولية</strong>اتجاه البحث والأولويات، وتقييم أول لميزانيتك ولما يمكنك شراؤه كأجنبي.<span class="rb-meta">خلال 72 ساعة</span></li><li><strong>استشارة مجانية</strong>نراجع الخطة معاً ونجيب عن أسئلتك حول القواعد والتكاليف.<span class="rb-meta">عبر الفيديو أو حضورياً</span></li><li><strong>زيارتك الأولى</strong>معك، أو مصوّرة لك. لا تدفع شيئاً مقابل الزيارة؛ ويُوقَّع قبلها بون زيارة.<span class="rb-meta">بعد الاستشارة</span></li></ol>
+      <ol class="rb-steps rb-flow rb-flow-5"><li><strong>احصل على كتيّبنا</strong>باقاتنا وما تشمله وأتعابنا، عبر البريد الإلكتروني، مع رابط استبيان ما قبل الاستشارة.<span class="rb-meta">دقيقة واحدة</span></li><li><strong>حدّثنا عن مشروعك</strong>استبيان ما قبل الاستشارة، بالعربية أو الفرنسية أو الإنجليزية.<span class="rb-meta">من 5 إلى 10 دقائق</span></li><li><strong>خطتك الأولية</strong>اتجاه البحث والأولويات، وتقييم أول لميزانيتك ولما يمكنك شراؤه كأجنبي.<span class="rb-meta">خلال 72 ساعة</span></li><li><strong>استشارة مجانية</strong>نراجع الخطة معاً ونجيب عن أسئلتك حول القواعد والتكاليف.<span class="rb-meta">عبر الفيديو أو حضورياً</span></li><li><strong>زيارتك الأولى</strong>معك، أو مصوّرة لك. لا تدفع شيئاً مقابل الزيارة؛ ويُوقَّع قبلها بون زيارة.<span class="rb-meta">بعد الاستشارة</span></li></ol>
       <p class="rb-choice"><strong>قرارك</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">اختياري</span> تابع بالباقة التي تناسب المرافقة التي تحتاجها، أو توقف عند هذا الحد.</p>
     </div>
   </section>
@@ -233,7 +234,7 @@
   <section class="rb-sec rb-dark">
     <div class="rb-inner">
       <h2 class="section-title">اختر مستوى المرافقة</h2>
-      <p class="rb-text">نقترح ثلاث باقات. تقدّم باقة Essentiel استشارتنا في كل مرحلة، مع بقاء البحث بين يديك. وتضيف باقة Complet بحثاً حسب الطلب، وزيارات مع تقارير مكتوبة، والتفاوض. أما باقة Premium فتوفّر زيارات حسب الطلب، دون عدد محدد، لمدة اثني عشر شهراً. وبالنسبة للمشترين في الخارج، صُمّمت باقتا Complet و Premium لإدارة الشراء بالكامل عن بُعد. وفي حالة الشراء على التصميم، تغطي باقة VEFA Recherche Complet اختيار المشروع حتى الحجز، وتغطي باقة VEFA Suivi Complet متابعة الورش حتى تسليم المفاتيح. ويشرح الكتيّب الذي نرسله إليك خلال 24 ساعة من الاستبيان كل باقة وأتعابها.</p>
+      <p class="rb-text">نقترح ثلاث باقات. تقدّم باقة Essentiel استشارتنا في كل مرحلة، مع بقاء البحث بين يديك. وتضيف باقة Complet بحثاً حسب الطلب، وزيارات مع تقارير مكتوبة، والتفاوض. أما باقة Premium فتوفّر زيارات حسب الطلب، دون عدد محدد، لمدة اثني عشر شهراً. وبالنسبة للمشترين في الخارج، صُمّمت باقتا Complet و Premium لإدارة الشراء بالكامل عن بُعد. وفي حالة الشراء على التصميم، تغطي باقة VEFA Recherche Complet اختيار المشروع حتى الحجز، وتغطي باقة VEFA Suivi Complet متابعة الورش حتى تسليم المفاتيح. ويشرح كتيّبنا، الذي تتوصل به عبر البريد الإلكتروني فور طلبه، كل باقة وأتعابها.</p>
     </div>
   </section>
 
@@ -249,10 +250,13 @@
   <section class="rb-cta">
     <h2 class="section-title">تفكر في الشراء بالمغرب؟</h2>
     <div class="rb-cta-links">
-      <a href="consultation.html" class="btn-gold">استبيان ما قبل الاستشارة</a>
+      <a href="#brochure" data-brochure class="btn-gold">احصل على الكتيّب</a>
       <a class="rb-link" href="guides/foreign-investor-guide.html">اقرأ دليل المستثمر الأجنبي</a>
     </div>
   </section>
+
+  <!-- BROCHURE (formulaire partagé : brochure.js) -->
+  <section id="brochure" data-brochure-section data-profile="international"></section>
 
 </main>
 
@@ -260,7 +264,7 @@
   <div class="footer-grid footer-grid-5">
     <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">وساطة واستشارات عقارية لمغاربة العالم والمستثمرين والمطورين العقاريين. القنيطرة · الرباط · سلا.</p></div>
     <div><div class="footer-col-label">التنقل</div><div class="footer-links"><a href="index.html">الرئيسية</a><a href="investors-mre.html">مغاربة العالم MRE</a><a href="investors-international.html">المستثمرون الدوليون</a><a href="investors-local.html">المقيمون في المغرب</a><a href="services-developers.html">المنعشون العقاريون والملاك</a><a href="about.html">من نحن</a></div></div>
-    <div><div class="footer-col-label">الموارد</div><div class="footer-links"><a href="guides/index.html">الأدلة</a><a href="consultation.html">استبيان ما قبل الاستشارة</a><a href="../privacy-policy.html">سياسة الخصوصية</a></div></div>
+    <div><div class="footer-col-label">الموارد</div><div class="footer-links"><a href="guides/index.html">الأدلة</a><a href="#brochure" data-brochure>احصل على الكتيّب</a><a href="../privacy-policy.html">سياسة الخصوصية</a></div></div>
     <div><div class="footer-col-label">تحليلات السوق</div><div class="footer-links"><a href="tahlilet-souq/index.html">جميع التحليلات</a><a href="tahlilet-souq/fajawat-souq-aqari-maghrib.html">الفجوات الثلاث في السوق</a><a href="tahlilet-souq/kenitra-istratijiya-ahya.html">كيف تختار الحي الصحيح</a><a href="tahlilet-souq/kenitra-tahlilet-souq-shamil.html">تحليل سوق القنيطرة</a><a href="tahlilet-souq/kenitra-ahya.html">جغرافيا القيمة في القنيطرة</a><a href="tahlilet-souq/kenitra-itijahat-souq.html">اتجاهات السوق اليوم</a></div></div>
     <div><div class="footer-col-label">اتصل بنا</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">البريد الإلكتروني</div><div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">الهاتف وواتساب</div><div class="footer-contact-value"><a href="tel:+212642773249" dir="ltr">+212 642 77 32 49</a></div></div></div></div>
   </div>

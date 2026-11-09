@@ -63,6 +63,10 @@
       <p class="muted small" style="margin:4px 0 0">Questionnaires de préconsultation reçus</p>
       <ul class="client-list" id="req-list"></ul>
       <button class="linkish" type="button" id="req-archived" style="margin-top:8px">Afficher les demandes archivées</button>
+      <div class="adm-sub"><h2 style="margin:0">Brochures</h2></div>
+      <p class="muted small" style="margin:4px 0 0" id="bro-sub">Demandes de brochure du site</p>
+      <ul class="client-list" id="bro-list"></ul>
+      <button class="linkish" type="button" id="bro-archived" style="margin-top:8px">Afficher les brochures archivées</button>
       <button class="linkish" type="button" id="change-pw-2" style="margin-top:14px">Changer mon mot de passe</button>
     </aside>
 
@@ -135,7 +139,7 @@
   }
   $('req-archived').onclick = () => { showArchived = !showArchived; renderReqList(); };
   function selectRequest(id) {
-    currentReq = requests.find(r => r.id === id) || null; current = null; renderList(); renderReqList();
+    currentReq = requests.find(r => r.id === id) || null; current = null; currentBro = null; renderList(); renderReqList(); renderBroList();
     if (currentReq) renderRequest(currentReq);
   }
   function renderRequest(r) {
@@ -193,6 +197,81 @@
       renderForm(null, { request: r, full_name: r.full_name, email: r.email, city: (Array.isArray(villes) ? villes[0] : villes) || 'Kénitra' });
     };
   }
+  // ---- demandes de brochure : rappel du questionnaire à envoyer à la main après 3 jours ----
+  let brochures = [], currentBro = null, showBroArchived = false;
+  const PROFIL = { mre: 'MRE', resident: 'Résident au Maroc', international: 'Investisseur international', seller: 'Vendeur ou promoteur' };
+  const DELAI = { lt3m: 'Dans les 3 mois', '3to12m': 'Dans 3 à 12 mois', gt12m: 'Dans plus d’un an', info: 'S’informe pour l’instant' };
+  const daysSince = d => Math.floor((Date.now() - new Date(d).getTime()) / 864e5);
+  const hasQuestionnaire = b => requests.some(r => r.email && r.email.toLowerCase() === b.email.toLowerCase());
+  function broState(b) {
+    if (b.profile === 'seller') return { k: 'seller', label: 'Vendeur' };
+    if (hasQuestionnaire(b)) return { k: 'done', label: 'Questionnaire reçu' };
+    if (b.call_requested_at) return { k: 'done', label: 'Appel demandé' };
+    if (b.reminder_sent_at) return { k: 'sent', label: 'Rappel envoyé le ' + new Date(b.reminder_sent_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) };
+    const n = daysSince(b.created_at);
+    return n >= 3 ? { k: 'due', label: 'À relancer (' + n + ' jours)' } : { k: 'wait', label: n ? 'Il y a ' + n + ' jour' + (n > 1 ? 's' : '') : 'Aujourd’hui' };
+  }
+  async function refreshBrochures(selectId) {
+    try { brochures = await API.listBrochures(); } catch (e) { brochures = []; toast('Brochures : ' + errMsg(e)); }
+    renderBroList();
+    if (selectId) selectBrochure(selectId);
+  }
+  function renderBroList() {
+    const list = brochures.filter(b => showBroArchived || b.status !== 'archived');
+    const due = list.filter(b => broState(b).k === 'due').length;
+    $('bro-sub').textContent = due ? due + ' à relancer' : 'Demandes de brochure du site';
+    $('bro-list').innerHTML = list.length ? list.map(b => {
+      const st = broState(b);
+      return '<li><button type="button" class="client-item' + (st.k === 'due' ? '' : ' req-done') + (currentBro && currentBro.id === b.id ? ' active' : '') + '" data-id="' + esc(b.id) + '"><div class="n">' + esc(b.first_name) + (st.k === 'due' ? '<span class="req-new">À relancer</span>' : '') + '</div><div class="s">' + esc(PROFIL[b.profile] || b.profile) + ' · ' + esc(st.label) + '</div></button></li>';
+    }).join('') : '<li class="muted small" style="padding:8px">Aucune demande.</li>';
+    $('bro-list').querySelectorAll('.client-item').forEach(x => x.onclick = () => selectBrochure(x.dataset.id));
+    $('bro-archived').textContent = showBroArchived ? 'Masquer les brochures archivées' : 'Afficher les brochures archivées';
+  }
+  $('bro-archived').onclick = () => { showBroArchived = !showBroArchived; renderBroList(); };
+  function selectBrochure(id) {
+    currentBro = brochures.find(b => b.id === id) || null; currentReq = null; current = null; renderList(); renderReqList(); renderBroList();
+    if (currentBro) renderBrochure(currentBro);
+  }
+  function renderBrochure(b) {
+    const st = broState(b);
+    const lang = { en: 'Anglais', fr: 'Français', ar: 'Arabe' }[b.lang] || b.lang;
+    const wa = b.whatsapp ? 'https://wa.me/' + b.whatsapp.replace(/\D/g, '') : null;
+    const canRemind = b.profile !== 'seller' && st.k !== 'done';
+    $('detail').innerHTML = `
+      <div class="card">
+        <div class="eyebrow">Demande de brochure · ${esc(st.label)}</div>
+        <h2>${esc(b.first_name)}</h2>
+        <p class="muted small">Reçue le ${esc(fmtDateTime(b.created_at))} · Langue : ${esc(lang)}${b.page ? ' · Page : ' + esc(b.page) : ''}</p>
+        <dl class="qa">
+          <dt>Courriel</dt><dd><a href="mailto:${esc(b.email)}">${esc(b.email)}</a></dd>
+          <dt>WhatsApp</dt><dd>${wa ? '<a href="' + esc(wa) + '" target="_blank" rel="noopener">' + esc(b.whatsapp) + '</a>' : '—'}</dd>
+          <dt>Profil</dt><dd>${esc(PROFIL[b.profile] || b.profile)}</dd>
+          <dt>Délai</dt><dd>${esc(DELAI[b.timeframe] || '—')}</dd>
+          <dt>Villes</dt><dd>${esc((b.cities || []).join(', ') || '—')}</dd>
+          <dt>Type de bien</dt><dd>${esc((b.property_types || []).join(', ') || '—')}</dd>
+          <dt>Brochure</dt><dd>${b.email_sent ? 'Envoyée automatiquement' : '<strong>À envoyer à la main</strong> (fichier absent ou erreur d’envoi)'}</dd>
+          <dt>Questionnaire</dt><dd>${hasQuestionnaire(b) ? 'Reçu' : 'Pas encore reçu'}</dd>
+          <dt>Appel demandé</dt><dd>${b.call_requested_at ? esc(fmtDateTime(b.call_requested_at)) + ' · ' + esc(b.call_phone || '') + (b.call_channel === 'whatsapp' ? ' (WhatsApp)' : '') : '—'}</dd>
+          <dt>Rappel du questionnaire</dt><dd>${b.reminder_sent_at ? 'Envoyé le ' + esc(fmtDateTime(b.reminder_sent_at)) : 'Pas envoyé'}</dd>
+        </dl>
+        <div class="actions">
+          ${canRemind ? '<button class="btn btn-gold" id="bro-remind" type="button">' + (b.reminder_sent_at ? 'Renvoyer le rappel' : 'Envoyer le rappel') + '</button>' : ''}
+          ${b.status === 'archived' ? '<button class="btn btn-line" id="bro-unarchive" type="button">Désarchiver</button>' : '<button class="btn btn-line" id="bro-archive" type="button">Archiver</button>'}
+        </div>
+        ${canRemind ? '<p class="muted small" style="margin-top:10px">Le rappel est envoyé dans la langue du client, avec le lien vers le questionnaire de préconsultation.</p>' : ''}
+      </div>`;
+    if ($('bro-remind')) $('bro-remind').onclick = async () => {
+      const n = daysSince(b.created_at);
+      if (b.reminder_sent_at && !confirm('Un rappel a déjà été envoyé le ' + fmtDateTime(b.reminder_sent_at) + '. Le renvoyer ?')) return;
+      if (!b.reminder_sent_at && n < 3 && !confirm('La brochure a été demandée il y a moins de 3 jours. Envoyer le rappel quand même ?')) return;
+      $('bro-remind').disabled = true;
+      try { await API.sendBrochureReminder(b.id); toast('Rappel envoyé à ' + b.email); await refreshBrochures(b.id); }
+      catch (e) { toast(errMsg(e)); $('bro-remind').disabled = false; }
+    };
+    const setStatus = async status => { try { await API.updateBrochure(b.id, { status }); toast(status === 'archived' ? 'Demande archivée' : 'Demande désarchivée'); await refreshBrochures(b.id); } catch (e) { toast(errMsg(e)); } };
+    if ($('bro-archive')) $('bro-archive').onclick = () => setStatus('archived');
+    if ($('bro-unarchive')) $('bro-unarchive').onclick = () => setStatus('new');
+  }
   async function refresh(selectId) {
     try { clients = await API.listClients(); } catch (e) { toast(errMsg(e)); }
     renderList();
@@ -211,7 +290,7 @@
   $('search').oninput = renderList;
   $('new-client').onclick = () => { current = null; renderList(); renderForm(null); };
 
-  function select(id) { current = clients.find(c => c.id === id) || null; currentReq = null; renderList(); if (requests.length) renderReqList(); renderForm(current); }
+  function select(id) { current = clients.find(c => c.id === id) || null; currentReq = null; currentBro = null; renderList(); if (requests.length) renderReqList(); renderBroList(); renderForm(current); }
 
   function renderForm(c, prefill) {
     const isNew = !c;
@@ -505,6 +584,7 @@
 
   await refresh();
   await refreshRequests();
+  await refreshBrochures();
 })();
 </script>
 </body>

@@ -108,6 +108,7 @@
   .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
   [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
   .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (min-width: 901px) { .rb-steps.rb-flow.rb-flow-5 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); } }
   @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 
   .rb-diff { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
@@ -173,9 +174,9 @@
     <li><a href="about.html">À propos</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li class="language-switcher"><a href="../investors-international.html">EN</a><a href="investors-international.html" class="active">FR</a><a href="../ar/investors-international.html">AR</a></li>
-    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Plan stratégique gratuit</a></li>
+    <li class="nav-cta-item"><a href="#brochure" data-brochure class="nav-cta">Recevoir la brochure</a></li>
   </ul>
-  <a href="consultation.html" class="nav-cta">Plan stratégique gratuit</a>
+  <a href="#brochure" data-brochure class="nav-cta">Recevoir la brochure</a>
 </nav>
 <nav class="breadcrumb"><a href="index.html">Accueil</a><span>›</span><span>Acheteurs</span><span>›</span><span class="current">Investisseurs internationaux</span></nav>
 
@@ -190,7 +191,7 @@
       <p class="page-hero-eyebrow">Acheteurs et investisseurs internationaux</p>
       <h1 class="page-hero-title">Investir au Maroc<br><em>en toute clarté.</em></h1>
       <p class="page-hero-sub">Résidence, installation ou investissement locatif : nous vous expliquons chaque règle et chaque démarche, vérifions chaque bien et vous guidons pas à pas, de votre première question à vos clés.</p>
-      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a><span class="page-hero-note">5 à 10 minutes · sans engagement</span></div>
+      <div class="page-hero-actions"><a href="#brochure" data-brochure class="btn-gold">Recevoir la brochure</a><span class="page-hero-note">1 minute · sans engagement</span></div>
     </div>
   </section>
 
@@ -224,7 +225,7 @@
   <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">Pour commencer</h2>
-      <ol class="rb-steps rb-flow"><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, en français, en anglais ou en arabe.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Orientation de la recherche, priorités, premier point sur votre budget et sur ce que vous pouvez acheter en tant qu’étranger.<span class="rb-meta">Sous 72 heures</span></li><li><strong>Consultation gratuite</strong>Nous passons le plan en revue et répondons à vos questions sur les règles et les coûts.<span class="rb-meta">En visio ou en personne</span></li><li><strong>Votre première visite</strong>Avec vous, ou filmée pour vous. La visite ne vous coûte rien ; un bon de visite est signé au préalable.<span class="rb-meta">Après la consultation</span></li></ol>
+      <ol class="rb-steps rb-flow rb-flow-5"><li><strong>Recevez notre brochure</strong>Nos formules, ce qu’elles incluent et nos honoraires, par e-mail, avec le lien vers notre questionnaire de préconsultation.<span class="rb-meta">1 minute</span></li><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, en français, en anglais ou en arabe.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Orientation de la recherche, priorités, premier point sur votre budget et sur ce que vous pouvez acheter en tant qu’étranger.<span class="rb-meta">Sous 72 heures</span></li><li><strong>Consultation gratuite</strong>Nous passons le plan en revue et répondons à vos questions sur les règles et les coûts.<span class="rb-meta">En visio ou en personne</span></li><li><strong>Votre première visite</strong>Avec vous, ou filmée pour vous. La visite ne vous coûte rien ; un bon de visite est signé au préalable.<span class="rb-meta">Après la consultation</span></li></ol>
       <p class="rb-choice"><strong>Votre choix</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">Facultatif</span> Poursuivez avec la formule qui correspond à l’accompagnement dont vous avez besoin, ou arrêtez-vous là.</p>
     </div>
   </section>
@@ -233,7 +234,7 @@
   <section class="rb-sec rb-dark">
     <div class="rb-inner">
       <h2 class="section-title">Choisissez votre niveau d’accompagnement</h2>
-      <p class="rb-text">Nous proposons trois formules. Essentiel vous apporte nos conseils à chaque étape, tandis que vous gardez la main sur votre recherche. Complet ajoute une recherche sur mesure, des visites avec comptes rendus et la négociation. Premium offre des visites sur mesure, sans nombre fixe, pendant douze mois. Pour les acheteurs à l’étranger, Complet et Premium sont pensées pour mener l’achat entièrement à distance. Pour un achat sur plan, VEFA Recherche Complet couvre le choix du projet jusqu’à la réservation, et VEFA Suivi Complet le suivi du chantier jusqu’à la remise des clés. La brochure que nous vous envoyons sous 24 heures après le questionnaire détaille chacune d’elles et nos honoraires.</p>
+      <p class="rb-text">Nous proposons trois formules. Essentiel vous apporte nos conseils à chaque étape, tandis que vous gardez la main sur votre recherche. Complet ajoute une recherche sur mesure, des visites avec comptes rendus et la négociation. Premium offre des visites sur mesure, sans nombre fixe, pendant douze mois. Pour les acheteurs à l’étranger, Complet et Premium sont pensées pour mener l’achat entièrement à distance. Pour un achat sur plan, VEFA Recherche Complet couvre le choix du projet jusqu’à la réservation, et VEFA Suivi Complet le suivi du chantier jusqu’à la remise des clés. Notre brochure, que vous recevez par e-mail dès votre demande, détaille chacune d’elles ainsi que nos honoraires.</p>
     </div>
   </section>
 
@@ -249,10 +250,13 @@
   <section class="rb-cta">
     <h2 class="section-title">Vous pensez à acheter au Maroc ?</h2>
     <div class="rb-cta-links">
-      <a href="consultation.html" class="btn-gold">Questionnaire de préconsultation</a>
+      <a href="#brochure" data-brochure class="btn-gold">Recevoir la brochure</a>
       <a class="rb-link" href="guides/foreign-investor-guide.html">Lire le guide de l’investisseur étranger</a>
     </div>
   </section>
+
+  <!-- BROCHURE (formulaire partagé : brochure.js) -->
+  <section id="brochure" data-brochure-section data-profile="international"></section>
 
 </main>
 
@@ -260,7 +264,7 @@
   <div class="footer-grid footer-grid-5">
     <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">Courtage et conseil immobilier pour les Marocains du monde, les investisseurs et les promoteurs. Kénitra · Rabat · Salé.</p></div>
     <div><div class="footer-col-label">Navigation</div><div class="footer-links"><a href="index.html">Accueil</a><a href="investors-mre.html">Diaspora marocaine / MRE</a><a href="investors-international.html">Investisseurs internationaux</a><a href="investors-local.html">Résidents au Maroc</a><a href="services-developers.html">Promoteurs immobiliers et propriétaires</a><a href="about.html">À propos</a></div></div>
-    <div><div class="footer-col-label">Ressources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="consultation.html">Questionnaire de préconsultation</a><a href="../privacy-policy.html">Politique de confidentialité</a></div></div>
+    <div><div class="footer-col-label">Ressources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="#brochure" data-brochure>Recevoir la brochure</a><a href="../privacy-policy.html">Politique de confidentialité</a></div></div>
     <div><div class="footer-col-label">Analyses de marché</div><div class="footer-links"><a href="analyses-marche/index.html">Toutes les analyses</a><a href="analyses-marche/ecarts-marche-immobilier-maroc.html">Les trois écarts du marché</a><a href="analyses-marche/choisir-le-quartier-avant-lappartement.html">Choisir le quartier avant l’appartement</a><a href="analyses-marche/analyse-marche-kenitra.html">Analyse du marché de Kénitra</a><a href="analyses-marche/kenitra-quartiers.html">La géographie de la valeur à Kénitra</a><a href="analyses-marche/tendances-marche-kenitra.html">Tendances du marché aujourd’hui</a></div></div>
     <div><div class="footer-col-label">Nous contacter</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">E-mail</div><div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">Téléphone &amp; WhatsApp</div><div class="footer-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div></div></div></div>
   </div>

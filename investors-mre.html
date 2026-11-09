@@ -131,6 +131,7 @@
   .rb-choice strong { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--navy); margin-inline-end: .6rem; }
   [dir="rtl"] .rb-choice strong { font-family: 'Amiri', serif; }
   .rb-text { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,.78); max-width: 780px; margin: 0; }
+  @media (min-width: 901px) { .rb-steps.rb-flow.rb-flow-5 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); } }
   @media (max-width: 900px) { .rb-pains, .rb-steps.rb-flow { grid-template-columns: minmax(0, 1fr); } }
 
   .rb-diff { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
@@ -203,9 +204,9 @@
       <a href="fr/investors-mre.html">FR</a>
       <a href="ar/investors-mre.html">AR</a>
     </li>
-    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Free Strategic Plan</a></li>
+    <li class="nav-cta-item"><a href="#brochure" data-brochure class="nav-cta">Receive the brochure</a></li>
   </ul>
-  <a href="consultation.html" class="nav-cta">Free Strategic Plan</a>
+  <a href="#brochure" data-brochure class="nav-cta">Receive the brochure</a>
 </nav>
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="index.html">Home</a><span>›</span><span>Buyers</span><span>›</span><span class="current">MRE Buyers</span>
@@ -224,7 +225,7 @@
       <p class="page-hero-eyebrow">Moroccans Abroad (MRE)</p>
       <h1 class="page-hero-title">Buying back home<br><em>shouldn’t feel foreign.</em></h1>
       <p class="page-hero-sub">A home, a base for your return or an investment: we research the market, evaluate properties and coordinate your purchase from a distance, so you can decide with confidence without travelling back and forth.</p>
-      <div class="page-hero-actions"><a href="consultation.html" class="btn-gold">Pre-Consultation Questionnaire</a><span class="page-hero-note">5–10 minutes · no commitment</span></div>
+      <div class="page-hero-actions"><a href="#brochure" data-brochure class="btn-gold">Receive the brochure</a><span class="page-hero-note">1 minute · no commitment</span></div>
     </div>
   </section>
 
@@ -260,7 +261,7 @@
   <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">How it starts</h2>
-      <ol class="rb-steps rb-flow"><li><strong>Tell us about your project</strong>The pre-consultation questionnaire, from wherever you live.<span class="rb-meta">5–10 minutes</span></li><li><strong>Your preliminary plan</strong>Search direction, priorities and a first check of your budget against the market.<span class="rb-meta">Within 72 hours</span></li><li><strong>Free consultation</strong>We go through the plan together, at a time that suits your time zone.<span class="rb-meta">By phone or video</span></li><li><strong>Your first property visit</strong>Filmed for you, or with you if you are in Morocco. There is nothing to pay for the visit itself, and a visit voucher is signed beforehand.<span class="rb-meta">After the consultation</span></li></ol>
+      <ol class="rb-steps rb-flow rb-flow-5"><li><strong>Receive our brochure</strong>Our service packages, what they include and our fees, by email, with the link to our pre-consultation questionnaire.<span class="rb-meta">1 minute</span></li><li><strong>Tell us about your project</strong>The pre-consultation questionnaire, from wherever you live.<span class="rb-meta">5–10 minutes</span></li><li><strong>Your preliminary plan</strong>Search direction, priorities and a first check of your budget against the market.<span class="rb-meta">Within 72 hours</span></li><li><strong>Free consultation</strong>We go through the plan together, at a time that suits your time zone.<span class="rb-meta">By phone or video</span></li><li><strong>Your first property visit</strong>Filmed for you, or with you if you are in Morocco. There is nothing to pay for the visit itself, and a visit voucher is signed beforehand.<span class="rb-meta">After the consultation</span></li></ol>
       <p class="rb-choice"><strong>Your choice</strong><span class="rb-meta" style="display:inline;margin:0 .6rem 0 0">Optional</span> Continue with the service package that fits the support you need, or stop there.</p>
     </div>
   </section>
@@ -269,7 +270,7 @@
   <section class="rb-sec rb-dark">
     <div class="rb-inner">
       <h2 class="section-title">Choose your level of support</h2>
-      <p class="rb-text">We offer three service packages. Essentiel gives you our advice at every stage while you keep control of your search. Complet adds a tailored search, visits with written reports and negotiation. Premium provides tailored visits, with no fixed number, for twelve months. For buyers abroad, Complet and Premium are designed to handle the purchase entirely at a distance. For an off-plan purchase, VEFA Recherche Complet covers the choice of project up to the reservation, and VEFA Suivi Complet follows the construction until the keys are handed over. The brochure we send you within 24 hours of the questionnaire explains each one and its fees.</p>
+      <p class="rb-text">We offer three service packages. Essentiel gives you our advice at every stage while you keep control of your search. Complet adds a tailored search, visits with written reports and negotiation. Premium provides tailored visits, with no fixed number, for twelve months. For buyers abroad, Complet and Premium are designed to handle the purchase entirely at a distance. For an off-plan purchase, VEFA Recherche Complet covers the choice of project up to the reservation, and VEFA Suivi Complet follows the construction until the keys are handed over. Our brochure, which you receive by email as soon as you request it, explains each one and its fees.</p>
     </div>
   </section>
 
@@ -285,10 +286,13 @@
   <section class="rb-cta">
     <h2 class="section-title">Planning to buy back home?</h2>
     <div class="rb-cta-links">
-      <a href="consultation.html" class="btn-gold">Pre-Consultation Questionnaire</a>
+      <a href="#brochure" data-brochure class="btn-gold">Receive the brochure</a>
       <a class="rb-link" href="guides/mre-buying-guide.html">Read the MRE Buying Guide</a>
     </div>
   </section>
+
+  <!-- BROCHURE (formulaire partagé : brochure.js) -->
+  <section id="brochure" data-brochure-section data-profile="mre"></section>
 
 </main>
 
@@ -296,7 +300,7 @@
   <div class="footer-grid footer-grid-5">
     <div class="footer-brand"><img loading="lazy" decoding="async" src="logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">Real estate brokerage and advisory for Moroccans abroad, investors and developers. Kénitra · Rabat · Salé.</p></div>
     <div><div class="footer-col-label">Navigate</div><div class="footer-links"><a href="index.html">Home</a><a href="investors-mre.html">Moroccan Diaspora / MRE</a><a href="investors-international.html">International Investors</a><a href="investors-local.html">Living in Morocco</a><a href="services-developers.html">Real Estate Developers &amp; Property Owners</a><a href="about.html">About</a></div></div>
-    <div><div class="footer-col-label">Resources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="consultation.html">Pre-Consultation Questionnaire</a><a href="privacy-policy.html">Privacy Policy</a></div></div>
+    <div><div class="footer-col-label">Resources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="#brochure" data-brochure>Receive the brochure</a><a href="privacy-policy.html">Privacy Policy</a></div></div>
     <div><div class="footer-col-label">Market Insights</div><div class="footer-links"><a href="market-insights/index.html">All market insights</a><a href="market-insights/morocco-property-market-gaps.html">The Three Market Gaps</a><a href="market-insights/kenitra-neighborhood-strategy.html">Choose the Neighbourhood First</a><a href="market-insights/kenitra-market-analysis.html">Kénitra Market Analysis</a><a href="market-insights/kenitra-neighborhoods.html">Kénitra’s Geography of Value</a><a href="market-insights/kenitra-demand-drivers.html">What Drives the Market Today</a></div></div>
     <div><div class="footer-col-label">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">Email</div><div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">Phone &amp; WhatsApp</div><div class="footer-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div></div></div></div>
   </div>

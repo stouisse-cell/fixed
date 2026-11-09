@@ -145,43 +145,13 @@
   @media (max-width: 760px) { .rb-pillars { grid-template-columns: minmax(0, 1fr); } }
   .rb-note { margin: 1rem 0 0; font-size: .85rem; font-style: italic; line-height: 1.7; color: #5a6475; }
   .rb-on-dark { color: var(--copper); margin-top: 1.4rem; }
-  .rb-bro-grid { max-width: 1100px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 3rem; align-items: start; }
-  .rb-bro-label { margin: 1.8rem 0 .9rem; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--copper); }
-  .rb-bro-list { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
-  .rb-bro-alt { margin: 2rem 0 0; font-size: .9rem; line-height: 1.7; color: rgba(255,255,255,.65); }
-  .rb-bro-alt a { color: rgba(255,255,255,.85); text-decoration: underline; text-underline-offset: 4px; }
-  .rb-bro-form { background: #fff; padding: 1.8rem; display: grid; gap: 1.2rem; color: #3d4a5c; border-top: 2px solid var(--copper); }
-  .rb-bro-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
-  .rb-field { display: grid; gap: .4rem; font-size: .85rem; color: var(--navy); }
-  .rb-field em { color: #5a6475; font-style: normal; }
-  .rb-field input, .rb-field select { width: 100%; box-sizing: border-box; min-height: 46px; padding: .7rem .8rem; border: 1px solid #cfd8e0; border-radius: 0; font: inherit; font-size: 1rem; color: var(--navy); background: #fff; }
-  .rb-field input:focus, .rb-field select:focus { outline: 2px solid var(--copper); outline-offset: 1px; border-color: var(--copper); }
-  .rb-chips { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
-  .rb-chips legend { padding: 0; margin-bottom: .5rem; font-size: .85rem; color: var(--navy); }
-  .rb-chips label { position: relative; }
-  .rb-chips input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-  .rb-chips span { display: inline-flex; align-items: center; min-height: 40px; padding: .45rem .9rem; border: 1px solid #cfd8e0; font-size: .9rem; color: var(--navy); cursor: pointer; }
-  .rb-chips input:checked + span { background: var(--navy); border-color: var(--navy); color: #fff; }
-  .rb-chips input:focus-visible + span { outline: 2px solid var(--copper); outline-offset: 2px; }
   .rb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  .rb-bro-form .btn-gold { justify-self: start; border: 0; cursor: pointer; }
-  .rb-bro-form .btn-gold[disabled] { opacity: .6; cursor: wait; }
-  .rb-bro-msg { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--navy); }
-  .rb-bro-msg:empty { display: none; }
-  .rb-bro-msg.is-error { color: #9a3e39; }
-  .rb-bro-legal { margin: 0; font-size: .78rem; line-height: 1.6; color: #5a6475; }
-  .rb-bro-legal a { color: inherit; }
-  .rb-bro-done h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.7rem; color: var(--navy); margin: 0 0 .6rem; }
-  .rb-bro-done p { margin: 0 0 1rem; line-height: 1.8; }
-  .rb-bro-done .rb-next-q { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid #e3dccd; color: var(--navy); font-weight: 600; }
   .rb-next-online a { color: var(--navy); }
   .rb-next-online span { margin-inline-start: .5rem; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--copper-dark, #87452c); }
   .rb-call-open { cursor: pointer; }
   .rb-call { display: grid; gap: 1.1rem; margin-top: .4rem; }
   .rb-call[hidden], .rb-call-open[hidden] { display: none; }
   .rb-call .btn-gold { justify-self: start; border: 0; cursor: pointer; }
-  @media (max-width: 900px) { .rb-bro-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
-  @media (max-width: 560px) { .rb-bro-row { grid-template-columns: minmax(0, 1fr); } .rb-bro-form { padding: 1.3rem; } }
 </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MRE et diaspora marocaine | Rahim International">
@@ -243,9 +213,9 @@
     <li><a href="about.html">À propos</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li class="language-switcher"><a href="../investors-mre.html">EN</a><a href="investors-mre.html" class="active">FR</a><a href="../ar/investors-mre.html">AR</a></li>
-    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Plan stratégique gratuit</a></li>
+    <li class="nav-cta-item"><a href="#brochure" data-brochure class="nav-cta">Recevoir la brochure</a></li>
   </ul>
-  <a href="consultation.html" class="nav-cta">Plan stratégique gratuit</a>
+  <a href="#brochure" data-brochure class="nav-cta">Recevoir la brochure</a>
 </nav>
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="index.html">Accueil</a><span>›</span><span>Acheteurs</span><span>›</span><span class="current">Diaspora marocaine / MRE</span>
@@ -305,7 +275,7 @@
   <section class="rb-sec rb-light">
     <div class="rb-inner">
       <h2 class="section-title">Pour commencer</h2>
-      <ol class="rb-steps rb-flow"><li><strong>Recevez notre brochure</strong>Nos formules, ce qu’elles incluent et nos honoraires, par e-mail.<span class="rb-meta">1 minute</span></li><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, où que vous viviez.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Une première orientation pour votre recherche, établie à partir de vos réponses.<span class="rb-meta">Après le questionnaire</span></li><li><strong>Consultation</strong>Nous en discutons ensemble, à une heure adaptée à votre fuseau horaire, et vous présentons la formule la plus adaptée à votre projet.<span class="rb-meta">Par téléphone ou visio</span></li></ol>
+      <ol class="rb-steps rb-flow"><li><strong>Recevez notre brochure</strong>Nos formules, ce qu’elles incluent et nos honoraires, par e-mail, avec le lien vers notre questionnaire de préconsultation.<span class="rb-meta">1 minute</span></li><li><strong>Parlez-nous de votre projet</strong>Le questionnaire de préconsultation, où que vous viviez.<span class="rb-meta">5 à 10 minutes</span></li><li><strong>Votre plan préliminaire</strong>Une première orientation pour votre recherche, établie à partir de vos réponses.<span class="rb-meta">Après le questionnaire</span></li><li><strong>Consultation</strong>Nous en discutons ensemble, à une heure adaptée à votre fuseau horaire, et vous présentons la formule la plus adaptée à votre projet.<span class="rb-meta">Par téléphone ou visio</span></li></ol>
       <p class="rb-choice"><strong>Votre choix</strong> Vous décidez ensuite de poursuivre avec nous, ou de vous arrêter là.</p>
     </div>
   </section>
@@ -327,51 +297,8 @@
     </div>
   </section>
 
-  <!-- BROCHURE -->
-  <section class="rb-sec rb-dark rb-brochure" id="brochure">
-    <div class="rb-inner rb-bro-grid">
-      <div class="rb-bro-copy">
-        <h2 class="section-title">Recevez notre brochure</h2>
-        <p class="rb-text">Vous prévoyez d’acheter au pays ? Indiquez-nous en quelques mots où en est votre projet, et nous vous envoyons par e-mail la brochure qui correspond à votre situation.</p>
-        <p class="rb-bro-label">Dans la brochure</p>
-        <ul class="rb-checks rb-bro-list"><li>Nos formules et ce que chacune inclut</li><li>Nos honoraires et nos offres en cours</li><li>Des exemples des documents que vous recevez</li><li>Notre accompagnement pour l’achat sur plan et le suivi de chantier</li></ul>
-        <p class="rb-bro-alt">Déjà prêt à avancer ? <a href="consultation.html">Questionnaire de préconsultation</a> · <a href="guides/mre-buying-guide.html">Guide d’achat MRE</a></p>
-      </div>
-      <form class="rb-bro-form" id="bro-form" novalidate>
-        <div class="rb-bro-row">
-          <label class="rb-field"><span>Prénom</span><input name="first_name" type="text" autocomplete="given-name" required maxlength="60"></label>
-          <label class="rb-field"><span>E-mail</span><input name="email" type="email" autocomplete="email" required maxlength="160"></label>
-        </div>
-        <fieldset class="rb-chips"><legend>Vous êtes</legend>
-          <label><input type="radio" name="profile" value="mre" checked><span>Marocain résidant à l’étranger</span></label>
-          <label><input type="radio" name="profile" value="resident"><span>Résident au Maroc</span></label>
-          <label><input type="radio" name="profile" value="international"><span>Investisseur international</span></label>
-          <label><input type="radio" name="profile" value="seller"><span>Vendeur ou promoteur</span></label>
-        </fieldset>
-        <label class="rb-field"><span data-buy="Quand souhaitez-vous acheter ?" data-sell="Quand souhaitez-vous vendre ?">Quand souhaitez-vous acheter ?</span>
-          <select name="timeframe"><option value="lt3m">Dans les 3 mois</option><option value="3to12m" selected>Dans 3 à 12 mois</option><option value="gt12m">Dans plus d’un an</option><option value="info">Je m’informe pour l’instant</option></select>
-        </label>
-        <fieldset class="rb-chips"><legend>Villes</legend>
-          <label><input type="checkbox" name="cities" value="Kénitra"><span>Kénitra</span></label>
-          <label><input type="checkbox" name="cities" value="Rabat"><span>Rabat</span></label>
-          <label><input type="checkbox" name="cities" value="Salé"><span>Salé</span></label>
-          <label><input type="checkbox" name="cities" value="Autre ville"><span>Autre ville</span></label>
-        </fieldset>
-        <fieldset class="rb-chips"><legend>Type de bien</legend>
-          <label><input type="checkbox" name="property_types" value="Appartement"><span>Appartement</span></label>
-          <label><input type="checkbox" name="property_types" value="Programme neuf (sur plan)"><span>Programme neuf (sur plan)</span></label>
-          <label><input type="checkbox" name="property_types" value="Villa"><span>Villa</span></label>
-          <label><input type="checkbox" name="property_types" value="Terrain"><span>Terrain</span></label>
-          <label><input type="checkbox" name="property_types" value="Local commercial"><span>Local commercial</span></label>
-        </fieldset>
-        <label class="rb-field"><span>WhatsApp <em>(facultatif)</em></span><input name="whatsapp" type="tel" autocomplete="tel" maxlength="30" placeholder="+33 6 12 34 56 78"></label>
-        <label class="rb-hp" aria-hidden="true">Site web<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-        <button type="submit" class="btn-gold">Recevoir la brochure</button>
-        <p class="rb-bro-msg" role="status" aria-live="polite"></p>
-        <p class="rb-bro-legal">Vos informations servent à vous envoyer la brochure et à vous recontacter au sujet de votre projet. <a href="../privacy-policy.html">Politique de confidentialité</a></p>
-      </form>
-    </div>
-  </section>
+  <!-- BROCHURE (formulaire partagé : brochure.js) -->
+  <section id="brochure" data-brochure-section data-profile="mre"></section>
 
 </main>
 
@@ -379,98 +306,13 @@
   <div class="footer-grid footer-grid-5">
     <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Rahim International" class="footer-brand-logo"><span class="brand-name" style="margin-top:.5rem;">Rahim <span>International</span></span><p class="footer-tagline">Courtage et conseil immobilier pour les Marocains du monde, les investisseurs et les promoteurs. Kénitra · Rabat · Salé.</p></div>
     <div><div class="footer-col-label">Navigation</div><div class="footer-links"><a href="index.html">Accueil</a><a href="investors-mre.html">Diaspora marocaine / MRE</a><a href="investors-international.html">Investisseurs internationaux</a><a href="investors-local.html">Résidents au Maroc</a><a href="services-developers.html">Promoteurs immobiliers et propriétaires</a><a href="about.html">À propos</a></div></div>
-    <div><div class="footer-col-label">Ressources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="consultation.html">Questionnaire de préconsultation</a><a href="../privacy-policy.html">Politique de confidentialité</a></div></div>
+    <div><div class="footer-col-label">Ressources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="#brochure" data-brochure>Recevoir la brochure</a><a href="../privacy-policy.html">Politique de confidentialité</a></div></div>
     <div><div class="footer-col-label">Analyses de marché</div><div class="footer-links"><a href="analyses-marche/index.html">Toutes les analyses</a><a href="analyses-marche/ecarts-marche-immobilier-maroc.html">Les trois écarts du marché</a><a href="analyses-marche/choisir-le-quartier-avant-lappartement.html">Choisir le quartier avant l’appartement</a><a href="analyses-marche/analyse-marche-kenitra.html">Analyse du marché de Kénitra</a><a href="analyses-marche/kenitra-quartiers.html">La géographie de la valeur à Kénitra</a><a href="analyses-marche/tendances-marche-kenitra.html">Tendances du marché aujourd’hui</a></div></div>
     <div><div class="footer-col-label">Nous contacter</div><div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div><div class="footer-contact-label">E-mail</div><div class="footer-contact-value"><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div></div></div><div class="footer-contact-item"><div class="footer-contact-icon">☎</div><div><div class="footer-contact-label">Téléphone &amp; WhatsApp</div><div class="footer-contact-value"><a href="tel:+212642773249">+212 642 77 32 49</a></div></div></div></div>
   </div>
   <div class="footer-bottom"><div class="footer-copy">© 2026 Rahim International. Tous droits réservés.<a class="footer-portal" href="../portail/index.html" rel="nofollow">Espace client</a></div><div class="footer-langs"><a href="../investors-mre.html">EN</a><a href="investors-mre.html" class="active">FR</a><a href="../ar/investors-mre.html">AR</a></div></div>
 </footer>
 <div class="float-buttons"><a href="https://wa.me/212642773249?text=Bonjour%2C%20je%20souhaite%20me%20renseigner%20sur%20vos%20services%20de%20conseil%20immobilier." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><button class="btn-back-top" aria-label="Retour en haut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button></div>
-<script>
-(function () {
-  var form = document.getElementById('bro-form');
-  if (!form) return;
-  var ENDPOINT = 'https://djaverrqyhemgyypuvbw.supabase.co/functions/v1/brochure-request';
-  var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqYXZlcnJxeWhlbWd5eXB1dmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3OTQ3MzEsImV4cCI6MjEwODM3MDczMX0.bcNmZ7PIoqb78z3WZNKbZAQSRwXBCm3T9EVG1N1cUhU';
-  var msg = form.querySelector('.rb-bro-msg'), btn = form.querySelector('button[type=submit]');
-  var when = form.querySelector('[data-buy]');
-  form.addEventListener('change', function (e) {
-    if (e.target.name === 'profile') when.textContent = when.getAttribute(e.target.value === 'seller' ? 'data-sell' : 'data-buy');
-  });
-  function values(name) { return [].map.call(form.querySelectorAll('[name="' + name + '"]:checked'), function (i) { return i.value; }); }
-  function post(body) {
-    return fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
-      body: JSON.stringify(body)
-    }).then(function (r) { return r.json().then(function (d) { if (!r.ok) throw d; return d; }); });
-  }
-  // préconsultation par téléphone, proposée juste après la demande de brochure
-  function callStep(id) {
-    var box = form.querySelector('.rb-call'), open = form.querySelector('.rb-call-open');
-    open.addEventListener('click', function () { box.hidden = false; open.hidden = true; box.querySelector('input').focus(); });
-    box.querySelector('.rb-call-send').addEventListener('click', function () {
-      var m = box.querySelector('.rb-bro-msg'), phone = box.querySelector('[name=phone]').value.trim(), send = this;
-      if ((phone.match(/\d/g) || []).length < 6) { m.className = 'rb-bro-msg is-error'; m.textContent = 'Merci d’indiquer un numéro de téléphone valide, avec l’indicatif du pays.'; return; }
-      var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
-      send.disabled = true;
-      post({ action: 'call', id: id, phone: phone, channel: box.querySelector('[name=channel]:checked').value, slot: box.querySelector('[name=slot]').value, timezone: tz })
-        .then(function () {
-          if (typeof gtag === 'function') gtag('event', 'request_call', { form: 'brochure' });
-          box.innerHTML = '<p><strong>C’est noté.</strong> Nous vous contacterons pour faire le point sur votre projet. Cet échange remplace le questionnaire en ligne : vous n’avez rien d’autre à préparer.</p>';
-          [].forEach.call(form.querySelectorAll('.rb-next-q, .rb-next-online'), function (p) { p.hidden = true; });
-        })
-        .catch(function () {
-          send.disabled = false; m.className = 'rb-bro-msg is-error';
-          m.innerHTML = 'L’envoi n’a pas abouti. Merci de réessayer, ou de nous écrire sur <a href="https://wa.me/212642773249">WhatsApp</a>.';
-        });
-    });
-  }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    msg.className = 'rb-bro-msg'; msg.textContent = '';
-    var first = form.first_name.value.trim(), email = form.email.value.trim();
-    if (!first || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      msg.className = 'rb-bro-msg is-error'; msg.textContent = 'Merci d’indiquer votre prénom et une adresse e-mail valide.';
-      (first ? form.email : form.first_name).focus(); return;
-    }
-    btn.disabled = true;
-    post({
-      lang: 'fr', page: location.pathname, first_name: first, email: email,
-      profile: values('profile')[0], timeframe: form.timeframe.value,
-      cities: values('cities'), property_types: values('property_types'),
-      whatsapp: form.whatsapp.value.trim(), website: form.website.value
-    })
-      .then(function (d) {
-        var profile = values('profile')[0], phone = form.whatsapp.value.trim().replace(/[<>&"]/g, '');
-        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'brochure', profile: profile });
-        form.innerHTML = '<div class="rb-bro-done"><h3>Merci, ' + first.replace(/[<>&"]/g, '') + '.</h3><p>' +
-          (d.delivered ? 'Votre brochure vient de vous être envoyée par e-mail. Si vous ne la trouvez pas, pensez à vérifier vos courriers indésirables.'
-                       : 'Votre demande est bien enregistrée. Votre brochure vous sera envoyée par e-mail dans les prochaines heures.') + '</p>' +
-          (profile === 'seller'
-            ? '<p class="rb-next-q">Souhaitez-vous que nous vous appelions pour parler de votre bien ?</p>'
-            : '<p class="rb-next-q">Pour la suite, préférez-vous faire votre préconsultation en ligne ou par téléphone ?</p>' +
-              '<p class="rb-next-online"><a href="consultation.html">Remplir le questionnaire en ligne</a> <span>5 à 10 minutes</span></p>') +
-          '<button type="button" class="btn-outline-dark rb-call-open">' + (profile === 'seller' ? 'Être rappelé' : 'Faire ma préconsultation par téléphone') + '</button>' +
-          '<div class="rb-call" hidden>' +
-            '<label class="rb-field"><span>Numéro à appeler</span><input name="phone" type="tel" autocomplete="tel" maxlength="30" value="' + phone + '" placeholder="+33 6 12 34 56 78"></label>' +
-            '<fieldset class="rb-chips"><legend>Nous vous appelons</legend>' +
-              '<label><input type="radio" name="channel" value="phone" checked><span>Par téléphone</span></label>' +
-              '<label><input type="radio" name="channel" value="whatsapp"><span>Sur WhatsApp</span></label></fieldset>' +
-            '<label class="rb-field"><span>Le meilleur moment pour vous (heure de votre pays)</span><select name="slot">' +
-              '<option value="morning">Le matin</option><option value="afternoon">L’après-midi</option><option value="evening">En soirée</option><option value="any" selected>Peu importe</option></select></label>' +
-            '<button type="button" class="btn-gold rb-call-send">Demander un appel</button>' +
-            '<p class="rb-bro-msg" role="status" aria-live="polite"></p>' +
-          '</div></div>';
-        callStep(d.id);
-      })
-      .catch(function () {
-        btn.disabled = false; msg.className = 'rb-bro-msg is-error';
-        msg.innerHTML = 'L’envoi n’a pas abouti. Merci de réessayer, ou de nous écrire sur <a href="https://wa.me/212642773249">WhatsApp</a>.';
-      });
-  });
-})();
-</script>
 <script src="../shared.js"></script>
 </body>
 </html>

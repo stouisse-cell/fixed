@@ -166,6 +166,11 @@ window.RI_CONFIG = {
       brochure: 'Brochure Accompagnement A–Z (Clients MRE)', status: 'nouvelle', client_id: null, links: null, notes: 'Disponible pour un appel le soir, heure de Paris.',
       raw: { villes: ['Kénitra'] }, answers: [{ q: 'Votre projet · Quel est votre projet ?', a: 'Habiter et investir' }, { q: 'Budget · Quel est votre budget maximum ?', a: '900 000 à 1 200 000 DH' }, { q: 'Villes · Dans quelle(s) ville(s) ?', a: 'Kénitra' }, { q: 'Calendrier · Quand souhaitez-vous acheter ?', a: 'Dans les 6 mois' }] },
   ];
+  const daysAgo = n => new Date(Date.now() - n * 864e5).toISOString();
+  const demoBrochures = [
+    { id: 'bro-1', created_at: daysAgo(4), lang: 'fr', page: '/fr/investors-mre.html', first_name: 'Nadia', email: 'nadia.b@exemple.com', whatsapp: '+32 470 12 34 56', profile: 'mre', timeframe: '3to12m', cities: ['Kénitra'], property_types: ['Appartement'], email_sent: true, status: 'new', call_requested_at: null, reminder_sent_at: null },
+    { id: 'bro-2', created_at: daysAgo(1), lang: 'en', page: '/', first_name: 'Tom', email: 'tom@example.com', whatsapp: null, profile: 'international', timeframe: 'info', cities: [], property_types: ['Villa'], email_sent: false, status: 'new', call_requested_at: null, reminder_sent_at: null },
+  ];
   const demoClients = [
     { id: 'demo-1', email: 'famille.alaoui@exemple.com', full_name: 'Famille Alaoui', formule: 'premium', city: 'Kénitra', current_step: 3, financing: 'credit', fin: { bank: 'Saham Bank', amount: 600000, years: 20, rate: 4.6, stage: 3, daam: 'na', note: 'Dossier déposé le 22 octobre. Réponse de principe attendue sous 10 jours ouvrables.' },
       step_dates: { 1: '2026-09-28', 2: '2026-10-09', 3: '2026-10-21' },
@@ -309,6 +314,28 @@ window.RI_CONFIG = {
       const c = await client();
       const { data, error } = await c.from('preconsultations').update(patch).eq('id', id).select().single();
       if (error) throw error; return data;
+    },
+    // ---- demandes de brochure (formulaire du site) ----
+    async listBrochures() {
+      if (DEMO) return [...demoBrochures];
+      const c = await client();
+      const { data, error } = await c.from('brochure_requests').select('*').order('created_at', { ascending: false }).limit(500);
+      if (error) throw error;
+      return data;
+    },
+    async updateBrochure(id, patch) {
+      if (DEMO) { const r = demoBrochures.find(x => x.id === id); Object.assign(r, patch); return r; }
+      const c = await client();
+      const { data, error } = await c.from('brochure_requests').update(patch).eq('id', id).select().single();
+      if (error) throw error; return data;
+    },
+    // rappel du questionnaire, envoyé par la fonction brochure-request (vérifie que l’on est admin)
+    async sendBrochureReminder(id) {
+      if (DEMO) { const r = demoBrochures.find(x => x.id === id); r.reminder_sent_at = new Date().toISOString(); return r; }
+      const c = await client();
+      const { data, error } = await c.functions.invoke('brochure-request', { body: { action: 'reminder', id } });
+      if (error) { let d = ''; try { d = (await error.context.json()).error; } catch (e) {} throw new Error(d === 'seller' ? 'Pas de rappel pour un vendeur.' : d || error.message); }
+      return data;
     },
     // ---- admin ----
     async listClients() {

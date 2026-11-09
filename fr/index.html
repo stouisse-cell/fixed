@@ -717,7 +717,7 @@
   .rh-tile p { margin: 0; font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
   .rh-tile span { display: inline-block; margin-top: .9rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
   [dir="rtl"] .rh-tile span { letter-spacing: 0; font-size: .85rem; }
-  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
+  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2rem; counter-reset: rh; }
   .rh-steps li { counter-increment: rh; border-top: 1px solid rgba(201,169,110,.35); padding-top: 1.4rem; }
   .rh-steps li::before { content: counter(rh); display: block; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 1; color: var(--gold); margin-bottom: .8rem; }
   .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
@@ -786,7 +786,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/fr/","name":"Rahim International","inLanguage":"fr","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"Fondateur","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/fr/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Puis-je acheter au Maroc si je vis à l’étranger ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous pouvons coordonner la recherche, vous envoyer des visites filmées, partager les documents et prendre en charge de nombreuses étapes de votre acquisition à distance. Votre notaire vous conseillera sur les signatures et sur une éventuelle procuration."}},{"@type":"Question","name":"Que comprend l’étape gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Le questionnaire de préconsultation, un Plan d’Acquisition Personnalisé préliminaire établi à partir de vos réponses, une consultation gratuite pour l’affiner ensemble, puis une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant."}},{"@type":"Question","name":"Aidez-vous pour le financement et Daam Sakane ?","acceptedAnswer":{"@type":"Answer","text":"Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme."}},{"@type":"Question","name":"Travaillez-vous sur le neuf et l’ancien ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition."}},{"@type":"Question","name":"Comment êtes-vous rémunérés ?","acceptedAnswer":{"@type":"Answer","text":"Nos honoraires figurent dans la brochure que nous vous envoyons après le questionnaire. Pour certains biens, le vendeur ou le promoteur nous verse aussi une commission. Nos recommandations reposent uniquement sur notre analyse du bien et de vos objectifs."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Puis-je acheter au Maroc si je vis à l’étranger ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous pouvons coordonner la recherche, vous envoyer des visites filmées, partager les documents et prendre en charge de nombreuses étapes de votre acquisition à distance. Votre notaire vous conseillera sur les signatures et sur une éventuelle procuration."}},{"@type":"Question","name":"Que comprend l’étape gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Le questionnaire de préconsultation, un Plan d’Acquisition Personnalisé préliminaire établi à partir de vos réponses, une consultation gratuite pour l’affiner ensemble, puis une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant."}},{"@type":"Question","name":"Aidez-vous pour le financement et Daam Sakane ?","acceptedAnswer":{"@type":"Answer","text":"Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme."}},{"@type":"Question","name":"Travaillez-vous sur le neuf et l’ancien ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition."}},{"@type":"Question","name":"Comment êtes-vous rémunérés ?","acceptedAnswer":{"@type":"Answer","text":"Nos honoraires figurent dans la brochure que nous vous envoyons par e-mail dès votre demande. Pour certains biens, le vendeur ou le promoteur nous verse aussi une commission. Nos recommandations reposent uniquement sur notre analyse du bien et de vos objectifs."}}]}</script>
 </head>
 <body>
 <div id="progress-bar" aria-hidden="true"></div>
@@ -836,9 +836,9 @@
     <li><a href="about.html">À propos</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li class="language-switcher"><a href="../index.html">EN</a><a href="index.html" class="active">FR</a><a href="../ar/index.html">AR</a></li>
-    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Plan stratégique gratuit</a></li>
+    <li class="nav-cta-item"><a href="#brochure" data-brochure class="nav-cta">Recevoir la brochure</a></li>
   </ul>
-  <a href="consultation.html" class="nav-cta">Plan stratégique gratuit</a>
+  <a href="#brochure" data-brochure class="nav-cta">Recevoir la brochure</a>
 </nav>
 
 <main>
@@ -852,8 +852,8 @@
       <p class="hero-eyebrow">Conseil et courtage immobilier · Kénitra · Rabat · Salé</p>
       <h1>Nous comblons la distance.<br><em>Et vous menons jusqu’à l’autre rive.</em></h1>
       <p class="rh-sub">Vous souhaitez acheter une résidence ou un bien d’investissement au Maroc ? Nous vous aidons à étudier le marché, à trouver et évaluer les biens, et à mener votre acquisition en toute confiance. De votre première recherche à la remise des clés, nous sommes à vos côtés, que vous achetiez sur place ou depuis l’étranger.</p>
-      <div class="rh-actions"><a href="consultation.html" class="btn-primary">Recevoir mon plan stratégique gratuit</a><a href="https://wa.me/212642773249?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20un%20achat%20immobilier%20au%20Maroc." class="btn-outline" target="_blank" rel="noopener">Poser une question sur WhatsApp</a></div>
-      <p class="rh-cta-note">Questionnaire de 5 à 10 minutes · Sans engagement</p>
+      <div class="rh-actions"><a href="#brochure" data-brochure class="btn-primary">Recevoir la brochure</a><a href="https://wa.me/212642773249?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20un%20achat%20immobilier%20au%20Maroc." class="btn-outline" target="_blank" rel="noopener">Poser une question sur WhatsApp</a></div>
+      <p class="rh-cta-note">1 minute · Sans engagement</p>
       <p class="rh-trust">Consultation gratuite · Plan d’acquisition personnalisé · Première visite incluse</p>
     </div>
   </section>
@@ -886,6 +886,7 @@
       <h2 class="section-title">Commencez gratuitement. <em>Décidez quand vous êtes prêt.</em></h2>
       <p class="rh-intro-text">Avant tout engagement, nous prenons le temps de comprendre votre projet : un plan préliminaire établi à partir de vos réponses, une consultation pour l’affiner ensemble, puis une première visite.</p>
       <ol class="rh-steps">
+        <li><h3>Recevez notre brochure</h3><p>Nos formules, nos honoraires et le lien vers notre questionnaire de préconsultation, par e-mail.</p><span class="rh-step-meta">1 minute</span></li>
         <li><h3>Remplissez le questionnaire de préconsultation</h3><p>Parlez-nous de vos objectifs, de votre budget et du bien que vous recherchez.</p><span class="rh-step-meta">5 à 10 minutes</span></li>
         <li><h3>Nous préparons votre plan préliminaire</h3><p>À partir de vos réponses, nous établissons un Plan d’Acquisition Personnalisé préliminaire : orientation de la recherche, priorités et premier point sur votre budget face au marché.</p><span class="rh-step-meta">Sous 72 heures</span></li>
         <li><h3>Rencontrez votre conseiller</h3><p>Consultation gratuite, en personne, par téléphone ou en visioconférence. Nous passons le plan en revue et l’affinons ensemble.</p><span class="rh-step-meta">Consultation gratuite</span></li>
@@ -895,7 +896,7 @@
         <h3><span class="rh-next-num" aria-hidden="true">5</span>Votre choix<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">Facultatif</span></span></h3>
         <p>Si vous souhaitez continuer, choisissez la formule qui correspond à l’accompagnement dont vous avez besoin, y compris des options sans frais à l’avance.</p>
       </div>
-      <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">Commencer le questionnaire de préconsultation</a><p>5 à 10 minutes · sans engagement</p></div>
+      <div class="rh-steps-cta"><a href="#brochure" data-brochure class="btn-primary">Recevoir la brochure</a><p>1 minute · sans engagement</p></div>
     </div>
   </section>
 
@@ -952,23 +953,14 @@
         <details><summary>Que comprend l’étape gratuite ?</summary><p>Le questionnaire de préconsultation, un Plan d’Acquisition Personnalisé préliminaire établi à partir de vos réponses, une consultation gratuite pour l’affiner ensemble, puis une première visite. Vous décidez ensuite si vous souhaitez continuer avec un service payant.</p></details>
         <details><summary>Aidez-vous pour le financement et Daam Sakane ?</summary><p>Selon la formule choisie, nos services peuvent inclure des conseils pour préparer votre financement et votre demande Daam Sakane. L’éligibilité et les accords restent soumis à la banque et aux autorités du programme.</p></details>
         <details><summary>Travaillez-vous sur le neuf et l’ancien ?</summary><p>Oui. Nous étudions les projets neufs comme les biens en revente, selon votre budget, vos critères et vos objectifs d’acquisition.</p></details>
-        <details><summary>Comment êtes-vous rémunérés ?</summary><p>Nos honoraires figurent dans la brochure que nous vous envoyons après le questionnaire. Pour certains biens, le vendeur ou le promoteur nous verse aussi une commission. Nos recommandations reposent uniquement sur notre analyse du bien et de vos objectifs.</p></details>
+        <details><summary>Comment êtes-vous rémunérés ?</summary><p>Nos honoraires figurent dans la brochure que nous vous envoyons par e-mail dès votre demande. Pour certains biens, le vendeur ou le promoteur nous verse aussi une commission. Nos recommandations reposent uniquement sur notre analyse du bien et de vos objectifs.</p></details>
       </div>
     </div>
   </section>
 
   <!-- PRÊT À COMMENCER -->
-  <section class="rh-sec rh-dark rh-end" id="contact">
-    <div class="rh-wrap">
-      <p class="section-eyebrow">Questionnaire de préconsultation</p>
-      <h2 class="section-title">Préparez votre consultation gratuite et votre <em>Plan d’acquisition stratégique.</em></h2>
-      <p class="rh-end-text">En 5 à 10 minutes, parlez-nous de vos objectifs, de votre budget et du bien que vous recherchez. Vos réponses nous permettent de préparer votre consultation et un Plan d’acquisition stratégique préliminaire construit autour de votre projet, avant même notre échange.</p>
-      <ul class="rh-receive"><li><strong>Sous 24 heures</strong>Notre brochure de présentation de nos services</li><li><strong>Sous 72 heures</strong>Votre Plan d’acquisition stratégique préliminaire</li><li><strong>Lors de la consultation</strong>Nous affinons le plan ensemble, en personne, par téléphone ou en visioconférence</li></ul>
-      <div class="rh-end-actions"><a href="consultation.html" class="btn-primary">Commencer le questionnaire</a><a href="https://wa.me/212642773249" class="btn-outline" target="_blank" rel="noopener">Poser une question sur WhatsApp</a></div>
-      <p class="rh-end-note">Sans engagement · Vos réponses restent confidentielles</p>
-      <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
-    </div>
-  </section>
+  <div id="contact"></div>
+  <section id="brochure" data-brochure-section></section>
 </main>
 
 <!-- FOOTER -->
@@ -983,7 +975,7 @@
       <div class="footer-col-label">Navigation</div><div class="footer-links"><a href="index.html">Accueil</a><a href="investors-mre.html">Diaspora marocaine / MRE</a><a href="investors-international.html">Investisseurs internationaux</a><a href="investors-local.html">Résidents au Maroc</a><a href="services-developers.html">Promoteurs immobiliers et propriétaires</a><a href="about.html">À propos</a></div>
     </div>
     <div>
-      <div class="footer-col-label">Ressources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="consultation.html">Questionnaire de préconsultation</a><a href="../privacy-policy.html">Politique de confidentialité</a></div>
+      <div class="footer-col-label">Ressources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="#brochure" data-brochure>Recevoir la brochure</a><a href="../privacy-policy.html">Politique de confidentialité</a></div>
     </div>
     <div><div class="footer-col-label">Analyses de marché</div><div class="footer-links"><a href="analyses-marche/index.html">Toutes les analyses</a><a href="analyses-marche/ecarts-marche-immobilier-maroc.html">Les trois écarts du marché</a><a href="analyses-marche/choisir-le-quartier-avant-lappartement.html">Choisir le quartier avant l’appartement</a><a href="analyses-marche/analyse-marche-kenitra.html">Analyse du marché de Kénitra</a><a href="analyses-marche/kenitra-quartiers.html">La géographie de la valeur à Kénitra</a><a href="analyses-marche/tendances-marche-kenitra.html">Tendances du marché aujourd’hui</a></div></div>
     <div>

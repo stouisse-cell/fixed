@@ -809,7 +809,7 @@
   .rh-tile p { margin: 0; font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
   .rh-tile span { display: inline-block; margin-top: .9rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
   [dir="rtl"] .rh-tile span { letter-spacing: 0; font-size: .85rem; }
-  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; counter-reset: rh; }
+  .rh-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2rem; counter-reset: rh; }
   .rh-steps li { counter-increment: rh; border-top: 1px solid rgba(201,169,110,.35); padding-top: 1.4rem; }
   .rh-steps li::before { content: counter(rh); display: block; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 1; color: var(--gold); margin-bottom: .8rem; }
   .rh-steps h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.6rem; color: #fff; margin: 0 0 .4rem; }
@@ -877,7 +877,7 @@
 <meta name="theme-color" content="#07111f">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://rahiminternational.com/","name":"Rahim International","inLanguage":"en","publisher":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I buy property in Morocco if I live abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can coordinate searches, provide filmed property visits, share documentation and support many stages of your acquisition remotely. Your notary will advise you on signature requirements and any necessary legal representation."}},{"@type":"Question","name":"What is included in the free initial service?","acceptedAnswer":{"@type":"Answer","text":"The pre-consultation questionnaire, a preliminary Strategic Acquisition Plan built from your answers, a free consultation to refine it together, and a first property visit afterwards. You decide afterward whether to continue with a paid service."}},{"@type":"Question","name":"Do you help with financing and Daam Sakane?","acceptedAnswer":{"@type":"Answer","text":"Our services can include guidance on financing preparation and Daam Sakane, depending on your chosen package. Eligibility and approvals remain subject to the relevant bank and programme authorities."}},{"@type":"Question","name":"Do you work with new developments and resale properties?","acceptedAnswer":{"@type":"Answer","text":"Yes. We assess new-build projects and resale opportunities based on your budget, property requirements and acquisition objectives."}},{"@type":"Question","name":"How are you paid?","acceptedAnswer":{"@type":"Answer","text":"Our fees are set out in the brochure we send you after the questionnaire. For some properties, the seller or developer also pays us a commission. Our recommendations are based only on our analysis of the property and your goals."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I buy property in Morocco if I live abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can coordinate searches, provide filmed property visits, share documentation and support many stages of your acquisition remotely. Your notary will advise you on signature requirements and any necessary legal representation."}},{"@type":"Question","name":"What is included in the free initial service?","acceptedAnswer":{"@type":"Answer","text":"The pre-consultation questionnaire, a preliminary Strategic Acquisition Plan built from your answers, a free consultation to refine it together, and a first property visit afterwards. You decide afterward whether to continue with a paid service."}},{"@type":"Question","name":"Do you help with financing and Daam Sakane?","acceptedAnswer":{"@type":"Answer","text":"Our services can include guidance on financing preparation and Daam Sakane, depending on your chosen package. Eligibility and approvals remain subject to the relevant bank and programme authorities."}},{"@type":"Question","name":"Do you work with new developments and resale properties?","acceptedAnswer":{"@type":"Answer","text":"Yes. We assess new-build projects and resale opportunities based on your budget, property requirements and acquisition objectives."}},{"@type":"Question","name":"How are you paid?","acceptedAnswer":{"@type":"Answer","text":"Our fees are set out in the brochure we email you as soon as you request it. For some properties, the seller or developer also pays us a commission. Our recommendations are based only on our analysis of the property and your goals."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ali Rahim","jobTitle":"Founder","worksFor":{"@type":"Organization","name":"Rahim International","url":"https://rahiminternational.com"},"url":"https://rahiminternational.com/about.html","image":"https://rahiminternational.com/alirahim.png"}</script>
 </head>
 <body>
@@ -931,9 +931,9 @@
       <a href="fr/index.html">FR</a>
       <a href="ar/index.html">AR</a>
     </li>
-    <li class="nav-cta-item"><a href="consultation.html" class="nav-cta">Free Strategic Plan</a></li>
+    <li class="nav-cta-item"><a href="#brochure" data-brochure class="nav-cta">Receive the brochure</a></li>
   </ul>
-  <a href="consultation.html" class="nav-cta">Free Strategic Plan</a>
+  <a href="#brochure" data-brochure class="nav-cta">Receive the brochure</a>
 </nav>
 
 <main>
@@ -955,8 +955,8 @@
       <p class="hero-eyebrow">Real estate advisory &amp; brokerage · Kénitra · Rabat · Salé</p>
       <h1>We Bridge the Distance.<br><em>And Get You to the Other Side.</em></h1>
       <p class="rh-sub">Buying a home or investment property in Morocco? We help you research the market, find and evaluate properties, and navigate the acquisition process with confidence. From your first search to your keys, we're by your side—whether you're buying locally or from abroad.</p>
-      <div class="rh-actions"><a href="consultation.html" class="btn-primary">Get My Free Strategic Plan</a><a href="https://wa.me/212642773249?text=Hello%2C%20I%20have%20a%20question%20about%20buying%20property%20in%20Morocco." class="btn-outline" target="_blank" rel="noopener">Ask a Question on WhatsApp</a></div>
-      <p class="rh-cta-note">5 to 10 minute questionnaire · No commitment</p>
+      <div class="rh-actions"><a href="#brochure" data-brochure class="btn-primary">Receive the brochure</a><a href="https://wa.me/212642773249?text=Hello%2C%20I%20have%20a%20question%20about%20buying%20property%20in%20Morocco." class="btn-outline" target="_blank" rel="noopener">Ask a Question on WhatsApp</a></div>
+      <p class="rh-cta-note">1 minute · No commitment</p>
       <p class="rh-trust">Free consultation · Personalised acquisition plan · First property visit included</p>
     </div>
   </section>
@@ -989,6 +989,7 @@
       <h2 class="section-title">Start for free. <em>Decide when you’re ready.</em></h2>
       <p class="rh-intro-text">Before you commit, we take the time to understand your project: a preliminary plan built from your answers, a consultation to refine it together, and a first property visit.</p>
       <ol class="rh-steps">
+        <li><h3>Receive our brochure</h3><p>Our service packages, our fees and the link to our pre-consultation questionnaire, by email.</p><span class="rh-step-meta">1 minute</span></li>
         <li><h3>Fill in the pre-consultation questionnaire</h3><p>Tell us about your goals, your budget and the property you’re looking for.</p><span class="rh-step-meta">5–10 minutes</span></li>
         <li><h3>We prepare your preliminary plan</h3><p>From your answers, we draft a preliminary Strategic Acquisition Plan: search direction, priorities and a first check of your budget against the market.</p><span class="rh-step-meta">Within 72 hours</span></li>
         <li><h3>Meet your advisor</h3><p>Free consultation in person, by phone or by video call. We go through the plan with you and refine it together.</p><span class="rh-step-meta">Free consultation</span></li>
@@ -998,7 +999,7 @@
         <h3><span class="rh-next-num" aria-hidden="true">5</span>Your choice<span class="rh-step-meta" style="margin:0"><span class="rh-tag rh-tag-muted">Optional</span></span></h3>
         <p>If you’d like to continue, choose the service package that fits the support you need, including options with no upfront fees.</p>
       </div>
-      <div class="rh-steps-cta"><a href="consultation.html" class="btn-primary">Start the Pre-Consultation Questionnaire</a><p>5 to 10 minutes · no commitment</p></div>
+      <div class="rh-steps-cta"><a href="#brochure" data-brochure class="btn-primary">Receive the brochure</a><p>1 minute · no commitment</p></div>
     </div>
   </section>
 
@@ -1055,23 +1056,14 @@
         <details><summary>What is included in the free initial service?</summary><p>The pre-consultation questionnaire, a preliminary Strategic Acquisition Plan built from your answers, a free consultation to refine it together, and a first property visit afterwards. You decide afterward whether to continue with a paid service.</p></details>
         <details><summary>Do you help with financing and Daam Sakane?</summary><p>Our services can include guidance on financing preparation and Daam Sakane, depending on your chosen package. Eligibility and approvals remain subject to the relevant bank and programme authorities.</p></details>
         <details><summary>Do you work with new developments and resale properties?</summary><p>Yes. We assess new-build projects and resale opportunities based on your budget, property requirements and acquisition objectives.</p></details>
-        <details><summary>How are you paid?</summary><p>Our fees are set out in the brochure we send you after the questionnaire. For some properties, the seller or developer also pays us a commission. Our recommendations are based only on our analysis of the property and your goals.</p></details>
+        <details><summary>How are you paid?</summary><p>Our fees are set out in the brochure we email you as soon as you request it. For some properties, the seller or developer also pays us a commission. Our recommendations are based only on our analysis of the property and your goals.</p></details>
       </div>
     </div>
   </section>
 
   <!-- READY TO START -->
-  <section class="rh-sec rh-dark rh-end" id="contact">
-    <div class="rh-wrap">
-      <p class="section-eyebrow">Pre-consultation questionnaire</p>
-      <h2 class="section-title">Prepare your free consultation and your <em>Strategic Acquisition Plan.</em></h2>
-      <p class="rh-end-text">In 5 to 10 minutes, tell us about your goals, your budget and the property you’re looking for. Your answers allow us to prepare your consultation and a preliminary Strategic Acquisition Plan built around your project, before we even speak.</p>
-      <ul class="rh-receive"><li><strong>Within 24 hours</strong>Our brochure presenting our services</li><li><strong>Within 72 hours</strong>Your preliminary Strategic Acquisition Plan</li><li><strong>At your consultation</strong>We refine the plan together, in person, by phone or by video call</li></ul>
-      <div class="rh-end-actions"><a href="consultation.html" class="btn-primary">Start the Questionnaire</a><a href="https://wa.me/212642773249" class="btn-outline" target="_blank" rel="noopener">Ask a Question on WhatsApp</a></div>
-      <p class="rh-end-note">No commitment · Your answers stay confidential</p>
-      <div class="rh-contacts"><a href="https://wa.me/212642773249" target="_blank" rel="noopener">WhatsApp +212 6 42 77 32 49</a><a href="mailto:contact@rahiminternational.com">contact@rahiminternational.com</a></div>
-    </div>
-  </section>
+  <div id="contact"></div>
+  <section id="brochure" data-brochure-section></section>
 </main>
 
 <!-- FOOTER -->
@@ -1086,7 +1078,7 @@
       <div class="footer-col-label">Navigate</div><div class="footer-links"><a href="index.html">Home</a><a href="investors-mre.html">Moroccan Diaspora / MRE</a><a href="investors-international.html">International Investors</a><a href="investors-local.html">Living in Morocco</a><a href="services-developers.html">Real Estate Developers &amp; Property Owners</a><a href="about.html">About</a></div>
     </div>
     <div>
-      <div class="footer-col-label">Resources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="consultation.html">Pre-Consultation Questionnaire</a><a href="privacy-policy.html">Privacy Policy</a></div>
+      <div class="footer-col-label">Resources</div><div class="footer-links"><a href="guides/index.html">Guides</a><a href="#brochure" data-brochure>Receive the brochure</a><a href="privacy-policy.html">Privacy Policy</a></div>
     </div>
     <div><div class="footer-col-label">Market Insights</div><div class="footer-links"><a href="market-insights/index.html">All market insights</a><a href="market-insights/morocco-property-market-gaps.html">The Three Market Gaps</a><a href="market-insights/kenitra-neighborhood-strategy.html">Choose the Neighbourhood First</a><a href="market-insights/kenitra-market-analysis.html">Kénitra Market Analysis</a><a href="market-insights/kenitra-neighborhoods.html">Kénitra’s Geography of Value</a><a href="market-insights/kenitra-demand-drivers.html">What Drives the Market Today</a></div></div>
     <div>

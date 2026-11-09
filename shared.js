@@ -595,3 +595,13 @@
   });
 
 })();
+
+/* Demande de brochure : formulaire partagé, chargé depuis le même dossier que ce fichier */
+(function () {
+  var me = document.currentScript || document.querySelector('script[src*="shared.js"]');
+  if (!me || !me.src) return;
+  var s = document.createElement('script');
+  s.src = me.src.replace(/shared\.js(\?.*)?$/, 'brochure.js');
+  s.async = true;
+  document.head.appendChild(s);
+})();
