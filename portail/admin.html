@@ -78,7 +78,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=202611031500"></script>
+<script src="portail.js?v=20261111-workflow2"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -291,7 +291,7 @@
     const q = $('search').value.trim().toLowerCase();
     const list = clients.filter(c => !q || (c.full_name + ' ' + c.email).toLowerCase().includes(q));
     $('client-list').innerHTML = list.length ? list.map(c => {
-      const steps = stepsFor(c.formule);
+      const steps = stepsFor(c);
       const st = c.current_step > steps.length ? 'Finalisé' : 'Étape ' + c.current_step + '/' + steps.length;
       return '<li><button type="button" class="client-item' + (current && current.id === c.id ? ' active' : '') + '" data-id="' + esc(c.id) + '"><div class="n">' + esc(c.full_name) + '</div><div class="s">' + esc((FORMULES[c.formule] || {}).label || '') + ' · ' + st + '</div></button></li>';
     }).join('') : '<li class="muted small" style="padding:8px">Aucun client.</li>';
@@ -305,9 +305,11 @@
   function renderForm(c, prefill) {
     const isNew = !c;
     const fromReq = prefill && prefill.request;
-    c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'complet', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: {}, message: '' };
-    const steps = stepsFor(c.formule);
+    c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'essentiel', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: { _workflow: { version: 2 } }, message: '' };
+    const steps = stepsFor(c);
     const team = RI.teamFor(c);
+    const wf = RI.workflowFor(c);
+    const modern = RI.isNewWorkflow(c);
     const opts = Object.entries(FORMULES).map(([k, v]) => '<option value="' + k + '"' + (k === c.formule ? ' selected' : '') + '>' + v.label + '</option>').join('');
     $('detail').innerHTML = `
       <div class="grid">
@@ -320,6 +322,15 @@
             <div><label for="f-formule">Formule</label><select id="f-formule">${opts}</select></div>
             <div><label for="f-city">Ville</label><input type="text" id="f-city" value="${esc(c.city || '')}"></div>
           </div>
+          <div class="eyebrow" style="margin-top:18px">Modalités de l’accompagnement</div>
+          <div class="row">
+            <div><label for="wf-arrangement">Conditions, indépendantes de la formule</label><select id="wf-arrangement"><option value="standard" ${wf.arrangement !== 'offert' ? 'selected' : ''}>Conditions habituelles</option><option value="offert" ${wf.arrangement === 'offert' ? 'selected' : ''}>Accompagnement offert</option></select></div>
+            <div><label for="wf-feedback">Retour d’expérience convenu</label><select id="wf-feedback"><option value="none">Aucun</option><option value="private" ${wf.feedback === 'private' ? 'selected' : ''}>Retour détaillé et honnête à l’issue de la mission</option></select></div>
+            ${['non_contournement', 'bon_visite'].map(key => `<div><label for="wf-${key}">${key === 'bon_visite' ? 'Bon de visite · avant la visite' : 'Non-contournement · consultation'}</label><select id="wf-${key}"><option value="pending">À signer / confirmer</option><option value="signed" ${wf[key] === 'signed' ? 'selected' : ''}>Signature enregistrée</option><option value="waived" ${wf[key] === 'waived' ? 'selected' : ''}>Dispensé — non requis</option></select></div>`).join('')}
+          </div>
+          <label for="wf-reason">Motif des dispenses (enregistré dans le dossier)</label><input id="wf-reason" value="${esc(wf.waiver_reason || '')}" placeholder="Ex. : accompagnement offert, dispense convenue">
+          <p class="muted small">Une prestation offerte ne dispense pas automatiquement des documents. Le retour attendu reste honnête, sans obligation d’avis positif ou de publication.</p>
+          <div class="actions"><button class="btn btn-line btn-sm" id="wf-offered" type="button">Appliquer : offert, retour détaillé et dispenses</button></div>
           <div class="eyebrow" style="margin-top:18px">Équipe du client</div>
           <p class="muted small" style="margin:4px 0 0">Par défaut : Shireen Touisse (conseillère) et Ali Rahim (sur le terrain). Le conseiller signe le mot du conseiller et reçoit les messages WhatsApp du client. Pour un client sans agent sur le terrain, videz son nom puis enregistrez.</p>
           <div class="row">
@@ -339,7 +350,9 @@
         ${isNew ? '' : `
         <div class="card">
           <h2>Étape en cours</h2>
-          <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client. Pour les étapes à venir, la date sert d’estimation (« prévue vers le… » sur sa feuille de route). Pour l’étape 1, indiquez la date de la consultation une fois fixée : sans date, le client voit « à planifier ».</p>
+          ${!modern && c.formule !== 'vefa_suivi' ? '<p class="muted small">Ancien parcours conservé : vérifiez l’avancement avant de passer au nouveau parcours. Aucune étape ne sera déclarée terminée automatiquement.</p><button class="btn btn-line" id="wf-migrate" type="button">Préparer le nouveau parcours</button>' : ''}
+          ${modern ? '<button class="btn btn-line" id="wf-plan-ready" type="button">Plan remis — consultation à planifier</button><p class="muted small">Ce préréglage coche brochure, questionnaire et plan remis. La consultation et la première visite restent à faire. Enregistrez ensuite l’avancement.</p>' : ''}
+          <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client. Pour les étapes à venir, la date sert d’estimation (« prévue vers le… » sur sa feuille de route). Pour la consultation découverte, indiquez sa date une fois fixée : sans date, le client voit « à planifier ».</p>
           <div id="step-edit">
             ${steps.map((s, i) => `<div class="step-edit"><input type="radio" name="cur" value="${i + 1}" ${c.current_step === i + 1 ? 'checked' : ''} aria-label="${esc(s[0])}"><span class="t">${i + 1}. ${esc(s[0])}</span><input type="date" data-step="${i + 1}" value="${esc((c.step_dates || {})[i + 1] || '')}"></div>`).join('')}
             <div class="step-edit"><input type="radio" name="cur" value="${steps.length + 1}" ${c.current_step > steps.length ? 'checked' : ''}><span class="t">Projet finalisé</span><span></span></div>
@@ -405,6 +418,26 @@
         </div>`}
       </div>`;
 
+    const readWorkflow = () => {
+      const value = { ...wf, arrangement: $('wf-arrangement').value, feedback: $('wf-feedback').value, non_contournement: $('wf-non_contournement').value, bon_visite: $('wf-bon_visite').value, waiver_reason: $('wf-reason').value.trim() };
+      if ((value.non_contournement === 'waived' || value.bon_visite === 'waived') && !value.waiver_reason) throw new Error('Indiquez le motif de la dispense.');
+      return value;
+    };
+    $('wf-offered').onclick = () => {
+      $('wf-arrangement').value = 'offert'; $('wf-feedback').value = 'private';
+      $('wf-non_contournement').value = 'waived'; $('wf-bon_visite').value = 'waived';
+      $('wf-reason').value = 'Accompagnement offert — dispenses convenues ; retour d’expérience détaillé et honnête à l’issue de la mission.';
+      toast('Préréglage appliqué ; enregistrez pour le confirmer.');
+    };
+    if ($('wf-migrate')) $('wf-migrate').onclick = () => {
+      if (!confirm('Préparer le nouveau parcours ? L’ancien avancement sera conservé dans le dossier. Sélectionnez la nouvelle étape, puis enregistrez.')) return;
+      try { renderForm({ ...c, current_step: 1, step_dates: { _workflow: { ...readWorkflow(), version: 2, previous_progress: { current_step: c.current_step, step_dates: c.step_dates } } } }); } catch(e) { toast(errMsg(e)); }
+    };
+    if ($('wf-plan-ready')) $('wf-plan-ready').onclick = () => {
+      $('step-edit').querySelector('input[name=cur][value="4"]').checked = true;
+      $('step-edit').querySelector('input[data-step="4"]').value = '';
+      toast('Consultation à planifier ; enregistrez l’avancement.');
+    };
     $('save-info').onclick = async () => {
       const row = { full_name: $('f-name').value.trim(), email: $('f-email').value.trim(), formule: $('f-formule').value, city: $('f-city').value.trim() || null };
       if (!row.full_name || !row.email) { toast('Nom et courriel obligatoires'); return; }
@@ -414,6 +447,8 @@
       if (val('t-g-name')) row.team.agent = { name: val('t-g-name'), role: val('t-g-role'), whatsapp: val('t-g-wa') };
       if (!isNew) row.id = c.id;
       try {
+        row.step_dates = { ...(c.step_dates || {}), _workflow: readWorkflow() };
+        row.current_step = c.current_step || 1;
         const saved = await API.saveClient(row);
         if (fromReq) { try { await API.updateRequest(fromReq.id, { client_id: saved.id, status: 'traitee' }); } catch (e) { toast('Dossier créé, mais questionnaire non lié : ' + errMsg(e)); } await refreshRequests(); }
         toast(isNew ? 'Espace client créé' : 'Enregistré'); await refresh(saved.id);
@@ -472,9 +507,10 @@
     $('save-steps').onclick = async () => {
       const cur = +($('step-edit').querySelector('input[name=cur]:checked') || {}).value || 1;
       const dates = {};
+      try { dates._workflow = readWorkflow(); } catch(e) { toast(errMsg(e)); return; }
       $('step-edit').querySelectorAll('input[type=date]').forEach(i => { if (i.value) dates[i.dataset.step] = i.value; });
       // When moving to a later step, date it today unless a date was entered. Step 1 (the consultation) stays « à planifier » until you set its date.
-      if (cur > 1 && cur <= steps.length && cur !== c.current_step && !dates[cur]) dates[cur] = today();
+      // A selected current stage is not evidence of a completed event; dates are entered explicitly.
       const msg = $('f-msg').value.trim();
       const row = { id: c.id, current_step: cur, step_dates: dates, message: msg || null, message_date: msg && msg !== (c.message || '') ? today() : (c.message_date || null) };
       const stepChanged = cur !== c.current_step, msgChanged = !!msg && msg !== (c.message || '');
@@ -491,14 +527,14 @@
     $('add-doc').onclick = async () => {
       const title = $('d-title').value.trim(), category = $('d-cat').value, file = $('d-file').files[0], url = $('d-url').value.trim(), note = $('d-note').value.trim();
       const needsVisit = category === 'compte_rendu' || category === 'video';
-      const visit_id = needsVisit ? $('d-visit').value : null;
-      if (category === 'compte_rendu' && !visit_id) { toast('Créez d’abord le bon de visite correspondant'); return; }
+      const visit_id = needsVisit && !RI.visitWaived(c) ? $('d-visit').value : null;
+      if (category === 'compte_rendu' && !visit_id && !RI.visitWaived(c)) { toast('Créez d’abord le bon de visite correspondant'); return; }
       if (!title) { toast('Ajoutez un titre'); return; }
       if (!file && !url) { toast('Choisissez un fichier ou collez un lien'); return; }
       $('add-doc').disabled = true; $('add-doc').textContent = 'Envoi…';
       try { await API.addDoc(c.id, { title, category, file, url, visit_id, note }); toast('Document ajouté'); renderForm(c); } catch (e) { toast(errMsg(e)); $('add-doc').disabled = false; $('add-doc').textContent = 'Ajouter le document'; }
     };
-    $('d-cat').onchange = () => $('d-visit-wrap').classList.toggle('hidden', !['compte_rendu', 'video'].includes($('d-cat').value));
+    $('d-cat').onchange = () => $('d-visit-wrap').classList.toggle('hidden', RI.visitWaived(c) || !['compte_rendu', 'video'].includes($('d-cat').value));
     loadDocs(c);
     initVisitForm(c);
     loadVisits(c);
@@ -511,10 +547,13 @@
     $('v-props').appendChild(d);
   }
   function initVisitForm(c) {
+    $('v-create').disabled = RI.visitWaived(c);
+    if (RI.visitWaived(c)) $('v-create').textContent = 'Bon non requis — ajoutez directement le compte rendu et la vidéo dans Documents';
     $('v-date').value = today();
     $('v-props').innerHTML = ''; propRow();
     $('v-add-prop').onclick = () => { if ($('v-props').children.length < 5) propRow(); else toast('5 biens maximum par bon'); };
     $('v-create').onclick = async () => {
+      if (RI.visitWaived(c)) { toast('Bon non requis : ajoutez les documents sans demande de signature.'); return; }
       const properties = [...$('v-props').children].map(r => Object.fromEntries([...r.querySelectorAll('input')].map(i => [i.dataset.f, i.value.trim()]))).filter(p => p.address);
       if (!properties.length) { toast('Ajoutez au moins un bien (adresse ou référence)'); return; }
       const row = { client_id: c.id, visit_date: $('v-date').value || today(), mode: $('v-mode').value, visitor_name: $('v-who').value.trim() || null, properties };
@@ -599,3 +638,4 @@
 </script>
 </body>
 </html>
+
