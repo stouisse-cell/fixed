@@ -155,7 +155,6 @@ window.RI_CONFIG = {
     ['Analyse et Plan d’Acquisition Personnalisé remis', 'Votre analyse et votre stratégie sont disponibles avant notre échange.'],
     ['Consultation découverte', 'Nous discutons de votre stratégie, des formules et des ajustements à apporter au plan.'],
     ['Première recherche et visite sur mesure offertes', 'Une première sélection, une visite et les éléments pour comparer, sans obligation de poursuivre.'],
-    ['Choix de la suite', 'Rester en Essentiel, passer au Complet ou au Premium, ou arrêter après la première recherche.'],
   ];
   const INTRO_ROAD = [
     { you: 'Prendre connaissance de la brochure.', get: 'Nos formules et nos honoraires.', cats: [] },
@@ -163,16 +162,11 @@ window.RI_CONFIG = {
     { you: 'Lire votre analyse et noter vos questions.', get: 'Votre analyse et votre Plan d’Acquisition Personnalisé.', cats: ['plan'] },
     { you: 'Discuter de vos priorités, de la stratégie et des formules avec votre conseiller.', get: 'Des réponses à vos questions et un plan ajusté si nécessaire.', cats: ['plan', 'contrat'], requirement: 'non_contournement' },
     { you: 'Nous donner vos retours sur la première sélection et la visite.', get: 'Une première recherche et visite sur mesure offertes, avec compte rendu, photos et vidéos.', cats: [], visits: true, requirement: 'bon_visite' },
-    { you: 'Choisir librement de poursuivre en Essentiel, de passer au Complet/Premium ou de vous arrêter.', get: 'Une explication claire de la suite et des honoraires applicables.', cats: ['contrat'] },
   ];
   const roadmapFor = c => {
     const f = typeof c === 'string' ? c : c.formule;
     const key = (FORMULES[f] || FORMULES.essentiel).steps;
     const result = INTRO_ROAD.concat(key === 'vefa_suivi' ? ROADMAP[key] : ROADMAP[key].slice(2)).map(r => ({ ...r }));
-    if (workflowFor(c).arrangement === 'offert') {
-      result[5].you = 'Confirmer avec votre conseiller la suite de votre accompagnement offert.';
-      result[5].get = 'Les modalités de la suite, sans changement automatique de formule ni facturation.';
-    }
     if (visitWaived(c)) result.forEach(r => { if (r.visits) r.you = r.you.replace('Confirmer chaque bon de visite et ', '').replace(' et confirmer chaque bon de visite', ''); });
     return result;
   };
@@ -197,14 +191,24 @@ window.RI_CONFIG = {
     const f = typeof c === 'string' ? c : c.formule;
     const key = (FORMULES[f] || FORMULES.essentiel).steps;
     const result = INTRO_STEPS.concat(key === 'vefa_suivi' ? STEPS[key] : STEPS[key].slice(2));
-    if (workflowFor(c).arrangement === 'offert') result[5] = ['Suite de l’accompagnement offert', 'Confirmer ensemble les prochaines étapes de votre accompagnement offert.'];
     return result;
   };
 
   // Present every file using one roadmap. Persist the conversion on the next admin save.
   // Ambiguous early progress is left pending; its original values remain available for audit.
   const normalizeClient = c => {
-    if (!c || workflowFor(c).version === 2) return c;
+    if (!c || workflowFor(c).version === 3) return c;
+    if (workflowFor(c).version === 2) {
+      const previous = c.step_dates || {};
+      const dates = {};
+      Object.entries(previous).forEach(([key, value]) => {
+        const n = Number(key);
+        if (Number.isInteger(n) && n > 0 && n !== 6) dates[n > 6 ? n - 1 : n] = value;
+      });
+      dates._workflow = { ...workflowFor(c), version: 3,
+        before_choice_removal: { current_step: c.current_step, step_dates: previous } };
+      return { ...c, current_step: c.current_step > 6 ? c.current_step - 1 : c.current_step, step_dates: dates };
+    }
     const oldStep = Number(c.current_step) || 1;
     const previous = c.step_dates || {};
     const followUp = c.formule === 'vefa_suivi';
@@ -216,7 +220,7 @@ window.RI_CONFIG = {
     });
     dates._workflow = { ...workflowFor(c), version: 2, progress_needs_review: followUp || oldStep <= 2,
       previous_progress: { current_step: c.current_step, step_dates: previous } };
-    return { ...c, current_step: current, step_dates: dates };
+    return normalizeClient({ ...c, current_step: current, step_dates: dates });
   };
 
   // ---------- mode démonstration ----------
