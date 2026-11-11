@@ -50,7 +50,7 @@
   <div class="card login">
     <div class="eyebrow">Espace client</div>
     <h1>Votre espace est <em>en préparation.</em></h1>
-    <p class="muted small">Aucun dossier n’est encore associé à <strong id="none-email"></strong>. Votre conseiller l’ouvre après votre consultation. Si vous pensez qu’il s’agit d’une erreur, contactez-nous.</p>
+    <p class="muted small">Aucun dossier n’est encore associé à <strong id="none-email"></strong>. Votre conseiller vous communiquera les accès lorsque votre dossier sera prêt. Si vous pensez qu’il s’agit d’une erreur, contactez-nous.</p>
     <a class="btn btn-gold" style="width:100%;margin-top:18px" href="https://wa.me/212642773249" target="_blank" rel="noopener">Nous écrire sur WhatsApp</a>
     <p class="muted small none-links"><button type="button" class="linkish" id="none-logout">Se déconnecter</button><span aria-hidden="true">·</span><a href="../index.html">Retour au site</a></p>
   </div>
@@ -191,7 +191,7 @@
 <a class="wa-float" id="team-wa-float" href="https://wa.me/212642773249" target="_blank" rel="noopener" aria-label="Écrire à votre conseiller sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1z"/></svg></a>
 <footer class="pt-foot">© Rahim International · <a href="../fr/index.html">rahiminternational.com</a> · <a href="../privacy-policy.html">Confidentialité</a></footer>
 
-<script src="portail.js?v=202611031500"></script>
+<script src="portail.js?v=20261111-workflow2"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, PIECES, MODES, visitNo, fmtDateTime, propsTable, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -244,12 +244,13 @@
   show('view-dash');
   if (API.DEMO) $('demo-note').classList.remove('hidden');
   if (preview) { $('demo-note').innerHTML = 'Aperçu conseiller : vous voyez exactement ce que voit <strong>' + esc(c.full_name) + '</strong> (' + esc(c.email) + '). <a href="admin.html">Retour à la gestion</a>'; $('demo-note').classList.remove('hidden'); }
-  const steps = stepsFor(c.formule);
+  const steps = stepsFor(c);
   const cur = Math.min(Math.max(c.current_step || 1, 1), steps.length + 1);
   const done = cur - 1;
   $('hello').innerHTML = 'Bonjour,<br><em>' + esc(c.full_name) + '</em>';
   $('chips').innerHTML = [
     '<span class="chip gold">' + esc((FORMULES[c.formule] || {}).label || c.formule) + '</span>',
+    RI.workflowFor(c).arrangement === 'offert' ? '<span class="chip gold">Accompagnement offert</span>' : '',
     c.city ? '<span class="chip">' + esc(c.city) + '</span>' : '',
     '<span class="chip">Client depuis ' + esc(fmtDate(c.created_at)) + '</span>',
   ].join('');
@@ -259,12 +260,15 @@
   requestAnimationFrame(() => { $('progress-bar').style.width = Math.max(pct, 3) + '%'; });
 
   const dates = c.step_dates || {};
-  const road = RI.roadmapFor(c.formule);
+  const road = RI.roadmapFor(c);
+  const requirement = n => road[n - 1] && road[n - 1].requirement ? '<div class="road-line">' + esc(RI.requirementText(c, road[n - 1].requirement)) + '</div>' : '';
   const stepCard = (n, label) => {
     if (n > steps.length) return `<div class="nn nn-done"><div class="nn-k">${label}</div><div class="nn-t">Projet finalisé 🎉</div></div>`;
-    return `<div class="nn${label === 'Étape en cours' ? ' nn-cur' : ''}"><div class="nn-k">${label}${dates[n] ? ' · ' + (n < cur ? '' : n === cur ? (dates[n] > new Date().toISOString().slice(0, 10) ? 'prévue le ' : 'depuis le ') : 'prévue vers le ') + esc(fmtDate(dates[n])) : (n === cur ? ' · à planifier' : '')}</div><div class="nn-t">${n}. ${esc(steps[n - 1][0])}</div><div class="nn-d"><strong>Vous :</strong> ${esc(road[n - 1].you)}</div><div class="nn-d"><strong>Vous recevez :</strong> ${esc(road[n - 1].get)}</div></div>`;
+    return `<div class="nn${label === 'Étape en cours' ? ' nn-cur' : ''}"><div class="nn-k">${label}${dates[n] ? ' · ' + (n < cur ? '' : n === cur ? (dates[n] > new Date().toISOString().slice(0, 10) ? 'prévue le ' : 'depuis le ') : 'prévue vers le ') + esc(fmtDate(dates[n])) : (n === cur ? ' · à planifier' : '')}</div><div class="nn-t">${n}. ${esc(steps[n - 1][0])}</div><div class="nn-d"><strong>Vous :</strong> ${esc(road[n - 1].you)}</div><div class="nn-d"><strong>Vous recevez :</strong> ${esc(road[n - 1].get)}</div>${requirement(n)}</div>`;
   };
   $('now-next').innerHTML = cur > steps.length ? stepCard(cur, 'Étape en cours') : stepCard(cur, 'Étape en cours') + (cur < steps.length ? stepCard(cur + 1, 'Étape suivante') : '');
+
+  if (RI.workflowFor(c).feedback === 'private') $('now-next').insertAdjacentHTML('afterend', '<p class="muted small">À l’issue de la mission, nous vous proposerons un retour d’expérience détaillé et honnête. Aucune publication ni appréciation positive n’est exigée.</p>');
 
   if (c.message) {
     $('message-card').classList.remove('hidden');
@@ -337,7 +341,7 @@
         const done = visits.filter(v => v.status === 'confirmed'), pend = visits.filter(v => v.status === 'pending');
         const crs = docs.filter(d => d.category === 'compte_rendu'), vids = docs.filter(d => d.category === 'video');
         if (visits.length) files += `<a class="road-doc" href="#visites"><span>📍</span>${visits.length} visite${visits.length > 1 ? 's' : ''} · ${crs.length} compte${crs.length > 1 ? 's' : ''} rendu${crs.length > 1 ? 's' : ''} · ${vids.length} vidéo${vids.length > 1 ? 's' : ''}</a>`;
-        if (pend.length && st !== 'todo') files += `<a class="road-doc road-todo" href="#visites"><span>✍</span>Confirmer ${pend.length > 1 ? pend.length + ' bons de visite' : 'votre bon de visite'}</a>`;
+        if (pend.length && st !== 'todo' && !RI.visitWaived(c)) files += `<a class="road-doc road-todo" href="#visites"><span>✍</span>Confirmer ${pend.length > 1 ? pend.length + ' bons de visite' : 'votre bon de visite'}</a>`;
       }
       if (st === 'current' && piecesState.missing && r.cats.includes('financement')) files += `<a class="road-doc road-todo" href="#pieces"><span>⬆</span>Déposer ${piecesState.missing} pièce${piecesState.missing > 1 ? 's' : ''}</a>`;
       const future = dates[n] && dates[n] > new Date().toISOString().slice(0, 10);
@@ -352,6 +356,7 @@
             <div><div class="road-k">Ce que vous faites</div><div class="road-line">${esc(r.you)}</div></div>
             <div><div class="road-k">${st === 'done' ? 'Vous avez reçu' : 'Vous recevrez'}</div><div class="road-line">${esc(r.get)}</div></div>
           </div>`}
+          ${requirement(n)}
           ${files ? `<div class="road-files">${files}</div>` : ''}
         </div>
       </li>`;
@@ -478,14 +483,14 @@
     } catch (e) {}
     const reports = docs.filter(d => d.category === 'compte_rendu' || d.category === 'video');
     const orphan = reports.filter(d => !d.visit_id || !visits.some(v => v.id === d.visit_id));
-    visitsState = { pending: visits.filter(v => v.status === 'pending').length };
+    visitsState = { pending: RI.visitWaived(c) ? 0 : visits.filter(v => v.status === 'pending').length };
     renderTodo();
     const docBtn = d => '<button type="button" class="doc" data-id="' + esc(d.id) + '"><span class="doc-ico' + (d.category === 'video' ? ' video' : '') + '">' + (d.category === 'video' ? '▶' : 'PDF') + '</span><span class="doc-body"><span class="doc-title" style="display:block">' + esc(d.title) + '</span><span class="doc-date">Ajouté le ' + esc(fmtDate(d.created_at)) + '</span></span><span class="doc-go">→</span></button>';
     const places = v => (v.properties || []).map(p => esc(p.address)).join(' · ');
     const pending = visits.filter(v => v.status === 'pending'), done = visits.filter(v => v.status === 'confirmed');
     $('visits').innerHTML =
       pending.map(v => `<div class="visit pending">
-        <div class="visit-head"><span class="visit-no">Visite du ${esc(fmtDate(v.visit_date))}</span><span class="badge-wait">À confirmer</span></div>
+        <div class="visit-head"><span class="visit-no">Visite du ${esc(fmtDate(v.visit_date))}</span><span class="badge-wait">${RI.visitWaived(c) ? 'Demande antérieure' : 'À confirmer'}</span></div>
         <div class="small muted">${visitNo(v)} · ${esc(MODES[v.mode] || v.mode)}${v.visitor_name ? ' · par ' + esc(v.visitor_name) : ''}</div>
         ${propsTable(v)}
         ${(() => {
@@ -497,7 +502,7 @@
           return `<div class="visit-slots" style="margin:4px 0 10px">${slot('Compte rendu', cr, false)}${slot('Vidéo de la visite', vd, true)}</div>`;
         })()}
         <details class="decl"><summary>Lire les déclarations</summary><div>${esc(v.declaration)}</div></details>
-        ${preview ? '<p class="small muted">Aperçu conseiller : la confirmation est réservée au client.</p>' : `
+        ${RI.visitWaived(c) ? '<p class="small muted">Bon de visite non requis pour votre accompagnement. Cette demande antérieure reste dans l’historique ; votre conseiller peut la retirer et partager les documents sans demande de signature.</p>' : preview ? '<p class="small muted">Aperçu conseiller : la confirmation est réservée au client.</p>' : `
         <label class="check"><input type="checkbox" data-ok="${v.id}"> J’ai lu les déclarations et je confirme que ces biens m’ont été présentés par Rahim International.</label>
         <label for="n-${v.id}">Votre nom complet (vaut signature)</label>
         <input type="text" id="n-${v.id}" autocomplete="name" placeholder="Prénom Nom">
@@ -549,3 +554,4 @@
 </script>
 </body>
 </html>
+
