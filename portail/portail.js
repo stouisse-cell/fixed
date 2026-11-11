@@ -147,7 +147,7 @@ window.RI_CONFIG = {
   };
   // Metadata lives in the existing step_dates JSON: no database migration required.
   const workflowFor = c => (c && c.step_dates && c.step_dates._workflow) || {};
-  const isNewWorkflow = c => workflowFor(c).version === 2 && c.formule !== 'vefa_suivi';
+  const isNewWorkflow = () => true;
   const visitWaived = c => workflowFor(c).bon_visite === 'waived';
   const INTRO_STEPS = [
     ['Brochure reçue', 'Nos formules et nos honoraires vous ont été transmis.'],
@@ -168,8 +168,7 @@ window.RI_CONFIG = {
   const roadmapFor = c => {
     const f = typeof c === 'string' ? c : c.formule;
     const key = (FORMULES[f] || FORMULES.essentiel).steps;
-    if (!isNewWorkflow(c)) return ROADMAP[key];
-    const result = INTRO_ROAD.concat(ROADMAP[key].slice(2)).map(r => ({ ...r }));
+    const result = INTRO_ROAD.concat(key === 'vefa_suivi' ? ROADMAP[key] : ROADMAP[key].slice(2)).map(r => ({ ...r }));
     if (workflowFor(c).arrangement === 'offert') {
       result[5].you = 'Confirmer avec votre conseiller la suite de votre accompagnement offert.';
       result[5].get = 'Les modalités de la suite, sans changement automatique de formule ni facturation.';
@@ -197,10 +196,27 @@ window.RI_CONFIG = {
   const stepsFor = c => {
     const f = typeof c === 'string' ? c : c.formule;
     const key = (FORMULES[f] || FORMULES.essentiel).steps;
-    if (!isNewWorkflow(c)) return STEPS[key];
-    const result = INTRO_STEPS.concat(STEPS[key].slice(2));
+    const result = INTRO_STEPS.concat(key === 'vefa_suivi' ? STEPS[key] : STEPS[key].slice(2));
     if (workflowFor(c).arrangement === 'offert') result[5] = ['Suite de l’accompagnement offert', 'Confirmer ensemble les prochaines étapes de votre accompagnement offert.'];
     return result;
+  };
+
+  // Present every file using one roadmap. Persist the conversion on the next admin save.
+  // Ambiguous early progress is left pending; its original values remain available for audit.
+  const normalizeClient = c => {
+    if (!c || workflowFor(c).version === 2) return c;
+    const oldStep = Number(c.current_step) || 1;
+    const previous = c.step_dates || {};
+    const followUp = c.formule === 'vefa_suivi';
+    const current = followUp ? 1 : oldStep <= 2 ? (oldStep === 1 ? 1 : 3) : oldStep + 4;
+    const dates = {};
+    if (!followUp) Object.entries(previous).forEach(([key, value]) => {
+      const n = Number(key);
+      if (Number.isInteger(n) && n > 0) dates[n <= 2 ? n + 3 : n + 4] = value;
+    });
+    dates._workflow = { ...workflowFor(c), version: 2, progress_needs_review: followUp || oldStep <= 2,
+      previous_progress: { current_step: c.current_step, step_dates: previous } };
+    return { ...c, current_step: current, step_dates: dates };
   };
 
   // ---------- mode démonstration ----------
@@ -308,18 +324,18 @@ window.RI_CONFIG = {
     },
     // ---- client ----
     async myClient() {
-      if (DEMO) return demoClients[0];
+      if (DEMO) return normalizeClient(demoClients[0]);
       const c = await client();
       const { data, error } = await c.from('clients').select('*').limit(1);
       if (error) throw error;
-      return data[0] || null;
+      return normalizeClient(data[0] || null);
     },
     async getClient(id) {
-      if (DEMO) return demoClients.find(c => c.id === id) || null;
+      if (DEMO) return normalizeClient(demoClients.find(c => c.id === id) || null);
       const c = await client();
       const { data, error } = await c.from('clients').select('*').eq('id', id).maybeSingle();
       if (error) throw error;
-      return data;
+      return normalizeClient(data);
     },
     async listDocs(clientId) {
       if (DEMO) return demoDocs.filter(d => d.client_id === clientId).sort((a, b) => b.created_at.localeCompare(a.created_at));
@@ -382,11 +398,11 @@ window.RI_CONFIG = {
     },
     // ---- admin ----
     async listClients() {
-      if (DEMO) return [...demoClients];
+      if (DEMO) return demoClients.map(normalizeClient);
       const c = await client();
       const { data, error } = await c.from('clients').select('*').order('created_at', { ascending: false });
       if (error) throw error;
-      return data;
+      return data.map(normalizeClient);
     },
     async saveClient(row) {
       row = { ...row }; if (row.email !== undefined) row.email = String(row.email).trim().toLowerCase();
@@ -556,6 +572,6 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { workflowFor, isNewWorkflow, visitWaived, requirementText, roadmapFor, teamFor, waDigits, initials, DEFAULT_ADVISOR, DEFAULT_AGENT, FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { normalizeClient, workflowFor, isNewWorkflow, visitWaived, requirementText, roadmapFor, teamFor, waDigits, initials, DEFAULT_ADVISOR, DEFAULT_AGENT, FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();
 
