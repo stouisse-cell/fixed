@@ -78,7 +78,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=20261111-workflow2"></script>
+<script src="portail.js?v=20261111-workflow3"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -309,7 +309,6 @@
     const steps = stepsFor(c);
     const team = RI.teamFor(c);
     const wf = RI.workflowFor(c);
-    const modern = RI.isNewWorkflow(c);
     const opts = Object.entries(FORMULES).map(([k, v]) => '<option value="' + k + '"' + (k === c.formule ? ' selected' : '') + '>' + v.label + '</option>').join('');
     $('detail').innerHTML = `
       <div class="grid">
@@ -350,8 +349,8 @@
         ${isNew ? '' : `
         <div class="card">
           <h2>Étape en cours</h2>
-          ${!modern && c.formule !== 'vefa_suivi' ? '<p class="muted small">Ancien parcours conservé : vérifiez l’avancement avant de passer au nouveau parcours. Aucune étape ne sera déclarée terminée automatiquement.</p><button class="btn btn-line" id="wf-migrate" type="button">Préparer le nouveau parcours</button>' : ''}
-          ${modern ? '<button class="btn btn-line" id="wf-plan-ready" type="button">Plan remis — consultation à planifier</button><p class="muted small">Ce préréglage coche brochure, questionnaire et plan remis. La consultation et la première visite restent à faire. Enregistrez ensuite l’avancement.</p>' : ''}
+          ${wf.progress_needs_review ? '<p class="muted small">Vérifiez les premières étapes de ce dossier, puis enregistrez son avancement. Les étapes dont la réalisation est incertaine restent à confirmer.</p>' : ''}
+          <button class="btn btn-line" id="wf-plan-ready" type="button">Plan remis — consultation à planifier</button><p class="muted small">Ce préréglage coche brochure, questionnaire et plan remis. La consultation et la première visite restent à faire. Enregistrez ensuite l’avancement.</p>
           <p class="muted small">Cochez l’étape en cours. Les étapes précédentes apparaissent comme terminées pour le client. Pour les étapes à venir, la date sert d’estimation (« prévue vers le… » sur sa feuille de route). Pour la consultation découverte, indiquez sa date une fois fixée : sans date, le client voit « à planifier ».</p>
           <div id="step-edit">
             ${steps.map((s, i) => `<div class="step-edit"><input type="radio" name="cur" value="${i + 1}" ${c.current_step === i + 1 ? 'checked' : ''} aria-label="${esc(s[0])}"><span class="t">${i + 1}. ${esc(s[0])}</span><input type="date" data-step="${i + 1}" value="${esc((c.step_dates || {})[i + 1] || '')}"></div>`).join('')}
@@ -419,7 +418,7 @@
       </div>`;
 
     const readWorkflow = () => {
-      const value = { ...wf, arrangement: $('wf-arrangement').value, feedback: $('wf-feedback').value, non_contournement: $('wf-non_contournement').value, bon_visite: $('wf-bon_visite').value, waiver_reason: $('wf-reason').value.trim() };
+      const value = { ...wf, version: 2, arrangement: $('wf-arrangement').value, feedback: $('wf-feedback').value, non_contournement: $('wf-non_contournement').value, bon_visite: $('wf-bon_visite').value, waiver_reason: $('wf-reason').value.trim() };
       if ((value.non_contournement === 'waived' || value.bon_visite === 'waived') && !value.waiver_reason) throw new Error('Indiquez le motif de la dispense.');
       return value;
     };
@@ -428,10 +427,6 @@
       $('wf-non_contournement').value = 'waived'; $('wf-bon_visite').value = 'waived';
       $('wf-reason').value = 'Accompagnement offert — dispenses convenues ; retour d’expérience détaillé et honnête à l’issue de la mission.';
       toast('Préréglage appliqué ; enregistrez pour le confirmer.');
-    };
-    if ($('wf-migrate')) $('wf-migrate').onclick = () => {
-      if (!confirm('Préparer le nouveau parcours ? L’ancien avancement sera conservé dans le dossier. Sélectionnez la nouvelle étape, puis enregistrez.')) return;
-      try { renderForm({ ...c, current_step: 1, step_dates: { _workflow: { ...readWorkflow(), version: 2, previous_progress: { current_step: c.current_step, step_dates: c.step_dates } } } }); } catch(e) { toast(errMsg(e)); }
     };
     if ($('wf-plan-ready')) $('wf-plan-ready').onclick = () => {
       $('step-edit').querySelector('input[name=cur][value="4"]').checked = true;
@@ -507,7 +502,7 @@
     $('save-steps').onclick = async () => {
       const cur = +($('step-edit').querySelector('input[name=cur]:checked') || {}).value || 1;
       const dates = {};
-      try { dates._workflow = readWorkflow(); } catch(e) { toast(errMsg(e)); return; }
+      try { dates._workflow = { ...readWorkflow(), progress_needs_review: false }; } catch(e) { toast(errMsg(e)); return; }
       $('step-edit').querySelectorAll('input[type=date]').forEach(i => { if (i.value) dates[i.dataset.step] = i.value; });
       // When moving to a later step, date it today unless a date was entered. Step 1 (the consultation) stays « à planifier » until you set its date.
       // A selected current stage is not evidence of a completed event; dates are entered explicitly.
