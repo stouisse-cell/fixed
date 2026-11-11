@@ -183,12 +183,16 @@ window.RI_CONFIG = {
   };
   // Équipe du client : conseiller (signe le mot du conseiller) et agent sur le terrain (facultatif).
   // Équipe par défaut de chaque client ; une équipe enregistrée dans la fiche client la remplace.
-  const DEFAULT_ADVISOR = { name: 'Shireen Touisse', role: 'Consultante en études et stratégie immobilière', whatsapp: '+1 780 904 7129' };
-  const DEFAULT_AGENT = { name: 'Ali Rahim', role: 'Fondateur · Consultant en acquisitions et opérations immobilières', whatsapp: '+212 6 42 77 32 49' };
+  const DEFAULT_ADVISOR = { name: 'Shireen Touisse', role: 'Consultante en immobilier', whatsapp: '+1 780 904 7129' };
+  const DEFAULT_AGENT = { name: 'Ali Rahim', role: 'Consultant en immobilier et agent sur le terrain', whatsapp: '+212 6 42 77 32 49' };
   const teamFor = c => {
     const t = c && c.team;
     if (!t) return { advisor: DEFAULT_ADVISOR, agent: DEFAULT_AGENT };
-    const clean = p => p && p.name ? { name: p.name, role: p.role || '', whatsapp: p.whatsapp || '' } : null;
+    const updatedRole = role => ({
+      'Consultante en études et stratégie immobilière': 'Consultante en immobilier',
+      'Fondateur · Consultant en acquisitions et opérations immobilières': 'Consultant en immobilier et agent sur le terrain',
+    })[role] || role || '';
+    const clean = p => p && p.name ? { name: p.name, role: updatedRole(p.role), whatsapp: p.whatsapp || '' } : null;
     return { advisor: clean(t.advisor) || DEFAULT_ADVISOR, agent: clean(t.agent) };
   };
   const waDigits = n => String(n || '').replace(/\D/g, '');
