@@ -26,7 +26,7 @@ window.RI_CONFIG = {
   const STEPS = {
     standard: [
       ['Consultation découverte', 'Nous faisons connaissance et définissons votre projet.'],
-      ['Plan d’Acquisition et 1ère visite', 'Présentation de votre Plan et de votre premier compte rendu lors du 2e appel.'],
+      ['Plan d’Acquisition et 1ère visite', 'Échange sur votre stratégie et préparation de la première recherche.'],
       ['Visites et comptes rendus', 'Visites filmées et comptes rendus sous 72 heures ouvrables.'],
       ['Comparatif et choix du bien', 'Les meilleures options côte à côte, présentées par appel vidéo.'],
       ['Négociation et compromis', 'Offre validée par vous, relecture du compromis, financement.'],
@@ -34,7 +34,7 @@ window.RI_CONFIG = {
     ],
     vefa: [
       ['Consultation découverte', 'Nous faisons connaissance et définissons votre projet.'],
-      ['Plan d’Acquisition et 1ère visite', 'Présentation de votre Plan et de votre premier compte rendu lors du 2e appel.'],
+      ['Plan d’Acquisition et 1ère visite', 'Échange sur votre stratégie et préparation de la première recherche.'],
       ['Visites de projets', 'Projets visités et filmés, promoteurs vérifiés.'],
       ['Comparatif et choix du logement', 'Comparaison des projets et choix du logement.'],
       ['Contrat de réservation', 'Négociation, relecture du contrat et réservation.'],
@@ -87,7 +87,7 @@ window.RI_CONFIG = {
   const DAAM = { na: 'Non applicable', eligible: 'Éligible, à demander', demande: 'Demande déposée', accorde: 'Accordée', refuse: 'Non retenue' };
   // documents « vivants » : une page chacun, avec versions successives
   const DOC_TYPES = [
-    { k: 'plan', label: 'Plan d’Acquisition', desc: 'Votre stratégie : budget réel, quartiers, critères et calendrier.', when: 'Présenté lors de votre 2e appel, puis mis à jour si votre projet évolue.', hideEmptyFor: ['vefa_suivi'] },
+    { k: 'plan', label: 'Plan d’Acquisition', desc: 'Votre stratégie : budget réel, quartiers, critères et calendrier.', when: 'Remis avant la consultation découverte, puis ajusté ensemble et mis à jour si votre projet évolue.', hideEmptyFor: ['vefa_suivi'] },
     { k: 'comparatif', label: 'Comparatif', desc: 'Les meilleurs biens côte à côte, notés, avec notre recommandation.', when: 'Après les premières visites, puis mis à jour au fil des nouvelles visites.', hideEmptyFor: ['essentiel', 'vefa_suivi'] },
     { k: 'negociation', label: 'Négociation', desc: 'Le juste prix, nos arguments et votre plafond, validés par vous.', when: 'Une fois le bien choisi.', only: ['premium', 'vefa', 'vefa_suivi'], hideEmptyFor: ['vefa_suivi'] },
     { k: 'contrat', label: 'Contrats', desc: 'Votre engagement, votre contrat d’accompagnement et les documents signés.', when: 'Dès la signature.' },
@@ -145,7 +145,43 @@ window.RI_CONFIG = {
       { you: 'Récupérer vos clés.', get: 'Votre Carnet du logement, votre Dossier Propriétaire et notre aide après les clés.', cats: ['dossier'] },
     ],
   };
-  const roadmapFor = f => ROADMAP[(FORMULES[f] || FORMULES.essentiel).steps];
+  // Metadata lives in the existing step_dates JSON: no database migration required.
+  const workflowFor = c => (c && c.step_dates && c.step_dates._workflow) || {};
+  const isNewWorkflow = c => workflowFor(c).version === 2 && c.formule !== 'vefa_suivi';
+  const visitWaived = c => workflowFor(c).bon_visite === 'waived';
+  const INTRO_STEPS = [
+    ['Brochure reçue', 'Nos formules et nos honoraires vous ont été transmis.'],
+    ['Questionnaire de préconsultation rempli', 'Vous nous avez présenté votre projet et vos priorités.'],
+    ['Analyse et Plan d’Acquisition Personnalisé remis', 'Votre analyse et votre stratégie sont disponibles avant notre échange.'],
+    ['Consultation découverte', 'Nous discutons de votre stratégie, des formules et des ajustements à apporter au plan.'],
+    ['Première recherche et visite sur mesure offertes', 'Une première sélection, une visite et les éléments pour comparer, sans obligation de poursuivre.'],
+    ['Choix de la suite', 'Rester en Essentiel, passer au Complet ou au Premium, ou arrêter après la première recherche.'],
+  ];
+  const INTRO_ROAD = [
+    { you: 'Prendre connaissance de la brochure.', get: 'Nos formules et nos honoraires.', cats: [] },
+    { you: 'Compléter le questionnaire de préconsultation.', get: 'Une analyse fondée sur vos réponses.', cats: [] },
+    { you: 'Lire votre analyse et noter vos questions.', get: 'Votre analyse et votre Plan d’Acquisition Personnalisé.', cats: ['plan'] },
+    { you: 'Discuter de vos priorités, de la stratégie et des formules avec votre conseiller.', get: 'Des réponses à vos questions et un plan ajusté si nécessaire.', cats: ['plan', 'contrat'], requirement: 'non_contournement' },
+    { you: 'Nous donner vos retours sur la première sélection et la visite.', get: 'Une première recherche et visite sur mesure offertes, avec compte rendu, photos et vidéos.', cats: [], visits: true, requirement: 'bon_visite' },
+    { you: 'Choisir librement de poursuivre en Essentiel, de passer au Complet/Premium ou de vous arrêter.', get: 'Une explication claire de la suite et des honoraires applicables.', cats: ['contrat'] },
+  ];
+  const roadmapFor = c => {
+    const f = typeof c === 'string' ? c : c.formule;
+    const key = (FORMULES[f] || FORMULES.essentiel).steps;
+    if (!isNewWorkflow(c)) return ROADMAP[key];
+    const result = INTRO_ROAD.concat(ROADMAP[key].slice(2)).map(r => ({ ...r }));
+    if (workflowFor(c).arrangement === 'offert') {
+      result[5].you = 'Confirmer avec votre conseiller la suite de votre accompagnement offert.';
+      result[5].get = 'Les modalités de la suite, sans changement automatique de formule ni facturation.';
+    }
+    if (visitWaived(c)) result.forEach(r => { if (r.visits) r.you = r.you.replace('Confirmer chaque bon de visite et ', '').replace(' et confirmer chaque bon de visite', ''); });
+    return result;
+  };
+  const requirementText = (c, key) => {
+    const title = key === 'bon_visite' ? 'Bon de visite' : 'Engagement de non-contournement';
+    const status = workflowFor(c)[key] || 'pending';
+    return title + ' : ' + (status === 'waived' ? 'non requis pour votre accompagnement' : status === 'signed' ? 'signature enregistrée' : key === 'bon_visite' ? 'à confirmer avant la visite' : 'à signer lors de la consultation découverte');
+  };
   // Équipe du client : conseiller (signe le mot du conseiller) et agent sur le terrain (facultatif).
   // Équipe par défaut de chaque client ; une équipe enregistrée dans la fiche client la remplace.
   const DEFAULT_ADVISOR = { name: 'Shireen Touisse', role: 'Consultante en études et stratégie immobilière', whatsapp: '+1 780 904 7129' };
@@ -158,7 +194,14 @@ window.RI_CONFIG = {
   };
   const waDigits = n => String(n || '').replace(/\D/g, '');
   const initials = n => String(n || '').split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
-  const stepsFor = f => STEPS[(FORMULES[f] || FORMULES.essentiel).steps];
+  const stepsFor = c => {
+    const f = typeof c === 'string' ? c : c.formule;
+    const key = (FORMULES[f] || FORMULES.essentiel).steps;
+    if (!isNewWorkflow(c)) return STEPS[key];
+    const result = INTRO_STEPS.concat(STEPS[key].slice(2));
+    if (workflowFor(c).arrangement === 'offert') result[5] = ['Suite de l’accompagnement offert', 'Confirmer ensemble les prochaines étapes de votre accompagnement offert.'];
+    return result;
+  };
 
   // ---------- mode démonstration ----------
   const demoRequests = [
@@ -513,5 +556,6 @@ window.RI_CONFIG = {
   }
   function errMsg(e) { return (e && (e.message || e.error_description)) || 'Une erreur est survenue.'; }
 
-  window.RI = { roadmapFor, teamFor, waDigits, initials, DEFAULT_ADVISOR, DEFAULT_AGENT, FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
+  window.RI = { workflowFor, isNewWorkflow, visitWaived, requirementText, roadmapFor, teamFor, waDigits, initials, DEFAULT_ADVISOR, DEFAULT_AGENT, FIN_STAGES, DAAM, DOC_TYPES, typesFor, youtubeId, genPassword, passwordModal, fmtDateTime, propsTable, API, STEPS, FORMULES, CATEGORIES, PIECES, MODES, visitNo, stepsFor, esc, fmtDate, toast, errMsg, cfg };
 })();
+
