@@ -78,7 +78,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=20261111-workflow3"></script>
+<script src="portail.js?v=20261111-workflow4"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -305,7 +305,7 @@
   function renderForm(c, prefill) {
     const isNew = !c;
     const fromReq = prefill && prefill.request;
-    c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'essentiel', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: { _workflow: { version: 2 } }, message: '' };
+    c = c || { full_name: (prefill && prefill.full_name) || '', email: (prefill && prefill.email) || '', formule: 'essentiel', city: (prefill && prefill.city) || 'Kénitra', current_step: 1, step_dates: { _workflow: { version: 3 } }, message: '' };
     const steps = stepsFor(c);
     const team = RI.teamFor(c);
     const wf = RI.workflowFor(c);
@@ -418,7 +418,7 @@
       </div>`;
 
     const readWorkflow = () => {
-      const value = { ...wf, version: 2, arrangement: $('wf-arrangement').value, feedback: $('wf-feedback').value, non_contournement: $('wf-non_contournement').value, bon_visite: $('wf-bon_visite').value, waiver_reason: $('wf-reason').value.trim() };
+      const value = { ...wf, version: 3, arrangement: $('wf-arrangement').value, feedback: $('wf-feedback').value, non_contournement: $('wf-non_contournement').value, bon_visite: $('wf-bon_visite').value, waiver_reason: $('wf-reason').value.trim() };
       if ((value.non_contournement === 'waived' || value.bon_visite === 'waived') && !value.waiver_reason) throw new Error('Indiquez le motif de la dispense.');
       return value;
     };
