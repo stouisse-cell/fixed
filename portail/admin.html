@@ -78,7 +78,7 @@
 
 <footer class="pt-foot">Rahim International · Gestion interne</footer>
 
-<script src="portail.js?v=20261111-workflow5"></script>
+<script src="portail.js?v=20261111-titles"></script>
 <script>
 (async function () {
   const { API, FORMULES, CATEGORIES, stepsFor, esc, fmtDate, toast, errMsg } = RI;
@@ -337,7 +337,7 @@
             <div><label for="t-a-role">Conseiller · rôle</label><input type="text" id="t-a-role" value="${esc(team.advisor.role)}"></div>
             <div><label for="t-a-wa">Conseiller · WhatsApp</label><input type="tel" id="t-a-wa" dir="ltr" value="${esc(team.advisor.whatsapp)}" placeholder="+212 6 00 00 00 00"></div>
             <div><label for="t-g-name">Agent sur le terrain · nom</label><input type="text" id="t-g-name" value="${esc(team.agent ? team.agent.name : '')}" placeholder="Ex. : Ali Rahim"></div>
-            <div><label for="t-g-role">Agent sur le terrain · rôle</label><input type="text" id="t-g-role" value="${esc(team.agent ? team.agent.role : '')}" placeholder="Ex. : Fondateur · Consultant en acquisitions et opérations immobilières"></div>
+            <div><label for="t-g-role">Agent sur le terrain · rôle</label><input type="text" id="t-g-role" value="${esc(team.agent ? team.agent.role : '')}" placeholder="Ex. : Consultant en immobilier et agent sur le terrain"></div>
             <div><label for="t-g-wa">Agent sur le terrain · WhatsApp</label><input type="tel" id="t-g-wa" dir="ltr" value="${esc(team.agent ? team.agent.whatsapp : '')}"></div>
           </div>
           <div class="actions">
