@@ -673,4 +673,26 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/tahlilet-souq/fajawat-souq-aqari-maghrib.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/market-insights/morocco-property-market-gaps.html"/>
   </url>
+  <!-- Mortgage and financing guides -->
+  <url>
+    <loc>https://rahiminternational.com/guides/mortgage-financing-guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/mortgage-financing-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/guide-financement-immobilier.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/dalil-tamwil-aqari.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/mortgage-financing-guide.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/fr/guides/guide-financement-immobilier.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/mortgage-financing-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/guide-financement-immobilier.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/dalil-tamwil-aqari.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/mortgage-financing-guide.html"/>
+  </url>
+  <url>
+    <loc>https://rahiminternational.com/ar/guides/dalil-tamwil-aqari.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rahiminternational.com/guides/mortgage-financing-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rahiminternational.com/fr/guides/guide-financement-immobilier.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://rahiminternational.com/ar/guides/dalil-tamwil-aqari.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rahiminternational.com/guides/mortgage-financing-guide.html"/>
+  </url>
 </urlset>
