@@ -198,6 +198,14 @@ async function alertTeam(admin: SupabaseClient, subject: string, title: string, 
   await brevo('/smtp/email', { sender: SENDER, to, subject, htmlContent: layout('fr', title, `<table role="presentation" cellpadding="0" cellspacing="0">${lines}</table>`) });
 }
 
+async function alertBrochureSent(admin: SupabaseClient, profile: string, lang: string, source: string) {
+  await alertTeam(admin, `Brochure envoyée : ${profile}`, 'Brochure envoyée', [
+    ['Profil', profile],
+    ['Langue', lang],
+    ['Formulaire', source],
+  ]);
+}
+
 // le visiteur qui vient de demander la brochure préfère une préconsultation par téléphone
 async function requestCall(admin: SupabaseClient, b: Record<string, unknown>, out: (s: number, body: unknown) => Response) {
   const id = clean(b.id, 40);
@@ -331,6 +339,11 @@ async function questionnaireDone(admin: SupabaseClient, b: Record<string, unknow
     });
   } catch (e) { console.error(e); return out(502, { error: 'send' }); }
   await admin.from('preconsultations').update({ confirmation_sent_at: new Date().toISOString(), confirmation_brochure: withBrochure }).eq('id', p.id);
+  if (withBrochure) {
+    try {
+      await alertBrochureSent(admin, profile, lang, 'Questionnaire de préconsultation');
+    } catch (e) { console.error('Alerte brochure envoyée', e); }
+  }
   return out(200, { ok: true, brochure: withBrochure });
 }
 
@@ -420,16 +433,18 @@ Deno.serve(async (req) => {
       try { await brevo('/contacts', { email, listIds, updateEnabled: true }); synced = true; } catch (e2) { errors.push(String((e2 as Error).message)); }
     }
 
-    // 3. alerte à l'équipe pour un projet à moins de 3 mois, un vendeur ou une brochure manquante
-    if (row.timeframe === 'lt3m' || seller || !url) {
-      try {
+    // 3. alerte à l'équipe, avec les détails habituels pour les demandes prioritaires
+    try {
+      if (row.timeframe === 'lt3m' || seller || !url) {
         await alertTeam(admin, `Demande de brochure : ${first} (${profile})`, 'Nouvelle demande de brochure', [
           ['Profil', profile], ['Délai', row.timeframe ?? '—'], ['Villes', row.cities.join(', ') || '—'],
           ['Type de bien', row.property_types.join(', ') || '—'], ['WhatsApp', row.whatsapp ?? '—'], ['E-mail', email],
-          ['Brochure', url ? 'envoyée' : 'À ENVOYER À LA MAIN (fichier absent)'],
+          ['Brochure', emailSent ? 'envoyée' : !url ? 'À ENVOYER À LA MAIN (fichier absent)' : 'Échec de l’envoi'],
         ]);
-      } catch (e) { errors.push(String((e as Error).message)); }
-    }
+      } else if (emailSent) {
+        await alertBrochureSent(admin, profile, lang, 'Demande de brochure');
+      }
+    } catch (e) { errors.push(String((e as Error).message)); }
   } else {
     errors.push('brevo_not_configured');
   }
